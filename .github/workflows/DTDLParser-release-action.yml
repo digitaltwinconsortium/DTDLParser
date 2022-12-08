@@ -34,7 +34,7 @@ jobs:
       run: dotnet build $PROJECT --configuration $BUILD_CONFIG --no-restore
 
     - name: Pack
-      run: dotnet pack $PROJECT --configuration $BUILD_CONFIG --no-restore
+      run: dotnet pack $PROJECT --configuration $BUILD_CONFIG --no-restore -p:PublicRelease=true
 
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/release/')
