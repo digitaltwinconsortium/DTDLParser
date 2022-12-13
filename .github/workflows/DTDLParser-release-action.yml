@@ -33,6 +33,12 @@ jobs:
     - name: Build
       run: dotnet build $PROJECT --configuration $BUILD_CONFIG --no-restore
 
+    - name: Install SBOM Tool
+      run: dotnet tool install --global Microsoft.Sbom.DotNetTool
+
+    - name: Derive Parser SBOM
+      run: sbom-tool Generate -b mock/Parser/bin/$BUILD_CONFIG/ -bc mock/Parser -pn DTDLParser -pv $(nbgv get-version -v SimpleVersion) -ps DigitalTwinsConsortium -nsb https://www.digitaltwinconsortium.org/DTDL -m mock/Parser
+
     - name: Pack
       run: dotnet pack $PROJECT --configuration $BUILD_CONFIG --no-restore -p:PublicRelease=true
 
