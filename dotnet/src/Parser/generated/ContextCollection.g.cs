@@ -34,9 +34,12 @@ namespace DTDLParser
 
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:annotation"] = GetAffiliate0ContextHistory();
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:historization"] = GetAffiliate1ContextHistory();
-            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:quantitativeTypes"] = GetAffiliate2ContextHistory();
-            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:streaming"] = GetAffiliate3ContextHistory();
-            EndogenousAffiliateContextHistories["dtmi:iotcentral:context"] = GetAffiliate4ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:initialization"] = GetAffiliate2ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:optionality"] = GetAffiliate3ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:overriding"] = GetAffiliate4ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:quantitativeTypes"] = GetAffiliate5ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:streaming"] = GetAffiliate6ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:iotcentral:context"] = GetAffiliate7ContextHistory();
         }
 
         private static ContextHistory GetAffiliate0ContextHistory()
@@ -63,6 +66,42 @@ namespace DTDLParser
         }
 
         private static ContextHistory GetAffiliate2ContextHistory()
+        {
+            List<VersionedContext> versionedContexts = new List<VersionedContext>();
+
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:initialization;1", 1, 0, mergeDefinitions: false);
+            context1_0.AddTermDefinition("Initialized", new Dtmi("dtmi:dtdl:extension:initialization:v1:Initialized"), isMergeableType: false);
+            context1_0.AddTermDefinition("initialValue", new Dtmi("dtmi:dtdl:extension:initialization:v1:Initialized:initialValue"), isMergeableType: false);
+            versionedContexts.Add(context1_0);
+
+            return new ContextHistory(versionedContexts);
+        }
+
+        private static ContextHistory GetAffiliate3ContextHistory()
+        {
+            List<VersionedContext> versionedContexts = new List<VersionedContext>();
+
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:optionality;1", 1, 0, mergeDefinitions: false);
+            context1_0.AddTermDefinition("defaultValue", new Dtmi("dtmi:dtdl:extension:optionality:v1:Optional:defaultValue"), isMergeableType: false);
+            context1_0.AddTermDefinition("Optional", new Dtmi("dtmi:dtdl:extension:optionality:v1:Optional"), isMergeableType: false);
+            versionedContexts.Add(context1_0);
+
+            return new ContextHistory(versionedContexts);
+        }
+
+        private static ContextHistory GetAffiliate4ContextHistory()
+        {
+            List<VersionedContext> versionedContexts = new List<VersionedContext>();
+
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:overriding;1", 1, 0, mergeDefinitions: false);
+            context1_0.AddTermDefinition("Override", new Dtmi("dtmi:dtdl:extension:overriding:v1:Override"), isMergeableType: false);
+            context1_0.AddTermDefinition("overrides", new Dtmi("dtmi:dtdl:extension:overriding:v1:Override:overrides"), isMergeableType: false);
+            versionedContexts.Add(context1_0);
+
+            return new ContextHistory(versionedContexts);
+        }
+
+        private static ContextHistory GetAffiliate5ContextHistory()
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
@@ -448,7 +487,7 @@ namespace DTDLParser
             return new ContextHistory(versionedContexts);
         }
 
-        private static ContextHistory GetAffiliate3ContextHistory()
+        private static ContextHistory GetAffiliate6ContextHistory()
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
@@ -459,7 +498,7 @@ namespace DTDLParser
             return new ContextHistory(versionedContexts);
         }
 
-        private static ContextHistory GetAffiliate4ContextHistory()
+        private static ContextHistory GetAffiliate7ContextHistory()
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
