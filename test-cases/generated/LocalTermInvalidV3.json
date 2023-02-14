@@ -1,0 +1,44 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        {
+          "foo:bar": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:kilometre"
+        }
+      ],
+      "@id": "dtmi:test:aTelemetry;1",
+      "@type": [
+        "Telemetry",
+        "Length"
+      ],
+      "name": "height",
+      "schema": "double",
+      "unit": "foo:bar"
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:disallowedLocalContext",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 4,
+        "PrimaryEnd": 6
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:localTermInvalid",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": "foo:bar",
+        "Value": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+Parsing DTDL v2 JSON text... model is valid!
+Parsing DTDL v3 JSON text... model is valid!
+Parsing DTDL v99 JSON text... model is invalid:
+Validation ID = dtmi:dtdl:parsingError:unrecognizedContextVersion
+Cause of error: @context specifier has value 'dtmi:dtdl:context;99', which specifies a DTDL version that is not recognized.
+Action to fix: Modify @context specifier to indicate one of the following DTDL versions: 2, 3.
+MaxDtdlVersion is 3
+MaxDtdlVersion is 3
+MaxDtdlVersion is 2
+Parsing DTDL v2 JSON text... model is valid!
+Parsing DTDL v3 JSON text... model is invalid:
+Validation ID = dtmi:dtdl:parsingError:disallowedContextVersion
+Cause of error: @context specifier has value 'dtmi:dtdl:context;3', which specifies a DTDL version that exceeds the configured max version of 2.
+Action to fix: Modify @context specifier to indicate a DTDL major version no greater than 2.

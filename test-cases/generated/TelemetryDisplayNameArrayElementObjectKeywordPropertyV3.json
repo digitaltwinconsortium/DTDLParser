@@ -1,0 +1,38 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "Foo",
+          "displayName": [
+            {
+              "@value": "by default",
+              "@keyword": "undefined"
+            }
+          ],
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:langStringElementKeyword",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": "displayName",
+        "Value": "@keyword",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 13
+      }
+    ]
+  }
+}

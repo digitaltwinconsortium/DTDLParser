@@ -1,0 +1,29 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        "dtmi:dtdl:aProperty;1"
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:undefinedReservedId",
+        "PrimaryID": "dtmi:test:anInterface;1",
+        "SecondaryID": "dtmi:dtdl:aProperty;1",
+        "Property": "contents",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 5,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 6
+      }
+    ]
+  }
+}

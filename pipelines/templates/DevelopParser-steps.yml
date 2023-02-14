@@ -1,0 +1,54 @@
+# DevelopParser steps
+
+parameters:
+- name: DtdlModelParserLangConfig
+  default: ''
+- name: SubFolder
+  default: 's'
+
+steps:
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Parser'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/PackParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Pack Parser'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/DeriveParserSbom.sh Release ${{ parameters.DtdlModelParserLangConfig }} $(nbgv get-version -v SimpleVersion)
+  displayName: 'Derive Parser SBOM'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildParserTests.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Parser Tests'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/TestParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Test Parser'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildRemodelTool.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Remodel Tool'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/PackRemodelTool.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Pack Remodel Tool'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildSamples.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Parser Sample Projects'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/TestSamples.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Test Parser Sample Projects'

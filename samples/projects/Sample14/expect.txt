@@ -1,0 +1,34 @@
+9 elements in model:
+Field       dtmi:example:anInterface:_contents:__installation:_schema:_fields:__revision;1
+Field       dtmi:example:anInterface:_contents:__installation:_schema:_fields:__installed;1
+Field       dtmi:example:anInterface:_contents:__installation:_schema:_fields:__note;1
+Object      dtmi:example:anInterface:_contents:__installation:_schema;1
+Property    dtmi:example:anInterface:_contents:__installation;1
+Interface   dtmi:example:anInterface;1
+Integer     dtmi:dtdl:instance:Schema:integer;2
+Date        dtmi:dtdl:instance:Schema:date;2
+String      dtmi:dtdl:instance:Schema:string;2
+3 IS A VALID INTEGER
+>>3<< is not a string value
+
+>>"3"<< is not a numeric value
+"3" IS A VALID STRING
+
+3.0 does not conform to the XSD definition of 'int'
+>>3.0<< is not a string value
+
+>>"hello"<< is not a numeric value
+"hello" IS A VALID STRING
+"2017-05-29" IS A VALID DATE
+>>2017-05-29<< is not valid JSON text
+"17-05-29" does not conform to the RFC 3339 definition of 'date'
+"20170529" does not conform to the RFC 3339 definition of 'date'
+"2017-15-29" does not conform to the RFC 3339 definition of 'date'
+"2017-02-29" does not conform to the RFC 3339 definition of 'date'
+"2016-02-29" IS A VALID DATE
+{ "revision": 3, "installed": "2017-05-29", "note": "easy breezy" } IS A VALID INSTALLATION
+"foo" does not match any name in schema
+{ "revision": 3, "installed": "2017-05-29" } IS A VALID INSTALLATION
+"17-05-29" does not conform to the RFC 3339 definition of 'date'
+{ } IS A VALID INSTALLATION
+"17-05-29" does not conform to the RFC 3339 definition of 'date' AND "foo" does not match any name in schema

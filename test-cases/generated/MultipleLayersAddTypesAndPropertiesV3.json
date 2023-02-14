@@ -1,0 +1,134 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Property"
+          ],
+          "name": "expectedSpeed",
+          "schema": "double",
+          "comment": "Layer foo says hi"
+        },
+        {
+          "@type": [
+            "Telemetry",
+            "Velocity"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "unit": "metrePerSecond"
+        },
+        {
+          "@type": [
+            "Command"
+          ],
+          "name": "adjustSpeed",
+          "request": {
+            "name": "adjustment",
+            "schema": "double"
+          }
+        }
+      ]
+    },
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Property"
+          ],
+          "name": "expectedSpeed",
+          "schema": "double"
+        },
+        {
+          "@type": [
+            "Telemetry"
+          ],
+          "name": "currentSpeed",
+          "schema": "double"
+        },
+        {
+          "@type": [
+            "Command"
+          ],
+          "name": "adjustSpeed"
+        }
+      ]
+    },
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anInterface;1#bar",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Velocity"
+          ],
+          "name": "expectedSpeed",
+          "schema": "double",
+          "unit": "metrePerSecond"
+        },
+        {
+          "@type": [
+            "Telemetry"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "comment": "Layer bar says hi"
+        },
+        {
+          "@type": [
+            "Command"
+          ],
+          "name": "adjustSpeed",
+          "response": {
+            "name": "result",
+            "schema": "double"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:anInterface;1#foo",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+name: Push Package
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: ["release/*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+      - uses: dotnet/nbgv@master
+        id: nbgv
+
+      - run: echo 'SemVer2=${{ steps.nbgv.outputs.SemVer2 }}'
+
+      - name: Install SBOM Tool
+        run: dotnet tool install --global Microsoft.Sbom.DotNetTool
+
+      - name: Pack Parser
+        run: dotnet pack -c Release dotnet/src/Parser -o ./_nupkgs/
+
+      - name: Derive Parser SBOM
+        run: sbom-tool Generate -b ./_nupkgs/ -bc dotnet/src/Parser -pn DTDLParser -pv ${{ steps.nbgv.outputs.SemVer2 }} -ps DigitalTwinConsortium -nsb https://www.digitaltwinconsortium.org/DTDL -m dotnet/src/Parser
+
+      - name: Push Parser
+        if: startsWith(github.ref, 'refs/heads/release/')
+        run: dotnet nuget push ./_nupkgs/* --api-key${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Annotate Versions
+        run: |
+          echo " ## Package Pushed to NuGet.org :gem: " >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo " with SemVer ${{ steps.nbgv.outputs.SemVer2 }}" >> $GITHUB_STEP_SUMMARY
+          echo " with NuGet version ${{ steps.nbgv.outputs.NuGetPackageVersion }}" >> $GITHUB_STEP_SUMMARY
+          echo " from Commit ${{ steps.nbgv.outputs.GitCommitId}}" >> $GITHUB_STEP_SUMMARY
+      

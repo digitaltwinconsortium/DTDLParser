@@ -1,0 +1,149 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:stringEnum;1",
+          "@type": "Enum",
+          "valueSchema": "string",
+          "enumValues": [
+            {
+              "name": "near",
+              "enumValue": "west"
+            },
+            {
+              "name": "far",
+              "enumValue": "east"
+            }
+          ],
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": [
+            {
+              "@language": "en-US",
+              "@value": "how close"
+            },
+            {
+              "@language": "es-ES",
+              "@value": "lo cerca que"
+            }
+          ],
+          "comment": "How close is it?"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:stringEnum;1",
+        "type": "Enum",
+        "properties": {
+          "valueSchema": "dtmi:dtdl:instance:Schema:string;2",
+          "enumValues": [
+            "dtmi:test:stringEnum:_enumValues:__near;1",
+            "dtmi:test:stringEnum:_enumValues:__far;1"
+          ],
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close is it?"
+        }
+      },
+      {
+        "id": "dtmi:test:stringEnum:_enumValues:__near;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": "west"
+        }
+      },
+      {
+        "id": "dtmi:test:stringEnum:_enumValues:__far;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": "east"
+        }
+      }
+    ]
+  },
+  "instances": [
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": true,
+      "submit": "\"west\""
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": true,
+      "submit": "\"east\""
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "\"north\""
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "1"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": ""
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "true"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "null"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "[ \"west\" ]"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "{ \"value\": \"west\" }"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "$$"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "[ \"hi\": \"there\" ]"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "{ \"near\" }"
+    },
+    {
+      "subject": "dtmi:test:stringEnum;1",
+      "conforms": false,
+      "submit": "{ 1 ]"
+    }
+  ]
+}

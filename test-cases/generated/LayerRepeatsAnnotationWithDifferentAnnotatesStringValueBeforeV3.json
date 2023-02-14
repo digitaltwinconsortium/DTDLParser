@@ -1,0 +1,91 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:layering;1",
+        "dtmi:dtdl:extension:annotation;1"
+      ],
+      "@id": "dtmi:test:anInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation"
+          ],
+          "name": "speedNote",
+          "annotates": "currentSpeed",
+          "schema": "string"
+        }
+      ]
+    },
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:annotation;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Property"
+          ],
+          "name": "expectedSpeed",
+          "schema": "double"
+        },
+        {
+          "@type": [
+            "Telemetry"
+          ],
+          "name": "currentSpeed",
+          "schema": "double"
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation"
+          ],
+          "name": "speedNote",
+          "annotates": "expectedSpeed",
+          "schema": "string"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:inconsistentStringValues",
+        "PrimaryID": "dtmi:test:anInterface:_contents:__speedNote;1",
+        "Property": "dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates",
+        "Layer": "foo",
+        "PrimaryIndex": 1,
+        "PrimaryStart": 31,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 19
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:anInterface;1#foo",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 7
+      }
+    ]
+  }
+}

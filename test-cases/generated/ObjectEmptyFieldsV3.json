@@ -1,0 +1,30 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:fieldlessObject;1",
+          "@type": "Object",
+          "fields": []
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:fieldlessObject;1",
+        "type": "Object",
+        "properties": {
+          "fields": []
+        }
+      }
+    ]
+  }
+}

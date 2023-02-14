@@ -1,0 +1,7 @@
+# CheckoutPR steps
+
+steps:
+
+- bash: |
+    git checkout $(System.PullRequest.SourceBranch)
+  displayName: 'Checkout PR Source Branch'

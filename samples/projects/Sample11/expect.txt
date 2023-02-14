@@ -1,0 +1,7 @@
+DTDL model is invalid:
+dtmi:example:anInterface;1, because it transitively 'extends' dtmi:example:anotherInterface;1, has property 'contents' that contains more than one element for which property 'name' has value 'currentDistance'. Either change the value of property 'name' to a value that is unique across all values of 'contents', or remove one or more 'extends' properties so that 'contents' will not be imported.
+DTDL model is invalid:
+dtmi:example:anInterface;1, because it transitively 'extends' dtmi:example:anotherInterface;1, has property 'contents' that contains more than one element for which property 'name' has value 'currentDistance'. Either change the value of property 'name' to a value that is unique across all values of 'contents', or remove one or more 'extends' properties so that 'contents' will not be imported.
+DTDL model is invalid:
+Property 'name' has value 'currentDistance' on line 9 in string variable 'jsonText' and on line 8 in dictionary entry 'otherJsonTexts[new Dtmi("dtmi:example:anotherInterface;1")]', which is a uniqueness violation because dtmi:example:anInterface;1 transitively 'extends' dtmi:example:anotherInterface;1. Either change the value of property 'name' to a value that is unique across all values of 'contents', or remove one or more 'extends' properties so that 'contents' will not be imported.
+DTDL model is valid!

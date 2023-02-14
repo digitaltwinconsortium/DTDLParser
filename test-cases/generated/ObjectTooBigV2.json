@@ -1,0 +1,155 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:tooBigObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "field1",
+              "schema": "double"
+            },
+            {
+              "name": "field2",
+              "schema": "double"
+            },
+            {
+              "name": "field3",
+              "schema": "double"
+            },
+            {
+              "name": "field4",
+              "schema": "double"
+            },
+            {
+              "name": "field5",
+              "schema": "double"
+            },
+            {
+              "name": "field6",
+              "schema": "double"
+            },
+            {
+              "name": "field7",
+              "schema": "double"
+            },
+            {
+              "name": "field8",
+              "schema": "double"
+            },
+            {
+              "name": "field9",
+              "schema": "double"
+            },
+            {
+              "name": "field10",
+              "schema": "double"
+            },
+            {
+              "name": "field11",
+              "schema": "double"
+            },
+            {
+              "name": "field12",
+              "schema": "double"
+            },
+            {
+              "name": "field13",
+              "schema": "double"
+            },
+            {
+              "name": "field14",
+              "schema": "double"
+            },
+            {
+              "name": "field15",
+              "schema": "double"
+            },
+            {
+              "name": "field16",
+              "schema": "double"
+            },
+            {
+              "name": "field17",
+              "schema": "double"
+            },
+            {
+              "name": "field18",
+              "schema": "double"
+            },
+            {
+              "name": "field19",
+              "schema": "double"
+            },
+            {
+              "name": "field20",
+              "schema": "double"
+            },
+            {
+              "name": "field21",
+              "schema": "double"
+            },
+            {
+              "name": "field22",
+              "schema": "double"
+            },
+            {
+              "name": "field23",
+              "schema": "double"
+            },
+            {
+              "name": "field24",
+              "schema": "double"
+            },
+            {
+              "name": "field25",
+              "schema": "double"
+            },
+            {
+              "name": "field26",
+              "schema": "double"
+            },
+            {
+              "name": "field27",
+              "schema": "double"
+            },
+            {
+              "name": "field28",
+              "schema": "double"
+            },
+            {
+              "name": "field29",
+              "schema": "double"
+            },
+            {
+              "name": "field30",
+              "schema": "double"
+            },
+            {
+              "name": "field31",
+              "schema": "double"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:objectCountAboveMax",
+        "PrimaryID": "dtmi:test:tooBigObject;1",
+        "Property": "fields",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9
+      }
+    ]
+  }
+}

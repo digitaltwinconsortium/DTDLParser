@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>$(OutputPath)DTDLParser.UnitTestGenerator.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MetamodelDigest\MetamodelDigest.csproj" />
+    <ProjectReference Include="..\CodeGenerator\CodeGenerator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ParserGenerator\NameFormatter.cs" />
+    <Compile Include="..\ParserGenerator\ParserGeneratorValues.cs" />
+    <Compile Include="..\ParserGenerator\ObjectModelCustomizer.cs" />
+  </ItemGroup>
+
+</Project>

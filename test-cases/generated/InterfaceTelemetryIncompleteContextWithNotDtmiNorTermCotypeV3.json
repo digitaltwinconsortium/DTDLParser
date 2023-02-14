@@ -1,0 +1,40 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:foo:bar;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "http://foo.com/bar"
+          ],
+          "name": "currentDistance",
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:typeNotDtmiNorTerm",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": null,
+        "Value": "http://foo.com/bar",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;2",
+        "dtmi:iotcentral:context;2"
+      ],
+      "@id": "dtmi:com:example:Speedometer;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "VelocityVector"
+          ],
+          "name": "speed3D",
+          "schema": "vector",
+          "unit": "metrePerSecond"
+        }
+      ]
+    }
+  ]
+}

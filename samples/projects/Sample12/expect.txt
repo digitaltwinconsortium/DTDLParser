@@ -1,0 +1,24 @@
+Distance type = dtmi:standard:class:Distance;2
+Distance properties:
+  dtmi:dtdl:property:unit;2 => dtmi:standard:class:LengthUnit;2, Unit, required, singular
+unit
+6 elements in model:
+dtmi:example:anInterface:_contents:__currentDistance;1
+dtmi:example:anInterface;1
+dtmi:dtdl:instance:Schema:double;2
+dtmi:standard:unit:kilometre;2
+dtmi:standard:unit:metre;2
+dtmi:standard:unitprefix:kilo;2
+currentDistace primary type = Telemetry
+currentDistance supplemental types = dtmi:standard:class:Distance;2
+term for dtmi:standard:class:Distance;2 is Distance
+currentDistance schema = dtmi:dtdl:instance:Schema:double;2
+currentDistance unit = dtmi:standard:unit:kilometre;2
+kilometre primary type = Unit
+kilometre supplemental types = dtmi:standard:class:LengthUnit;2, dtmi:standard:class:DecimalUnit;2
+kilometre properties:
+  displayName: kilometre
+  symbol: km
+  dtmi:dtdl:property:baseUnit;2: dtmi:standard:unit:metre;2
+  dtmi:dtdl:property:prefix;2: dtmi:standard:unitprefix:kilo;2
+currentDistance has unit kilometre

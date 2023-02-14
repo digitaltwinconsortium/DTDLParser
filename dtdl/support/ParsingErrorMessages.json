@@ -1,0 +1,3339 @@
+﻿{
+  "abstractSupplementalType": {
+    "cause": "{layer}{primaryId:n} has @type that specifies supplemental type {type}, which is abstract.",
+    "locatedCause": "In {sourceName1}, @type{line1} specifies supplemental type {type}, which is abstract.",
+    "action": "Remove @type {type} or replace it with a concrete subtype of {type}.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "cotype"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "badDtmiOrTerm": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}'{line2} that is neither a valid DTMI reference nor a DTDL term.",
+    "action": "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "booleanCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} boolean {item2} for '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "booleanMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "booleanNotBoolean": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON boolean.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON boolean.",
+    "action": "Change the value of '{property}' to one of the JSON boolean values true or false.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "booleanObjectNoValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object with no '@value' property.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object with no '@value' property.",
+    "action": "Add a '@value' property with a boolean value to the object, or replace the object with a JSON boolean.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "booleanTypeNotBoolean": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:boolean'.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:boolean'.",
+    "action": "Remove the '@type' property of '{property}' or change its value to 'xsd:boolean'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "booleanValueNotBoolean": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@value' is not a JSON boolean.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@value' is not a JSON boolean.",
+    "action": "Change the value of the '@value' property of '{property}' to one of the JSON boolean values true or false.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "childOfNotRecognized": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'dtmm:childOf' property '{value}' is not a recognized DTDL element name.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'dtmm:childOf' property '{value}'{line1} is not a recognized DTDL element name.",
+    "action": "Remove 'dtmm:childOf' property or change its value to a JSON string that indicates a DTDL element name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName",
+      "value": "constraintValue"
+    },
+    "optional": {
+      "source1": "constraintChildOf"
+    }
+  },
+  "classNotRecognized": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has '{property}' value whose 'sh:class' property '{value}' is not a recognized DTDL type name.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has '{property}' value whose 'sh:class' property '{value}'{line1} is not a recognized DTDL type name.",
+    "action": "Remove 'sh:class' property or change its value to a JSON string that indicates a DTDL type name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName",
+      "value": "constraintValue"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "classNotString": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has '{property}' value whose 'sh:class' property has no value or is not a string.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has '{property}' value whose 'sh:class' property{line1} has no value or is not a string.",
+    "action": "Change the value of 'sh:class' property to a JSON string that indicates a DTDL type name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "conflictingSupplementalTypes": {
+    "cause": "{primaryId:n} has supplemental types '{type}' and '{restriction}' that both add property '{property}' to element.",
+    "locatedCause": "In {sourceName1}, '@type'{line1} includes '{type}' and '{restriction}', both of which add property '{property}' to element.",
+    "action": "Remove either '{type}' or '{restriction}' from set of @type values.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "elementType",
+      "restriction": "referenceType",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "constraintMissingClass": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has value that is missing 'sh:class' property.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has value that is missing 'sh:class' property.",
+    "action": "Add a 'sh:class' property with a JSON string value that indicates a DTDL type name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "constraintNotObject": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has value that is not a JSON object.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has value that is not a JSON object.",
+    "action": "Change the value of '{property}' to a JSON array of JSON objects that each expresses a class constraint on the extension type.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "cotypeNotConcreteMaterial": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:or'/'sh:class' cotype constraint '{type}' that is not a DTDL concrete material class.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:or'/'sh:class' cotype constraint '{type}'{line1} that is not a DTDL concrete material class.",
+    "action": "Change the value of 'sh:class' to the name of a DTDL concrete material class.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "type": "cotype"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "crossPartitionReference": {
+    "cause": "Illegal cross-partion reference -- {primaryId:p} property '{property}' refers to {secondaryId}, whose definition is nested within {value}.",
+    "locatedCause": "Illegal cross-partion reference -- in {sourceName1}, property '{property}'{line1} refers to {secondaryId} whose definition{line2}{source2} is nested within {value}.",
+    "action": "Create a copy of {secondaryId} within {restriction}, give it a unique @id value, and refer to it instead of {secondaryId}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "value": "refPartition",
+      "restriction": "partition"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "element"
+    }
+  },
+  "disallowedCocotype": {
+    "cause": "{primaryId:n} has @type with value {type} that may not be co-typed on elements that are also co-typed with {restriction}.",
+    "locatedCause": "In {sourceName1}, @type{line1} specifies {type}, but this may not be co-typed with {restriction}.",
+    "action": "Remove @type {type} or {restriction} from element.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "elementType",
+      "restriction": "cotype"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "disallowedContextVersion": {
+    "cause": "@context specifier has value '{value}', which specifies a DTDL version that exceeds the configured max version of {restriction}.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which specifies a DTDL version that exceeds the configured max version of {restriction}.",
+    "action": "Modify @context specifier to indicate a DTDL major version no greater than {restriction}.",
+    "required": {
+      "value": "contextValue",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "disallowedIdFragment": {
+    "cause": "Identifier '{primaryId}' includes a fragment suffix, which is not permitted.",
+    "locatedCause": "In {sourceName1}, identifier '{primaryId}'{line1} includes a fragment suffix, which is not permitted.",
+    "action": "Remove fragment suffix from identifier.",
+    "required": {
+      "primaryId": "elementId"
+    },
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "disallowedLocalContext": {
+    "cause": "@context value contains a block of local context definitions, which are not allowed in DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, @context value contains a block of local context definitions{line1}, which are not allowed in DTDL version {restriction}.",
+    "action": "Remove the local context object, or perhaps try specifiying a different version of DTDL.",
+    "required": {
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "disallowedType": {
+    "cause": "{primaryId:p} property '{property}' refers to sibling with {auxProperty} '{value}', which has disallowed @type of {type}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} refers to element{line2}{source2} that has disallowed @type of {type}.",
+    "action": "Either remove @type {type} from the currently referenced element, or provide a value for property '{property}' that refers to a different sibling element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "auxProperty": "refPropertyName",
+      "value": "refValue",
+      "type": "typeRestriction"
+    },
+    "optional": {
+      "source1": "refProperty",
+      "source2": "siblingElement"
+    }
+  },
+  "disallowedVersionDefinition": {
+    "cause": "{layer}{primaryId:p} property '{property}' has a value that specifies DTDL context version {value}, which is not allowed for this property.",
+    "locatedCause": "In {sourceName1}, property '{property}' has a value{line1} that specifies DTDL context version {value}, which is not allowed for this property.",
+    "action": "Change the DTDL context version of property '{property}' to one of the following: {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "version",
+      "restriction": "versionRestriction"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "disallowedVersionReference": {
+    "cause": "{primaryId:p} property '{property}' refers to {secondaryId}, which is defined using DTDL version {value}, which is not allowed for this property.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} refers to {secondaryId}, which is defined{line2}{source2} using DTDL version {value}, which is not allowed for this property.",
+    "action": "Change the value of property '{property}' to an element defined using one of the following DTDL versions: {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "value": "version",
+      "restriction": "versionRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "element"
+    }
+  },
+  "dtdlContextFollowsAffiliate": {
+    "cause": "@context array contains DTDL context specifier '{value}' after an affiliate context specifier.",
+    "locatedCause": "In {sourceName1}, @context array contains DTDL context specifier '{value}'{line1} after an affiliate context specifier.",
+    "action": "Rearrange context specifiers so that all DTDL context specifiers are at the beginning of @context array.",
+    "required": {
+      "value": "contextValue"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "dtmiSegPropertyNotStringOrNumber": {
+    "cause": "{layer}{primaryId:p} property '{property}' has property '{value}' whose value is not a string or number.",
+    "locatedCause": "In {sourceName1}, element{line1} has property '{value}'{line2} whose value is not a string or number.",
+    "action": "Replace '{value}' property with an appropriate value that is unique across all values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "nestedName"
+    },
+    "optional": {
+      "source1": "element",
+      "source2": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "duplicateDefinition": {
+    "cause": "{layer}{primaryId} has more than one definition.",
+    "locatedCause": "In {sourceName2}, identifier {primaryId} is the value of '@id' property{line2}, but this identifier is already used{source1} as the value of '@id' property{line1}.",
+    "action": "Remove all but one JSON object containing '@id' property with value {primaryId}, or change the '@id' values so there are no duplicates.",
+    "required": {
+      "primaryId": "elementId"
+    },
+    "optional": {
+      "source1": "extantIdProp",
+      "source2": "idProp",
+      "layer": "layer"
+    }
+  },
+  "duplicatePropertyName": {
+    "cause": "{primaryId:p} property '{property}' has multiple definitions.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} already defined{line2}.",
+    "action": "Remove duplicate uses of property '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "emptyContext": {
+    "cause": "Top-level JSON object has a @context specifier that is empty.",
+    "locatedCause": "In {sourceName1}, top-level JSON object has a @context specifier{line1} that is empty.",
+    "action": "To the '@context' property, add a string whose value is a valid DTDL context specifier, such as 'dtmi:dtdl:context;2'.",
+    "required": {},
+    "optional": {
+      "source1": "contextProp"
+    }
+  },
+  "emptyExtensionContext": {
+    "cause": "DTDL language extension {primaryId} has a @context specifier that is empty.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has a @context specifier{line1} that is empty.",
+    "action": "To the '@context' property, add a string whose value is a valid DTDL context specifier, such as 'dtmi:dtdl:context;2'.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "contextProp"
+    }
+  },
+  "excessiveCount": {
+    "cause": "{primaryId:n} is at the root of a hierarchy that contains {count1} {property} properties, but the allowed maximum count is {count2}.",
+    "action": "Remove one or more {property} property values to reduce the total count.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyDisjunction",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "excessiveDepthNarrow": {
+    "cause": "{primaryId:n} is at the root of a chain of {property} properties that exceeds {count2} levels -- element{secondaryId:e} is at level {count1}.",
+    "locatedCause": "In {sourceName1}, element{line1} is at the root of a chain of {property} properties that exceeds {count2} levels -- element{line2}{source2} is at level {count1}.",
+    "action": "Change the value of one or more {property} properties in the hierarchy to reduce the nesting depth.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyDisjunction",
+      "secondaryId": "referenceId",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "ancestorElement",
+      "source2": "descendantElement"
+    }
+  },
+  "excessiveDepthWide": {
+    "cause": "{primaryId:n} is at the root of a hierarchy that exceeds {count2} levels -- element{secondaryId:e} is at level {count1}.",
+    "locatedCause": "In {sourceName1}, element{line1} is at the root of a hierarchy that exceeds {count2} levels -- element{line2}{source2} is at level {count1}.",
+    "action": "Change the value of one or more properties of elements in the hierarchy to reduce the nesting depth.",
+    "required": {
+      "primaryId": "elementId",
+      "secondaryId": "referenceId",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "ancestorElement",
+      "source2": "descendantElement"
+    }
+  },
+  "excludedType": {
+    "cause": "{primaryId:n} contains {restriction}{secondaryId:e}, which is not allowed in {property} properties under elements of type {type}.",
+    "locatedCause": "In {sourceName1}, element{line1} has type {type}, which is not allowed to contain the {property} value of type {restriction}{line2}{source2}.",
+    "action": "Remove all elements of type {restriction} from {property} properties under the {type} element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyDisjunction",
+      "secondaryId": "referenceId",
+      "restriction": "referenceType",
+      "type": "elementType"
+    },
+    "optional": {
+      "source1": "ancestorElement",
+      "source2": "descendantElement"
+    }
+  },
+  "extensionNotAllowed": {
+    "cause": "In DTDL extension, '@context' specifies a version that does not permit DTDL language extensions.",
+    "locatedCause": "In DTDL extension {sourceName1}, '@context'{line1} specifies a version that does not permit DTDL language extensions.",
+    "action": "Use a later DTDL context version if possible.",
+    "required": {},
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "extensionNotJsonObject": {
+    "cause": "In DTDL extension, top-level JSON element is neither a JSON object nor a JSON array of JSON objects.",
+    "locatedCause": "In DTDL extension {sourceName1}, top-level JSON element{line1} is neither a JSON object nor a JSON array of JSON objects.",
+    "action": "Update your model to follow the examples.",
+    "required": {},
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "extensionTermDefinitionInvalidDtmi": {
+    "cause": "DTDL language extension {primaryId} context contains a definition for term '{property}' whose value '{value}' starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} context contains a definition for term '{property}'{line1} whose value '{value}' starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
+    "action": "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "primaryId": "contextId",
+      "property": "term",
+      "value": "identifier",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "extensionTermDefinitionInvalidUri": {
+    "cause": "DTDL language extension {primaryId} context contains a definition for term '{property}' whose value '{value}' is not a valid URI or URI prefix.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} context contains a definition for term '{property}'{line1} whose value '{value}' is not a valid URI or URI prefix.",
+    "action": "Change the value of term '{property}' to a valid URI or URI prefix.",
+    "required": {
+      "primaryId": "contextId",
+      "property": "term",
+      "value": "identifier"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "extensionTermEmpty": {
+    "cause": "DTDL language extension {primaryId} context defines a term that is an empty string.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} context defines a term {line1} that is an empty string.",
+    "action": "Use a non-empty string of characters for the term.",
+    "required": {
+      "primaryId": "contextId",
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "extensionTermInvalid": {
+    "cause": "DTDL language extension {primaryId} context defines a term '{property}' that contains invalid characters.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} context defines a term '{property}'{line1} that contains invalid characters.",
+    "action": "Use a different term that does not begin with '@' and that contains only letters, digits, and the characters '@', '-', '.', '_', '~', '!', '$', '&', ''', '(', ')', '*', '+', ',', ';', '='.",
+    "required": {
+      "primaryId": "contextId",
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "extensionTermReserved": {
+    "cause": "DTDL language extension {primaryId} context defines a term '{property}' that is defined by the DTDL context.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} context defines a term '{property}'{line1} that is defined by the DTDL context.",
+    "action": "Use a different term that is not a DTDL reserved word.",
+    "required": {
+      "primaryId": "contextId",
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "extensionTermSchemePrefix": {
+    "cause": "DTDL language extension {primaryId} context defines a term '{property}' which is reserved as the scheme prefix for DTDL identifiers.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} context defines a term '{property}'{line1} which is reserved as the scheme prefix for DTDL identifiers.",
+    "action": "Use a different term other than '{property}'.",
+    "required": {
+      "primaryId": "contextId",
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "graphDisallowed": {
+    "cause": "{primaryId:p} property '{property}' has value that contains '@graph' property, which is not allowed.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value that contains '@graph' property{line1}, which is not allowed.",
+    "action": "Remove the '@graph' property, and elevate the value of this property to the top level of the JSON document.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "graphProp"
+    }
+  },
+  "identifierCountAboveMax": {
+    "cause": "{primaryId:p} property '{property}' has {count1} {item1} but no more than {count2} {item2} {verb2} allowed.",
+    "locatedCause": "In {sourceName1}{line1}, property '{property}' has {count1} {item1} but no more than {count2} {item2} {verb2} allowed.",
+    "action": "Remove one or more '{property}' property values from the object until the maximum count is not exceeded.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "identifierCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} string {item2} for '{property}', each of which is a valid {type}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "type": "typeRestriction",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "identifierInvalid": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is not valid for this property.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value '{value}'{line1}, which is not valid for this property.",
+    "action": "Modify the value of '{property}' to make it match the regular expression '{restriction}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "pattern"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "identifierMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "identifierNotDtmi": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is neither a valid DTMI nor a term defined in an active context.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value '{value}', which is neither a valid DTMI nor a term defined in an active context.",
+    "action": "Change the value of '{property}' to a valid DTMI string or to a term defined in one of the active contexts.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "type": "typeRestriction",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "identifierNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON string.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON string.",
+    "action": "Change the value of '{property}' to a JSON string that is a valid {type}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "type": "typeRestriction"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "identifierNotUri": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is neither a valid URI nor a term defined in an active context.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value '{value}', which is neither a valid URI nor a term defined in an active context.",
+    "action": "Change the value of '{property}' to a valid URI string or to a term defined in one of the active contexts.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "type": "typeRestriction",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "identifierTooLong": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is too long -- length limit is {count1} {item1}.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value '{value}'{line1}, which is too long -- length limit is {count1} {item1}.",
+    "action": "Select a shorter value for '{property}' or trim current value to no more than {count1} {item1}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "count1": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "character",
+        "plural": "characters"
+      }
+    }
+  },
+  "idNotString": {
+    "cause": "'@id' property has a value that is empty or not a string.",
+    "locatedCause": "In {sourceName1}, '@id' property{line1} has a value that is empty or not a string.",
+    "action": "Replace the value with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {},
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "idRefBadDtmiOrTerm": {
+    "cause": "{layer}{primaryId:n} has '{property}' value whose '@id' value '{value}' is neither a valid DTMI reference nor a DTDL term.",
+    "locatedCause": "In {sourceName1}, '@id'{line1} has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
+    "action": "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "idProp",
+      "layer": "layer"
+    }
+  },
+  "idReference": {
+    "cause": "{layer}{primaryId:p} property '{property}' has an inline definition containing nothing but an '@id' property.",
+    "locatedCause": "In {sourceName1}, property '{property}' has an inline definition{line1} containing nothing but an '@id' property.",
+    "action": "Replace the inline definition with a string value of '{value}', or provide a complete inline definition for the value of property '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "identifier"
+    },
+    "optional": {
+      "source1": "element",
+      "layer": "layer"
+    }
+  },
+  "idTooLong": {
+    "cause": "Identifier '{value}' is too long -- length limit is {count1} {item1} for DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, identifier '{value}'{line1} is too long -- length limit is {count1} {item1} for DTDL version {restriction}.",
+    "action": "Select a shorter value for the identifier or trim current value to no more than {count1} {item1}.",
+    "required": {
+      "value": "identifier",
+      "count1": "expectedCount",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "idProp"
+    },
+    "support": {
+      "item1": {
+        "singular": "character",
+        "plural": "characters"
+      }
+    }
+  },
+  "idTooLongForType": {
+    "cause": "Identifier '{value}' is too long for an element with @type {type} -- length limit for this type is {count1} {item1}.",
+    "locatedCause": "In {sourceName1}, identifier '{value}'{line1} is too long for an element with @type {type} -- length limit for this type is {count1} {item1}.",
+    "action": "Select a shorter value for the identifier or trim current value to no more than {count1} {item1}.",
+    "required": {
+      "value": "identifier",
+      "type": "elementType",
+      "count1": "expectedCount"
+    },
+    "optional": {
+      "source1": "idProp"
+    },
+    "support": {
+      "item1": {
+        "singular": "character",
+        "plural": "characters"
+      }
+    }
+  },
+  "incompatibleType": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} which is incompatible because it has @type {type} in other layers.",
+    "action": "For the value of property '{property}', choose a new unique @id or choose an element whose @type is {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "type": "elementType",
+      "restriction": "typeRestriction"
+    },
+    "optional": {
+      "layer": "layer"
+    }
+  },
+  "inconsistentBooleanValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has boolean value {value}, but it already has value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has boolean value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "inconsistentContext": {
+    "cause": "{layer}{primaryId:n} is defined using DTDL context version {value}, but it is defined using DTDL context version {restriction} in other layers.",
+    "action": "Change the context specifiers so that all layers of any given identifer are defined using the same DTDL context version.",
+    "required": {
+      "primaryId": "elementId",
+      "value": "version",
+      "restriction": "versionRestriction"
+    },
+    "optional": {
+      "layer": "layer"
+    }
+  },
+  "inconsistentIdentifierValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has identifier value '{value}', but it already has value '{restriction}'.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has identifier value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "inconsistentIntegerValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has integer value {value}, but it already has value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has integer value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "inconsistentJsonValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has JSON value {value}, but it already has value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has JSON value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "inconsistentLangStringValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {item1} {value} than those defined in other layers.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has {item1} {value} than{line2}{source2}.",
+    "action": "Remove redundant language codes from '{property}' properties, or modify the properties so that the value for each language code is consistent across all layers.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "langCode",
+      "count1": "observedCount"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "a different value for language code",
+        "plural": "different values for language codes"
+      }
+    }
+  },
+  "inconsistentLiteralValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has literal value {value}, but it already has value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has literal value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "inconsistentNumericValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has numeric value {value}, but it already has value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has numeric value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "inconsistentObjectValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has identifier value '{value}', but it already has value '{restriction}'.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "inconsistentParent": {
+    "cause": "{layer}{primaryId:n} has a different parent than in other layers.",
+    "action": "Relocate one or more element layer definitions so that all layers of each element are defined at the top level or have a common parent element.",
+    "required": {
+      "primaryId": "elementId"
+    },
+    "optional": {
+      "layer": "layer"
+    }
+  },
+  "inconsistentPartition": {
+    "cause": "{layer}{primaryId:n} is defined in a different partition than in other layers.",
+    "action": "Relocate one or more element layer definitions so that all layers of each element are defined at the top level or under a common top-level element.",
+    "required": {
+      "primaryId": "elementId"
+    },
+    "optional": {
+      "layer": "layer"
+    }
+  },
+  "inconsistentStringValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has string value '{value}', but it already has value '{restriction}'.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has string value '{value}', but it has value '{restriction}'{line2}{source2}.",
+    "action": "Remove redundant instances of property '{property}', or change one or more '{property}' properties so that all values match.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty",
+      "layer": "layer"
+    }
+  },
+  "incorrectExtensionType": {
+    "cause": "DTDL language extension {primaryId} has '@type' property whose value is not 'DtdlExtension'.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has '@type' property{line1} whose value is not 'DtdlExtension'.",
+    "action": "Replace the value of property '@type' with the string value 'DtdlExtension'.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "incorrectPropertyValue": {
+    "cause": "{primaryId:p} property '{property}' has value '{value}', but the value must be {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}', but the value must be {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    }
+  },
+  "inferredTypeDoesNotAllow": {
+    "cause": "{layer}{primaryId:n} has inferred type {type}, which does not allow property '{property}'.",
+    "locatedCause": "In {sourceName1}, element{line2} has inferred type {type}, which does not allow property '{property}'{line1}.",
+    "action": "Remove property '{property}' or correct if misspelled.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "referenceType",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "element",
+      "layer": "layer"
+    }
+  },
+  "intConstraintMultipleValues": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of property '{property}'.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "intConstraintNotInteger": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' value is not a JSON integer.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' value is not a JSON integer.",
+    "action": "Change the value of property '{property}' to a JSON integer.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "intConstraintNoValue": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' is empty.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' is empty.",
+    "action": "Provide a single integer value for property '{property}'.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "integerCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} integer {item2} for '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "integerMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "integerNotInteger": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON integer.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON integer.",
+    "action": "Change the value of '{property}' to a JSON integer.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "integerObjectNoValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object with no '@value' property.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object with no '@value' property.",
+    "action": "Add a '@value' property with a integer value to the object, or replace the object with a JSON integer.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "integerTypeNotInteger": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:integer'.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:integer'.",
+    "action": "Remove the '@type' property of '{property}' or change its value to 'xsd:integer'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "integerValueNotInteger": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@value' is not a JSON integer.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@value' is not a JSON integer.",
+    "action": "Change the value of the '@value' property of '{property}' to a JSON integer.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "invalidContextSpecifier": {
+    "cause": "@context specifier has value '{value}' that is not a legal DTMI.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1} that is not a legal DTMI.",
+    "action": "Replace the @context specifier with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "value": "contextValue"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "invalidContextSpecifierForVersion": {
+    "cause": "@context specifier has value '{value}', which is not a valid DTMI for DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which is not a valid DTMI for DTDL version {restriction}.",
+    "action": "Change @context specifier to a valid DTMI for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "value": "contextValue",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "invalidCotype": {
+    "cause": "{layer}{primaryId:n} has @type with value {type} that can only be applied to elements of @type {restriction}.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} with value {type} that can only be applied to elements of @type {restriction}.",
+    "action": "Remove @type {type} from element.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "cotype",
+      "restriction": "typeRestriction"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "invalidCotypeVersion": {
+    "cause": "{layer}{primaryId:n} has @type with value {type} that can only be applied to elements defined in DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} with value {type} that can only be applied to elements defined in DTDL version {restriction}.",
+    "action": "Remove @type {type} from element.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "cotype",
+      "restriction": "versionRestriction"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "invalidExtensionIdElement": {
+    "cause": "DTDL language extension '@id' property is not a non-empty JSON string.",
+    "locatedCause": "In {sourceName1}, DTDL language extension '@id' property{line1} is not a non-empty JSON string.",
+    "action": "Replace the value of property '@id' with a string that is a valid DTMI.",
+    "required": {},
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "invalidExtensionSpecifier": {
+    "cause": "DTDL language extension has '@id' property with value '{value}' that is not a legal DTMI.",
+    "locatedCause": "In {sourceName1}, DTDL language extension has '@id' property{line1} with value '{value}' that is not a legal DTMI.",
+    "action": "Replace the value of property '@id' with a string that that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "value": "identifier"
+    },
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "invalidId": {
+    "cause": "Identifier '{value}' is invalid for DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, identifier '{value}'{line1} is invalid for DTDL version {restriction}.",
+    "action": "Replace the identifier with a string that conforms to the DTMI syntax for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "value": "identifier",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "invalidIdForType": {
+    "cause": "Identifier '{value}' is invalid for an element with @type {type}.",
+    "locatedCause": "In {sourceName1}, identifier '{value}'{line1} is invalid for an element with @type {type}",
+    "action": "Replace the identifier with a string that conforms to the DTMI syntax allowed for elements of type {type}  -- see https://aka.ms/dtdl.",
+    "required": {
+      "value": "identifier",
+      "type": "elementType"
+    },
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "keywordDisallowed": {
+    "cause": "{primaryId:p} property '{property}' has value that contains '{value}' property, which is not allowed.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value that contains '{value}' property{line1}, which is not allowed.",
+    "action": "Remove the '{value}' property.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "keyword"
+    },
+    "optional": {
+      "source1": "keyword"
+    }
+  },
+  "langMapObjKeyword": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '{value}' property, which does not belong in a language map object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '{value}' property, which does not belong in a language map object.",
+    "action": "Remove '{value}' property, and ensure object contains only properties that map from ISO 639 language codes to string values.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "keyword"
+    },
+    "optional": {
+      "source1": "keyword",
+      "layer": "layer"
+    }
+  },
+  "langStringCodeNotUnique": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values for language code '{value}'.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value for language code '{value}'{line1}, but language code '{value}' already has a value defined{line2}.",
+    "action": "Modify the language map for property '{property}' so that it contains only one value for language code '{value}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "langCode"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "source2": "extantValue",
+      "layer": "layer"
+    }
+  },
+  "langStringElementCodeNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' array has element with '@language' property whose value is not a JSON string.",
+    "locatedCause": "In {sourceName1}, '@language' property{line1} has value that is empty or not a string.",
+    "action": "Change the value of '{property}' array element property '@language' to a JSON string that is a valid ISO 639 language code -- see https://www.iso.org/iso-639-language-codes.html.",
+    "locatedAction": "Replace the value with a string that is a valid ISO 639 language code -- see https://www.iso.org/iso-639-language-codes.html.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "languageProp",
+      "layer": "layer"
+    }
+  },
+  "langStringElementCodeNotUnique": {
+    "cause": "{layer}{primaryId:p} property '{property}' is array in which language code '{value}' is duplicated.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value for language code '{value}'{line1}, but language code '{value}' already has a value defined{line2}.",
+    "action": "Remove redundant instances of language code '{value}' from '{property}' array.",
+    "locatedAction": "Modify the language map for property '{property}' so that it contains only one value for language code '{value}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "langCode"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "source2": "extantValue",
+      "layer": "layer"
+    }
+  },
+  "langStringElementContext": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@context' property, which is not allowed in a language-tagged value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@context' property, which is not allowed in a language-tagged value object.",
+    "action": "Remove all properties from object other than '@value' and '@language'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "contextProp",
+      "layer": "layer"
+    }
+  },
+  "langStringElementGraph": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@graph' property, which is not allowed in a language-tagged value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@graph' property, which is not allowed in a language-tagged value object.",
+    "action": "Remove all properties from object other than '@value' and '@language'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "graphProp",
+      "layer": "layer"
+    }
+  },
+  "langStringElementId": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@id' property, which is not allowed in a language-tagged value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@id' property, which is not allowed in a language-tagged value object.",
+    "action": "Remove all properties from object other than '@value' and '@language'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "idProp",
+      "layer": "layer"
+    }
+  },
+  "langStringElementInvalidCode": {
+    "cause": "{layer}{primaryId:p} property '{property}' array has element with language code '{value}', which is not vlid according to ISO 639.",
+    "locatedCause": "In {sourceName1}, '@language' property{line1} has value '{value}', which is not valid according to ISO 639.",
+    "action": "Change the language code '{value}' to a valid ISO 639 language code -- see https://www.iso.org/iso-639-language-codes.html.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "langCode"
+    },
+    "optional": {
+      "source1": "languageProp",
+      "layer": "layer"
+    }
+  },
+  "langStringElementInvalidProp": {
+    "cause": "{layer}{primaryId:p} property '{property}' has property '{value}', which is not allowed in a language-tagged value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has property '{value}', which is not allowed in a language-tagged value object.",
+    "action": "Remove all properties from object other than '@value' and '@language'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "literalPropertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "langStringElementKeyword": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '{value}' property, which is not allowed in a language-tagged value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '{value}' property, which is not allowed in a language-tagged value object.",
+    "action": "Remove all properties from object other than '@value' and '@language'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "keyword"
+    },
+    "optional": {
+      "source1": "keyword",
+      "layer": "layer"
+    }
+  },
+  "langStringElementNotStringOrObject": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON string or object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON string or object.",
+    "action": "Change all values of '{property}' to JSON objects, with the possible exception of one JSON string for the default language.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "langStringElementNoValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' array has element that does not contain a '@value' property.",
+    "locatedCause": "In {sourceName1}, property '{property}' array has element{line1} that does not contain a '@value' property.",
+    "action": "Ensure every object in property '{property}' array has a '@value' property that is a string.",
+    "locatedAction": "Add a '@value' property to the element with a string value that is the desired text for property '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "element",
+      "layer": "layer"
+    }
+  },
+  "langStringElementType": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@type' property, which is not allowed in a language-tagged value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@type' property, which is not allowed in a language-tagged value object.",
+    "action": "Remove all properties from object other than '@value' and '@language'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "langStringElementValueNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' array has element with '@value' value that is not a JSON string.",
+    "locatedCause": "In {sourceName1}, '@value' property{line1} has value that is not a string.",
+    "action": "Change the value of '{property}' array element property '@value' to a JSON string.",
+    "locatedAction": "Replace the value with a string that is the desired text for property '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "valueProp",
+      "layer": "layer"
+    }
+  },
+  "langStringInvalidCode": {
+    "cause": "{layer}{primaryId:p} property '{property}' has language code '{value}', which is not valid according to ISO 639.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has language code '{value}', which is not valid according to ISO 639.",
+    "action": "Change the language code '{value}' to a valid ISO 639 language code -- see https://www.iso.org/iso-639-language-codes.html.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "langCode"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "langStringValueInvalid": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is invalid.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value '{value}'{line1}, which is invalid.",
+    "action": "Modify the value of '{property}' to make it match the regular expression '{restriction}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "pattern"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "langStringValueNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' with language code '{value}' has value that is not a JSON string.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' with language code '{value}' has value that is not a JSON string.",
+    "action": "Change the value of '{property}' with language code '{value}' to a JSON string.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "langCode"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "langStringValueTooLong": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is too long -- length limit is {count1} {item1}.",
+    "locatedCause": "In {sourceName1}, property '{property}' has value '{value}'{line1}, which is too long -- length limit is {count1} {item1}.",
+    "action": "Select a shorter value for '{property}' or trim current value to no more than {count1} {item1}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "count1": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "character",
+        "plural": "characters"
+      }
+    }
+  },
+  "langTagValueInLangMap": {
+    "cause": "{layer}{primaryId:p} property '{property}' appears to be a language-tagged value object, but a language map object is expected when the object is not in an array.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' appears to be a language-tagged value object, but a language map object is expected when the object is not in an array.",
+    "action": "Either nest the object in an array, or replace the '@value' and '@language' properties so the object looks like {value}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "nameValuePair"
+    },
+    "optional": {
+      "source1": "element",
+      "layer": "layer"
+    }
+  },
+  "layerMissingMaterialType": {
+    "cause": "{layer}{primaryId:n} has @type that specifies no material type.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies no material type.",
+    "action": "Add a value of '{type}' to the element's @type.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "elementType"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "literalCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} string, integer, or boolean {item2} for '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "literalMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "literalNotValid": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON string, integer, or boolean.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON string, integer, or boolean.",
+    "action": "Change the value of '{property}' to a JSON string, integer, or boolean.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "literalObjectNoValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object with no '@value' property.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object with no '@value' property.",
+    "action": "Add a '@value' property with a literal value to the object, or replace the object with a JSON literal.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "literalTypeNotSingular": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@type' does not specify a single type.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@type' does not specify a single type'.",
+    "action": "Remove the '@type' property of '{property}' or give it a single value that is appropriate for the value type.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "localContextNotLast": {
+    "cause": "@context array contains a local context object that is not the last element in the array.",
+    "locatedCause": "In {sourceName1}, @context array contains a local context object{line1} that is not the last element in the array.",
+    "action": "Merge all local context definitions into a single object and locate it at the end of the @context array.",
+    "required": {},
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "localTermDefinitionInvalidDtmi": {
+    "cause": "@context contains a local definition for term '{property}' whose value {value} starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, @context contains a local definition for term '{property}'{line1} whose value {value} starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
+    "action": "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "property": "term",
+      "value": "identifier",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "localTermDefinitionInvalidUri": {
+    "cause": "@context contains a local definition for term '{property}' whose value {value} is not a valid URI or URI prefix.",
+    "locatedCause": "In {sourceName1}, @context contains a local definition for term '{property}'{line1} whose value {value} is not a valid URI or URI prefix.",
+    "action": "Change the value of term '{property}' to a valid URI or URI prefix.",
+    "required": {
+      "property": "term",
+      "value": "identifier"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "localTermEmpty": {
+    "cause": "@context defines a local term that is an empty string.",
+    "locatedCause": "In {sourceName1}, @context defines a local term {line1} that is an empty string.",
+    "action": "Use a non-empty string of characters for the term.",
+    "required": {
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "localTermInvalid": {
+    "cause": "@context defines a local term '{property}' that contains invalid characters.",
+    "locatedCause": "In {sourceName1}, @context defines a local term '{property}'{line1} that contains invalid characters.",
+    "action": "Use a different term that does not begin with '@' and that contains only letters, digits, and the characters '@', '-', '.', '_', '~', '!', '$', '&', ''', '(', ')', '*', '+', ',', ';', '='.",
+    "required": {
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "localTermReserved": {
+    "cause": "@context defines a local term '{property}' that is defined by the DTDL context.",
+    "locatedCause": "In {sourceName1}, @context defines a local term '{property}'{line1} that is defined by the DTDL context.",
+    "action": "Use a different term that is not a DTDL reserved word.",
+    "required": {
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "localTermSchemePrefix": {
+    "cause": "@context defines a local term '{property}' which is reserved as the scheme prefix for DTDL identifiers.",
+    "locatedCause": "In {sourceName1}, @context defines a local term '{property}'{line1} which is reserved as the scheme prefix for DTDL identifiers.",
+    "action": "Use a different term other than '{property}'.",
+    "required": {
+      "property": "term"
+    },
+    "optional": {
+      "source1": "term"
+    }
+  },
+  "matchingPropertyNotSupplemental": {
+    "cause": "{primaryId:p} property '{property}' refers to sibling with {auxProperty} '{value}', but this sibling's property '{restriction}' is associated with the element's material type '{type}' and cannot be overridden.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} refers to element{line2}{source2} whose property '{restriction}' is associated with its material type '{type}' and cannot be overridden.",
+    "action": "Either change the value of property '{transformation}' to indicate a different property not associated with @type '{type}', or provide a value for property '{property}' that refers to a different sibling element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "auxProperty": "refPropertyName",
+      "value": "refValue",
+      "restriction": "nestedName",
+      "transformation": "literalPropertyName",
+      "type": "typeRestriction"
+    },
+    "optional": {
+      "source1": "refProperty",
+      "source2": "siblingElement"
+    }
+  },
+  "maxCountNotPositive": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:maxCount' property {value} is not positive.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:maxCount' property {value}{line1} is not positive.",
+    "action": "Remove 'sh:maxCount' property or change its value to a positive integer.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "constraintMaxCount"
+    }
+  },
+  "metamodelMultipleValues": {
+    "cause": "DTDL language extension {primaryId} has multiple 'metamodel' values but only one value is allowed.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has multiple 'metamodel' values{line1} but only one value is allowed.",
+    "action": "The '@graph' property in the 'metamodel' object is permitted to have multiple values; if appropriate, restructure the metamodel definitions so any multiplicity is in '@graph' values rather than 'metamodel' values.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "metamodelNoGraph": {
+    "cause": "DTDL language extension {primaryId} has 'metamodel' object that lacks a '@graph' property.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has 'metamodel' object{line1} that lacks a '@graph' property.",
+    "action": "Add a '@graph' property to 'metamodel' object with a value that is a metamodel definition.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "metamodelNotObject": {
+    "cause": "DTDL language extension {primaryId} has 'metamodel' value that is not a JSON object.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has 'metamodel' value{line1} that is not a JSON object.",
+    "action": "Change all values of property 'metamodel' to JSON objects, each containing a '@graph' property whose value is a metamodel definition.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "metamodelNoValue": {
+    "cause": "DTDL language extension {primaryId} has 'metamodel' value that is empty.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has 'metamodel' value{line1} that is empty.",
+    "action": "To the values of property 'metamodel', add a JSON object containing a '@graph' property whose value is a metamodel definition.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "minCountExceedsMaxCount": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:minCount' property {value} exceeds 'sh:maxCount' property {restriction}.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:minCount' property {value}{line1} exceeds 'sh:maxCount' property {restriction}{line2}.",
+    "action": "Remove 'sh:minCount' property or 'sh:maxCount' property, or change one or both values so that the minimum is less than or equal to the maximum.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "refValue"
+    },
+    "optional": {
+      "source1": "constraintMinCount",
+      "source2": "constraintMaxCount"
+    }
+  },
+  "minCountNegative": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:minCount' property {value} is negative.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:minCount' property {value}{line1} is negative.",
+    "action": "Remove 'sh:minCount' property or change its value to a non-negative integer.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "constraintMinCount"
+    }
+  },
+  "mismatchedLayers": {
+    "cause": "{layer}{primaryId:p} property '{property}' adds context that introduces nested layer '{value}'.",
+    "action": "Relocate the layering context to the top-level definition.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "layer": "layer"
+    },
+    "optional": {}
+  },
+  "missingCocotype": {
+    "cause": "{primaryId:n} has @type with value {type} that can only be co-typed on elements that are also co-typed with {restriction}.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} with value {type} that can only be co-typed on elements that are also co-typed with {restriction}.",
+    "action": "Remove @type {type} from element, or add @type {restriction} to element.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "elementType",
+      "restriction": "cotype"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "missingContext": {
+    "cause": "Top-level JSON object has no @context specifier.",
+    "locatedCause": "In {sourceName1}, top-level JSON object{line1} has no @context specifier.",
+    "action": "Add a '@context' property whose value is a valid DTDL context specifier, such as 'dtmi:dtdl:context;2'.",
+    "required": {},
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingContextVersion": {
+    "cause": "@context specifier has value '{value}', which is invalid because it lacks a version number.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which is invalid because it lacks a version number.",
+    "action": "Modify @context specifier so that it ends with a ';' followed by a version number.",
+    "required": {
+      "value": "contextValue"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "missingDictKeyPropertyValue": {
+    "cause": "{primaryId:p} property '{property}' has value{secondaryId:e} that requires property '{value}' to be specified but it is not.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e} whose definition{line2}{source2} is missing required property '{value}'.",
+    "action": "Add '{value}' property with a string value that is unique across all values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "value": "nestedName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "element"
+    }
+  },
+  "missingDtdlContext": {
+    "cause": "@context specifier in top-level JSON object has value that does not have a DTDL context specifier as its first or only value.",
+    "locatedCause": "In {sourceName1}, @context specifier in top-level JSON object has value{line1} that does not have a DTDL context specifier as its first or only value.",
+    "action": "Set the value of the '@context' property either to a string or to an array whose first value is a string, wherein the string is a valid DTDL context specifier, such as 'dtmi:dtdl:context;2'.",
+    "required": {},
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "missingDtmiSegPropertyValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' requires property '{value}' to be specified but it is not.",
+    "locatedCause": "In {sourceName1}, element{line1} requires property '{value}' to be specified but it is not.",
+    "action": "Add '{value}' property with a value that is unique across all values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "nestedName"
+    },
+    "optional": {
+      "source1": "element",
+      "layer": "layer"
+    }
+  },
+  "missingEssentialTypes": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:n} has '@type' property that lacks value(s) 'rdfs:Class' and/or 'sh:NodeShape'.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId:n} has '@type' property{line1} that lacks value(s) 'rdfs:Class' and/or 'sh:NodeShape'.",
+    "action": "Update '@type' property to include at least the values 'rdfs:Class' and 'sh:NodeShape'.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "missingExtensionContext": {
+    "cause": "DTDL language extension {primaryId} has no @context specifier.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId}{line1} has no @context specifier.",
+    "action": "Add a '@context' property whose value is a valid DTDL context specifier, such as 'dtmi:dtdl:context;2'.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingExtensionId": {
+    "cause": "DTDL language extension is missing '@id' property.",
+    "locatedCause": "In {sourceName1}, DTDL language extension{line1} is missing '@id' property.",
+    "action": "Add a JSON property '@id' whose value is a valid DTMI.",
+    "required": {},
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingExtensionType": {
+    "cause": "DTDL language extension {primaryId} has no @type specifier.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId}{line1} has no @type specifier.",
+    "action": "Add a '@type' property with a string value of 'DtdlExtension'.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingExtensionVersion": {
+    "cause": "DTDL language extension has '@id' property with value '{value}' that is invalid because it lacks a version number.",
+    "locatedCause": "In {sourceName1}, DTDL language extension has '@id' property{line1} with value '{value}' that is invalid because it lacks a version number.",
+    "action": "Modify the identifier so that it ends with a ';' followed by a version number.",
+    "required": {
+      "value": "identifier"
+    },
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "missingIdentifierProperty": {
+    "cause": "{primaryId:n} requires property '{property}'; however, this property is not present.",
+    "locatedCause": "In {sourceName1}, element{line1} requires property '{property}'; however, this property is not present.",
+    "action": "Add a property '{property}' to the element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingLiteralProperty": {
+    "cause": "{primaryId:n} requires property '{property}'; however, this property is not present.",
+    "locatedCause": "In {sourceName1}, element{line1} requires property '{property}'; however, this property is not present.",
+    "action": "Add a property '{property}' to the element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingObjectProperty": {
+    "cause": "{primaryId:n} requires property '{property}'; however, this property is not present.",
+    "locatedCause": "In {sourceName1}, element{line1} requires property '{property}'; however, this property is not present.",
+    "action": "Add a property '{property}' to the element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingRequiredId": {
+    "cause": "{layer}{primaryId:p} property '{property}' element has no '@id' property.",
+    "locatedCause": "In {sourceName1}, property '{property}' element{line1} has no '@id' property.",
+    "action": "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "element",
+      "layer": "layer"
+    }
+  },
+  "missingSubClassOf": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} property 'rdfs:subClassOf' is missing or not a string.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} property 'rdfs:subClassOf'{line1} is missing or not a string.",
+    "action": "Add or modify 'rdfs:subClassOf' property so that it has a JSON string value that indicates an extensible DTDL type or a subclass thereof.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "missingSupplementalIdentifierProperty": {
+    "cause": "{primaryId:n} has co-type {type}, which requires property '{property}'; however, this property is not present.",
+    "locatedCause": "In {sourceName1}, element{line1} has co-type {type}, which requires property '{property}'; however, this property is not present.",
+    "action": "Add a property '{property}' to the element, or remove co-type {type} from the element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "type": "cotype"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingSupplementalLiteralProperty": {
+    "cause": "{primaryId:n} has co-type {type}, which requires property '{property}'; however, this property is not present.",
+    "locatedCause": "In {sourceName1}, element{line1} has co-type {type}, which requires property '{property}'; however, this property is not present.",
+    "action": "Add a property '{property}' to the element, or remove co-type {type} from the element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "type": "cotype"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingSupplementalObjectProperty": {
+    "cause": "{primaryId:n} has co-type {type}, which requires property '{property}'; however, this property is not present.",
+    "locatedCause": "In {sourceName1}, element{line1} has co-type {type}, which requires property '{property}'; however, this property is not present.",
+    "action": "Add a property '{property}' to the element, or remove co-type {type} from the element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "type": "cotype"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "missingTopLevelId": {
+    "cause": "{layer}Top-level element has no '@id' property.",
+    "locatedCause": "In {sourceName1}, top-level element{line1} has no '@id' property.",
+    "action": "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {},
+    "optional": {
+      "source1": "element",
+      "layer": "layer"
+    }
+  },
+  "missingTypeInfo": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:n} is missing '@type' property.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:n} is missing '@type' property.",
+    "action": "Add a '@type' property whose value is a JSON array that includes at least the values 'rdfs:Class' and 'sh:NodeShape'.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "modelMultipleValues": {
+    "cause": "DTDL language extension {primaryId} has multiple 'model' values but only one value is allowed.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has multiple 'model' values{line1} but only one value is allowed.",
+    "action": "The '@graph' property in the 'model' object is permitted to have multiple values; if appropriate, restructure the model definitions so any multiplicity is in '@graph' values rather than 'model' values.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "modelNoGraph": {
+    "cause": "DTDL language extension {primaryId} has 'model' object that lacks a '@graph' property.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has 'model' object{line1} that lacks a '@graph' property.",
+    "action": "Add a '@graph' property to 'model' object with a value that is a model definition.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "modelNotObject": {
+    "cause": "DTDL language extension {primaryId} has 'model' value that is not a JSON object.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has 'model' value{line1} that is not a JSON object.",
+    "action": "Change all values of property 'model' to JSON objects, each containing a '@graph' property whose value is a model definition.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "modelNoValue": {
+    "cause": "DTDL language extension {primaryId} has 'model' value that is empty.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} has 'model' value{line1} that is empty.",
+    "action": "To the values of property 'model', add a JSON object containing a '@graph' property whose value is a model definition.",
+    "required": {
+      "primaryId": "contextId"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "multipleMaterialTypes": {
+    "cause": "{layer}{primaryId:n} has @type that specifies multiple material types: {value}.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies multiple material types: {value}.",
+    "action": "Remove excess @type values so that only one material type remains.",
+    "required": {
+      "primaryId": "elementId",
+      "value": "valueConjunction"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "multipleReference": {
+    "cause": "{primaryId:p} has more than one '{property}' value in which properties {auxProperty} have respective values {value}.",
+    "locatedCause": "The two elements{line1}{source1} and{line2} in {sourceName2} both have properties {auxProperty} with respective values {value}.",
+    "action": "Remove or modify one or both elements so that the combination of {auxProperty} values is unique across all '{property}' elements.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "auxProperty": "propertyConjunction",
+      "value": "valueConjunction"
+    },
+    "optional": {
+      "source1": "siblingElement",
+      "source2": "element"
+    }
+  },
+  "noMatchingSupplementalProperty": {
+    "cause": "{primaryId:p} property '{property}' refers to sibling with {auxProperty} '{value}', but this sibling has no supplemental @type with property '{restriction}'.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} refers to element{line2}{source2} that has no supplemental @type with property '{restriction}'.",
+    "action": "Either add a supplemental @type that has property '{restriction}' to the currently referenced element, or change the value of property '{transformation}' to indicate a different property on the currently referenced element, or provide a value for property '{property}' that refers to a different sibling element.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "auxProperty": "refPropertyName",
+      "value": "refValue",
+      "restriction": "nestedName",
+      "transformation": "literalPropertyName",
+      "type": "typeRestriction"
+    },
+    "optional": {
+      "source1": "refProperty",
+      "source2": "siblingElement"
+    }
+  },
+  "nonConformantDatatype": {
+    "cause": "{primaryId:p} property '{property}' has value '{value}'; however, {secondaryId:n} specifies that the datatype of all descendant '{property}' properties must be {type}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}', which does not have datatype {type} as required by property '{restriction}'{line2}{source2}.",
+    "action": "Change the value of property '{property}' to a value whose datatype is {type}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "governingId",
+      "restriction": "governingPropertyName",
+      "value": "propertyValue",
+      "type": "datatype"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "governingProperty"
+    }
+  },
+  "nonConformantPropertyValue": {
+    "cause": "{primaryId:p} property '{property}' has value that does not conform to '{restriction}' value due to {count1} {item1}: {firstViolation}.",
+    "locatedCause": "In {sourceName1}, '{property}' value{line1} does not conform to '{restriction}' value{line2}{source2} due to {count1} {item1}: {firstViolation}.",
+    "action": "Change the value of property '{property}' so that it conforms to '{restriction}' value.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "governingPropertyName",
+      "violations": "violations",
+      "count1": "violationCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "source2": "governingValues"
+    },
+    "support": {
+      "item1": {
+        "singular": "violation",
+        "plural": "violations including"
+      }
+    }
+  },
+  "nonDtmiContextSpecifier": {
+    "cause": "@context specifier has value '{value}', which is not a DTMI.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which is not a DTMI.",
+    "action": "Remove '{value}' @context specifier.",
+    "locatedAction": "Remove '{value}' @context specifier{line1}.",
+    "required": {
+      "value": "contextValue"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "nonUniqueImportedPropertyValue": {
+    "cause": "{primaryId:n}, because it transitively {transformation} {secondaryId}, has property '{property}' that contains more than one element for which property '{auxProperty}' has value '{value}'.",
+    "locatedCause": "Property '{auxProperty}' has value '{value}'{line1}{source1} and{line2} in {sourceName2}, which is a uniqueness violation because {primaryId} transitively {transformation} {secondaryId}.",
+    "action": "Either change the value of property '{auxProperty}' to a value that is unique across all values of '{property}', or remove one or more {transformation} properties so that '{property}' will not be imported.",
+    "required": {
+      "primaryId": "elementId",
+      "secondaryId": "referenceId",
+      "property": "propertyName",
+      "transformation": "refPropertyName",
+      "auxProperty": "nestedName",
+      "value": "nestedValue"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty"
+    }
+  },
+  "nonUniquePropertyValue": {
+    "cause": "{primaryId:p} property '{property}' contains more than one element whose property '{auxProperty}' has value '{value}'.",
+    "locatedCause": "In {sourceName2},{line2}, property '{auxProperty}' has value '{value}' which is already used{line1}{source1}.",
+    "action": "Change the value of property '{auxProperty}' to a value that is unique across all values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "auxProperty": "nestedName",
+      "value": "nestedValue"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "extantProperty"
+    }
+  },
+  "notJsonObject": {
+    "cause": "Top-level JSON element is neither a JSON object nor a JSON array of JSON objects.",
+    "locatedCause": "In {sourceName1}, top-level JSON element{line1} is neither a JSON object nor a JSON array of JSON objects.",
+    "action": "Update your model to follow the examples in https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "required": {},
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "notRequiredBooleanValue": {
+    "cause": "{primaryId:p} property '{property}' does not have boolean value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have boolean value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredIdentifierValue": {
+    "cause": "{primaryId:p} property '{property}' does not have identifier value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have identifier value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredIntegerValue": {
+    "cause": "{primaryId:p} property '{property}' does not have integer value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have integer value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredJsonValue": {
+    "cause": "{primaryId:p} property '{property}' does not have JSON value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have JSON value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredLangStringValue": {
+    "cause": "{primaryId:p} property '{property}' does not have language-map value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have language-map value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredLiteralValue": {
+    "cause": "{primaryId:p} property '{property}' does not have literal value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have literal value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredNumericValue": {
+    "cause": "{primaryId:p} property '{property}' does not have numeric value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have numeric value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredStringValue": {
+    "cause": "{primaryId:p} property '{property}' does not have string value {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} does not have string value {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "notRequiredType": {
+    "cause": "{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of {type}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e} that does not have @type of {type}.",
+    "action": "Provide a value for property '{property}' that has a @type of {type} or a subtype thereof.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "type": "typeRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    }
+  },
+  "notRequiredValue": {
+    "cause": "{primaryId:p} property '{property}' has value{secondaryId:e} that is not {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e} that is not {restriction}.",
+    "action": "Change the value of property '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    }
+  },
+  "notSiblingRequiredType": {
+    "cause": "{primaryId:p} property '{property}' refers to sibling with {auxProperty} '{value}', but this sibling does not have @type of {type}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} refers to element{line2}{source2} that does not have @type of {type}.",
+    "action": "Provide a value for property '{property}' that refers to a sibling that has a @type of {type} or a subtype thereof.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "auxProperty": "refPropertyName",
+      "value": "refValue",
+      "type": "typeRestriction"
+    },
+    "optional": {
+      "source1": "refProperty",
+      "source2": "siblingElement"
+    }
+  },
+  "noTypeThatAllows": {
+    "cause": "{layer}{primaryId:n} does not have a @type that allows property '{property}'.",
+    "locatedCause": "In {sourceName1}, no type specified in @type{line2} allows property '{property}'{line1}.",
+    "action": "Remove property '{property}' or correct if misspelled.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "numericCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} numeric {item2} for '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "numericMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "numericNotNumeric": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON number.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON number.",
+    "action": "Change the value of '{property}' to a JSON number.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "numericObjectNoValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object with no '@value' property.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object with no '@value' property.",
+    "action": "Add a '@value' property with a numeric value to the object, or replace the object with a JSON number.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "numericTypeNotNumeric": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:decimal'.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:decimal'.",
+    "action": "Remove the '@type' property of '{property}' or change its value to 'xsd:decimal'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "numericValueNotNumeric": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@value' is not a JSON number.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@value' is not a JSON number.",
+    "action": "Change the value of the '@value' property of '{property}' to a JSON number.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "objectCountAboveMax": {
+    "cause": "{primaryId:p} property '{property}' has {count1} {item1} but no more than {count2} {item2} {verb2} allowed.",
+    "locatedCause": "In {sourceName1}{line1}, property '{property}' has {count1} {item1} but no more than {count2} {item2} {verb2} allowed.",
+    "action": "Remove one or more '{property}' property values from the object until the maximum count is not exceeded.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "objectCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} valid {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} valid {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} {item2} for '{property}', each of which is an element definition, a DTMI reference, or DTDL term.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "objectMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "partitionTooLarge": {
+    "cause": "JSON text of {primaryId} is {count1} {item1} in length, but the largest permissible size is {count2} {item2}.",
+    "locatedCause": "In {sourceName1}, JSON text of element{line1} is {count1} {item1} in length, but the largest permissible size is {count2} {item2}.",
+    "action": "Refactor model so that the size of each {value} is no greater than {count2} {item2}.",
+    "required": {
+      "primaryId": "elementId",
+      "value": "partition",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    },
+    "support": {
+      "item1": {
+        "singular": "byte",
+        "plural": "bytes"
+      },
+      "item2": {
+        "singular": "byte",
+        "plural": "bytes"
+      }
+    }
+  },
+  "pathConstraintNoValue": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value whose 'sh:path' property has no value.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value whose 'sh:path' property{line1} has no value.",
+    "action": "Add a JSON string value to the 'sh:path' property that indicates a DTDL property name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "typeId"
+    },
+    "optional": {
+      "source1": "constraintPath"
+    }
+  },
+  "pathNotRecognized": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value whose 'sh:path' property '{value}' is not a recognized DTDL property name.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value whose 'sh:path' property '{value}'{line1} is not a recognized DTDL property name.",
+    "action": "Change the value of 'sh:path' property to a JSON string that indicates a DTDL property name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "typeId",
+      "value": "constraintValue"
+    },
+    "optional": {
+      "source1": "constraintPath"
+    }
+  },
+  "pathNotString": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property 'sh:property' has value that is missing 'sh:path' property or value is not a string.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property 'sh:property' has value that is missing 'sh:path' property or value is not a string.",
+    "action": "Add a 'sh:path' property with a JSON string value that indicates a DTDL property name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "pathNotUnique": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:n} has 'sh:property' with multiple values that duplicate the value '{value}' for the 'sh:path' property.",
+    "locatedCause": "In {sourceName}, DTDL language extension {primaryId} metamodel element {secondaryId:n} has 'sh:property' value with 'sh:path' value '{value}'{line1} but this value is already used{line2}.",
+    "action": "Remove or combine elements in the 'sh:property' collection so that only one element identifies 'sh:path' value '{value}'.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "value": "constraintValue"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "source2": "extantValue"
+    }
+  },
+  "patternInvalid": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:pattern' property '{value}' is not a valid regular expression.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:pattern' property '{value}'{line1} is not a valid regular expression.",
+    "action": "Remove 'sh:pattern' property or change its value to a JSON string that specifies a valid regular expression.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "constraintPattern"
+    }
+  },
+  "propertyClassNotRecognized": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:class' property '{value}' is not a recognized DTDL type name.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'sh:property' value for path '{property}' whose 'sh:class' property '{value}'{line1} is not a recognized DTDL type name.",
+    "action": "Change the value of 'sh:class' property to a JSON string that indicates a DTDL type name.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "constraintClass"
+    }
+  },
+  "propertyElementNotObject": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property 'sh:property' has value that is not a JSON object.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property 'sh:property' has value that is not a JSON object.",
+    "action": "Change the value of 'sh:property' to a JSON array of JSON objects that each defines a property of the extension type.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "propertyInvalidDtmi": {
+    "cause": "{layer}{primaryId:p} property '{property}' is an invalid DTMI.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} is an invalid DTMI.",
+    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "propertyIrrelevantDtmiOrTerm": {
+    "cause": "{layer}{primaryId:p} property '{property}' is not a relevant property for any specified @type on the element.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} is not a relevant property for any type specified in @type{line2}.",
+    "action": "Remove property '{property}' or correct if misspelled.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "propertyNotDtmiNorTerm": {
+    "cause": "{layer}{primaryId:p} property '{property}' is an IRI that is not a DTMI.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} is an IRI that is not a DTMI.",
+    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "propertyUndefinedTerm": {
+    "cause": "{layer}{primaryId:p} property '{property}' is an undefined term.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} is an undefined term.",
+    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "recursiveStructureNarrow": {
+    "cause": "{primaryId:n} is at the root of a chain of {property} properties that includes itself.",
+    "locatedCause": "In {sourceName1}, element{line1} is at the root of a chain of {property} properties that includes itself.",
+    "action": "Change the value of one or more {property} properties in the hierarchy to remeve the recursion.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyDisjunction"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "recursiveStructureWide": {
+    "cause": "{primaryId:n} is at the root of a hierarchy that includes itself.",
+    "locatedCause": "In {sourceName1}, element{line1} is at the root of a hierarchy that includes itself.",
+    "action": "Change the value of one or more properties of elements in the hierarchy to remeve the recursion.",
+    "required": {
+      "primaryId": "elementId"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "refNotStringOrObject": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is neither a JSON object nor a JSON string representing a valid DTMI reference or DTDL term.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value{line2} that is neither a JSON object nor a JSON string representing a valid DTMI reference or DTDL term.",
+    "action": "Replace the value of property '{property}' with either a DTDL element defined in a JSON object or a DTMI reference or term represented in a JSON string.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "refObjectNotAllowed": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object, but value must be a JSON string representing a valid DTMI reference or DTDL term.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value{line2} that is a JSON object, but value must be a JSON string representing a valid DTMI reference or DTDL term.",
+    "action": "Replace the value of property '{property}' with a DTMI reference or term represented in a JSON string.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "reservedId": {
+    "cause": "Identifier '{value}' begins with a reserved prefix.",
+    "locatedCause": "In {sourceName1}, identifier '{value}'{line1} begins with a reserved prefix.",
+    "action": "Modify the identifier so that it does not begin with any of these reserved prefixes: {restriction}",
+    "required": {
+      "value": "identifier",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "idProp"
+    }
+  },
+  "siblingPropertyMismatch": {
+    "cause": "{primaryId:p} property '{property}' has value '{value}' instead of '{restriction}'.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}' instead of '{restriction}'.",
+    "action": "Change the value of property '{property}' to '{restriction}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "refValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    }
+  },
+  "stringConstraintMultipleValues": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of property '{property}'.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "stringConstraintNotString": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' value is not a JSON string.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' value is not a JSON string.",
+    "action": "Change the value of property '{property}' to a JSON string.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "stringConstraintNoValue": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' is empty.",
+    "locatedCause": "In {sourceName1}{line1}, DTDL language extension {primaryId} metamodel element {secondaryId:p} property '{property}' is empty.",
+    "action": "Provide a single string value for property '{property}'.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "property": "constraintName"
+    },
+    "optional": {
+      "source1": "incidentValues"
+    }
+  },
+  "stringCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} string {item2} for '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "stringInvalid": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is invalid.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value '{value}', which is invalid.",
+    "action": "Modify the value of '{property}' to make it match the regular expression '{restriction}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "pattern"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "stringMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "stringNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON string.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON string.",
+    "action": "Change the value of '{property}' to a JSON string.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "stringObjectNoValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object with no '@value' property.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object with no '@value' property.",
+    "action": "Add a '@value' property with a string value to the object, or replace the object with a JSON string.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "stringTooLong": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which is too long -- length limit is {count1} {item1}.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value '{value}', which is too long -- length limit is {count1} {item1}.",
+    "action": "Select a shorter value for '{property}' or trim current value to no more than {count1} {item1}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "count1": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "character",
+        "plural": "characters"
+      }
+    }
+  },
+  "stringTypeNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:string'.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:string'.",
+    "action": "Remove the '@type' property of '{property}' or change its value to 'xsd:string'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "stringValueNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@value' is not a JSON string.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@value' is not a JSON string.",
+    "action": "Change the value of the '@value' property of '{property}' to a JSON string.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "subClassOfNotExtensible": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'rdfs:subClassOf' property whose value '{value}' does not indicate an extensible DTDL class.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'rdfs:subClassOf' property whose value '{value}'{line1} does not indicate an extensible DTDL class.",
+    "action": "Change the string value of 'rdfs:subClassOf' to an extensible DTDL type or a subclass thereof.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "subClassOfNotRecognized": {
+    "cause": "DTDL language extension {primaryId} metamodel element {secondaryId} has 'rdfs:subClassOf' property whose value '{value}' is not recognized.",
+    "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} metamodel element {secondaryId} has 'rdfs:subClassOf' property whose value '{value}'{line1} is not recognized.",
+    "action": "Change the string value of 'rdfs:subClassOf' to an extensible DTDL type or a subclass thereof.",
+    "required": {
+      "primaryId": "contextId",
+      "secondaryId": "elementId",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "incidentValue"
+    }
+  },
+  "topLevelGraphDisallowed": {
+    "cause": "Top-level JSON object contains '@graph' property, which is not allowed.",
+    "locatedCause": "In {sourceName1}, top-level JSON object contains '@graph' property{line1}, which is not allowed.",
+    "action": "Remove the '@graph' property, and elevate the value of this property to the top level of the JSON document.",
+    "required": {},
+    "optional": {
+      "source1": "graphProp"
+    }
+  },
+  "topLevelKeywordDisallowed": {
+    "cause": "Top-level JSON object contains '{value}' property, which is not allowed.",
+    "locatedCause": "In {sourceName1}, top-level JSON object contains '{value}' property{line1}, which is not allowed.",
+    "action": "Remove the '{value}' property.",
+    "required": {
+      "value": "keyword"
+    },
+    "optional": {
+      "source1": "keyword"
+    }
+  },
+  "typeInvalidDtmi": {
+    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an invaild DTMI.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an invaild DTMI.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "required": {
+      "primaryId": "elementId",
+      "value": "cotype"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "typeIrrelevantDtmiOrTerm": {
+    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is not a DTDL material type or supplemental type.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is not a DTDL material type or supplemental type.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "required": {
+      "primaryId": "elementId",
+      "value": "cotype"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "typeNotDtmiNorTerm": {
+    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an IRI but not a DTMI.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an IRI but not a DTMI.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "required": {
+      "primaryId": "elementId",
+      "value": "cotype"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "typeNotRootable": {
+    "cause": "Top-level JSON element {value} does not have @type of {type}.",
+    "locatedCause": "In {sourceName1}, top-level JSON element {value}{line1} does not have @type of {type}.",
+    "action": "Provide a '@type' value in the set of allowable types.",
+    "required": {
+      "value": "identifier",
+      "type": "typeRestriction"
+    },
+    "optional": {
+      "source1": "element"
+    }
+  },
+  "typeUndefinedTerm": {
+    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an undefined term.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an undefined term.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "required": {
+      "primaryId": "elementId",
+      "value": "cotype"
+    },
+    "optional": {
+      "source1": "typeProp",
+      "layer": "layer"
+    }
+  },
+  "undefinedReservedId": {
+    "cause": "{primaryId:p} property '{property}' has value{secondaryId:e} that has no known definition despite having a reserved prefix.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that has no known definition despite having a reserved prefix.",
+    "action": "Revise the value of property '{property}' to refer to a valid DTDL element or to an element defined in the model.",
+    "locatedAction": "Revise the value of property '{property}'{line1} to refer to a valid DTDL element or to an element defined in the model.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "source2": "incidentValue"
+    }
+  },
+  "unrecognizedContextVersion": {
+    "cause": "@context specifier has value '{value}', which specifies a DTDL version that is not recognized.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which specifies a DTDL version that is not recognized.",
+    "action": "Modify @context specifier to indicate one of the following DTDL versions: {restriction}.",
+    "required": {
+      "value": "contextValue",
+      "restriction": "versionRestriction"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "unresolvableContextSpecifier": {
+    "cause": "@context specifier has value '{value}', which is unrecognized.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which is unrecognized.",
+    "action": "Remove '{value}' @context specifier.",
+    "locatedAction": "Remove '{value}' @context specifier{line1}.",
+    "required": {
+      "value": "contextValue"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "unresolvableContextVersion": {
+    "cause": "@context specifier has value '{value}', which specifies a context version that is not recognized.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which specifies a context version that is not recognized.",
+    "action": "Modify @context specifier to indicate one of the following versions: {restriction}.",
+    "required": {
+      "value": "contextValue",
+      "restriction": "versionRestriction"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
+  "valueAboveMax": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value {value}, which is greater than the allowed maximum of {restriction}.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value {value}, which is greater than the allowed maximum of {restriction}.",
+    "action": "Reduce the value of '{property}' to a value less than or equal to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "limit"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "valueAboveRange": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value {value}, which is above the allowed range of {restriction}.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value {value}, which is above the allowed range of {restriction}.",
+    "action": "Reduce the value of '{property}' to a value in the range {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "range"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "valueBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value {value}, which is less than the allowed minimum of {restriction}.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value {value}, which is less than the allowed minimum of {restriction}.",
+    "action": "Increase the value of '{property}' to a value greater than or equal to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "limit"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "valueBelowRange": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value {value}, which is below the allowed range of {restriction}.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value {value}, which is below the allowed range of {restriction}.",
+    "action": "Increase the value of '{property}' to a value in the range {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "range"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "valueNotExact": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value {value} but the only allowed value is {restriction}.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value {value} but the only allowed value is {restriction}.",
+    "action": "Change the value of '{property}' to {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue",
+      "restriction": "limit"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "valueObjectContext": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@context' property, which is not allowed in a value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@context' property, which is not allowed in a value object.",
+    "action": "Remove all properties from object other than '@value' and '@type'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "contextProp",
+      "layer": "layer"
+    }
+  },
+  "valueObjectGraph": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@graph' property, which is not allowed in a value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@graph' property, which is not allowed in a value object.",
+    "action": "Remove all properties from object other than '@value' and '@type'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "graphProp",
+      "layer": "layer"
+    }
+  },
+  "valueObjectId": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@id' property, which is not allowed in a value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@id' property, which is not allowed in a value object.",
+    "action": "Remove all properties from object other than '@value' and '@type'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "idProp",
+      "layer": "layer"
+    }
+  },
+  "valueObjectInvalidProp": {
+    "cause": "{layer}{primaryId:p} property '{property}' has property '{value}', which is not allowed in a value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has property '{value}', which is not allowed in a value object.",
+    "action": "Remove all properties from object other than '@value' and '@type'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "literalPropertyName"
+    },
+    "optional": {
+      "source1": "incidentProperty",
+      "layer": "layer"
+    }
+  },
+  "valueObjectKeyword": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '{value}' property, which is not allowed in a value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '{value}' property, which is not allowed in a value object.",
+    "action": "Remove all properties from object other than '@value' and '@type'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "keyword"
+    },
+    "optional": {
+      "source1": "keyword",
+      "layer": "layer"
+    }
+  },
+  "valueObjectLanguage": {
+    "cause": "{layer}{primaryId:p} property '{property}' has '@language' property, which is not allowed in a value object.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has '@language' property, which is not allowed in a value object.",
+    "action": "Remove all properties from object other than '@value' and '@type'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "languageProp",
+      "layer": "layer"
+    }
+  },
+  "wrongParent": {
+    "cause": "{primaryId:p} property '{property}' has value {secondaryId}, which is a {value} but must be a child of {restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value {secondaryId}, which is a {value} but must be a child of {restriction}.",
+    "action": "Change the value of property '{property}' to an element that is a child of {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "secondaryId": "referenceId",
+      "value": "relation",
+      "restriction": "relationRestriction"
+    },
+    "optional": {
+      "source1": "incidentProperty"
+    }
+  }
+}

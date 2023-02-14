@@ -1,0 +1,67 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "expect": {
+    "unresolvedIdentifiers": [
+      "dtmi:test:aProperty;1",
+      "dtmi:test:aTelemetry;1",
+      "dtmi:test:aCommand;1",
+      "dtmi:test:aRelationship;1"
+    ],
+    "unresolvedIdentifierReferences": [
+      {
+        "ID": "dtmi:test:aProperty;1",
+        "Index": 0,
+        "Line": 6
+      },
+      {
+        "ID": "dtmi:test:aTelemetry;1",
+        "Index": 0,
+        "Line": 7
+      },
+      {
+        "ID": "dtmi:test:aTelemetry;1",
+        "Index": 1,
+        "Line": 6
+      },
+      {
+        "ID": "dtmi:test:aCommand;1",
+        "Index": 0,
+        "Line": 8
+      },
+      {
+        "ID": "dtmi:test:aCommand;1",
+        "Index": 1,
+        "Line": 7
+      },
+      {
+        "ID": "dtmi:test:aRelationship;1",
+        "Index": 0,
+        "Line": 9
+      }
+    ]
+  },
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        "dtmi:test:aProperty;1",
+        "dtmi:test:aTelemetry;1",
+        "dtmi:test:aCommand;1",
+        "dtmi:test:aRelationship;1"
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anotherInterface;1",
+      "@type": "Interface",
+      "contents": [
+        "dtmi:test:aTelemetry;1",
+        "dtmi:test:aCommand;1"
+      ]
+    }
+  ]
+}

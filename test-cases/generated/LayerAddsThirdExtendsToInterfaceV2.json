@@ -1,0 +1,99 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aProperty;1",
+          "@type": "Property",
+          "name": "expectedDistance",
+          "schema": "double"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anotherInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "currentDistance",
+          "schema": "double"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:yetAnotherInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aRelationship;1",
+          "@type": "Relationship",
+          "name": "proximity"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:importingInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setDistance"
+        }
+      ],
+      "extends": [
+        "dtmi:test:anInterface;1",
+        "dtmi:test:anotherInterface;1"
+      ]
+    },
+    {
+      "@context": [
+        "dtmi:dtdl:context;2",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:importingInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "extends": [
+        "dtmi:test:yetAnotherInterface;1"
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:objectCountAboveMax",
+        "PrimaryID": "dtmi:test:importingInterface;1",
+        "SecondaryID": null,
+        "Property": "extends",
+        "Value": null,
+        "PrimaryIndex": 3,
+        "PrimaryStart": 12,
+        "SecondaryIndex": 4,
+        "SecondaryStart": 8
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:importingInterface;1#foo",
+        "PrimaryIndex": 4,
+        "PrimaryStart": 6
+      }
+    ]
+  }
+}

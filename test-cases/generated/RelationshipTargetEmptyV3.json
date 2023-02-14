@@ -1,0 +1,33 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aRelationship;1",
+          "@type": "Relationship",
+          "name": "proximity",
+          "target": []
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aRelationship;1",
+        "type": "Relationship",
+        "properties": {
+          "name": "proximity",
+          "target": null,
+          "definedIn": "dtmi:test:anInterface;1"
+        }
+      }
+    ]
+  }
+}

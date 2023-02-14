@@ -1,0 +1,43 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:com:example:ReusableTypeExample;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "accelerometer1",
+          "schema": "dtmi:com:example:acceleration;1"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "accelerometer2",
+          "schema": "dtmi:com:example:acceleration;1"
+        }
+      ],
+      "schemas": [
+        {
+          "@id": "dtmi:com:example:acceleration;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "x",
+              "schema": "double"
+            },
+            {
+              "name": "y",
+              "schema": "double"
+            },
+            {
+              "name": "z",
+              "schema": "double"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

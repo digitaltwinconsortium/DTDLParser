@@ -1,0 +1,49 @@
+name: Reject Codegen Changes from Fork
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    if: github.event.pull_request.head.repo.url != github.event.pull_request.base.repo.url || !(contains(github.head_ref, '/meta-gen/') || startsWith(github.head_ref, 'meta-gen/') || startsWith(github.head_ref, 'dtdl-sync/'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Git Remote
+        run: git remote add -f dtdl-parser https://github.com/Azure/DTDL-parser-proto.git
+
+      - name: Reject metamodel changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dtdl
+
+      - name: Reject test case changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- test-cases
+
+      - name: Reject pipeline changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- pipelines
+
+      - name: Reject script changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- scripts
+
+      - name: Reject generator changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/gen
+
+      - name: Reject codegen Parser changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/src/Parser/generated
+
+      - name: Reject codegen Remodel changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/src/Remodel/generated
+
+      - name: Reject codegen ParserUnitTest changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/tests/ParserUnitTest/generated
+
+      - name: Reject image changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- images/generated
+
+      - name: Reject image input changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- images/input/generated
+
+      - name: Reject sample project changes
+        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- samples/projects

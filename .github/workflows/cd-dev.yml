@@ -1,0 +1,44 @@
+name: Push Dev Package
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.x'
+          source-url: https://pkgs.dev.azure.com/azure-dtdl/DTDLParser/_packaging/DTDLParser-prerelease/nuget/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }} 
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+      - uses: dotnet/nbgv@master
+        id: nbgv
+
+      - run: echo 'SemVer2=${{ steps.nbgv.outputs.SemVer2 }}'
+
+      - name: Pack Parser
+        run: dotnet pack -c Release dotnet/src/Parser -o ./_nupkgs/
+
+      - name: Push Parser to ADO
+        run: dotnet nuget push --api-key AzureArtifacts ./_nupkgs/*.nupkg --skip-duplicate --no-symbols
+
+      - name: Annotate Versions
+        run: |
+          echo " ## Preview Package Pushed to ADO :gem: " >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo " with SemVer ${{ steps.nbgv.outputs.SemVer2 }}" >> $GITHUB_STEP_SUMMARY
+          echo " with NuGet version ${{ steps.nbgv.outputs.NuGetPackageVersion }}" >> $GITHUB_STEP_SUMMARY
+          echo " from Commit ${{ steps.nbgv.outputs.GitCommitId}}" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,10 @@
+# GitDiff steps
+
+steps:
+
+- bash: |
+    echo git diff
+    git diff --exit-code
+    test $? -eq 0 || echo "##vso[task.logissue type=warning]One or more generated files do not match files stored in repo"
+    (exit 0)
+  displayName: 'Compare Generated Files to Branch'

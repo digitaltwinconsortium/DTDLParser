@@ -1,0 +1,38 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Command",
+          "name": "specialized",
+          "commandType": {
+            "@id": "dtmi:test:myCommandType;1",
+            "@type": "CommandType"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:test:anInterface:_contents:__specialized;1",
+        "SecondaryID": "dtmi:test:myCommandType;1",
+        "Property": "commandType",
+        "Value": "CommandType",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 9,
+        "SecondaryEnd": 12
+      }
+    ]
+  }
+}

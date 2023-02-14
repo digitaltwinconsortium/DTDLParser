@@ -1,0 +1,31 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "currentDistance",
+          "schema": []
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:objectCountBelowMin",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": "schema",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 10
+      }
+    ]
+  }
+}

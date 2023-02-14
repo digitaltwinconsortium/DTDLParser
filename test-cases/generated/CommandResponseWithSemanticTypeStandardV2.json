@@ -1,0 +1,48 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setVelocity",
+          "response": {
+            "@type": [
+              "CommandPayload",
+              "Velocity"
+            ],
+            "name": "reportedVelocity",
+            "schema": "double",
+            "unit": "metrePerSecond"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:aCommand:_response;1",
+        "SecondaryID": null,
+        "Property": null,
+        "Type": "Velocity",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:noTypeThatAllows",
+        "PrimaryID": "dtmi:test:aCommand:_response;1",
+        "SecondaryID": null,
+        "Property": "unit",
+        "Value": null
+      }
+    ]
+  }
+}

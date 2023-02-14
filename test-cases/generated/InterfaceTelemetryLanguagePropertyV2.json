@@ -1,0 +1,32 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "currentDistance",
+          "schema": "double",
+          "@language": false
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:anInterface:_contents:__currentDistance;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentDistance",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        }
+      }
+    ]
+  }
+}

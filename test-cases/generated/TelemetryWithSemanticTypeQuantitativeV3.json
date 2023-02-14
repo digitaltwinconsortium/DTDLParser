@@ -1,0 +1,63 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "expect": {
+    "elementCount": 9,
+    "elements": [
+      {
+        "id": "dtmi:test:aTelemetry;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentSpeed",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:Velocity"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:kilometrePerSecond"
+        }
+      },
+      {
+        "id": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:kilometrePerSecond",
+        "type": "EnumValue",
+        "properties": {},
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:SymbolicUnit",
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:DecimalUnit",
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:RatioUnit"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:property:symbol;3": "km/s",
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:baseUnit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:metrePerSecond",
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:prefix": "dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:kilo",
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:topUnit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:kilometre",
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:bottomUnit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:second"
+        }
+      }
+    ]
+  },
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Velocity"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "unit": "kilometrePerSecond"
+        }
+      ]
+    }
+  ]
+}

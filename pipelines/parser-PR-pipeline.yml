@@ -1,0 +1,106 @@
+# parser PR pipeline
+
+trigger: none
+
+pr:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: MetaGen
+  variables:
+    isMetaGen: $[or(startsWith(variables['System.PullRequest.SourceBranch'], 'meta-gen/'), contains(variables['System.PullRequest.SourceBranch'], '/meta-gen/'))]
+    isSync: $[startsWith(variables['System.PullRequest.SourceBranch'], 'dtdl-sync/')]
+  condition: or(eq(variables.isMetaGen, 'True'), eq(variables.isSync, 'True'))
+
+  jobs:
+
+  - job: RestoreDtdl
+    displayName: Restore DTDL Files
+    condition: ne(variables.isSync, 'True')
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+      persistCredentials: true
+
+    - template: templates/common/Setup-steps.yml
+  
+    - template: templates/common/GitConfig-steps.yml
+
+    - template: templates/common/CheckoutPR-steps.yml
+
+    - template: templates/RestoreDtdl-steps.yml
+
+    - template: templates/common/GitCommit-steps.yml
+      parameters:
+        CommitMessage: 'Restore DTDL files in PR'
+
+  - job: ParserDotNetPR
+    displayName: DTDL Parser .NET PR
+
+    dependsOn: RestoreDtdl
+    condition: and(not(failed()), not(canceled()))
+
+    strategy:
+      matrix:
+        vCurrent:
+          DtdlModelParserLangConfig: dtdl
+          DotNetArtifact: DotNetVCurrent
+        vNext:
+          DtdlModelParserLangConfig: dtdlVNext
+          DotNetArtifact: DotNetVNext
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - template: templates/common/Setup-steps.yml
+
+    - template: templates/GenerateParser-steps.yml
+      parameters:
+        DtdlModelParserLangConfig: $(DtdlModelParserLangConfig)
+
+    - template: templates/DevelopParser-steps.yml
+      parameters:
+        DtdlModelParserLangConfig: $(DtdlModelParserLangConfig)
+
+    - template: templates/PublishParser-steps.yml
+      parameters:
+        DotNetArtifact: $(DotNetArtifact)
+
+  - job: AddCommit
+
+    dependsOn: ParserDotNetPR
+    condition: and(not(failed()), not(canceled()))
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+      persistCredentials: true
+
+    - template: templates/common/GitConfig-steps.yml
+
+    - template: templates/common/CheckoutPR-steps.yml
+
+    - template: templates/DownloadParser-steps.yml
+      parameters:
+        DotNetArtifact: DotNetVCurrent
+
+    - template: templates/common/GitCommit-steps.yml
+      parameters:
+        CommitMessage: 'Auto-add generated files to PR'

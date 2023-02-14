@@ -1,0 +1,180 @@
+﻿{
+  "CS": {
+    "language": "C#",
+    "className": {
+      "prefix": "DT",
+      "suffix": "Info",
+      "capitalize": true
+    },
+    "propertyName": {
+      "prefix": "",
+      "suffix": "",
+      "capitalize": true
+    },
+    "propertyType": {
+      "literal": {
+        "langString": {
+          "optional": {
+            "singular": "KeyValuePair<string, string>",
+            "plural": "IReadOnlyDictionary<string, string>"
+          },
+          "required": {
+            "singular": "KeyValuePair<string, string>",
+            "plural": "IReadOnlyDictionary<string, string>"
+          }
+        },
+        "boolean": {
+          "optional": {
+            "singular": "bool",
+            "plural": "IReadOnlyList<bool>"
+          },
+          "required": {
+            "singular": "bool",
+            "plural": "IReadOnlyList<bool>"
+          }
+        },
+        "integer": {
+          "optional": {
+            "singular": "int?",
+            "plural": "IReadOnlyList<int>"
+          },
+          "required": {
+            "singular": "int",
+            "plural": "IReadOnlyList<int>"
+          }
+        },
+        "string": {
+          "optional": {
+            "singular": "string",
+            "plural": "IReadOnlyList<string>"
+          },
+          "required": {
+            "singular": "string",
+            "plural": "IReadOnlyList<string>"
+          }
+        },
+        "untyped": {
+          "optional": {
+            "singular": "object",
+            "plural": "IReadOnlyList<object>"
+          },
+          "required": {
+            "singular": "object",
+            "plural": "IReadOnlyList<object>"
+          }
+        }
+      },
+      "object": {
+        "optional": {
+          "singular": "$",
+          "plural": "IReadOnlyList<$>",
+          "dictionary": "IReadOnlyDictionary<string, $>"
+        },
+        "required": {
+          "singular": "$",
+          "plural": "IReadOnlyList<$>",
+          "dictionary": "IReadOnlyDictionary<string, $>"
+        }
+      },
+      "identifier": {
+        "optional": {
+          "singular": "Dtmi",
+          "plural": "IReadOnlyList<Dtmi>"
+        },
+        "required": {
+          "singular": "Dtmi",
+          "plural": "IReadOnlyList<Dtmi>"
+        }
+      }
+    }
+  },
+  "JS": {
+    "language": "JavaScript",
+    "className": {
+      "prefix": "",
+      "suffix": "Info",
+      "capitalize": true
+    },
+    "propertyName": {
+      "prefix": "",
+      "suffix": "",
+      "capitalize": false
+    },
+    "propertyType": {
+      "literal": {
+        "langString": {
+          "optional": {
+            "singular": "{ languageCode: string, value: string }",
+            "plural": "{ [languageCode: string]: string }"
+          },
+          "required": {
+            "singular": "{ languageCode: string, value: string }",
+            "plural": "{ [languageCode: string]: string }"
+          }
+        },
+        "boolean": {
+          "optional": {
+            "singular": "boolean",
+            "plural": "boolean[]"
+          },
+          "required": {
+            "singular": "boolean",
+            "plural": "boolean[]"
+          }
+        },
+        "integer": {
+          "optional": {
+            "singular": "number | undefined",
+            "plural": "number[]"
+          },
+          "required": {
+            "singular": "number",
+            "plural": "number[]"
+          }
+        },
+        "string": {
+          "optional": {
+            "singular": "string",
+            "plural": "string[]"
+          },
+          "required": {
+            "singular": "string",
+            "plural": "string[]"
+          }
+        },
+        "untyped": {
+          "optional": {
+            "singular": "any",
+            "plural": "any[]"
+          },
+          "required": {
+            "singular": "any",
+            "plural": "any[]"
+          }
+        }
+      },
+      "object": {
+        "optional": {
+          "singular": "$",
+          "plural": "$[]",
+          "dictionary": "{ [value: string]: $ }"
+        },
+        "required": {
+          "singular": "$",
+          "plural": "$[]",
+          "dictionary": "{ [value: string]: $ }"
+        }
+      },
+      "identifier": {
+        "optional": {
+          "singular": "string",
+          "plural": "string[]"
+        },
+        "required": {
+          "singular": "string",
+          "plural": "string[]"
+        }
+      }
+    }
+  }
+}

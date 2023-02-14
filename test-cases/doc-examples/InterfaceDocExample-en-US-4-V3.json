@@ -1,0 +1,33 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:com:example:Room;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Property",
+            "name": "occupied",
+            "schema": "boolean"
+          }
+        ]
+      },
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:com:example:ConferenceRoom;1",
+        "@type": "Interface",
+        "extends": "dtmi:com:example:Room;1",
+        "contents": [
+          {
+            "@type": "Property",
+            "name": "capacity",
+            "schema": "integer"
+          }
+        ]
+      }
+    ]
+  ]
+}

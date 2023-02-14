@@ -1,0 +1,33 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "currentLocation",
+          "schema": "multiPolygon"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aTelemetry;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentLocation",
+          "schema": "dtmi:standard:schema:geospatial:multiPolygon;3",
+          "definedIn": "dtmi:test:anInterface;1"
+        }
+      }
+    ]
+  }
+}

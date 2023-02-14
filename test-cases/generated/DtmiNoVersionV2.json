@@ -1,0 +1,25 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:foo:bar",
+      "@type": "Interface"
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": "dtmi:foo:bar",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 3
+      }
+    ]
+  }
+}

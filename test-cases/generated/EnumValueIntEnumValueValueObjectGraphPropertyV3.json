@@ -1,0 +1,41 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anEnum;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": [
+            {
+              "@id": "dtmi:test:intEnumValue;1",
+              "@type": "EnumValue",
+              "name": "near",
+              "enumValue": {
+                "@value": 1,
+                "@graph": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:valueObjectGraph",
+        "PrimaryID": "dtmi:test:intEnumValue;1",
+        "Property": "enumValue",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 17
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aProperty;1",
+          "@type": "Property",
+          "name": "expectedDistance",
+          "schema": "double",
+          "writable": {
+            "@type": "xsd:boolean"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:booleanObjectNoValue",
+        "PrimaryID": "dtmi:test:aProperty;1",
+        "Property": "writable",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11,
+        "PrimaryEnd": 13
+      }
+    ]
+  }
+}

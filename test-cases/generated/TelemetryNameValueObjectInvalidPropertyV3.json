@@ -1,0 +1,35 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": {
+            "@value": "currentDistance",
+            "invalid": "hello"
+          },
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:valueObjectInvalidProp",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": "name",
+        "Value": "invalid",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:motionObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": [
+                "Velocity"
+              ],
+              "name": "velocity",
+              "schema": "double",
+              "unit": "metrePerSecond"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:test:motionObject;1",
+        "SecondaryID": "dtmi:test:motionObject:_fields:__velocity;1",
+        "Property": "fields",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 12,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 13,
+        "SecondaryEnd": 20
+      }
+    ]
+  }
+}
