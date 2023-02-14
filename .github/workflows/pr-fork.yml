@@ -13,37 +13,37 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Git Remote
-        run: git remote add -f dtdl-parser https://github.com/Azure/DTDL-parser-proto.git
+        run: git remote add -f DTDLParser https://github.com/digitaltwinconsortium/DTDLParser.git
 
       - name: Reject metamodel changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dtdl
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- dtdl
 
       - name: Reject test case changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- test-cases
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- test-cases
 
       - name: Reject pipeline changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- pipelines
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- pipelines
 
       - name: Reject script changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- scripts
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- scripts
 
       - name: Reject generator changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/gen
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/gen
 
       - name: Reject codegen Parser changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/src/Parser/generated
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/src/Parser/generated
 
       - name: Reject codegen Remodel changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/src/Remodel/generated
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/src/Remodel/generated
 
       - name: Reject codegen ParserUnitTest changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- dotnet/tests/ParserUnitTest/generated
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/tests/ParserUnitTest/generated
 
       - name: Reject image changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- images/generated
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- images/generated
 
       - name: Reject image input changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- images/input/generated
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- images/input/generated
 
       - name: Reject sample project changes
-        run: git diff --exit-code HEAD remotes/dtdl-parser/main -- samples/projects
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- samples/projects
