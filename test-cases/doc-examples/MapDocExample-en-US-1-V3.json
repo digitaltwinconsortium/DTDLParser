@@ -1,0 +1,27 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:ex:id;1",
+      "@type": "Interface",
+      "contents": {
+        "@type": "Property",
+        "name": "modules",
+        "writable": true,
+        "schema": {
+          "@type": "Map",
+          "mapKey": {
+            "name": "moduleName",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "moduleState",
+            "schema": "string"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+# GenerateParser steps
+
+parameters:
+- name: DtdlModelParserLangConfig
+  default: ''
+- name: SubFolder
+  default: 's'
+
+steps:
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildMetaDigest.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Metamodel Digest'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildCodeGenerator.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Code Generator'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildParserGen.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Parser Generator'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/GenerateParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Generate Parser'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildTestGen.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Unit Test Generator'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/GenerateParserTests.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Generate ParserUnitTest'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildRemodelGen.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Remodel Generator'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/GenerateRemodelTool.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Generate Remodel Tool'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildSampleExtractor.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Sample Extractor'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/ExtractSamples.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Extract Sample Projects'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    nuget install docfx.console
+  displayName: 'Install DocFx'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    DocFxFolder=$(ls -d docfx*)
+    bash scripts/RunDocFx.sh Release ${{ parameters.DtdlModelParserLangConfig }} "mono $DocFxFolder/tools/"
+  displayName: 'Write API Documentation'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/BuildFlowTracer.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Flow Tracer'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    sudo apt-get install graphviz
+  displayName: 'Install Graphviz'
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    bash scripts/TraceFlow.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Trace Flow'

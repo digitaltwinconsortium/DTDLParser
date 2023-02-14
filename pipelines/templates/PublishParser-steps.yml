@@ -1,0 +1,23 @@
+# PublishParser steps
+
+parameters:
+- name: DotNetArtifact
+  default: ''
+
+steps:
+
+- publish: $(System.DefaultWorkingDirectory)/dotnet/src/Parser/generated
+  artifact: ${{ parameters.DotNetArtifact }}_Sources
+  displayName: 'Publish Codegenned Parser Sources'
+
+- publish: $(System.DefaultWorkingDirectory)/dotnet/src/Remodel/generated
+  artifact: ${{ parameters.DotNetArtifact }}_Remodel
+  displayName: 'Publish Codegenned Remodel Sources'
+
+- publish: $(System.DefaultWorkingDirectory)/dotnet/tests/ParserUnitTest/generated
+  artifact: ${{ parameters.DotNetArtifact }}_Tests
+  displayName: 'Publish Codegenned Unit Test Code'
+
+- publish: $(System.DefaultWorkingDirectory)/samples/projects
+  artifact: ${{ parameters.DotNetArtifact }}_Samples
+  displayName: 'Publish Sample Projects'

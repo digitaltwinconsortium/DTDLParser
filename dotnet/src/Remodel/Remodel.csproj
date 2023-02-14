@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>© Digital Twin Consortium and contributors. All rights reserved.</Copyright>
+    <Company>Digital Twin Consortium</Company>
+    <Authors>Digital Twin Consortium</Authors>
+    <AssemblyName>DTDLRemodel</AssemblyName>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>Remodel</ToolCommandName>
+    <PackageId>DTDLRemodel</PackageId>
+    <Product>DTDLRemodel</Product>
+    <RepositoryUrl>https://github.com/Azure/azure-iot-digitaltwin-libraries</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Azure/azure-iot-digitaltwin-libraries</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Description>Tool for upgrading a model to the latest version of DTDL</Description>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>$(OutputPath)DTDLParser.Remodel.xml</DocumentationFile>
+    <NoWarn>1701;1702;NU1604</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>$(OutputPath)DTDLParser.Remodel.xml</DocumentationFile>
+    <NoWarn>1701;1702;NU1604</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+    <DocumentationFile>$(OutputPath)DTDLParser.Remodel.xml</DocumentationFile>
+    <NoWarn>1701;1702;NU1604</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+    <DocumentationFile>$(OutputPath)DTDLParser.Remodel.xml</DocumentationFile>
+    <NoWarn>1701;1702;NU1604</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Parser\Parser.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="System.Text.Json" Version="7.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,144 @@
+digraph {
+  {
+    "BuildCodeGenerator" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildMetaDigest" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildParser" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildParserGen" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildParserTests" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildRemodelGen" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildRemodelTool" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildSampleExtractor" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildSamples" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildTestGen" [shape=cylinder style=filled fillcolor=chartreuse]
+    "DeriveParserSbom" [shape=cylinder style=filled fillcolor=chartreuse]
+    "ExtractSamples" [shape=cylinder style=filled fillcolor=chartreuse]
+    "GenerateParser" [shape=cylinder style=filled fillcolor=chartreuse]
+    "GenerateParserTests" [shape=cylinder style=filled fillcolor=chartreuse]
+    "GenerateRemodelTool" [shape=cylinder style=filled fillcolor=chartreuse]
+    "PackParser" [shape=cylinder style=filled fillcolor=chartreuse]
+    "PackRemodelTool" [shape=cylinder style=filled fillcolor=chartreuse]
+    "RunDocFx" [shape=cylinder style=filled fillcolor=chartreuse]
+    "TestParser" [shape=cylinder style=filled fillcolor=chartreuse]
+    "TestSamples" [shape=cylinder style=filled fillcolor=chartreuse]
+    "dotnet/gen/CodeGenerator" [shape=folder style=filled fillcolor=chartreuse]
+    "CodeGenerator.dll" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/gen/MetamodelDigest" [shape=folder style=filled fillcolor=chartreuse]
+    "MetamodelDigest.dll" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/src/Parser" [shape=folder style=filled fillcolor=chartreuse]
+    "dotnet/src/Parser/generated" [shape=folder style=filled fillcolor=chartreuse]
+    "DTDLParser.dll" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/gen/ParserGenerator" [shape=folder style=filled fillcolor=chartreuse]
+    "ParserGenerator.exe" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/tests/DtmiUnitTest" [shape=folder style=filled fillcolor=chartreuse]
+    "DtmiUnitTest.dll" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/tests/ResultFormatterUnitTest" [shape=folder style=filled fillcolor=chartreuse]
+    "ResultFormatterUnitTest.dll" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/tests/ParserUnitTest" [shape=folder style=filled fillcolor=chartreuse]
+    "dotnet/tests/ParserUnitTest/generated" [shape=folder style=filled fillcolor=chartreuse]
+    "ParserUnitTest.dll" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/gen/RemodelGenerator" [shape=folder style=filled fillcolor=chartreuse]
+    "RemodelGenerator.exe" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/src/Remodel" [shape=folder style=filled fillcolor=chartreuse]
+    "dotnet/src/Remodel/generated" [shape=folder style=filled fillcolor=chartreuse]
+    "DTDLRemodel.exe" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/gen/SampleExtractor" [shape=folder style=filled fillcolor=chartreuse]
+    "SampleExtractor.exe" [shape=ellipse style=filled fillcolor=chartreuse]
+    "DTDLParser.*.nupkg" [shape=box3d style=filled fillcolor=chartreuse]
+    "samples/projects" [shape=folder style=filled fillcolor=chartreuse]
+    "Sample*.exe" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/gen/UnitTestGenerator" [shape=folder style=filled fillcolor=chartreuse]
+    "UnitTestGenerator.exe" [shape=ellipse style=filled fillcolor=chartreuse]
+    "manifest.spdx" [shape=box style=filled fillcolor=chartreuse]
+    "dtdl.json" [shape=box style=filled fillcolor=chartreuse]
+    "samples" [shape=note style=filled fillcolor=chartreuse]
+    "dtdl_digest.json" [shape=box style=filled fillcolor=chartreuse]
+    "ObjectModelConventions.json" [shape=box style=filled fillcolor=chartreuse]
+    "ParsingErrorMessages.json" [shape=box style=filled fillcolor=chartreuse]
+    "test-cases/generated" [shape=box style=filled fillcolor=chartreuse]
+    "test-cases/doc-examples" [shape=box style=filled fillcolor=chartreuse]
+    "test-cases/specification" [shape=box style=filled fillcolor=chartreuse]
+    "DTDLRemodel.*.nupkg" [shape=box3d style=filled fillcolor=chartreuse]
+    "docfx.json" [shape=box style=filled fillcolor=chartreuse]
+    "api-docs/dotnet/_site" [shape=hexagon style=filled fillcolor=chartreuse]
+    "test-cases/dtmis" [shape=box style=filled fillcolor=chartreuse]
+    "test-cases/phrases" [shape=box style=filled fillcolor=chartreuse]
+  }
+  "dotnet/gen/CodeGenerator" -> "BuildCodeGenerator"
+  "BuildCodeGenerator" -> "CodeGenerator.dll"
+  "dotnet/gen/MetamodelDigest" -> "BuildMetaDigest"
+  "BuildMetaDigest" -> "MetamodelDigest.dll"
+  "dotnet/src/Parser" -> "BuildParser"
+  "dotnet/src/Parser/generated" -> "BuildParser"
+  "BuildParser" -> "DTDLParser.dll"
+  "dotnet/gen/ParserGenerator" -> "BuildParserGen"
+  "MetamodelDigest.dll" -> "BuildParserGen"
+  "CodeGenerator.dll" -> "BuildParserGen"
+  "BuildParserGen" -> "ParserGenerator.exe"
+  "dotnet/tests/DtmiUnitTest" -> "BuildParserTests"
+  "BuildParserTests" -> "DtmiUnitTest.dll"
+  "dotnet/tests/ResultFormatterUnitTest" -> "BuildParserTests"
+  "BuildParserTests" -> "ResultFormatterUnitTest.dll"
+  "dotnet/tests/ParserUnitTest" -> "BuildParserTests"
+  "dotnet/tests/ParserUnitTest/generated" -> "BuildParserTests"
+  "DTDLParser.dll" -> "BuildParserTests"
+  "BuildParserTests" -> "ParserUnitTest.dll"
+  "dotnet/gen/RemodelGenerator" -> "BuildRemodelGen"
+  "MetamodelDigest.dll" -> "BuildRemodelGen"
+  "CodeGenerator.dll" -> "BuildRemodelGen"
+  "BuildRemodelGen" -> "RemodelGenerator.exe"
+  "dotnet/src/Remodel" -> "BuildRemodelTool"
+  "dotnet/src/Remodel/generated" -> "BuildRemodelTool"
+  "DTDLParser.dll" -> "BuildRemodelTool"
+  "BuildRemodelTool" -> "DTDLRemodel.exe"
+  "dotnet/gen/SampleExtractor" -> "BuildSampleExtractor"
+  "BuildSampleExtractor" -> "SampleExtractor.exe"
+  "DTDLParser.*.nupkg" -> "BuildSamples"
+  "samples/projects" -> "BuildSamples"
+  "BuildSamples" -> "Sample*.exe"
+  "dotnet/gen/UnitTestGenerator" -> "BuildTestGen"
+  "MetamodelDigest.dll" -> "BuildTestGen"
+  "CodeGenerator.dll" -> "BuildTestGen"
+  "BuildTestGen" -> "UnitTestGenerator.exe"
+  "DTDLParser.dll" -> "DeriveParserSbom"
+  "dotnet/src/Parser" -> "DeriveParserSbom"
+  "DeriveParserSbom" -> "manifest.spdx"
+  "SampleExtractor.exe" -> "ExtractSamples"
+  "dtdl.json" -> "ExtractSamples"
+  "samples" -> "ExtractSamples"
+  "ExtractSamples" -> "samples/projects"
+  "ParserGenerator.exe" -> "GenerateParser"
+  "dtdl_digest.json" -> "GenerateParser"
+  "ObjectModelConventions.json" -> "GenerateParser"
+  "ParsingErrorMessages.json" -> "GenerateParser"
+  "GenerateParser" -> "dotnet/src/Parser/generated"
+  "UnitTestGenerator.exe" -> "GenerateParserTests"
+  "dtdl_digest.json" -> "GenerateParserTests"
+  "ObjectModelConventions.json" -> "GenerateParserTests"
+  "test-cases/generated" -> "GenerateParserTests"
+  "test-cases/doc-examples" -> "GenerateParserTests"
+  "test-cases/specification" -> "GenerateParserTests"
+  "GenerateParserTests" -> "dotnet/tests/ParserUnitTest/generated"
+  "RemodelGenerator.exe" -> "GenerateRemodelTool"
+  "dtdl.json" -> "GenerateRemodelTool"
+  "dtdl_digest.json" -> "GenerateRemodelTool"
+  "ObjectModelConventions.json" -> "GenerateRemodelTool"
+  "GenerateRemodelTool" -> "dotnet/src/Remodel/generated"
+  "DTDLParser.dll" -> "PackParser"
+  "PackParser" -> "DTDLParser.*.nupkg"
+  "DTDLRemodel.exe" -> "PackRemodelTool"
+  "PackRemodelTool" -> "DTDLRemodel.*.nupkg"
+  "dotnet/src/Parser" -> "RunDocFx"
+  "dotnet/src/Parser/generated" -> "RunDocFx"
+  "docfx.json" -> "RunDocFx"
+  "RunDocFx" -> "api-docs/dotnet/_site"
+  "DtmiUnitTest.dll" -> "TestParser"
+  "test-cases/dtmis" -> "TestParser"
+  "ResultFormatterUnitTest.dll" -> "TestParser"
+  "test-cases/phrases" -> "TestParser"
+  "ParserUnitTest.dll" -> "TestParser"
+  "test-cases/generated" -> "TestParser"
+  "test-cases/doc-examples" -> "TestParser"
+  "test-cases/specification" -> "TestParser"
+  "Sample*.exe" -> "TestSamples"
+  "samples/projects" -> "TestSamples"
+}

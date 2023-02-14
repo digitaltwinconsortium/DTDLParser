@@ -1,0 +1,27 @@
+# GitCommit steps
+
+parameters:
+- name: SubFolder
+  default: 's'
+- name: CommitMessage
+  default: ''
+- name: CommitFlags
+  default: ''
+- name: BranchName
+  default: ''
+
+steps:
+
+- bash: |
+    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
+    git status
+    echo git add
+    git add .
+    git status
+    echo git commit
+    git commit -m "${{ parameters.CommitMessage }}"
+    git status
+    echo git push ${{ parameters.CommitFlags }} origin
+    git push ${{ parameters.CommitFlags }} origin ${{ parameters.BranchName }}
+    git status
+  displayName: 'Commit and Push Generated Files'

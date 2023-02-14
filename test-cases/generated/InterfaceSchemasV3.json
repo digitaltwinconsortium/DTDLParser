@@ -1,0 +1,321 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": {
+        "@id": "dtmi:test:aCommand;1",
+        "@type": "Command",
+        "name": "setDistance"
+      },
+      "schemas": [
+        {
+          "@id": "dtmi:test:doubleArray;1",
+          "@type": "Array",
+          "elementSchema": "double",
+          "displayName": {
+            "en-US": "Value array",
+            "es-ES": "Matriz de valores"
+          },
+          "description": {
+            "en-US": "array of values",
+            "es-ES": "matriz de valores"
+          },
+          "comment": "Each value is a double"
+        },
+        {
+          "@id": "dtmi:test:intEnum;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": [
+            {
+              "name": "near",
+              "enumValue": 1
+            },
+            {
+              "name": "far",
+              "enumValue": 2
+            }
+          ],
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": [
+            {
+              "@language": "en-US",
+              "@value": "how close"
+            },
+            {
+              "@language": "es-ES",
+              "@value": "lo cerca que"
+            }
+          ],
+          "comment": "How close is it?"
+        },
+        {
+          "@id": "dtmi:test:coordinateObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "latitude",
+              "schema": "double",
+              "displayName": {
+                "en-US": "Latitude",
+                "es-ES": "Latitud"
+              },
+              "description": {
+                "en-US": "distance from equator",
+                "es-ES": "distancia del ecuador"
+              },
+              "comment": "positive is north"
+            },
+            {
+              "name": "longitude",
+              "schema": "double",
+              "displayName": {
+                "en-US": "Longitude",
+                "es-ES": "Longitud"
+              },
+              "description": {
+                "en-US": "distance from meridian",
+                "es-ES": "distancia del meridiano"
+              },
+              "comment": "positive is east"
+            }
+          ],
+          "displayName": {
+            "en-US": "Latitude/Longitude",
+            "es-ES": "Latitud/Longitud"
+          },
+          "description": {
+            "en-US": "distances from origin",
+            "es-ES": "distancias desde el origen"
+          },
+          "comment": "Where in the world?"
+        },
+        {
+          "@id": "dtmi:test:distanceMap;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "myMapKey",
+            "schema": "string",
+            "displayName": {
+              "en-US": "Place",
+              "es-ES": "Lugar"
+            },
+            "description": {
+              "en-US": "start",
+              "es-ES": "empezar"
+            },
+            "comment": "Starting location"
+          },
+          "mapValue": {
+            "name": "myMapValue",
+            "schema": "double",
+            "displayName": {
+              "en-US": "Distance",
+              "es-ES": "Distancia"
+            },
+            "description": {
+              "en-US": "distance to start",
+              "es-ES": "distancia para comenzar"
+            },
+            "comment": "Starting distance"
+          },
+          "displayName": {
+            "en-US": "Distance to start",
+            "es-ES": "Distancia para comenzar"
+          },
+          "description": [
+            {
+              "@language": "en-US",
+              "@value": "how close"
+            },
+            {
+              "@language": "es-ES",
+              "@value": "lo cerca que"
+            }
+          ],
+          "comment": "How close is each place?"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aCommand;1",
+        "type": "Command",
+        "properties": {
+          "name": "setDistance"
+        }
+      },
+      {
+        "id": "dtmi:test:coordinateObject;1",
+        "type": "Object",
+        "properties": {
+          "fields": [
+            "dtmi:test:coordinateObject:_fields:__latitude;1",
+            "dtmi:test:coordinateObject:_fields:__longitude;1"
+          ],
+          "displayName": {
+            "en-US": "Latitude/Longitude",
+            "es-ES": "Latitud/Longitud"
+          },
+          "description": {
+            "en-US": "distances from origin",
+            "es-ES": "distancias desde el origen"
+          },
+          "comment": "Where in the world?"
+        }
+      },
+      {
+        "id": "dtmi:test:coordinateObject:_fields:__latitude;1",
+        "type": "Field",
+        "name": "latitude",
+        "schema": "dtmi:dtdl:instance:Schema:double;2",
+        "displayName": {
+          "en-US": "Latitude",
+          "es-ES": "Latitud"
+        },
+        "description": {
+          "en-US": "distance from equator",
+          "es-ES": "distancia del ecuador"
+        },
+        "comment": "positive is north"
+      },
+      {
+        "id": "dtmi:test:coordinateObject:_fields:__longitude;1",
+        "type": "Field",
+        "name": "longitude",
+        "schema": "dtmi:dtdl:instance:Schema:double;2",
+        "displayName": {
+          "en-US": "Longitude",
+          "es-ES": "Longitud"
+        },
+        "description": {
+          "en-US": "distance from meridian",
+          "es-ES": "distancia del meridiano"
+        },
+        "comment": "positive is east"
+      },
+      {
+        "id": "dtmi:test:distanceMap;1",
+        "type": "Map",
+        "properties": {
+          "mapKey": "dtmi:test:distanceMap:_mapKey;1",
+          "mapValue": "dtmi:test:distanceMap:_mapValue;1",
+          "displayName": {
+            "en-US": "Distance to start",
+            "es-ES": "Distancia para comenzar"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close is each place?"
+        }
+      },
+      {
+        "id": "dtmi:test:distanceMap:_mapKey;1",
+        "type": "MapKey",
+        "name": "myMapKey",
+        "schema": "dtmi:dtdl:instance:Schema:string;2",
+        "displayName": {
+          "en-US": "Place",
+          "es-ES": "Lugar"
+        },
+        "description": {
+          "en-US": "start",
+          "es-ES": "empezar"
+        },
+        "comment": "Starting location"
+      },
+      {
+        "id": "dtmi:test:distanceMap:_mapValue;1",
+        "type": "MapValue",
+        "name": "myMapValue",
+        "schema": "dtmi:dtdl:instance:Schema:double;2",
+        "displayName": {
+          "en-US": "Distance",
+          "es-ES": "Distancia"
+        },
+        "description": {
+          "en-US": "distance to start",
+          "es-ES": "distancia para comenzar"
+        },
+        "comment": "Starting distance"
+      },
+      {
+        "id": "dtmi:test:doubleArray;1",
+        "type": "Array",
+        "properties": {
+          "elementSchema": "dtmi:dtdl:instance:Schema:double;2",
+          "displayName": {
+            "en-US": "Value array",
+            "es-ES": "Matriz de valores"
+          },
+          "description": {
+            "en-US": "array of values",
+            "es-ES": "matriz de valores"
+          },
+          "comment": "Each value is a double"
+        }
+      },
+      {
+        "id": "dtmi:test:intEnum;1",
+        "type": "Enum",
+        "properties": {
+          "valueSchema": "dtmi:dtdl:instance:Schema:integer;2",
+          "enumValues": [
+            "dtmi:test:intEnum:_enumValues:__near;1",
+            "dtmi:test:intEnum:_enumValues:__far;1"
+          ],
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close is it?"
+        }
+      },
+      {
+        "id": "dtmi:test:intEnum:_enumValues:__near;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": 1
+        }
+      },
+      {
+        "id": "dtmi:test:intEnum:_enumValues:__far;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": 2
+        }
+      },
+      {
+        "id": "dtmi:test:anInterface;1",
+        "type": "Interface",
+        "properties": {
+          "contents": {
+            "setDistance": "dtmi:test:aCommand;1"
+          },
+          "schemas": [
+            "dtmi:test:doubleArray;1",
+            "dtmi:test:intEnum;1",
+            "dtmi:test:coordinateObject;1",
+            "dtmi:test:distanceMap;1"
+          ]
+        }
+      }
+    ]
+  }
+}

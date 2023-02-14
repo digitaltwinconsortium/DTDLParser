@@ -1,0 +1,57 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "currentDistance",
+          "schema": "double",
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": [
+            {
+              "@language": "en-US",
+              "@value": "how close"
+            },
+            {
+              "@language": "es-ES",
+              "@value": "lo cerca que"
+            }
+          ],
+          "comment": "How close is it?"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aTelemetry;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentDistance",
+          "schema": "dtmi:dtdl:instance:Schema:double;2",
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close is it?",
+          "definedIn": "dtmi:test:anInterface;1"
+        }
+      }
+    ]
+  }
+}

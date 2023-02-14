@@ -1,0 +1,39 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "Foo",
+          "displayName": [
+            "by default"
+          ],
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aTelemetry;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "Foo",
+          "schema": "dtmi:dtdl:instance:Schema:double;2",
+          "displayName": {
+            "en": "by default"
+          },
+          "definedIn": "dtmi:test:anInterface;1"
+        }
+      }
+    ]
+  }
+}

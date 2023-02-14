@@ -1,0 +1,205 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "booleanField",
+              "schema": "boolean"
+            },
+            {
+              "name": "doubleField",
+              "schema": "double"
+            },
+            {
+              "name": "floatField",
+              "schema": "float"
+            },
+            {
+              "name": "integerField",
+              "schema": "integer"
+            },
+            {
+              "name": "longField",
+              "schema": "long"
+            },
+            {
+              "name": "dateField",
+              "schema": "date"
+            },
+            {
+              "name": "dateTimeField",
+              "schema": "dateTime"
+            },
+            {
+              "name": "durationField",
+              "schema": "duration"
+            },
+            {
+              "name": "timeField",
+              "schema": "time"
+            },
+            {
+              "name": "stringField",
+              "schema": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elementCount": 22,
+    "elements": [
+      {
+        "id": "dtmi:dtdl:instance:Schema:boolean;2",
+        "type": "Boolean",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "boolean"
+          },
+          "description": {
+            "en-US": "a boolean value"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:double;2",
+        "type": "Double",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "double"
+          },
+          "description": {
+            "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:float;2",
+        "type": "Float",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "float"
+          },
+          "description": {
+            "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:integer;2",
+        "type": "Integer",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "integer"
+          },
+          "description": {
+            "en-US": "a signed integral numeric value that is expressible in 4 bytes"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:long;2",
+        "type": "Long",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "long"
+          },
+          "description": {
+            "en-US": "a signed integral numeric value that is expressible in 8 bytes"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:date;2",
+        "type": "Date",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "date"
+          },
+          "description": {
+            "en-US": "a date in ISO 8601 format, per [RFC 3339](https://tools.ietf.org/html/rfc3339)"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:dateTime;2",
+        "type": "DateTime",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "dateTime"
+          },
+          "description": {
+            "en-US": "a date and time in ISO 8601 format, per [RFC 3339](https://tools.ietf.org/html/rfc3339)"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:duration;2",
+        "type": "Duration",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "duration"
+          },
+          "description": {
+            "en-US": "a duration in ISO 8601 format"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:time;2",
+        "type": "Time",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "time"
+          },
+          "description": {
+            "en-US": "a time in ISO 8601 format, per [RFC 3339](https://tools.ietf.org/html/rfc3339)"
+          }
+        }
+      },
+      {
+        "id": "dtmi:dtdl:instance:Schema:string;2",
+        "type": "String",
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "properties": {
+          "displayName": {
+            "en": "string"
+          },
+          "description": {
+            "en-US": "a UTF8 string"
+          }
+        }
+      }
+    ]
+  }
+}

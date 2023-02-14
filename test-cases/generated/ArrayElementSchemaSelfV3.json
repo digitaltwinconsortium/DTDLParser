@@ -1,0 +1,33 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:recursiveArray;1",
+          "@type": "Array",
+          "elementSchema": "dtmi:test:recursiveArray;1"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:recursiveStructureWide",
+        "PrimaryID": "dtmi:test:recursiveArray;1",
+        "SecondaryID": null,
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6,
+        "PrimaryEnd": 10
+      }
+    ]
+  }
+}

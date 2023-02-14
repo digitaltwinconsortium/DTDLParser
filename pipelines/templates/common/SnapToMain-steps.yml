@@ -1,0 +1,9 @@
+# SnapToMain steps
+
+steps:
+
+- bash: |
+    echo git reset to main
+    git reset --hard origin/main
+    git status
+  displayName: 'Reset vNext branch to match Main branch'

@@ -1,0 +1,69 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;2",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Telemetry"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "description": {
+            "en-US": "foo layer"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Telemetry"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "description": {
+            "en-US": "base layer"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:inconsistentLangStringValues",
+        "PrimaryID": "dtmi:test:anInterface:_contents:__currentSpeed;1",
+        "SecondaryID": null,
+        "Property": "description",
+        "Value": null
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:anInterface;1#foo",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6
+      }
+    ]
+  }
+}

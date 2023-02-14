@@ -1,0 +1,79 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aRelationship;1",
+          "@type": "Relationship",
+          "name": "proximity",
+          "maxMultiplicity": 5,
+          "minMultiplicity": 0,
+          "target": "dtmi:noSuchInterface;1",
+          "properties": [
+            {
+              "@id": "dtmi:test:aProperty;1",
+              "@type": "Property",
+              "name": "expectedDistance",
+              "schema": "double"
+            }
+          ],
+          "writable": true,
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": [
+            {
+              "@language": "en-US",
+              "@value": "how close"
+            },
+            {
+              "@language": "es-ES",
+              "@value": "lo cerca que"
+            }
+          ],
+          "comment": "How close are we?"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aRelationship;1",
+        "type": "Relationship",
+        "properties": {
+          "name": "proximity",
+          "maxMultiplicity": 5,
+          "minMultiplicity": 0,
+          "target": "dtmi:noSuchInterface;1",
+          "properties": [
+            "dtmi:test:aProperty;1"
+          ],
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close are we?",
+          "definedIn": "dtmi:test:anInterface;1"
+        }
+      },
+      {
+        "id": "dtmi:test:aProperty;1",
+        "type": "Property",
+        "name": "expectedDistance",
+        "schema": "dtmi:dtdl:instance:Schema:double;2"
+      }
+    ]
+  }
+}

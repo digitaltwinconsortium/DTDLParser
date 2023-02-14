@@ -1,0 +1,12 @@
+# Setup steps
+
+steps:
+
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: 6.0.0
+  displayName: 'Use NuGet 6.0.0'
+
+- bash: |
+    dotnet tool install --global Microsoft.Sbom.DotNetTool
+  displayName: 'Install SBOM Tool'

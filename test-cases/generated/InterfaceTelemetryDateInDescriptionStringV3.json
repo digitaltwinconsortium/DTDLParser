@@ -1,0 +1,30 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "description": {
+            "en-US": "2019-12-18T14:02:01.732Z"
+          },
+          "displayName": {
+            "en-US": "Time"
+          },
+          "name": "time",
+          "schema": "dateTime"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elementCount": 3
+  }
+}

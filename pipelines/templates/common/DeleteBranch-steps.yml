@@ -1,0 +1,11 @@
+# DeleteBranch steps
+
+parameters:
+- name: BranchName
+  default: ''
+
+steps:
+
+- bash: |
+    git push origin --delete ${{ parameters.BranchName }}
+  displayName: 'Delete Merge Branch'

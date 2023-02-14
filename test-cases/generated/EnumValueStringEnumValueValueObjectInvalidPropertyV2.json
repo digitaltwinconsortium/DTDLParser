@@ -1,0 +1,42 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anEnum;1",
+          "@type": "Enum",
+          "valueSchema": "string",
+          "enumValues": [
+            {
+              "@id": "dtmi:test:stringEnumValue;1",
+              "@type": "EnumValue",
+              "name": "near",
+              "enumValue": {
+                "@value": "west",
+                "invalid": "north"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:valueObjectInvalidProp",
+        "PrimaryID": "dtmi:test:stringEnumValue;1",
+        "Property": "enumValue",
+        "Value": "invalid",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 17
+      }
+    ]
+  }
+}

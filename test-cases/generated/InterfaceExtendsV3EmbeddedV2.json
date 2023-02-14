@@ -1,0 +1,88 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:importingInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:anotherProperty;1",
+          "@type": "Property",
+          "name": "someProp",
+          "schema": "string"
+        },
+        {
+          "@id": "dtmi:test:anotherTelemetry;1",
+          "@type": "Telemetry",
+          "name": "someTelem",
+          "schema": "string"
+        },
+        {
+          "@id": "dtmi:test:anotherCommand;1",
+          "@type": "Command",
+          "name": "someCmd"
+        },
+        {
+          "@id": "dtmi:test:anotherRelationship;1",
+          "@type": "Relationship",
+          "name": "someRelation"
+        }
+      ],
+      "extends": [
+        {
+          "@context": "dtmi:dtdl:context;3",
+          "@id": "dtmi:test:anInterface;1",
+          "@type": "Interface",
+          "contents": [
+            {
+              "@id": "dtmi:test:aProperty;1",
+              "@type": "Property",
+              "name": "expectedDistance",
+              "schema": "double"
+            },
+            {
+              "@id": "dtmi:test:aTelemetry;1",
+              "@type": "Telemetry",
+              "name": "currentDistance",
+              "schema": "double"
+            },
+            {
+              "@id": "dtmi:test:aCommand;1",
+              "@type": "Command",
+              "name": "setDistance"
+            },
+            {
+              "@id": "dtmi:test:aRelationship;1",
+              "@type": "Relationship",
+              "name": "proximity"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:disallowedVersionDefinition",
+        "PrimaryID": "dtmi:test:importingInterface;1",
+        "SecondaryID": null,
+        "Property": "extends",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 31
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:unrecognizedContextVersion",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": "dtmi:dtdl:context;3",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 31
+      }
+    ]
+  }
+}

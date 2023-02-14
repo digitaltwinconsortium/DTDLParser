@@ -1,0 +1,167 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:deepObject1;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "Field1",
+              "schema": {
+                "@id": "dtmi:test:deepObject2;1",
+                "@type": "Object",
+                "fields": {
+                  "name": "Field2",
+                  "schema": {
+                    "@id": "dtmi:test:deepObject3;1",
+                    "@type": "Object",
+                    "fields": {
+                      "name": "Field3",
+                      "schema": {
+                        "@id": "dtmi:test:deepObject4;1",
+                        "@type": "Object",
+                        "fields": {
+                          "name": "Field4",
+                          "schema": {
+                            "@id": "dtmi:test:deepObject5;1",
+                            "@type": "Object",
+                            "fields": {
+                              "name": "Field5",
+                              "schema": "double"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elementsCount": 7
+  },
+  "instances": [
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": true,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": 3.14 } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": true } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": null } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": \"3.14\" } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": [ 3.14 ] } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"otherField\": { \"Field5\": 3.14 } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": { \"Field6\": 3.14 } } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": true,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { } } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": true,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": 3.14 } } } }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"Field1\": 3.14 }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": true,
+      "submit": "{ }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "[ { \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": 3.14, \"office\": 6.28 } } } } } ]"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": ""
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "true"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "\"{ \"Field1\": { \"Field2\": { \"Field3\": { \"Field4\": { \"Field5\": 3.14 } } } } }\""
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "3.14"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "null"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "$$"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "[ \"hi\": \"there\" ]"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ \"hello\" }"
+    },
+    {
+      "subject": "dtmi:test:deepObject1;1",
+      "conforms": false,
+      "submit": "{ 23 ]"
+    }
+  ]
+}

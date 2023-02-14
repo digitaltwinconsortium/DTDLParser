@@ -1,0 +1,37 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:invalidRelationship;1",
+          "@type": "Relationship",
+          "name": "proximity",
+          "maxMultiplicity": [
+            5,
+            10
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:integerMultipleValues",
+        "PrimaryID": "dtmi:test:invalidRelationship;1",
+        "SecondaryID": null,
+        "Property": "maxMultiplicity",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 10,
+        "PrimaryEnd": 13
+      }
+    ]
+  }
+}

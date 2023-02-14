@@ -1,0 +1,51 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setDistance",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "Optional"
+            ],
+            "name": "desiredDistance",
+            "schema": "double",
+            "defaultValue": 3.14
+          },
+          "response": {
+            "name": "reportedDistance",
+            "schema": "double"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:typeUndefinedTerm",
+        "PrimaryID": "dtmi:test:aCommand:_request;1",
+        "Property": null,
+        "Value": "Optional",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:propertyUndefinedTerm",
+        "PrimaryID": "dtmi:test:aCommand:_request;1",
+        "Property": "defaultValue",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 17
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:samples:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "model"
+          ],
+          "name": "interval",
+          "schema": "integer",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:samples:anInterface:_contents:__interval;1",
+        "type": "Property",
+        "properties": {
+          "name": "interval",
+          "writable": true,
+          "schema": "dtmi:dtdl:instance:Schema:integer;2"
+        },
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "undefinedTypes": [
+          "model"
+        ],
+        "undefinedProperties": {}
+      },
+      {
+        "id": "dtmi:samples:anInterface;1",
+        "type": "Interface",
+        "properties": {
+          "contents": {
+            "interval": "dtmi:samples:anInterface:_contents:__interval;1"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+# parser CI pipeline
+
+trigger:
+- main
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- checkout: self
+  fetchDepth: 0
+
+- template: templates/common/Setup-steps.yml
+
+- template: templates/GenerateParser-steps.yml
+  parameters:
+    DtdlModelParserLangConfig: dtdl
+
+- template: templates/DevelopParser-steps.yml
+  parameters:
+    DtdlModelParserLangConfig: dtdl
+
+- template: templates/common/GitDiff-steps.yml

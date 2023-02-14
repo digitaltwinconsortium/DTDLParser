@@ -1,0 +1,42 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:historization;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:extension:historization;1",
+        "dtmi:dtdl:context;3"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "AccelerationVector"
+          ],
+          "name": "currentAcceleration",
+          "schema": "vector"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingDtdlContext",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 3
+      }
+    ]
+  }
+}

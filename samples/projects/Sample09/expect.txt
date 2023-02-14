@@ -1,0 +1,32 @@
+anInterface1 type = Interface
+anInterface1 schemas = dtmi:example:numericArray;1
+anInterface1 contents = distanceLog, expectedDistance, setDistance, proximity
+anInterface2 type = Interface
+anInterface2 schemas = dtmi:example:numericArray;1
+anInterface2 contents = distanceLog, expectedDistance, setDistance, proximity
+Interface anInterface1 == anInterface2 = True
+Interface anInterface1.DeepEquals(anInterface2) = False
+Array numericArray1 == numericArray2 = False
+Array numericArray1.DeepEquals(numericArray2) = False
+Telemetry distanceLog1 == distanceLog2 = True
+Telemetry distanceLog1.DeepEquals(distanceLog2) = False
+Property expectedDistance1 == expectedDistance2 = True
+Property expectedDistance1.DeepEquals(expectedDistance2) = True
+Command setDistance1 name = setDistance
+Command setDistance1 type = Command
+Command setDistance1 request = dtmi:example:anInterface:_contents:__setDistance:_request;1
+Command setDistance1 response = dtmi:example:anInterface:_contents:__setDistance:_response;1
+Command setDistance2 name = setDistance
+Command setDistance2 type = Command
+Command setDistance2 request = dtmi:example:desiredDistance;1
+Command setDistance2 response = dtmi:example:anInterface:_contents:__setDistance:_response;1
+Command setDistance1 == setDistance2 = False
+Command setDistance1.DeepEquals(setDistance2) = True
+Request desiredDistance1 == desiredDistance2 = True
+Request desiredDistance1.DeepEquals(desiredDistance2) = True
+Response reportedDistance1 displayName = { "en": "reported distance" }
+Response reportedDistance2 displayName = { "en": "reported distance" }
+Response reportedDistance1 == reportedDistance2 = True
+Response reportedDistance1.DeepEquals(reportedDistance2) = True
+Relationship proximity1 == proximity2 = False
+Relationship proximity1.DeepEquals(proximity2) = False

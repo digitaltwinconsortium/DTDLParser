@@ -1,0 +1,66 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anotherInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1#foo",
+          "@type": [
+            "Telemetry",
+            "Layer"
+          ],
+          "name": "currentSpeed",
+          "schema": "double"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry"
+          ],
+          "name": "currentSpeed",
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:inconsistentParent",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": "dtmi:test:anInterface;1",
+        "Property": null,
+        "Value": null
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:anotherInterface;1#foo",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6
+      }
+    ]
+  }
+}

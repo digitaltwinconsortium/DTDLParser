@@ -1,0 +1,25 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:ex:id;1",
+      "@type": "Interface",
+      "contents": {
+        "@type": "Command",
+        "name": "reboot",
+        "request": {
+          "name": "rebootTime",
+          "displayName": "Reboot Time",
+          "description": "Requested time to reboot the device.",
+          "schema": "dateTime"
+        },
+        "response": {
+          "name": "scheduledTime",
+          "schema": "dateTime"
+        }
+      }
+    }
+  ]
+}

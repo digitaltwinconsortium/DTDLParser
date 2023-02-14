@@ -1,0 +1,51 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:aMap;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "myMapKey",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@type": [
+              "MapValue",
+              "Velocity"
+            ],
+            "name": "myMapValue",
+            "schema": "double",
+            "unit": "metrePerSecond"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:aMap:_mapValue;1",
+        "SecondaryID": null,
+        "Property": null,
+        "Type": "Velocity",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 14
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:noTypeThatAllows",
+        "PrimaryID": "dtmi:test:aMap:_mapValue;1",
+        "SecondaryID": null,
+        "Property": "unit",
+        "Value": null
+      }
+    ]
+  }
+}

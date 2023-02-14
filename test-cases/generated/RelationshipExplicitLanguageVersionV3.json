@@ -1,0 +1,46 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aRelationship;1",
+          "@type": "Relationship",
+          "name": "proximity",
+          "dtmi:dtdl:property:languageMajorVersion;3": 2
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:propertyIrrelevantDtmiOrTerm",
+        "PrimaryID": "dtmi:test:aRelationship;1",
+        "SecondaryID": null,
+        "Property": "dtmi:dtdl:property:languageMajorVersion;3",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 10,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 8
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:noTypeThatAllows",
+        "PrimaryID": "dtmi:test:aRelationship;1",
+        "SecondaryID": null,
+        "Property": "dtmi:dtdl:property:languageMajorVersion;3",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 10,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 8
+      }
+    ]
+  }
+}

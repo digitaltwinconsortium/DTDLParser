@@ -1,0 +1,31 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "currentDistance",
+          "schema": "double",
+          "@graph": {}
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:graphDisallowed",
+        "PrimaryID": "dtmi:test:anInterface;1",
+        "Property": "contents",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 10
+      }
+    ]
+  }
+}

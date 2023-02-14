@@ -1,0 +1,45 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setVelocity",
+          "request": {
+            "@type": [
+              "Velocity"
+            ],
+            "name": "desiredVelocity",
+            "schema": "double",
+            "unit": "metrePerSecond"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:test:aCommand;1",
+        "SecondaryID": "dtmi:test:aCommand:_request;1",
+        "Property": "request",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 13,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 13,
+        "SecondaryEnd": 20
+      }
+    ]
+  }
+}

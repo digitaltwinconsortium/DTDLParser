@@ -1,0 +1,83 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:motionObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": [
+                "Field",
+                "Velocity"
+              ],
+              "name": "velocity",
+              "schema": "double",
+              "unit": "metrePerSecond"
+            },
+            {
+              "@type": [
+                "Field",
+                "Acceleration"
+              ],
+              "name": "acceleration",
+              "schema": "double",
+              "unit": "metrePerSecondSquared"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:motionObject;1",
+        "type": "Object",
+        "properties": {
+          "fields": [
+            "dtmi:test:motionObject:_fields:__velocity;1",
+            "dtmi:test:motionObject:_fields:__acceleration;1"
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:motionObject:_fields:__velocity;1",
+        "type": "Field",
+        "properties": {
+          "name": "velocity",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:Velocity"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:metrePerSecond"
+        }
+      },
+      {
+        "id": "dtmi:test:motionObject:_fields:__acceleration;1",
+        "type": "Field",
+        "properties": {
+          "name": "acceleration",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:metrePerSecondSquared"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+# CheckoutVNext steps
+
+steps:
+
+- bash: |
+    git checkout -b vNext --track origin/vNext
+    git status
+  displayName: 'Checkout vNext Branch'

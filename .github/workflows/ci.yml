@@ -1,0 +1,54 @@
+name: Build and Test
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    branches: ["main", "vNext"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+      - name: Build Parser
+        run: dotnet build -c Release dotnet/src/Parser
+
+      - name: Install DocFx
+        run: dotnet tool install -g docfx
+
+      - name: Run DocFx
+        run: docfx api-docs/dotnet/docfx.json
+
+      - name: Test Parser
+        run: |
+          dotnet test dotnet/tests/DtmiUnitTest -c Release --logger trx 
+          dotnet test dotnet/tests/ResultFormatterUnitTest -c Release --logger trx 
+          dotnet test dotnet/tests/ParserUnitTest -c Release --logger trx 
+
+      - name: Test Samples
+        run: |
+          for d in samples/projects/Sample*; do
+            if [ -d $d ]; then
+              echo testing $d ;
+              dotnet run --project $d > $d/output.txt ;
+              diff $d/expect.txt $d/output.txt ;
+              test $? -eq 0 || exit 1
+            fi
+          done
+
+      - name: Pack Parser
+        run: dotnet pack -c Release dotnet/src/Parser
+
+      - name: Process trx reports with default
+        if: always()
+        uses: im-open/process-dotnet-test-results@v2.2.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          base-directory: dotnet/
+      
+      

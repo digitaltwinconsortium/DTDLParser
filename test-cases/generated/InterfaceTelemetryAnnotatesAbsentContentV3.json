@@ -1,0 +1,56 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;1"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:annotation;1"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "ValueAnnotation"
+          ],
+          "name": "currentTempNote",
+          "annotates": "currentTemp",
+          "schema": "string"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:Sensor;1",
+        "type": "Interface",
+        "properties": {
+          "contents": {
+            "currentTempNote": "dtmi:test:Sensor:_contents:__currentTempNote;1"
+          }
+        }
+      },
+      {
+        "id": "dtmi:test:Sensor:_contents:__currentTempNote;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentTempNote",
+          "schema": "dtmi:dtdl:instance:Schema:string;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:annotation:v1:ValueAnnotation"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates": "currentTemp"
+        }
+      }
+    ]
+  }
+}

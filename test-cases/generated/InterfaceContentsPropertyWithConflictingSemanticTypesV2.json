@@ -1,0 +1,39 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Velocity",
+            "Length"
+          ],
+          "name": "expectedSpeed",
+          "schema": "double",
+          "unit": [
+            "metrePerSecond"
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:conflictingSupplementalTypes",
+        "PrimaryID": "dtmi:test:anInterface:_contents:__expectedSpeed;1",
+        "Property": "unit",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9
+      }
+    ]
+  }
+}

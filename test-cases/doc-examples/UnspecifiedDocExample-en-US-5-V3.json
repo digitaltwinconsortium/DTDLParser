@@ -1,0 +1,24 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:historization;1"
+      ],
+      "@id": "dtmi:com:example:Thermometer;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Historized"
+          ],
+          "name": "currentTemp",
+          "schema": "double"
+        }
+      ]
+    }
+  ]
+}

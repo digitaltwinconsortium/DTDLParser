@@ -1,0 +1,28 @@
+Distance type = dtmi:dtdl:extension:quantitativeTypes:v1:class:Distance
+Distance properties:
+  dtmi:dtdl:extension:quantitativeTypes:v1:property:unit => EnumValue, required, singular
+    child of: dtmi:dtdl:extension:quantitativeTypes:v1:enum:LengthUnit
+unit
+6 elements in model:
+dtmi:example:anInterface:_contents:__currentDistance;1
+dtmi:example:anInterface;1
+dtmi:dtdl:instance:Schema:double;2
+dtmi:dtdl:extension:quantitativeTypes:v1:unit:kilometre
+dtmi:dtdl:extension:quantitativeTypes:v1:unit:metre
+dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:kilo
+currentDistace primary type = Telemetry
+currentDistance supplemental types = dtmi:dtdl:extension:quantitativeTypes:v1:class:Distance
+term for dtmi:dtdl:extension:quantitativeTypes:v1:class:Distance is Distance
+currentDistance schema = dtmi:dtdl:instance:Schema:double;2
+currentDistance unit = dtmi:dtdl:extension:quantitativeTypes:v1:unit:kilometre
+kilometre primary type = EnumValue
+kilometre supplemental types:
+  dtmi:dtdl:extension:quantitativeTypes:v1:class:SymbolicUnit
+  dtmi:dtdl:extension:quantitativeTypes:v1:class:DecimalUnit
+kilometre properties:
+  name: kilometre
+  displayName: kilometre
+  dtmi:dtdl:property:symbol;3: km
+  dtmi:dtdl:extension:quantitativeTypes:v1:property:baseUnit: dtmi:dtdl:extension:quantitativeTypes:v1:unit:metre
+  dtmi:dtdl:extension:quantitativeTypes:v1:property:prefix: dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:kilo
+currentDistance has unit kilometre

@@ -1,0 +1,56 @@
+# SaveDtdl steps
+
+steps:
+
+- bash: |
+    echo copy config to temp folder
+    cp dtdl/dtdl.json $(Agent.TempDirectory)/dtdl.json
+    cp dtdl/dtdlVNext.json $(Agent.TempDirectory)/dtdlVNext.json
+  displayName: 'Save DTDL Config to Temporary Location'
+
+- bash: |
+    echo copy digests to temp folder
+    cp dtdl/dtdl_digest.json $(Agent.TempDirectory)/dtdl_digest.json
+    cp dtdl/dtdlVNext_digest.json $(Agent.TempDirectory)/dtdlVNext_digest.json
+  displayName: 'Save DTDL Digests to Temporary Location'
+
+- bash: |
+    echo copy support to temp folder
+    cp dtdl/support/ObjectModelConventions.json $(Agent.TempDirectory)/ObjectModelConventions.json
+    cp dtdl/support/ParsingErrorMessages.json $(Agent.TempDirectory)/ParsingErrorMessages.json
+  displayName: 'Save DTDL Support to Temporary Location'
+
+- bash: |
+    create dtmis folder
+    mkdir $(Agent.TempDirectory)/dtmis
+    echo copy test DTMIs to temp folder
+    cp test-cases/dtmis/*.json $(Agent.TempDirectory)/dtmis
+  displayName: 'Save Test DTMIs to Temporary Location'
+
+- bash: |
+    create phrases folder
+    mkdir $(Agent.TempDirectory)/phrases
+    echo copy test phrases to temp folder
+    cp test-cases/phrases/*.json $(Agent.TempDirectory)/phrases
+  displayName: 'Save Test Phrases to Temporary Location'
+
+- bash: |
+    create doc-examples folder
+    mkdir $(Agent.TempDirectory)/doc-examples
+    echo copy doc examples to temp folder
+    cp test-cases/doc-examples/*.json $(Agent.TempDirectory)/doc-examples
+  displayName: 'Save Doc Examples to Temporary Location'
+
+- bash: |
+    create specification folder
+    mkdir $(Agent.TempDirectory)/specification
+    echo copy spec examples to temp folder
+    cp test-cases/specification/*.json $(Agent.TempDirectory)/specification
+  displayName: 'Save Spec Examples to Temporary Location'
+
+- bash: |
+    create generated folder
+    mkdir $(Agent.TempDirectory)/generated
+    echo copy generated tests to temp folder
+    cp test-cases/generated/*.json $(Agent.TempDirectory)/generated
+  displayName: 'Save Generated Tests to Temporary Location'

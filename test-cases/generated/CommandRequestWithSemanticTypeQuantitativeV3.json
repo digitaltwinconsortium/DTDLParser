@@ -1,0 +1,56 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setVelocity",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "Velocity"
+            ],
+            "name": "desiredVelocity",
+            "schema": "double",
+            "unit": "metrePerSecond"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aCommand;1",
+        "type": "Command",
+        "properties": {
+          "request": "dtmi:test:aCommand:_request;1"
+        }
+      },
+      {
+        "id": "dtmi:test:aCommand:_request;1",
+        "type": "CommandRequest",
+        "properties": {
+          "name": "desiredVelocity",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:Velocity"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:metrePerSecond"
+        }
+      }
+    ]
+  }
+}

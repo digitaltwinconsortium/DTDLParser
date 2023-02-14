@@ -1,0 +1,46 @@
+# Parser vNext shadow pipeline
+# Make DTDLParser vNext branch match DTDLParser main branch but for next language version
+
+resources:
+  pipelines:
+  - pipeline: parser-CI
+    source: digitaltwinconsortium.DTDLParser-CI
+    trigger: true
+
+trigger: none
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- checkout: self
+  fetchDepth: 0
+  persistCredentials: true
+
+- template: templates/common/Setup-steps.yml
+
+- template: templates/common/GitConfig-steps.yml
+
+- template: templates/common/CheckoutVNext-steps.yml
+
+- template: templates/SaveDtdl-steps.yml
+
+- template: templates/common/SnapToMain-steps.yml
+
+- template: templates/LoadDtdl-steps.yml
+
+- template: templates/GenerateParser-steps.yml
+  parameters:
+    DtdlModelParserLangConfig: dtdlVNext
+
+- template: templates/DevelopParser-steps.yml
+  parameters:
+    DtdlModelParserLangConfig: dtdlVNext
+
+- template: templates/common/GitCommit-steps.yml
+  parameters:
+    CommitMessage: 'Commit generated vNext files'
+    CommitFlags: '--force'

@@ -1,0 +1,50 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "Foo",
+          "displayName": [
+            {
+              "@language": "en-US",
+              "@value": "valid"
+            },
+            {
+              "@language": 3,
+              "@value": "invalid"
+            }
+          ],
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:langStringElementCodeNotString",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": null,
+        "Property": "displayName",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:langStringElementInvalidCode",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": null,
+        "Property": "displayName",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      }
+    ]
+  }
+}

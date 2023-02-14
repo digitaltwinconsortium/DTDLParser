@@ -1,0 +1,49 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1#bar",
+          "@type": [
+            "Telemetry",
+            "Layer"
+          ],
+          "name": "currentSpeed",
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:mismatchedLayers",
+        "PrimaryID": "dtmi:test:anInterface;1",
+        "SecondaryID": "dtmi:test:aTelemetry;1#bar",
+        "Property": "contents",
+        "Value": null
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:anInterface;1#foo",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6
+      }
+    ]
+  }
+}

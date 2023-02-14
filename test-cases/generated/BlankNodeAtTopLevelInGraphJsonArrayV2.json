@@ -1,0 +1,39 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@graph": [
+        {
+          "@context": "dtmi:dtdl:context;2",
+          "@id": "dtmi:test:anInterface;1",
+          "@type": "Interface"
+        },
+        {
+          "@context": "dtmi:dtdl:context;2",
+          "@type": "Interface"
+        },
+        {
+          "@context": "dtmi:dtdl:context;2",
+          "@id": "dtmi:test:aThirdInterface;1",
+          "@type": "Interface"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingContext",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 1,
+        "PrimaryEnd": 18
+      }
+    ]
+  }
+}
