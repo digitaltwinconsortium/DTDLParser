@@ -1,0 +1,63 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;1",
+    "dtmi:dtdl:extension:overriding;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:annotation;1",
+        "dtmi:dtdl:extension:overriding;1"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "Temperature"
+          ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "currentTempSchema",
+          "annotates": "currentTemp",
+          "overrides": "schema",
+          "schema": "string",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:matchingPropertyNotSupplemental",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__currentTempSchema;1",
+        "SecondaryID": "dtmi:test:Sensor:_contents:__currentTemp;1",
+        "Property": "annotates",
+        "AuxProperty": "name",
+        "Type": "Telemetry",
+        "Value": "currentTemp",
+        "Restriction": "schema",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 27,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 11,
+        "SecondaryEnd": 19
+      }
+    ]
+  }
+}

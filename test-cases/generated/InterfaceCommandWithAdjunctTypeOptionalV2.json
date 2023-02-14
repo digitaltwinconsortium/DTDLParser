@@ -1,0 +1,53 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:optionality;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;2",
+        "dtmi:dtdl:extension:optionality;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": [
+            "Command",
+            "Optional"
+          ],
+          "name": "setDistance",
+          "request": {
+            "name": "desiredDistance",
+            "schema": "double"
+          },
+          "response": {
+            "name": "reportedDistance",
+            "schema": "double"
+          },
+          "defaultValue": 3.14
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:aCommand;1",
+        "Type": "Optional",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:noTypeThatAllows",
+        "PrimaryID": "dtmi:test:aCommand;1",
+        "Property": "defaultValue"
+      }
+    ]
+  }
+}

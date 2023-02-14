@@ -1,0 +1,70 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:optionality;1"
+      ],
+      "@id": "dtmi:com:example:Robot;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Command",
+          "name": "move",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "Optional"
+            ],
+            "name": "movement",
+            "schema": {
+              "@type": "Object",
+              "fields": [
+                {
+                  "name": "direction",
+                  "schema": {
+                    "@type": "Enum",
+                    "valueSchema": "string",
+                    "enumValues": [
+                      {
+                        "name": "forward",
+                        "enumValue": "F"
+                      },
+                      {
+                        "name": "backward",
+                        "enumValue": "B"
+                      },
+                      {
+                        "name": "left",
+                        "enumValue": "L"
+                      },
+                      {
+                        "name": "right",
+                        "enumValue": "R"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "velocity",
+                  "schema": "integer"
+                },
+                {
+                  "name": "zigzag",
+                  "schema": "boolean"
+                }
+              ]
+            },
+            "defaultValue": {
+              "direction": "F",
+              "velocity": 3,
+              "zigzag": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

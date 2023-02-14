@@ -1,0 +1,33 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:optionality;1"
+      ],
+      "@id": "dtmi:com:example:FluxCapacitor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Command",
+          "name": "reboot",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "Optional"
+            ],
+            "name": "rebootTime",
+            "schema": "dateTime",
+            "defaultValue": "1985-10-26T08:24:00+00:00"
+          },
+          "response": {
+            "name": "scheduledTime",
+            "schema": "dateTime"
+          }
+        }
+      ]
+    }
+  ]
+}

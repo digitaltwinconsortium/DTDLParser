@@ -1,0 +1,77 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:optionality;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;2",
+        "dtmi:dtdl:extension:optionality;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setDistance",
+          "request": [
+            {
+              "@type": [
+                "CommandRequest",
+                "Optional"
+              ],
+              "name": "desiredDistance",
+              "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                  {
+                    "name": "near",
+                    "enumValue": "west"
+                  },
+                  {
+                    "name": "far",
+                    "enumValue": "east"
+                  }
+                ]
+              },
+              "defaultValue": "north"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:nonConformantPropertyValue",
+        "PrimaryID": "dtmi:test:aCommand:_request;1",
+        "SecondaryID": null,
+        "Property": "defaultValue",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 34,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 20,
+        "SecondaryEnd": 33
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:test:aCommand;1",
+        "SecondaryID": "dtmi:test:aCommand:_request;1",
+        "Property": "request",
+        "Value": "CommandRequest",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 13,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 14,
+        "SecondaryEnd": 35
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:initialization;1"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:initialization;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aProperty;1",
+          "@type": [
+            "Property",
+            "Initialized"
+          ],
+          "name": "someProp",
+          "schema": {
+            "@type": "Enum",
+            "valueSchema": "integer",
+            "enumValues": [
+              {
+                "name": "near",
+                "enumValue": 1
+              },
+              {
+                "name": "far",
+                "enumValue": 2
+              }
+            ]
+          },
+          "initialValue": 2
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aProperty;1",
+        "type": "Property",
+        "properties": {
+          "name": "someProp",
+          "schema": "dtmi:test:aProperty:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:initialization:v1:Initialized"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:initialization:v1:Initialized:initialValue": 2
+        }
+      },
+      {
+        "id": "dtmi:test:aProperty:_schema;1",
+        "type": "Enum",
+        "properties": {
+          "valueSchema": "dtmi:dtdl:instance:Schema:integer;2",
+          "enumValues": [
+            "dtmi:test:aProperty:_schema:_enumValues:__near;1",
+            "dtmi:test:aProperty:_schema:_enumValues:__far;1"
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:aProperty:_schema:_enumValues:__near;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": 1
+        }
+      },
+      {
+        "id": "dtmi:test:aProperty:_schema:_enumValues:__far;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": 2
+        }
+      }
+    ]
+  }
+}

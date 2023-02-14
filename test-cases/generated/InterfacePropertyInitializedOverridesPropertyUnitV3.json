@@ -1,0 +1,60 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;1",
+    "dtmi:dtdl:extension:overriding;1",
+    "dtmi:dtdl:extension:initialization;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:annotation;1",
+        "dtmi:dtdl:extension:overriding;1",
+        "dtmi:dtdl:extension:initialization;1"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Temperature"
+          ],
+          "name": "targetTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override",
+            "Initialized"
+          ],
+          "name": "targetTempUnit",
+          "annotates": "targetTemp",
+          "overrides": "unit",
+          "schema": "TemperatureUnit",
+          "initialValue": "degreeCelsius",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:disallowedCocotype",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__targetTempUnit;1",
+        "Type": "Override",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 23
+      }
+    ]
+  }
+}

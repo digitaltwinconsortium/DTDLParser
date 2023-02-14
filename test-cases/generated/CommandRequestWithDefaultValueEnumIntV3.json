@@ -1,0 +1,92 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:optionality;1"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:optionality;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setDistance",
+          "request": [
+            {
+              "@type": [
+                "CommandRequest",
+                "Optional"
+              ],
+              "name": "desiredDistance",
+              "schema": {
+                "@type": "Enum",
+                "valueSchema": "integer",
+                "enumValues": [
+                  {
+                    "name": "near",
+                    "enumValue": 1
+                  },
+                  {
+                    "name": "far",
+                    "enumValue": 2
+                  }
+                ]
+              },
+              "defaultValue": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aCommand:_request;1",
+        "type": "CommandRequest",
+        "properties": {
+          "name": "desiredDistance",
+          "schema": "dtmi:test:aCommand:_request:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:optionality:v1:Optional"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:optionality:v1:Optional:defaultValue": 2
+        }
+      },
+      {
+        "id": "dtmi:test:aCommand:_request:_schema;1",
+        "type": "Enum",
+        "properties": {
+          "valueSchema": "dtmi:dtdl:instance:Schema:integer;2",
+          "enumValues": [
+            "dtmi:test:aCommand:_request:_schema:_enumValues:__near;1",
+            "dtmi:test:aCommand:_request:_schema:_enumValues:__far;1"
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:aCommand:_request:_schema:_enumValues:__near;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": 1
+        }
+      },
+      {
+        "id": "dtmi:test:aCommand:_request:_schema:_enumValues:__far;1",
+        "type": "EnumValue",
+        "properties": {
+          "enumValue": 2
+        }
+      }
+    ]
+  }
+}

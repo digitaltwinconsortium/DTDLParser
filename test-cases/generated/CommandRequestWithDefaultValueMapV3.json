@@ -1,0 +1,92 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:optionality;1"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:optionality;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setDistance",
+          "request": [
+            {
+              "@type": [
+                "CommandRequest",
+                "Optional"
+              ],
+              "name": "desiredDistance",
+              "schema": {
+                "@type": "Map",
+                "mapKey": {
+                  "name": "myMapKey",
+                  "schema": "string"
+                },
+                "mapValue": {
+                  "name": "myMapValue",
+                  "schema": "integer"
+                }
+              },
+              "defaultValue": {
+                "x": 27,
+                "y": 44,
+                "z": 16
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aCommand:_request;1",
+        "type": "CommandRequest",
+        "properties": {
+          "name": "desiredDistance",
+          "schema": "dtmi:test:aCommand:_request:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:optionality:v1:Optional"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:optionality:v1:Optional:defaultValue": {
+            "x": 27,
+            "y": 44,
+            "z": 16
+          }
+        }
+      },
+      {
+        "id": "dtmi:test:aCommand:_request:_schema;1",
+        "type": "Map",
+        "properties": {
+          "mapKey": "dtmi:test:aCommand:_request:_schema:_mapKey;1",
+          "mapValue": "dtmi:test:aCommand:_request:_schema:_mapValue;1"
+        }
+      },
+      {
+        "id": "dtmi:test:aCommand:_request:_schema:_mapKey;1",
+        "type": "MapKey",
+        "name": "myMapKey",
+        "schema": "dtmi:dtdl:instance:Schema:string;2"
+      },
+      {
+        "id": "dtmi:test:aCommand:_request:_schema:_mapValue;1",
+        "type": "MapValue",
+        "name": "myMapValue",
+        "schema": "dtmi:dtdl:instance:Schema:integer;2"
+      }
+    ]
+  }
+}

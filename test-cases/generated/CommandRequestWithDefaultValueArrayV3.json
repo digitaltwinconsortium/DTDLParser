@@ -1,0 +1,80 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:optionality;1"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:optionality;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aCommand;1",
+          "@type": "Command",
+          "name": "setDistance",
+          "request": [
+            {
+              "@type": [
+                "CommandRequest",
+                "Optional"
+              ],
+              "name": "desiredDistance",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "integer"
+              },
+              "defaultValue": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aCommand:_request;1",
+        "type": "CommandRequest",
+        "properties": {
+          "name": "desiredDistance",
+          "schema": "dtmi:test:aCommand:_request:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:optionality:v1:Optional"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:optionality:v1:Optional:defaultValue": [
+            1,
+            1,
+            2,
+            3,
+            5,
+            8,
+            13
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:aCommand:_request:_schema;1",
+        "type": "Array",
+        "properties": {
+          "elementSchema": "dtmi:dtdl:instance:Schema:integer;2"
+        }
+      }
+    ]
+  }
+}
