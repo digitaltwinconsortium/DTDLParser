@@ -93,7 +93,7 @@ This validation is performed via `ValidateInstance(string)` or `ValidateInstance
 
 For further details, see the [samples README][samples_readme].
 
-## :woman_judge: License
+## :lock: License
 
 This project is licensed under the MIT license. See [LICENSE](LICENSE) for more information.
 
