@@ -31,7 +31,7 @@ jobs:
 
       - name: Push Parser
         if: startsWith(github.ref, 'refs/heads/release/')
-        run: dotnet nuget push ./_nupkgs/* --api-key${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push ./_nupkgs/* --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Annotate Versions
         run: |
