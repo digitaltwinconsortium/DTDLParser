@@ -15,8 +15,8 @@
     <Copyright>© Digital Twin Consortium and contributors. All rights reserved.</Copyright>
     <PackageId>DTDLParser</PackageId>
     <Product>DTDLParser</Product>
-    <RepositoryUrl>https://github.com/Azure/DTDL-parser-proto</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/Azure/DTDL-parser-proto</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/digitaltwinconsortium/DTDLParser</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/digitaltwinconsortium/DTDLParser</PackageProjectUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <DebugType>embedded</DebugType>
@@ -28,7 +28,9 @@
     <RootNamespace>DTDLParser</RootNamespace>
     <Authors>Digital Twin Consortium</Authors>
     <Company>Digital Twin Consortium</Company>
-    <Description>Digital Twins Definition Language model parser</Description>
+    <Description>Digital Twins Definition Language model parser for .NET</Description>
+    <PackageReleaseNotes>First public preview API. Supports DTDLv2 and DTDLv3-Preview. https://aka.ms/dtdl</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -38,6 +40,13 @@
 
   <ItemGroup>
     <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
