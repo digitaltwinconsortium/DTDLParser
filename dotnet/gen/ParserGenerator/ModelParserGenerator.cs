@@ -1,6 +1,7 @@
 ﻿namespace DTDLParser
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
 
     /// <summary>
@@ -11,6 +12,7 @@
         private readonly string baseClassName;
         private readonly bool areDynamicExtensionsSupported;
         private readonly bool isLayeringSupported;
+        private readonly string tsFileName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelParserGenerator"/> class.
@@ -18,11 +20,13 @@
         /// <param name="baseName">The base name for the parser's object model.</param>
         /// <param name="areDynamicExtensionsSupported">True if dynamic extensions are supported by any recognized language version.</param>
         /// <param name="isLayeringSupported">True if multiple model layers are supported by any recognized language version or extension.</param>
-        public ModelParserGenerator(string baseName, bool areDynamicExtensionsSupported, bool isLayeringSupported)
+        /// <param name="tsFileName">Name of the TypeScript file that defines the JSON objects returned by ParseToJson().</param>
+        public ModelParserGenerator(string baseName, bool areDynamicExtensionsSupported, bool isLayeringSupported, string tsFileName)
         {
             this.baseClassName = NameFormatter.FormatNameAsClass(baseName);
             this.areDynamicExtensionsSupported = areDynamicExtensionsSupported;
             this.isLayeringSupported = isLayeringSupported;
+            this.tsFileName = Path.GetFileName(tsFileName);
         }
 
         /// <inheritdoc/>
@@ -179,6 +183,7 @@
         {
             this.GenerateParseMethod(parserClass, isAsync);
             this.GenerateParseSingletonMethod(parserClass, isAsync);
+            this.GenerateParseToJsonMethod(parserClass, isAsync);
             this.GenerateParseInternalMethod(parserClass, isAsync);
             this.GenerateParseAndResolveAsNeededMethod(parserClass, isAsync);
             this.GenerateParseTextsIntoModelMethod(parserClass, isAsync);
@@ -190,8 +195,7 @@
             CsMethod method = parserClass.Method(Access.Public, Novelty.Normal, this.GetReturnType($"IReadOnlyDictionary<{ParserGeneratorValues.IdentifierType}, {this.baseClassName}>", isAsync), methodName, asynchrony: isAsync ? Asynchrony.Async : Asynchrony.Sync);
             method.Summary($"{(isAsync ? "Asynchronously parse" : "Parse")} a collection of JSON text strings as DTDL models.");
 
-            string enumTypeName = this.GetFullName("I{0}Enumerable", isAsync);
-            method.Param($"{enumTypeName}<string>", "jsonTexts", "The JSON text strings to parse as DTDL models.");
+            method.Param($"{this.GetFullName("I{0}Enumerable", isAsync)}<string>", "jsonTexts", "The JSON text strings to parse as DTDL models.");
             method.Param("DtdlParseLocator", "dtdlLocator", "An optional <see cref=\"DtdlParseLocator\"/> delegate for converting a parse index and line number into a source name and line number.", "null");
 
             if (isAsync)
@@ -240,6 +244,59 @@
             {
                 method.Body.Line("return this.Parse(this.StringToEnumerable(jsonText), dtdlLocator);");
             }
+        }
+
+        private void GenerateParseToJsonMethod(CsClass parserClass, bool isAsync)
+        {
+            string methodName = this.GetFullName("ParseToJson", isAsync);
+            CsMethod method = parserClass.Method(Access.Public, Novelty.Normal, this.GetReturnType("string", isAsync), methodName, asynchrony: isAsync ? Asynchrony.Async : Asynchrony.Sync);
+            method.Summary($"{(isAsync ? "Asynchronously parse" : "Parse")} a collection of JSON text strings as DTDL models and return the result as a JSON object model.");
+            method.Param($"{this.GetFullName("I{0}Enumerable", isAsync)}<string>", "jsonTexts", "The JSON text strings to parse as DTDL models.");
+            method.Returns($"{(isAsync ? "A <c>Task</c> object whose <c>Result</c> property is a" : "A")} string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with {this.tsFileName}.");
+
+            CsTry tryParse = method.Body.Try();
+            tryParse.Line(this.CallMethod($"IReadOnlyDictionary<{ParserGeneratorValues.IdentifierType}, {this.baseClassName}> model", "this.Parse", "jsonTexts", isAsync));
+            tryParse.Break();
+            CsScope parseScope = this.GenerateNewJsonWriter(tryParse, "return {0};");
+            parseScope.Line("jsonWriter.WriteStartObject();").Break();
+            CsForEach forEachKvp = parseScope.ForEach($"KeyValuePair<{ParserGeneratorValues.IdentifierType}, {this.baseClassName}> kvp in model");
+            forEachKvp
+                .Line("jsonWriter.WritePropertyName(kvp.Key.ToString());")
+                .Line("jsonWriter.WriteStartObject();")
+                .Line("kvp.Value.WriteToJson(jsonWriter, includeClassId: true);")
+                .Line("jsonWriter.WriteEndObject();");
+            parseScope.Break();
+            parseScope
+                .Line("jsonWriter.WriteEndObject();")
+                .Break()
+                .Line("jsonWriter.Flush();");
+
+            CsCatch catchPex = tryParse.Catch("ParsingException pex");
+            CsScope pexScope = this.GenerateNewJsonWriter(catchPex, "throw new Exception({0});");
+            pexScope
+                .Line("pex.WriteToJson(jsonWriter);")
+                .Line("jsonWriter.Flush();");
+
+            CsCatch catchRex = tryParse.Catch("ResolutionException rex");
+            CsScope rexScope = this.GenerateNewJsonWriter(catchRex, "throw new Exception({0});");
+            rexScope
+                .Line("rex.WriteToJson(jsonWriter);")
+                .Line("jsonWriter.Flush();");
+
+            tryParse.Catch("Exception")
+                .Line("throw;");
+        }
+
+        private CsScope GenerateNewJsonWriter(CsScope scope, string resultFormat)
+        {
+            CsUsing usingMemStream = scope.Using("MemoryStream memStream = new MemoryStream()");
+            usingMemStream.Line("JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };");
+
+            CsUsing usingJsonWriter = usingMemStream.Using("Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions)");
+
+            usingMemStream.Line(string.Format(resultFormat, "Encoding.UTF8.GetString(memStream.ToArray())"));
+
+            return usingJsonWriter;
         }
 
         private void GenerateParseInternalMethod(CsClass parserClass, bool isAsync)

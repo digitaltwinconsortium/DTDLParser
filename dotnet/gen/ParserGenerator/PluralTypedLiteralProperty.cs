@@ -1,6 +1,7 @@
 ﻿namespace DTDLParser
 {
     using System;
+    using System.CodeDom.Compiler;
     using System.Collections.Generic;
 
     /// <summary>
@@ -69,6 +70,24 @@
             if (!this.PropertyDigest.IsInherited)
             {
                 sorted.Line($"hashCode = (hashCode * 131) + Helpers.GetListHashCode(this.{this.ObversePropertyName});");
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddJsonWritingCode(CsScope scope)
+        {
+            if (!this.PropertyDigest.IsInherited)
+            {
+                throw new Exception("write-to-JSON logic for propertyDigest.IsPlural typed literals not written yet");
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddTypeScriptType(IndentedTextWriter indentedTextWriter)
+        {
+            if (!this.PropertyDigest.IsInherited)
+            {
+                throw new Exception("TypeScript type logic for propertyDigest.IsPlural typed literals not written yet");
             }
         }
 

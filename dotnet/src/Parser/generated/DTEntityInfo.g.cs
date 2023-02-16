@@ -6,6 +6,7 @@ namespace DTDLParser.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -2550,6 +2551,89 @@ namespace DTDLParser.Models
         /// <param name="globalized">True if the element has been globalized.</param>
         internal virtual void RecordSourceAsAppropriate(string layer, JsonLdElement elt, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, bool atRoot, bool globalized)
         {
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the DTDL element represented by an object of this class.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        /// <param name="includeClassId">True if the mothed should add a ClassId property to the JSON object.</param>
+        internal virtual void WriteToJson(Utf8JsonWriter jsonWriter, bool includeClassId)
+        {
+            jsonWriter.WritePropertyName("SupplementalTypes");
+            jsonWriter.WriteStartArray();
+            foreach (Dtmi supplementalType in SupplementalTypes)
+            {
+                jsonWriter.WriteStringValue(supplementalType.ToString());
+            }
+
+            jsonWriter.WriteEndArray();
+
+            jsonWriter.WritePropertyName("SupplementalProperties");
+            jsonWriter.WriteStartObject();
+            foreach (KeyValuePair<string, object> supplementalProperty in SupplementalProperties)
+            {
+                jsonWriter.WritePropertyName(supplementalProperty.Key);
+                Helpers.WriteToJson(jsonWriter, supplementalProperty.Value);
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("UndefinedTypes");
+            jsonWriter.WriteStartArray();
+            foreach (string undefinedType in UndefinedTypes)
+            {
+                jsonWriter.WriteStringValue(undefinedType);
+            }
+
+            jsonWriter.WriteEndArray();
+
+            jsonWriter.WritePropertyName("UndefinedProperties");
+            jsonWriter.WriteStartObject();
+            foreach (KeyValuePair<string, JsonElement> undefinedProperty in UndefinedProperties)
+            {
+                jsonWriter.WritePropertyName(undefinedProperty.Key);
+                undefinedProperty.Value.WriteTo(jsonWriter);
+            }
+
+            jsonWriter.WriteEndObject();
+
+            if (includeClassId)
+            {
+                jsonWriter.WriteString("ClassId", $"dtmi:dtdl:class:Entity;{this.LanguageMajorVersion}");
+            }
+
+            jsonWriter.WriteString("comment", this.Comment);
+
+            jsonWriter.WritePropertyName("description");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, string> descriptionPair in this.Description)
+            {
+                jsonWriter.WriteString(descriptionPair.Key, descriptionPair.Value);
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("displayName");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, string> displayNamePair in this.DisplayName)
+            {
+                jsonWriter.WriteString(displayNamePair.Key, displayNamePair.Value);
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WriteNumber("languageMajorVersion", this.LanguageMajorVersion);
+
+            jsonWriter.WriteString("Id", this.Id.ToString());
+
+            jsonWriter.WriteString("ChildOf", this.ChildOf?.ToString());
+
+            jsonWriter.WriteString("DefinedIn", this.DefinedIn?.ToString());
+
+            jsonWriter.WriteString("EntityKind", this.EntityKind.ToString());
         }
 
         private void ApplyTransformationsV2(Model model, ParsingErrorCollection parsingErrorCollection)

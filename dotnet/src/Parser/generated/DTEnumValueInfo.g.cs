@@ -6,6 +6,7 @@ namespace DTDLParser.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -279,6 +280,13 @@ namespace DTDLParser.Models
             return this.EntityKind == other?.EntityKind && this.DeepEquals((DTEnumValueInfo)other);
         }
 
+        /// <inheritdoc/>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object otherObj)
+        {
+            return otherObj is DTEnumValueInfo other && this.Equals(other);
+        }
+
         /// <summary>
         /// Compares to another <c>DTEnumValueInfo</c> object.
         /// </summary>
@@ -303,13 +311,6 @@ namespace DTDLParser.Models
         public override bool Equals(DTEntityInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.Equals((DTEnumValueInfo)other);
-        }
-
-        /// <inheritdoc/>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object otherObj)
-        {
-            return otherObj is DTEnumValueInfo other && this.Equals(other);
         }
 
         /// <inheritdoc/>
@@ -2553,6 +2554,42 @@ namespace DTDLParser.Models
         /// <param name="globalized">True if the element has been globalized.</param>
         internal override void RecordSourceAsAppropriate(string layer, JsonLdElement elt, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, bool atRoot, bool globalized)
         {
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the DTDL element represented by an object of this class.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        /// <param name="includeClassId">True if the mothed should add a ClassId property to the JSON object.</param>
+        internal override void WriteToJson(Utf8JsonWriter jsonWriter, bool includeClassId)
+        {
+            base.WriteToJson(jsonWriter, includeClassId: false);
+
+            if (includeClassId)
+            {
+                jsonWriter.WriteString("ClassId", $"dtmi:dtdl:class:EnumValue;{this.LanguageMajorVersion}");
+            }
+
+            if (this.EnumValue == null)
+            {
+                jsonWriter.WriteNull("enumValue");
+            }
+            else
+            {
+                Type enumValueType = this.EnumValue.GetType();
+                if (enumValueType == typeof(string))
+                {
+                    jsonWriter.WriteString("enumValue", (string)this.EnumValue);
+                }
+                else if (enumValueType == typeof(int))
+                {
+                    jsonWriter.WriteNumber("enumValue", (int)this.EnumValue);
+                }
+                else if (enumValueType == typeof(bool))
+                {
+                    jsonWriter.WriteBoolean("enumValue", (bool)this.EnumValue);
+                }
+            }
         }
 
         private bool DoesInstanceMatchV2(JsonElement instanceElt, string instanceName)

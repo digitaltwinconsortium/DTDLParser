@@ -1,6 +1,7 @@
 ﻿namespace DTDLParser
 {
     using System;
+    using System.CodeDom.Compiler;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -76,6 +77,63 @@
                 else
                 {
                     sorted.Line($"hashCode = (hashCode * 131) + this.{this.ObversePropertyName}.GetHashCode();");
+                }
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddJsonWritingCode(CsScope scope)
+        {
+            if (!this.PropertyDigest.IsInherited)
+            {
+                switch (this.Datatype)
+                {
+                    case "string":
+                        scope.Line($"jsonWriter.WriteString(\"{this.PropertyName}\", this.{this.ObversePropertyName});");
+                        break;
+                    case "integer":
+                        if (this.LiteralType.CanBeNull(this.PropertyDigest.IsOptional))
+                        {
+                            scope
+                                .If($"this.{this.ObversePropertyName} != null")
+                                    .Line($"jsonWriter.WriteNumber(\"{this.PropertyName}\", ({ParserGeneratorValues.ObverseTypeInteger})this.{this.ObversePropertyName});")
+                                .Else()
+                                    .Line($"jsonWriter.WriteNull(\"{this.PropertyName}\");");
+                        }
+                        else
+                        {
+                            scope.Line($"jsonWriter.WriteNumber(\"{this.PropertyName}\", this.{this.ObversePropertyName});");
+                        }
+
+                        break;
+                    case "boolean":
+                        scope.Line($"jsonWriter.WriteBoolean(\"{this.PropertyName}\", this.{this.ObversePropertyName});");
+                        break;
+                    default:
+                        throw new Exception($"parsing logic for {this.Datatype} type not written yet");
+                }
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddTypeScriptType(IndentedTextWriter indentedTextWriter)
+        {
+            if (!this.PropertyDigest.IsInherited)
+            {
+                string optionalityIndicator = this.PropertyDigest.IsOptional ? "?" : string.Empty;
+                switch (this.Datatype)
+                {
+                    case "string":
+                        indentedTextWriter.WriteLine($"{this.PropertyName}{optionalityIndicator}: string;");
+                        break;
+                    case "integer":
+                        indentedTextWriter.WriteLine($"{this.PropertyName}{optionalityIndicator}: number;");
+                        break;
+                    case "boolean":
+                        indentedTextWriter.WriteLine($"{this.PropertyName}: boolean;");
+                        break;
+                    default:
+                        throw new Exception($"TypeScript type logic for {this.Datatype} type not written yet");
                 }
             }
         }

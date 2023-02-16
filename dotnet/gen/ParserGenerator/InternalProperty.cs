@@ -1,5 +1,6 @@
 ﻿namespace DTDLParser
 {
+    using System.CodeDom.Compiler;
     using System.Collections.Generic;
 
     /// <summary>
@@ -13,6 +14,7 @@
         private string valueDesc;
         private bool isRelevantToIdentity;
         private bool isSettable;
+        private bool isNullable;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InternalProperty"/> class.
@@ -26,7 +28,8 @@
         /// <param name="valueDesc">Text description of property value.</param>
         /// <param name="isRelevantToIdentity">True if the property factors into equivalence and hash calculation.</param>
         /// <param name="isSettable">True if the property can be set outside the constructor.</param>
-        public InternalProperty(string propertyType, string concretePropertyType, string obversePropertyName, Access access, string value, string description, string valueDesc, bool isRelevantToIdentity, bool isSettable)
+        /// <param name="isNullable">True if the property can have a value of null.</param>
+        public InternalProperty(string propertyType, string concretePropertyType, string obversePropertyName, Access access, string value, string description, string valueDesc, bool isRelevantToIdentity, bool isSettable, bool isNullable)
             : base(null, obversePropertyName, new Dictionary<int, string>(), new MaterialPropertyDigest(), null, new Dictionary<int, List<IPropertyRestriction>>())
         {
             this.PropertyType = propertyType;
@@ -38,6 +41,7 @@
             this.valueDesc = valueDesc;
             this.isRelevantToIdentity = isRelevantToIdentity;
             this.isSettable = isSettable;
+            this.isNullable = isNullable;
         }
 
         /// <inheritdoc/>
@@ -94,6 +98,26 @@
             if (this.isRelevantToIdentity)
             {
                 sorted.Line($"hashCode = (hashCode * 131) + this.{this.ObversePropertyName}.GetHashCode();");
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddJsonWritingCode(CsScope scope)
+        {
+            if (!this.PropertyDigest.IsInherited && this.access == Access.Public)
+            {
+                string dot = this.isNullable ? "?." : ".";
+                scope.Line($"jsonWriter.WriteString(\"{this.ObversePropertyName}\", this.{this.ObversePropertyName}{dot}ToString());");
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddTypeScriptType(IndentedTextWriter indentedTextWriter)
+        {
+            if (!this.PropertyDigest.IsInherited && this.access == Access.Public)
+            {
+                string optionalityIndicator = this.isNullable ? "?" : string.Empty;
+                indentedTextWriter.WriteLine($"{this.ObversePropertyName}{optionalityIndicator}: string;");
             }
         }
 

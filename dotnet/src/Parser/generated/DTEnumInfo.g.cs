@@ -6,6 +6,7 @@ namespace DTDLParser.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -2541,6 +2542,33 @@ namespace DTDLParser.Models
         /// <param name="globalized">True if the element has been globalized.</param>
         internal override void RecordSourceAsAppropriate(string layer, JsonLdElement elt, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, bool atRoot, bool globalized)
         {
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the DTDL element represented by an object of this class.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        /// <param name="includeClassId">True if the mothed should add a ClassId property to the JSON object.</param>
+        internal override void WriteToJson(Utf8JsonWriter jsonWriter, bool includeClassId)
+        {
+            base.WriteToJson(jsonWriter, includeClassId: false);
+
+            if (includeClassId)
+            {
+                jsonWriter.WriteString("ClassId", $"dtmi:dtdl:class:Enum;{this.LanguageMajorVersion}");
+            }
+
+            jsonWriter.WritePropertyName("enumValues");
+            jsonWriter.WriteStartArray();
+
+            foreach (DTEnumValueInfo enumValuesElt in this.EnumValues)
+            {
+                jsonWriter.WriteStringValue(enumValuesElt.Id.ToString());
+            }
+
+            jsonWriter.WriteEndArray();
+
+            jsonWriter.WriteString("valueSchema", this.ValueSchema?.Id?.ToString());
         }
 
         private bool DoesInstanceMatchV2(JsonElement instanceElt, string instanceName)

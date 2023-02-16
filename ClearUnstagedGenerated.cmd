@@ -14,6 +14,9 @@ git restore dotnet\src\Remodel\generated
 git clean -f dotnet\src\Parser\generated
 git restore dotnet\src\Parser\generated
 
+git clean -f javascript\generated
+git restore javascript\generated
+
 git clean -f samples\projects
 git restore samples\projects
 

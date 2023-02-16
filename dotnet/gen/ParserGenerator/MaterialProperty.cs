@@ -1,5 +1,6 @@
 ﻿namespace DTDLParser
 {
+    using System.CodeDom.Compiler;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -149,6 +150,18 @@
         /// </summary>
         /// <param name="sorted">A <see cref="CsSorted"/> object to which to add the code line.</param>
         public abstract void AddHashLine(CsSorted sorted);
+
+        /// <summary>
+        /// Generate code for the WriteToJson method of the material class that has this property.
+        /// </summary>
+        /// <param name="scope">A <see cref="CsScope"/> object to which to add the code line.</param>
+        public abstract void AddJsonWritingCode(CsScope scope);
+
+        /// <summary>
+        /// Generate a TypeScript property type line for this property.
+        /// </summary>
+        /// <param name="indentedTextWriter">An <see cref="IndentedTextWriter"/> object to which to add the type line.</param>
+        public abstract void AddTypeScriptType(IndentedTextWriter indentedTextWriter);
 
         /// <summary>
         /// Generate appropriate members for the material class that has this property.

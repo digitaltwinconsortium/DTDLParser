@@ -1,6 +1,7 @@
 digraph {
   {
     "BuildCodeGenerator" [shape=cylinder style=filled fillcolor=chartreuse]
+    "BuildJsInterop" [shape=cylinder style=filled fillcolor=chartreuse]
     "BuildMetaDigest" [shape=cylinder style=filled fillcolor=chartreuse]
     "BuildParser" [shape=cylinder style=filled fillcolor=chartreuse]
     "BuildParserGen" [shape=cylinder style=filled fillcolor=chartreuse]
@@ -15,6 +16,7 @@ digraph {
     "GenerateParser" [shape=cylinder style=filled fillcolor=chartreuse]
     "GenerateParserTests" [shape=cylinder style=filled fillcolor=chartreuse]
     "GenerateRemodelTool" [shape=cylinder style=filled fillcolor=chartreuse]
+    "PackJsInterop" [shape=cylinder style=filled fillcolor=chartreuse]
     "PackParser" [shape=cylinder style=filled fillcolor=chartreuse]
     "PackRemodelTool" [shape=cylinder style=filled fillcolor=chartreuse]
     "RunDocFx" [shape=cylinder style=filled fillcolor=chartreuse]
@@ -22,6 +24,8 @@ digraph {
     "TestSamples" [shape=cylinder style=filled fillcolor=chartreuse]
     "dotnet/gen/CodeGenerator" [shape=folder style=filled fillcolor=chartreuse]
     "CodeGenerator.dll" [shape=ellipse style=filled fillcolor=chartreuse]
+    "dotnet/src/JsInterop" [shape=folder style=filled fillcolor=chartreuse]
+    "DTDLJsInterop.dll" [shape=ellipse style=filled fillcolor=chartreuse]
     "dotnet/gen/MetamodelDigest" [shape=folder style=filled fillcolor=chartreuse]
     "MetamodelDigest.dll" [shape=ellipse style=filled fillcolor=chartreuse]
     "dotnet/src/Parser" [shape=folder style=filled fillcolor=chartreuse]
@@ -57,14 +61,16 @@ digraph {
     "test-cases/generated" [shape=box style=filled fillcolor=chartreuse]
     "test-cases/doc-examples" [shape=box style=filled fillcolor=chartreuse]
     "test-cases/specification" [shape=box style=filled fillcolor=chartreuse]
+    "DTDLJsInterop.*.nupkg" [shape=box3d style=filled fillcolor=chartreuse]
     "DTDLRemodel.*.nupkg" [shape=box3d style=filled fillcolor=chartreuse]
     "docfx.json" [shape=box style=filled fillcolor=chartreuse]
-    "api-docs/dotnet/_site" [shape=hexagon style=filled fillcolor=chartreuse]
     "test-cases/dtmis" [shape=box style=filled fillcolor=chartreuse]
     "test-cases/phrases" [shape=box style=filled fillcolor=chartreuse]
   }
   "dotnet/gen/CodeGenerator" -> "BuildCodeGenerator"
   "BuildCodeGenerator" -> "CodeGenerator.dll"
+  "dotnet/src/JsInterop" -> "BuildJsInterop"
+  "BuildJsInterop" -> "DTDLJsInterop.dll"
   "dotnet/gen/MetamodelDigest" -> "BuildMetaDigest"
   "BuildMetaDigest" -> "MetamodelDigest.dll"
   "dotnet/src/Parser" -> "BuildParser"
@@ -123,6 +129,8 @@ digraph {
   "dtdl_digest.json" -> "GenerateRemodelTool"
   "ObjectModelConventions.json" -> "GenerateRemodelTool"
   "GenerateRemodelTool" -> "dotnet/src/Remodel/generated"
+  "DTDLJsInterop.dll" -> "PackJsInterop"
+  "PackJsInterop" -> "DTDLJsInterop.*.nupkg"
   "DTDLParser.dll" -> "PackParser"
   "PackParser" -> "DTDLParser.*.nupkg"
   "DTDLRemodel.exe" -> "PackRemodelTool"
@@ -130,7 +138,6 @@ digraph {
   "dotnet/src/Parser" -> "RunDocFx"
   "dotnet/src/Parser/generated" -> "RunDocFx"
   "docfx.json" -> "RunDocFx"
-  "RunDocFx" -> "api-docs/dotnet/_site"
   "DtmiUnitTest.dll" -> "TestParser"
   "test-cases/dtmis" -> "TestParser"
   "ResultFormatterUnitTest.dll" -> "TestParser"

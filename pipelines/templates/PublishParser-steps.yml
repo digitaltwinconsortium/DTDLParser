@@ -18,6 +18,14 @@ steps:
   artifact: ${{ parameters.DotNetArtifact }}_Tests
   displayName: 'Publish Codegenned Unit Test Code'
 
+- publish: $(System.DefaultWorkingDirectory)/javascript/generated
+  artifact: ${{ parameters.DotNetArtifact }}_JS
+  displayName: 'Publish Codegenned JavaScript files'
+
 - publish: $(System.DefaultWorkingDirectory)/samples/projects
   artifact: ${{ parameters.DotNetArtifact }}_Samples
   displayName: 'Publish Sample Projects'
+
+- publish: $(System.DefaultWorkingDirectory)/dotnet/JsonOm.ts
+  artifact: ${{ parameters.DotNetArtifact }}_JsonOm
+  displayName: 'Publish JSON Object Model TypeScript Types'

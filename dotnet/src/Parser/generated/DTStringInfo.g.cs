@@ -6,6 +6,7 @@ namespace DTDLParser.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -263,13 +264,6 @@ namespace DTDLParser.Models
             return this.EntityKind == other?.EntityKind && this.DeepEquals((DTStringInfo)other);
         }
 
-        /// <inheritdoc/>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object otherObj)
-        {
-            return otherObj is DTStringInfo other && this.Equals(other);
-        }
-
         /// <summary>
         /// Compares to another <c>DTStringInfo</c> object.
         /// </summary>
@@ -281,6 +275,13 @@ namespace DTDLParser.Models
                 && Helpers.AreDictionariesIdOrLiteralEqual(this.supplementalProperties, other.supplementalProperties)
                 && this.supplementalTypeIds.SetEquals(other.supplementalTypeIds)
                 ;
+        }
+
+        /// <inheritdoc/>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object otherObj)
+        {
+            return otherObj is DTStringInfo other && this.Equals(other);
         }
 
         /// <inheritdoc/>
@@ -2205,6 +2206,21 @@ namespace DTDLParser.Models
         /// <param name="globalized">True if the element has been globalized.</param>
         internal override void RecordSourceAsAppropriate(string layer, JsonLdElement elt, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, bool atRoot, bool globalized)
         {
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the DTDL element represented by an object of this class.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        /// <param name="includeClassId">True if the mothed should add a ClassId property to the JSON object.</param>
+        internal override void WriteToJson(Utf8JsonWriter jsonWriter, bool includeClassId)
+        {
+            base.WriteToJson(jsonWriter, includeClassId: false);
+
+            if (includeClassId)
+            {
+                jsonWriter.WriteString("ClassId", $"dtmi:dtdl:class:String;{this.LanguageMajorVersion}");
+            }
         }
 
         private bool DoesInstanceMatchV2(JsonElement instanceElt, string instanceName)
