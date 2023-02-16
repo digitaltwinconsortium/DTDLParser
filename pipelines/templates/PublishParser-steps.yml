@@ -25,7 +25,3 @@ steps:
 - publish: $(System.DefaultWorkingDirectory)/samples/projects
   artifact: ${{ parameters.DotNetArtifact }}_Samples
   displayName: 'Publish Sample Projects'
-
-- publish: $(System.DefaultWorkingDirectory)/dotnet/JsonOm.ts
-  artifact: ${{ parameters.DotNetArtifact }}_JsonOm
-  displayName: 'Publish JSON Object Model TypeScript Types'
