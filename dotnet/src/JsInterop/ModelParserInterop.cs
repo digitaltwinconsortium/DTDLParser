@@ -15,7 +15,7 @@ public static partial class ModelParserInterop
 
     static ModelParserInterop()
     {
-        modelParser = new ModelParser(new ParsingOptions { DtmiResolver = Resolve, DtmiResolverAsync = ResolveAsync });
+        modelParser = new ModelParser();
     }
 
     /// <summary>
@@ -71,16 +71,6 @@ public static partial class ModelParserInterop
     public static async Task<string> ParseToJsonAsync(string jsonText, bool indent = false)
     {
         return await modelParser.ParseToJsonAsync(StringToAsyncEnumerable(jsonText), indent);
-    }
-
-    private static IEnumerable<string> Resolve(IReadOnlyCollection<Dtmi> dtmis)
-    {
-        return DtmiResolverInterop.Resolve(dtmis.Select(d => d.ToString()).ToArray());
-    }
-
-    private static IAsyncEnumerable<string> ResolveAsync(IReadOnlyCollection<Dtmi> dtmis, CancellationToken cancellationToken)
-    {
-        return GetJsonTexts(DtmiResolverInterop.Resolve(dtmis.Select(d => d.ToString()).ToArray()));
     }
 
     private static IEnumerable<string> StringToEnumerable(string jsonText)
