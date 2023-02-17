@@ -102,8 +102,9 @@ namespace DTDLParser
         /// Parse a collection of JSON text strings as DTDL models and return the result as a JSON object model.
         /// </summary>
         /// <param name="jsonTexts">The JSON text strings to parse as DTDL models.</param>
+        /// <param name="indent">Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.</param>
         /// <returns>A string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with DtdlOm.d.ts.</returns>
-        public string ParseToJson(IEnumerable<string> jsonTexts)
+        public string ParseToJson(IEnumerable<string> jsonTexts, bool indent = false)
         {
             try
             {
@@ -111,7 +112,7 @@ namespace DTDLParser
 
                 using (MemoryStream memStream = new MemoryStream())
                 {
-                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
                     using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
                     {
                         jsonWriter.WriteStartObject();
@@ -136,7 +137,7 @@ namespace DTDLParser
             {
                 using (MemoryStream memStream = new MemoryStream())
                 {
-                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
                     using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
                     {
                         pex.WriteToJson(jsonWriter);
@@ -150,7 +151,7 @@ namespace DTDLParser
             {
                 using (MemoryStream memStream = new MemoryStream())
                 {
-                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
                     using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
                     {
                         rex.WriteToJson(jsonWriter);
@@ -212,8 +213,9 @@ namespace DTDLParser
         /// Asynchronously parse a collection of JSON text strings as DTDL models and return the result as a JSON object model.
         /// </summary>
         /// <param name="jsonTexts">The JSON text strings to parse as DTDL models.</param>
+        /// <param name="indent">Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.</param>
         /// <returns>A <c>Task</c> object whose <c>Result</c> property is a string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with DtdlOm.d.ts.</returns>
-        public async Task<string> ParseToJsonAsync(IAsyncEnumerable<string> jsonTexts)
+        public async Task<string> ParseToJsonAsync(IAsyncEnumerable<string> jsonTexts, bool indent = false)
         {
             try
             {
@@ -221,7 +223,7 @@ namespace DTDLParser
 
                 using (MemoryStream memStream = new MemoryStream())
                 {
-                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
                     using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
                     {
                         jsonWriter.WriteStartObject();
@@ -246,7 +248,7 @@ namespace DTDLParser
             {
                 using (MemoryStream memStream = new MemoryStream())
                 {
-                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
                     using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
                     {
                         pex.WriteToJson(jsonWriter);
@@ -260,7 +262,7 @@ namespace DTDLParser
             {
                 using (MemoryStream memStream = new MemoryStream())
                 {
-                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
                     using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
                     {
                         rex.WriteToJson(jsonWriter);

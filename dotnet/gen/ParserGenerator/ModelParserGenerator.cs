@@ -252,6 +252,7 @@
             CsMethod method = parserClass.Method(Access.Public, Novelty.Normal, this.GetReturnType("string", isAsync), methodName, asynchrony: isAsync ? Asynchrony.Async : Asynchrony.Sync);
             method.Summary($"{(isAsync ? "Asynchronously parse" : "Parse")} a collection of JSON text strings as DTDL models and return the result as a JSON object model.");
             method.Param($"{this.GetFullName("I{0}Enumerable", isAsync)}<string>", "jsonTexts", "The JSON text strings to parse as DTDL models.");
+            method.Param("bool", "indent", "Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.", "false");
             method.Returns($"{(isAsync ? "A <c>Task</c> object whose <c>Result</c> property is a" : "A")} string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with {this.tsFileName}.");
 
             CsTry tryParse = method.Body.Try();
@@ -290,7 +291,7 @@
         private CsScope GenerateNewJsonWriter(CsScope scope, string resultFormat)
         {
             CsUsing usingMemStream = scope.Using("MemoryStream memStream = new MemoryStream()");
-            usingMemStream.Line("JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = true };");
+            usingMemStream.Line("JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };");
 
             CsUsing usingJsonWriter = usingMemStream.Using("Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions)");
 

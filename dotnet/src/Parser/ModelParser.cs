@@ -49,6 +49,16 @@ namespace DTDLParser
         }
 
         /// <summary>
+        /// Get a term from a URI string if defined in the context. If not, return the URI string.
+        /// </summary>
+        /// <param name="uriString">String representation of the URI for which to get the term.</param>
+        /// <returns>The value of the term or the URI string.</returns>
+        public static string GetTermOrUri(string uriString)
+        {
+            return ContextCollection.GetTermOrUri(new Uri(uriString));
+        }
+
+        /// <summary>
         /// Returns a collection of <c>DTSupplementalTypeInfo</c> objects, each of which provides information about a type known to the parser that is not materialized as a C# class.
         /// </summary>
         /// <returns>
