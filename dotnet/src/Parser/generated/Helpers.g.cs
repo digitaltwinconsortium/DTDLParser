@@ -6,6 +6,7 @@ namespace DTDLParser
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -452,6 +453,72 @@ namespace DTDLParser
             }
 
             return hashCode;
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the value passed as a C# object.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        /// <param name="value">The value to write.</param>
+        internal static void WriteToJson(Utf8JsonWriter jsonWriter, object value)
+        {
+            if (value == null)
+            {
+                jsonWriter.WriteNullValue();
+                return;
+            }
+
+            Type valueType = value.GetType();
+            if (valueType == typeof(JsonDocument))
+            {
+                ((JsonDocument)value).WriteTo(jsonWriter);
+            }
+            else if (valueType == typeof(string))
+            {
+                jsonWriter.WriteStringValue((string)value);
+            }
+            else if (valueType == typeof(int))
+            {
+                jsonWriter.WriteNumberValue((int)value);
+            }
+            else if (valueType == typeof(long))
+            {
+                jsonWriter.WriteNumberValue((long)value);
+            }
+            else if (valueType == typeof(float))
+            {
+                jsonWriter.WriteNumberValue((float)value);
+            }
+            else if (valueType == typeof(double))
+            {
+                jsonWriter.WriteNumberValue((double)value);
+            }
+            else if (valueType == typeof(bool))
+            {
+                jsonWriter.WriteBooleanValue((bool)value);
+            }
+            else if (valueType == typeof(Dictionary<string, string>))
+            {
+                jsonWriter.WriteStartObject();
+                foreach (KeyValuePair<string, string> kvp in (Dictionary<string, string>)value)
+                {
+                    jsonWriter.WriteString(kvp.Key, kvp.Value);
+                }
+
+                jsonWriter.WriteEndObject();
+            }
+            else if (valueType == typeof(Uri))
+            {
+                jsonWriter.WriteStringValue(((Uri)value).ToString());
+            }
+            else if (valueType == typeof(Dtmi))
+            {
+                jsonWriter.WriteStringValue(((Dtmi)value).ToString());
+            }
+            else
+            {
+                jsonWriter.WriteStringValue(((DTEntityInfo)value).Id.ToString());
+            }
         }
     }
 }

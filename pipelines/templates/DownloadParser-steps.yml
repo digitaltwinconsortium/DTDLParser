@@ -41,6 +41,20 @@ steps:
     mkdir $(System.DefaultWorkingDirectory)/dotnet/tests/ParserUnitTest/generated
   displayName: 'Delete old Codegenned Unit Test Code'
 
+- bash: |
+    echo delete javascript/generated folder
+    rm -r $(System.DefaultWorkingDirectory)/javascript/generated
+    echo re-create javascript/generated folder
+    mkdir $(System.DefaultWorkingDirectory)/javascript/generated
+  displayName: 'Delete old Codegenned JavaScript files'
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: current
+    artifact: ${{ parameters.DotNetArtifact }}_JS
+    path: $(System.DefaultWorkingDirectory)/javascript/generated
+  displayName: 'Download Codegenned JavaScript files'
+
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current

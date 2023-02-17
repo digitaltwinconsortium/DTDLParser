@@ -2,6 +2,7 @@ namespace DTDLParser
 {
     using System;
     using System.Collections.Generic;
+    using System.Text.Json;
 
     /// <summary>
     /// Provides information about a model error that was discovered during DTDL parsing.
@@ -143,6 +144,47 @@ namespace DTDLParser
         public override string ToString()
         {
             return this.Message;
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the parsing error.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        internal virtual void WriteToJson(Utf8JsonWriter jsonWriter)
+        {
+            jsonWriter.WriteStartObject();
+
+            jsonWriter.WriteString("PrimaryID", this.PrimaryID?.ToString());
+            jsonWriter.WriteString("SecondaryID", this.SecondaryID?.ToString());
+            jsonWriter.WriteString("Property", this.Property);
+            jsonWriter.WriteString("AuxProperty", this.AuxProperty);
+            jsonWriter.WriteString("Type", this.Type);
+            jsonWriter.WriteString("Value", this.Value);
+            jsonWriter.WriteString("Restriction", this.Restriction);
+            jsonWriter.WriteString("Transformation", this.Transformation);
+
+            jsonWriter.WritePropertyName("Violations");
+            if (this.Violations != null)
+            {
+                jsonWriter.WriteStartArray();
+
+                foreach (string violation in this.Violations)
+                {
+                    jsonWriter.WriteStringValue(violation);
+                }
+
+                jsonWriter.WriteEndArray();
+            }
+            else
+            {
+                jsonWriter.WriteNullValue();
+            }
+
+            jsonWriter.WriteString("Cause", this.Cause);
+            jsonWriter.WriteString("Action", this.Action);
+            jsonWriter.WriteString("ValidationID", this.ValidationID.ToString());
+
+            jsonWriter.WriteEndObject();
         }
     }
 }

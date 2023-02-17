@@ -6,6 +6,7 @@ namespace DTDLParser.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -273,12 +274,6 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        public override bool DeepEquals(DTEntityInfo other)
-        {
-            return this.EntityKind == other?.EntityKind && this.DeepEquals((DTComponentInfo)other);
-        }
-
-        /// <inheritdoc/>
         public override bool DeepEquals(DTContentInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.DeepEquals((DTComponentInfo)other);
@@ -291,10 +286,9 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object otherObj)
+        public override bool DeepEquals(DTEntityInfo other)
         {
-            return otherObj is DTComponentInfo other && this.Equals(other);
+            return this.EntityKind == other?.EntityKind && this.DeepEquals((DTComponentInfo)other);
         }
 
         /// <summary>
@@ -312,13 +306,13 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        public override bool Equals(DTNamedEntityInfo other)
+        public override bool Equals(DTContentInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.Equals((DTComponentInfo)other);
         }
 
         /// <inheritdoc/>
-        public override bool Equals(DTContentInfo other)
+        public override bool Equals(DTNamedEntityInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.Equals((DTComponentInfo)other);
         }
@@ -327,6 +321,13 @@ namespace DTDLParser.Models
         public override bool Equals(DTEntityInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.Equals((DTComponentInfo)other);
+        }
+
+        /// <inheritdoc/>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object otherObj)
+        {
+            return otherObj is DTComponentInfo other && this.Equals(other);
         }
 
         /// <inheritdoc/>
@@ -2559,6 +2560,23 @@ namespace DTDLParser.Models
         /// <param name="globalized">True if the element has been globalized.</param>
         internal override void RecordSourceAsAppropriate(string layer, JsonLdElement elt, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, bool atRoot, bool globalized)
         {
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the DTDL element represented by an object of this class.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        /// <param name="includeClassId">True if the mothed should add a ClassId property to the JSON object.</param>
+        internal override void WriteToJson(Utf8JsonWriter jsonWriter, bool includeClassId)
+        {
+            base.WriteToJson(jsonWriter, includeClassId: false);
+
+            if (includeClassId)
+            {
+                jsonWriter.WriteString("ClassId", $"dtmi:dtdl:class:Component;{this.LanguageMajorVersion}");
+            }
+
+            jsonWriter.WriteString("schema", this.Schema?.Id?.ToString());
         }
 
         private bool TryParseSupplementalProperty(Model model, HashSet<Dtmi> immediateSupplementalTypeIds, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, string layer, Dtmi definedIn, ParsingErrorCollection parsingErrorCollection, string propName, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, JsonLdProperty valueCollectionProp, Dictionary<string, JsonLdProperty> supplementalJsonLdProperties)

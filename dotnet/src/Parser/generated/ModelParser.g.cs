@@ -6,6 +6,7 @@ namespace DTDLParser
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -98,6 +99,75 @@ namespace DTDLParser
         }
 
         /// <summary>
+        /// Parse a collection of JSON text strings as DTDL models and return the result as a JSON object model.
+        /// </summary>
+        /// <param name="jsonTexts">The JSON text strings to parse as DTDL models.</param>
+        /// <param name="indent">Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.</param>
+        /// <returns>A string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with DtdlOm.d.ts.</returns>
+        public string ParseToJson(IEnumerable<string> jsonTexts, bool indent = false)
+        {
+            try
+            {
+                IReadOnlyDictionary<Dtmi, DTEntityInfo> model = this.Parse(jsonTexts);
+
+                using (MemoryStream memStream = new MemoryStream())
+                {
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
+                    using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
+                    {
+                        jsonWriter.WriteStartObject();
+
+                        foreach (KeyValuePair<Dtmi, DTEntityInfo> kvp in model)
+                        {
+                            jsonWriter.WritePropertyName(kvp.Key.ToString());
+                            jsonWriter.WriteStartObject();
+                            kvp.Value.WriteToJson(jsonWriter, includeClassId: true);
+                            jsonWriter.WriteEndObject();
+                        }
+
+                        jsonWriter.WriteEndObject();
+
+                        jsonWriter.Flush();
+                    }
+
+                    return Encoding.UTF8.GetString(memStream.ToArray());
+                }
+            }
+            catch (ParsingException pex)
+            {
+                using (MemoryStream memStream = new MemoryStream())
+                {
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
+                    using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
+                    {
+                        pex.WriteToJson(jsonWriter);
+                        jsonWriter.Flush();
+                    }
+
+                    throw new Exception(Encoding.UTF8.GetString(memStream.ToArray()));
+                }
+            }
+            catch (ResolutionException rex)
+            {
+                using (MemoryStream memStream = new MemoryStream())
+                {
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
+                    using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
+                    {
+                        rex.WriteToJson(jsonWriter);
+                        jsonWriter.Flush();
+                    }
+
+                    throw new Exception(Encoding.UTF8.GetString(memStream.ToArray()));
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Asynchronously parse a collection of JSON text strings as DTDL models.
         /// </summary>
         /// <param name="jsonTexts">The JSON text strings to parse as DTDL models.</param>
@@ -137,6 +207,75 @@ namespace DTDLParser
         public async Task<IReadOnlyDictionary<Dtmi, DTEntityInfo>> ParseAsync(string jsonText, DtdlParseLocator dtdlLocator = null, CancellationToken cancellationToken = default)
         {
             return await this.ParseAsync(this.StringToAsyncEnumerable(jsonText), dtdlLocator, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Asynchronously parse a collection of JSON text strings as DTDL models and return the result as a JSON object model.
+        /// </summary>
+        /// <param name="jsonTexts">The JSON text strings to parse as DTDL models.</param>
+        /// <param name="indent">Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.</param>
+        /// <returns>A <c>Task</c> object whose <c>Result</c> property is a string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with DtdlOm.d.ts.</returns>
+        public async Task<string> ParseToJsonAsync(IAsyncEnumerable<string> jsonTexts, bool indent = false)
+        {
+            try
+            {
+                IReadOnlyDictionary<Dtmi, DTEntityInfo> model = await this.ParseAsync(jsonTexts).ConfigureAwait(false);
+
+                using (MemoryStream memStream = new MemoryStream())
+                {
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
+                    using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
+                    {
+                        jsonWriter.WriteStartObject();
+
+                        foreach (KeyValuePair<Dtmi, DTEntityInfo> kvp in model)
+                        {
+                            jsonWriter.WritePropertyName(kvp.Key.ToString());
+                            jsonWriter.WriteStartObject();
+                            kvp.Value.WriteToJson(jsonWriter, includeClassId: true);
+                            jsonWriter.WriteEndObject();
+                        }
+
+                        jsonWriter.WriteEndObject();
+
+                        jsonWriter.Flush();
+                    }
+
+                    return Encoding.UTF8.GetString(memStream.ToArray());
+                }
+            }
+            catch (ParsingException pex)
+            {
+                using (MemoryStream memStream = new MemoryStream())
+                {
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
+                    using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
+                    {
+                        pex.WriteToJson(jsonWriter);
+                        jsonWriter.Flush();
+                    }
+
+                    throw new Exception(Encoding.UTF8.GetString(memStream.ToArray()));
+                }
+            }
+            catch (ResolutionException rex)
+            {
+                using (MemoryStream memStream = new MemoryStream())
+                {
+                    JsonWriterOptions jsonWriterOptions = new JsonWriterOptions { Indented = indent };
+                    using (Utf8JsonWriter jsonWriter = new Utf8JsonWriter(memStream, jsonWriterOptions))
+                    {
+                        rex.WriteToJson(jsonWriter);
+                        jsonWriter.Flush();
+                    }
+
+                    throw new Exception(Encoding.UTF8.GetString(memStream.ToArray()));
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>

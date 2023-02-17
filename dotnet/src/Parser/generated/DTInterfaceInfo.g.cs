@@ -6,6 +6,7 @@ namespace DTDLParser.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Text.Json;
@@ -2725,6 +2726,51 @@ namespace DTDLParser.Models
 
                 this.sourceTexts[layer] = jsonText;
             }
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the DTDL element represented by an object of this class.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        /// <param name="includeClassId">True if the mothed should add a ClassId property to the JSON object.</param>
+        internal override void WriteToJson(Utf8JsonWriter jsonWriter, bool includeClassId)
+        {
+            base.WriteToJson(jsonWriter, includeClassId: false);
+
+            if (includeClassId)
+            {
+                jsonWriter.WriteString("ClassId", $"dtmi:dtdl:class:Interface;{this.LanguageMajorVersion}");
+            }
+
+            jsonWriter.WritePropertyName("contents");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, DTContentInfo> contentsPair in this.Contents)
+            {
+                jsonWriter.WriteString(contentsPair.Key, contentsPair.Value.Id.ToString());
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("extends");
+            jsonWriter.WriteStartArray();
+
+            foreach (DTInterfaceInfo extendsElt in this.Extends)
+            {
+                jsonWriter.WriteStringValue(extendsElt.Id.ToString());
+            }
+
+            jsonWriter.WriteEndArray();
+
+            jsonWriter.WritePropertyName("schemas");
+            jsonWriter.WriteStartArray();
+
+            foreach (DTComplexSchemaInfo schemasElt in this.Schemas)
+            {
+                jsonWriter.WriteStringValue(schemasElt.Id.ToString());
+            }
+
+            jsonWriter.WriteEndArray();
         }
 
         private bool TryParseSupplementalProperty(Model model, HashSet<Dtmi> immediateSupplementalTypeIds, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, string layer, Dtmi definedIn, ParsingErrorCollection parsingErrorCollection, string propName, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, JsonLdProperty valueCollectionProp, Dictionary<string, JsonLdProperty> supplementalJsonLdProperties)

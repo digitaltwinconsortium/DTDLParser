@@ -39,6 +39,9 @@ jobs:
       - name: Reject codegen ParserUnitTest changes
         run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/tests/ParserUnitTest/generated
 
+      - name: Reject codegen JavaScript changes
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- javascript/generated
+
       - name: Reject image changes
         run: git diff --exit-code HEAD remotes/DTDLParser/main -- images/generated
 

@@ -16,16 +16,17 @@
         {
             try
             {
-                if (args.Count() < 4)
+                if (args.Count() < 5)
                 {
-                    Console.WriteLine("ParserGenerator outParserFolder metamodelDigestFile objectModelConventionsFile errorMessagesFile");
+                    Console.WriteLine("ParserGenerator outParserFolder outTsFile metamodelDigestFile objectModelConventionsFile errorMessagesFile");
                     return 1;
                 }
 
                 string outParserFolder = args[0];
-                string metamodelDigestFile = args[1];
-                string objectModelConventionsFile = args[2];
-                string errorMessagesFile = args[3];
+                string outTsFile = args[1];
+                string metamodelDigestFile = args[2];
+                string objectModelConventionsFile = args[3];
+                string errorMessagesFile = args[4];
 
                 string digestText = File.OpenText(metamodelDigestFile).ReadToEnd();
                 JObject metamodelDigestObj = (JObject)JToken.Parse(digestText);
@@ -43,6 +44,7 @@
                 parserLibrary.Using("System.Collections.Generic");
                 parserLibrary.Using("System.ComponentModel");
                 parserLibrary.Using("System.Globalization");
+                parserLibrary.Using("System.IO");
                 parserLibrary.Using("System.Linq");
                 parserLibrary.Using("System.Text");
                 parserLibrary.Using("System.Text.Json");
@@ -64,7 +66,7 @@
                 typeGenerators.Add(new DtmiResolverGenerator(metamodelDigest.IsLayeringSupported));
                 typeGenerators.Add(new RootableGenerator(metamodelDigest.IsLayeringSupported));
                 typeGenerators.Add(new ModelGenerator(metamodelDigest.BaseClass));
-                typeGenerators.Add(new ModelParserGenerator(metamodelDigest.BaseClass, areDynamicExtensionsSupported, metamodelDigest.IsLayeringSupported));
+                typeGenerators.Add(new ModelParserGenerator(metamodelDigest.BaseClass, areDynamicExtensionsSupported, metamodelDigest.IsLayeringSupported, outTsFile));
                 typeGenerators.Add(new ParsingOptionsGenerator(metamodelDigest.IsLayeringSupported, metamodelDigest.DtdlVersions));
                 typeGenerators.Add(new SupplementalTypeInfoGenerator(metamodelDigest.BaseClass, metamodelDigest.ExtensionKinds, metamodelDigest.MaterialClasses));
                 typeGenerators.Add(new PartitionTypeCollectionGenerator(metamodelDigest.PartitionClasses, metamodelDigest.Contexts, metamodelDigest.PartitionRestrictions, metamodelDigest.DtdlVersions));
@@ -76,7 +78,7 @@
                 typeGenerators.Add(new SupplementalTypeCollectionGenerator(metamodelDigest.SupplementalTypes, metamodelDigest.Contexts, metamodelDigest.ExtensibleMaterialClasses, metamodelDigest.BaseClass));
                 typeGenerators.Add(new ParsingErrorCollectionGenerator(errorMessagesObj));
 
-                typeGenerators.AddRange(GenerateMaterialClasses(metamodelDigest, objectModelCustomizer));
+                typeGenerators.AddRange(GenerateMaterialClasses(metamodelDigest, metamodelDigest.BaseClass, objectModelCustomizer, outTsFile));
 
                 foreach (ITypeGenerator typeGenerator in typeGenerators)
                 {
@@ -98,7 +100,7 @@
             return 0;
         }
 
-        private static List<ITypeGenerator> GenerateMaterialClasses(MetamodelDigest metamodelDigest, ObjectModelCustomizer objectModelCustomizer)
+        private static List<ITypeGenerator> GenerateMaterialClasses(MetamodelDigest metamodelDigest, string baseTypeName, ObjectModelCustomizer objectModelCustomizer, string tsFileName)
         {
             string baseKindEnum = NameFormatter.FormatNameAsEnum(metamodelDigest.BaseClass);
             string baseKindProperty = NameFormatter.FormatNameAsEnumProperty(metamodelDigest.BaseClass);
@@ -123,10 +125,12 @@
 
             Dictionary<string, string> parentMap = metamodelDigest.MaterialClasses.Where(kvp => kvp.Value.ParentClass != null).ToDictionary(kvp => NameFormatter.FormatNameAsClass(kvp.Key), kvp => NameFormatter.FormatNameAsClass(kvp.Value.ParentClass));
 
+            MaterialClassJsonizer jsonizer = new MaterialClassJsonizer(tsFileName, metamodelDigest.MaterialClasses, baseTypeName);
+
             List<ITypeGenerator> typeGenerators = new List<ITypeGenerator>();
             foreach (KeyValuePair<string, MaterialClassDigest> kvp in metamodelDigest.MaterialClasses)
             {
-                typeGenerators.Add(new MaterialClass(
+                MaterialClass materialClass = new MaterialClass(
                     kvp.Key,
                     kvp.Value.ParentClass,
                     metamodelDigest.BaseClass,
@@ -140,8 +144,14 @@
                     metamodelDigest.DtdlVersionsWithApocryphalPropertyCotypeDependency,
                     metamodelDigest.Apocrypha,
                     Access.Public,
-                    isLayeringSupported: metamodelDigest.IsLayeringSupported));
+                    isLayeringSupported: metamodelDigest.IsLayeringSupported);
+
+                materialClass.AddTypeScriptTypeInfo(jsonizer);
+
+                typeGenerators.Add(materialClass);
             }
+
+            jsonizer.Close();
 
             typeGenerators.Add(new MaterialClass(
                 ParserGeneratorValues.ReferenceObverseName,

@@ -38,6 +38,7 @@ PRs shall not include changes to files within:
 * :file_folder: **dotnet/src/Parser/generated**
 * :file_folder: **dotnet/src/Remodel/generated**
 * :file_folder: **dotnet/tests/ParserUnitTest/generated**
+* :file_folder: **javascript/generated**
 * :file_folder: **images/generated**
 * :file_folder: **images/input/generated**
 * :file_folder: **samples/projects**

@@ -1,5 +1,7 @@
 ﻿namespace DTDLParser
 {
+    using System;
+    using System.CodeDom.Compiler;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -80,6 +82,36 @@
                 {
                     sorted.Line($"hashCode = (hashCode * 131) + this.{this.ObversePropertyName}.GetHashCode();");
                 }
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddJsonWritingCode(CsScope scope)
+        {
+            if (!this.PropertyDigest.IsInherited)
+            {
+                string varName = $"{this.PropertyName}Type";
+                scope
+                    .If($"this.{this.ObversePropertyName} == null")
+                        .Line($"jsonWriter.WriteNull(\"{this.PropertyName}\");")
+                    .Else()
+                        .Line($"Type {varName} = this.{this.ObversePropertyName}.GetType();")
+                        .If($"{varName} == typeof({ParserGeneratorValues.ObverseTypeString})")
+                            .Line($"jsonWriter.WriteString(\"{this.PropertyName}\", ({ParserGeneratorValues.ObverseTypeString})this.{this.ObversePropertyName});")
+                        .ElseIf($"{varName} == typeof({ParserGeneratorValues.ObverseTypeInteger})")
+                            .Line($"jsonWriter.WriteNumber(\"{this.PropertyName}\", ({ParserGeneratorValues.ObverseTypeInteger})this.{this.ObversePropertyName});")
+                        .ElseIf($"{varName} == typeof({ParserGeneratorValues.ObverseTypeBoolean})")
+                            .Line($"jsonWriter.WriteBoolean(\"{this.PropertyName}\", ({ParserGeneratorValues.ObverseTypeBoolean})this.{this.ObversePropertyName});");
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddTypeScriptType(IndentedTextWriter indentedTextWriter)
+        {
+            if (!this.PropertyDigest.IsInherited)
+            {
+                string optionalityIndicator = this.PropertyDigest.IsOptional ? "?" : string.Empty;
+                indentedTextWriter.WriteLine($"{this.PropertyName}{optionalityIndicator}: string | number | boolean;");
             }
         }
 

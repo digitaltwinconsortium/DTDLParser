@@ -3,6 +3,7 @@ namespace DTDLParser
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text.Json;
 
     /// <summary>
     /// Indicates that the resolution of a DTMI failed.
@@ -64,6 +65,29 @@ namespace DTDLParser
         public override string ToString()
         {
             return this.Message;
+        }
+
+        /// <summary>
+        /// Write a JSON representation of the resolution exception.
+        /// </summary>
+        /// <param name="jsonWriter">A <c>Utf8JsonWriter</c> object with which to write the JSON representation.</param>
+        internal virtual void WriteToJson(Utf8JsonWriter jsonWriter)
+        {
+            jsonWriter.WriteStartObject();
+
+            jsonWriter.WriteString("ExceptionKind", "Resolution");
+
+            jsonWriter.WritePropertyName("UndefinedIdentifiers");
+            jsonWriter.WriteStartArray();
+
+            foreach (Dtmi undefinedIdentifier in this.UndefinedIdentifiers)
+            {
+                jsonWriter.WriteStringValue(undefinedIdentifier.ToString());
+            }
+
+            jsonWriter.WriteEndArray();
+
+            jsonWriter.WriteEndObject();
         }
     }
 }

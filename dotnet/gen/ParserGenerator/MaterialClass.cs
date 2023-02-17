@@ -10,6 +10,7 @@
     public class MaterialClass : ITypeGenerator
     {
         private string typeName;
+        private string parentTypeName;
         private string baseTypeName;
         private string kindEnum;
         private string kindProperty;
@@ -76,6 +77,7 @@
             bool isLayeringSupported)
         {
             this.typeName = typeName;
+            this.parentTypeName = parentTypeName;
             this.baseTypeName = baseTypeName;
             this.kindEnum = NameFormatter.FormatNameAsEnum(baseTypeName);
             this.kindProperty = NameFormatter.FormatNameAsEnumProperty(baseTypeName);
@@ -154,7 +156,8 @@
                     "Gets the identifier of the DTDL element that corresponds to this object.",
                     "Identifier of the DTDL element.",
                     isRelevantToIdentity: false,
-                    isSettable: false));
+                    isSettable: false,
+                    isNullable: false));
 
                 this.properties.Add(new InternalProperty(
                     ParserGeneratorValues.IdentifierType,
@@ -165,7 +168,8 @@
                     "Gets the identifier of the parent DTDL element in which this element is defined.",
                     "Identifier of the parent DTDL element.",
                     isRelevantToIdentity: false,
-                    isSettable: false));
+                    isSettable: false,
+                    isNullable: true));
 
                 this.properties.Add(new InternalProperty(
                     ParserGeneratorValues.IdentifierType,
@@ -176,7 +180,8 @@
                     "Gets the identifier of the partition DTDL element in which this element is defined.",
                     "Identifier of the partition DTDL element.",
                     isRelevantToIdentity: false,
-                    isSettable: false));
+                    isSettable: false,
+                    isNullable: true));
 
                 this.properties.Add(new InternalProperty(
                     NameFormatter.FormatNameAsEnum(this.baseTypeName),
@@ -187,7 +192,8 @@
                     $"Gets the kind of {this.baseTypeName}, meaning the concrete DTDL type assigned to the corresponding element in the model.",
                     $"The kind of {this.baseTypeName}.",
                     isRelevantToIdentity: true,
-                    isSettable: false));
+                    isSettable: false,
+                    isNullable: false));
 
                 if (this.isLayeringSupported)
                 {
@@ -200,7 +206,8 @@
                         "Gets a list of names of layers in which this element is defined.",
                         "A list of layer names.",
                         isRelevantToIdentity: false,
-                        isSettable: true));
+                        isSettable: true,
+                        isNullable: false));
                 }
 
                 this.properties.Add(new InternalProperty(
@@ -212,7 +219,8 @@
                     "Gets the DTDL version in which this element is defined.",
                     "The DTDL version.",
                     isRelevantToIdentity: false,
-                    isSettable: false));
+                    isSettable: false,
+                    isNullable: false));
 
                 this.properties.Add(new InternalProperty(
                     ParserGeneratorValues.ObverseTypeString,
@@ -223,7 +231,8 @@
                     "Gets the name of the property by which the parent DTDL element refers to this element.",
                     "The referenced property name.",
                     isRelevantToIdentity: false,
-                    isSettable: false));
+                    isSettable: false,
+                    isNullable: true));
 
                 this.properties.Add(new InternalProperty(
                     "HashSet<ParentReference>",
@@ -234,7 +243,8 @@
                     "Gets a set of references to parent DTDL elements.",
                     "A set of parent references",
                     isRelevantToIdentity: false,
-                    isSettable: false));
+                    isSettable: false,
+                    isNullable: false));
 
                 this.properties.Add(new InternalProperty(
                     $"IReadOnlyDictionary<string, {ParserGeneratorValues.ObverseTypeString}>",
@@ -245,7 +255,8 @@
                     "Gets a dictionary of singular string literal properties and their values.",
                     "Dictionary mappyng string literal properties to values.",
                     isRelevantToIdentity: false,
-                    isSettable: true));
+                    isSettable: true,
+                    isNullable: false));
 
                 this.properties.Add(new InternalProperty(
                     ParserGeneratorValues.ObverseTypeBoolean,
@@ -256,7 +267,8 @@
                     "Gets a value indicating whether the class is an allowed cotype for a supplemental class that is designated as mergeable.",
                     "True if it is possible for the class to be mergeable.",
                     isRelevantToIdentity: false,
-                    isSettable: true));
+                    isSettable: true,
+                    isNullable: false));
             }
         }
 
@@ -306,6 +318,8 @@
 
             MaterialClassPresenter.AddMembers(obverseClass, this.typeName, this.isPartition, this.isRootable, this.parentClass == null, this.isLayeringSupported);
 
+            MaterialClassJsonizer.AddMembers(obverseClass, this.typeName, this.parentClass == null, this.properties);
+
             MaterialClassParser.AddMembers(
                 this.materialClassDigest.DtdlVersions,
                 obverseClass,
@@ -346,6 +360,15 @@
             {
                 descendantControl.AddMembers(obverseClass, this.typeName, this.parentClass == null, this.isAbstract, this.properties);
             }
+        }
+
+        /// <summary>
+        /// Add TypeScript info for the class to a <c>MaterialClassJsonizer</c>.
+        /// </summary>
+        /// <param name="jsonizer">The <c>MaterialClassJsonizer</c> to use for generating and outputting the TypeScript info.</param>
+        public void AddTypeScriptTypeInfo(MaterialClassJsonizer jsonizer)
+        {
+            jsonizer.AddTypeInfo(this.typeName, this.parentTypeName, this.materialClassDigest, this.properties);
         }
 
         private string GetExports()

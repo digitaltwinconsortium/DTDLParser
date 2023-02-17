@@ -47,6 +47,8 @@
             this.GenerateGetListIdHashCodeMethod(helpersClass);
 
             this.GenerateGetListIdOrLiteralHashCodeMethod(helpersClass);
+
+            this.GenerateWriteToJsonMethod(helpersClass);
         }
 
         private void GenerateGetObjectIdMethod(CsClass helpersClass)
@@ -404,6 +406,52 @@
                     .Line($"hashCode = (hashCode * 131) + ((element as {this.baseClassName})?.Id ?? element).GetHashCode();");
 
             method.Body.Line("return hashCode;");
+        }
+
+        private void GenerateWriteToJsonMethod(CsClass helpersClass)
+        {
+            CsMethod method = helpersClass.Method(Access.Internal, Novelty.Normal, "void", "WriteToJson", Multiplicity.Static);
+            method.Summary("Write a JSON representation of the value passed as a C# object.");
+
+            method.Param("Utf8JsonWriter", "jsonWriter", "A <c>Utf8JsonWriter</c> object with which to write the JSON representation.");
+            method.Param("object", "value", "The value to write.");
+
+            method.Body.If("value == null")
+                .Line("jsonWriter.WriteNullValue();")
+                .Line("return;");
+
+            method.Body.Line("Type valueType = value.GetType();");
+
+            CsIf ifType = method.Body.If("valueType == typeof(JsonDocument)");
+            ifType
+                .Line("((JsonDocument)value).WriteTo(jsonWriter);");
+            ifType.ElseIf("valueType == typeof(string)")
+                .Line("jsonWriter.WriteStringValue((string)value);");
+            ifType.ElseIf("valueType == typeof(int)")
+                .Line("jsonWriter.WriteNumberValue((int)value);");
+            ifType.ElseIf("valueType == typeof(long)")
+                .Line("jsonWriter.WriteNumberValue((long)value);");
+            ifType.ElseIf("valueType == typeof(float)")
+                .Line("jsonWriter.WriteNumberValue((float)value);");
+            ifType.ElseIf("valueType == typeof(double)")
+                .Line("jsonWriter.WriteNumberValue((double)value);");
+            ifType.ElseIf("valueType == typeof(bool)")
+                .Line("jsonWriter.WriteBooleanValue((bool)value);");
+
+            CsElseIf elseIfDict = ifType.ElseIf("valueType == typeof(Dictionary<string, string>)");
+            elseIfDict
+                .Line("jsonWriter.WriteStartObject();")
+                .ForEach("KeyValuePair<string, string> kvp in (Dictionary<string, string>)value")
+                    .Line("jsonWriter.WriteString(kvp.Key, kvp.Value);");
+            elseIfDict
+                .Line("jsonWriter.WriteEndObject();");
+
+            ifType.ElseIf("valueType == typeof(Uri)")
+                .Line("jsonWriter.WriteStringValue(((Uri)value).ToString());");
+            ifType.ElseIf($"valueType == typeof({ParserGeneratorValues.IdentifierType})")
+                .Line($"jsonWriter.WriteStringValue((({ParserGeneratorValues.IdentifierType})value).ToString());");
+            ifType.Else()
+                .Line($"jsonWriter.WriteStringValue((({this.baseClassName})value).Id.ToString());");
         }
     }
 }
