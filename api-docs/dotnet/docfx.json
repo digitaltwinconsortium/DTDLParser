@@ -9,7 +9,7 @@
           "src": "../../dotnet/src/"
         }
       ],
-      "dest": "api",
+      "dest": "obj/api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
@@ -17,15 +17,16 @@
   "build": {
     "content": [
       {
-        "files": [
-          "api/*.yml"
-        ]
+        "files": [ "**/*.yml" ],
+        "src": "obj/api",
+        "dest": "api"
+      },
+      {
+        "files": [ "articles/**/*.md", "*.md", "toc.yml" ]
       }
     ],
-    "resource": [
-    ],
-    "overwrite": [
-    ],
+    "resource": [],
+    "overwrite": [],
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
