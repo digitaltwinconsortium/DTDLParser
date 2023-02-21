@@ -8,10 +8,12 @@ fi
 
 bash scripts/Title.sh PackJsInterop $DtdlModelParserBuildConfig
 
-#:: job dotnet
-#:: in dll DTDLJsInterop.dll
-#:: out nupkg DTDLJsInterop.*.nupkg
+#:: job npm
+#:: in dotnet/src/JsInterop/bin/[Release or Debug]/net7.0/browser-wasm/AppBundle
+#:: out tgz dotnet/src/JsInterop/bin/$DtdlModelParserBuildConfig/net7.0/browser-wasm/AppBundle/dtdl-parser-interop-x.x.x.tgz
 
-dotnet pack dotnet/src/JsInterop --configuration $DtdlModelParserBuildConfig -p:PublicRelease=true
+AppBundleDir=dotnet/src/JsInterop/bin/$DtdlModelParserBuildConfig/net7.0/browser-wasm/AppBundle
+
+npm pack $AppBundleDir --pack-destination $AppBundleDir
 
 test $? -eq 0 || bash scripts/Failure.sh PackJsInterop $DtdlModelParserBuildConfig
