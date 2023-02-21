@@ -2,7 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <!-- TODO -->
+    <WasmMainJSPath>index.js</WasmMainJSPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <PublishTrimmed>true</PublishTrimmed>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <EmccInitialHeapSize>16mb</EmccInitialHeapSize>
+    <DebuggerSupport>false</DebuggerSupport>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <EventSourceSupport>false</EventSourceSupport>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
@@ -10,7 +20,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>© Digital Twin Consortium and contributors. All rights reserved.</Copyright>
     <PackageId>DTDLParserInterop</PackageId>
@@ -35,6 +45,15 @@
   <PropertyGroup>
     <DocumentationFile>$(OutputPath)DTDLParserInterop.xml</DocumentationFile>
   </PropertyGroup>
+
+  <!-- TODO -->
+  <ItemGroup>
+    <WasmExtraFilesToDeploy Include="..\..\..\javascript\index.js" />
+    <WasmExtraFilesToDeploy Include="..\..\..\javascript\index.d.ts" />
+    <WasmExtraFilesToDeploy Include="..\..\..\javascript\DtdlErr.d.ts" />
+    <WasmExtraFilesToDeploy Include="..\..\..\javascript\generated\DtdlOm.d.ts" />
+    <WasmExtraFilesToDeploy Include="..\..\..\javascript\package.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="stylecop.json" />
