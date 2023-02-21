@@ -17,7 +17,7 @@ var modelParser = new ModelParser();
 The DTDL language is syntactically JSON.
 The `ModelParser` expects a single string or an enumeration of strings.
 The single string or each value in the enumeration is JSON text of a DTDL model.
-The following model specifies a context for DTDL version 3 and an extension context that is not recognized by the `ModelParser`.
+The following model specifies a context for DTDL version 3 and an extension context that is not recognized by the `ModelParser` because it is not one of the contexts  itemized in [Supported extension contexts](../dotnet/src/Parser/generated/SupportedExtensions.g.md).
 
 ```C# Snippet:DtdlParserSample16_ObtainDtdlText
 string jsonText =

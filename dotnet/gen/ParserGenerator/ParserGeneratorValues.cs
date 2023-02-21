@@ -161,6 +161,31 @@
         public const string ElementsFileName = "ModelElements.g.json";
 
         /// <summary>
+        /// Template for the context ID for each partner extension.
+        /// </summary>
+        public const string PartnerExtensionContextId = "dtmi:{0}:context;{1}";
+
+        /// <summary>
+        /// Template for the context ID for each feature extension.
+        /// </summary>
+        public const string FeatureExtensionContextId = "dtmi:dtdl:extension:{0};{1}";
+
+        /// <summary>
+        /// Template for the filename of the core documentation file to generate for a version of DTDL.
+        /// </summary>
+        public const string LanguageDocRef = "https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v{0}/DTDL.v{0}.md";
+
+        /// <summary>
+        /// Template for each partner extension documentation URL.
+        /// </summary>
+        public const string PartnerExtensionDocRef = "https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v{1}/DTDL.{0}.v{1}.md";
+
+        /// <summary>
+        /// Template for each feature extension documentation URL.
+        /// </summary>
+        public const string FeatureExtensionDocRef = "https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v{2}/DTDL.{0}.v{1}.md";
+
+        /// <summary>
         /// Gets the context ID for a given DTDL language version.
         /// </summary>
         /// <param name="dtdlVersion">The version of the DTDL language.</param>

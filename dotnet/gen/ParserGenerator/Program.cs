@@ -16,17 +16,19 @@
         {
             try
             {
-                if (args.Count() < 5)
+                if (args.Count() < 7)
                 {
-                    Console.WriteLine("ParserGenerator outParserFolder outTsFile metamodelDigestFile objectModelConventionsFile errorMessagesFile");
+                    Console.WriteLine("ParserGenerator outParserFolder outExtDocFile outTsFile metamodelDigestFile objectModelConventionsFile dtdlConfigFile errorMessagesFile");
                     return 1;
                 }
 
                 string outParserFolder = args[0];
-                string outTsFile = args[1];
-                string metamodelDigestFile = args[2];
-                string objectModelConventionsFile = args[3];
-                string errorMessagesFile = args[4];
+                string outExtDocFile = args[1];
+                string outTsFile = args[2];
+                string metamodelDigestFile = args[3];
+                string objectModelConventionsFile = args[4];
+                string dtdlConfigFile = args[5];
+                string errorMessagesFile = args[6];
 
                 string digestText = File.OpenText(metamodelDigestFile).ReadToEnd();
                 JObject metamodelDigestObj = (JObject)JToken.Parse(digestText);
@@ -90,6 +92,8 @@
                 StreamWriter elementsFile = new StreamWriter(Path.Combine(outParserFolder, ParserGeneratorValues.ElementsFileName), false, Encoding.UTF8);
                 elementsFile.WriteLine(metamodelDigestObj["elements"].ToString());
                 elementsFile.Close();
+
+                ExtensionVersionDocumenter.DocumentExtensionVersions(outParserFolder, outExtDocFile, dtdlConfigFile, metamodelDigest);
             }
             catch (Exception ex)
             {
