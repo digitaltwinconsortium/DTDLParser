@@ -3,8 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
-    <!-- TODO -->
-    <WasmMainJSPath>index.js</WasmMainJSPath>
+    <WasmMainJSPath>..\..\..\javascript\index.js</WasmMainJSPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RunAOTCompilation>false</RunAOTCompilation>
     <PublishTrimmed>true</PublishTrimmed>
@@ -46,9 +45,7 @@
     <DocumentationFile>$(OutputPath)DTDLParserInterop.xml</DocumentationFile>
   </PropertyGroup>
 
-  <!-- TODO -->
   <ItemGroup>
-    <WasmExtraFilesToDeploy Include="..\..\..\javascript\index.js" />
     <WasmExtraFilesToDeploy Include="..\..\..\javascript\index.d.ts" />
     <WasmExtraFilesToDeploy Include="..\..\..\javascript\DtdlErr.d.ts" />
     <WasmExtraFilesToDeploy Include="..\..\..\javascript\generated\DtdlOm.d.ts" />
