@@ -26,6 +26,6 @@ mkdir javascript/generated
 #:: in json ParsingErrorMessages.json
 #:: out dotnet dotnet/src/Parser/generated
 
-dotnet run --project dotnet/gen/ParserGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/Parser/generated javascript/generated/DtdlOm.d.ts dtdl/${DtdlModelParserLangConfig}_digest.json dtdl/support/ObjectModelConventions.json dtdl/support/ParsingErrorMessages.json
+dotnet run --project dotnet/gen/ParserGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/Parser/generated SupportedExtensions.g.md javascript/generated/DtdlOm.d.ts dtdl/${DtdlModelParserLangConfig}_digest.json dtdl/support/ObjectModelConventions.json dtdl/${DtdlModelParserLangConfig}.json dtdl/support/ParsingErrorMessages.json
 
 test $? -eq 0 || bash scripts/Failure.sh GenerateParser $DtdlModelParserBuildConfig

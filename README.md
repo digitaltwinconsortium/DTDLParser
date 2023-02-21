@@ -19,7 +19,7 @@ dotnet add package DTDLParser
 
 ### :white_check_mark: Parse and validate a DTDL interface
 
-Given the next DTDL interface 
+Given the following DTDL interface:
 
 ```json
 {
@@ -63,6 +63,11 @@ Every element in a DTDL model has an identifer known as a [Digital Twins Modelin
 The `Dtmi` class encapsulates all identifiers returned by the parser, including those defined in models submitted to the parser and those defined by the the DTDL language itself.
 
 Parsing returns a dictionary whose keys are instances of the `Dtmi` class. The values in these dictionaries are instances of `DTEntityInfo` subclasses.
+
+### :nut_and_bolt: Context identifieres
+
+The interface above has a `@context` value of "dtmi:dtdl:context;3", indicating that the model is written in DTDL version 3.
+Every model must have at least a DTDL context specifier, and it may also have one or more *extension* context specifiers, which are itemized in in [Supported extension contexts](../dotnet/src/Parser/generated/SupportedExtensions.g.md).
 
 ### :eyeglasses: DtmiResolver and DtmiResolverAsync
 
