@@ -8,10 +8,6 @@ fi
 
 bash scripts/Title.sh BuildJsInterop $DtdlModelParserBuildConfig
 
-#:: job dotnet
-#:: in dotnet dotnet/src/JsInterop
-#:: out dll DTDLJsInterop.dll
-
-dotnet build dotnet/src/JsInterop --configuration $DtdlModelParserBuildConfig
+dotnet publish javascript --configuration $DtdlModelParserBuildConfig
 
 test $? -eq 0 || bash scripts/Failure.sh BuildJsInterop $DtdlModelParserBuildConfig

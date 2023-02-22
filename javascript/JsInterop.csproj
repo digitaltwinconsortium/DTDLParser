@@ -2,7 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <WasmMainJSPath>index.js</WasmMainJSPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <PublishTrimmed>true</PublishTrimmed>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <EmccInitialHeapSize>16mb</EmccInitialHeapSize>
+    <DebuggerSupport>false</DebuggerSupport>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <EventSourceSupport>false</EventSourceSupport>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
@@ -10,7 +19,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>© Digital Twin Consortium and contributors. All rights reserved.</Copyright>
     <PackageId>DTDLParserInterop</PackageId>
@@ -37,6 +46,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <WasmExtraFilesToDeploy Include="index.d.ts" />
+    <WasmExtraFilesToDeploy Include="DtdlErr.d.ts" />
+    <WasmExtraFilesToDeploy Include="generated\DtdlOm.d.ts" />
+    <WasmExtraFilesToDeploy Include="package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="stylecop.json" />
   </ItemGroup>
 
@@ -45,7 +61,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Parser\Parser.csproj" />
+    <ProjectReference Include="..\dotnet\src\Parser\Parser.csproj" />
   </ItemGroup>
 
   <ItemGroup>
