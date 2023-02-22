@@ -8,7 +8,7 @@ fi
 
 bash scripts/Title.sh BuildJsInterop $DtdlModelParserBuildConfig
 
-dotnet workload restore --project javascript\JsInterop.csproj
+dotnet workload restore --project javascript/JsInterop.csproj
 
 dotnet publish javascript --configuration $DtdlModelParserBuildConfig
 
