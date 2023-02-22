@@ -63,17 +63,17 @@ steps:
   displayName: 'Download Codegenned Unit Test Code'
 
 - bash: |
-    echo delete samples/projects/Sample* folders
-    for d in $(System.DefaultWorkingDirectory)/samples/projects/Sample* ; do
+    echo delete tutorials/projects/Tutorial* folders
+    for d in $(System.DefaultWorkingDirectory)/tutorials/projects/Tutorial* ; do
       [[ -d $d ]] && rm -r $d
     done
-    echo delete samples/projects/Samples.sln
-    [[ -f $(System.DefaultWorkingDirectory)/samples/projects/Samples.sln ]] && rm $(System.DefaultWorkingDirectory)/samples/projects/Samples.sln
-  displayName: 'Delete old Sample Projects'
+    echo delete tutorials/projects/Tutorials.sln
+    [[ -f $(System.DefaultWorkingDirectory)/tutorials/projects/Tutorials.sln ]] && rm $(System.DefaultWorkingDirectory)/tutorials/projects/Tutorials.sln
+  displayName: 'Delete old Tutorial Projects'
 
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current
-    artifact: ${{ parameters.DotNetArtifact }}_Samples
-    path: $(System.DefaultWorkingDirectory)/samples/projects
-  displayName: 'Download Sample Projects'
+    artifact: ${{ parameters.DotNetArtifact }}_Tutorials
+    path: $(System.DefaultWorkingDirectory)/tutorials/projects
+  displayName: 'Download Tutorial Projects'

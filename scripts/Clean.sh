@@ -23,9 +23,9 @@ bash scripts/Title.sh Clean $DtdlModelParserBuildConfig
 [[ -d dotnet/gen/RemodelGenerator/bin/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/RemodelGenerator/bin/$DtdlModelParserBuildConfig
 [[ -d dotnet/gen/RemodelGenerator/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/RemodelGenerator/obj/$DtdlModelParserBuildConfig
 [[ -f dotnet/gen/RemodelGenerator/obj/project.assets.json ]] && rm dotnet/gen/RemodelGenerator/obj/project.assets.json
-[[ -d dotnet/gen/SampleExtractor/bin/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/SampleExtractor/bin/$DtdlModelParserBuildConfig
-[[ -d dotnet/gen/SampleExtractor/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/SampleExtractor/obj/$DtdlModelParserBuildConfig
-[[ -f dotnet/gen/SampleExtractor/obj/project.assets.json ]] && rm dotnet/gen/SampleExtractor/obj/project.assets.json
+[[ -d dotnet/gen/TutorialExtractor/bin/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/TutorialExtractor/bin/$DtdlModelParserBuildConfig
+[[ -d dotnet/gen/TutorialExtractor/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/TutorialExtractor/obj/$DtdlModelParserBuildConfig
+[[ -f dotnet/gen/TutorialExtractor/obj/project.assets.json ]] && rm dotnet/gen/TutorialExtractor/obj/project.assets.json
 [[ -d dotnet/gen/FlowTracer/bin/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/FlowTracer/bin/$DtdlModelParserBuildConfig
 [[ -d dotnet/gen/FlowTracer/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/FlowTracer/obj/$DtdlModelParserBuildConfig
 [[ -f dotnet/gen/FlowTracer/obj/project.assets.json ]] && rm dotnet/gen/FlowTracer/obj/project.assets.json
@@ -52,7 +52,7 @@ bash scripts/Title.sh Clean $DtdlModelParserBuildConfig
 
 [[ -d TestResults ]] && rm -r TestResults
 
-for d in samples/projects/Sample* ; do
+for d in tutorials/projects/Tutorial* ; do
   [[ -d $d/bin/$DtdlModelParserBuildConfig ]] && rm -r $d/bin/$DtdlModelParserBuildConfig
   [[ -d $d/obj/$DtdlModelParserBuildConfig ]] && rm -r $d/obj/$DtdlModelParserBuildConfig
   [[ -f $d/obj/project.assets.json ]] && rm $d/obj/project.assets.json

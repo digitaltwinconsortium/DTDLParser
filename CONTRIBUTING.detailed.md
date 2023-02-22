@@ -27,11 +27,11 @@ There are two long-term branches in this repository: "main" and "vNext".
 The main branch is the target for all user PRs.
 It contains three broad categories of files:
 
-1. Handwritten code and documents, including code-generation code, non-code-genned portions of the parser, sample documents, and various supporting projects.
+1. Handwritten code and documents, including code-generation code, non-code-genned portions of the parser, tutorial documents, and various supporting projects.
     * These files are modified via PRs created by users.
 2. Declarative files for the current version of DTDL imported from the DTDL repo, including DTDL language definition files, test cases, error messages, and object model conventions.
     * These files are updated via synchronization PRs from the DTDL repository main branch.
-3. Generated code and projects for the current version of DTDL, including most of the parser codebase, unit-test sequencers, and sample projects.
+3. Generated code and projects for the current version of DTDL, including most of the parser codebase, unit-test sequencers, and tutorial projects.
     * These files are updated as needed by the Parser-PR pipeline in response to either a user PR or a sync PR.
     This automated update may be short-circuited by including the modified files directly in a PR.
 

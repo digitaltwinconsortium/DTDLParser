@@ -55,10 +55,10 @@ steps:
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildSamples.sh Release ${{ parameters.DtdlModelParserLangConfig }}
-  displayName: 'Build Parser Sample Projects'
+    bash scripts/BuildTutorials.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Parser Tutorial Projects'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/TestSamples.sh Release ${{ parameters.DtdlModelParserLangConfig }}
-  displayName: 'Test Parser Sample Projects'
+    bash scripts/TestTutorials.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Test Parser Tutorial Projects'
