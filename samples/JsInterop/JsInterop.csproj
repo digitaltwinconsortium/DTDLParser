@@ -46,9 +46,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <WasmExtraFilesToDeploy Include="..\..\javascript\DtdlErr.d.ts" />
+    <WasmExtraFilesToDeploy Include="..\..\javascript\generated\DtdlOm.d.ts" />
     <WasmExtraFilesToDeploy Include="index.d.ts" />
-    <WasmExtraFilesToDeploy Include="DtdlErr.d.ts" />
-    <WasmExtraFilesToDeploy Include="generated\DtdlOm.d.ts" />
     <WasmExtraFilesToDeploy Include="package.json" />
   </ItemGroup>
 
@@ -61,7 +61,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dotnet\src\Parser\Parser.csproj" />
+    <ProjectReference Include="..\..\dotnet\src\Parser\Parser.csproj" />
   </ItemGroup>
 
   <ItemGroup>

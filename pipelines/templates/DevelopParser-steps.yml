@@ -25,11 +25,6 @@ steps:
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildJsInterop.sh Release ${{ parameters.DtdlModelParserLangConfig }}
-  displayName: 'Build JsInterop'
-
-- bash: |
-    cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
     bash scripts/BuildParserTests.sh Release ${{ parameters.DtdlModelParserLangConfig }}
   displayName: 'Build Parser Tests'
 
