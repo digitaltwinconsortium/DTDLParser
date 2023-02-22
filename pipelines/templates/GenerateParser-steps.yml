@@ -50,13 +50,13 @@ steps:
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildSampleExtractor.sh Release ${{ parameters.DtdlModelParserLangConfig }}
-  displayName: 'Build Sample Extractor'
+    bash scripts/BuildTutorialExtractor.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Build Tutorial Extractor'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/ExtractSamples.sh Release ${{ parameters.DtdlModelParserLangConfig }}
-  displayName: 'Extract Sample Projects'
+    bash scripts/ExtractTutorials.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+  displayName: 'Extract Tutorial Projects'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}

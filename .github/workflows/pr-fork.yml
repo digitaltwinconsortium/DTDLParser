@@ -48,5 +48,5 @@ jobs:
       - name: Reject image input changes
         run: git diff --exit-code HEAD remotes/DTDLParser/main -- images/input/generated
 
-      - name: Reject sample project changes
-        run: git diff --exit-code HEAD remotes/DTDLParser/main -- samples/projects
+      - name: Reject tutorial project changes
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- tutorials/projects

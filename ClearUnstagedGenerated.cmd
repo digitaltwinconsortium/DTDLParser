@@ -17,8 +17,8 @@ git restore dotnet\src\Parser\generated
 git clean -f javascript\generated
 git restore javascript\generated
 
-git clean -f samples\projects
-git restore samples\projects
+git clean -f tutorials\projects
+git restore tutorials\projects
 
 git clean -f images\input\generated
 git restore images\input\generated

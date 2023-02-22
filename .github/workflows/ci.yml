@@ -30,9 +30,9 @@ jobs:
           dotnet test dotnet/tests/ResultFormatterUnitTest -c Release --logger trx 
           dotnet test dotnet/tests/ParserUnitTest -c Release --logger trx 
 
-      - name: Test Samples
+      - name: Test Tutorials
         run: |
-          for d in samples/projects/Sample*; do
+          for d in tutorials/projects/Tutorial*; do
             if [ -d $d ]; then
               echo testing $d ;
               dotnet run --project $d > $d/output.txt ;

@@ -21,8 +21,8 @@ The main top-level folders in the repository are as follows:
   * :file_folder: **src** - Source code (both handwritten and generated) of the parser and tools.
   * :file_folder: **tests** - Source code (both handwritten and generated) of tests that validate correctness of the parser and sub-components.
 * :file_folder: **test-cases** - Declarative tests cases for validating DTDL parsing.
-* :open_file_folder: **samples** - Markdown files illustrating use of the parser.
-  * :file_folder: **projects** - C# project, source, and expectation files generated from the Markdown samples.
+* :open_file_folder: **tutorials** - Markdown files illustrating use of the parser.
+  * :file_folder: **projects** - C# project, source, and expectation files generated from the Markdown tutorials.
 * :file_folder: **scripts** - CMD files used by the [Develop.sh](#building-the-projects) script.
 
 ### Generated (Read-Only) Code
@@ -41,7 +41,7 @@ PRs shall not include changes to files within:
 * :file_folder: **javascript/generated**
 * :file_folder: **images/generated**
 * :file_folder: **images/input/generated**
-* :file_folder: **samples/projects**
+* :file_folder: **tutorials/projects**
 * :file_folder: **api-docs**
 
 ## Building the Projects

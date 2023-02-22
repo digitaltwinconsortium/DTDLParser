@@ -5,7 +5,7 @@ The Digital Twins Definition Language ([DTDL][language_docs]) is a language for 
 
 The DTDLParser is a library that can be used to determine whether one or more models are valid according to the language [v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) or [v3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) specifications, to identify specific modeling errors, and to enable inspection of model contents.
 
-[Source code][source_root] | [Package (NuGet)][package] | [DTDL language documentation][language_docs] | [Samples][source_samples]
+[Source code][source_root] | [Package (NuGet)][package] | [DTDL language documentation][language_docs] | [Tutorials][source_tutorials]
 
 ## :point_right: Getting started
 
@@ -52,7 +52,7 @@ dtmi:com:example:Thermostat
 dtmi:dtdl:instance:Schema:double;2
 ```
 
-Check out the [Samples projects][source_samples] for more advanced use cases.
+Check out the [Tutorials projects][source_tutorials] for more advanced use cases.
 
 ## :key: Key concepts
 
@@ -96,7 +96,7 @@ This validation is performed via `ValidateInstance(string)` or `ValidateInstance
 
 ## :next_track_button: Next steps
 
-For further details, see the [samples README][samples_readme].
+For further details, see the [tutorials README][tutorials_readme].
 
 ## :woman_judge: License
 
@@ -112,10 +112,10 @@ Most contributions require you to agree to a Contributor License Agreement (CLA)
 
 <!-- LINKS -->
 [source_root]: ./dotnet/src/Parser
-[source_samples]: ./samples
+[source_tutorials]: ./tutorials
 [language_docs]: https://github.com/Azure/opendigitaltwins-dtdl
 [dtmi_spec]: https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTMI
 [uri_rfc]: https://datatracker.ietf.org/doc/html/rfc3986/
 [package]: https://www.nuget.org/packages/DTDLParser/
-[samples_readme]: ./samples/README.md
+[tutorials_readme]: ./tutorials/README.md
 [contrib]: ./CONTRIBUTING.md

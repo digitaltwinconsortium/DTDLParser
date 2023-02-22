@@ -43,10 +43,10 @@ else
   echo "     15 | GRT | GenerateRemodelTool"
   echo "     16 | BRT | BuildRemodelTool"
   echo "     17 | PRT | PackRemodelTool"
-  echo "     18 | BSE | BuildSampleExtractor"
-  echo "     19 | ES  | ExtractSamples"
-  echo "     20 | BS  | BuildSamples"
-  echo "     21 | TS  | TestSamples"
+  echo "     18 | BTE | BuildTutorialExtractor"
+  echo "     19 | ET  | ExtractTutorials"
+  echo "     20 | BT  | BuildTutorials"
+  echo "     21 | TT  | TestTutorials"
   echo "     22 | DF  | DocFx"
   echo "     23 | BFT | BuildFlowTracer"
   echo "     24 | TF  | TraceFlow"
@@ -122,16 +122,16 @@ else
     17 | prt | packremodeltool )
       firstStep=17
       ;;
-    18 | bse | buildsampleextractor )
+    18 | bte | buildtutorialextractor )
       firstStep=18
       ;;
-    19 | es | extractsamples )
+    19 | et | extracttutorials )
       firstStep=19
       ;;
-    20 | bs | buildsamples )
+    20 | bt | buildtutorials )
       firstStep=20
       ;;
-    21 | ts | testsamples )
+    21 | tt | testtutorials )
       firstStep=21
       ;;
     22 | df | docfx )
@@ -203,16 +203,16 @@ else
       17 | prt | packremodeltool )
         lastStep=17
         ;;
-      18 | bse | buildsampleextractor )
+      18 | bte | buildtutorialextractor )
         lastStep=18
         ;;
-      19 | es | extractsamples )
+      19 | et | extracttutorials )
         lastStep=19
         ;;
-      20 | bs | buildsamples )
+      20 | bt | buildtutorials )
         lastStep=20
         ;;
-      21 | ts | testsamples )
+      21 | tt | testtutorials )
         lastStep=21
         ;;
       22 | df | docfx )
@@ -329,22 +329,22 @@ if [ $firstStep -le 17 ] && [ $lastStep -ge 17 ]; then
 fi
 
 if [ $firstStep -le 18 ] && [ $lastStep -ge 18 ]; then
-  scripts/BuildSampleExtractor.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildTutorialExtractor.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 19 ] && [ $lastStep -ge 19 ]; then
-  scripts/ExtractSamples.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig $DtdlModelParserVersion
+  scripts/ExtractTutorials.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig $DtdlModelParserVersion
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 20 ] && [ $lastStep -ge 20 ]; then
-  scripts/BuildSamples.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig $DtdlModelParserVersion
+  scripts/BuildTutorials.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig $DtdlModelParserVersion
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 21 ] && [ $lastStep -ge 21 ]; then
-  scripts/TestSamples.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/TestTutorials.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
   test $? -eq 0 || exit $?
 fi
 
