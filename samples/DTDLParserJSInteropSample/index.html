@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DTDL Parser in the Browser</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="modulepreload" href="./main.js" />
+  <link rel="modulepreload" href="./dotnet.js" />
+</head>
+
+<body>
+<h1>DTDL .NET parser in the browser</h1>
+
+<textarea id="dtdl-text" cols="80" rows="30" spellcheck="false">
+{
+    "@context": ["dtmi:dtdl:context;2"],
+    "@id": "dtmi:com:example;1",
+    "@type": "Interface",
+    "extends" : {
+        "@type": "Interface",
+        "@id": "dtmi:com:example:base;1",
+        "contents": [
+            {
+                "@type": "Property",
+                "name": "baseProp",
+                "schema": "dateTime"
+            }
+        ]
+    },
+    "contents": [
+        {
+            "@type": ["Property", "Temperature"],
+            "name": "propTempInKelvin",
+            "schema": "double",
+            "unit" : "kelvin"
+        },
+        {
+            "@type": ["Telemetry", "Temperature"],
+            "name": "telTempInKelvin",
+            "schema": "double",
+            "unit" : "kelvin"
+        },
+        {
+            "@type": "Component",
+            "name": "myComponent",
+            "schema": "dtmi:com:example:base;1"
+        }
+    ]
+}
+
+</textarea>
+<div id="parserVersion">Version..</div>
+<pre id="out">
+    .. loading parser ..
+</pre>
+<script type='module' src="./main.js"></script>
+</body>
+</html>
