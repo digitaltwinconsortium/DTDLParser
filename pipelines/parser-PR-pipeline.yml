@@ -48,15 +48,6 @@ stages:
     dependsOn: RestoreDtdl
     condition: and(not(failed()), not(canceled()))
 
-    strategy:
-      matrix:
-        vCurrent:
-          DtdlModelParserLangConfig: dtdl
-          DotNetArtifact: DotNetVCurrent
-        vNext:
-          DtdlModelParserLangConfig: dtdlVNext
-          DotNetArtifact: DotNetVNext
-
     pool:
       vmImage: ubuntu-latest
 
@@ -68,16 +59,10 @@ stages:
     - template: templates/common/Setup-steps.yml
 
     - template: templates/GenerateParser-steps.yml
-      parameters:
-        DtdlModelParserLangConfig: $(DtdlModelParserLangConfig)
 
     - template: templates/DevelopParser-steps.yml
-      parameters:
-        DtdlModelParserLangConfig: $(DtdlModelParserLangConfig)
 
     - template: templates/PublishParser-steps.yml
-      parameters:
-        DotNetArtifact: $(DotNetArtifact)
 
   - job: AddCommit
 
@@ -98,8 +83,6 @@ stages:
     - template: templates/common/CheckoutPR-steps.yml
 
     - template: templates/DownloadParser-steps.yml
-      parameters:
-        DotNetArtifact: DotNetVCurrent
 
     - template: templates/common/GitCommit-steps.yml
       parameters:

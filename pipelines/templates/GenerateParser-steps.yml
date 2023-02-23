@@ -1,8 +1,6 @@
 # GenerateParser steps
 
 parameters:
-- name: DtdlModelParserLangConfig
-  default: ''
 - name: SubFolder
   default: 's'
 
@@ -10,52 +8,52 @@ steps:
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildMetaDigest.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildMetaDigest.sh Release
   displayName: 'Build Metamodel Digest'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildCodeGenerator.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildCodeGenerator.sh Release
   displayName: 'Build Code Generator'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildParserGen.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildParserGen.sh Release
   displayName: 'Build Parser Generator'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/GenerateParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/GenerateParser.sh Release
   displayName: 'Generate Parser'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildTestGen.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildTestGen.sh Release
   displayName: 'Build Unit Test Generator'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/GenerateParserTests.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/GenerateParserTests.sh Release
   displayName: 'Generate ParserUnitTest'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildRemodelGen.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildRemodelGen.sh Release
   displayName: 'Build Remodel Generator'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/GenerateRemodelTool.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/GenerateRemodelTool.sh Release
   displayName: 'Generate Remodel Tool'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildTutorialExtractor.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildTutorialExtractor.sh Release
   displayName: 'Build Tutorial Extractor'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/ExtractTutorials.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/ExtractTutorials.sh Release
   displayName: 'Extract Tutorial Projects'
 
 - bash: |
@@ -66,12 +64,12 @@ steps:
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
     DocFxFolder=$(ls -d docfx*)
-    bash scripts/RunDocFx.sh Release ${{ parameters.DtdlModelParserLangConfig }} "mono $DocFxFolder/tools/"
+    bash scripts/RunDocFx.sh Release "mono $DocFxFolder/tools/"
   displayName: 'Write API Documentation'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildFlowTracer.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildFlowTracer.sh Release
   displayName: 'Build Flow Tracer'
 
 - bash: |
@@ -81,5 +79,5 @@ steps:
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/TraceFlow.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/TraceFlow.sh Release
   displayName: 'Trace Flow'

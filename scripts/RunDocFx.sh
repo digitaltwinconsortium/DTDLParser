@@ -11,7 +11,7 @@ bash scripts/Title.sh RunDocFx $DtdlModelParserBuildConfig
 [[ -d api-docs/dotnet/_site ]] && rm -r api-docs/dotnet/_site
 [[ -d api-docs/dotnet/api ]] && rm -r api-docs/dotnet/api
 
-if [ -z "$3" ]; then
+if [ -z "$2" ]; then
   where -q docfx.exe
   if [ $? -ne 0 ]; then
     echo The DocFx application docfx.exe is not on your PATH.
@@ -30,6 +30,6 @@ fi
 #:: in dotnet dotnet/src/Parser/generated
 #:: in json docfx.json
 
-${3}docfx.exe api-docs/dotnet/docfx.json
+${2}docfx.exe api-docs/dotnet/docfx.json
 
 test $? -eq 0 || bash scripts/Failure.sh RunDocFx $DtdlModelParserBuildConfig
