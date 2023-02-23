@@ -15,7 +15,7 @@
   "badDtmiOrTerm": {
     "cause": "{layer}{primaryId:p} property '{property}' has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
     "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}'{line2} that is neither a valid DTMI reference nor a DTDL term.",
-    "action": "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "action": "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName",
@@ -726,7 +726,7 @@
   "idRefBadDtmiOrTerm": {
     "cause": "{layer}{primaryId:n} has '{property}' value whose '@id' value '{value}' is neither a valid DTMI reference nor a DTDL term.",
     "locatedCause": "In {sourceName1}, '@id'{line1} has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
-    "action": "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "action": "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName",
@@ -2250,7 +2250,7 @@
   "notJsonObject": {
     "cause": "Top-level JSON element is neither a JSON object nor a JSON array of JSON objects.",
     "locatedCause": "In {sourceName1}, top-level JSON element{line1} is neither a JSON object nor a JSON array of JSON objects.",
-    "action": "Update your model to follow the examples in https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "action": "Update your model to follow the examples in aka.ms/dtdl.",
     "required": {},
     "optional": {
       "source1": "incidentValue"
@@ -3054,7 +3054,7 @@
   "typeInvalidDtmi": {
     "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an invaild DTMI.",
     "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an invaild DTMI.",
-    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "value": "cotype"
@@ -3067,7 +3067,7 @@
   "typeIrrelevantDtmiOrTerm": {
     "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is not a DTDL material type or supplemental type.",
     "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is not a DTDL material type or supplemental type.",
-    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "value": "cotype"
@@ -3080,7 +3080,7 @@
   "typeNotDtmiNorTerm": {
     "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an IRI but not a DTMI.",
     "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an IRI but not a DTMI.",
-    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "value": "cotype"
@@ -3105,7 +3105,7 @@
   "typeUndefinedTerm": {
     "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an undefined term.",
     "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an undefined term.",
-    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "value": "cotype"

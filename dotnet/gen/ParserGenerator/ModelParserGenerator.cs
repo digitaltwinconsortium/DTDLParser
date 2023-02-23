@@ -184,6 +184,7 @@
             this.GenerateParseMethod(parserClass, isAsync);
             this.GenerateParseSingletonMethod(parserClass, isAsync);
             this.GenerateParseToJsonMethod(parserClass, isAsync);
+            this.GenerateParseToJsonSingletonMethod(parserClass, isAsync);
             this.GenerateParseInternalMethod(parserClass, isAsync);
             this.GenerateParseAndResolveAsNeededMethod(parserClass, isAsync);
             this.GenerateParseTextsIntoModelMethod(parserClass, isAsync);
@@ -286,6 +287,26 @@
 
             tryParse.Catch("Exception")
                 .Line("throw;");
+        }
+
+        private void GenerateParseToJsonSingletonMethod(CsClass parserClass, bool isAsync)
+        {
+            string methodName = this.GetFullName("ParseToJson", isAsync);
+            CsMethod method = parserClass.Method(Access.Public, Novelty.Normal, this.GetReturnType("string", isAsync), methodName, asynchrony: isAsync ? Asynchrony.Async : Asynchrony.Sync);
+            method.Summary($"{(isAsync ? "Asynchronously parse" : "Parse")} a JSON text string as DTDL models and return the result as a JSON object model.");
+            method.Param("string", "jsonText", "The JSON text string to parse as DTDL models.");
+            method.Param("bool", "indent", "Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.", "false");
+
+            method.Returns($"{(isAsync ? "A <c>Task</c> object whose <c>Result</c> property is a" : "A")} string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with {this.tsFileName}.");
+
+            if (isAsync)
+            {
+                method.Body.Line("return await this.ParseToJsonAsync(this.StringToAsyncEnumerable(jsonText), indent).ConfigureAwait(false);");
+            }
+            else
+            {
+                method.Body.Line("return this.ParseToJson(this.StringToEnumerable(jsonText), indent);");
+            }
         }
 
         private CsScope GenerateNewJsonWriter(CsScope scope, string resultFormat)

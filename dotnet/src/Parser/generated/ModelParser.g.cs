@@ -168,6 +168,17 @@ namespace DTDLParser
         }
 
         /// <summary>
+        /// Parse a JSON text string as DTDL models and return the result as a JSON object model.
+        /// </summary>
+        /// <param name="jsonText">The JSON text string to parse as DTDL models.</param>
+        /// <param name="indent">Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.</param>
+        /// <returns>A string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with DtdlOm.d.ts.</returns>
+        public string ParseToJson(string jsonText, bool indent = false)
+        {
+            return this.ParseToJson(this.StringToEnumerable(jsonText), indent);
+        }
+
+        /// <summary>
         /// Asynchronously parse a collection of JSON text strings as DTDL models.
         /// </summary>
         /// <param name="jsonTexts">The JSON text strings to parse as DTDL models.</param>
@@ -276,6 +287,17 @@ namespace DTDLParser
             {
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Asynchronously parse a JSON text string as DTDL models and return the result as a JSON object model.
+        /// </summary>
+        /// <param name="jsonText">The JSON text string to parse as DTDL models.</param>
+        /// <param name="indent">Optional boolean parameter to indent the returned JSON text for improved readability; defaults to false.</param>
+        /// <returns>A <c>Task</c> object whose <c>Result</c> property is a string representing a JSON object that maps each DTMI as a string to a DTDL element encoded as a JSON object in accordance with DtdlOm.d.ts.</returns>
+        public async Task<string> ParseToJsonAsync(string jsonText, bool indent = false)
+        {
+            return await this.ParseToJsonAsync(this.StringToAsyncEnumerable(jsonText), indent).ConfigureAwait(false);
         }
 
         /// <summary>
