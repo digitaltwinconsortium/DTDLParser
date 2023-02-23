@@ -1,0 +1,28 @@
+{
+  "@context": [
+    "dtmi:dtdl:context;3",
+    "dtmi:dtdl:extension:quantitativeTypes;1"
+  ],
+  "@id": "dtmi:com:example;1",
+  "@type": "Interface",
+  "extends": "dtmi:com:example:base;1",
+  "contents": [
+    {
+      "@type": [ "Property", "Temperature" ],
+      "name": "propTempInKelvin",
+      "schema": "double",
+      "unit": "kelvin"
+    },
+    {
+      "@type": [ "Telemetry", "Temperature" ],
+      "name": "telTempInKelvin",
+      "schema": "double",
+      "unit": "kelvin"
+    },
+    {
+      "@type": "Component",
+      "name": "myComponent",
+      "schema": "dtmi:com:example:base;1"
+    }
+  ]
+}
