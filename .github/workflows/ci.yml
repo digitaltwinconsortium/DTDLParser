@@ -41,6 +41,9 @@ jobs:
             fi
           done
 
+      - name: Build Samples
+        run: dotnet build samples/Samples.sln
+
       - name: Pack Parser
         run: dotnet pack -c Release dotnet/src/Parser
 
