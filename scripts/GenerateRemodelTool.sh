@@ -6,12 +6,6 @@ else
   DtdlModelParserBuildConfig=Debug
 fi
 
-if [ "$2" == "dtdlVNext" ]; then
-  DtdlModelParserLangConfig=dtdlVNext
-else
-  DtdlModelParserLangConfig=dtdl
-fi
-
 bash scripts/Title.sh GenerateRemodelTool $DtdlModelParserBuildConfig
 
 [[ -d dotnet/src/Remodel/generated ]] && rm -r dotnet/src/Remodel/generated
@@ -23,6 +17,6 @@ bash scripts/Title.sh GenerateRemodelTool $DtdlModelParserBuildConfig
 #:: in json ObjectModelConventions.json
 #:: out dotnet dotnet/src/Remodel/generated
 
-dotnet run --project dotnet/gen/RemodelGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/Remodel/generated dtdl/${DtdlModelParserLangConfig}_digest.json dtdl/support/ObjectModelConventions.json dtdl/${DtdlModelParserLangConfig}.json
+dotnet run --project dotnet/gen/RemodelGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/Remodel/generated dtdl/dtdl_digest.json dtdl/support/ObjectModelConventions.json dtdl/dtdl.json
 
 test $? -eq 0 || bash scripts/Failure.sh GenerateRemodelTool $DtdlModelParserBuildConfig

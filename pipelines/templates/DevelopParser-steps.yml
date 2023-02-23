@@ -1,8 +1,6 @@
 # DevelopParser steps
 
 parameters:
-- name: DtdlModelParserLangConfig
-  default: ''
 - name: SubFolder
   default: 's'
 
@@ -10,45 +8,45 @@ steps:
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildParser.sh Release
   displayName: 'Build Parser'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/PackParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/PackParser.sh Release
   displayName: 'Pack Parser'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/DeriveParserSbom.sh Release ${{ parameters.DtdlModelParserLangConfig }} $(nbgv get-version -v SimpleVersion)
+    bash scripts/DeriveParserSbom.sh Release $(nbgv get-version -v SimpleVersion)
   displayName: 'Derive Parser SBOM'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildParserTests.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildParserTests.sh Release
   displayName: 'Build Parser Tests'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/TestParser.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/TestParser.sh Release
   displayName: 'Test Parser'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildRemodelTool.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildRemodelTool.sh Release
   displayName: 'Build Remodel Tool'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/PackRemodelTool.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/PackRemodelTool.sh Release
   displayName: 'Pack Remodel Tool'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildTutorials.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/BuildTutorials.sh Release
   displayName: 'Build Parser Tutorial Projects'
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/TestTutorials.sh Release ${{ parameters.DtdlModelParserLangConfig }}
+    bash scripts/TestTutorials.sh Release
   displayName: 'Test Parser Tutorial Projects'

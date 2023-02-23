@@ -1,9 +1,5 @@
 # DownloadParser steps
 
-parameters:
-- name: DotNetArtifact
-  default: ''
-
 steps:
 
 - bash: |
@@ -16,7 +12,7 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current
-    artifact: ${{ parameters.DotNetArtifact }}_Sources
+    artifact: DotNet_Sources
     path: $(System.DefaultWorkingDirectory)/dotnet/src/Parser/generated
   displayName: 'Download Codegenned Parser Sources'
 
@@ -30,7 +26,7 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current
-    artifact: ${{ parameters.DotNetArtifact }}_Remodel
+    artifact: DotNet_Remodel
     path: $(System.DefaultWorkingDirectory)/dotnet/src/Remodel/generated
   displayName: 'Download Codegenned Remodel Sources'
 
@@ -51,14 +47,14 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current
-    artifact: ${{ parameters.DotNetArtifact }}_JS
+    artifact: DotNet_JS
     path: $(System.DefaultWorkingDirectory)/javascript/generated
   displayName: 'Download Codegenned JavaScript files'
 
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current
-    artifact: ${{ parameters.DotNetArtifact }}_Tests
+    artifact: DotNet_Tests
     path: $(System.DefaultWorkingDirectory)/dotnet/tests/ParserUnitTest/generated
   displayName: 'Download Codegenned Unit Test Code'
 
@@ -74,6 +70,6 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current
-    artifact: ${{ parameters.DotNetArtifact }}_Tutorials
+    artifact: DotNet_Tutorials
     path: $(System.DefaultWorkingDirectory)/tutorials/projects
   displayName: 'Download Tutorial Projects'

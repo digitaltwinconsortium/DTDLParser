@@ -16,11 +16,7 @@ steps:
 - template: templates/common/Setup-steps.yml
 
 - template: templates/GenerateParser-steps.yml
-  parameters:
-    DtdlModelParserLangConfig: dtdl
 
 - template: templates/DevelopParser-steps.yml
-  parameters:
-    DtdlModelParserLangConfig: dtdl
 
 - template: templates/common/GitDiff-steps.yml

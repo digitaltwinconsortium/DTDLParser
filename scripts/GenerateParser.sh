@@ -6,12 +6,6 @@ else
   DtdlModelParserBuildConfig=Debug
 fi
 
-if [ "$2" == "dtdlVNext" ]; then
-  DtdlModelParserLangConfig=dtdlVNext
-else
-  DtdlModelParserLangConfig=dtdl
-fi
-
 bash scripts/Title.sh GenerateParser $DtdlModelParserBuildConfig
 
 [[ -d dotnet/src/Parser/generated ]] && rm -r dotnet/src/Parser/generated
@@ -26,6 +20,6 @@ mkdir javascript/generated
 #:: in json ParsingErrorMessages.json
 #:: out dotnet dotnet/src/Parser/generated
 
-dotnet run --project dotnet/gen/ParserGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/Parser/generated SupportedExtensions.g.md javascript/generated/DtdlOm.d.ts dtdl/${DtdlModelParserLangConfig}_digest.json dtdl/support/ObjectModelConventions.json dtdl/${DtdlModelParserLangConfig}.json dtdl/support/ParsingErrorMessages.json
+dotnet run --project dotnet/gen/ParserGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/Parser/generated SupportedExtensions.g.md javascript/generated/DtdlOm.d.ts dtdl/dtdl_digest.json dtdl/support/ObjectModelConventions.json dtdl/dtdl.json dtdl/support/ParsingErrorMessages.json
 
 test $? -eq 0 || bash scripts/Failure.sh GenerateParser $DtdlModelParserBuildConfig
