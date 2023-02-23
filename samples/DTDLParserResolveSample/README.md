@@ -1,6 +1,6 @@
-# DTDLParserSample
+# DTDLParserResolveSample
 
-This sample loads an interface located in a folder structure following the [DMR Convention](https://github.com/Azure/iot-plugandplay-models-tools/wiki/Resolution-Convention), and enumera the DTDL elements.
+This sample loads an interface located in a folder structure following the [DMR Convention](https://github.com/Azure/iot-plugandplay-models-tools/wiki/Resolution-Convention), and enumerates the DTDL elements.
 
 The `dtmi:com:example;1` interface uses an additional interface `dtmi:com:example:base;1`. 
 
