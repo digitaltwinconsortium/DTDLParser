@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <OutputType>Exe</OutputType>
+    <WasmMainJSPath>index.js</WasmMainJSPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <PublishTrimmed>true</PublishTrimmed>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <EmccInitialHeapSize>16mb</EmccInitialHeapSize>
+    <DebuggerSupport>false</DebuggerSupport>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <EventSourceSupport>false</EventSourceSupport>
+  </PropertyGroup>
+ 
+  <ItemGroup>
+	<WasmExtraFilesToDeploy Include="index.html" />
+    <WasmExtraFilesToDeploy Include="index.js" />
+	<WasmExtraFilesToDeploy Include="interfaceInfo.js" />
+	<WasmExtraFilesToDeploy Include="errorInfo.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\dotnet\src\Parser\Parser.csproj" />
+  </ItemGroup>
+</Project>
