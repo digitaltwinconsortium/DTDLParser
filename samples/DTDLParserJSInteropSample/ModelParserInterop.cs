@@ -14,5 +14,5 @@ public partial class ModelParserInterop
     public static string ParserVersion() => typeof(ModelParser).Assembly.FullName;
 
     [JSExport]
-    public static string Parse(string dtdl) => new ModelParser().ParseToJson(new string[] { dtdl });
+    public static string Parse(string dtdl) => new ModelParser().ParseToJson(dtdl);
 }

@@ -16,16 +16,12 @@
  
   <ItemGroup>
 	<WasmExtraFilesToDeploy Include="index.html" />
-    <WasmExtraFilesToDeploy Include="main.js" />
+    <WasmExtraFilesToDeploy Include="index.js" />
 	<WasmExtraFilesToDeploy Include="interfaceInfo.js" />
 	<WasmExtraFilesToDeploy Include="errorInfo.js" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\dotnet\src\Parser\Parser.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

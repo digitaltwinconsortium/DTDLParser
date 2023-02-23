@@ -43,7 +43,6 @@ const validate = () => {
         out.innerHTML = ''
         const errorInfo = ErrorInfo(JSON.parse(err.message))
         errorInfo.print(applog)
-        //out.innerHTML = JSON.stringify(JSON.parse(err.message), null, 2)
     }
 }
 el.onchange = validate

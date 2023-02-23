@@ -29,8 +29,8 @@ export const InterfaceInfo = (
     const relationships = []
     
     const root = /** @type import("./DtdlOM").InterfaceInfo*/(om[dtmi])
-    Object.entries(root.contents).forEach(c => {
-        const elDtmi = c[1]
+    Object.keys(root.contents).forEach(k => {
+        const elDtmi = root.contents[k]
         const el = om[elDtmi]
         switch(el.EntityKind) {
             case contentKind.Property:
@@ -53,17 +53,7 @@ export const InterfaceInfo = (
  
     const print = (outFn) => {
         if (!(outFn instanceof Function)) outFn = console.log
-
-        let telInfo = ''
-        telemetries.forEach(t => {
-            telInfo = ` [T] ${t.name} [${getTermOrUri(t.schema)}]`
-            //t.SupplementalTypes.forEach(st => telInfo += st)
-            //console.log("SP", t.SupplementalProperties)
-            //Object.entries(t.SupplementalProperties).forEach(sp => telInfo += sp[1])
-            //t.SupplementalProperties.forEach(sp => telInfo += sp.Value)
-            outFn(telInfo)
-        })
-
+        telemetries.forEach(t => outFn(` [T] ${t.name} [${getTermOrUri(t.schema)}]`))
         properties.forEach(p => outFn(` [P] ${p.name} [${getTermOrUri(p.schema)}]`))
         commands.forEach(c => outFn(` [C] ${c.name} req: ${c.request} resp: ${c.response}`))
     }
