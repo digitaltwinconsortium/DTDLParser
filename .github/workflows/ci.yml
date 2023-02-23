@@ -15,6 +15,9 @@ jobs:
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
+      - name: Install WASM workload
+        run: dotnet workload install wasm-tools
+
       - name: Build Parser
         run: dotnet build -c Release dotnet/src/Parser
 
