@@ -616,7 +616,7 @@ namespace DTDLParser
                         this.Add(
                             BadDtmiOrTermValidationId,
                             "In {sourceName1}, property '{property}'{line1} has value '{value}'{line2} that is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
@@ -633,7 +633,7 @@ namespace DTDLParser
                         this.Add(
                             BadDtmiOrTermValidationId,
                             "{layer}{primaryId:p} property '{property}' has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
@@ -2238,7 +2238,7 @@ namespace DTDLParser
                         this.Add(
                             IdRefBadDtmiOrTermValidationId,
                             "In {sourceName1}, '@id'{line1} has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
@@ -2252,7 +2252,7 @@ namespace DTDLParser
                         this.Add(
                             IdRefBadDtmiOrTermValidationId,
                             "{layer}{primaryId:n} has '{property}' value whose '@id' value '{value}' is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
@@ -5715,7 +5715,7 @@ namespace DTDLParser
                         this.Add(
                             NotJsonObjectValidationId,
                             "In {sourceName1}, top-level JSON element{line1} is neither a JSON object nor a JSON array of JSON objects.",
-                            "Update your model to follow the examples in https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Update your model to follow the examples in aka.ms/dtdl.",
                             sourceName1: sourceName1,
                             startLine1: startLine1,
                             endLine1: endLine1);
@@ -5725,7 +5725,7 @@ namespace DTDLParser
                         this.Add(
                             NotJsonObjectValidationId,
                             "Top-level JSON element is neither a JSON object nor a JSON array of JSON objects.",
-                            "Update your model to follow the examples in https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.");
+                            "Update your model to follow the examples in aka.ms/dtdl.");
                     }
 
                     return;
@@ -7513,7 +7513,7 @@ namespace DTDLParser
                         this.Add(
                             TypeInvalidDtmiValidationId,
                             "In {sourceName1}, element has @type{line1} that specifies type {value} that is an invaild DTMI.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer,
@@ -7526,7 +7526,7 @@ namespace DTDLParser
                         this.Add(
                             TypeInvalidDtmiValidationId,
                             "{layer}{primaryId:n} has @type that specifies type {value} that is an invaild DTMI.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer);
@@ -7544,7 +7544,7 @@ namespace DTDLParser
                         this.Add(
                             TypeIrrelevantDtmiOrTermValidationId,
                             "In {sourceName1}, element has @type{line1} that specifies type {value} that is not a DTDL material type or supplemental type.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer,
@@ -7557,7 +7557,7 @@ namespace DTDLParser
                         this.Add(
                             TypeIrrelevantDtmiOrTermValidationId,
                             "{layer}{primaryId:n} has @type that specifies type {value} that is not a DTDL material type or supplemental type.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer);
@@ -7575,7 +7575,7 @@ namespace DTDLParser
                         this.Add(
                             TypeNotDtmiNorTermValidationId,
                             "In {sourceName1}, element has @type{line1} that specifies type {value} that is an IRI but not a DTMI.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer,
@@ -7588,7 +7588,7 @@ namespace DTDLParser
                         this.Add(
                             TypeNotDtmiNorTermValidationId,
                             "{layer}{primaryId:n} has @type that specifies type {value} that is an IRI but not a DTMI.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer);
@@ -7635,7 +7635,7 @@ namespace DTDLParser
                         this.Add(
                             TypeUndefinedTermValidationId,
                             "In {sourceName1}, element has @type{line1} that specifies type {value} that is an undefined term.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer,
@@ -7648,7 +7648,7 @@ namespace DTDLParser
                         this.Add(
                             TypeUndefinedTermValidationId,
                             "{layer}{primaryId:n} has @type that specifies type {value} that is an undefined term.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.",
+                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer);
