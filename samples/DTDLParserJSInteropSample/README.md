@@ -2,6 +2,12 @@
 
 This sample uses .NET 7 JSInterop to invoke the parser from JavaScript running in a browser.
 
+To run this sample you need the `wasm-tools` workload, install it with:
+
+```bash
+dotnet workload install wasm-tools
+```
+
 ## JS Interop Layer
 
 The [ModelParserInterop.cs](./DTDLParserJSInteropSample/ModelParserInterop.cs) exports the `ParseToJson` to JavaScript:
