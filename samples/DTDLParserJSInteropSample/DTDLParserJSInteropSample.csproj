@@ -13,17 +13,12 @@
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
     <EventSourceSupport>false</EventSourceSupport>
   </PropertyGroup>
-  <ItemGroup>
-    <None Remove="index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="index.html" />
-  </ItemGroup>
  
   <ItemGroup>
 	<WasmExtraFilesToDeploy Include="index.html" />
     <WasmExtraFilesToDeploy Include="main.js" />
-	  <WasmExtraFilesToDeploy Include="interfaceInfo.js" />
+	<WasmExtraFilesToDeploy Include="interfaceInfo.js" />
+	<WasmExtraFilesToDeploy Include="errorInfo.js" />
   </ItemGroup>
 
   <ItemGroup>

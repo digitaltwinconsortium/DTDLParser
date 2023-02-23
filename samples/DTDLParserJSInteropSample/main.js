@@ -1,5 +1,6 @@
 import { dotnet } from './dotnet.js'
-import { InterfaceInfo } from "./interfaceInfo.js"
+import { InterfaceInfo } from './interfaceInfo.js'
+import { ErrorInfo } from './errorInfo.js'
 
 const { getAssemblyExports, getConfig } = await dotnet
     .withDiagnosticTracing(false)
@@ -24,6 +25,8 @@ const validate = () => {
     try {
         parseResult = JSON.parse(assemblyExports.DtdlParserJSInterop.ModelParserInterop.Parse(el.value))
         console.log(parseResult)
+        out.style.color = 'black'
+        out.style.whiteSpace = 'break-spaces'
         out.innerHTML = ''
         const dtdlOm = InterfaceInfo(parseResult, 'dtmi:com:example;1')
         applog('Root dtmi:com:example;1')
@@ -33,13 +36,14 @@ const validate = () => {
             const coInfo = InterfaceInfo(parseResult, co.schema)
             coInfo.print(applog)
         })
-        //out.innerHTML = JSON.stringify(parseResult, null, 2)
-        out.style.color = 'black'
     }
     catch (err) {
-        console.error(err)
-        out.innerHTML = JSON.stringify(JSON.parse(err.message), null, 2)
         out.style.color = 'red'
+        out.style.whiteSpace = 'auto'
+        out.innerHTML = ''
+        const errorInfo = ErrorInfo(JSON.parse(err.message))
+        errorInfo.print(applog)
+        //out.innerHTML = JSON.stringify(JSON.parse(err.message), null, 2)
     }
 }
 el.onchange = validate

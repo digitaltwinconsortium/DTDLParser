@@ -53,7 +53,17 @@ export const InterfaceInfo = (
  
     const print = (outFn) => {
         if (!(outFn instanceof Function)) outFn = console.log
-        telemetries.forEach(t => outFn(` [T] ${t.name} [${getTermOrUri(t.schema)}]`))
+
+        let telInfo = ''
+        telemetries.forEach(t => {
+            telInfo = ` [T] ${t.name} [${getTermOrUri(t.schema)}]`
+            //t.SupplementalTypes.forEach(st => telInfo += st)
+            //console.log("SP", t.SupplementalProperties)
+            //Object.entries(t.SupplementalProperties).forEach(sp => telInfo += sp[1])
+            //t.SupplementalProperties.forEach(sp => telInfo += sp.Value)
+            outFn(telInfo)
+        })
+
         properties.forEach(p => outFn(` [P] ${p.name} [${getTermOrUri(p.schema)}]`))
         commands.forEach(c => outFn(` [C] ${c.name} req: ${c.request} resp: ${c.response}`))
     }
