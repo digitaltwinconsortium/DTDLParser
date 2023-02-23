@@ -6,7 +6,7 @@ else
   DtdlModelParserBuildConfig=Debug
 fi
 
-DtdlModelParserVersion=$3
+DtdlModelParserVersion=$2
 
 bash scripts/Title.sh DeriveParserSbom $DtdlModelParserBuildConfig
 

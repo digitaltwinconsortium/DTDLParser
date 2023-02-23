@@ -6,11 +6,7 @@ else
   DtdlModelParserBuildConfig=Debug
 fi
 
-if [ "$2" == "dtdlVNext" ]; then
-  TutorialsConfig="pattern:tutorials/Tutorial??_*.md"
-else
-  TutorialsConfig="manifest:tutorials/README.md"
-fi
+TutorialsConfig="manifest:tutorials/README.md"
 
 bash scripts/Title.sh ExtractTutorials $DtdlModelParserBuildConfig
 

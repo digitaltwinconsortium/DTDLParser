@@ -4,16 +4,8 @@ FinalStep=22
 
 if [ "${1,,}" == "d" ] || [ "${1,,}" == "debug" ]; then
   DtdlModelParserBuildConfig=Debug
-  DtdlModelParserLangConfig=dtdl
-elif [ "${1,,}" == "nd" ] || [ "${1,,}" == "nextdebug" ]; then
-  DtdlModelParserBuildConfig=Debug
-  DtdlModelParserLangConfig=dtdlVNext
 elif [ "${1,,}" == "r" ] || [ "${1,,}" == "release" ]; then
   DtdlModelParserBuildConfig=Release
-  DtdlModelParserLangConfig=dtdl
-elif [ "${1,,}" == "nr" ] || [ "${1,,}" == "nextrelease" ]; then
-  DtdlModelParserBuildConfig=Release
-  DtdlModelParserLangConfig=dtdlVNext
 else
   echo ""
   echo " Usage:  Develop config [firstStep [lastStep]]"
@@ -21,8 +13,6 @@ else
   echo "   config:"
   echo "     D  | Debug"
   echo "     R  | Release"
-  echo "     ND | NextDebug"
-  echo "     NR | NextRelease"
   echo ""
   echo "   steps:"
   echo "      0 | C   | Clean"
@@ -51,8 +41,7 @@ else
   echo ""
   echo " Examples:"
   echo ""
-  echo "   Develop Debug        ... execute all (steps 0-$FinalStep) for Debug config per dtdl\dtdl_digest.json"
-  echo "   Develop NextDebug    ... execute all (steps 0-$FinalStep) for Debug config per dtdl\dtdlVNext_digest.json"
+  echo "   Develop Debug        ... execute all (steps 0-$FinalStep) for Debug config"
   echo "   Develop Release BRG  ... execute BuildRemodelGen (step 12) for Release config"
   echo "   Develop R BRG PRT    ... execute BuildRemodelGen through PackRemodelTool (steps 12-15) for Release config"
   echo "   Develop D 5 11       ... execute BuildParser through TestParser (steps 5-11) for Debug config"
@@ -225,107 +214,107 @@ if [ -z "$lastStep" ]; then
 fi
 
 if [ $firstStep -le 0 ] && [ $lastStep -ge 0 ]; then
-  scripts/Clean.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/Clean.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 1 ] && [ $lastStep -ge 1 ]; then
-  scripts/BuildMetaDigest.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildMetaDigest.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 2 ] && [ $lastStep -ge 2 ]; then
-  scripts/BuildCodeGenerator.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildCodeGenerator.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 3 ] && [ $lastStep -ge 3 ]; then
-  scripts/BuildParserGen.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildParserGen.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 4 ] && [ $lastStep -ge 4 ]; then
-  scripts/GenerateParser.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/GenerateParser.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 5 ] && [ $lastStep -ge 5 ]; then
-  scripts/BuildParser.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildParser.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 6 ] && [ $lastStep -ge 6 ]; then
-  scripts/PackParser.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/PackParser.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 7 ] && [ $lastStep -ge 7 ]; then
-  scripts/DeriveParserSbom.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig $DtdlModelParserVersion
+  scripts/DeriveParserSbom.sh $DtdlModelParserBuildConfig $DtdlModelParserVersion
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 8 ] && [ $lastStep -ge 8 ]; then
-  scripts/BuildTestGen.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildTestGen.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 9 ] && [ $lastStep -ge 9 ]; then
-  scripts/GenerateParserTests.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/GenerateParserTests.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 10 ] && [ $lastStep -ge 10 ]; then
-  scripts/BuildParserTests.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildParserTests.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 11 ] && [ $lastStep -ge 11 ]; then
-  scripts/TestParser.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/TestParser.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 12 ] && [ $lastStep -ge 12 ]; then
-  scripts/BuildRemodelGen.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildRemodelGen.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 13 ] && [ $lastStep -ge 13 ]; then
-  scripts/GenerateRemodelTool.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/GenerateRemodelTool.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 14 ] && [ $lastStep -ge 14 ]; then
-  scripts/BuildRemodelTool.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildRemodelTool.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 15 ] && [ $lastStep -ge 15 ]; then
-  scripts/PackRemodelTool.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/PackRemodelTool.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 16 ] && [ $lastStep -ge 16 ]; then
-  scripts/BuildTutorialExtractor.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildTutorialExtractor.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 17 ] && [ $lastStep -ge 17 ]; then
-  scripts/ExtractTutorials.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig $DtdlModelParserVersion
+  scripts/ExtractTutorials.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 18 ] && [ $lastStep -ge 18 ]; then
-  scripts/BuildTutorials.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig $DtdlModelParserVersion
+  scripts/BuildTutorials.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 19 ] && [ $lastStep -ge 19 ]; then
-  scripts/TestTutorials.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/TestTutorials.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 20 ] && [ $lastStep -ge 20 ]; then
-  scripts/RunDocFx.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/RunDocFx.sh $DtdlModelParserBuildConfig
   unix2dos api-docs/dotnet/_site/api/* 2>/dev/null
   unix2dos api-docs/dotnet/_site/fonts/* 2>/dev/null
   unix2dos api-docs/dotnet/_site/styles/* 2>/dev/null
@@ -336,11 +325,11 @@ if [ $firstStep -le 20 ] && [ $lastStep -ge 20 ]; then
 fi
 
 if [ $firstStep -le 21 ] && [ $lastStep -ge 21 ]; then
-  scripts/BuildFlowTracer.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/BuildFlowTracer.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
 
 if [ $firstStep -le 22 ] && [ $lastStep -ge 22 ]; then
-  scripts/TraceFlow.sh $DtdlModelParserBuildConfig $DtdlModelParserLangConfig
+  scripts/TraceFlow.sh $DtdlModelParserBuildConfig
   test $? -eq 0 || exit $?
 fi
