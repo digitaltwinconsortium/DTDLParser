@@ -136,7 +136,7 @@ When this JSON text is submitted via the code snippet above, it displays:
 
 ```Console
 DTDL model is invalid:
-In string variable 'jsonText', element has @type on line 7 that specifies type Telemtry that is an undefined term. Remove @type Telemtry or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.
+In string variable 'jsonText', element has @type on line 7 that specifies type Telemtry that is an undefined term. Remove @type Telemtry or replace with an appropriate DTDL type -- see aka.ms/dtdl.
 ```
 
 ## Fix second parsing error and resubmit

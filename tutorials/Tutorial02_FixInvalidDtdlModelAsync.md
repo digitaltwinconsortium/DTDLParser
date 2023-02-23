@@ -124,7 +124,7 @@ And then wait on the `Task` per the code snippet above, it displays:
 
 ```Console
 DTDL model is invalid:
-dtmi:example:anInterface;1 has 'contents' value with name 'currentDistance' which has @type that specifies type Telemtry that is an undefined term. Remove @type Telemtry or replace with an appropriate DTDL type -- see https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL.
+dtmi:example:anInterface;1 has 'contents' value with name 'currentDistance' which has @type that specifies type Telemtry that is an undefined term. Remove @type Telemtry or replace with an appropriate DTDL type -- see aka.ms/dtdl.
 ```
 
 ## Fix second parsing error and resubmit
