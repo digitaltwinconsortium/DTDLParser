@@ -479,7 +479,7 @@
   "extensionTermDefinitionInvalidDtmi": {
     "cause": "DTDL language extension {primaryId} context contains a definition for term '{property}' whose value '{value}' starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
     "locatedCause": "In {sourceName1}, DTDL language extension {primaryId} context contains a definition for term '{property}'{line1} whose value '{value}' starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
-    "action": "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see aka.ms/dtmi.",
     "required": {
       "primaryId": "contextId",
       "property": "term",
@@ -717,7 +717,7 @@
   "idNotString": {
     "cause": "'@id' property has a value that is empty or not a string.",
     "locatedCause": "In {sourceName1}, '@id' property{line1} has a value that is empty or not a string.",
-    "action": "Replace the value with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Replace the value with a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
     "required": {},
     "optional": {
       "source1": "idProp"
@@ -1161,7 +1161,7 @@
   "invalidContextSpecifier": {
     "cause": "@context specifier has value '{value}' that is not a legal DTMI.",
     "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1} that is not a legal DTMI.",
-    "action": "Replace the @context specifier with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Replace the @context specifier with a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
     "required": {
       "value": "contextValue"
     },
@@ -1172,7 +1172,7 @@
   "invalidContextSpecifierForVersion": {
     "cause": "@context specifier has value '{value}', which is not a valid DTMI for DTDL version {restriction}.",
     "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which is not a valid DTMI for DTDL version {restriction}.",
-    "action": "Change @context specifier to a valid DTMI for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Change @context specifier to a valid DTMI for DTDL version {restriction} -- see aka.ms/dtmi.",
     "required": {
       "value": "contextValue",
       "restriction": "version"
@@ -1219,7 +1219,7 @@
   "invalidExtensionSpecifier": {
     "cause": "DTDL language extension has '@id' property with value '{value}' that is not a legal DTMI.",
     "locatedCause": "In {sourceName1}, DTDL language extension has '@id' property{line1} with value '{value}' that is not a legal DTMI.",
-    "action": "Replace the value of property '@id' with a string that that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Replace the value of property '@id' with a string that that conforms to the DTMI syntax -- see aka.ms/dtmi.",
     "required": {
       "value": "identifier"
     },
@@ -1230,7 +1230,7 @@
   "invalidId": {
     "cause": "Identifier '{value}' is invalid for DTDL version {restriction}.",
     "locatedCause": "In {sourceName1}, identifier '{value}'{line1} is invalid for DTDL version {restriction}.",
-    "action": "Replace the identifier with a string that conforms to the DTMI syntax for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Replace the identifier with a string that conforms to the DTMI syntax for DTDL version {restriction} -- see aka.ms/dtmi.",
     "required": {
       "value": "identifier",
       "restriction": "version"
@@ -1642,7 +1642,7 @@
   "localTermDefinitionInvalidDtmi": {
     "cause": "@context contains a local definition for term '{property}' whose value {value} starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
     "locatedCause": "In {sourceName1}, @context contains a local definition for term '{property}'{line1} whose value {value} starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
-    "action": "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see aka.ms/dtmi.",
     "required": {
       "property": "term",
       "value": "identifier",
@@ -1989,7 +1989,7 @@
   "missingRequiredId": {
     "cause": "{layer}{primaryId:p} property '{property}' element has no '@id' property.",
     "locatedCause": "In {sourceName1}, property '{property}' element{line1} has no '@id' property.",
-    "action": "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName"
@@ -2053,7 +2053,7 @@
   "missingTopLevelId": {
     "cause": "{layer}Top-level element has no '@id' property.",
     "locatedCause": "In {sourceName1}, top-level element{line1} has no '@id' property.",
-    "action": "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
     "required": {},
     "optional": {
       "source1": "element",
@@ -2709,7 +2709,7 @@
   "propertyInvalidDtmi": {
     "cause": "{layer}{primaryId:p} property '{property}' is an invalid DTMI.",
     "locatedCause": "In {sourceName1}, property '{property}'{line1} is an invalid DTMI.",
-    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName"
@@ -2736,7 +2736,7 @@
   "propertyNotDtmiNorTerm": {
     "cause": "{layer}{primaryId:p} property '{property}' is an IRI that is not a DTMI.",
     "locatedCause": "In {sourceName1}, property '{property}'{line1} is an IRI that is not a DTMI.",
-    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName"
@@ -2749,7 +2749,7 @@
   "propertyUndefinedTerm": {
     "cause": "{layer}{primaryId:p} property '{property}' is an undefined term.",
     "locatedCause": "In {sourceName1}, property '{property}'{line1} is an undefined term.",
-    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName"

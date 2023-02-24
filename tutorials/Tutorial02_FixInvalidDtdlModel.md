@@ -74,7 +74,7 @@ For the JSON text above, the code snippet above will display a single error:
 
 ```Console
 DTDL model is invalid:
-dtmi:example:anInterface;1's property 'content' is an undefined term. Replace property 'content' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.
+dtmi:example:anInterface;1's property 'content' is an undefined term. Replace property 'content' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.
 ```
 
 ## Fix first parsing error and resubmit
