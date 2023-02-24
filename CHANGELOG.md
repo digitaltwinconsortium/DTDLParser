@@ -1,6 +1,6 @@
 # DTDLParser Release History
 
-## 1.0.5-preview (2023-02-24)
+## 1.0.12-preview (2023-02-24)
 
 - Adds `ParseToJson` APIs to support JavaScript scenarios
 - Adds Tutorials (generated) and Samples (manual)
