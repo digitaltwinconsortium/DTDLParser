@@ -96,7 +96,7 @@ This validation is performed via `ValidateInstance(string)` or `ValidateInstance
 
 ## :next_track_button: Next steps
 
-For further details, see the [tutorials README][tutorials_readme].
+For further details, see the [tutorials README][tutorials_readme] and the [samples README](./samples).
 
 ## :woman_judge: License
 
