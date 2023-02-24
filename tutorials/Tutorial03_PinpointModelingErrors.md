@@ -106,7 +106,7 @@ For the JSON text above, the code snippet above will display a single error:
 
 ```Console
 DTDL model is invalid:
-In string variable 'jsonText', property 'content' on line 5 is an undefined term. Replace property 'content' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.
+In string variable 'jsonText', property 'content' on line 5 is an undefined term. Replace property 'content' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.
 ```
 
 ## Fix first parsing error and resubmit
