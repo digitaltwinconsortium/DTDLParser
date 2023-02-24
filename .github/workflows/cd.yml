@@ -30,7 +30,6 @@ jobs:
         run: sbom-tool Generate -b ./_nupkgs/ -bc dotnet/src/Parser -pn DTDLParser -pv ${{ steps.nbgv.outputs.SemVer2 }} -ps DigitalTwinConsortium -nsb https://www.digitaltwinconsortium.org/DTDL -m dotnet/src/Parser
 
       - name: Push Parser
-        if: startsWith(github.ref, 'refs/heads/release/')
         run: dotnet nuget push ./_nupkgs/* --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Annotate Versions
