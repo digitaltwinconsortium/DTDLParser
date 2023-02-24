@@ -11,11 +11,11 @@
 
 - First public preview of the new DTDLParser
 - Supports DTDL V2 
-- Supports DTDL V3
+- Supports DTDL V3 preview
 
 ### Supported extension contexts
 
-The chart below itemizes the extension contexts that are currently supported.
+The chart below itemizes the additional extension contexts supported by this version.
 
 | Extension | Context specifier | DTDL versions |
 | --- | --- | --- |
