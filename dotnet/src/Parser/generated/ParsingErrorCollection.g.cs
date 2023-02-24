@@ -1711,7 +1711,7 @@ namespace DTDLParser
                         this.Add(
                             ExtensionTermDefinitionInvalidDtmiValidationId,
                             "In {sourceName1}, DTDL language extension {primaryId} context contains a definition for term '{property}'{line1} whose value '{value}' starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
-                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see aka.ms/dtmi.",
                             primaryId: contextId,
                             property: term,
                             value: identifier,
@@ -1725,7 +1725,7 @@ namespace DTDLParser
                         this.Add(
                             ExtensionTermDefinitionInvalidDtmiValidationId,
                             "DTDL language extension {primaryId} context contains a definition for term '{property}' whose value '{value}' starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
-                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see aka.ms/dtmi.",
                             primaryId: contextId,
                             property: term,
                             value: identifier,
@@ -2213,7 +2213,7 @@ namespace DTDLParser
                         this.Add(
                             IdNotStringValidationId,
                             "In {sourceName1}, '@id' property{line1} has a value that is empty or not a string.",
-                            "Replace the value with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace the value with a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             sourceName1: sourceName1,
                             startLine1: startLine1,
                             endLine1: endLine1);
@@ -2223,7 +2223,7 @@ namespace DTDLParser
                         this.Add(
                             IdNotStringValidationId,
                             "'@id' property has a value that is empty or not a string.",
-                            "Replace the value with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.");
+                            "Replace the value with a string that conforms to the DTMI syntax -- see aka.ms/dtmi.");
                     }
 
                     return;
@@ -3181,7 +3181,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidContextSpecifierValidationId,
                             "In {sourceName1}, @context specifier has value '{value}'{line1} that is not a legal DTMI.",
-                            "Replace the @context specifier with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace the @context specifier with a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             value: contextValue,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -3192,7 +3192,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidContextSpecifierValidationId,
                             "@context specifier has value '{value}' that is not a legal DTMI.",
-                            "Replace the @context specifier with a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace the @context specifier with a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             value: contextValue);
                     }
 
@@ -3208,7 +3208,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidContextSpecifierForVersionValidationId,
                             "In {sourceName1}, @context specifier has value '{value}'{line1}, which is not a valid DTMI for DTDL version {restriction}.",
-                            "Change @context specifier to a valid DTMI for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Change @context specifier to a valid DTMI for DTDL version {restriction} -- see aka.ms/dtmi.",
                             value: contextValue,
                             restriction: version,
                             sourceName1: sourceName1,
@@ -3220,7 +3220,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidContextSpecifierForVersionValidationId,
                             "@context specifier has value '{value}', which is not a valid DTMI for DTDL version {restriction}.",
-                            "Change @context specifier to a valid DTMI for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Change @context specifier to a valid DTMI for DTDL version {restriction} -- see aka.ms/dtmi.",
                             value: contextValue,
                             restriction: version);
                     }
@@ -3319,7 +3319,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidExtensionSpecifierValidationId,
                             "In {sourceName1}, DTDL language extension has '@id' property{line1} with value '{value}' that is not a legal DTMI.",
-                            "Replace the value of property '@id' with a string that that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace the value of property '@id' with a string that that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             value: identifier,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -3330,7 +3330,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidExtensionSpecifierValidationId,
                             "DTDL language extension has '@id' property with value '{value}' that is not a legal DTMI.",
-                            "Replace the value of property '@id' with a string that that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace the value of property '@id' with a string that that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             value: identifier);
                     }
 
@@ -3346,7 +3346,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidIdValidationId,
                             "In {sourceName1}, identifier '{value}'{line1} is invalid for DTDL version {restriction}.",
-                            "Replace the identifier with a string that conforms to the DTMI syntax for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace the identifier with a string that conforms to the DTMI syntax for DTDL version {restriction} -- see aka.ms/dtmi.",
                             value: identifier,
                             restriction: version,
                             sourceName1: sourceName1,
@@ -3358,7 +3358,7 @@ namespace DTDLParser
                         this.Add(
                             InvalidIdValidationId,
                             "Identifier '{value}' is invalid for DTDL version {restriction}.",
-                            "Replace the identifier with a string that conforms to the DTMI syntax for DTDL version {restriction} -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace the identifier with a string that conforms to the DTMI syntax for DTDL version {restriction} -- see aka.ms/dtmi.",
                             value: identifier,
                             restriction: version);
                     }
@@ -4286,7 +4286,7 @@ namespace DTDLParser
                         this.Add(
                             LocalTermDefinitionInvalidDtmiValidationId,
                             "In {sourceName1}, @context contains a local definition for term '{property}'{line1} whose value {value} starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
-                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see aka.ms/dtmi.",
                             property: term,
                             value: identifier,
                             restriction: version,
@@ -4299,7 +4299,7 @@ namespace DTDLParser
                         this.Add(
                             LocalTermDefinitionInvalidDtmiValidationId,
                             "@context contains a local definition for term '{property}' whose value {value} starts with 'dtmi:' but is not a valid DTMI or DTMI prefix for DTDL version {restriction}.",
-                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Change the value of term '{property}' either to a URI or URI prefix with a different scheme or to a valid DTMI or DTMI prefix -- see aka.ms/dtmi.",
                             property: term,
                             value: identifier,
                             restriction: version);
@@ -5110,7 +5110,7 @@ namespace DTDLParser
                         this.Add(
                             MissingRequiredIdValidationId,
                             "In {sourceName1}, property '{property}' element{line1} has no '@id' property.",
-                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer,
@@ -5123,7 +5123,7 @@ namespace DTDLParser
                         this.Add(
                             MissingRequiredIdValidationId,
                             "{layer}{primaryId:p} property '{property}' element has no '@id' property.",
-                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer);
@@ -5258,7 +5258,7 @@ namespace DTDLParser
                         this.Add(
                             MissingTopLevelIdValidationId,
                             "In {sourceName1}, top-level element{line1} has no '@id' property.",
-                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             layer: layer,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -5269,7 +5269,7 @@ namespace DTDLParser
                         this.Add(
                             MissingTopLevelIdValidationId,
                             "{layer}Top-level element has no '@id' property.",
-                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Add an '@id' property whose value is a string that conforms to the DTMI syntax -- see aka.ms/dtmi.",
                             layer: layer);
                     }
 
@@ -6718,7 +6718,7 @@ namespace DTDLParser
                         this.Add(
                             PropertyInvalidDtmiValidationId,
                             "In {sourceName1}, property '{property}'{line1} is an invalid DTMI.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer,
@@ -6731,7 +6731,7 @@ namespace DTDLParser
                         this.Add(
                             PropertyInvalidDtmiValidationId,
                             "{layer}{primaryId:p} property '{property}' is an invalid DTMI.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer);
@@ -6783,7 +6783,7 @@ namespace DTDLParser
                         this.Add(
                             PropertyNotDtmiNorTermValidationId,
                             "In {sourceName1}, property '{property}'{line1} is an IRI that is not a DTMI.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer,
@@ -6796,7 +6796,7 @@ namespace DTDLParser
                         this.Add(
                             PropertyNotDtmiNorTermValidationId,
                             "{layer}{primaryId:p} property '{property}' is an IRI that is not a DTMI.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer);
@@ -6814,7 +6814,7 @@ namespace DTDLParser
                         this.Add(
                             PropertyUndefinedTermValidationId,
                             "In {sourceName1}, property '{property}'{line1} is an undefined term.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer,
@@ -6827,7 +6827,7 @@ namespace DTDLParser
                         this.Add(
                             PropertyUndefinedTermValidationId,
                             "{layer}{primaryId:p} property '{property}' is an undefined term.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see https://github.com/Azure/digital-twin-model-identifier.",
+                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer);
