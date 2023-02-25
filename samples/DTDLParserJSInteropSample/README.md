@@ -10,7 +10,7 @@ dotnet workload install wasm-tools
 
 ## JS Interop Layer
 
-The [ModelParserInterop.cs](./DTDLParserJSInteropSample/ModelParserInterop.cs) exports the `ParseToJson` to JavaScript:
+The [ModelParserInterop.cs](./ModelParserInterop.cs) exports the `ParseToJson` to JavaScript:
 
 ```cs
 [JSExport]
