@@ -57,7 +57,7 @@
 
             forEachAlias.While("aliasElementPropertyMap.TryGetValue(fromId, out string propName) && !EndogenousAliases.TryGetValue(fromId, out toId)")
                 .Line("equivalentIds.Add(fromId);")
-                .Line("fromId = ((DTEntityInfo)EndogenousStandardModel.Dict[fromId].SupplementalProperties[propName]).Id;");
+                .Line($"fromId = (({this.baseClassName})EndogenousStandardModel.Dict[fromId].SupplementalProperties[propName]).Id;");
 
             forEachAlias.ForEach("Dtmi equivalentId in equivalentIds")
                 .Line("EndogenousAliases[equivalentId] = toId ?? fromId;");

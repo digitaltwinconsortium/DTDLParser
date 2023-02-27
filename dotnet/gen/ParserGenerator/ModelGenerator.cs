@@ -223,7 +223,7 @@
                     .Line("refValue: keyVal,")
                     .Line("nestedName: supplementalPropTerm,")
                     .Line("literalPropertyName: propertyPath,")
-                    .Line("typeRestriction: targetSibling.EntityKind.ToString(),")
+                    .Line($"typeRestriction: targetSibling.{this.baseEnumPropertyName}.ToString(),")
                     .Line("refProperty: refProp,")
                     .Line("siblingElement: targetElt);");
 
@@ -237,7 +237,7 @@
                     .Line("refValue: keyVal,")
                     .Line("nestedName: supplementalPropTerm,")
                     .Line("literalPropertyName: propertyPath,")
-                    .Line("typeRestriction: targetSibling.EntityKind.ToString(),")
+                    .Line($"typeRestriction: targetSibling.{this.baseEnumPropertyName}.ToString(),")
                     .Line("refProperty: refProp,")
                     .Line("siblingElement: targetElt);");
         }

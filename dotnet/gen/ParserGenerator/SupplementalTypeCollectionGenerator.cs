@@ -124,7 +124,7 @@
             CsIf ifCotypeIdsNotNull = method.Body.If("cotypeIds != null");
 
             ifCotypeIdsNotNull
-                .If("!TryGetKindsAndVersions(extensionId, typeId, cotypeIds, allowedCotypes, out HashSet<DTEntityKind> kinds, out HashSet<int> versions, parsingErrorCollection)")
+                .If($"!TryGetKindsAndVersions(extensionId, typeId, cotypeIds, allowedCotypes, out HashSet<{this.kindEnum}> kinds, out HashSet<int> versions, parsingErrorCollection)")
                     .Line("return false;");
 
             ifCotypeIdsNotNull
