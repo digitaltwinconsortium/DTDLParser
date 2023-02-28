@@ -11,6 +11,7 @@ namespace DTDLParser
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json.Linq;
     using DTDLParser.Models;
+    using global::ParserUnitTest;
 
     internal static partial class ParserUnitTester
     {

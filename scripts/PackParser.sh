@@ -12,6 +12,6 @@ bash scripts/Title.sh PackParser $DtdlModelParserBuildConfig
 #:: in dll DTDLParser.dll
 #:: out nupkg DTDLParser.*.nupkg
 
-dotnet pack dotnet/src/Parser --configuration $DtdlModelParserBuildConfig -p:PublicRelease=true
+dotnet pack dotnet/src/DTDLParser --configuration $DtdlModelParserBuildConfig -p:PublicRelease=true
 
 test $? -eq 0 || bash scripts/Failure.sh PackParser $DtdlModelParserBuildConfig

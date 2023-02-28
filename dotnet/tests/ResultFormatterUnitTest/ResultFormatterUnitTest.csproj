@@ -12,16 +12,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\src\Parser\ParserValues.cs" Link="ParserValues.cs" />
-    <Compile Include="..\..\src\Parser\ParsingError.cs" Link="ParsingError.cs" />
-    <Compile Include="..\..\src\Parser\ParsingException.cs" Link="ParsingException.cs" />
-    <Compile Include="..\..\src\Parser\Dtmi.cs" Link="Dtmi.cs" />
-    <Compile Include="..\..\src\Parser\ResultFormatter.cs" Link="ResultFormatter.cs" />
+    <Compile Include="..\..\src\DTDLParser\ParserValues.cs" Link="ParserValues.cs" />
+    <Compile Include="..\..\src\DTDLParser\ParsingError.cs" Link="ParsingError.cs" />
+    <Compile Include="..\..\src\DTDLParser\ParsingException.cs" Link="ParsingException.cs" />
+    <Compile Include="..\..\src\DTDLParser\Dtmi.cs" Link="Dtmi.cs" />
+    <Compile Include="..\..\src\DTDLParser\ResultFormatter.cs" Link="ResultFormatter.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="7.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DTDLParser\DTDLParser.csproj" />
   </ItemGroup>
 
 </Project>

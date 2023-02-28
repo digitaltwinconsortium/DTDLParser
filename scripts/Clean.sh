@@ -30,9 +30,9 @@ bash scripts/Title.sh Clean $DtdlModelParserBuildConfig
 [[ -d dotnet/gen/FlowTracer/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/gen/FlowTracer/obj/$DtdlModelParserBuildConfig
 [[ -f dotnet/gen/FlowTracer/obj/project.assets.json ]] && rm dotnet/gen/FlowTracer/obj/project.assets.json
 
-[[ -d dotnet/src/Parser/bin/$DtdlModelParserBuildConfig ]] && rm -r dotnet/src/Parser/bin/$DtdlModelParserBuildConfig
-[[ -d dotnet/src/Parser/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/src/Parser/obj/$DtdlModelParserBuildConfig
-[[ -f dotnet/src/Parser/obj/project.assets.json ]] && rm dotnet/src/Parser/obj/project.assets.json
+[[ -d dotnet/src/DTDLParser/bin/$DtdlModelParserBuildConfig ]] && rm -r dotnet/src/DTDLParser/bin/$DtdlModelParserBuildConfig
+[[ -d dotnet/src/DTDLParser/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/src/DTDLParser/obj/$DtdlModelParserBuildConfig
+[[ -f dotnet/src/DTDLParser/obj/project.assets.json ]] && rm dotnet/src/DTDLParser/obj/project.assets.json
 [[ -d dotnet/src/Remodel/bin/$DtdlModelParserBuildConfig ]] && rm -r dotnet/src/Remodel/bin/$DtdlModelParserBuildConfig
 [[ -d dotnet/src/Remodel/obj/$DtdlModelParserBuildConfig ]] && rm -r dotnet/src/Remodel/obj/$DtdlModelParserBuildConfig
 [[ -f dotnet/src/Remodel/obj/project.assets.json ]] && rm dotnet/src/Remodel/obj/project.assets.json

@@ -24,8 +24,8 @@ digraph {
     "CodeGenerator.dll" [shape=ellipse style=filled fillcolor=chartreuse]
     "dotnet/gen/MetamodelDigest" [shape=folder style=filled fillcolor=chartreuse]
     "MetamodelDigest.dll" [shape=ellipse style=filled fillcolor=chartreuse]
-    "dotnet/src/Parser" [shape=folder style=filled fillcolor=chartreuse]
-    "dotnet/src/Parser/generated" [shape=folder style=filled fillcolor=chartreuse]
+    "dotnet/src/DTDLParser" [shape=folder style=filled fillcolor=chartreuse]
+    "dotnet/src/DTDLParser/generated" [shape=folder style=filled fillcolor=chartreuse]
     "DTDLParser.dll" [shape=ellipse style=filled fillcolor=chartreuse]
     "dotnet/gen/ParserGenerator" [shape=folder style=filled fillcolor=chartreuse]
     "ParserGenerator.exe" [shape=ellipse style=filled fillcolor=chartreuse]
@@ -66,8 +66,8 @@ digraph {
   "BuildCodeGenerator" -> "CodeGenerator.dll"
   "dotnet/gen/MetamodelDigest" -> "BuildMetaDigest"
   "BuildMetaDigest" -> "MetamodelDigest.dll"
-  "dotnet/src/Parser" -> "BuildParser"
-  "dotnet/src/Parser/generated" -> "BuildParser"
+  "dotnet/src/DTDLParser" -> "BuildParser"
+  "dotnet/src/DTDLParser/generated" -> "BuildParser"
   "BuildParser" -> "DTDLParser.dll"
   "dotnet/gen/ParserGenerator" -> "BuildParserGen"
   "MetamodelDigest.dll" -> "BuildParserGen"
@@ -99,7 +99,7 @@ digraph {
   "tutorials/projects" -> "BuildTutorials"
   "BuildTutorials" -> "Tutorial*.exe"
   "DTDLParser.dll" -> "DeriveParserSbom"
-  "dotnet/src/Parser" -> "DeriveParserSbom"
+  "dotnet/src/DTDLParser" -> "DeriveParserSbom"
   "DeriveParserSbom" -> "manifest.spdx"
   "TutorialExtractor.exe" -> "ExtractTutorials"
   "dtdl.json" -> "ExtractTutorials"
@@ -109,7 +109,7 @@ digraph {
   "dtdl_digest.json" -> "GenerateParser"
   "ObjectModelConventions.json" -> "GenerateParser"
   "ParsingErrorMessages.json" -> "GenerateParser"
-  "GenerateParser" -> "dotnet/src/Parser/generated"
+  "GenerateParser" -> "dotnet/src/DTDLParser/generated"
   "UnitTestGenerator.exe" -> "GenerateParserTests"
   "dtdl_digest.json" -> "GenerateParserTests"
   "ObjectModelConventions.json" -> "GenerateParserTests"
@@ -126,8 +126,8 @@ digraph {
   "PackParser" -> "DTDLParser.*.nupkg"
   "DTDLRemodel.exe" -> "PackRemodelTool"
   "PackRemodelTool" -> "DTDLRemodel.*.nupkg"
-  "dotnet/src/Parser" -> "RunDocFx"
-  "dotnet/src/Parser/generated" -> "RunDocFx"
+  "dotnet/src/DTDLParser" -> "RunDocFx"
+  "dotnet/src/DTDLParser/generated" -> "RunDocFx"
   "docfx.json" -> "RunDocFx"
   "DtmiUnitTest.dll" -> "TestParser"
   "test-cases/dtmis" -> "TestParser"

@@ -31,7 +31,7 @@ jobs:
         run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/gen
 
       - name: Reject codegen Parser changes
-        run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/src/Parser/generated
+        run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/src/DTDLParser/generated
 
       - name: Reject codegen Remodel changes
         run: git diff --exit-code HEAD remotes/DTDLParser/main -- dotnet/src/Remodel/generated

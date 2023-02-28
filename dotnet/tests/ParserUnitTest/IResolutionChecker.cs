@@ -1,4 +1,4 @@
-namespace DTDLParser
+namespace ParserUnitTest
 {
     /// <summary>
     /// Interface for checking whether resolution of DTMIs happened correctly.

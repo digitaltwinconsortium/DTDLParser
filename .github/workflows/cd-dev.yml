@@ -30,7 +30,7 @@ jobs:
       - run: echo 'SemVer2=${{ steps.nbgv.outputs.SemVer2 }}'
 
       - name: Pack Parser
-        run: dotnet pack -c Release dotnet/src/Parser -o ./_nupkgs/
+        run: dotnet pack -c Release dotnet/src/DTDLParser -o ./_nupkgs/
 
       - name: Push Parser to ADO
         run: dotnet nuget push --api-key AzureArtifacts ./_nupkgs/*.nupkg --skip-duplicate --no-symbols
