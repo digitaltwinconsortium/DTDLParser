@@ -71,7 +71,7 @@
 
                 Console.WriteLine($"Generated tests for {stipulationCount} specification stipulations");
 
-                CsLibrary unitTestLibrary = new CsLibrary(outUnitTestFolder, "DTDLParser");
+                CsLibrary unitTestLibrary = new CsLibrary(outUnitTestFolder, "ParserUnitTest");
                 unitTestLibrary.Using("System");
                 unitTestLibrary.Using("System.Collections.Generic");
                 unitTestLibrary.Using("System.IO");
@@ -80,6 +80,8 @@
                 unitTestLibrary.Using("System.Threading.Tasks");
                 unitTestLibrary.Using("Microsoft.VisualStudio.TestTools.UnitTesting");
                 unitTestLibrary.Using("Newtonsoft.Json.Linq");
+                unitTestLibrary.Using("DTDLParser");
+                unitTestLibrary.Using("DTDLParser.Models");
                 unitTestLibrary.SubNamespace(ParserGeneratorValues.ElementSubNamespace);
 
                 parserUnitTesterGenerator.GenerateCode(unitTestLibrary);
