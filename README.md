@@ -1,5 +1,5 @@
 ﻿# DTDLParser for .NET
-> .NET Standard 2.1 (C#) library
+> .NET Standard 2.0 (C#) library
 
 [![CI](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/ci.yml/badge.svg)](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/ci.yml)
 [![Nuget](https://img.shields.io/nuget/v/DTDLParser?label=DTDLParser&style=plastic)](https://www.nuget.org/packages/DTDLParser)
