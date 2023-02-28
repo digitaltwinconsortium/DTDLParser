@@ -32,7 +32,7 @@
             if (projectName.Contains("Async"))
             {
                 this.projectWriter.WriteLine("  <ItemGroup>");
-                this.projectWriter.WriteLine(@"      <PackageReference Include=""Microsoft.Bcl.AsyncInterfaces"" Version=""7.0.0"" />");
+                this.projectWriter.WriteLine(@"    <PackageReference Include=""Microsoft.Bcl.AsyncInterfaces"" Version=""7.0.0"" />");
                 this.projectWriter.WriteLine("  </ItemGroup>");
             }
 
