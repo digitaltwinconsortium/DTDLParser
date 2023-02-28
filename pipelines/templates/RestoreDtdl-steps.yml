@@ -5,13 +5,11 @@ steps:
 - bash: |
     echo git restore config
     git restore --source=origin/main dtdl/dtdl.json
-    git restore --source=origin/main dtdl/dtdlVNext.json
   displayName: 'Restore DTDL Config from Main Branch'
 
 - bash: |
     echo git restore digests
     git restore --source=origin/main dtdl/dtdl_digest.json
-    git restore --source=origin/main dtdl/dtdlVNext_digest.json
   displayName: 'Restore DTDL Digests from Main Branch'
 
 - bash: |
