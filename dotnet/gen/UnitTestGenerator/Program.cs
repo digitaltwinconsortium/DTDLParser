@@ -82,7 +82,6 @@
                 unitTestLibrary.Using("Newtonsoft.Json.Linq");
                 unitTestLibrary.Using("DTDLParser");
                 unitTestLibrary.Using("DTDLParser.Models");
-                unitTestLibrary.SubNamespace(ParserGeneratorValues.ElementSubNamespace);
 
                 parserUnitTesterGenerator.GenerateCode(unitTestLibrary);
                 testModelGenerator.GenerateCode(unitTestLibrary);

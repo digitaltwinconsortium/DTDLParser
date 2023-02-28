@@ -12,7 +12,6 @@ namespace ParserUnitTest
     using Newtonsoft.Json.Linq;
     using DTDLParser;
     using DTDLParser.Models;
-    using ParserUnitTest.Models;
 
     /// <summary>
     /// A class for testing the <see cref="ModelParser"/> using JSON test cases.

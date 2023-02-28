@@ -12,7 +12,6 @@ namespace ParserUnitTest
     using Newtonsoft.Json.Linq;
     using DTDLParser;
     using DTDLParser.Models;
-    using ParserUnitTest.Models;
 
     internal static partial class ParserUnitTester
     {
