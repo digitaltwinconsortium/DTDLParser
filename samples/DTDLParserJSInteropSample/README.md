@@ -10,7 +10,7 @@ dotnet workload install wasm-tools
 
 ## JS Interop Layer
 
-The [ModelParserInterop.cs](./DTDLParserJSInteropSample/ModelParserInterop.cs) exports the `ParseToJson` to JavaScript:
+The [ModelParserInterop.cs](./ModelParserInterop.cs) exports the `ParseToJson` to JavaScript:
 
 ```cs
 [JSExport]
@@ -34,7 +34,7 @@ assemblyExports.DtdlParserJSInterop.ModelParserInterop.Parse(dtdl)
 
 ## DTDL Object Model Typings
 
-The result of Parse is a JavaScript `Map<dtmi,entityInfo>`, equivalent to the .NET dictionary returned by ModelParser.Parse. To consume this structure we provide typings (`.d.ts` files) that can be used from modern code editors such as VSCode or VisualStudio by decorating the variables. These files are available in the [javascript folder](../javascript/) (and also copied to the sample project).
+The result of Parse is a JavaScript `Map<dtmi,entityInfo>`, equivalent to the .NET dictionary returned by ModelParser.Parse. To consume this structure we provide typings (`.d.ts` files) that can be used from modern code editors such as VSCode or VisualStudio by decorating the variables. These files are available in the [javascript folder](../../javascript/) (and also copied to the sample project).
 
 To provide an object model to enumerate the elements included in DTDL interface, the function `InterfaceInfo.js` provides an API to query the Telemetry, Properties, Commands, Components and Relationships.
 
