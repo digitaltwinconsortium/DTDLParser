@@ -8,7 +8,7 @@ The Digital Twins Definition Language ([DTDL][language_docs]) is a language for 
 
 The DTDLParser is a library that can be used to determine whether one or more models are valid according to the language [v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) or [v3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) specifications, to identify specific modeling errors, and to enable inspection of model contents.
 
-[Source code][source_root] | [Package (NuGet)][package] | [DTDL language documentation][language_docs] | [Tutorials][source_tutorials] | [Samples](./samples)
+[Source code][source_root] | [Package (NuGet)][package] | [DTDL language documentation][language_docs] | [DTDLParser API docs][parser_api_docs] | [Tutorials][source_tutorials] | [Samples](./samples)
 
 ## :point_right: Getting started
 
@@ -122,3 +122,4 @@ Most contributions require you to agree to a Contributor License Agreement (CLA)
 [package]: https://www.nuget.org/packages/DTDLParser/
 [tutorials_readme]: ./tutorials/README.md
 [contrib]: ./CONTRIBUTING.md
+[parser_api_docs]: https://digitaltwinconsortium.github.io/DTDLParser/api/DTDLParser.html
