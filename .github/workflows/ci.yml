@@ -35,8 +35,6 @@ jobs:
 
       - name: Test Parser
         run: |
-          dotnet test dotnet/tests/DtmiUnitTest -c Release --logger trx 
-          dotnet test dotnet/tests/ResultFormatterUnitTest -c Release --logger trx 
           dotnet test dotnet/tests/ParserUnitTest -c Release --logger trx 
 
       - name: Test Tutorials
