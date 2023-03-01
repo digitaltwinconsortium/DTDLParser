@@ -81,7 +81,7 @@
                 .Line("this.dtmiResolver = parsingOptions.DtmiResolver;")
                 .Line("this.dtmiResolverAsync = parsingOptions.DtmiResolverAsync;")
                 .Line("this.dtdlResolveLocator = parsingOptions.DtdlResolveLocator;")
-                .Line("this.MaxDtdlVersion = parsingOptions.MaxDtdlVersion;")
+                .Line("this.MaxDtdlVersion = Math.Min(Math.Max(parsingOptions.MaxDtdlVersion, ParsingOptions.MinKnownDtdlVersion), ParsingOptions.MaxKnownDtdlVersion);")
                 .Line("this.AllowUndefinedExtensions = parsingOptions.AllowUndefinedExtensions;");
 
             if (this.isLayeringSupported)

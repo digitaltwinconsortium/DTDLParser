@@ -1015,7 +1015,6 @@ namespace ParserUnitTest
         [DataRow("MapValueWithSemanticTypeFeatureV3")]
         [DataRow("MapValueWithSemanticTypeQuantitativeV3")]
         [DataRow("MapValueWithSemanticTypeStandardV2")]
-        [DataRow("MaxDtdlVersionExceededV2")]
         [DataRow("MaxDtdlVersionExceededV3")]
         [DataRow("MaxDtdlVersionSatisfiedV2")]
         [DataRow("MaxDtdlVersionSatisfiedV3")]

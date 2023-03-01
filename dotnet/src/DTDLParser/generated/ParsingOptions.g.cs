@@ -26,6 +26,11 @@ namespace DTDLParser
         public const int MaxKnownDtdlVersion = 3;
 
         /// <summary>
+        /// The lowest version of DTDL understood by this version of <see cref="ModelParser"/>.
+        /// </summary>
+        public const int MinKnownDtdlVersion = 2;
+
+        /// <summary>
         /// Gets or sets an integer value that restricts the highest DTDL version the parser should accept; if a higher version model is submitted, a <see cref="ParsingException"/> will be thrown with a <see cref="ParsingError"/> indicating a <c>ValidationID</c> of dtmi:dtdl:parsingError:disallowedContextVersion.
         /// </summary>
         /// <remarks>
