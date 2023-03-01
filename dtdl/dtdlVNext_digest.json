@@ -505,6 +505,18 @@
     "dtmi:dtdl:extension:historization;1": {
       "Historized": "dtmi:dtdl:extension:historization:v1:Historized"
     },
+    "dtmi:dtdl:extension:initialization;1": {
+      "Initialized": "dtmi:dtdl:extension:initialization:v1:Initialized",
+      "initialValue": "dtmi:dtdl:extension:initialization:v1:Initialized:initialValue"
+    },
+    "dtmi:dtdl:extension:optionality;1": {
+      "defaultValue": "dtmi:dtdl:extension:optionality:v1:Optional:defaultValue",
+      "Optional": "dtmi:dtdl:extension:optionality:v1:Optional"
+    },
+    "dtmi:dtdl:extension:overriding;1": {
+      "Override": "dtmi:dtdl:extension:overriding:v1:Override",
+      "overrides": "dtmi:dtdl:extension:overriding:v1:Override:overrides"
+    },
     "dtmi:dtdl:extension:quantitativeTypes;1": {
       "Acceleration": "dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration",
       "AccelerationUnit": "dtmi:dtdl:extension:quantitativeTypes:v1:enum:AccelerationUnit",
@@ -8395,6 +8407,21 @@
         "en-us": "Record the historical sequence of values of a Property or Telemetry and the times at which values change."
       }
     },
+    "dtmi:dtdl:extension:initialization;1": {
+      "description": {
+        "en-us": "Specify an initial value for a Property."
+      }
+    },
+    "dtmi:dtdl:extension:optionality;1": {
+      "description": {
+        "en-us": "Specify a default value for a Command request that is issued without an explicit request value."
+      }
+    },
+    "dtmi:dtdl:extension:overriding;1": {
+      "description": {
+        "en-us": "Override a model property with an instance value."
+      }
+    },
     "dtmi:dtdl:extension:quantitativeTypes;1": {
       "description": {
         "en-us": "A set of standard semantic types, unit types, and units."
@@ -14681,23 +14708,6 @@
         "contents": {
           "_": {
             "abstract": true,
-            "breakout": {
-              "commands": [
-                "Command"
-              ],
-              "components": [
-                "Component"
-              ],
-              "properties": [
-                "Property"
-              ],
-              "relationships": [
-                "Relationship"
-              ],
-              "telemetries": [
-                "Telemetry"
-              ]
-            },
             "class": "Content",
             "description": {
               "en-us": "A set of elements that define the contents of this Interface."
@@ -14826,7 +14836,6 @@
             "literal": false,
             "optional": true,
             "plural": true,
-            "reverseAs": "extendedBy",
             "shadowed": false
           },
           "2": {
@@ -21215,6 +21224,139 @@
       "parent": "dtmi:dtdl:class:AdjunctType;3",
       "properties": {},
       "siblings": []
+    },
+    "dtmi:dtdl:extension:initialization:v1:Initialized": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Property"
+      ],
+      "cotypeVersions": [
+        2,
+        3
+      ],
+      "extensionContext": "dtmi:dtdl:extension:initialization;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;3",
+      "properties": {
+        "dtmi:dtdl:extension:initialization:v1:Initialized:initialValue": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The initial value for the instance."
+          },
+          "idRequired": false,
+          "instanceProperty": "schema",
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "initialValue",
+          "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON",
+          "typeName": "JSON",
+          "typeRequired": true
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:optionality:v1:Optional": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "CommandPayload",
+        "CommandRequest"
+      ],
+      "cotypeVersions": [
+        2,
+        3
+      ],
+      "extensionContext": "dtmi:dtdl:extension:optionality;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;3",
+      "properties": {
+        "dtmi:dtdl:extension:optionality:v1:Optional:defaultValue": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The default value for the instance."
+          },
+          "idRequired": false,
+          "instanceProperty": "schema",
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "defaultValue",
+          "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON",
+          "typeName": "JSON",
+          "typeRequired": true
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:overriding:v1:Override": {
+      "abstract": false,
+      "cocotypes": [
+        "dtmi:dtdl:extension:annotation:v1:ValueAnnotation"
+      ],
+      "constraints": [
+        {
+          "property": "schema",
+          "siblingKey": "name",
+          "siblingKeyref": "dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates",
+          "siblingParentOf": "dtmi:dtdl:extension:overriding:v1:Override:overrides"
+        }
+      ],
+      "cotypes": [
+        "Property"
+      ],
+      "cotypeVersions": [
+        3
+      ],
+      "discotypes": [
+        "dtmi:dtdl:extension:initialization:v1:Initialized"
+      ],
+      "extensionContext": "dtmi:dtdl:extension:overriding;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;3",
+      "properties": {
+        "dtmi:dtdl:extension:overriding:v1:Override:overrides": {
+          "deprecated": false,
+          "description": {
+            "en-us": "Term or IRI of an extension property that is overridden."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "overrides",
+          "typeName": "IRI",
+          "typeRequired": true
+        }
+      },
+      "siblings": [
+        {
+          "key": "name",
+          "keyref": "dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates",
+          "supplementalProperty": "dtmi:dtdl:extension:overriding:v1:Override:overrides",
+          "uniqueReference": "dtmi:dtdl:extension:overriding:v1:Override:overrides"
+        },
+        {
+          "key": "name",
+          "keyref": "dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates",
+          "requiredTypeNames": [
+            "Property",
+            "Telemetry"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:Property;3",
+            "dtmi:dtdl:class:Telemetry;3"
+          ],
+          "requiredTypesString": "Property or Telemetry"
+        }
+      ]
     },
     "dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration": {
       "abstract": false,
