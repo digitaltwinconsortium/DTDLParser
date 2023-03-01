@@ -2,6 +2,7 @@
 > .NET Standard 2.0 (C#) library
 
 [![CI](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/ci.yml/badge.svg)](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/ci.yml)
+[![CD](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd.yml/badge.svg)](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd.yml)
 [![Nuget](https://img.shields.io/nuget/v/DTDLParser?label=DTDLParser&style=plastic)](https://www.nuget.org/packages/DTDLParser)
 
 The Digital Twins Definition Language ([DTDL][language_docs]) is a language for describing models and interfaces for IoT digital twins. Digital twins are models of entities from the physical environment such as shipping containers, rooms, factory floors, or logical entities that participate in IoT solutions. Using DTDL to describe a digital twin's capabilities enables any IoT platform to leverage the semantics of the entity.
@@ -14,11 +15,21 @@ The DTDLParser is a library that can be used to determine whether one or more mo
 
 ### :package: Install the package
 
-Install the DTDL Parser library for .NET with:
+Install the DTDL Parser library for .NET from NuGet.org with:
 
 ```bash
-dotnet add package DTDLParser
+dotnet add package DTDLParser --prerelease
 ```
+
+#### Preview Feed
+
+[![Push Dev Package](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd-dev.yml/badge.svg)](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd-dev.yml)
+
+There is also a preview NuGet feed where all commits to `main` are published as preview packages.
+
+ ```bash
+ dotnet add package DTDLParser --prerelease --source https://pkgs.dev.azure.com/azure-dtdl/DTDLParser/_packaging/DTDLParser-prerelease/nuget/v3/index.json
+ ```
 
 ### :white_check_mark: Parse and validate a DTDL interface
 
