@@ -6,6 +6,15 @@ namespace DTDLParserSample;
 
 public static partial class DTInfoExtensions
 {
+    public static string Print(this DTInterfaceInfo root)
+    {
+        StringBuilder sb = new();
+        root.Telemetries.ToList().ForEach(t => sb.AppendLine(t.Value.Print()));
+        root.Properties.ToList().ForEach(p => sb.AppendLine(p.Value.Print()));
+        root.Commands.ToList().ForEach(c => sb.AppendLine(c.Value.Print()));
+        return sb.ToString();
+    }
+
     public static string Print(this DTSchemaInfo s)
     {
         StringBuilder sb = new();
