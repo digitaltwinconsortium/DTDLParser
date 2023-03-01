@@ -173,8 +173,9 @@
         {
             if (!this.PropertyDigest.IsInherited)
             {
+                string valueString = this.PropertyDigest.IsPlural ? "values" : "value";
                 CsProperty property = obverseClass.Property(Access.Public, Novelty.Normal, this.PropertyType, this.ObversePropertyName);
-                property.Summary($"Gets the value of the '{this.PropertyName}' property of the DTDL element that corresponds to this object.");
+                property.Summary($"Gets the {valueString} of the '{this.PropertyName}' property of the DTDL element that corresponds to this object.");
                 property.Value($"The '{this.PropertyName}' property of the DTDL element.");
                 property.Get().Set(Access.Internal);
             }

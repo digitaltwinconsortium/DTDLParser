@@ -218,7 +218,7 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
-        /// Gets the value of the 'enumValues' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'enumValues' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'enumValues' property of the DTDL element.</value>
         public IReadOnlyList<DTEnumValueInfo> EnumValues { get; internal set; }

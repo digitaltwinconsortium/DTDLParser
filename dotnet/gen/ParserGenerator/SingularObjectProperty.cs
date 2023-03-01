@@ -46,6 +46,8 @@
         /// <inheritdoc/>
         public override void GenerateConstructorCode(CsSorted sorted)
         {
+            base.GenerateConstructorCode(sorted);
+
             if (!this.PropertyDigest.IsInherited)
             {
                 sorted.Line($"this.{this.ObversePropertyName} = null;");
@@ -82,6 +84,8 @@
         /// <inheritdoc/>
         public override void AddJsonWritingCode(CsScope scope)
         {
+            base.AddJsonWritingCode(scope);
+
             if (!this.PropertyDigest.IsInherited)
             {
                 scope.Line($"jsonWriter.WriteString(\"{this.PropertyName}\", this.{this.ObversePropertyName}?.{ParserGeneratorValues.IdentifierName}?.ToString());");
@@ -95,6 +99,11 @@
             {
                 string optionalityIndicator = this.PropertyDigest.IsOptional ? "?" : string.Empty;
                 indentedTextWriter.WriteLine($"{this.PropertyName}{optionalityIndicator}: string;");
+
+                if (this.PropertyDigest.ReverseAs != null)
+                {
+                    indentedTextWriter.WriteLine($"{this.PropertyDigest.ReverseAs}: string[];");
+                }
             }
         }
 

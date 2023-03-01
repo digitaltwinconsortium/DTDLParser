@@ -136,7 +136,7 @@
                 this.specializableSubclasses[dtdlVersion] = specializableSubclasses;
             }
 
-            MaterialPropertyFactory materialPropertyFactory = new MaterialPropertyFactory(this.materialClassDigest.DtdlVersions, contexts, this.baseClassName, objectModelCustomizer, this.isLayeringSupported);
+            MaterialPropertyFactory materialPropertyFactory = new MaterialPropertyFactory(this.materialClassDigest.DtdlVersions, contexts, this.baseClassName, this.kindEnum, this.kindProperty, objectModelCustomizer, this.isLayeringSupported);
             this.properties = new List<MaterialProperty>();
             foreach (KeyValuePair<string, MaterialPropertyDigest> kvp in materialClassDigest.Properties)
             {
@@ -582,6 +582,22 @@
                         switchOnDtdlVersion.Case(dtdlVersion.ToString());
                         switchOnDtdlVersion.Line($"this.ApplyTransformationsV{dtdlVersion}(model, parsingErrorCollection);");
                         switchOnDtdlVersion.Line("break;");
+                    }
+                }
+
+                foreach (KeyValuePair<string, MaterialPropertyDigest> kvp in this.materialClassDigest.Properties)
+                {
+                    if (!kvp.Value.IsInherited)
+                    {
+                        if (kvp.Value.Breakout.Any())
+                        {
+                            concreteClassMethod.Body.Line($"this.BreakOut{NameFormatter.FormatNameAsProperty(kvp.Key)}();");
+                        }
+
+                        if (kvp.Value.ReverseAs != null)
+                        {
+                            concreteClassMethod.Body.Line($"this.Reverse{NameFormatter.FormatNameAsProperty(kvp.Key)}();");
+                        }
                     }
                 }
             }

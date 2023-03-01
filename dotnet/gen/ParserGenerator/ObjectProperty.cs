@@ -62,6 +62,34 @@
         }
 
         /// <inheritdoc/>
+        public override void GenerateConstructorCode(CsSorted sorted)
+        {
+            if (!this.PropertyDigest.IsInherited && this.PropertyDigest.ReverseAs != null)
+            {
+                string reverseProperty = NameFormatter.FormatNameAsProperty(this.PropertyDigest.ReverseAs);
+                sorted.Line($"this.{reverseProperty} = new List<{this.ClassName}>();");
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddJsonWritingCode(CsScope scope)
+        {
+            if (!this.PropertyDigest.IsInherited && this.PropertyDigest.ReverseAs != null)
+            {
+                string reverseProperty = NameFormatter.FormatNameAsProperty(this.PropertyDigest.ReverseAs);
+                string varName = $"{reverseProperty}Elt";
+                scope.Line($"jsonWriter.WritePropertyName(\"{this.PropertyDigest.ReverseAs}\");");
+                scope.Line("jsonWriter.WriteStartArray();");
+                scope.Break();
+                scope.ForEach($"{this.ClassName} {varName} in this.{reverseProperty}")
+                    .Line($"jsonWriter.WriteStringValue({varName}.{ParserGeneratorValues.IdentifierName}.ToString());");
+                scope.Break();
+                scope.Line("jsonWriter.WriteEndArray();");
+                scope.Break();
+            }
+        }
+
+        /// <inheritdoc/>
         public override void AddMembers(List<int> dtdlVersions, CsClass obverseClass, bool classIsAugmentable)
         {
             base.AddMembers(dtdlVersions, obverseClass, classIsAugmentable);
@@ -77,6 +105,22 @@
                 {
                     obverseClass.Field(Access.Private, "HashSet<int>", $"{this.AllowedVersionsField}V{dtdlVersion}", $"new HashSet<int>() {{ {string.Join(", ", propertyVersionDigest.ClassVersions)} }}");
                 }
+            }
+
+            if (!this.PropertyDigest.IsInherited && this.PropertyDigest.ReverseAs != null)
+            {
+                string reverseProperty = NameFormatter.FormatNameAsProperty(this.PropertyDigest.ReverseAs);
+
+                CsProperty property = obverseClass.Property(Access.Public, Novelty.Normal, $"IReadOnlyList<{this.ClassName}>", reverseProperty);
+                property.Summary($"Gets a list of {this.ClassName} objects whose '{this.PropertyName}' property identifies the DTDL element corresponding to this object.");
+                property.Value($"The {this.ClassName} objects whose '{this.PropertyName}' property refers to this object.");
+                property.Get().Set(Access.Internal);
+
+                CsMethod reverseMethod = obverseClass.Method(Access.Private, Novelty.Normal, "void", $"Reverse{this.ObversePropertyName}");
+
+                string varName = "item";
+                CsScope iterationScope = this.Iterate(reverseMethod.Body, ref varName);
+                iterationScope.Line($"((List<{this.ClassName}>){varName}.{reverseProperty}).Add(this);");
             }
         }
 
