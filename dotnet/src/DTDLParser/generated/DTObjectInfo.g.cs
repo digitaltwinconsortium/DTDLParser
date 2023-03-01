@@ -199,7 +199,7 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
-        /// Gets the value of the 'fields' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'fields' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'fields' property of the DTDL element.</value>
         public IReadOnlyList<DTFieldInfo> Fields { get; internal set; }

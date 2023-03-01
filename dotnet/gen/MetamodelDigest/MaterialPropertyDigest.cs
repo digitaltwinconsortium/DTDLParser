@@ -24,6 +24,8 @@
             this.DtmiSegment = null;
             this.IsInherited = false;
             this.IsShadowed = false;
+            this.Breakout = new Dictionary<string, List<string>>();
+            this.ReverseAs = null;
             this.PropertyVersions = new Dictionary<int, PropertyVersionDigest>();
         }
 
@@ -58,6 +60,10 @@
             this.IsShadowed = ((JValue)versionlessPropertyObj["shadowed"]).Value<bool>();
 
             this.Description = ((JObject)versionlessPropertyObj["description"]).Properties().ToDictionary(p => p.Name, p => ((JValue)p.Value).Value<string>());
+
+            this.Breakout = versionlessPropertyObj.TryGetValue("breakout", out JToken breakout) ? ((JObject)breakout).Properties().ToDictionary(p => p.Name, p => ((JArray)p.Value).Select(t => ((JValue)t).Value<string>()).ToList()) : new Dictionary<string, List<string>>();
+
+            this.ReverseAs = versionlessPropertyObj.TryGetValue("reverseAs", out JToken reverseAs) ? ((JValue)reverseAs).Value<string>() : null;
 
             this.PropertyVersions = materialPropertyObj.Properties().Where(p1 => int.TryParse(p1.Name, out int _)).ToDictionary(p2 => int.Parse(p2.Name), p2 => new PropertyVersionDigest((JObject)p2.Value));
         }
@@ -121,6 +127,16 @@
         /// Gets a language map description of the property.
         /// </summary>
         public Dictionary<string, string> Description { get; }
+
+        /// <summary>
+        /// Gets a dictionary that maps breakout property names to their breakout types.
+        /// </summary>
+        public Dictionary<string, List<string>> Breakout { get; }
+
+        /// <summary>
+        /// Gets a name for a synthesized reverse property.
+        /// </summary>
+        public string ReverseAs { get; }
 
         /// <summary>
         /// Gets a dictionary that maps from DTDL version to a <see cref="PropertyVersionDigest"/> object providing version-specific details about the property.

@@ -266,7 +266,7 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
-        /// Gets the value of the 'properties' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'properties' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'properties' property of the DTDL element.</value>
         public IReadOnlyList<DTPropertyInfo> Properties { get; internal set; }

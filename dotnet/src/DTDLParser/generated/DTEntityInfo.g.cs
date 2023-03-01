@@ -259,13 +259,13 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
-        /// Gets the value of the 'description' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'description' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'description' property of the DTDL element.</value>
         public IReadOnlyDictionary<string, string> Description { get; internal set; }
 
         /// <summary>
-        /// Gets the value of the 'displayName' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'displayName' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'displayName' property of the DTDL element.</value>
         public IReadOnlyDictionary<string, string> DisplayName { get; internal set; }

@@ -227,19 +227,19 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
-        /// Gets the value of the 'contents' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'contents' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'contents' property of the DTDL element.</value>
         public IReadOnlyDictionary<string, DTContentInfo> Contents { get; internal set; }
 
         /// <summary>
-        /// Gets the value of the 'schemas' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'schemas' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'schemas' property of the DTDL element.</value>
         public IReadOnlyList<DTComplexSchemaInfo> Schemas { get; internal set; }
 
         /// <summary>
-        /// Gets the value of the 'extends' property of the DTDL element that corresponds to this object.
+        /// Gets the values of the 'extends' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'extends' property of the DTDL element.</value>
         public IReadOnlyList<DTInterfaceInfo> Extends { get; internal set; }

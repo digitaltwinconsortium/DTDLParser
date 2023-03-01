@@ -12,6 +12,8 @@
         private List<int> dtdlVersions;
         private Dictionary<string, Dictionary<string, string>> contexts;
         private string baseClassName;
+        private string kindEnum;
+        private string kindProperty;
         private ObjectModelCustomizer objectModelCustomizer;
         private bool isLayeringSupported;
 
@@ -21,13 +23,17 @@
         /// <param name="dtdlVersions">A list of DTDL major version numbers to create properties for.</param>
         /// <param name="contexts">A dictionary that maps from a context ID to a dictionary of term definitions.</param>
         /// <param name="baseClassName">The name of the C# base class of all DTDL entities.</param>
+        /// <param name="kindEnum">The enum type used to represent DTDL element kind.</param>
+        /// <param name="kindProperty">The property on the DTDL base obverse class that indicates the kind of DTDL element.</param>
         /// <param name="objectModelCustomizer">An <see cref="ObjectModelCustomizer"/> for generating material property types.</param>
         /// <param name="isLayeringSupported">True if multiple model layers are supported by any recognized language version or extension.</param>
-        public MaterialPropertyFactory(List<int> dtdlVersions, Dictionary<string, Dictionary<string, string>> contexts, string baseClassName, ObjectModelCustomizer objectModelCustomizer, bool isLayeringSupported)
+        public MaterialPropertyFactory(List<int> dtdlVersions, Dictionary<string, Dictionary<string, string>> contexts, string baseClassName, string kindEnum, string kindProperty, ObjectModelCustomizer objectModelCustomizer, bool isLayeringSupported)
         {
             this.dtdlVersions = dtdlVersions;
             this.contexts = contexts;
             this.baseClassName = baseClassName;
+            this.kindEnum = kindEnum;
+            this.kindProperty = kindProperty;
             this.objectModelCustomizer = objectModelCustomizer;
             this.isLayeringSupported = isLayeringSupported;
         }
@@ -95,11 +101,11 @@
             {
                 if (propertyDigest.DictionaryKey != null)
                 {
-                    return new DictionaryProperty(propertyName, obversePropertyName, propertyNameUris, propertyDigest, this.objectModelCustomizer, propertyRestrictions);
+                    return new DictionaryProperty(propertyName, obversePropertyName, propertyNameUris, propertyDigest, this.objectModelCustomizer, propertyRestrictions, this.kindEnum, this.kindProperty);
                 }
                 else if (propertyDigest.IsPlural)
                 {
-                    return new PluralObjectProperty(propertyName, obversePropertyName, propertyNameUris, propertyDigest, this.objectModelCustomizer, propertyRestrictions, this.isLayeringSupported);
+                    return new PluralObjectProperty(propertyName, obversePropertyName, propertyNameUris, propertyDigest, this.objectModelCustomizer, propertyRestrictions, this.isLayeringSupported, this.kindEnum, this.kindProperty);
                 }
                 else
                 {

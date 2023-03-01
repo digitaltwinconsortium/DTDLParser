@@ -2,12 +2,17 @@
 {
     using System.CodeDom.Compiler;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Represents a propertyDigest.IsPlural object property on a class that is materialized as a dictionary in the parser object model.
     /// </summary>
     public class DictionaryProperty : ObjectProperty
     {
+        private string kindEnum;
+        private string kindProperty;
+        private Dictionary<string, string> breakoutPropertyTypes;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DictionaryProperty"/> class.
         /// </summary>
@@ -17,10 +22,23 @@
         /// <param name="propertyDigest">A <see cref="MaterialPropertyDigest"/> object containing material property information extracted from the metamodel.</param>
         /// <param name="objectModelCustomizer">An <see cref="ObjectModelCustomizer"/> for generating material property types.</param>
         /// <param name="propertyRestrictions">A list of objects that implement the <see cref="IPropertyRestriction"/> interface.</param>
-        public DictionaryProperty(string propertyName, string obversePropertyName, Dictionary<int, string> propertyNameUris, MaterialPropertyDigest propertyDigest, ObjectModelCustomizer objectModelCustomizer, Dictionary<int, List<IPropertyRestriction>> propertyRestrictions)
+        /// <param name="kindEnum">The enum type used to represent DTDL element kind.</param>
+        /// <param name="kindProperty">The property on the DTDL base obverse class that indicates the kind of DTDL element.</param>
+        public DictionaryProperty(string propertyName, string obversePropertyName, Dictionary<int, string> propertyNameUris, MaterialPropertyDigest propertyDigest, ObjectModelCustomizer objectModelCustomizer, Dictionary<int, List<IPropertyRestriction>> propertyRestrictions, string kindEnum, string kindProperty)
             : base(propertyName, obversePropertyName, propertyNameUris, propertyDigest, objectModelCustomizer, propertyRestrictions)
         {
             this.KeyProperty = propertyDigest.DictionaryKey;
+            this.kindEnum = kindEnum;
+            this.kindProperty = kindProperty;
+            this.breakoutPropertyTypes = new Dictionary<string, string>();
+
+            if (!propertyDigest.IsInherited && propertyDigest.Breakout.Any())
+            {
+                foreach (KeyValuePair<string, List<string>> kvp in propertyDigest.Breakout)
+                {
+                    this.breakoutPropertyTypes[kvp.Key] = kvp.Value.Count == 1 ? NameFormatter.FormatNameAsClass(kvp.Value[0]) : this.ClassName;
+                }
+            }
         }
 
         /// <inheritdoc/>
@@ -41,9 +59,16 @@
         /// <inheritdoc/>
         public override void GenerateConstructorCode(CsSorted sorted)
         {
+            base.GenerateConstructorCode(sorted);
+
             if (!this.PropertyDigest.IsInherited)
             {
                 sorted.Line($"this.{this.ObversePropertyName} = new {this.ConcretePropertyType}();");
+
+                foreach (KeyValuePair<string, string> kvp in this.breakoutPropertyTypes)
+                {
+                    sorted.Line($"this.{NameFormatter.FormatNameAsProperty(kvp.Key)} = new Dictionary<string, {kvp.Value}>();");
+                }
             }
         }
 
@@ -77,16 +102,16 @@
         /// <inheritdoc/>
         public override void AddJsonWritingCode(CsScope scope)
         {
+            base.AddJsonWritingCode(scope);
+
             if (!this.PropertyDigest.IsInherited)
             {
-                string varName = $"{this.PropertyName}Pair";
-                scope.Line($"jsonWriter.WritePropertyName(\"{this.PropertyName}\");");
-                scope.Line("jsonWriter.WriteStartObject();");
-                scope.Break();
-                scope.ForEach($"KeyValuePair<string, {this.ClassName}> {varName} in this.{this.ObversePropertyName}")
-                    .Line($"jsonWriter.WriteString({varName}.Key, {varName}.Value.{ParserGeneratorValues.IdentifierName}.ToString());");
-                scope.Break();
-                scope.Line("jsonWriter.WriteEndObject();");
+                this.AddSpecificJsonWritingCode(scope, this.PropertyName, this.ObversePropertyName, this.ClassName);
+
+                foreach (KeyValuePair<string, string> kvp in this.breakoutPropertyTypes)
+                {
+                    this.AddSpecificJsonWritingCode(scope, kvp.Key, NameFormatter.FormatNameAsProperty(kvp.Key), kvp.Value);
+                }
             }
         }
 
@@ -95,7 +120,49 @@
         {
             if (!this.PropertyDigest.IsInherited)
             {
-                indentedTextWriter.WriteLine($"{this.PropertyName}: {{ [name: string]: string }};");
+                indentedTextWriter.WriteLine($"{this.PropertyName}: {{ [{this.PropertyDigest.DictionaryKey}: string]: string }};");
+
+                foreach (KeyValuePair<string, string> kvp in this.breakoutPropertyTypes)
+                {
+                    indentedTextWriter.WriteLine($"{kvp.Key}: {{ [{this.PropertyDigest.DictionaryKey}: string]: string }};");
+                }
+
+                if (this.PropertyDigest.ReverseAs != null)
+                {
+                    indentedTextWriter.WriteLine($"{this.PropertyDigest.ReverseAs}: string[];");
+                }
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void AddMembers(List<int> dtdlVersions, CsClass obverseClass, bool classIsAugmentable)
+        {
+            base.AddMembers(dtdlVersions, obverseClass, classIsAugmentable);
+
+            foreach (KeyValuePair<string, string> kvp in this.breakoutPropertyTypes)
+            {
+                string subtypeString = string.Join(" or ", this.PropertyDigest.Breakout[kvp.Key]);
+                CsProperty property = obverseClass.Property(Access.Public, Novelty.Normal, $"IReadOnlyDictionary<string, {kvp.Value}>", NameFormatter.FormatNameAsProperty(kvp.Key));
+                property.Summary($"Gets a subset of values from the '{this.PropertyName}' property of the corresponding DTDL element, for which the values have type {subtypeString}.");
+                property.Value($"The {subtypeString} values from the '{this.PropertyName}' property of the DTDL element.");
+                property.Get().Set(Access.Internal);
+            }
+
+            if (!this.PropertyDigest.IsInherited && this.PropertyDigest.Breakout.Any())
+            {
+                CsMethod breakoutMethod = obverseClass.Method(Access.Private, Novelty.Normal, "void", $"BreakOut{this.ObversePropertyName}");
+                CsSwitch switchOnKind = breakoutMethod.Body.ForEach($"KeyValuePair<string, {this.ClassName}> kvp in this.{this.ObversePropertyName}").Switch($"kvp.Value.{this.kindProperty}");
+
+                foreach (KeyValuePair<string, List<string>> kvp in this.PropertyDigest.Breakout)
+                {
+                    foreach (string subtype in kvp.Value)
+                    {
+                        switchOnKind.Case($"{this.kindEnum}.{subtype}");
+                    }
+
+                    switchOnKind.Line($"((Dictionary<string, {this.breakoutPropertyTypes[kvp.Key]}>)this.{NameFormatter.FormatNameAsProperty(kvp.Key)}).Add(kvp.Key, ({this.breakoutPropertyTypes[kvp.Key]})kvp.Value);");
+                    switchOnKind.Line("break;");
+                }
             }
         }
 
@@ -234,6 +301,19 @@
             int minCount = this.PropertyDigest.PropertyVersions[dtdlVersion].MinCount ?? 0;
 
             scope.Line($"{this.VersionedClassName[dtdlVersion]}.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, {valueConstraints}, aggregateContext, parsingErrorCollection, prop, {layerVar}, this.{ParserGeneratorValues.IdentifierName}, globalize ? null : {definedIn}, \"{this.PropertyName}\", {dtmiSegment}, \"{this.KeyProperty}\", {minCount}, isPlural: true, idRequired: {ParserGeneratorValues.GetBooleanLiteral(this.PropertyDigest.PropertyVersions[dtdlVersion].IdRequired)}, typeRequired: {ParserGeneratorValues.GetBooleanLiteral(this.PropertyDigest.PropertyVersions[dtdlVersion].TypeRequired)}, globalize: globalize, allowReservedIds: allowReservedIds, allowIdReferenceSyntax: allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames: ignoreElementsWithAutoIDsAndDuplicateNames, allowedVersions: this.{this.AllowedVersionsField}V{dtdlVersion});");
+        }
+
+        private void AddSpecificJsonWritingCode(CsScope scope, string propertyName, string obversePropertyName, string className)
+        {
+            string varName = $"{propertyName}Pair";
+            scope.Line($"jsonWriter.WritePropertyName(\"{propertyName}\");");
+            scope.Line("jsonWriter.WriteStartObject();");
+            scope.Break();
+            scope.ForEach($"KeyValuePair<string, {className}> {varName} in this.{obversePropertyName}")
+                .Line($"jsonWriter.WriteString({varName}.Key, {varName}.Value.{ParserGeneratorValues.IdentifierName}.ToString());");
+            scope.Break();
+            scope.Line("jsonWriter.WriteEndObject();");
+            scope.Break();
         }
     }
 }
