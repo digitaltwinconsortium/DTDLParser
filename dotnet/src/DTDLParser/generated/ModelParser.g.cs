@@ -40,7 +40,7 @@ namespace DTDLParser
                 this.dtmiResolver = parsingOptions.DtmiResolver;
                 this.dtmiResolverAsync = parsingOptions.DtmiResolverAsync;
                 this.dtdlResolveLocator = parsingOptions.DtdlResolveLocator;
-                this.MaxDtdlVersion = parsingOptions.MaxDtdlVersion;
+                this.MaxDtdlVersion = Math.Min(Math.Max(parsingOptions.MaxDtdlVersion, ParsingOptions.MinKnownDtdlVersion), ParsingOptions.MaxKnownDtdlVersion);
                 this.AllowUndefinedExtensions = parsingOptions.AllowUndefinedExtensions;
             }
             else
