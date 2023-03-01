@@ -9,6 +9,7 @@
     public class ParsingOptionsGenerator : ITypeGenerator
     {
         private readonly bool isLayeringSupported;
+        private readonly int minKnownDtdlVersion;
         private readonly int maxKnownDtdlVersion;
 
         /// <summary>
@@ -19,6 +20,7 @@
         public ParsingOptionsGenerator(bool isLayeringSupported, List<int> dtdlVersions)
         {
             this.isLayeringSupported = isLayeringSupported;
+            this.minKnownDtdlVersion = dtdlVersions.Min();
             this.maxKnownDtdlVersion = dtdlVersions.Max();
         }
 
@@ -28,6 +30,7 @@
             CsClass optionsClass = parserLibrary.Class(Access.Public, Novelty.Normal, "ParsingOptions", completeness: Completeness.Partial);
             optionsClass.Summary("Class <c>ParsingOptions</c> defines properties that can be passed into the <see cref=\"ModelParser\"/> constructor to configure its behavior.");
 
+            optionsClass.Constant(Access.Public, "int", "MinKnownDtdlVersion", this.minKnownDtdlVersion.ToString(), "The lowest version of DTDL understood by this version of <see cref=\"ModelParser\"/>.");
             optionsClass.Constant(Access.Public, "int", "MaxKnownDtdlVersion", this.maxKnownDtdlVersion.ToString(), "The highest version of DTDL understood by this version of <see cref=\"ModelParser\"/>.");
 
             CsProperty maxDtdlVersionProperty = optionsClass.Property(Access.Public, Novelty.Normal, "int", "MaxDtdlVersion");
