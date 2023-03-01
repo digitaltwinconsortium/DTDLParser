@@ -15,7 +15,7 @@ The DTDLParser is a library that can be used to determine whether one or more mo
 
 ### :package: Install the package
 
-Install the DTDL Parser library for .NET from NuGet.org with:
+Install the DTDL Parser library for .NET from [NuGet.org](https://www.nuget.org/packages/DTDLParser) with:
 
 ```bash
 dotnet add package DTDLParser --prerelease
@@ -25,7 +25,7 @@ dotnet add package DTDLParser --prerelease
 
 [![Push Dev Package](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd-dev.yml/badge.svg)](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd-dev.yml)
 
-There is also a preview NuGet feed where all commits to `main` are published as preview packages.
+There is also a [preview NuGet feed](https://dev.azure.com/azure-dtdl/DTDLParser/_artifacts/feed/DTDLParser-prerelease) where all commits to `main` are published as preview packages.
 
  ```bash
  dotnet add package DTDLParser --prerelease --source https://pkgs.dev.azure.com/azure-dtdl/DTDLParser/_packaging/DTDLParser-prerelease/nuget/v3/index.json
