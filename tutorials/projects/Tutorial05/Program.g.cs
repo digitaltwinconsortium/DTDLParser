@@ -76,6 +76,41 @@ namespace Tutorial05
             var anInterface = (DTInterfaceInfo)objectModel[anInterfaceId];
             #endregion
 
+            #region Snippet:DtdlParserTutorial05_DisplayInterfaceSyntheticPropertyValues
+            foreach (KeyValuePair<string, DTPropertyInfo> propertyElement in anInterface.Properties)
+            {
+                Console.WriteLine($"Property '{propertyElement.Value.Name}'");
+                Console.WriteLine($"  schema: {propertyElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+                Console.WriteLine($"  writable: {(propertyElement.Value.Writable ? "true" : "false")}");
+            }
+
+            foreach (KeyValuePair<string, DTTelemetryInfo> telemetryElement in anInterface.Telemetries)
+            {
+                Console.WriteLine($"Telemetry '{telemetryElement.Value.Name}'");
+                Console.WriteLine($"  schema: {telemetryElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+            }
+
+            foreach (KeyValuePair<string, DTCommandInfo> commandElement in anInterface.Commands)
+            {
+                Console.WriteLine($"Command '{commandElement.Value.Name}'");
+                Console.WriteLine($"  request schema: {commandElement.Value.Request.Schema.Id?.ToString() ?? "(none)"}");
+                Console.WriteLine($"  response schema: {commandElement.Value.Response.Schema.Id?.ToString() ?? "(none)"}");
+            }
+
+            foreach (KeyValuePair<string, DTRelationshipInfo> relationshipElement in anInterface.Relationships)
+            {
+                Console.WriteLine($"Relationship '{relationshipElement.Value.Name}'");
+                Console.WriteLine($"  target: {relationshipElement.Value.Target?.ToString() ?? "(none)"}");
+                Console.WriteLine($"  writable: {(relationshipElement.Value.Writable ? "true" : "false")}");
+            }
+
+            foreach (KeyValuePair<string, DTComponentInfo> componentElement in anInterface.Components)
+            {
+                Console.WriteLine($"Component '{componentElement.Value.Name}'");
+                Console.WriteLine($"  schema: {componentElement.Value.Schema.Id}");
+            }
+            #endregion
+
             #region Snippet:DtdlParserTutorial05_DisplayInterfaceContentValuesByKind
             foreach (KeyValuePair<string, DTContentInfo> contentElement in anInterface.Contents)
             {
@@ -110,41 +145,6 @@ namespace Tutorial05
                         Console.WriteLine($"  schema: {componentElement.Schema.Id}");
                         break;
                 }
-            }
-            #endregion
-
-            #region Snippet:DtdlParserTutorial05_DisplayInterfaceSyntheticPropertyValues
-            foreach (KeyValuePair<string, DTPropertyInfo> propertyElement in anInterface.Properties)
-            {
-                Console.WriteLine($"Property '{propertyElement.Value.Name}'");
-                Console.WriteLine($"  schema: {propertyElement.Value.Schema.Id?.ToString() ?? "(none)"}");
-                Console.WriteLine($"  writable: {(propertyElement.Value.Writable ? "true" : "false")}");
-            }
-
-            foreach (KeyValuePair<string, DTTelemetryInfo> telemetryElement in anInterface.Telemetries)
-            {
-                Console.WriteLine($"Telemetry '{telemetryElement.Value.Name}'");
-                Console.WriteLine($"  schema: {telemetryElement.Value.Schema.Id?.ToString() ?? "(none)"}");
-            }
-
-            foreach (KeyValuePair<string, DTCommandInfo> commandElement in anInterface.Commands)
-            {
-                Console.WriteLine($"Command '{commandElement.Value.Name}'");
-                Console.WriteLine($"  request schema: {commandElement.Value.Request.Schema.Id?.ToString() ?? "(none)"}");
-                Console.WriteLine($"  response schema: {commandElement.Value.Response.Schema.Id?.ToString() ?? "(none)"}");
-            }
-
-            foreach (KeyValuePair<string, DTRelationshipInfo> relationshipElement in anInterface.Relationships)
-            {
-                Console.WriteLine($"Relationship '{relationshipElement.Value.Name}'");
-                Console.WriteLine($"  target: {relationshipElement.Value.Target?.ToString() ?? "(none)"}");
-                Console.WriteLine($"  writable: {(relationshipElement.Value.Writable ? "true" : "false")}");
-            }
-
-            foreach (KeyValuePair<string, DTComponentInfo> componentElement in anInterface.Components)
-            {
-                Console.WriteLine($"Component '{componentElement.Value.Name}'");
-                Console.WriteLine($"  schema: {componentElement.Value.Schema.Id}");
             }
             #endregion
 

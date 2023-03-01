@@ -105,7 +105,7 @@ This snippet displays:
 double
 ```
 
-## Drill down on one element and its property values by subtype
+## Drill down on one element and inspect via synthetic properties
 
 An individual element can be looked up in the object model by its identifier:
 
@@ -113,6 +113,64 @@ An individual element can be looked up in the object model by its identifier:
 var anInterfaceId = new Dtmi("dtmi:example:anInterface;1");
 var anInterface = (DTInterfaceInfo)objectModel[anInterfaceId];
 ```
+
+The .NET property `Contents` on .NET class `DTInterfaceInfo` is a direct analogue of the DTDL property 'contents' on DTDL type Interface.
+The object model exposed via the `ModelParser` also attaches properties that are not directly represented in the DTDL language but rather are synthesized from DTDL properties.
+Specifically, values of the 'contents' property are broken out into separate .NET properties according to their subtypes, as shown by the following code snippet.
+
+```C# Snippet:DtdlParserTutorial05_DisplayInterfaceSyntheticPropertyValues
+foreach (KeyValuePair<string, DTPropertyInfo> propertyElement in anInterface.Properties)
+{
+    Console.WriteLine($"Property '{propertyElement.Value.Name}'");
+    Console.WriteLine($"  schema: {propertyElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+    Console.WriteLine($"  writable: {(propertyElement.Value.Writable ? "true" : "false")}");
+}
+
+foreach (KeyValuePair<string, DTTelemetryInfo> telemetryElement in anInterface.Telemetries)
+{
+    Console.WriteLine($"Telemetry '{telemetryElement.Value.Name}'");
+    Console.WriteLine($"  schema: {telemetryElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+}
+
+foreach (KeyValuePair<string, DTCommandInfo> commandElement in anInterface.Commands)
+{
+    Console.WriteLine($"Command '{commandElement.Value.Name}'");
+    Console.WriteLine($"  request schema: {commandElement.Value.Request.Schema.Id?.ToString() ?? "(none)"}");
+    Console.WriteLine($"  response schema: {commandElement.Value.Response.Schema.Id?.ToString() ?? "(none)"}");
+}
+
+foreach (KeyValuePair<string, DTRelationshipInfo> relationshipElement in anInterface.Relationships)
+{
+    Console.WriteLine($"Relationship '{relationshipElement.Value.Name}'");
+    Console.WriteLine($"  target: {relationshipElement.Value.Target?.ToString() ?? "(none)"}");
+    Console.WriteLine($"  writable: {(relationshipElement.Value.Writable ? "true" : "false")}");
+}
+
+foreach (KeyValuePair<string, DTComponentInfo> componentElement in anInterface.Components)
+{
+    Console.WriteLine($"Component '{componentElement.Value.Name}'");
+    Console.WriteLine($"  schema: {componentElement.Value.Schema.Id}");
+}
+```
+
+For the JSON text above, this snippet displays:
+
+```Console
+Property 'expectedDistance'
+  schema: dtmi:dtdl:instance:Schema:double;2
+  writable: false
+Telemetry 'currentDistance'
+  schema: dtmi:dtdl:instance:Schema:double;2
+Command 'setDistance'
+  request schema: dtmi:dtdl:instance:Schema:double;2
+  response schema: dtmi:dtdl:instance:Schema:double;2
+```
+
+## Alternative approach 1 -- inspect property values by subtype
+
+Using synthetic properties, as described above, is the recommended approach for inspecting property values because the types of the elements are returned in concrete form.
+An alternative approach is to inspect the `Contents` property directly, which may in some cases be beneficial since it maps to the DTDL representation of the model.
+The disadvantages of this approach are that (a) it requires switching on subtype and (b) it requires casting to obtain sub-properties of the elements.
 
 The DTDL type of each element is expressed via the property `EntityKind` on the `DTEntityInfo` base class, which has type `enum DTEntityKind`.
 This can be used to specialize accesses for particular subtypes of DTDL Entities.
@@ -168,63 +226,11 @@ Command 'setDistance'
   response schema: dtmi:dtdl:instance:Schema:double;2
 ```
 
-## Inspect elements via synthetic properties
+## Alternative approach 2 -- use reflection to inspect property values of elements
 
-The .NET property `Contents` on .NET class `DTInterfaceInfo` is a direct analogue of the DTDL property 'contents' on DTDL type Interface.
-The object model exposed via the `ModelParser` also attaches properties that are not directly represented in the DTDL language but rather are synthesized from DTDL properties.
-Specifically, values of the 'contents' property are broken out into separate .NET properties according to their subtypes, as shown by the following code snippet.
+Another alternative approach is to access properties via the `System.Reflection` framework.
+In some situations, this may be valuable since the code below is agnostic to the subtype of `DTEntityInfo` being inspected.
 
-```C# Snippet:DtdlParserTutorial05_DisplayInterfaceSyntheticPropertyValues
-foreach (KeyValuePair<string, DTPropertyInfo> propertyElement in anInterface.Properties)
-{
-    Console.WriteLine($"Property '{propertyElement.Value.Name}'");
-    Console.WriteLine($"  schema: {propertyElement.Value.Schema.Id?.ToString() ?? "(none)"}");
-    Console.WriteLine($"  writable: {(propertyElement.Value.Writable ? "true" : "false")}");
-}
-
-foreach (KeyValuePair<string, DTTelemetryInfo> telemetryElement in anInterface.Telemetries)
-{
-    Console.WriteLine($"Telemetry '{telemetryElement.Value.Name}'");
-    Console.WriteLine($"  schema: {telemetryElement.Value.Schema.Id?.ToString() ?? "(none)"}");
-}
-
-foreach (KeyValuePair<string, DTCommandInfo> commandElement in anInterface.Commands)
-{
-    Console.WriteLine($"Command '{commandElement.Value.Name}'");
-    Console.WriteLine($"  request schema: {commandElement.Value.Request.Schema.Id?.ToString() ?? "(none)"}");
-    Console.WriteLine($"  response schema: {commandElement.Value.Response.Schema.Id?.ToString() ?? "(none)"}");
-}
-
-foreach (KeyValuePair<string, DTRelationshipInfo> relationshipElement in anInterface.Relationships)
-{
-    Console.WriteLine($"Relationship '{relationshipElement.Value.Name}'");
-    Console.WriteLine($"  target: {relationshipElement.Value.Target?.ToString() ?? "(none)"}");
-    Console.WriteLine($"  writable: {(relationshipElement.Value.Writable ? "true" : "false")}");
-}
-
-foreach (KeyValuePair<string, DTComponentInfo> componentElement in anInterface.Components)
-{
-    Console.WriteLine($"Component '{componentElement.Value.Name}'");
-    Console.WriteLine($"  schema: {componentElement.Value.Schema.Id}");
-}
-```
-
-For the JSON text above, this snippet displays:
-
-```Console
-Property 'expectedDistance'
-  schema: dtmi:dtdl:instance:Schema:double;2
-  writable: false
-Telemetry 'currentDistance'
-  schema: dtmi:dtdl:instance:Schema:double;2
-Command 'setDistance'
-  request schema: dtmi:dtdl:instance:Schema:double;2
-  response schema: dtmi:dtdl:instance:Schema:double;2
-```
-
-## Use reflection to inspect property values of elements in the object model
-
-Properties can also be accessed via the `System.Reflection` framework.
 The following snippet scans through all elements in the object model, finds all property values that are subclasses of `DTEntityInfo`, and displays the identifier of each referenced element:
 
 ```C# Snippet:DtdlParserTutorial05_DisplayObjectModelEntityProperties
