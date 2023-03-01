@@ -37,7 +37,7 @@ var parser = new ModelParser(new ParsingOptions()
 
 ## DTDL Object Model
 
-To enumerate the interface contents, the class `InterfaceInfo` provides an object model to navigate the parser results
+To enumerate the interface contents the `DTInterfaceInfo` class provides an object model to navigate the parser results
 
 ```cs
 var example1Dtmi = new Dtmi("dtmi:com:example;1");
