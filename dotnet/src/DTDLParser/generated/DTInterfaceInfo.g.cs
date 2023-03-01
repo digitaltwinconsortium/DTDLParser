@@ -144,9 +144,15 @@ namespace DTDLParser.Models
         internal DTInterfaceInfo(int dtdlVersion, Dtmi id, Dtmi childOf, string myPropertyName, Dtmi definedIn)
             : base(dtdlVersion, id, childOf, myPropertyName, definedIn, DTEntityKind.Interface)
         {
+            this.Commands = new Dictionary<string, DTCommandInfo>();
+            this.Components = new Dictionary<string, DTComponentInfo>();
             this.Contents = new Dictionary<string, DTContentInfo>();
+            this.ExtendedBy = new List<DTInterfaceInfo>();
             this.Extends = new List<DTInterfaceInfo>();
+            this.Properties = new Dictionary<string, DTPropertyInfo>();
+            this.Relationships = new Dictionary<string, DTRelationshipInfo>();
             this.Schemas = new List<DTComplexSchemaInfo>();
+            this.Telemetries = new Dictionary<string, DTTelemetryInfo>();
 
             this.supplementalTypeIds = new HashSet<Dtmi>();
             this.supplementalProperties = new Dictionary<string, object>();
@@ -171,9 +177,15 @@ namespace DTDLParser.Models
         internal DTInterfaceInfo(int dtdlVersion, Dtmi id, Dtmi childOf, string myPropertyName, Dtmi definedIn, DTEntityKind entityKind)
             : base(dtdlVersion, id, childOf, myPropertyName, definedIn, entityKind)
         {
+            this.Commands = new Dictionary<string, DTCommandInfo>();
+            this.Components = new Dictionary<string, DTComponentInfo>();
             this.Contents = new Dictionary<string, DTContentInfo>();
+            this.ExtendedBy = new List<DTInterfaceInfo>();
             this.Extends = new List<DTInterfaceInfo>();
+            this.Properties = new Dictionary<string, DTPropertyInfo>();
+            this.Relationships = new Dictionary<string, DTRelationshipInfo>();
             this.Schemas = new List<DTComplexSchemaInfo>();
+            this.Telemetries = new Dictionary<string, DTTelemetryInfo>();
 
             this.supplementalTypeIds = new HashSet<Dtmi>();
             this.supplementalProperties = new Dictionary<string, object>();
@@ -227,16 +239,52 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
+        /// Gets a subset of values from the 'contents' property of the corresponding DTDL element, for which the values have type Command.
+        /// </summary>
+        /// <value>The Command values from the 'contents' property of the DTDL element.</value>
+        public IReadOnlyDictionary<string, DTCommandInfo> Commands { get; internal set; }
+
+        /// <summary>
+        /// Gets a subset of values from the 'contents' property of the corresponding DTDL element, for which the values have type Component.
+        /// </summary>
+        /// <value>The Component values from the 'contents' property of the DTDL element.</value>
+        public IReadOnlyDictionary<string, DTComponentInfo> Components { get; internal set; }
+
+        /// <summary>
         /// Gets the values of the 'contents' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'contents' property of the DTDL element.</value>
         public IReadOnlyDictionary<string, DTContentInfo> Contents { get; internal set; }
 
         /// <summary>
+        /// Gets a subset of values from the 'contents' property of the corresponding DTDL element, for which the values have type Property.
+        /// </summary>
+        /// <value>The Property values from the 'contents' property of the DTDL element.</value>
+        public IReadOnlyDictionary<string, DTPropertyInfo> Properties { get; internal set; }
+
+        /// <summary>
+        /// Gets a subset of values from the 'contents' property of the corresponding DTDL element, for which the values have type Relationship.
+        /// </summary>
+        /// <value>The Relationship values from the 'contents' property of the DTDL element.</value>
+        public IReadOnlyDictionary<string, DTRelationshipInfo> Relationships { get; internal set; }
+
+        /// <summary>
+        /// Gets a subset of values from the 'contents' property of the corresponding DTDL element, for which the values have type Telemetry.
+        /// </summary>
+        /// <value>The Telemetry values from the 'contents' property of the DTDL element.</value>
+        public IReadOnlyDictionary<string, DTTelemetryInfo> Telemetries { get; internal set; }
+
+        /// <summary>
         /// Gets the values of the 'schemas' property of the DTDL element that corresponds to this object.
         /// </summary>
         /// <value>The 'schemas' property of the DTDL element.</value>
         public IReadOnlyList<DTComplexSchemaInfo> Schemas { get; internal set; }
+
+        /// <summary>
+        /// Gets a list of DTInterfaceInfo objects whose 'extends' property identifies the DTDL element corresponding to this object.
+        /// </summary>
+        /// <value>The DTInterfaceInfo objects whose 'extends' property refers to this object.</value>
+        public IReadOnlyList<DTInterfaceInfo> ExtendedBy { get; internal set; }
 
         /// <summary>
         /// Gets the values of the 'extends' property of the DTDL element that corresponds to this object.
@@ -1974,6 +2022,9 @@ namespace DTDLParser.Models
                     this.ApplyTransformationsV3(model, parsingErrorCollection);
                     break;
             }
+
+            this.BreakOutContents();
+            this.ReverseExtends();
         }
 
         /// <inheritdoc/>
@@ -2752,6 +2803,66 @@ namespace DTDLParser.Models
 
             jsonWriter.WriteEndObject();
 
+            jsonWriter.WritePropertyName("commands");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, DTCommandInfo> commandsPair in this.Commands)
+            {
+                jsonWriter.WriteString(commandsPair.Key, commandsPair.Value.Id.ToString());
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("components");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, DTComponentInfo> componentsPair in this.Components)
+            {
+                jsonWriter.WriteString(componentsPair.Key, componentsPair.Value.Id.ToString());
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("properties");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, DTPropertyInfo> propertiesPair in this.Properties)
+            {
+                jsonWriter.WriteString(propertiesPair.Key, propertiesPair.Value.Id.ToString());
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("relationships");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, DTRelationshipInfo> relationshipsPair in this.Relationships)
+            {
+                jsonWriter.WriteString(relationshipsPair.Key, relationshipsPair.Value.Id.ToString());
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("telemetries");
+            jsonWriter.WriteStartObject();
+
+            foreach (KeyValuePair<string, DTTelemetryInfo> telemetriesPair in this.Telemetries)
+            {
+                jsonWriter.WriteString(telemetriesPair.Key, telemetriesPair.Value.Id.ToString());
+            }
+
+            jsonWriter.WriteEndObject();
+
+            jsonWriter.WritePropertyName("extendedBy");
+            jsonWriter.WriteStartArray();
+
+            foreach (DTInterfaceInfo ExtendedByElt in this.ExtendedBy)
+            {
+                jsonWriter.WriteStringValue(ExtendedByElt.Id.ToString());
+            }
+
+            jsonWriter.WriteEndArray();
+
             jsonWriter.WritePropertyName("extends");
             jsonWriter.WriteStartArray();
 
@@ -2851,6 +2962,31 @@ namespace DTDLParser.Models
             }
         }
 
+        private void BreakOutContents()
+        {
+            foreach (KeyValuePair<string, DTContentInfo> kvp in this.Contents)
+            {
+                switch (kvp.Value.EntityKind)
+                {
+                    case DTEntityKind.Command:
+                        ((Dictionary<string, DTCommandInfo>)this.Commands).Add(kvp.Key, (DTCommandInfo)kvp.Value);
+                        break;
+                    case DTEntityKind.Component:
+                        ((Dictionary<string, DTComponentInfo>)this.Components).Add(kvp.Key, (DTComponentInfo)kvp.Value);
+                        break;
+                    case DTEntityKind.Property:
+                        ((Dictionary<string, DTPropertyInfo>)this.Properties).Add(kvp.Key, (DTPropertyInfo)kvp.Value);
+                        break;
+                    case DTEntityKind.Relationship:
+                        ((Dictionary<string, DTRelationshipInfo>)this.Relationships).Add(kvp.Key, (DTRelationshipInfo)kvp.Value);
+                        break;
+                    case DTEntityKind.Telemetry:
+                        ((Dictionary<string, DTTelemetryInfo>)this.Telemetries).Add(kvp.Key, (DTTelemetryInfo)kvp.Value);
+                        break;
+                }
+            }
+        }
+
         /// <inheritdoc/>
         private void CheckRestrictionsV2(ParsingErrorCollection parsingErrorCollection)
         {
@@ -2904,6 +3040,14 @@ namespace DTDLParser.Models
                     observedCount: numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues,
                     expectedCount: 100000,
                     element: this.JsonLdElements.First().Value);
+            }
+        }
+
+        private void ReverseExtends()
+        {
+            foreach (DTInterfaceInfo item in this.Extends)
+            {
+                ((List<DTInterfaceInfo>)item.ExtendedBy).Add(this);
             }
         }
     }
