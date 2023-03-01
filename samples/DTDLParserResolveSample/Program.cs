@@ -23,7 +23,6 @@ Console.WriteLine(example1.Print());
 example1.Components.ToList().ForEach(co =>
 {
     Console.WriteLine($"[Co] {co.Value.Name} ({co.Value.Schema.Id})");
-    var coInfo = (DTInterfaceInfo)example1ParseResult[co.Value.Schema.Id];
-    Console.WriteLine(coInfo.Print());
+    Console.WriteLine(co.Value.Schema.Print());
 });
 
