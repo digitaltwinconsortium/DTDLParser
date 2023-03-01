@@ -39,10 +39,14 @@ namespace Tutorial10
             }";
             #endregion
 
+            #region Snippet:DtdlParserTutorial10_DeclareObjectModelVar
+            IReadOnlyDictionary<Dtmi, DTEntityInfo> objectModel = null;
+            #endregion
+
             #region Snippet:DtdlParserTutorial10_CallParse
             try
             {
-                var objectModel = modelParser.Parse(jsonText);
+                objectModel = modelParser.Parse(jsonText);
                 Console.WriteLine($"DTDL model is valid!");
             }
             catch (ResolutionException ex)
@@ -94,7 +98,7 @@ namespace Tutorial10
 
             try
             {
-                var objectModel = modelParser.Parse(jsonText);
+                objectModel = modelParser.Parse(jsonText);
                 Console.WriteLine($"DTDL model is valid!");
             }
             catch (ResolutionException ex)
@@ -105,6 +109,51 @@ namespace Tutorial10
             {
                 Console.WriteLine($"DTDL model is invalid: {ex}");
             }
+
+            #region Snippet:DtdlParserTutorial10_GetInterfacesById
+            var anInterface = (DTInterfaceInfo)objectModel[new Dtmi("dtmi:example:anInterface;1")];
+            var anotherInterface = (DTInterfaceInfo)objectModel[new Dtmi("dtmi:example:anotherInterface;1")];
+            #endregion
+
+            #region Snippet:DtdlParserTutorial10_DisplayExtendingInterfaces
+            if (anInterface.Extends.Any())
+            {
+                Console.WriteLine($"anInterface extends:");
+                foreach (DTInterfaceInfo extendedInterface in anInterface.Extends)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+
+            if (anotherInterface.Extends.Any())
+            {
+                Console.WriteLine($"anotherInterface extends:");
+                foreach (DTInterfaceInfo extendedInterface in anotherInterface.Extends)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+            #endregion
+
+            #region Snippet:DtdlParserTutorial10_DisplayExtendedInterfaces
+            if (anInterface.ExtendedBy.Any())
+            {
+                Console.WriteLine($"anInterface is extended by:");
+                foreach (DTInterfaceInfo extendedInterface in anInterface.ExtendedBy)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+
+            if (anotherInterface.ExtendedBy.Any())
+            {
+                Console.WriteLine($"anotherInterface is extended by:");
+                foreach (DTInterfaceInfo extendedInterface in anotherInterface.ExtendedBy)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+            #endregion
         }
     }
 }

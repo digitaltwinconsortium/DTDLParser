@@ -128,6 +128,53 @@ namespace Tutorial10Async
                     throw;
                 }
             }
+
+            #region Snippet:DtdlParserTutorial10Async_GetInterfacesById
+            IReadOnlyDictionary<Dtmi, DTEntityInfo> objectModel = parseTask.Result;
+
+            var anInterface = (DTInterfaceInfo)objectModel[new Dtmi("dtmi:example:anInterface;1")];
+            var anotherInterface = (DTInterfaceInfo)objectModel[new Dtmi("dtmi:example:anotherInterface;1")];
+            #endregion
+
+            #region Snippet:DtdlParserTutorial10Async_DisplayExtendingInterfaces
+            if (anInterface.Extends.Any())
+            {
+                Console.WriteLine($"anInterface extends:");
+                foreach (DTInterfaceInfo extendedInterface in anInterface.Extends)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+
+            if (anotherInterface.Extends.Any())
+            {
+                Console.WriteLine($"anotherInterface extends:");
+                foreach (DTInterfaceInfo extendedInterface in anotherInterface.Extends)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+            #endregion
+
+            #region Snippet:DtdlParserTutorial10Async_DisplayExtendedInterfaces
+            if (anInterface.ExtendedBy.Any())
+            {
+                Console.WriteLine($"anInterface is extended by:");
+                foreach (DTInterfaceInfo extendedInterface in anInterface.ExtendedBy)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+
+            if (anotherInterface.ExtendedBy.Any())
+            {
+                Console.WriteLine($"anotherInterface is extended by:");
+                foreach (DTInterfaceInfo extendedInterface in anotherInterface.ExtendedBy)
+                {
+                    Console.WriteLine($"  {extendedInterface.Id}");
+                }
+            }
+            #endregion
         }
     }
 }
