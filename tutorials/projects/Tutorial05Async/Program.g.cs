@@ -38,6 +38,18 @@ namespace Tutorial05Async
                   ""@type"": ""Telemetry"",
                   ""name"": ""currentDistance"",
                   ""schema"": ""double""
+                },
+                {
+                  ""@type"": ""Command"",
+                  ""name"": ""setDistance"",
+                  ""request"": {
+                    ""name"": ""desiredDistance"",
+                    ""schema"": ""double""
+                  },
+                  ""response"": {
+                    ""name"": ""reportedDistance"",
+                    ""schema"": ""double""
+                  }
                 }
               ]
             }";
@@ -69,7 +81,7 @@ namespace Tutorial05Async
             var anInterface = (DTInterfaceInfo)objectModel[anInterfaceId];
             #endregion
 
-            #region Snippet:DtdlParserTutorial05Async_DisplayInterfaceContentPropertiesByKind
+            #region Snippet:DtdlParserTutorial05Async_DisplayInterfaceContentValuesByKind
             foreach (KeyValuePair<string, DTContentInfo> contentElement in anInterface.Contents)
             {
                 switch (contentElement.Value.EntityKind)
@@ -106,6 +118,41 @@ namespace Tutorial05Async
             }
             #endregion
 
+            #region Snippet:DtdlParserTutorial05Async_DisplayInterfaceSyntheticPropertyValues
+            foreach (KeyValuePair<string, DTPropertyInfo> propertyElement in anInterface.Properties)
+            {
+                Console.WriteLine($"Property '{propertyElement.Value.Name}'");
+                Console.WriteLine($"  schema: {propertyElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+                Console.WriteLine($"  writable: {(propertyElement.Value.Writable ? "true" : "false")}");
+            }
+
+            foreach (KeyValuePair<string, DTTelemetryInfo> telemetryElement in anInterface.Telemetries)
+            {
+                Console.WriteLine($"Telemetry '{telemetryElement.Value.Name}'");
+                Console.WriteLine($"  schema: {telemetryElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+            }
+
+            foreach (KeyValuePair<string, DTCommandInfo> commandElement in anInterface.Commands)
+            {
+                Console.WriteLine($"Command '{commandElement.Value.Name}'");
+                Console.WriteLine($"  request schema: {commandElement.Value.Request.Schema.Id?.ToString() ?? "(none)"}");
+                Console.WriteLine($"  response schema: {commandElement.Value.Response.Schema.Id?.ToString() ?? "(none)"}");
+            }
+
+            foreach (KeyValuePair<string, DTRelationshipInfo> relationshipElement in anInterface.Relationships)
+            {
+                Console.WriteLine($"Relationship '{relationshipElement.Value.Name}'");
+                Console.WriteLine($"  target: {relationshipElement.Value.Target?.ToString() ?? "(none)"}");
+                Console.WriteLine($"  writable: {(relationshipElement.Value.Writable ? "true" : "false")}");
+            }
+
+            foreach (KeyValuePair<string, DTComponentInfo> componentElement in anInterface.Components)
+            {
+                Console.WriteLine($"Component '{componentElement.Value.Name}'");
+                Console.WriteLine($"  schema: {componentElement.Value.Schema.Id}");
+            }
+            #endregion
+
             #region Snippet:DtdlParserTutorial05Async_DisplayObjectModelEntityProperties
             foreach (KeyValuePair<Dtmi, DTEntityInfo> modelElement in objectModel)
             {
@@ -119,7 +166,7 @@ namespace Tutorial05Async
                         object propertyValue = propertyInfo.GetValue(modelElement.Value);
                         if (propertyValue is DTEntityInfo refSingle)
                         {
-                            Console.WriteLine($"  {refSingle.Id}");
+                            Console.WriteLine($"  {refSingle.Id} via member {memberInfo.Name}");
                         }
                         else if (propertyValue is IList refList)
                         {
@@ -127,7 +174,7 @@ namespace Tutorial05Async
                             {
                                 if (refObj is DTEntityInfo refElement)
                                 {
-                                    Console.WriteLine($"  {refElement.Id}");
+                                    Console.WriteLine($"  {refElement.Id} via member {memberInfo.Name}");
                                 }
                             }
                         }
@@ -137,7 +184,7 @@ namespace Tutorial05Async
                             {
                                 if (refObj is DTEntityInfo refElement)
                                 {
-                                    Console.WriteLine($"  {refElement.Id}");
+                                    Console.WriteLine($"  {refElement.Id} via member {memberInfo.Name}");
                                 }
                             }
                         }

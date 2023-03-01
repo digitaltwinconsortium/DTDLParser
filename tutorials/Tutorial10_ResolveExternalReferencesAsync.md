@@ -154,3 +154,77 @@ And then wait on the `Task` per the code snippet above, it displays:
 ```Console
 DTDL model is valid!
 ```
+
+## Inspect the Interface hierarchy via DTDL properties
+
+An individual element can be looked up in the object model by its identifier:
+
+```C# Snippet:DtdlParserTutorial10Async_GetInterfacesById
+IReadOnlyDictionary<Dtmi, DTEntityInfo> objectModel = parseTask.Result;
+
+var anInterface = (DTInterfaceInfo)objectModel[new Dtmi("dtmi:example:anInterface;1")];
+var anotherInterface = (DTInterfaceInfo)objectModel[new Dtmi("dtmi:example:anotherInterface;1")];
+```
+
+The .NET property `Extends` on .NET class `DTInterfaceInfo` is a direct analogue of the DTDL property 'extends' on DTDL type Interface.
+Inspecting the `Extends` property enables bottom-up traversal of the Interface hierarchy by showing the other Interfaces that each Interface extends, as shown in the following code snippet.
+
+```C# Snippet:DtdlParserTutorial10Async_DisplayExtendingInterfaces
+if (anInterface.Extends.Any())
+{
+    Console.WriteLine($"anInterface extends:");
+    foreach (DTInterfaceInfo extendedInterface in anInterface.Extends)
+    {
+        Console.WriteLine($"  {extendedInterface.Id}");
+    }
+}
+
+if (anotherInterface.Extends.Any())
+{
+    Console.WriteLine($"anotherInterface extends:");
+    foreach (DTInterfaceInfo extendedInterface in anotherInterface.Extends)
+    {
+        Console.WriteLine($"  {extendedInterface.Id}");
+    }
+}
+```
+
+This code snippet displays:
+
+```Console
+anInterface extends:
+  dtmi:example:anotherInterface;1
+```
+
+## Inspect the Interface hierarchy via synthetic properties
+
+The object model exposed via the `ModelParser` attaches properties that are not directly represented in the DTDL language but rather are synthesized from DTDL properties.
+Specifically, values of the 'extends' property are also expressed in a reversed form via the synthetic property `ExtendedBy`, which enables top-down traversal of the Interface hierarchy by showing the other Interfaces that each Interface is extended by.
+This is shown in the following code snippet.
+
+```C# Snippet:DtdlParserTutorial10Async_DisplayExtendedInterfaces
+if (anInterface.ExtendedBy.Any())
+{
+    Console.WriteLine($"anInterface is extended by:");
+    foreach (DTInterfaceInfo extendedInterface in anInterface.ExtendedBy)
+    {
+        Console.WriteLine($"  {extendedInterface.Id}");
+    }
+}
+
+if (anotherInterface.ExtendedBy.Any())
+{
+    Console.WriteLine($"anotherInterface is extended by:");
+    foreach (DTInterfaceInfo extendedInterface in anotherInterface.ExtendedBy)
+    {
+        Console.WriteLine($"  {extendedInterface.Id}");
+    }
+}
+```
+
+This code snippet displays:
+
+```Console
+anotherInterface is extended by:
+  dtmi:example:anInterface;1
+```
