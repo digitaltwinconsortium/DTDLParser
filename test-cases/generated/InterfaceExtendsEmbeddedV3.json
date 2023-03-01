@@ -141,9 +141,27 @@
             "someCmd": "dtmi:test:anotherCommand;1",
             "someRelation": "dtmi:test:anotherRelationship;1"
           },
+          "components": {},
+          "properties": {
+            "expectedDistance": "dtmi:test:aProperty;1",
+            "someProp": "dtmi:test:anotherProperty;1"
+          },
+          "telemetries": {
+            "currentDistance": "dtmi:test:aTelemetry;1",
+            "someTelem": "dtmi:test:anotherTelemetry;1"
+          },
+          "commands": {
+            "setDistance": "dtmi:test:aCommand;1",
+            "someCmd": "dtmi:test:anotherCommand;1"
+          },
+          "relationships": {
+            "proximity": "dtmi:test:aRelationship;1",
+            "someRelation": "dtmi:test:anotherRelationship;1"
+          },
           "extends": [
             "dtmi:test:anInterface;1"
-          ]
+          ],
+          "extendedBy": []
         }
       },
       {
@@ -156,7 +174,23 @@
             "setDistance": "dtmi:test:aCommand;1",
             "proximity": "dtmi:test:aRelationship;1"
           },
-          "extends": []
+          "components": {},
+          "properties": {
+            "expectedDistance": "dtmi:test:aProperty;1"
+          },
+          "telemetries": {
+            "currentDistance": "dtmi:test:aTelemetry;1"
+          },
+          "commands": {
+            "setDistance": "dtmi:test:aCommand;1"
+          },
+          "relationships": {
+            "proximity": "dtmi:test:aRelationship;1"
+          },
+          "extends": [],
+          "extendedBy": [
+            "dtmi:test:importingInterface;1"
+          ]
         }
       }
     ]

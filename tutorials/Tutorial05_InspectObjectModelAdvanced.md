@@ -205,5 +205,7 @@ dtmi:example:anInterface:_contents:__currentDistance;1 refers to:
 dtmi:example:anInterface;1 refers to:
   dtmi:example:anInterface:_contents:__expectedDistance;1
   dtmi:example:anInterface:_contents:__currentDistance;1
+  dtmi:example:anInterface:_contents:__expectedDistance;1
+  dtmi:example:anInterface:_contents:__currentDistance;1
 dtmi:dtdl:instance:Schema:double;2 refers to:
 ```
