@@ -8,7 +8,7 @@ fi
 
 bash scripts/Title.sh GenerateParser $DtdlModelParserBuildConfig
 
-[[ -d dotnet/src/Parser/generated ]] && rm -r dotnet/src/Parser/generated
+[[ -d dotnet/src/DTDLParser/generated ]] && rm -r dotnet/src/DTDLParser/generated
 
 [[ -d javascript/generated ]] && rm -r javascript/generated
 mkdir javascript/generated
@@ -18,8 +18,8 @@ mkdir javascript/generated
 #:: in json dtdl_digest.json
 #:: in json ObjectModelConventions.json
 #:: in json ParsingErrorMessages.json
-#:: out dotnet dotnet/src/Parser/generated
+#:: out dotnet dotnet/src/DTDLParser/generated
 
-dotnet run --project dotnet/gen/ParserGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/Parser/generated SupportedExtensions.g.md javascript/generated/DtdlOm.d.ts dtdl/dtdl_digest.json dtdl/support/ObjectModelConventions.json dtdl/dtdl.json dtdl/support/ParsingErrorMessages.json
+dotnet run --project dotnet/gen/ParserGenerator --configuration $DtdlModelParserBuildConfig dotnet/src/DTDLParser/generated SupportedExtensions.g.md javascript/generated/DtdlOm.d.ts dtdl/dtdl_digest.json dtdl/support/ObjectModelConventions.json dtdl/dtdl.json dtdl/support/ParsingErrorMessages.json
 
 test $? -eq 0 || bash scripts/Failure.sh GenerateParser $DtdlModelParserBuildConfig

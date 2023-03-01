@@ -1,6 +1,6 @@
 /* This is an auto-generated file.  Do not modify. */
 
-namespace DTDLParser
+namespace ParserUnitTest
 {
     using System;
     using System.Collections.Generic;
@@ -10,6 +10,7 @@ namespace DTDLParser
     using System.Threading.Tasks;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json.Linq;
+    using DTDLParser;
     using DTDLParser.Models;
 
     internal static partial class ParserUnitTester

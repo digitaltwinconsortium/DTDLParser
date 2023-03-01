@@ -11,18 +11,6 @@ bash scripts/Title.sh BuildParserTests $DtdlModelParserBuildConfig
 #:: job dotnet
 
 ErrLev=0
- 
-#:: in dotnet dotnet/tests/DtmiUnitTest
-#:: out dll DtmiUnitTest.dll
-
-dotnet build dotnet/tests/DtmiUnitTest --configuration $DtdlModelParserBuildConfig
-test $? -eq 0 || ErrLev=1
-
-#:: in dotnet dotnet/tests/ResultFormatterUnitTest
-#:: out dll ResultFormatterUnitTest.dll
-
-dotnet build dotnet/tests/ResultFormatterUnitTest --configuration $DtdlModelParserBuildConfig
-test $? -eq 0 || ErrLev=1
 
 #:: in dotnet dotnet/tests/ParserUnitTest
 #:: in dotnet dotnet/tests/ParserUnitTest/generated

@@ -3,17 +3,17 @@
 steps:
 
 - bash: |
-    echo delete dotnet/src/Parser/generated folder
-    rm -r $(System.DefaultWorkingDirectory)/dotnet/src/Parser/generated
-    echo re-create dotnet/src/Parser/generated folder
-    mkdir $(System.DefaultWorkingDirectory)/dotnet/src/Parser/generated
+    echo delete dotnet/src/DTDLParser/generated folder
+    rm -r $(System.DefaultWorkingDirectory)/dotnet/src/DTDLParser/generated
+    echo re-create dotnet/src/DTDLParser/generated folder
+    mkdir $(System.DefaultWorkingDirectory)/dotnet/src/DTDLParser/generated
   displayName: 'Delete old Codegenned Parser Sources'
 
 - task: DownloadPipelineArtifact@2
   inputs:
     source: current
     artifact: DotNet_Sources
-    path: $(System.DefaultWorkingDirectory)/dotnet/src/Parser/generated
+    path: $(System.DefaultWorkingDirectory)/dotnet/src/DTDLParser/generated
   displayName: 'Download Codegenned Parser Sources'
 
 - bash: |

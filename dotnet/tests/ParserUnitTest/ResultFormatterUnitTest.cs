@@ -1,4 +1,4 @@
-namespace DTDLParser
+namespace ParserUnitTest
 {
     using System.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

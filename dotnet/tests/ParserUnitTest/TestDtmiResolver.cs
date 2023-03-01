@@ -1,10 +1,11 @@
-namespace DTDLParser
+namespace ParserUnitTest
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using DTDLParser;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json.Linq;
 
@@ -25,15 +26,15 @@ namespace DTDLParser
         /// <param name="useAsyncApi">Use the asynchronous parse/resolve API.</param>
         public TestDtmiResolver(JObject testCaseObject, bool useAsyncApi)
         {
-            this.resolutionArray = null;
+            resolutionArray = null;
             this.useAsyncApi = useAsyncApi;
-            this.expectedResolutionCount = 0;
-            this.actualResolutionCount = 0;
+            expectedResolutionCount = 0;
+            actualResolutionCount = 0;
 
             if (testCaseObject.ContainsKey("resolution"))
             {
-                this.resolutionArray = (JArray)testCaseObject["resolution"];
-                this.expectedResolutionCount = this.resolutionArray.Count;
+                resolutionArray = (JArray)testCaseObject["resolution"];
+                expectedResolutionCount = resolutionArray.Count;
             }
         }
 
@@ -44,11 +45,11 @@ namespace DTDLParser
         {
             if (isModelValid)
             {
-                Assert.AreEqual(this.expectedResolutionCount, this.actualResolutionCount);
+                Assert.AreEqual(expectedResolutionCount, actualResolutionCount);
             }
             else
             {
-                Assert.IsTrue(this.actualResolutionCount <= this.expectedResolutionCount);
+                Assert.IsTrue(actualResolutionCount <= expectedResolutionCount);
             }
         }
 
@@ -58,7 +59,7 @@ namespace DTDLParser
         /// <returns>A <see cref="DtmiResolver"/> or null, as appropriate.</returns>
         public DtmiResolver GetResolver()
         {
-            return this.resolutionArray != null && !this.useAsyncApi ? this.Resolve : (DtmiResolver)null;
+            return resolutionArray != null && !useAsyncApi ? Resolve : null;
         }
 
         /// <summary>
@@ -67,13 +68,13 @@ namespace DTDLParser
         /// <returns>A <see cref="DtmiResolverAsync"/> or null, as appropriate.</returns>
         public DtmiResolverAsync GetResolverAsync()
         {
-            return this.resolutionArray != null && this.useAsyncApi ? this.ResolveAsync : (DtmiResolverAsync)null;
+            return resolutionArray != null && useAsyncApi ? ResolveAsync : null;
         }
 
         private IEnumerable<string> Resolve(IReadOnlyCollection<Dtmi> dtmis)
         {
-            Assert.IsTrue(this.actualResolutionCount < this.expectedResolutionCount);
-            JObject resolutionObject = (JObject)this.resolutionArray[this.actualResolutionCount];
+            Assert.IsTrue(actualResolutionCount < expectedResolutionCount);
+            JObject resolutionObject = (JObject)resolutionArray[actualResolutionCount];
 
             List<string> expectedIdentifiers = ((JArray)resolutionObject["request"]).Select(t => ((JValue)t).Value<string>()).ToList();
             expectedIdentifiers.Sort();
@@ -83,7 +84,7 @@ namespace DTDLParser
 
             Assert.IsTrue(expectedIdentifiers.SequenceEqual(actualIdentifiers));
 
-            ++this.actualResolutionCount;
+            ++actualResolutionCount;
 
             if (resolutionObject["response"].Type != JTokenType.Null)
             {
@@ -97,7 +98,7 @@ namespace DTDLParser
 #pragma warning disable CS8425 // 'CancellationToken' is not decorated with the 'EnumeratorCancellation' attribute, so the cancellation token parameter from the generated 'IAsyncEnumerable<>.GetAsyncEnumerator' will be unconsumed
         private async IAsyncEnumerable<string> ResolveAsync(IReadOnlyCollection<Dtmi> dtmis, CancellationToken _)
         {
-            IEnumerable<string> values = this.Resolve(dtmis);
+            IEnumerable<string> values = Resolve(dtmis);
             if (values != null)
             {
                 foreach (string value in values)

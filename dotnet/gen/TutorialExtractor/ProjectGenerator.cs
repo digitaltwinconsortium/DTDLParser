@@ -26,7 +26,7 @@
             this.projectWriter.WriteLine("  </PropertyGroup>");
             this.projectWriter.WriteLine();
             this.projectWriter.WriteLine("  <ItemGroup>");
-            this.projectWriter.WriteLine(@"    <ProjectReference Include=""..\..\..\dotnet\src\Parser\Parser.csproj"" />");
+            this.projectWriter.WriteLine(@"    <ProjectReference Include=""..\..\..\dotnet\src\DTDLParser\DTDLParser.csproj"" />");
             this.projectWriter.WriteLine("  </ItemGroup>");
 
             if (projectName.Contains("Async"))

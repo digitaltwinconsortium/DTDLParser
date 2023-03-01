@@ -1,4 +1,4 @@
-namespace DTDLParser
+namespace ParserUnitTest
 {
     using System;
     using System.Collections;
@@ -6,6 +6,7 @@ namespace DTDLParser
     using System.Linq;
     using System.Reflection;
     using System.Text.Json;
+    using DTDLParser;
     using DTDLParser.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json.Linq;

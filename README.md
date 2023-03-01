@@ -70,7 +70,7 @@ Parsing returns a dictionary whose keys are instances of the `Dtmi` class. The v
 ### :nut_and_bolt: Context identifieres
 
 The interface above has a `@context` value of "dtmi:dtdl:context;3", indicating that the model is written in DTDL version 3.
-Every model must have at least a DTDL context specifier, and it may also have one or more *extension* context specifiers, which are itemized in in [Supported extension contexts](dotnet/src/Parser/generated/SupportedExtensions.g.md).
+Every model must have at least a DTDL context specifier, and it may also have one or more *extension* context specifiers, which are itemized in in [Supported extension contexts](dotnet/src/DTDLParser/generated/SupportedExtensions.g.md).
 
 ### :eyeglasses: DtmiResolver and DtmiResolverAsync
 
@@ -114,7 +114,7 @@ Most contributions require you to agree to a Contributor License Agreement (CLA)
 
 
 <!-- LINKS -->
-[source_root]: ./dotnet/src/Parser
+[source_root]: ./dotnet/src/DTDLParser
 [source_tutorials]: ./tutorials
 [language_docs]: https://github.com/Azure/opendigitaltwins-dtdl
 [dtmi_spec]: https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTMI

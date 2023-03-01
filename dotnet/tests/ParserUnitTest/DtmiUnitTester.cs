@@ -1,4 +1,6 @@
-namespace DTDLParser
+using DTDLParser;
+
+namespace ParserUnitTest
 {
     using System;
     using System.Collections.Generic;

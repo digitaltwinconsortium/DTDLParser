@@ -26,8 +26,8 @@ if [ -z "$2" ]; then
 fi
 
 #:: job dotnet
-#:: in dotnet dotnet/src/Parser
-#:: in dotnet dotnet/src/Parser/generated
+#:: in dotnet dotnet/src/DTDLParser
+#:: in dotnet dotnet/src/DTDLParser/generated
 #:: in json docfx.json
 
 ${2}docfx.exe api-docs/dotnet/docfx.json

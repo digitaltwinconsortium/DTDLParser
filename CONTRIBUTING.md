@@ -35,7 +35,7 @@ PRs shall not include changes to files within:
 * :file_folder: **pipelines**
 * :file_folder: **scripts**
 * :file_folder: **dotnet/gen**
-* :file_folder: **dotnet/src/Parser/generated**
+* :file_folder: **dotnet/src/DTDLParser/generated**
 * :file_folder: **dotnet/src/Remodel/generated**
 * :file_folder: **dotnet/tests/ParserUnitTest/generated**
 * :file_folder: **javascript/generated**
