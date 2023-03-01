@@ -43,7 +43,7 @@ To enumerate the interface contents, the class `InterfaceInfo` provides an objec
 var example1Dtmi = new Dtmi("dtmi:com:example;1");
 var example1Dtdl = File.ReadAllText(Path.Join(basePath, example1Dtmi.ToPath()));
 var example1ParseResult = await parser.ParseAsync(example1Dtdl);
-var example1 = new InterfaceInfo(example1ParseResult, example1Dtmi);
+var example1 = (DTInterfaceInfo)example1ParseResult[example1Dtmi];
 example1.Properties.ToList().ForEach(p => Console.WriteLine(p.Name));
 ```
 
