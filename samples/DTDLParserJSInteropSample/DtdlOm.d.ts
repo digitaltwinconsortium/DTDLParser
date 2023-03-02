@@ -143,7 +143,13 @@ export type IntegerType = IntegerInfo;
 export interface InterfaceInfo extends EntityInfo {
   EntityKind: 'Interface';
   contents: { [name: string]: string };
+  commands: { [name: string]: string };
+  components: { [name: string]: string };
+  properties: { [name: string]: string };
+  relationships: { [name: string]: string };
+  telemetries: { [name: string]: string };
   extends: string[];
+  extendedBy: string[];
   schemas: string[];
 }
 
