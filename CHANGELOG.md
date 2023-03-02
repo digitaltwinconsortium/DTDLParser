@@ -10,7 +10,7 @@
 
 ### Supported extension contexts
 
-The chart below itemizes the additional extension contexts supported by this version.
+The chart below itemizes the extension contexts supported by this version.
 
 | Extension | Context specifier | DTDL versions |
 | --- | --- | --- |
