@@ -24,10 +24,13 @@ public static async IAsyncEnumerable<string> ParserDtmiResolverAsync(
 And used from the `ModelResolver` class:
 
 ```cs
-internal class ModelResolver {
-    public static async Task<DTInterfaceInfo> LoadModelAsync(string dtmi, string dmrBasePath) {
+internal class ModelResolver
+{
+    public static async Task<DTInterfaceInfo> LoadModelAsync(string dtmi, string dmrBasePath)
+    {
         var dmrClient = new ModelsRepositoryClient(new Uri(dmrBasePath));
-        var parser = new ModelParser(new ParsingOptions() {
+        var parser = new ModelParser(new ParsingOptions()
+        {
             DtmiResolverAsync = dmrClient.ParserDtmiResolverAsync
         });
         Console.WriteLine($"Parser version: {parser.GetType().Assembly.FullName}\n Resolving from: {new DirectoryInfo(dmrBasePath).FullName}");
