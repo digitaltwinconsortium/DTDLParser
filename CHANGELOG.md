@@ -2,7 +2,7 @@
 
 ## 1.0.34-preview (2023-03-02)
 
-- Target netstandard2.0 #50
+- Multi-target netstandard2.0 & netstandard2.1 #50
 - Adds ExtendsBy #59
 - Adds breakout properties #47
 - Validates MaxDtdlVersion #55

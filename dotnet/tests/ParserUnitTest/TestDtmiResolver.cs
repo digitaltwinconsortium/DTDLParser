@@ -59,7 +59,7 @@ namespace ParserUnitTest
         /// <returns>A <see cref="DtmiResolver"/> or null, as appropriate.</returns>
         public DtmiResolver GetResolver()
         {
-            return resolutionArray != null && !useAsyncApi ? Resolve : null;
+            return resolutionArray != null && !useAsyncApi ? Resolve : (DtmiResolver)null;
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace ParserUnitTest
         /// <returns>A <see cref="DtmiResolverAsync"/> or null, as appropriate.</returns>
         public DtmiResolverAsync GetResolverAsync()
         {
-            return resolutionArray != null && useAsyncApi ? ResolveAsync : null;
+            return resolutionArray != null && useAsyncApi ? ResolveAsync : (DtmiResolverAsync)null;
         }
 
         private IEnumerable<string> Resolve(IReadOnlyCollection<Dtmi> dtmis)
