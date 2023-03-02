@@ -101,6 +101,8 @@
         private void WriteSolutionHeader()
         {
             this.solutionWriter.WriteLine("Microsoft Visual Studio Solution File, Format Version 12.00");
+            this.solutionWriter.WriteLine(@"Project(""{9A19103F-16F7-4668-BE54-9A1E7A4F7556}"") = ""DTDLParser"", ""..\..\dotnet\src\DTDLParser\DTDLParser.csproj"", ""DADA917F-E174-4FC9-BD69-F54A587E4FAA""");
+            this.solutionWriter.WriteLine("EndProject");
         }
 
         private void WriteSolutionTrailer()
@@ -113,6 +115,11 @@
             this.solutionWriter.WriteLine("\tEndGlobalSection");
 
             this.solutionWriter.WriteLine("\tGlobalSection(ProjectConfigurationPlatforms) = postSolution");
+
+            this.solutionWriter.WriteLine("\t\t{DADA917F-E174-4FC9-BD69-F54A587E4FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU");
+            this.solutionWriter.WriteLine("\t\t{DADA917F-E174-4FC9-BD69-F54A587E4FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU");
+            this.solutionWriter.WriteLine("\t\t{DADA917F-E174-4FC9-BD69-F54A587E4FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU");
+            this.solutionWriter.WriteLine("\t\t{DADA917F-E174-4FC9-BD69-F54A587E4FAA}.Release|Any CPU.Build.0 = Release|Any CPU");
 
             for (int projectIndex = 0; projectIndex < this.projectCount; ++projectIndex)
             {
