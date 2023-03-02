@@ -7,9 +7,10 @@ namespace DTDLParserResolveSample;
 public static partial class DTInfoExtensions {
     public static string Print(this DTInterfaceInfo dtInterface, bool isRoot = false) {
         StringBuilder sb = new();
-        foreach (var t in root.Telemetries) sb.AppendLine(t.Value.Print());
-        foreach(var p in root.Properties) sb.AppendLine(p.Value.Print());
-        foreach (var c in root.Commands) sb.AppendLine(c.Value.Print());
+        if (isRoot) sb.Append($"Root {dtInterface.Id}\n");
+        foreach (var t in dtInterface.Telemetries) sb.AppendLine(t.Value.Print());
+        foreach (var p in dtInterface.Properties) sb.AppendLine(p.Value.Print());
+        foreach (var c in dtInterface.Commands) sb.AppendLine(c.Value.Print());
         return sb.ToString();
     }
 
@@ -60,7 +61,7 @@ public static partial class DTInfoExtensions {
 
     public static string Print(this DTTelemetryInfo t) {
         StringBuilder sb = new();
-        sb.Append($"[T] {t.Name} ");
+        sb.Append($" [T] {t.Name} ");
         if (t.Schema.DefinedIn == t.DefinedIn) {
             sb.Append(t.Schema.Print());
         }
@@ -84,10 +85,9 @@ public static partial class DTInfoExtensions {
         return sb.ToString();
     }
 
-    public static string Print(this DTPropertyInfo p, int pad = 0) {
+    public static string Print(this DTPropertyInfo p) {
         StringBuilder sb = new();
-        sb.Append(" ".PadRight(pad));
-        sb.Append($"[P] {p.Name} ");
+        sb.Append($" [P] {p.Name} ");
         if (p.Schema.DefinedIn == p.DefinedIn) {
             sb.Append(p.Schema.Print());
         }
@@ -116,10 +116,9 @@ public static partial class DTInfoExtensions {
         return sb.ToString();
     }
 
-    public static string Print(this DTCommandInfo c, int pad = 0) {
+    public static string Print(this DTCommandInfo c) {
         StringBuilder sb = new();
-        sb.Append(" ".PadRight(pad));
-        sb.Append($"[C] {c.Name}");
+        sb.Append($" [C] {c.Name}");
         if (c.Request != null) {
             var req = c.Request;
             if (req.Schema.DefinedIn == req.DefinedIn) {
