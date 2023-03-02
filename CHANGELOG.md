@@ -1,6 +1,6 @@
 # DTDLParser Release History
 
-## 1.0.33-preview (2023-03-02)
+## 1.0.34-preview (2023-03-02)
 
 - Target netstandard2.0 #50
 - Adds ExtendsBy #59
