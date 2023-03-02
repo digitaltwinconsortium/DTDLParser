@@ -9,10 +9,10 @@ internal class ModelResolver {
         var parser = new ModelParser(new ParsingOptions() {
             DtmiResolverAsync = dmrClient.ParserDtmiResolverAsync
         });
-        Console.WriteLine($"Parser version: {parser.GetType().Assembly.FullName}\n");
+        Console.WriteLine($"Parser version: {parser.GetType().Assembly.FullName}\n Resolving from: {dmrBasePath}");
         var id = new Dtmi(dtmi);
-        var dtdl = File.ReadAllText(Path.Join(dmrBasePath, id.ToPath()));
-        var result = await parser.ParseAsync(dtdl);
+        var dtdl = await dmrClient.GetModelAsync(dtmi, ModelDependencyResolution.Disabled);
+        var result = await parser.ParseAsync(dtdl.Content[dtmi]);
         return (DTInterfaceInfo)result[id];
     }
 }
