@@ -56,11 +56,11 @@ jobs:
       - name: Pack Parser
         run: dotnet pack -c Release dotnet/src/DTDLParser
 
-      - name: Process trx reports with default
-        if: always()
-        uses: im-open/process-dotnet-test-results@v2.2.2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          base-directory: dotnet/
+      # - name: Process trx reports with default
+      #   if: always()
+      #   uses: im-open/process-dotnet-test-results@v2.2.2
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     base-directory: dotnet/
       
       
