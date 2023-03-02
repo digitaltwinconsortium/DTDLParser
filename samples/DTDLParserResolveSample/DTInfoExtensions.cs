@@ -4,8 +4,10 @@ using System.Text;
 
 namespace DTDLParserResolveSample;
 
-public static partial class DTInfoExtensions {
-    public static string Print(this DTInterfaceInfo dtInterface, bool isRoot = false) {
+public static partial class DTInfoExtensions
+{
+    public static string Print(this DTInterfaceInfo dtInterface, bool isRoot = false)
+    {
         StringBuilder sb = new();
         if (isRoot) sb.Append($"Root {dtInterface.Id}\n");
         foreach (var t in dtInterface.Telemetries) sb.AppendLine(t.Value.Print());
@@ -14,9 +16,11 @@ public static partial class DTInfoExtensions {
         return sb.ToString();
     }
 
-    public static string Print(this DTSchemaInfo s) {
+    public static string Print(this DTSchemaInfo s)
+    {
         StringBuilder sb = new();
-        switch (s.EntityKind) {
+        switch (s.EntityKind)
+        {
             case DTEntityKind.Map:
                 DTMapInfo map = (DTMapInfo)s;
                 sb.Append($"{s.EntityKind}<{ModelParser.GetTermOrUri(map.MapKey.Schema.Id)},{ModelParser.GetTermOrUri(map.MapValue.Schema.Id)}> ");
@@ -44,13 +48,16 @@ public static partial class DTInfoExtensions {
         return sb.ToString();
     }
 
-    public static string Print(this DTFieldInfo f) {
+    public static string Print(this DTFieldInfo f)
+    {
         StringBuilder sb = new();
         sb.Append($"[ {f.Name} : ");
-        if (f.Schema.DefinedIn == f.DefinedIn) {
+        if (f.Schema.DefinedIn == f.DefinedIn)
+        {
             sb.Append(f.Schema.Print());
         }
-        else {
+        else
+        {
             sb.Append(ModelParser.GetTermOrUri(f.Schema.Id));
         }
         foreach (var t in f.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(t));
@@ -59,26 +66,34 @@ public static partial class DTInfoExtensions {
         return sb.ToString();
     }
 
-    public static string Print(this DTTelemetryInfo t) {
+    public static string Print(this DTTelemetryInfo t)
+    {
         StringBuilder sb = new();
         sb.Append($" [T] {t.Name} ");
-        if (t.Schema.DefinedIn == t.DefinedIn) {
+        if (t.Schema.DefinedIn == t.DefinedIn)
+        {
             sb.Append(t.Schema.Print());
         }
-        else {
+        else
+        {
             sb.Append(ModelParser.GetTermOrUri(t.Schema.Id));
         }
         foreach (var st in t.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(st));
-        
-        if (t.LanguageMajorVersion == 2) {
-            foreach (var sp in t.SupplementalProperties) sb.Append(" " +  ModelParser.GetTermOrUri(((DTUnitInfo)sp.Value).Id));
+
+        if (t.LanguageMajorVersion == 2)
+        {
+            foreach (var sp in t.SupplementalProperties) sb.Append(" " + ModelParser.GetTermOrUri(((DTUnitInfo)sp.Value).Id));
         }
-        else {
-            foreach (var sp in t.SupplementalProperties) {
-                if (sp.Key == "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit") {
+        else
+        {
+            foreach (var sp in t.SupplementalProperties)
+            {
+                if (sp.Key == "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit")
+                {
                     sb.Append(" " + ((DTEnumValueInfo)sp.Value).Name);
                 }
-                else {
+                else
+                {
                     sb.Append(" " + sp.Value);
                 }
             }
@@ -86,20 +101,23 @@ public static partial class DTInfoExtensions {
         return sb.ToString();
     }
 
-    public static string Print(this DTPropertyInfo p) {
+    public static string Print(this DTPropertyInfo p)
+    {
         StringBuilder sb = new();
         sb.Append($" [P] {p.Name} ");
-        if (p.Schema.DefinedIn == p.DefinedIn) {
+        if (p.Schema.DefinedIn == p.DefinedIn)
+        {
             sb.Append(p.Schema.Print());
         }
-        else {
+        else
+        {
             sb.Append(ModelParser.GetTermOrUri(p.Schema.Id));
         }
 
-        foreach(var t in p.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(t));
+        foreach (var t in p.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(t));
         if (p.LanguageMajorVersion == 2)
         {
-            foreach(var pp in p.SupplementalProperties) sb.Append(" " + ModelParser.GetTermOrUri(((DTUnitInfo)pp.Value).Id));
+            foreach (var pp in p.SupplementalProperties) sb.Append(" " + ModelParser.GetTermOrUri(((DTUnitInfo)pp.Value).Id));
         }
         else
         {
@@ -109,7 +127,8 @@ public static partial class DTInfoExtensions {
                 {
                     sb.Append(" " + ((DTEnumValueInfo)sp.Value).Name);
                 }
-                else {
+                else
+                {
                     sb.Append(" " + sp.Value);
                 }
             };
@@ -117,26 +136,33 @@ public static partial class DTInfoExtensions {
         return sb.ToString();
     }
 
-    public static string Print(this DTCommandInfo c) {
+    public static string Print(this DTCommandInfo c)
+    {
         StringBuilder sb = new();
         sb.Append($" [C] {c.Name}");
-        if (c.Request != null) {
+        if (c.Request != null)
+        {
             var req = c.Request;
-            if (req.Schema.DefinedIn == req.DefinedIn) {
+            if (req.Schema.DefinedIn == req.DefinedIn)
+            {
                 sb.Append($" req: {req.Schema.Print()} ");
             }
-            else {
+            else
+            {
                 sb.Append($" req: {ModelParser.GetTermOrUri(req.Schema.Id)} ");
             }
             foreach (var t in req.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(t));
             foreach (var p in req.SupplementalProperties) sb.Append(" " + ((DTEnumValueInfo)p.Value).Name);
         }
-        if (c.Response != null) {
+        if (c.Response != null)
+        {
             var resp = c.Response;
-            if (resp.Schema.DefinedIn == resp.DefinedIn) {
+            if (resp.Schema.DefinedIn == resp.DefinedIn)
+            {
                 sb.Append($" resp: {resp.Schema.Print()}");
             }
-            else {
+            else
+            {
                 sb.Append($" resp: {ModelParser.GetTermOrUri(resp.Schema.Id)}");
             }
             foreach (var t in resp.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(t));
