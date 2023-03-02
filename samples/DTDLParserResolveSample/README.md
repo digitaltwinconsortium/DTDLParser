@@ -6,14 +6,7 @@ The `dtmi:com:example;1` interface uses an additional interface `dtmi:com:exampl
 
 ## Resolving extenal references
 
-To resolve external dependencies, this sample uses the [Azure.IoT.ModelsRepository](https://www.nuget.org/packages/Azure.IoT.ModelsRepository) configured to read from a local folder.
-
-```cs
-string basePath = Path.Join(System.Reflection.Assembly.GetExecutingAssembly().Location + @"./../../../../");
-var dmrClient = new ModelsRepositoryClient(new Uri(basePath));
-```
-
-The parser is configured with the `ParserDtmiResolverAsync` provided in the `ModelsRepositoryClientExtensions`
+To resolve external dependencies, this sample uses the [Azure.IoT.ModelsRepository](https://www.nuget.org/packages/Azure.IoT.ModelsRepository) package  to resolve interfaces from a local folder. The parser is configured with the `ParserDtmiResolverAsync` provided in the `ModelsRepositoryClientExtensions`:
 
 ```cs
 public static async IAsyncEnumerable<string> ParserDtmiResolverAsync(
@@ -26,28 +19,40 @@ public static async IAsyncEnumerable<string> ParserDtmiResolverAsync(
         yield return result.Content[dtmi];
     }
 }
-```
+``` 
+
+And used from the `ModelResolver` class:
 
 ```cs
-var parser = new ModelParser(new ParsingOptions()
+internal class ModelResolver
 {
-    DtmiResolverAsync = dmrClient.ParserDtmiResolverAsync
-});
+    public static async Task<DTInterfaceInfo> LoadModelAsync(string dtmi, string dmrBasePath)
+    {
+        var dmrClient = new ModelsRepositoryClient(new Uri(dmrBasePath));
+        var parser = new ModelParser(new ParsingOptions()
+        {
+            DtmiResolverAsync = dmrClient.ParserDtmiResolverAsync
+        });
+        Console.WriteLine($"Parser version: {parser.GetType().Assembly.FullName}\n Resolving from: {new DirectoryInfo(dmrBasePath).FullName}");
+        var id = new Dtmi(dtmi);
+        var dtdl = await dmrClient.GetModelAsync(dtmi, ModelDependencyResolution.Disabled);
+        var result = await parser.ParseAsync(dtdl.Content[dtmi]);
+        return (DTInterfaceInfo)result[id];
+    }
+}
 ```
 
-## DTDL Object Model
 
-To enumerate the interface contents the `DTInterfaceInfo` class provides an object model to navigate the parser results
+## Print DTDL Object Model
+
+The `DTInfoExtension` provides `Print` methods for each `DT*Info` type:
 
 ```cs
-var example1Dtmi = new Dtmi("dtmi:com:example;1");
-var example1Dtdl = File.ReadAllText(Path.Join(basePath, example1Dtmi.ToPath()));
-var example1ParseResult = await parser.ParseAsync(example1Dtdl);
-var example1 = (DTInterfaceInfo)example1ParseResult[example1Dtmi];
-example1.Properties.ToList().ForEach(p => Console.WriteLine(p.Name));
+var example1 = await ModelResolver.LoadModelAsync("dtmi:com:example;1", basePath);
+
+Console.WriteLine(example1.Print(true));
+foreach (var co in example1.Components) 
+    Console.WriteLine(
+        $"[Co] {co.Value.Name} ({co.Value.Schema.Id}) \n" +
+          $"{co.Value.Schema.Print()}\n");
 ```
-
-## Print DT*Info 
-
-The `DTInfoExtensions` class provides a `Print` method to output to the console relevant properties for each `DT*Info` class.
-
