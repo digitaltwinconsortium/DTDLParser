@@ -1,0 +1,39 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:annotation;1",
+        "dtmi:dtdl:extension:overriding;1"
+      ],
+      "@id": "dtmi:com:example:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "Temperature"
+          ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "currentTempUnit",
+          "annotates": "currentTemp",
+          "overrides": "unit",
+          "schema": "TemperatureUnit",
+          "writable": true
+        }
+      ]
+    }
+  ]
+}

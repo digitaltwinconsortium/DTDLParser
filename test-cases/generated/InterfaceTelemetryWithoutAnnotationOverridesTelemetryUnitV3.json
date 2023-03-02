@@ -1,0 +1,76 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;1",
+    "dtmi:dtdl:extension:overriding;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:annotation;1",
+        "dtmi:dtdl:extension:overriding;1"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "Temperature"
+          ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+        },
+        {
+          "@type": [
+            "Telemetry",
+            "Override"
+          ],
+          "name": "currentTempUnit",
+          "annotates": "currentTemp",
+          "overrides": "unit",
+          "schema": "TemperatureUnit"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingCocotype",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__currentTempUnit;1",
+        "Value": "Override"
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:propertyIrrelevantDtmiOrTerm",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__currentTempUnit;1",
+        "Property": "annotates",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 26,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 21
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:noTypeThatAllows",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__currentTempUnit;1",
+        "Property": "annotates",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 26,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 21
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__currentTempUnit;1",
+        "Type": "Override",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 21
+      }
+    ]
+  }
+}
