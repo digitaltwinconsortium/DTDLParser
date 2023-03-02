@@ -160,6 +160,63 @@
         }
       },
       {
+        "id": "dtmi:test:anInterface;1",
+        "type": "Interface",
+        "properties": {
+          "contents": {
+            "expectedDistance": "dtmi:test:aProperty;1",
+            "currentDistance": "dtmi:test:aTelemetry;1",
+            "setDistance": "dtmi:test:aCommand;1",
+            "proximity": "dtmi:test:aRelationship;1"
+          },
+          "extends": [],
+          "extendedBy": [
+            "dtmi:test:leftInterface;1",
+            "dtmi:test:rightInterface;1"
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:leftInterface;1",
+        "type": "Interface",
+        "properties": {
+          "contents": {
+            "expectedDistance": "dtmi:test:aProperty;1",
+            "currentDistance": "dtmi:test:aTelemetry;1",
+            "setDistance": "dtmi:test:aCommand;1",
+            "proximity": "dtmi:test:aRelationship;1",
+            "someProp": "dtmi:test:anotherProperty;1",
+            "someTelem": "dtmi:test:anotherTelemetry;1"
+          },
+          "extends": [
+            "dtmi:test:anInterface;1"
+          ],
+          "extendedBy": [
+            "dtmi:test:bottomInterface;1"
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:rightInterface;1",
+        "type": "Interface",
+        "properties": {
+          "contents": {
+            "expectedDistance": "dtmi:test:aProperty;1",
+            "currentDistance": "dtmi:test:aTelemetry;1",
+            "setDistance": "dtmi:test:aCommand;1",
+            "proximity": "dtmi:test:aRelationship;1",
+            "someCmd": "dtmi:test:anotherCommand;1",
+            "someRelation": "dtmi:test:anotherRelationship;1"
+          },
+          "extends": [
+            "dtmi:test:anInterface;1"
+          ],
+          "extendedBy": [
+            "dtmi:test:bottomInterface;1"
+          ]
+        }
+      },
+      {
         "id": "dtmi:test:bottomInterface;1",
         "type": "Interface",
         "properties": {
@@ -176,7 +233,8 @@
           "extends": [
             "dtmi:test:leftInterface;1",
             "dtmi:test:rightInterface;1"
-          ]
+          ],
+          "extendedBy": []
         }
       }
     ]
