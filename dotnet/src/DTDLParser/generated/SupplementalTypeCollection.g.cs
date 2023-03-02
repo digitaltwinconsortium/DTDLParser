@@ -28,6 +28,7 @@ namespace DTDLParser
             Dtmi dtdlContextIdV3 = new Dtmi("dtmi:dtdl:context;3");
             Dtmi dtdlExtensionAnnotationContextIdV1 = new Dtmi("dtmi:dtdl:extension:annotation;1");
             Dtmi dtdlExtensionHistorizationContextIdV1 = new Dtmi("dtmi:dtdl:extension:historization;1");
+            Dtmi dtdlExtensionOverridingContextIdV1 = new Dtmi("dtmi:dtdl:extension:overriding;1");
             Dtmi dtdlExtensionQuantitativeTypesContextIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes;1");
             Dtmi dtdlExtensionStreamingContextIdV1 = new Dtmi("dtmi:dtdl:extension:streaming;1");
             Dtmi iotcentralContextIdV2 = new Dtmi("dtmi:iotcentral:context;2");
@@ -46,6 +47,7 @@ namespace DTDLParser
             Dtmi unitAttributeTypeIdV3 = new Dtmi("dtmi:dtdl:class:UnitAttribute;3");
             Dtmi valueAnnotationTypeIdV1 = new Dtmi("dtmi:dtdl:extension:annotation:v1:ValueAnnotation");
             Dtmi historizedTypeIdV1 = new Dtmi("dtmi:dtdl:extension:historization:v1:Historized");
+            Dtmi overrideTypeIdV1 = new Dtmi("dtmi:dtdl:extension:overriding:v1:Override");
             Dtmi accelerationTypeIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration");
             Dtmi angleTypeIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Angle");
             Dtmi angularAccelerationTypeIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:AngularAcceleration");
@@ -229,6 +231,16 @@ namespace DTDLParser
             DTSupplementalTypeInfo historizedInfoV1 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionHistorizationContextIdV1, historizedTypeIdV1, isAbstract: false, isMergeable: false, adjunctTypeTypeIdV3);
             historizedInfoV1.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Property, DTEntityKind.Telemetry };
             historizedInfoV1.AllowedCotypeVersions = new HashSet<int>() { 3 };
+
+            DTSupplementalTypeInfo overrideInfoV1 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionOverridingContextIdV1, overrideTypeIdV1, isAbstract: false, isMergeable: false, adjunctTypeTypeIdV3);
+            overrideInfoV1.AddProperty("dtmi:dtdl:extension:overriding:v1:Override:overrides", null, 1, 1, regex: null, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            overrideInfoV1.AddPropertyValueConstraint("schema", new ValueConstraint() { SiblingKeyPropertyName = "name", SiblingKeyrefPropertyId = new Dtmi("dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates"), SiblingParentOfPropertyId = new Dtmi("dtmi:dtdl:extension:overriding:v1:Override:overrides") });
+            overrideInfoV1.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Property };
+            overrideInfoV1.AllowedCotypeVersions = new HashSet<int>() { 3 };
+            overrideInfoV1.RequiredCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:annotation:v1:ValueAnnotation") };
+            overrideInfoV1.DisallowedCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:initialization:v1:Initialized") };
+            overrideInfoV1.AddSiblingConstraint(new SiblingConstraint() { KeyPropertyName = "name", KeyrefPropertyId = new Dtmi("dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates"), UniqueReference = new Dtmi("dtmi:dtdl:extension:overriding:v1:Override:overrides"), SupplementalPropertyPath = new Dtmi("dtmi:dtdl:extension:overriding:v1:Override:overrides") });
+            overrideInfoV1.AddSiblingConstraint(new SiblingConstraint() { KeyPropertyName = "name", KeyrefPropertyId = new Dtmi("dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates"), RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:Property;3"), new Dtmi("dtmi:dtdl:class:Telemetry;3") }, RequiredTypesString = "Property or Telemetry" });
 
             DTSupplementalTypeInfo accelerationInfoV1 = new DTSupplementalTypeInfo(DTExtensionKind.SemanticType, dtdlExtensionQuantitativeTypesContextIdV1, accelerationTypeIdV1, isAbstract: false, isMergeable: false, quantitativeTypeTypeIdV1);
             accelerationInfoV1.AddProperty("dtmi:dtdl:extension:quantitativeTypes:v1:property:unit", new Dtmi("dtmi:dtdl:class:EnumValue;3"), 1, 1, regex: null, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:enum:AccelerationUnit"), instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
@@ -879,6 +891,7 @@ namespace DTDLParser
             EndogenousSupplementalTypes[semanticUnitTypeIdV3] = semanticUnitInfoV3;
             EndogenousSupplementalTypes[valueAnnotationTypeIdV1] = valueAnnotationInfoV1;
             EndogenousSupplementalTypes[historizedTypeIdV1] = historizedInfoV1;
+            EndogenousSupplementalTypes[overrideTypeIdV1] = overrideInfoV1;
             EndogenousSupplementalTypes[accelerationTypeIdV1] = accelerationInfoV1;
             EndogenousSupplementalTypes[angleTypeIdV1] = angleInfoV1;
             EndogenousSupplementalTypes[angularAccelerationTypeIdV1] = angularAccelerationInfoV1;
