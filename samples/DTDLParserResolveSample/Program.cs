@@ -20,9 +20,4 @@ var example1 = (DTInterfaceInfo)example1ParseResult[example1Dtmi];
 
 Console.WriteLine($"Root {example1Dtmi}");
 Console.WriteLine(example1.Print());
-example1.Components.ToList().ForEach(co =>
-{
-    Console.WriteLine($"[Co] {co.Value.Name} ({co.Value.Schema.Id})");
-    Console.WriteLine(co.Value.Schema.Print());
-});
-
+foreach (var co in example1.Components) Console.WriteLine($"[Co] {co.Value.Name} ({co.Value.Schema.Id}) \n {co.Value.Schema.Print()}\n");
