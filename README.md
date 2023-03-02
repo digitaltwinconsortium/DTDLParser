@@ -55,7 +55,7 @@ It can be parsed and validated with:
 ```cs
 var parser = new ModelParser();
 var result = parser.Parse(dtdl);
-result.Values.ToList().ForEach(i => Console.WriteLine(i.Id));
+foreach (var i in result.Values) Console.WriteLine(i.Id);
 ```
 
 The output of this program will show all the element Ids defined, or referenced in the DTDL interface:
@@ -66,9 +66,22 @@ dtmi:com:example:Thermostat
 dtmi:dtdl:instance:Schema:double;2
 ```
 
-Check out the [Tutorials projects][source_tutorials] for more advanced use cases.
+Check out the [Tutorials][source_tutorials] and [Samples][source_samples] for more advanced use cases.
 
 ## :key: Key concepts
+
+### :boom: Parse and navigate the object model
+
+The [Parse](https://digitaltwinconsortium.github.io/DTDLParser/api/DTDLParser.ModelParser.html#DTDLParser_ModelParser_Parse_System_String_DTDLParser_DtdlParseLocator_) and [ParseAsync](https://digitaltwinconsortium.github.io/DTDLParser/api/DTDLParser.ModelParser.html#DTDLParser_ModelParser_ParseAsync_System_Collections_Generic_IAsyncEnumerable_System_String__DTDLParser_DtdlParseLocator_System_Threading_CancellationToken_) methods return a `IReadOnlyDictionary<Dtmi, DTEntityInfo>` structure, to navigate a given interface cast to `DTInterfaceInfo` to access the `Components`, `Properties`, `Telemetries`, `Commands` and `Relationships`.
+
+```cs
+var parser = new ModelParser();
+var result = parser.Parse(dtdl);
+var thermostat = (DTInterfaceInfo)result[new Dtmi("dtmi:com:example:Thermostat")];
+foreach (var t in thermostat.Telemetries) Console.WriteLine(t.Value.Name);
+```
+
+> Note: `ParseAsync` requires [Microsoft.Bcl.AsyncInterfaces](https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces)
 
 ### :id: Digital Twins Model Identifier (DTMI)
 
@@ -80,7 +93,7 @@ Parsing returns a dictionary whose keys are instances of the `Dtmi` class. The v
 
 ### :nut_and_bolt: Context identifieres
 
-The interface above has a `@context` value of "dtmi:dtdl:context;3", indicating that the model is written in DTDL version 3.
+The interface above has a `@context` value of `dtmi:dtdl:context;3`, indicating that the model is written in DTDL version 3.
 Every model must have at least a DTDL context specifier, and it may also have one or more *extension* context specifiers, which are itemized in in [Supported extension contexts](dotnet/src/DTDLParser/generated/SupportedExtensions.g.md).
 
 ### :eyeglasses: DtmiResolver and DtmiResolverAsync
@@ -88,7 +101,7 @@ Every model must have at least a DTDL context specifier, and it may also have on
 For a DTDL model to be fully parsed, validated, and returned as an object model, the model must be complete.
 If the collection of models is not self-contained but instead depends on references to identifiers without definitions, the `ModelParser` will attempt to obtain definitions by calling a registered `DtmiResolver` delegate (when executing the `Parse()` method) or a registered `DtmiResolverAsync` delegate (when executing the `ParseAsync()` method):
 
-These delegates are registered when creating the instance of the `ModelParser` object.
+These delegates are registered with `ParsingOptions` when creating the instance of the `ModelParser` object.
 
 ### :warning: ParsingException and ParsingError
 
@@ -110,7 +123,7 @@ This validation is performed via `ValidateInstance(string)` or `ValidateInstance
 
 ## :next_track_button: Next steps
 
-For further details, see the [tutorials README][tutorials_readme] and the [samples README](./samples).
+For further details, see the [tutorials README][source_tutorials] and the [samples README][source_samples]].
 
 ## :woman_judge: License
 
@@ -131,6 +144,6 @@ Most contributions require you to agree to a Contributor License Agreement (CLA)
 [dtmi_spec]: https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTMI
 [uri_rfc]: https://datatracker.ietf.org/doc/html/rfc3986/
 [package]: https://www.nuget.org/packages/DTDLParser/
-[tutorials_readme]: ./tutorials/README.md
 [contrib]: ./CONTRIBUTING.md
 [parser_api_docs]: https://digitaltwinconsortium.github.io/DTDLParser/api/DTDLParser.html
+[source_samples]: ./samples
