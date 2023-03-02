@@ -23,7 +23,7 @@ steps:
 
 - bash: |
     cd $(Agent.BuildDirectory)/${{ parameters.SubFolder }}
-    bash scripts/BuildParserTests.sh Release
+    bash scripts/BuildParserTests.sh Release ${{ parameters.DtdlModelParserLangConfig }}
   displayName: 'Build Parser Tests'
 
 - bash: |
