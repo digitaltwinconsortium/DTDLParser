@@ -20,9 +20,9 @@ public static partial class DTInfoExtensions {
             case DTEntityKind.Map:
                 DTMapInfo map = (DTMapInfo)s;
                 sb.Append($"{s.EntityKind}<{ModelParser.GetTermOrUri(map.MapKey.Schema.Id)},{ModelParser.GetTermOrUri(map.MapValue.Schema.Id)}> ");
-                foreach(var st in map.MapValue.SupplementalTypes) sb.Append(ModelParser.GetTermOrUri(st));
+                foreach (var st in map.MapValue.SupplementalTypes) sb.Append(ModelParser.GetTermOrUri(st));
                 sb.Append(' ');
-                foreach(var sp in map.MapValue.SupplementalProperties) sb.Append(((DTEnumValueInfo)sp.Value).Name);
+                foreach (var sp in map.MapValue.SupplementalProperties) sb.Append(((DTEnumValueInfo)sp.Value).Name);
                 break;
             case DTEntityKind.Array:
                 DTArrayInfo arr = (DTArrayInfo)s;
@@ -31,13 +31,13 @@ public static partial class DTInfoExtensions {
             case DTEntityKind.Enum:
                 DTEnumInfo en = (DTEnumInfo)s;
                 sb.Append($"{s.EntityKind} :{ModelParser.GetTermOrUri(en.ValueSchema.Id)} [ ");
-                foreach(var e in en.EnumValues) sb.Append($"{e.Name} {e.EnumValue}, ");
+                foreach (var e in en.EnumValues) sb.Append($"{e.Name} {e.EnumValue}, ");
                 sb.Append(" ]");
                 break;
             case DTEntityKind.Object:
                 DTObjectInfo o = (DTObjectInfo)s;
                 sb.Append($"{s.EntityKind} ");
-                foreach(var f in o.Fields) sb.Append(f.Print());
+                foreach (var f in o.Fields) sb.Append(f.Print());
                 break;
         }
 
@@ -53,8 +53,8 @@ public static partial class DTInfoExtensions {
         else {
             sb.Append(ModelParser.GetTermOrUri(f.Schema.Id));
         }
-        f.SupplementalTypes.ToList().ForEach(t => sb.Append(" " + ModelParser.GetTermOrUri(t)));
-        f.SupplementalProperties.ToList().ForEach(t => sb.Append(" " + ((DTEnumValueInfo)t.Value).Name));
+        foreach (var t in f.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(t));
+        foreach (var p in f.SupplementalProperties) sb.Append(" " + ((DTEnumValueInfo)p.Value).Name);
         sb.Append(']');
         return sb.ToString();
     }
@@ -68,19 +68,20 @@ public static partial class DTInfoExtensions {
         else {
             sb.Append(ModelParser.GetTermOrUri(t.Schema.Id));
         }
-        t.SupplementalTypes.ToList().ForEach(t => sb.Append(" " + ModelParser.GetTermOrUri(t)));
+        foreach (var st in t.SupplementalTypes) sb.Append(" " + ModelParser.GetTermOrUri(st));
+        
         if (t.LanguageMajorVersion == 2) {
-            t.SupplementalProperties.ToList().ForEach(t => sb.Append(" " + ModelParser.GetTermOrUri(((DTUnitInfo)t.Value).Id)));
+            foreach (var sp in t.SupplementalProperties) sb.Append(" " +  ModelParser.GetTermOrUri(((DTUnitInfo)sp.Value).Id));
         }
         else {
-            t.SupplementalProperties.ToList().ForEach(st => {
-                if (st.Key == "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit") {
-                    sb.Append(" " + ((DTEnumValueInfo)st.Value).Name);
+            foreach (var sp in t.SupplementalProperties) {
+                if (sp.Key == "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit") {
+                    sb.Append(" " + ((DTEnumValueInfo)sp.Value).Name);
                 }
                 else {
-                    sb.Append(" " + st.Value);
+                    sb.Append(" " + sp.Value);
                 }
-            });
+            }
         }
         return sb.ToString();
     }
