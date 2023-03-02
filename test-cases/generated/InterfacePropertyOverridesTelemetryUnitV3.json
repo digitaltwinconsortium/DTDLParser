@@ -1,0 +1,79 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;1",
+    "dtmi:dtdl:extension:overriding;1"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:annotation;1",
+        "dtmi:dtdl:extension:overriding;1"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "Temperature"
+          ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "currentTempUnit",
+          "annotates": "currentTemp",
+          "overrides": "unit",
+          "schema": "TemperatureUnit",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:Sensor:_contents:__currentTemp;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentTemp",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v1:class:Temperature"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:degreeFahrenheit"
+        }
+      },
+      {
+        "id": "dtmi:test:Sensor:_contents:__currentTempUnit;1",
+        "type": "Property",
+        "properties": {
+          "name": "currentTempUnit",
+          "schema": "dtmi:dtdl:extension:quantitativeTypes:v1:enum:TemperatureUnit",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:annotation:v1:ValueAnnotation",
+          "dtmi:dtdl:extension:overriding:v1:Override"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates": "currentTemp",
+          "dtmi:dtdl:extension:overriding:v1:Override:overrides": "dtmi:dtdl:extension:quantitativeTypes:v1:property:unit"
+        }
+      }
+    ]
+  }
+}
