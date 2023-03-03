@@ -328,7 +328,10 @@ namespace DTDLParser
             if (startIndex <= endIndex || prefaceAffiliateContexts.Any())
             {
                 childAffiliateContexts = new Dictionary<string, VersionedContext>(this.activeAffiliateContexts);
-                prefaceAffiliateContexts.ToList().ForEach(ac => childAffiliateContexts[ac.Key] = ac.Value);
+                foreach (KeyValuePair<string, VersionedContext> affiliateContext in prefaceAffiliateContexts)
+                {
+                    childAffiliateContexts[affiliateContext.Key] = affiliateContext.Value;
+                }
 
                 childUnrecognizedContexts = new HashSet<string>(this.unrecognizedContexts);
 
