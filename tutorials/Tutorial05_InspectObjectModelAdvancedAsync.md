@@ -129,21 +129,21 @@ Specifically, values of the 'contents' property are broken out into separate .NE
 foreach (KeyValuePair<string, DTPropertyInfo> propertyElement in anInterface.Properties)
 {
     Console.WriteLine($"Property '{propertyElement.Value.Name}'");
-    Console.WriteLine($"  schema: {propertyElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+    Console.WriteLine($"  schema: {propertyElement.Value.Schema?.Id?.ToString() ?? "(none)"}");
     Console.WriteLine($"  writable: {(propertyElement.Value.Writable ? "true" : "false")}");
 }
 
 foreach (KeyValuePair<string, DTTelemetryInfo> telemetryElement in anInterface.Telemetries)
 {
     Console.WriteLine($"Telemetry '{telemetryElement.Value.Name}'");
-    Console.WriteLine($"  schema: {telemetryElement.Value.Schema.Id?.ToString() ?? "(none)"}");
+    Console.WriteLine($"  schema: {telemetryElement.Value.Schema?.Id?.ToString() ?? "(none)"}");
 }
 
 foreach (KeyValuePair<string, DTCommandInfo> commandElement in anInterface.Commands)
 {
     Console.WriteLine($"Command '{commandElement.Value.Name}'");
-    Console.WriteLine($"  request schema: {commandElement.Value.Request.Schema.Id?.ToString() ?? "(none)"}");
-    Console.WriteLine($"  response schema: {commandElement.Value.Response.Schema.Id?.ToString() ?? "(none)"}");
+    Console.WriteLine($"  request schema: {commandElement.Value.Request?.Schema?.Id?.ToString() ?? "(none)"}");
+    Console.WriteLine($"  response schema: {commandElement.Value.Response?.Schema?.Id?.ToString() ?? "(none)"}");
 }
 
 foreach (KeyValuePair<string, DTRelationshipInfo> relationshipElement in anInterface.Relationships)
@@ -191,19 +191,19 @@ foreach (KeyValuePair<string, DTContentInfo> contentElement in anInterface.Conte
         case DTEntityKind.Property:
             var propertyElement = (DTPropertyInfo)contentElement.Value;
             Console.WriteLine($"Property '{propertyElement.Name}'");
-            Console.WriteLine($"  schema: {propertyElement.Schema.Id?.ToString() ?? "(none)"}");
+            Console.WriteLine($"  schema: {propertyElement.Schema?.Id?.ToString() ?? "(none)"}");
             Console.WriteLine($"  writable: {(propertyElement.Writable ? "true" : "false")}");
             break;
         case DTEntityKind.Telemetry:
             var telemetryElement = (DTTelemetryInfo)contentElement.Value;
             Console.WriteLine($"Telemetry '{telemetryElement.Name}'");
-            Console.WriteLine($"  schema: {telemetryElement.Schema.Id?.ToString() ?? "(none)"}");
+            Console.WriteLine($"  schema: {telemetryElement.Schema?.Id?.ToString() ?? "(none)"}");
             break;
         case DTEntityKind.Command:
             var commandElement = (DTCommandInfo)contentElement.Value;
             Console.WriteLine($"Command '{commandElement.Name}'");
-            Console.WriteLine($"  request schema: {commandElement.Request.Schema.Id?.ToString() ?? "(none)"}");
-            Console.WriteLine($"  response schema: {commandElement.Response.Schema.Id?.ToString() ?? "(none)"}");
+            Console.WriteLine($"  request schema: {commandElement.Request?.Schema?.Id?.ToString() ?? "(none)"}");
+            Console.WriteLine($"  response schema: {commandElement.Response?.Schema?.Id?.ToString() ?? "(none)"}");
             break;
         case DTEntityKind.Relationship:
             var relationshipElement = (DTRelationshipInfo)contentElement.Value;
