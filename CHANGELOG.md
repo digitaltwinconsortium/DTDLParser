@@ -1,6 +1,6 @@
 # DTDLParser Release History
 
-## 1.0.34-preview (2023-03-02)
+## 1.0.36-preview (2023-03-07)
 
 - Multi-target netstandard2.0 & netstandard2.1 #50
 - Adds ExtendsBy #59
@@ -36,7 +36,7 @@ The chart below itemizes the extension contexts supported by this version.
 
 ### Supported extension contexts
 
-The chart below itemizes the additional extension contexts supported by this version.
+The chart below itemizes the extension contexts supported by this version.
 
 | Extension | Context specifier | DTDL versions |
 | --- | --- | --- |
