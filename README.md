@@ -1,5 +1,5 @@
 ﻿# DTDLParser for .NET
-> .NET Standard 2.0 (C#) library
+> .NET Standard 2.0/2.1 (C#) library
 
 [![CI](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/ci.yml/badge.svg)](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/ci.yml)
 [![CD](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd.yml/badge.svg)](https://github.com/digitaltwinconsortium/DTDLParser/actions/workflows/cd.yml)
@@ -81,7 +81,7 @@ var thermostat = (DTInterfaceInfo)result[new Dtmi("dtmi:com:example:Thermostat")
 foreach (var t in thermostat.Telemetries) Console.WriteLine(t.Value.Name);
 ```
 
-> Note: `ParseAsync` requires [Microsoft.Bcl.AsyncInterfaces](https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces)
+> Note: `ParseAsync` requires [Microsoft.Bcl.AsyncInterfaces](https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces) when using `netstandard2.0`
 
 ### :id: Digital Twins Model Identifier (DTMI)
 
