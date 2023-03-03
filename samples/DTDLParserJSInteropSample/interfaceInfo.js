@@ -28,9 +28,22 @@ export const InterfaceInfo = (
  
     const print = (outFn) => {
         if (!(outFn instanceof Function)) outFn = console.log
-        telemetries.forEach(t => outFn(` [T] ${t.name} [${GetTermOrUri(t.schema)}]`))
-        properties.forEach(p => outFn(` [P] ${p.name} [${GetTermOrUri(p.schema)}]`))
-        commands.forEach(c => outFn(` [C] ${c.name} req: ${c.request} resp: ${c.response}`))
+        telemetries.forEach(t => {
+            outFn(` [T] ${t.name} [${GetTermOrUri(t.schema)}] `)
+            t.SupplementalTypes.forEach(st => outFn(`${GetTermOrUri(st)} `))
+            Object.keys(t.SupplementalProperties).forEach(sp => outFn(`${GetTermOrUri(t.SupplementalProperties[sp])} `))
+            outFn('\n')
+        })
+        properties.forEach(p => {
+            outFn(` [P] ${p.name} [${GetTermOrUri(p.schema)}] `)
+            p.SupplementalTypes.forEach(st => outFn(`${GetTermOrUri(st)} `))
+            Object.keys(p.SupplementalProperties).forEach(sp => outFn(`${GetTermOrUri(p.SupplementalProperties[sp])} `))
+            outFn('\n')
+        })
+        commands.forEach(c => {
+            outFn(` [C] ${c.name} req: ${c.request} resp: ${c.response}`)
+            outFn('\n')
+        })
     }
 
     return { telemetries, properties, commands, components, relationships, print }
