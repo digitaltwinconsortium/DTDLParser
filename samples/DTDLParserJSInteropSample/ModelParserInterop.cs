@@ -15,4 +15,7 @@ public partial class ModelParserInterop
 
     [JSExport]
     public static string Parse(string dtdl) => new ModelParser().ParseToJson(dtdl);
+
+    [JSExport]
+    public static string GetTermOrUri(string uriString) => ModelParser.GetTermOrUri(uriString);
 }

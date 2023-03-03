@@ -1,17 +1,8 @@
 // @ts-check
-const contentKind = {
-    Telemetry: 'Telemetry',
-    Property: 'Property',
-    Command: 'Command',
-    Component: 'Component',
-    Relationship: 'Relationship'
-}
-
+import { GetTermOrUri } from './modelParser.js'
 export const InterfaceInfo = (
     /** @type import("./DtdlOM").DtdlObjectModel */om, 
     /** @type {String} */ dtmi) => {
-
-    const getTermOrUri = (/** @type {String} */ dtmi) => om[dtmi].displayName.en
 
     /** @type {Array<import("./DtdlOM").TelemetryInfo>} */
     const telemetries = []
@@ -29,33 +20,30 @@ export const InterfaceInfo = (
     const relationships = []
     
     const root = /** @type import("./DtdlOM").InterfaceInfo*/(om[dtmi])
-    Object.keys(root.contents).forEach(k => {
-        const elDtmi = root.contents[k]
-        const el = om[elDtmi]
-        switch(el.EntityKind) {
-            case contentKind.Property:
-                properties.push(/** @type {import("./DtdlOM").PropertyInfo} */(el))
-                break
-            case contentKind.Telemetry:
-                telemetries.push(/** @type {import("./DtdlOM").TelemetryInfo} */(el))
-                break
-            case contentKind.Command:
-                commands.push(/** @type {import("./DtdlOM").CommandInfo} */(el))
-                break
-            case contentKind.Component:
-                components.push(/** @type {import("./DtdlOM").ComponentInfo} */(el))
-                break
-            case contentKind.Relationship:
-                relationships.push(/** @type {import("./DtdlOM").RelationshipInfo} */(el))
-                break
-        }
-    })
+    Object.keys(root.properties).forEach(k => { properties.push(/** @type {import("./DtdlOM").PropertyInfo} */(om[root.properties[k]])) })
+    Object.keys(root.telemetries).forEach(k => { telemetries.push(/** @type {import("./DtdlOM").TelemetryInfo} */(om[root.telemetries[k]])) })
+    Object.keys(root.commands).forEach(k => { commands.push(/** @type {import("./DtdlOM").CommandInfo} */(om[root.commands[k]])) })
+    Object.keys(root.components).forEach(k => { components.push(/** @type {import("./DtdlOM").ComponentInfo} */(om[root.components[k]])) })
+    Object.keys(root.relationships).forEach(k => { relationships.push(/** @type {import("./DtdlOM").RelationshipInfo} */(om[root.relationships[k]])) })
  
     const print = (outFn) => {
         if (!(outFn instanceof Function)) outFn = console.log
-        telemetries.forEach(t => outFn(` [T] ${t.name} [${getTermOrUri(t.schema)}]`))
-        properties.forEach(p => outFn(` [P] ${p.name} [${getTermOrUri(p.schema)}]`))
-        commands.forEach(c => outFn(` [C] ${c.name} req: ${c.request} resp: ${c.response}`))
+        telemetries.forEach(t => {
+            outFn(` [T] ${t.name} [${GetTermOrUri(t.schema)}] `)
+            t.SupplementalTypes.forEach(st => outFn(`${GetTermOrUri(st)} `))
+            Object.keys(t.SupplementalProperties).forEach(sp => outFn(`${GetTermOrUri(t.SupplementalProperties[sp])} `))
+            outFn('\n')
+        })
+        properties.forEach(p => {
+            outFn(` [P] ${p.name} [${GetTermOrUri(p.schema)}] `)
+            p.SupplementalTypes.forEach(st => outFn(`${GetTermOrUri(st)} `))
+            Object.keys(p.SupplementalProperties).forEach(sp => outFn(`${GetTermOrUri(p.SupplementalProperties[sp])} `))
+            outFn('\n')
+        })
+        commands.forEach(c => {
+            outFn(` [C] ${c.name} req: ${c.request} resp: ${c.response}`)
+            outFn('\n')
+        })
     }
 
     return { telemetries, properties, commands, components, relationships, print }
