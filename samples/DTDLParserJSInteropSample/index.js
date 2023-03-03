@@ -1,29 +1,20 @@
-import { dotnet } from './dotnet.js'
+import * as parser from './modelParser.js'
 import { InterfaceInfo } from './interfaceInfo.js'
 import { ErrorInfo } from './errorInfo.js'
-
-const { getAssemblyExports, getConfig } = await dotnet
-    .withDiagnosticTracing(false)
-    .withApplicationArgumentsFromQuery()
-    .create();
-
-const config = getConfig()
-const assemblyExports = await getAssemblyExports(config.mainAssemblyName)
-await dotnet.run();
 
 const parserVersionDiv = document.getElementById('parserVersion')
 const el = document.getElementById('dtdl-text')
 const out = document.getElementById('out')
 const applog = (...args) => out.innerHTML += args.concat() + '\n'
 
-parserVersionDiv.innerText = assemblyExports.DtdlParserJSInterop.ModelParserInterop.ParserVersion()
+parserVersionDiv.innerText = parser.ParserVersion()
 
 const validate = () => {
     out.innerHTML = '.. parsing ..'
     out.style.color = 'grey'
     let parseResult = ''
     try {
-        parseResult = JSON.parse(assemblyExports.DtdlParserJSInterop.ModelParserInterop.Parse(el.value))
+        parseResult = JSON.parse(parser.Parse(el.value))
         console.log(parseResult)
         out.style.color = 'black'
         out.style.whiteSpace = 'break-spaces'
