@@ -29,13 +29,6 @@
             this.projectWriter.WriteLine(@"    <ProjectReference Include=""..\..\..\dotnet\src\DTDLParser\DTDLParser.csproj"" />");
             this.projectWriter.WriteLine("  </ItemGroup>");
 
-            if (projectName.Contains("Async"))
-            {
-                this.projectWriter.WriteLine("  <ItemGroup>");
-                this.projectWriter.WriteLine(@"    <PackageReference Include=""Microsoft.Bcl.AsyncInterfaces"" Version=""7.0.0"" />");
-                this.projectWriter.WriteLine("  </ItemGroup>");
-            }
-
             this.projectWriter.WriteLine();
             this.projectWriter.WriteLine("</Project>");
         }

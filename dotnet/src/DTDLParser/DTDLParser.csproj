@@ -1,13 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Deterministic>true</Deterministic>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -31,29 +27,18 @@
     <Company>Digital Twin Consortium</Company>
     <Description>Digital Twins Definition Language (DTDL) model parser for .NET</Description>
     <PackageReleaseNotes>https://github.com/digitaltwinconsortium/DTDLParser/blob/main/CHANGELOG.md</PackageReleaseNotes>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup>
     <DocumentationFile>$(OutputPath)DTDLParser.xml</DocumentationFile>
+    <PackageReadmeFile>$(OutputPath)README.md</PackageReadmeFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <AdditionalFiles Include="stylecop.json" />
-  </ItemGroup>
-
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0" />
+	</ItemGroup>
+	
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
@@ -65,6 +50,13 @@
 
   <ItemGroup>
     <EmbeddedResource Include="generated\ModelElements.g.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>/</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
