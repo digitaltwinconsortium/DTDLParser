@@ -123,7 +123,7 @@ This validation is performed via `ValidateInstance(string)` or `ValidateInstance
 
 ## :next_track_button: Next steps
 
-For further details, see the [tutorials README][source_tutorials] and the [samples README][source_samples]].
+For further details, see the [tutorials README][source_tutorials] and the [samples README][source_samples].
 
 ## :woman_judge: License
 
