@@ -37,8 +37,7 @@ namespace DTDLParser
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:historization"] = GetAffiliate1ContextHistory();
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:overriding"] = GetAffiliate2ContextHistory();
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:quantitativeTypes"] = GetAffiliate3ContextHistory();
-            EndogenousAffiliateContextHistories["dtmi:dtdl:extension:streaming"] = GetAffiliate4ContextHistory();
-            EndogenousAffiliateContextHistories["dtmi:iotcentral:context"] = GetAffiliate5ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:iotcentral:context"] = GetAffiliate4ContextHistory();
         }
 
         private static ContextHistory GetAffiliate0ContextHistory()
@@ -463,17 +462,6 @@ namespace DTDLParser
         }
 
         private static ContextHistory GetAffiliate4ContextHistory()
-        {
-            List<VersionedContext> versionedContexts = new List<VersionedContext>();
-
-            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:streaming;1", 1, 0, mergeDefinitions: false);
-            context1_0.AddTermDefinition("Streaming", new Dtmi("dtmi:dtdl:extension:streaming:v1:Streaming"), isMergeableType: false);
-            versionedContexts.Add(context1_0);
-
-            return new ContextHistory(versionedContexts);
-        }
-
-        private static ContextHistory GetAffiliate5ContextHistory()
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 

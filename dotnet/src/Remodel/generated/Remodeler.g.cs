@@ -47,7 +47,6 @@ namespace DTDLParser
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:unit:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:property:(\w*)");
-            termIriRegexes.Add(@"dtmi:dtdl:extension:streaming:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:iotcentral:class:(\w*);2");
             termIriRegexes.Add(@"dtmi:iotcentral:schema:(\w*);2");
 
