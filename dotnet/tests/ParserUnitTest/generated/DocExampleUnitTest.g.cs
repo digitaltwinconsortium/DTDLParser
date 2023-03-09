@@ -100,7 +100,6 @@ namespace ParserUnitTest
         [DataRow("SpecExample-Relationship-V3")]
         [DataRow("SpecExample-Telemetry-V2")]
         [DataRow("SpecExample-Telemetry-V3")]
-        [DataRow("streamingDocExample-en-US-1-V1")]
         [DataRow("TelemetryDocExample-en-US-1-V2")]
         [DataRow("TelemetryDocExample-en-US-1-V3")]
         [DataRow("TelemetryDocExample-en-US-2-V2")]
