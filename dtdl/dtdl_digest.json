@@ -887,9 +887,6 @@
       "zepto": "dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:zepto",
       "zetta": "dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:zetta"
     },
-    "dtmi:dtdl:extension:streaming;1": {
-      "Streaming": "dtmi:dtdl:extension:streaming:v1:Streaming"
-    },
     "dtmi:iotcentral:context;2": {
       "AccelerationVector": "dtmi:iotcentral:class:AccelerationVector;2",
       "Event": "dtmi:iotcentral:class:Event;2",
@@ -8407,11 +8404,6 @@
     "dtmi:dtdl:extension:quantitativeTypes;1": {
       "description": {
         "en-us": "A set of standard semantic types, unit types, and units."
-      }
-    },
-    "dtmi:dtdl:extension:streaming;1": {
-      "description": {
-        "en-us": "Designate a Property as having reduced durability guarantees, thereby lowering storage cost and increasing data ingestion."
       }
     },
     "dtmi:iotcentral:context;2": {
@@ -23543,27 +23535,6 @@
           "typeRequired": true
         }
       },
-      "siblings": []
-    },
-    "dtmi:dtdl:extension:streaming:v1:Streaming": {
-      "abstract": false,
-      "constraints": [
-        {
-          "property": "writable",
-          "requiredLiteral": false
-        }
-      ],
-      "cotypes": [
-        "Property"
-      ],
-      "cotypeVersions": [
-        3
-      ],
-      "extensionContext": "dtmi:dtdl:extension:streaming;1",
-      "extensionKind": "AdjunctType",
-      "mergeable": false,
-      "parent": "dtmi:dtdl:class:AdjunctType;3",
-      "properties": {},
       "siblings": []
     },
     "dtmi:iotcentral:class:AccelerationVector;2": {
