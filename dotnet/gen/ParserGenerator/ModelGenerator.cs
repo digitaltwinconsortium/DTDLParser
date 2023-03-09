@@ -1,5 +1,8 @@
 ﻿namespace DTDLParser
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     /// <summary>
     /// Code generator for <c>Model</c> class.
     /// </summary>
@@ -8,16 +11,27 @@
         private readonly string baseClassName;
         private readonly string baseEnumName;
         private readonly string baseEnumPropertyName;
+        private readonly HashSet<string> reservedIdPrefixes;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelGenerator"/> class.
         /// </summary>
         /// <param name="baseName">The base name for the parser's object model.</param>
-        public ModelGenerator(string baseName)
+        /// <param name="reservedIdPrefixes">A dicictionary that maps from context ID to a list of identifier prefixes that are reserved for this context.</param>
+        public ModelGenerator(string baseName, Dictionary<string, List<string>> reservedIdPrefixes)
         {
             this.baseClassName = NameFormatter.FormatNameAsClass(baseName);
             this.baseEnumName = NameFormatter.FormatNameAsEnum(baseName);
             this.baseEnumPropertyName = NameFormatter.FormatNameAsEnumProperty(baseName);
+
+            this.reservedIdPrefixes = new HashSet<string>();
+            foreach (KeyValuePair<string, List<string>> kvp in reservedIdPrefixes)
+            {
+                foreach (string reservedIdPrefix in kvp.Value)
+                {
+                    this.reservedIdPrefixes.Add(reservedIdPrefix);
+                }
+            }
         }
 
         /// <inheritdoc/>
@@ -73,10 +87,13 @@
             method.Param(ParserGeneratorValues.ObverseTypeString, "keyValue", "The key value for dictionary properties.");
             method.Param("ParsingErrorCollection", "parsingErrorCollection", "A <c>ParsingErrorCollection</c> to which any parsing errors are added.");
             method.Returns("True if the property name is recognized.");
-            method.Body
-                .Line($"{this.baseClassName} element = this.Dict.ContainsKey(referencedElementId) ? this.Dict[referencedElementId] : new {referenceClassName}(0, referencedElementId, null, null, null);")
-                .Line($"element.{ParserGeneratorValues.ParentReferencesName}.Add(new ParentReference() {{ ParentId = elementId, PropertyName = propertyName }});")
-                .Line("return this.Dict[elementId].TrySetObjectProperty(propertyName, layer, propProp, element, keyProp, keyValue, parsingErrorCollection);");
+
+            method.Body.Line($"{this.baseClassName} element = this.Dict.ContainsKey(referencedElementId) ? this.Dict[referencedElementId] : new {referenceClassName}(0, referencedElementId, null, null, null);");
+
+            method.Body.If(string.Join(" && ", this.reservedIdPrefixes.Select(p => $"!referencedElementId.AbsoluteUri.StartsWith(\"{p}\")")))
+                .Line($"element.{ParserGeneratorValues.ParentReferencesName}.Add(new ParentReference() {{ ParentId = elementId, PropertyName = propertyName }});");
+
+            method.Body.Line("return this.Dict[elementId].TrySetObjectProperty(propertyName, layer, propProp, element, keyProp, keyValue, parsingErrorCollection);");
         }
 
         private void GenerateIsKindInSetMethod(CsClass modelClass)

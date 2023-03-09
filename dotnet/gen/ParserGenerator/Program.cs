@@ -67,7 +67,7 @@
                 typeGenerators.Add(new DtmiLayerInfoGenerator(metamodelDigest.IsLayeringSupported));
                 typeGenerators.Add(new DtmiResolverGenerator(metamodelDigest.IsLayeringSupported));
                 typeGenerators.Add(new RootableGenerator(metamodelDigest.IsLayeringSupported));
-                typeGenerators.Add(new ModelGenerator(metamodelDigest.BaseClass));
+                typeGenerators.Add(new ModelGenerator(metamodelDigest.BaseClass, metamodelDigest.ReservedIdPrefixes));
                 typeGenerators.Add(new ModelParserGenerator(metamodelDigest.BaseClass, areDynamicExtensionsSupported, metamodelDigest.IsLayeringSupported, outTsFile));
                 typeGenerators.Add(new ParsingOptionsGenerator(metamodelDigest.IsLayeringSupported, metamodelDigest.DtdlVersions));
                 typeGenerators.Add(new SupplementalTypeInfoGenerator(metamodelDigest.BaseClass, metamodelDigest.ExtensionKinds, metamodelDigest.MaterialClasses));

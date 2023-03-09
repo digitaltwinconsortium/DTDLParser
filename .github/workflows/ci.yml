@@ -26,14 +26,14 @@ jobs:
       - name: Install WASM workload
         run: dotnet workload install wasm-tools
 
-      - name: Build Parser
-        run: dotnet build -c Release dotnet/src/DTDLParser
-
       - name: Install DocFx
         run: dotnet tool install -g docfx
 
       - name: Run DocFx
         run: docfx api-docs/dotnet/docfx.json
+
+      - name: Build Parser
+        run: dotnet build -c Release dotnet/src/DTDLParser
 
       - name: Test Parser
         run: |
