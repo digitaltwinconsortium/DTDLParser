@@ -59,6 +59,27 @@ namespace DTDLParser
         }
 
         /// <summary>
+        /// Gets an object model representing all the model-level elements implicitly available for reference.
+        /// </summary>
+        /// <returns>A dictionary that maps each <c>Dtmi</c> to a subclass of <c>DTEntityInfo</c>.</returns>
+        public IReadOnlyDictionary<Dtmi, DTEntityInfo> GetImplicitElements()
+        {
+            IReadOnlyDictionary<Dtmi, DTEntityInfo> standardElements;
+
+            this.readerWriterAsyncLock?.EnterReadLock();
+            try
+            {
+                standardElements = this.standardElementCollection.GetStandardElements();
+            }
+            finally
+            {
+                this.readerWriterAsyncLock?.ExitReadLock();
+            }
+
+            return standardElements;
+        }
+
+        /// <summary>
         /// Parse a collection of JSON text strings as DTDL models.
         /// </summary>
         /// <param name="jsonTexts">The JSON text strings to parse as DTDL models.</param>

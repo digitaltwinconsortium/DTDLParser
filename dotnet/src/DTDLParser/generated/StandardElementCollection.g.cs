@@ -20,6 +20,15 @@ namespace DTDLParser
     /// </summary>
     internal partial class StandardElementCollection
     {
+        /// <summary>
+        /// Gets an object model representing all the model-level elements implicitly available for reference.
+        /// </summary>
+        /// <returns>A dictionary that maps each <c>Dtmi</c> to a subclass of <c>DTEntityInfo</c>.</returns>
+        internal IReadOnlyDictionary<Dtmi, DTEntityInfo> GetStandardElements()
+        {
+            return EndogenousStandardModel.Dict.ExpandWith(this.exogenousStandardModel.Dict);
+        }
+
         private static void PopulateEndogenousAliases()
         {
             Dictionary<Dtmi, string> aliasTypePropertyMap = new Dictionary<Dtmi, string>();
