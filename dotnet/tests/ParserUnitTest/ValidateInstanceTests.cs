@@ -125,8 +125,86 @@ namespace ParserUnitTest
             validations = anEnumStringSchema.ValidateInstance(instanceFails);
             foreach (var validation in validations) Assert.AreEqual("\"anEnumString\" does not match any value in the Enum", validation);
             Assert.AreEqual(1, validations.Count);
-
         }
+
+        [TestMethod]
+        public void ValidateInstanceWithTwoEnums()
+        {
+            const string dtdl = @"
+             {
+              ""@context"": ""dtmi:dtdl:context;2"",
+              ""@id"": ""dtmi:tests:TwoEnums;1"",
+              ""@type"": ""Interface"",
+              ""contents"": [
+                {
+                  ""@type"": ""Property"",
+                  ""name"": ""aPropWithTwoEnums"",
+                  ""schema"": {
+                    ""@type"": ""Object"",
+                    ""fields"": [
+                      {
+                        ""name"": ""anEnumString"",
+                        ""schema"" : {
+                          ""@type"": ""Enum"",
+                          ""valueSchema"": ""string"",
+                          ""enumValues"": [
+                            {
+                              ""name"": ""optionOne"",
+                              ""enumValue"": ""one""
+                            },
+                            {
+                              ""name"": ""optionTwo"",
+                              ""enumValue"": ""two""
+                            }
+                          ]
+                        }
+                      },
+                      {
+                       ""name"": ""anEnumInt"",
+                        ""schema"" : {
+                          ""@type"": ""Enum"",
+                          ""valueSchema"": ""integer"",
+                          ""enumValues"": [
+                            {
+                              ""name"": ""optionOne"",
+                              ""enumValue"": 1
+                            },
+                            {
+                              ""name"": ""optionTwo"",
+                              ""enumValue"": 2
+                            }
+                          ]
+                        }
+
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            ";
+            var model = new ModelParser().Parse(dtdl)[new Dtmi("dtmi:tests:TwoEnums;1")] as DTInterfaceInfo;
+            var aTwoEnumsSchema = model.Properties["aPropWithTwoEnums"].Schema;
+
+            string instanceOk = @"
+            {
+                ""anEnumString"" : ""two"",
+                ""anEnumInt"" : 2,
+
+            }";
+            var validations = aTwoEnumsSchema.ValidateInstance(instanceOk);
+            foreach (var validation in validations) Assert.AreEqual("", validation);
+            Assert.AreEqual(0, validations.Count);
+
+            string instanceFails = @"
+            {
+                ""anEnumString"" : ""four""
+                ""anEnumInt"" : 4,
+            }";
+            validations = aTwoEnumsSchema.ValidateInstance(instanceFails);
+            Assert.AreEqual(2, validations.Count);
+        }
+
 
         [TestMethod]
         public void ValidateDuration()
