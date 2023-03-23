@@ -2609,7 +2609,7 @@ namespace DTDLParser.Models
             var matchFromEnumValues = this.EnumValues.Where(val => val.DoesInstanceMatch(instanceElt, instanceName)).FirstOrDefault();
             if (matchFromEnumValues == null)
             {
-                violations.Add(instanceName != null ? $"\"{instanceName}\" does not match any name in schema" : $"{instanceElt.GetRawText()} does not match any value in schema");
+                violations.Add(instanceName != null ? $"\"{instanceName}\" does not match any value in the Enum" : $"{instanceElt.GetRawText()} does not match any value in schema");
                 return false;
             }
             else if (!matchFromEnumValues.ValidateInstance(instanceElt, instanceName, violations))
@@ -2630,7 +2630,7 @@ namespace DTDLParser.Models
             var matchFromEnumValues = this.EnumValues.Where(val => val.DoesInstanceMatch(instanceElt, instanceName)).FirstOrDefault();
             if (matchFromEnumValues == null)
             {
-                violations.Add(instanceName != null ? $"\"{instanceName}\" does not match any name in schema" : $"{instanceElt.GetRawText()} does not match any value in schema");
+                violations.Add(instanceName != null ? $"\"{instanceName}\" does not match any value in the Enum" : $"{instanceElt.GetRawText()} does not match any value in schema");
                 return false;
             }
             else if (!matchFromEnumValues.ValidateInstance(instanceElt, instanceName, violations))
