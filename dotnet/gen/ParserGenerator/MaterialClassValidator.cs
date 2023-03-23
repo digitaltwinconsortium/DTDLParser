@@ -326,12 +326,24 @@
                     scope.Line($"var {matchName} = this.{propertyName}.Where(kvp => kvp.Value.{MatchInstanceMethodName}({eltVar}, {nameVar})).FirstOrDefault().Value;");
                 }
 
-                scope
-                    .If($"{matchName} == null")
-                        .Line($"violations.Add({nameVar} != null ? $\"\\\"{{{nameVar}}}\\\" does not match any name in schema\" : $\"{{{eltVar}.GetRawText()}} does not match any value in schema\");")
-                        .Line($"{termination};")
-                    .ElseIf($"!{matchName}.{ParserGeneratorValues.ValidateInstanceMethodName}({eltVar}, {nameVar}, violations)")
-                        .Line($"{termination};");
+                if (instanceProperty == "enumValues")
+                {
+                    scope
+                        .If($"{matchName} == null")
+                            .Line($"violations.Add({nameVar} != null ? $\"\\\"{{{nameVar}}}\\\" does not match any value in the Enum\" : $\"{{{eltVar}.GetRawText()}} does not match any value in schema\");")
+                            .Line($"{termination};")
+                        .ElseIf($"!{matchName}.{ParserGeneratorValues.ValidateInstanceMethodName}({eltVar}, {nameVar}, violations)")
+                            .Line($"{termination};");
+                }
+                else
+                {
+                    scope
+                        .If($"{matchName} == null")
+                            .Line($"violations.Add({nameVar} != null ? $\"\\\"{{{nameVar}}}\\\" does not match any name in schema\" : $\"{{{eltVar}.GetRawText()}} does not match any value in schema\");")
+                            .Line($"{termination};")
+                        .ElseIf($"!{matchName}.{ParserGeneratorValues.ValidateInstanceMethodName}({eltVar}, {nameVar}, violations)")
+                            .Line($"{termination};");
+                }
             }
         }
 

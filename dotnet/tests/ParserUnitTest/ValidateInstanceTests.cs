@@ -63,7 +63,7 @@ namespace ParserUnitTest
                 ""anEnumInt"" : 4
             }";
             validations = anEnumIntSchema.ValidateInstance(instanceBad);
-            foreach (var validation in validations) Assert.AreEqual("\"anEnumInt\" does not match any name in schema", validation);
+            foreach (var validation in validations) Assert.AreEqual("\"anEnumInt\" does not match any value in the Enum", validation);
             Assert.AreEqual(1, validations.Count);
 
         }
@@ -123,7 +123,7 @@ namespace ParserUnitTest
                 ""anEnumString"" : ""four""
             }";
             validations = anEnumStringSchema.ValidateInstance(instanceFails);
-            foreach (var validation in validations) Assert.AreEqual("\"anEnumString\" does not match any name in schema", validation);
+            foreach (var validation in validations) Assert.AreEqual("\"anEnumString\" does not match any value in the Enum", validation);
             Assert.AreEqual(1, validations.Count);
 
         }
