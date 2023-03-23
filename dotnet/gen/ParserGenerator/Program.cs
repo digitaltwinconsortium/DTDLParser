@@ -131,6 +131,8 @@
 
             MaterialClassJsonizer jsonizer = new MaterialClassJsonizer(tsFileName, metamodelDigest.MaterialClasses, baseTypeName);
 
+            Dictionary<string, InstanceValidationDigest> classInstanceValidationDigests = metamodelDigest.MaterialClasses.Where(kvp => kvp.Value.Instance != null).ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Instance);
+
             List<ITypeGenerator> typeGenerators = new List<ITypeGenerator>();
             foreach (KeyValuePair<string, MaterialClassDigest> kvp in metamodelDigest.MaterialClasses)
             {
@@ -143,6 +145,7 @@
                     metamodelDigest.Contexts,
                     metamodelDigest.ClassIdentifierDefinitionRestrictions,
                     extensibleMaterialClasses,
+                    classInstanceValidationDigests,
                     parentMap,
                     descendantControls,
                     metamodelDigest.DtdlVersionsWithApocryphalPropertyCotypeDependency,
@@ -166,6 +169,7 @@
                 metamodelDigest.Contexts,
                 metamodelDigest.ClassIdentifierDefinitionRestrictions,
                 extensibleMaterialClasses,
+                classInstanceValidationDigests,
                 parentMap,
                 descendantControls,
                 metamodelDigest.DtdlVersionsWithApocryphalPropertyCotypeDependency,

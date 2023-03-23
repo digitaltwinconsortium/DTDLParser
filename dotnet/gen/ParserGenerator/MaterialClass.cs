@@ -18,6 +18,7 @@
         private string baseClassName;
         private string kindValue;
         private Dictionary<int, List<ExtensibleMaterialClass>> extensibleMaterialClasses;
+        private Dictionary<string, InstanceValidationDigest> classInstanceValidationDigests;
         private Dictionary<string, string> parentMap;
         private List<IDescendantControl> descendantControls;
         private List<int> dtdlVersionsWithApocryphalPropertyCotypeDependency;
@@ -54,6 +55,7 @@
         /// <param name="contexts">A dictionary that maps from a context ID to a dictionary of term definitions.</param>
         /// <param name="classIdentifierDefinitionRestrictions">A dictionary that maps from class name to a dictionary that maps from DTDL version to a <see cref="StringRestriction"/> object that restricts the identifiers for the class.</param>
         /// <param name="extensibleMaterialClasses">A map from DTDL version to a list of <see cref="ExtensibleMaterialClass"/> objects.</param>
+        /// <param name="classInstanceValidationDigests">A map from DTDL type name to an <see cref="InstanceValidationDigest"/> object providing instance validation criteria for the DTDL type.</param>
         /// <param name="parentMap">A dictionary that maps from class type to parent class type.</param>
         /// <param name="descendantControls">A list of objects that implement the <see cref="IDescendantControl"/> interface.</param>
         /// <param name="dtdlVersionsWithApocryphalPropertyCotypeDependency">A list of DTDL versions for which apocryphal properties are dependent on an apocryphal cotype.</param>
@@ -69,6 +71,7 @@
             Dictionary<string, Dictionary<string, string>> contexts,
             Dictionary<string, Dictionary<int, StringRestriction>> classIdentifierDefinitionRestrictions,
             Dictionary<int, List<ExtensibleMaterialClass>> extensibleMaterialClasses,
+            Dictionary<string, InstanceValidationDigest> classInstanceValidationDigests,
             Dictionary<string, string> parentMap,
             List<IDescendantControl> descendantControls,
             List<int> dtdlVersionsWithApocryphalPropertyCotypeDependency,
@@ -85,6 +88,7 @@
             this.baseClassName = NameFormatter.FormatNameAsClass(baseTypeName);
             this.kindValue = $"{this.kindEnum}.{NameFormatter.FormatNameAsEnumValue(typeName)}";
             this.extensibleMaterialClasses = extensibleMaterialClasses;
+            this.classInstanceValidationDigests = classInstanceValidationDigests;
             this.parentMap = parentMap;
             this.descendantControls = descendantControls;
             this.dtdlVersionsWithApocryphalPropertyCotypeDependency = dtdlVersionsWithApocryphalPropertyCotypeDependency;
@@ -347,7 +351,8 @@
                 this.parentClass == null,
                 this.isAbstract,
                 this.materialClassDigest.Instance,
-                this.materialClassDigest.Properties);
+                this.materialClassDigest.Properties,
+                this.classInstanceValidationDigests);
 
             this.GenerateClassIdProperty(obverseClass);
             this.GenerateApplyTransformationsMethods(obverseClass);
