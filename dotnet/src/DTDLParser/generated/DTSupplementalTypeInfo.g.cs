@@ -30,18 +30,18 @@ namespace DTDLParser.Models
         /// </summary>
         internal HashSet<DTEntityKind> AllowedCotypeKinds { get; set; }
 
-        private static bool TryParseExtensionElement(DTExtensionKind extensionKind, Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi parentId, Dtmi definedIn, string propName, JsonLdProperty propProp, string dtmiSeg, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, string inferredType)
+        private static bool TryParseExtensionElement(DTExtensionKind extensionKind, Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi parentId, Dtmi definedIn, string propName, JsonLdProperty propProp, string dtmiSeg, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool tolerateSolecisms, string inferredType)
         {
             switch (extensionKind)
             {
                 case DTExtensionKind.Unit:
-                    return DTUnitInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, null, inferredType);
+                    return DTUnitInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, null, inferredType);
                 case DTExtensionKind.UnitAttribute:
-                    return DTUnitAttributeInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, null, inferredType);
+                    return DTUnitAttributeInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, null, inferredType);
                 case DTExtensionKind.LatentType:
-                    return DTLatentTypeInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, null, inferredType);
+                    return DTLatentTypeInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, null, inferredType);
                 case DTExtensionKind.NamedLatentType:
-                    return DTNamedLatentTypeInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, null, inferredType);
+                    return DTNamedLatentTypeInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, null, inferredType);
                 default:
                     return false;
             }

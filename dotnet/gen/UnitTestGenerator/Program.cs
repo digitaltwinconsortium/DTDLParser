@@ -15,18 +15,19 @@
         {
             try
             {
-                if (args.Count() < 6)
+                if (args.Count() < 7)
                 {
-                    Console.WriteLine("UnitTestGenerator outUnitTestFolder testCaseFolder docExampleFolder specTestFolder metamodelDigestFile objectModelConventionsFile");
+                    Console.WriteLine("UnitTestGenerator outUnitTestFolder testCaseFolder solecismCaseFolder docExampleFolder specTestFolder metamodelDigestFile objectModelConventionsFile");
                     return 1;
                 }
 
                 string outUnitTestFolder = args[0];
                 string testCaseFolder = args[1];
-                string docExampleFolder = args[2];
-                string specTestFolder = args[3];
-                string metamodelDigestFile = args[4];
-                string objectModelConventionsFile = args[5];
+                string solecismCaseFolder = args[2];
+                string docExampleFolder = args[3];
+                string specTestFolder = args[4];
+                string metamodelDigestFile = args[5];
+                string objectModelConventionsFile = args[6];
 
                 string digestText = File.OpenText(metamodelDigestFile).ReadToEnd();
                 MetamodelDigest metamodelDigest = new MetamodelDigest(digestText);
@@ -41,12 +42,20 @@
                 TestModelGenerator testModelGenerator = new TestModelGenerator(metamodelDigest.BaseClass);
                 TestDtmiPartialResolverGenerator testDtmiPartialResolverGenerator = new TestDtmiPartialResolverGenerator(metamodelDigest.IsLayeringSupported);
 
-                ParserUnitTestGenerator parserUnitTestGenerator = new ParserUnitTestGenerator();
+                ParserUnitTestGenerator parserUnitTestGenerator = new ParserUnitTestGenerator("ParserUnitTest", doBatch: true);
                 int caseCount = 0;
                 foreach (string testCaseFilename in Directory.GetFiles(testCaseFolder, @"*.json"))
                 {
                     parserUnitTestGenerator.AddTestCase(Path.GetFileNameWithoutExtension(testCaseFilename));
                     ++caseCount;
+                }
+
+                ParserUnitTestGenerator solecismTestGenerator = new ParserUnitTestGenerator("ParserSolecismTest", doBatch: false);
+                int solecismCount = 0;
+                foreach (string solecismFilename in Directory.GetFiles(solecismCaseFolder, @"*.json"))
+                {
+                    solecismTestGenerator.AddTestCase(Path.GetFileNameWithoutExtension(solecismFilename));
+                    ++solecismCount;
                 }
 
                 Console.WriteLine($"Generated tests for {caseCount} test cases");
@@ -88,6 +97,7 @@
                 testDtmiPartialResolverGenerator.GenerateCode(unitTestLibrary);
 
                 parserUnitTestGenerator.GenerateCode(unitTestLibrary);
+                solecismTestGenerator.GenerateCode(unitTestLibrary);
                 docExampleUnitTestGenerator.GenerateCode(unitTestLibrary);
                 specificationUnitTestGenerator.GenerateCode(unitTestLibrary);
 

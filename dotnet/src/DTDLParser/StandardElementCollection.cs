@@ -68,7 +68,7 @@ namespace DTDLParser
 
             foreach (JsonLdElement modelGraphElement in modelGraphElements)
             {
-                ModelParser.ParseElement(this.exogenousStandardModel, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, modelGraphElement, globalize: true, allowReservedIds: true, allowIdReferenceSyntax: false, ignoreElementsWithAutoIDsAndDuplicateNames: false);
+                ModelParser.ParseElement(this.exogenousStandardModel, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, modelGraphElement, globalize: true, allowReservedIds: true, tolerateSolecisms: false);
             }
 
             foreach (ParsedObjectPropertyInfo objectPropertyInfo in objectPropertyInfoList)
@@ -142,7 +142,7 @@ namespace DTDLParser
 
             foreach (JsonLdValue jsonLdValue in valueCollection.Values)
             {
-                ModelParser.ParseElement(EndogenousStandardModel, objectPropertyInfoList, null, aggregateContext.GetChildContext(jsonLdValue.ElementValue, parsingErrorCollection), parsingErrorCollection, jsonLdValue.ElementValue, globalize: true, allowReservedIds: true, allowIdReferenceSyntax: false, ignoreElementsWithAutoIDsAndDuplicateNames: false);
+                ModelParser.ParseElement(EndogenousStandardModel, objectPropertyInfoList, null, aggregateContext.GetChildContext(jsonLdValue.ElementValue, parsingErrorCollection), parsingErrorCollection, jsonLdValue.ElementValue, globalize: true, allowReservedIds: true, tolerateSolecisms: false);
             }
 
             parsingErrorCollection.ThrowIfAny();

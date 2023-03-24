@@ -1,12 +1,10 @@
 ﻿{
   "valid": false,
-  "quirks": [
-    "TolerateSolecismsInParse"
-  ],
+  "quirks": [],
   "options": [],
   "input": [
     {
-      "@context": "dtmi:dtdl:context;3",
+      "@context": "dtmi:dtdl:context;2",
       "@id": "dtmi:test:childInterface;1",
       "@type": "Interface",
       "extends": [
@@ -19,12 +17,13 @@
   "expect": {
     "parsingErrors": [
       {
-        "ValidationID": "dtmi:dtdl:parsingError:idRefBadDtmiOrTerm",
+        "ValidationID": "dtmi:dtdl:parsingError:idReference",
         "PrimaryID": "dtmi:test:childInterface;1",
         "Value": "http://test/foo/",
         "Property": "extends",
         "PrimaryIndex": 0,
-        "PrimaryStart": 7
+        "PrimaryStart": 6,
+        "PrimaryEnd": 8
       }
     ]
   }

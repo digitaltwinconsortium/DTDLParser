@@ -398,9 +398,8 @@
                 .Line("objectPropertyInfoList,")
                 .Line("elementPropertyConstraints,")
                 .Line("parsingErrorCollection,")
-                .Line("allowReservedIds: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0,")
-                .Line("allowIdReferenceSyntax: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0,")
-                .Line($"ignoreElementsWithAutoIDsAndDuplicateNames: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0){coda};");
+                .Line("allowReservedIds: false,")
+                .Line($"tolerateSolecisms: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0){coda};");
             method.Body.Break();
 
             if (this.isLayeringSupported)
@@ -434,9 +433,8 @@
                     .Line("objectPropertyInfoList,")
                     .Line("elementPropertyConstraints,")
                     .Line("parsingErrorCollection,")
-                    .Line("allowReservedIds: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,")
-                    .Line("allowIdReferenceSyntax: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,")
-                    .Line($"ignoreElementsWithAutoIDsAndDuplicateNames: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0){coda};");
+                    .Line("allowReservedIds: false,")
+                    .Line($"tolerateSolecisms: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0){coda};");
                 method.Body.Break();
             }
 
@@ -538,9 +536,8 @@
                 .Line("objectPropertyInfoList,")
                 .Line("elementPropertyConstraints,")
                 .Line("parsingErrorCollection,")
-                .Line("allowReservedIds: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,")
-                .Line("allowIdReferenceSyntax: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,")
-                .Line($"ignoreElementsWithAutoIDsAndDuplicateNames: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0){coda};");
+                .Line("allowReservedIds: false,")
+                .Line($"tolerateSolecisms: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0){coda};");
 
             whileTrue
                 .Line("List<Dtmi> requestedIdentifiers = undefinedIdentifiers.Keys.ToList();")
@@ -571,8 +568,7 @@
             method.Param("List<ElementPropertyConstraint>", "elementPropertyConstraints");
             method.Param("ParsingErrorCollection", "parsingErrorCollection");
             method.Param("bool", "allowReservedIds");
-            method.Param("bool", "allowIdReferenceSyntax");
-            method.Param("bool", "ignoreElementsWithAutoIDsAndDuplicateNames");
+            method.Param("bool", "tolerateSolecisms");
 
             string coda = isAsync ? ".WithCancellation(cancellationToken).ConfigureAwait(false)" : string.Empty;
             method.Body.Line("int enumerationIndex = 0;");
@@ -581,7 +577,7 @@
             forEachJsonText
                 .Line("JsonLdValueCollection valueCollection = jsonLdReader.Read(jsonText, enumerationIndex, parsingErrorCollection);")
                 .ForEach("JsonLdValue jsonLdValue in valueCollection.Values")
-                    .Line("this.ParseJsonLdValues(model, objectPropertyInfoList, elementPropertyConstraints, parsingErrorCollection, jsonLdValue, 0, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames);");
+                    .Line("this.ParseJsonLdValues(model, objectPropertyInfoList, elementPropertyConstraints, parsingErrorCollection, jsonLdValue, 0, allowReservedIds, tolerateSolecisms);");
             forEachJsonText
                 .Line("parsingErrorCollection.ThrowIfAny();")
                 .Line("++enumerationIndex;");
@@ -599,9 +595,8 @@
             method.Param("JsonLdElement", "elt", "The <see cref=\"JsonLdElement\"/> to parse.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "globalize", "Treat all nested definitions as though defined globally.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowReservedIds", "Allow elements to define IDs that have reserved prefixes.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowIdReferenceSyntax", "Allow an object reference to be made using an object containing nothing but an @id property.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "ignoreElementsWithAutoIDsAndDuplicateNames", "Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.");
-            method.Body.Line($"{this.baseClassName}.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer: null, parentId: null, definedIn: null, propName: null, propProp: null, dtmiSeg: null, keyProp: null, idRequired: true, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, allowIdReferenceSyntax: allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames: ignoreElementsWithAutoIDsAndDuplicateNames, allowedVersions: null, inferredType: null);");
+            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "tolerateSolecisms", "Tolerate specific minor invalidities to support backward compatibility.");
+            method.Body.Line($"{this.baseClassName}.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer: null, parentId: null, definedIn: null, propName: null, propProp: null, dtmiSeg: null, keyProp: null, idRequired: true, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms, allowedVersions: null, inferredType: null);");
         }
 
         private string GetFullName(string baseName, bool isAsync)

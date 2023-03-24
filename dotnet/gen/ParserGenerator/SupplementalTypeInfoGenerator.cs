@@ -59,8 +59,7 @@
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "typeRequired");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "globalize");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowReservedIds");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowIdReferenceSyntax");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "ignoreElementsWithAutoIDsAndDuplicateNames");
+            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "tolerateSolecisms");
             method.Param(ParserGeneratorValues.ObverseTypeString, "inferredType");
 
             CsSwitch kindSwitch = method.Body.Switch("extensionKind");
@@ -70,7 +69,7 @@
                 if (this.materialClasses.ContainsKey(extensionKind))
                 {
                     kindSwitch.Case($"{NameFormatter.FormatNameAsEnum("Extension")}.{NameFormatter.FormatNameAsEnumValue(extensionKind)}");
-                    kindSwitch.Line($"return {NameFormatter.FormatNameAsClass(extensionKind)}.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, null, inferredType);");
+                    kindSwitch.Line($"return {NameFormatter.FormatNameAsClass(extensionKind)}.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer, parentId, definedIn, propName, propProp, dtmiSeg, null, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, null, inferredType);");
                 }
             }
 

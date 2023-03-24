@@ -311,11 +311,10 @@ namespace DTDLParser
         /// <param name="elt">The <see cref="JsonLdElement"/> to parse.</param>
         /// <param name="globalize">Treat all nested definitions as though defined globally.</param>
         /// <param name="allowReservedIds">Allow elements to define IDs that have reserved prefixes.</param>
-        /// <param name="allowIdReferenceSyntax">Allow an object reference to be made using an object containing nothing but an @id property.</param>
-        /// <param name="ignoreElementsWithAutoIDsAndDuplicateNames">Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.</param>
-        internal static void ParseElement(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames)
+        /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
+        internal static void ParseElement(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, bool globalize, bool allowReservedIds, bool tolerateSolecisms)
         {
-            DTEntityInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer: null, parentId: null, definedIn: null, propName: null, propProp: null, dtmiSeg: null, keyProp: null, idRequired: true, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, allowIdReferenceSyntax: allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames: ignoreElementsWithAutoIDsAndDuplicateNames, allowedVersions: null, inferredType: null);
+            DTEntityInfo.TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, null, aggregateContext, parsingErrorCollection, elt, layer: null, parentId: null, definedIn: null, propName: null, propProp: null, dtmiSeg: null, keyProp: null, idRequired: true, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms, allowedVersions: null, inferredType: null);
         }
 
         private Model ParseInternal(IEnumerable<string> jsonTexts, DtdlParseLocator dtdlLocator)
@@ -349,9 +348,8 @@ namespace DTDLParser
                 objectPropertyInfoList,
                 elementPropertyConstraints,
                 parsingErrorCollection,
-                allowReservedIds: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0,
-                allowIdReferenceSyntax: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0,
-                ignoreElementsWithAutoIDsAndDuplicateNames: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0).ConfigureAwait(false);
+                allowReservedIds: false,
+                tolerateSolecisms: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0).ConfigureAwait(false);
 
             while (true)
             {
@@ -451,9 +449,8 @@ namespace DTDLParser
                     objectPropertyInfoList,
                     elementPropertyConstraints,
                     parsingErrorCollection,
-                    allowReservedIds: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,
-                    allowIdReferenceSyntax: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,
-                    ignoreElementsWithAutoIDsAndDuplicateNames: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0).ConfigureAwait(false);
+                    allowReservedIds: false,
+                    tolerateSolecisms: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0).ConfigureAwait(false);
                 List<Dtmi> requestedIdentifiers = undefinedIdentifiers.Keys.ToList();
                 foreach (Dtmi dtmi in requestedIdentifiers)
                 {
@@ -470,7 +467,7 @@ namespace DTDLParser
             }
         }
 
-        private async Task ParseTextsIntoModelAsync(IAsyncEnumerable<string> jsonTexts, CancellationToken cancellationToken, JsonLdReader jsonLdReader, Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, ParsingErrorCollection parsingErrorCollection, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames)
+        private async Task ParseTextsIntoModelAsync(IAsyncEnumerable<string> jsonTexts, CancellationToken cancellationToken, JsonLdReader jsonLdReader, Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, ParsingErrorCollection parsingErrorCollection, bool allowReservedIds, bool tolerateSolecisms)
         {
             int enumerationIndex = 0;
             await foreach (string jsonText in jsonTexts.WithCancellation(cancellationToken).ConfigureAwait(false))
@@ -478,7 +475,7 @@ namespace DTDLParser
                 JsonLdValueCollection valueCollection = jsonLdReader.Read(jsonText, enumerationIndex, parsingErrorCollection);
                 foreach (JsonLdValue jsonLdValue in valueCollection.Values)
                 {
-                    this.ParseJsonLdValues(model, objectPropertyInfoList, elementPropertyConstraints, parsingErrorCollection, jsonLdValue, 0, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames);
+                    this.ParseJsonLdValues(model, objectPropertyInfoList, elementPropertyConstraints, parsingErrorCollection, jsonLdValue, 0, allowReservedIds, tolerateSolecisms);
                 }
 
                 parsingErrorCollection.ThrowIfAny();
@@ -516,9 +513,8 @@ namespace DTDLParser
                 objectPropertyInfoList,
                 elementPropertyConstraints,
                 parsingErrorCollection,
-                allowReservedIds: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0,
-                allowIdReferenceSyntax: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0,
-                ignoreElementsWithAutoIDsAndDuplicateNames: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0);
+                allowReservedIds: false,
+                tolerateSolecisms: (this.quirks & ModelParsingQuirk.TolerateSolecismsInParse) != 0);
 
             while (true)
             {
@@ -617,9 +613,8 @@ namespace DTDLParser
                     objectPropertyInfoList,
                     elementPropertyConstraints,
                     parsingErrorCollection,
-                    allowReservedIds: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,
-                    allowIdReferenceSyntax: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0,
-                    ignoreElementsWithAutoIDsAndDuplicateNames: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0);
+                    allowReservedIds: false,
+                    tolerateSolecisms: (this.quirks & ModelParsingQuirk.TolerateSolecismsInResolve) != 0);
                 List<Dtmi> requestedIdentifiers = undefinedIdentifiers.Keys.ToList();
                 foreach (Dtmi dtmi in requestedIdentifiers)
                 {
@@ -636,7 +631,7 @@ namespace DTDLParser
             }
         }
 
-        private void ParseTextsIntoModel(IEnumerable<string> jsonTexts, JsonLdReader jsonLdReader, Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, ParsingErrorCollection parsingErrorCollection, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames)
+        private void ParseTextsIntoModel(IEnumerable<string> jsonTexts, JsonLdReader jsonLdReader, Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, ParsingErrorCollection parsingErrorCollection, bool allowReservedIds, bool tolerateSolecisms)
         {
             int enumerationIndex = 0;
             foreach (string jsonText in jsonTexts)
@@ -644,7 +639,7 @@ namespace DTDLParser
                 JsonLdValueCollection valueCollection = jsonLdReader.Read(jsonText, enumerationIndex, parsingErrorCollection);
                 foreach (JsonLdValue jsonLdValue in valueCollection.Values)
                 {
-                    this.ParseJsonLdValues(model, objectPropertyInfoList, elementPropertyConstraints, parsingErrorCollection, jsonLdValue, 0, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames);
+                    this.ParseJsonLdValues(model, objectPropertyInfoList, elementPropertyConstraints, parsingErrorCollection, jsonLdValue, 0, allowReservedIds, tolerateSolecisms);
                 }
 
                 parsingErrorCollection.ThrowIfAny();

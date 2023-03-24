@@ -554,14 +554,15 @@ namespace DTDLParser.Models
         /// <param name="typeRequired">A boolean value indicating whether a @type must be present.</param>
         /// <param name="globalize">Treat all nested definitions as though defined globally.</param>
         /// <param name="allowReservedIds">Allow elements to define IDs that have reserved prefixes.</param>
-        /// <param name="allowIdReferenceSyntax">Allow an object reference to be made using an object containing nothing but an @id property.</param>
-        /// <param name="ignoreElementsWithAutoIDsAndDuplicateNames">Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.</param>
+        /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
         /// <param name="allowedVersions">A set of allowed versions for the element.</param>
         /// <param name="inferredType">The type name to infer if no @type specified on element.</param>
         /// <returns>True if the <see cref="JsonLdElement"/> parses correctly as an appropriate element.</returns>
-        internal static new bool TryParseElement(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, List<ValueConstraint> valueConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi parentId, Dtmi definedIn, string propName, JsonLdProperty propProp, string dtmiSeg, string keyProp, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, HashSet<int> allowedVersions, string inferredType)
+        internal static new bool TryParseElement(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, List<ValueConstraint> valueConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi parentId, Dtmi definedIn, string propName, JsonLdProperty propProp, string dtmiSeg, string keyProp, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool tolerateSolecisms, HashSet<int> allowedVersions, string inferredType)
         {
             AggregateContext childAggregateContext = aggregateContext.GetChildContext(elt, parsingErrorCollection);
+
+            bool allowIdReferenceSyntax = tolerateSolecisms && aggregateContext.DtdlVersion < 3;
 
             if (elt.PropertyCount == 1 && elt.Id != null)
             {
@@ -650,10 +651,14 @@ namespace DTDLParser.Models
                     layer: layer);
             }
 
-            Dtmi elementId = IdValidator.ParseIdProperty(childAggregateContext, elt, childAggregateContext.MergeDefinitions ? layer : null, parentId, propName, dtmiSeg, idRequired, allowReservedIds, parsingErrorCollection);
+            bool tolerateReservedIds = tolerateSolecisms && aggregateContext.DtdlVersion < 3;
+
+            Dtmi elementId = IdValidator.ParseIdProperty(childAggregateContext, elt, childAggregateContext.MergeDefinitions ? layer : null, parentId, propName, dtmiSeg, idRequired, allowReservedIds || tolerateReservedIds, parsingErrorCollection);
 
             Dtmi baseElementId = childAggregateContext.MergeDefinitions || elementId.Tail == string.Empty ? elementId.Fragmentless : elementId;
             string elementLayer = childAggregateContext.MergeDefinitions ? elementId.Tail : string.Empty;
+
+            bool ignoreElementsWithAutoIDsAndDuplicateNames = tolerateSolecisms && aggregateContext.DtdlVersion < 3;
 
             if (model.Dict.TryGetValue(baseElementId, out DTEntityInfo baseElement))
             {
@@ -753,10 +758,10 @@ namespace DTDLParser.Models
             switch (childAggregateContext.DtdlVersion)
             {
                 case 2:
-                    elementInfo.ParsePropertiesV2(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames);
+                    elementInfo.ParsePropertiesV2(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, tolerateSolecisms);
                     break;
                 case 3:
-                    elementInfo.ParsePropertiesV3(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames);
+                    elementInfo.ParsePropertiesV3(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, tolerateSolecisms);
                     break;
             }
 
@@ -1521,10 +1526,9 @@ namespace DTDLParser.Models
         /// <param name="typeRequired">A boolean value indicating whether a @type must be present.</param>
         /// <param name="globalize">Treat all nested definitions as though defined globally.</param>
         /// <param name="allowReservedIds">Allow elements to define IDs that have reserved prefixes.</param>
-        /// <param name="allowIdReferenceSyntax">Allow an object reference to be made using an object containing nothing but an @id property.</param>
-        /// <param name="ignoreElementsWithAutoIDsAndDuplicateNames">Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.</param>
+        /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
         /// <param name="allowedVersions">A set of allowed versions for the element.</param>
-        internal static new void ParseValueCollection(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, List<ValueConstraint> valueConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdProperty valueCollectionProp, string layer, Dtmi parentId, Dtmi definedIn, string propName, string dtmiSeg, string keyProp, int minCount, bool isPlural, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, HashSet<int> allowedVersions)
+        internal static new void ParseValueCollection(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, List<ValueConstraint> valueConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, JsonLdProperty valueCollectionProp, string layer, Dtmi parentId, Dtmi definedIn, string propName, string dtmiSeg, string keyProp, int minCount, bool isPlural, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool tolerateSolecisms, HashSet<int> allowedVersions)
         {
             int valueCount = 0;
 
@@ -1565,7 +1569,7 @@ namespace DTDLParser.Models
 
                         break;
                     case JsonLdValueType.Element:
-                        if (TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, valueConstraints, aggregateContext, parsingErrorCollection, value.ElementValue, layer, parentId, definedIn, propName, valueCollectionProp, dtmiSeg, keyProp, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, allowedVersions, "Relationship"))
+                        if (TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, valueConstraints, aggregateContext, parsingErrorCollection, value.ElementValue, layer, parentId, definedIn, propName, valueCollectionProp, dtmiSeg, keyProp, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, allowedVersions, "Relationship"))
                         {
                             ++valueCount;
                         }
@@ -1898,9 +1902,8 @@ namespace DTDLParser.Models
         /// <param name="definedIn">Identifier of the partition or top-level element under which this element is defined.</param>
         /// <param name="globalize">Treat all nested definitions as though defined globally.</param>
         /// <param name="allowReservedIds">Allow elements to define IDs that have reserved prefixes.</param>
-        /// <param name="allowIdReferenceSyntax">Allow an object reference to be made using an object containing nothing but an @id property.</param>
-        /// <param name="ignoreElementsWithAutoIDsAndDuplicateNames">Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.</param>
-        internal override void ParsePropertiesV2(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, HashSet<Dtmi> immediateSupplementalTypeIds, List<string> immediateUndefinedTypes, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi definedIn, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames)
+        /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
+        internal override void ParsePropertiesV2(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, HashSet<Dtmi> immediateSupplementalTypeIds, List<string> immediateUndefinedTypes, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi definedIn, bool globalize, bool allowReservedIds, bool tolerateSolecisms)
         {
             this.LanguageMajorVersion = 2;
 
@@ -2262,7 +2265,7 @@ namespace DTDLParser.Models
                         else
                         {
                             propertiesProperty = prop;
-                            DTPropertyInfo.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, this.propertiesValueConstraints, aggregateContext, parsingErrorCollection, prop, layer, this.Id, globalize ? null : definedIn ?? this.Id, "properties", "name", null, 0, isPlural: true, idRequired: false, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, allowIdReferenceSyntax: allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames: ignoreElementsWithAutoIDsAndDuplicateNames, allowedVersions: this.propertiesAllowedVersionsV2);
+                            DTPropertyInfo.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, this.propertiesValueConstraints, aggregateContext, parsingErrorCollection, prop, layer, this.Id, globalize ? null : definedIn ?? this.Id, "properties", "name", null, 0, isPlural: true, idRequired: false, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms, allowedVersions: this.propertiesAllowedVersionsV2);
                         }
 
                         continue;
@@ -2366,7 +2369,7 @@ namespace DTDLParser.Models
                         continue;
                 }
 
-                if (this.TryParseSupplementalProperty(model, immediateSupplementalTypeIds, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, layer, definedIn, parsingErrorCollection, prop.Name, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, prop, supplementalJsonLdProperties))
+                if (this.TryParseSupplementalProperty(model, immediateSupplementalTypeIds, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, layer, definedIn, parsingErrorCollection, prop.Name, globalize, allowReservedIds, tolerateSolecisms, prop, supplementalJsonLdProperties))
                 {
                     continue;
                 }
@@ -2442,9 +2445,8 @@ namespace DTDLParser.Models
         /// <param name="definedIn">Identifier of the partition or top-level element under which this element is defined.</param>
         /// <param name="globalize">Treat all nested definitions as though defined globally.</param>
         /// <param name="allowReservedIds">Allow elements to define IDs that have reserved prefixes.</param>
-        /// <param name="allowIdReferenceSyntax">Allow an object reference to be made using an object containing nothing but an @id property.</param>
-        /// <param name="ignoreElementsWithAutoIDsAndDuplicateNames">Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.</param>
-        internal override void ParsePropertiesV3(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, HashSet<Dtmi> immediateSupplementalTypeIds, List<string> immediateUndefinedTypes, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi definedIn, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames)
+        /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
+        internal override void ParsePropertiesV3(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, HashSet<Dtmi> immediateSupplementalTypeIds, List<string> immediateUndefinedTypes, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi definedIn, bool globalize, bool allowReservedIds, bool tolerateSolecisms)
         {
             this.LanguageMajorVersion = 3;
 
@@ -2806,7 +2808,7 @@ namespace DTDLParser.Models
                         else
                         {
                             propertiesProperty = prop;
-                            DTPropertyInfo.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, this.propertiesValueConstraints, aggregateContext, parsingErrorCollection, prop, layer, this.Id, globalize ? null : definedIn ?? this.Id, "properties", "name", null, 0, isPlural: true, idRequired: false, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, allowIdReferenceSyntax: allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames: ignoreElementsWithAutoIDsAndDuplicateNames, allowedVersions: this.propertiesAllowedVersionsV3);
+                            DTPropertyInfo.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, this.propertiesValueConstraints, aggregateContext, parsingErrorCollection, prop, layer, this.Id, globalize ? null : definedIn ?? this.Id, "properties", "name", null, 0, isPlural: true, idRequired: false, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms, allowedVersions: this.propertiesAllowedVersionsV3);
                         }
 
                         continue;
@@ -2910,7 +2912,7 @@ namespace DTDLParser.Models
                         continue;
                 }
 
-                if (this.TryParseSupplementalProperty(model, immediateSupplementalTypeIds, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, layer, definedIn, parsingErrorCollection, prop.Name, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, prop, supplementalJsonLdProperties))
+                if (this.TryParseSupplementalProperty(model, immediateSupplementalTypeIds, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, layer, definedIn, parsingErrorCollection, prop.Name, globalize, allowReservedIds, tolerateSolecisms, prop, supplementalJsonLdProperties))
                 {
                     continue;
                 }
@@ -3077,7 +3079,7 @@ namespace DTDLParser.Models
             jsonWriter.WriteBoolean("writable", this.Writable);
         }
 
-        private bool TryParseSupplementalProperty(Model model, HashSet<Dtmi> immediateSupplementalTypeIds, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, string layer, Dtmi definedIn, ParsingErrorCollection parsingErrorCollection, string propName, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, JsonLdProperty valueCollectionProp, Dictionary<string, JsonLdProperty> supplementalJsonLdProperties)
+        private bool TryParseSupplementalProperty(Model model, HashSet<Dtmi> immediateSupplementalTypeIds, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, string layer, Dtmi definedIn, ParsingErrorCollection parsingErrorCollection, string propName, bool globalize, bool allowReservedIds, bool tolerateSolecisms, JsonLdProperty valueCollectionProp, Dictionary<string, JsonLdProperty> supplementalJsonLdProperties)
         {
             if (!aggregateContext.TryCreateDtmi(propName, out Dtmi propDtmi))
             {
@@ -3086,7 +3088,7 @@ namespace DTDLParser.Models
 
             foreach (Dtmi supplementalTypeId in immediateSupplementalTypeIds)
             {
-                if (aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo) && supplementalTypeInfo.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, this.Id, definedIn, propDtmi.ToString(), globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, valueCollectionProp, ref this.supplementalProperties, supplementalJsonLdProperties, this.supplementalSingularPropertyLayers, this.JsonLdElements))
+                if (aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo) && supplementalTypeInfo.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, this.Id, definedIn, propDtmi.ToString(), globalize, allowReservedIds, tolerateSolecisms, valueCollectionProp, ref this.supplementalProperties, supplementalJsonLdProperties, this.supplementalSingularPropertyLayers, this.JsonLdElements))
                 {
                     return true;
                 }
