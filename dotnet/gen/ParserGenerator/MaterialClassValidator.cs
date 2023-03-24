@@ -21,6 +21,7 @@
         /// <param name="classIsAbstract">True if the material class is abstract.</param>
         /// <param name="instanceValidationDigest">An <see cref="InstanceValidationDigest"/> object providing instance validation criteria for the DTDL type.</param>
         /// <param name="propertyDigests">A dictionary that maps from property name to a <see cref="MaterialPropertyDigest"/> object providing details about the property.</param>
+        /// <param name="classInstanceValidationDigests">A map from DTDL type name to an <see cref="InstanceValidationDigest"/> object providing instance validation criteria for the DTDL type.</param>
         public static void AddMembers(
             List<int> dtdlVersions,
             CsClass obverseClass,
@@ -28,7 +29,8 @@
             bool classIsBase,
             bool classIsAbstract,
             InstanceValidationDigest instanceValidationDigest,
-            Dictionary<string, MaterialPropertyDigest> propertyDigests)
+            Dictionary<string, MaterialPropertyDigest> propertyDigests,
+            Dictionary<string, InstanceValidationDigest> classInstanceValidationDigests)
         {
             GenerateValidateInstanceStringMethod(obverseClass, classIsBase);
             GenerateValidateInstanceElementMethod(obverseClass, kindProperty, classIsBase, classIsAbstract, instanceValidationDigest?.CriteriaText);
@@ -37,7 +39,7 @@
 
             foreach (int dtdlVersion in dtdlVersions)
             {
-                GenerateValidateInstanceVersionMethod(dtdlVersion, obverseClass, classIsAbstract, instanceValidationDigest, propertyDigests);
+                GenerateValidateInstanceVersionMethod(dtdlVersion, obverseClass, classIsAbstract, instanceValidationDigest, propertyDigests, classInstanceValidationDigests);
                 GenerateMatchInstanceVersionMethod(dtdlVersion, obverseClass, classIsAbstract, instanceValidationDigest, propertyDigests);
             }
         }
@@ -128,7 +130,7 @@
             }
         }
 
-        private static void GenerateValidateInstanceVersionMethod(int dtdlVersion, CsClass obverseClass, bool classIsAbstract, InstanceValidationDigest instanceValidationDigest, Dictionary<string, MaterialPropertyDigest> propertyDigests)
+        private static void GenerateValidateInstanceVersionMethod(int dtdlVersion, CsClass obverseClass, bool classIsAbstract, InstanceValidationDigest instanceValidationDigest, Dictionary<string, MaterialPropertyDigest> propertyDigests, Dictionary<string, InstanceValidationDigest> classInstanceValidationDigests)
         {
             if (!classIsAbstract && instanceValidationDigest?.CriteriaText != null)
             {
@@ -140,17 +142,17 @@
                 method.Param("string", "instanceName");
                 method.Param("List<string>", "violations");
 
-                AddValidationChecks(dtdlVersion, obverseClass, method.Body, elementConditionDigest, propertyDigests, "instanceElt", "instanceName", "Element", "return false", instanceValidationDigest.TypeText, instanceValidationDigest.ConformanceText);
+                AddValidationChecks(dtdlVersion, obverseClass, method.Body, elementConditionDigest, propertyDigests, classInstanceValidationDigests, "instanceElt", "instanceName", "Element", "return false", instanceValidationDigest.TypeText, instanceValidationDigest.ConformanceText);
 
                 if (elementConditionDigest.JsonType == "object")
                 {
                     CsForEach forEachProperty = method.Body.ForEach("JsonProperty child in instanceElt.EnumerateObject()");
-                    AddValidationChecks(dtdlVersion, obverseClass, forEachProperty, childConditionDigest, propertyDigests, "child.Value", "child.Name", "Child", "continue", string.Empty, string.Empty);
+                    AddValidationChecks(dtdlVersion, obverseClass, forEachProperty, childConditionDigest, propertyDigests, classInstanceValidationDigests, "child.Value", "child.Name", "Child", "continue", string.Empty, string.Empty);
                 }
                 else if (elementConditionDigest.JsonType == "array")
                 {
                     CsForEach forEachProperty = method.Body.ForEach("JsonElement child in instanceElt.EnumerateArray()");
-                    AddValidationChecks(dtdlVersion, obverseClass, forEachProperty, childConditionDigest, propertyDigests, "child", "null", "Child", "continue", string.Empty, string.Empty);
+                    AddValidationChecks(dtdlVersion, obverseClass, forEachProperty, childConditionDigest, propertyDigests, classInstanceValidationDigests, "child", "null", "Child", "continue", string.Empty, string.Empty);
                 }
 
                 method.Body.Line("return true;");
@@ -218,7 +220,7 @@
             }
         }
 
-        private static void AddValidationChecks(int dtdlVersion, CsClass obverseClass, CsScope scope, InstanceConditionDigest instanceConditionDigest, Dictionary<string, MaterialPropertyDigest> propertyDigests, string eltVar, string nameVar, string level, string termination, string typeText, string conformanceText)
+        private static void AddValidationChecks(int dtdlVersion, CsClass obverseClass, CsScope scope, InstanceConditionDigest instanceConditionDigest, Dictionary<string, MaterialPropertyDigest> propertyDigests, Dictionary<string, InstanceValidationDigest> classInstanceValidationDigests, string eltVar, string nameVar, string level, string termination, string typeText, string conformanceText)
         {
             if (instanceConditionDigest.JsonType != null)
             {
@@ -234,7 +236,7 @@
             {
                 foreach (string instanceProperty in instanceConditionDigest.InstanceProperty)
                 {
-                    AddInstancePropertyCheck(scope, instanceProperty, propertyDigests, eltVar, nameVar, termination);
+                    AddInstancePropertyCheck(dtdlVersion, scope, instanceProperty, propertyDigests, classInstanceValidationDigests, eltVar, nameVar, termination);
                 }
             }
 
@@ -305,7 +307,7 @@
             }
         }
 
-        private static void AddInstancePropertyCheck(CsScope scope, string instanceProperty, Dictionary<string, MaterialPropertyDigest> propertyDigests, string eltVar, string nameVar, string termination)
+        private static void AddInstancePropertyCheck(int dtdlVersion, CsScope scope, string instanceProperty, Dictionary<string, MaterialPropertyDigest> propertyDigests, Dictionary<string, InstanceValidationDigest> classInstanceValidationDigests, string eltVar, string nameVar, string termination)
         {
             string propertyName = NameFormatter.FormatNameAsProperty(instanceProperty);
             string matchName = $"matchFrom{propertyName}";
@@ -326,12 +328,25 @@
                     scope.Line($"var {matchName} = this.{propertyName}.Where(kvp => kvp.Value.{MatchInstanceMethodName}({eltVar}, {nameVar})).FirstOrDefault().Value;");
                 }
 
-                scope
-                    .If($"{matchName} == null")
-                        .Line($"violations.Add({nameVar} != null ? $\"\\\"{{{nameVar}}}\\\" does not match any name in schema\" : $\"{{{eltVar}.GetRawText()}} does not match any value in schema\");")
-                        .Line($"{termination};")
-                    .ElseIf($"!{matchName}.{ParserGeneratorValues.ValidateInstanceMethodName}({eltVar}, {nameVar}, violations)")
-                        .Line($"{termination};");
+                CsIf ifNoMatch = scope.If($"{matchName} == null");
+
+                bool childConditionHasName =
+                    propertyDigests[instanceProperty].Class != null &&
+                    classInstanceValidationDigests.TryGetValue(propertyDigests[instanceProperty].Class, out InstanceValidationDigest propertyInstanceValidationDigest) &&
+                    propertyInstanceValidationDigest.ElementConditions[dtdlVersion].NameHasValue != null;
+
+                if (childConditionHasName)
+                {
+                    ifNoMatch.Line($"violations.Add({nameVar} != null ? $\"\\\"{{{nameVar}}}\\\" does not match any name in schema\" : $\"{{{eltVar}.GetRawText()}} does not match any value in schema\");");
+                }
+                else
+                {
+                    ifNoMatch.Line($"violations.Add($\"{{{eltVar}.GetRawText()}} does not match any value in schema\");");
+                }
+
+                ifNoMatch.Line($"{termination};");
+                ifNoMatch.ElseIf($"!{matchName}.{ParserGeneratorValues.ValidateInstanceMethodName}({eltVar}, {nameVar}, violations)")
+                    .Line($"{termination};");
             }
         }
 
