@@ -2,36 +2,22 @@
   "valid": true,
   "options": [],
   "input": [
-    [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:derivedInterface;1",
-        "@type": "Interface",
-        "extends": "dtmi:example:baseInterface;1",
-        "contents": [
-          {
-            "@type": "Telemetry",
-            "name": "resolution",
-            "schema": "integer"
-          }
-        ]
-      },
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:baseInterface;1",
-        "@type": "Interface",
-        "contents": [
-          {
-            "@type": "Telemetry",
-            "name": "pixels",
-            "schema": {
-              "@id": "dtmi:example:boolArray;1",
-              "@type": "Array",
-              "elementSchema": "boolean"
-            }
-          }
-        ]
-      }
-    ]
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:example:Thermostat;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Commercial"
+          ],
+          "name": "setPointTemp",
+          "writable": true,
+          "schema": "double",
+          "brand": "Honeywell"
+        }
+      ]
+    }
   ]
 }
