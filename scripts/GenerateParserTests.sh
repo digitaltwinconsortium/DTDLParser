@@ -16,10 +16,11 @@ mkdir dotnet/tests/ParserUnitTest/generated
 #:: in json dtdl_digest.json
 #:: in json ObjectModelConventions.json
 #:: in json test-cases/generated
+#:: in json test-cases/solecisms
 #:: in json test-cases/doc-examples
 #:: in json test-cases/specification
 #:: out dotnet dotnet/tests/ParserUnitTest/generated
 
-dotnet run --project dotnet/gen/UnitTestGenerator --configuration $DtdlModelParserBuildConfig dotnet/tests/ParserUnitTest/generated test-cases/generated test-cases/doc-examples test-cases/specification dtdl/dtdl_digest.json dtdl/support/ObjectModelConventions.json
+dotnet run --project dotnet/gen/UnitTestGenerator --configuration $DtdlModelParserBuildConfig dotnet/tests/ParserUnitTest/generated test-cases/generated test-cases/solecisms test-cases/doc-examples test-cases/specification dtdl/dtdl_digest.json dtdl/support/ObjectModelConventions.json
 
 test $? -eq 0 || bash scripts/Failure.sh GenerateParserTests $DtdlModelParserBuildConfig

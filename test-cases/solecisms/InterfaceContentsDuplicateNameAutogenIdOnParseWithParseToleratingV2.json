@@ -1,12 +1,12 @@
 ﻿{
   "valid": true,
   "quirks": [
-    "TolerateSolecismsInResolve"
+    "InterfaceContentsDuplicateNameAutogenIdOnParseWithParseToleratingV2.json"
   ],
   "options": [],
   "input": [
     {
-      "@context": "dtmi:dtdl:context;3",
+      "@context": "dtmi:dtdl:context;2",
       "@id": "dtmi:test:parentInterface;1",
       "@type": "Interface",
       "contents": [
@@ -16,43 +16,34 @@
           "schema": "dtmi:test:childInterface;1"
         }
       ]
-    }
-  ],
-  "resolution": [
+    },
     {
-      "request": [
-        "dtmi:test:childInterface;1"
-      ],
-      "response": [
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:test:childInterface;1",
+      "@type": "Interface",
+      "contents": [
         {
-          "@context": "dtmi:dtdl:context;3",
-          "@id": "dtmi:test:childInterface;1",
-          "@type": "Interface",
-          "contents": [
-            {
-              "@type": "Property",
-              "name": "expectedDistance",
-              "schema": "double"
-            },
-            {
-              "@type": "Property",
-              "name": "expectedDistance",
-              "schema": "integer"
-            },
-            {
-              "@type": "Telemetry",
-              "name": "currentDistance",
-              "schema": "double"
-            },
-            {
-              "@type": "Command",
-              "name": "setDistance"
-            },
-            {
-              "@type": "Relationship",
-              "name": "proximity"
-            }
-          ]
+          "@type": "Property",
+          "name": "expectedDistance",
+          "schema": "double"
+        },
+        {
+          "@type": "Property",
+          "name": "expectedDistance",
+          "schema": "integer"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "currentDistance",
+          "schema": "double"
+        },
+        {
+          "@type": "Command",
+          "name": "setDistance"
+        },
+        {
+          "@type": "Relationship",
+          "name": "proximity"
         }
       ]
     }

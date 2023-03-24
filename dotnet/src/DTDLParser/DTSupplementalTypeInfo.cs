@@ -275,19 +275,18 @@
         /// <param name="propName">The name of the property by which the parent refers to this element, used for auto ID generation.</param>
         /// <param name="globalize">Treat all nested definitions as though defined globally.</param>
         /// <param name="allowReservedIds">Allow elements to define IDs that have reserved prefixes.</param>
-        /// <param name="allowIdReferenceSyntax">Allow an object reference to be made using an object containing nothing but an @id property.</param>
-        /// <param name="ignoreElementsWithAutoIDsAndDuplicateNames">Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.</param>
+        /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
         /// <param name="valueCollectionProp">The <see cref="JsonLdProperty"/> holding the <see cref="JsonLdValueCollection"/> to parse.</param>
         /// <param name="properties">A collection of properties to update with the property information.</param>
         /// <param name="jsonLdProperties">A dictionary that maps from property name to the <see cref="JsonLdProperty"/> that defines the property.</param>
         /// <param name="singularPropertyLayers">A dictionary from property name to the name of the layer in which the singular property is defined.</param>
         /// <param name="jsonLdElements">A dictionary that maps from layer name to the <see cref="JsonLdElement"/> that defines the layer of the element.</param>
         /// <returns>True if the property name is recognized.</returns>
-        internal bool TryParseProperty(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, string layer, Dtmi parentId, Dtmi definedIn, string propName, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, JsonLdProperty valueCollectionProp, ref Dictionary<string, object> properties, Dictionary<string, JsonLdProperty> jsonLdProperties, Dictionary<string, string> singularPropertyLayers, Dictionary<string, JsonLdElement> jsonLdElements)
+        internal bool TryParseProperty(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, string layer, Dtmi parentId, Dtmi definedIn, string propName, bool globalize, bool allowReservedIds, bool tolerateSolecisms, JsonLdProperty valueCollectionProp, ref Dictionary<string, object> properties, Dictionary<string, JsonLdProperty> jsonLdProperties, Dictionary<string, string> singularPropertyLayers, Dictionary<string, JsonLdElement> jsonLdElements)
         {
             if (!this.Properties.TryGetValue(propName, out DTSupplementalPropertyInfo propertyInfo))
             {
-                return this.ParentSupplementalType != null && this.ParentSupplementalType.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, parentId, definedIn, propName, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, valueCollectionProp, ref properties, jsonLdProperties, singularPropertyLayers, jsonLdElements);
+                return this.ParentSupplementalType != null && this.ParentSupplementalType.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, parentId, definedIn, propName, globalize, allowReservedIds, tolerateSolecisms, valueCollectionProp, ref properties, jsonLdProperties, singularPropertyLayers, jsonLdElements);
             }
 
             if (jsonLdProperties.TryGetValue(propName, out JsonLdProperty extantProp))
@@ -308,7 +307,7 @@
 
             if (propertyInfo.Type?.Scheme == "dtmi")
             {
-                ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, valueCollectionProp, parentId, definedIn, propName, propertyInfo.DtmiSegment, propertyInfo.IdRequired, propertyInfo.TypeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, propertyInfo.ChildOf, propertyInfo.MinCount ?? 0, propertyInfo.IsPlural, propertyInfo.ValueConstraint, propertyInfo.Type);
+                ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, valueCollectionProp, parentId, definedIn, propName, propertyInfo.DtmiSegment, propertyInfo.IdRequired, propertyInfo.TypeRequired, globalize, allowReservedIds, tolerateSolecisms, propertyInfo.ChildOf, propertyInfo.MinCount ?? 0, propertyInfo.IsPlural, propertyInfo.ValueConstraint, propertyInfo.Type);
                 return true;
             }
 
@@ -633,7 +632,7 @@
             }
         }
 
-        private static void ParseValueCollection(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, string layer, JsonLdProperty valueCollectionProp, Dtmi parentId, Dtmi definedIn, string propName, string dtmiSeg, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames, Dtmi childOf, int minCount, bool isPlural, ValueConstraint valueConstraint, Uri propertyTypeUri)
+        private static void ParseValueCollection(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection, string layer, JsonLdProperty valueCollectionProp, Dtmi parentId, Dtmi definedIn, string propName, string dtmiSeg, bool idRequired, bool typeRequired, bool globalize, bool allowReservedIds, bool tolerateSolecisms, Dtmi childOf, int minCount, bool isPlural, ValueConstraint valueConstraint, Uri propertyTypeUri)
         {
             int valueCount = 0;
 
@@ -684,7 +683,7 @@
                     case JsonLdValueType.Element:
                         if (propertyTypeUri is Dtmi propertyTypeDtmi && aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(propertyTypeDtmi, out DTSupplementalTypeInfo supplementalTypeInfo))
                         {
-                            if (TryParseExtensionElement(supplementalTypeInfo.ExtensionKind, model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, value.ElementValue, layer, parentId, definedIn, propName, valueCollectionProp, dtmiSeg, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, propertyTypeUri.AbsoluteUri))
+                            if (TryParseExtensionElement(supplementalTypeInfo.ExtensionKind, model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, value.ElementValue, layer, parentId, definedIn, propName, valueCollectionProp, dtmiSeg, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, propertyTypeUri.AbsoluteUri))
                             {
                                 ++valueCount;
                             }

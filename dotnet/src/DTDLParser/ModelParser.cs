@@ -81,7 +81,7 @@ namespace DTDLParser
             return supplementalTypes;
         }
 
-        private void ParseJsonLdValues(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, ParsingErrorCollection parsingErrorCollection, JsonLdValue jsonLdValue, int dtdlVersion, bool allowReservedIds, bool allowIdReferenceSyntax, bool ignoreElementsWithAutoIDsAndDuplicateNames)
+        private void ParseJsonLdValues(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, ParsingErrorCollection parsingErrorCollection, JsonLdValue jsonLdValue, int dtdlVersion, bool allowReservedIds, bool tolerateSolecisms)
         {
             if (jsonLdValue.ValueType != JsonLdValueType.Element)
             {
@@ -133,7 +133,7 @@ namespace DTDLParser
                 }
             }
 
-            ParseElement(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, jsonLdValue.ElementValue, globalize: false, allowReservedIds: allowReservedIds, allowIdReferenceSyntax: allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames: ignoreElementsWithAutoIDsAndDuplicateNames);
+            ParseElement(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, jsonLdValue.ElementValue, globalize: false, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms);
         }
 
         private IEnumerable<string> StringToEnumerable(string jsonText)
