@@ -1,5 +1,5 @@
 ﻿{
-  "valid": true,
+  "valid": false,
   "quirks": [
     "TolerateSolecismsInParse"
   ],
@@ -12,10 +12,13 @@
     }
   ],
   "expect": {
-    "elements": [
+    "parsingErrors": [
       {
-        "id": "dtmi:dtdl:anInterface;1",
-        "type": "Interface"
+        "ValidationID": "dtmi:dtdl:parsingError:reservedId",
+        "PrimaryID": null,
+        "Value": "dtmi:dtdl:anInterface;1",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 3
       }
     ]
   }

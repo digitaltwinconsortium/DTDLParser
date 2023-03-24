@@ -14,6 +14,7 @@ ErrLev=0
 
 #:: in dll ParserUnitTest.dll
 #:: in json test-cases/generated
+#:: in json test-cases/solecisms
 #:: in json test-cases/doc-examples
 #:: in json test-cases/specification
 

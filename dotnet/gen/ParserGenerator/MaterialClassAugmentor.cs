@@ -131,8 +131,7 @@
                 tryParseSupplementalPropertyMethod.Param(ParserGeneratorValues.ObverseTypeString, "propName");
                 tryParseSupplementalPropertyMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "globalize");
                 tryParseSupplementalPropertyMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowReservedIds");
-                tryParseSupplementalPropertyMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowIdReferenceSyntax");
-                tryParseSupplementalPropertyMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "ignoreElementsWithAutoIDsAndDuplicateNames");
+                tryParseSupplementalPropertyMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "tolerateSolecisms");
                 tryParseSupplementalPropertyMethod.Param("JsonLdProperty", "valueCollectionProp");
                 tryParseSupplementalPropertyMethod.Param("Dictionary<string, JsonLdProperty>", "supplementalJsonLdProperties");
                 tryParseSupplementalPropertyMethod.Body.If("!aggregateContext.TryCreateDtmi(propName, out Dtmi propDtmi)")
@@ -140,12 +139,12 @@
 
                 if (!classIsOvert)
                 {
-                    tryParseSupplementalPropertyMethod.Body.If($"aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(implicitSupplementalTypeId, out DTSupplementalTypeInfo implicitSupplementalTypeInfo) && implicitSupplementalTypeInfo.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, this.Id, definedIn, propDtmi.ToString(), globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, valueCollectionProp, ref this.supplementalProperties, supplementalJsonLdProperties, this.supplementalSingularPropertyLayers, this.JsonLdElements)")
+                    tryParseSupplementalPropertyMethod.Body.If($"aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(implicitSupplementalTypeId, out DTSupplementalTypeInfo implicitSupplementalTypeInfo) && implicitSupplementalTypeInfo.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, this.Id, definedIn, propDtmi.ToString(), globalize, allowReservedIds, tolerateSolecisms, valueCollectionProp, ref this.supplementalProperties, supplementalJsonLdProperties, this.supplementalSingularPropertyLayers, this.JsonLdElements)")
                         .Line("return true;");
                 }
 
                 tryParseSupplementalPropertyMethod.Body.ForEach("Dtmi supplementalTypeId in immediateSupplementalTypeIds")
-                    .If($"aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo) && supplementalTypeInfo.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, this.Id, definedIn, propDtmi.ToString(), globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, valueCollectionProp, ref this.supplementalProperties, supplementalJsonLdProperties, this.supplementalSingularPropertyLayers, this.JsonLdElements)")
+                    .If($"aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo) && supplementalTypeInfo.TryParseProperty(model, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, parsingErrorCollection, layer, this.Id, definedIn, propDtmi.ToString(), globalize, allowReservedIds, tolerateSolecisms, valueCollectionProp, ref this.supplementalProperties, supplementalJsonLdProperties, this.supplementalSingularPropertyLayers, this.JsonLdElements)")
                     .Line("return true;");
                 tryParseSupplementalPropertyMethod.Body.Line("return false;");
             }
@@ -217,7 +216,7 @@
         {
             if (classIsAugmentable)
             {
-                scope.If($"this.TryParseSupplementalProperty(model, {supplementalTypesVar}, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, layer, definedIn, parsingErrorCollection, prop.Name, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, prop, {jsonLdPropsVar})")
+                scope.If($"this.TryParseSupplementalProperty(model, {supplementalTypesVar}, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, layer, definedIn, parsingErrorCollection, prop.Name, globalize, allowReservedIds, tolerateSolecisms, prop, {jsonLdPropsVar})")
                     .Line("continue;");
             }
         }

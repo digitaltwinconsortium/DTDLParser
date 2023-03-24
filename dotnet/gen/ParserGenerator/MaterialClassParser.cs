@@ -347,8 +347,7 @@
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "typeRequired", "A boolean value indicating whether a @type must be present.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "globalize", "Treat all nested definitions as though defined globally.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowReservedIds", "Allow elements to define IDs that have reserved prefixes.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowIdReferenceSyntax", "Allow an object reference to be made using an object containing nothing but an @id property.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "ignoreElementsWithAutoIDsAndDuplicateNames", "Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.");
+            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "tolerateSolecisms", "Tolerate specific minor invalidities to support backward compatibility.");
             method.Param("HashSet<int>", "allowedVersions", "A set of allowed versions for the element.");
 
             method.Body
@@ -393,7 +392,7 @@
 
             switchOnTokenType.Case("JsonLdValueType.Element");
 
-            switchOnTokenType.If($"TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, valueConstraints, aggregateContext, parsingErrorCollection, value.ElementValue, layer, parentId, definedIn, propName, valueCollectionProp, dtmiSeg, keyProp, idRequired, typeRequired, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames, allowedVersions, \"{typeName}\")")
+            switchOnTokenType.If($"TryParseElement(model, objectPropertyInfoList, elementPropertyConstraints, valueConstraints, aggregateContext, parsingErrorCollection, value.ElementValue, layer, parentId, definedIn, propName, valueCollectionProp, dtmiSeg, keyProp, idRequired, typeRequired, globalize, allowReservedIds, tolerateSolecisms, allowedVersions, \"{typeName}\")")
                 .Line("++valueCount;");
             switchOnTokenType.Line("break;");
 
@@ -474,13 +473,15 @@
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "typeRequired", "A boolean value indicating whether a @type must be present.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "globalize", "Treat all nested definitions as though defined globally.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowReservedIds", "Allow elements to define IDs that have reserved prefixes.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowIdReferenceSyntax", "Allow an object reference to be made using an object containing nothing but an @id property.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "ignoreElementsWithAutoIDsAndDuplicateNames", "Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.");
+            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "tolerateSolecisms", "Tolerate specific minor invalidities to support backward compatibility.");
             method.Param("HashSet<int>", "allowedVersions", "A set of allowed versions for the element.");
             method.Param(ParserGeneratorValues.ObverseTypeString, "inferredType", "The type name to infer if no @type specified on element.");
             method.Returns("True if the <see cref=\"JsonLdElement\"/> parses correctly as an appropriate element.");
 
             method.Body.Line("AggregateContext childAggregateContext = aggregateContext.GetChildContext(elt, parsingErrorCollection);").Break();
+
+            method.Body.Line("bool allowIdReferenceSyntax = tolerateSolecisms && aggregateContext.DtdlVersion < 3;");
+            method.Body.Break();
 
             CsIf ifIdReference = method.Body.If("elt.PropertyCount == 1 && elt.Id != null");
 
@@ -561,11 +562,17 @@
                     .Line("contextComponent: childAggregateContext.DtdlContextComponent,")
                     .Line("layer: layer);");
 
-            method.Body.Line("Dtmi elementId = IdValidator.ParseIdProperty(childAggregateContext, elt, childAggregateContext.MergeDefinitions ? layer : null, parentId, propName, dtmiSeg, idRequired, allowReservedIds, parsingErrorCollection);");
+            method.Body.Line("bool tolerateReservedIds = tolerateSolecisms && aggregateContext.DtdlVersion < 3;");
+            method.Body.Break();
+
+            method.Body.Line("Dtmi elementId = IdValidator.ParseIdProperty(childAggregateContext, elt, childAggregateContext.MergeDefinitions ? layer : null, parentId, propName, dtmiSeg, idRequired, allowReservedIds || tolerateReservedIds, parsingErrorCollection);");
             method.Body.Break();
 
             method.Body.Line("Dtmi baseElementId = childAggregateContext.MergeDefinitions || elementId.Tail == string.Empty ? elementId.Fragmentless : elementId;");
             method.Body.Line("string elementLayer = childAggregateContext.MergeDefinitions ? elementId.Tail : string.Empty;");
+            method.Body.Break();
+
+            method.Body.Line("bool ignoreElementsWithAutoIDsAndDuplicateNames = tolerateSolecisms && aggregateContext.DtdlVersion < 3;");
             method.Body.Break();
 
             CsIf ifTryGetElement = method.Body.If($"model.Dict.TryGetValue(baseElementId, out {baseClassName} baseElement)");
@@ -682,7 +689,7 @@
                 foreach (int dtdlVersion in dtdlVersions)
                 {
                     switchOnDtdlVersion.Case(dtdlVersion.ToString());
-                    switchOnDtdlVersion.Line($"elementInfo.ParsePropertiesV{dtdlVersion}(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, allowIdReferenceSyntax, ignoreElementsWithAutoIDsAndDuplicateNames);");
+                    switchOnDtdlVersion.Line($"elementInfo.ParsePropertiesV{dtdlVersion}(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, tolerateSolecisms);");
                     switchOnDtdlVersion.Line("break;");
                 }
             }
@@ -1057,8 +1064,7 @@
             method.Param(ParserGeneratorValues.IdentifierType, "definedIn", "Identifier of the partition or top-level element under which this element is defined.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "globalize", "Treat all nested definitions as though defined globally.");
             method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowReservedIds", "Allow elements to define IDs that have reserved prefixes.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowIdReferenceSyntax", "Allow an object reference to be made using an object containing nothing but an @id property.");
-            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "ignoreElementsWithAutoIDsAndDuplicateNames", "Ignore any duplicate names and accept the first one in the list, unless the element has a user-assigned ID.");
+            method.Param(ParserGeneratorValues.ObverseTypeBoolean, "tolerateSolecisms", "Tolerate specific minor invalidities to support backward compatibility.");
 
             foreach (MaterialProperty materialProperty in properties)
             {
