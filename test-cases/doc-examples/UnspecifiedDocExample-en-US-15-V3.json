@@ -1,36 +1,29 @@
 ﻿{
-  "valid": false,
+  "valid": true,
   "options": [],
   "input": [
     {
-      "@context": [
-        "dtmi:dtdl:context;3",
-        "dtmi:ex:foo;2"
-      ],
-      "@id": "dtmi:ex:anInterface;1",
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:example:laterInterface;1",
       "@type": "Interface",
       "contents": [
         {
-          "@type": "Command",
-          "name": "setDistance"
-        },
-        {
-          "@context": [
-            "dtmi:ex:foo;3",
-            "dtmi:ex:foo;1"
-          ],
-          "@type": "Relationship",
-          "name": "proximity"
+          "@type": "Component",
+          "name": "subunit",
+          "schema": {
+            "@context": "dtmi:dtdl:context;2",
+            "@id": "dtmi:example:earlierInterface;1",
+            "@type": "Interface",
+            "contents": [
+              {
+                "@type": "Property",
+                "name": "data",
+                "schema": "integer"
+              }
+            ]
+          }
         }
       ]
     }
-  ],
-  "expect": {
-    "parsingErrors": [
-      {
-        "ValidationID": "dtmi:dtdl:parsingError:unresolvableContextSpecifier",
-        "PrimaryID": null
-      }
-    ]
-  }
+  ]
 }

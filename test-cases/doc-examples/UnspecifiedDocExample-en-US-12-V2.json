@@ -4,19 +4,23 @@
   "input": [
     {
       "@context": [
-        "dtmi:dtdl:context;3",
-        "dtmi:example:someExtensionContext;1"
+        "dtmi:dtdl:context;2",
+        "dtmi:ex:foo;2"
       ],
-      "@id": "dtmi:example:someInterface;1",
+      "@id": "dtmi:ex:anInterface;1",
       "@type": "Interface",
       "contents": [
         {
-          "@type": [
-            "Property",
-            "Flavor"
+          "@type": "Command",
+          "name": "setDistance"
+        },
+        {
+          "@context": [
+            "dtmi:ex:foo;3",
+            "dtmi:ex:foo;1"
           ],
-          "name": "flavoring",
-          "schema": "string"
+          "@type": "Relationship",
+          "name": "proximity"
         }
       ]
     }
