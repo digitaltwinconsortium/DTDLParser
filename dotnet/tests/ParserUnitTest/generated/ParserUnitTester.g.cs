@@ -15,7 +15,7 @@ namespace ParserUnitTest
 
     internal static partial class ParserUnitTester
     {
-        private static ModelParser GetModelParser(int? maxDtdlVersion, bool allowUndefinedExtensions, ModelParsingQuirk quirks, JObject testCaseObject, bool useAsyncApi, int maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)
+        private static ModelParser GetModelParser(int? maxDtdlVersion, WhenToAllow allowUndefinedExtensions, ModelParsingQuirk quirks, JObject testCaseObject, bool useAsyncApi, int maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)
         {
             TestDtmiResolver dtmiResolver = new TestDtmiResolver(testCaseObject, useAsyncApi);
             resolutionChecker = dtmiResolver;
@@ -44,6 +44,11 @@ namespace ParserUnitTest
             bool allowUndefinedExtensions = optionsToken.Any(t => ((JValue)t).Value<string>() == "AllowUndefinedExtensions");
             remainingOptionCount -= allowUndefinedExtensions ? 1 : 0;
 
+            bool disallowUndefinedExtensions = optionsToken.Any(t => ((JValue)t).Value<string>() == "DisallowUndefinedExtensions");
+            remainingOptionCount -= disallowUndefinedExtensions ? 1 : 0;
+
+            WhenToAllow allowUndefinedExtensionsInTest = allowUndefinedExtensions ? WhenToAllow.Always : disallowUndefinedExtensions ? WhenToAllow.Never : WhenToAllow.PerDefault;
+
             if (remainingOptionCount > 0)
             {
                 Assert.Inconclusive("Unrecognized ModelParsingOption");
@@ -63,7 +68,7 @@ namespace ParserUnitTest
 
             bool inputGiven = testCaseObject.TryGetValue("input", out JToken inputToken);
 
-            ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensions, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker);
+            ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensionsInTest, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker);
             if (testCaseObject.TryGetValue("extensions", out JToken loadToken))
             {
                 TestExtension(modelParser, loadToken, testCaseObject, extensionValid: valid || inputGiven);

@@ -13,7 +13,7 @@ namespace DTDLParser
 
         private readonly ContextCollection contextCollection;
 
-        private readonly bool allowUndefinedExtensions;
+        private readonly WhenToAllow allowUndefinedExtensions;
         private readonly bool suppressDefinitionMerging;
         private readonly int? maxDtdlVersion;
 
@@ -33,7 +33,7 @@ namespace DTDLParser
         /// <param name="allowUndefinedExtensions">True if parsing should continue when encountering a reference to an extension that cannot be resolved.</param>
         /// <param name="suppressDefinitionMerging">True if parsing should not merge the definitions of elements whose identifiers contain IRI fragments.</param>
         /// <param name="maxDtdlVersion">An optional integer value that restricts the highest DTDL version the parser should accept.</param>
-        internal AggregateContext(ContextCollection contextCollection, SupplementalTypeCollection supplementalTypeCollection, bool allowUndefinedExtensions, bool suppressDefinitionMerging, int? maxDtdlVersion = null)
+        internal AggregateContext(ContextCollection contextCollection, SupplementalTypeCollection supplementalTypeCollection, WhenToAllow allowUndefinedExtensions, bool suppressDefinitionMerging, int? maxDtdlVersion = null)
         {
             this.contextCollection = contextCollection;
             this.allowUndefinedExtensions = allowUndefinedExtensions;
@@ -52,7 +52,7 @@ namespace DTDLParser
         private AggregateContext(
             ContextCollection contextCollection,
             SupplementalTypeCollection supplementalTypeCollection,
-            bool allowUndefinedExtensions,
+            WhenToAllow allowUndefinedExtensions,
             bool suppressDefinitionMerging,
             int? maxDtdlVersion,
             VersionedContext activeDtdlContext,
@@ -286,7 +286,7 @@ namespace DTDLParser
             Dictionary<string, VersionedContext> prefaceAffiliateContexts = new Dictionary<string, VersionedContext>();
             while (startIndex < contextComponents.Count() && !contextComponents[startIndex].IsLocal && this.contextCollection.TryGetAffiliateImplicitDtdlVersion(contextComponents[startIndex].RemoteId, out int implicitDtdlVersion))
             {
-                if (this.contextCollection.TryGetAffiliateContextFromContextComponent(contextComponents[startIndex], out string affiliateName, out VersionedContext affiliateContext, implicitDtdlVersion, parsingErrorCollection, allowUndefinedExtensions: this.allowUndefinedExtensions))
+                if (this.contextCollection.TryGetAffiliateContextFromContextComponent(contextComponents[startIndex], out string affiliateName, out VersionedContext affiliateContext, implicitDtdlVersion, parsingErrorCollection, allowUndefinedExtensions: this.allowUndefinedExtensions == WhenToAllow.Always))
                 {
                     prefaceAffiliateContexts[affiliateName] = affiliateContext;
                 }
@@ -323,6 +323,9 @@ namespace DTDLParser
                 --endIndex;
             }
 
+            bool allowUndefinedExtensionsNow = this.allowUndefinedExtensions == WhenToAllow.Always ||
+                (this.allowUndefinedExtensions != WhenToAllow.Never && this.contextCollection.DoesDtdlVersionAllowUndefinedExtensionsByDefault(childDtdlContext.MajorVersion));
+
             Dictionary<string, VersionedContext> childAffiliateContexts = this.activeAffiliateContexts;
             HashSet<string> childUnrecognizedContexts = this.unrecognizedContexts;
             if (startIndex <= endIndex || prefaceAffiliateContexts.Any())
@@ -337,7 +340,7 @@ namespace DTDLParser
 
                 for (int index = startIndex; index <= endIndex; ++index)
                 {
-                    if (this.contextCollection.TryGetAffiliateContextFromContextComponent(contextComponents[index], out string affiliateName, out VersionedContext affiliateContext, childDtdlContext.MajorVersion, parsingErrorCollection, allowUndefinedExtensions: this.allowUndefinedExtensions))
+                    if (this.contextCollection.TryGetAffiliateContextFromContextComponent(contextComponents[index], out string affiliateName, out VersionedContext affiliateContext, childDtdlContext.MajorVersion, parsingErrorCollection, allowUndefinedExtensions: allowUndefinedExtensionsNow))
                     {
                         childAffiliateContexts[affiliateName] = affiliateContext;
                     }

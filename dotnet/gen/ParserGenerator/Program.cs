@@ -59,7 +59,7 @@
 
                 List<ITypeGenerator> typeGenerators = new List<ITypeGenerator>();
 
-                typeGenerators.Add(new ContextCollectionGenerator(metamodelDigest.Contexts, metamodelDigest.SupplementalTypes, metamodelDigest.DtdlVersionsAllowingLocalTerms, metamodelDigest.DtdlVersionsAllowingDynamicExtensions, metamodelDigest.DtdlVersionsRestrictingKeywords, metamodelDigest.ContextsMergeDefinitions, metamodelDigest.ReservedIdPrefixes, metamodelDigest.AffiliateContextsImplicitDtdlVersions, areDynamicExtensionsSupported));
+                typeGenerators.Add(new ContextCollectionGenerator(metamodelDigest.Contexts, metamodelDigest.SupplementalTypes, metamodelDigest.DtdlVersionsAllowingUndefinedExtensionsByDefault, metamodelDigest.DtdlVersionsAllowingLocalTerms, metamodelDigest.DtdlVersionsAllowingDynamicExtensions, metamodelDigest.DtdlVersionsRestrictingKeywords, metamodelDigest.ContextsMergeDefinitions, metamodelDigest.ReservedIdPrefixes, metamodelDigest.AffiliateContextsImplicitDtdlVersions, areDynamicExtensionsSupported));
                 typeGenerators.Add(new AggregateContextGenerator(metamodelDigest.BaseClass, areDynamicExtensionsSupported, metamodelDigest.SupplementalTypes));
                 typeGenerators.Add(new HelpersGenerator(metamodelDigest.BaseClass));
                 typeGenerators.Add(new StandardElementCollectionGenerator(metamodelDigest.BaseClass, metamodelDigest.Aliases));
@@ -69,7 +69,7 @@
                 typeGenerators.Add(new RootableGenerator(metamodelDigest.IsLayeringSupported));
                 typeGenerators.Add(new ModelGenerator(metamodelDigest.BaseClass, metamodelDigest.ReservedIdPrefixes));
                 typeGenerators.Add(new ModelParserGenerator(metamodelDigest.BaseClass, areDynamicExtensionsSupported, metamodelDigest.IsLayeringSupported, outTsFile));
-                typeGenerators.Add(new ParsingOptionsGenerator(metamodelDigest.IsLayeringSupported, metamodelDigest.DtdlVersions));
+                typeGenerators.Add(new ParsingOptionsGenerator(metamodelDigest.IsLayeringSupported, metamodelDigest.DtdlVersions, metamodelDigest.DtdlVersionsAllowingUndefinedExtensionsByDefault));
                 typeGenerators.Add(new SupplementalTypeInfoGenerator(metamodelDigest.BaseClass, metamodelDigest.ExtensionKinds, metamodelDigest.MaterialClasses));
                 typeGenerators.Add(new PartitionTypeCollectionGenerator(metamodelDigest.PartitionClasses, metamodelDigest.Contexts, metamodelDigest.PartitionRestrictions, metamodelDigest.DtdlVersions));
                 typeGenerators.Add(new RootableTypeCollectionGenerator(metamodelDigest.RootableClasses, metamodelDigest.Contexts));

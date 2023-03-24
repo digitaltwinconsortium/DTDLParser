@@ -37,5 +37,17 @@ namespace DTDLParser
         /// The default value is 3, because this is the highest version of DTDL understood by this version of <see cref="ModelParser"/>.
         /// </remarks>
         public int MaxDtdlVersion { get; set; } = MaxKnownDtdlVersion;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether and when the parser should continue parsing if it encounters a reference to an extension that cannot be resolved.
+        /// If this property is <see cref="WhenToAllow.Never"/>, an undefined extension context in a model will result in a <see cref="ParsingException"/> with a <see cref="ParsingError"/> indicating a <c>ValidationID</c> of dtmi:dtdl:parsingError:unresolvableContextSpecifier or dtmi:dtdl:parsingError:unresolvableContextVersion.
+        /// If this property is <see cref="WhenToAllow.Always"/>, an undefined extension context in a model will not interrupt parsing, and furthermore the presence of this undefined context will allow the model to use undefined co-types and to use undefined properties in elements that have undefined co-types.
+        /// If this property is not set or is set to <see cref="WhenToAllow.PerDefault"/>, the parsing behavior is determined according to the version of the DTDL context specified by the model.
+        /// </summary>
+        /// <remarks>
+        /// For DTDL v2, the default behavior is to disallow undefined extensions.
+        /// For DTDL v3, the default behavior is to disallow undefined extensions.
+        /// </remarks>
+        public WhenToAllow AllowUndefinedExtensions { get; set; } = WhenToAllow.PerDefault;
     }
 }

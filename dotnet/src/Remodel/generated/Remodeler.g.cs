@@ -170,7 +170,7 @@ namespace DTDLParser
 
         private bool TryValidateModel(out IReadOnlyDictionary<Dtmi, DTEntityInfo> model, out IList<ParsingError> parsingErrors, out IList<Dtmi> undefinedIdentifiers, bool allowUndefinedExtensions = false, int maxDtdlVersion = 0)
         {
-            var parsingOptions = new ParsingOptions() { AllowUndefinedExtensions = allowUndefinedExtensions };
+            var parsingOptions = new ParsingOptions() { AllowUndefinedExtensions = allowUndefinedExtensions ? WhenToAllow.Always : WhenToAllow.Never };
             if (maxDtdlVersion > 0)
             {
                 parsingOptions.MaxDtdlVersion = maxDtdlVersion;

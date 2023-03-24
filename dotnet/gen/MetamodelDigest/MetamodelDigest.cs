@@ -37,6 +37,8 @@
 
             this.PartitionRestrictions = ((JObject)digest["partitions"]).Properties().ToDictionary(p => int.Parse(p.Name), p => new PartitionRestriction((JObject)p.Value));
 
+            this.DtdlVersionsAllowingUndefinedExtensionsByDefault = digest.TryGetValue("dtdlVersionsAllowingUndefinedExtensionsByDefault", out JToken undefinedExtensionToken) ? ((JArray)undefinedExtensionToken).Select(t => ((JValue)t).Value<int>()).ToList() : new List<int>();
+
             this.DtdlVersionsAllowingLocalTerms = ((JArray)digest["dtdlVersionsAllowingLocalTerms"]).Select(t => ((JValue)t).Value<int>()).ToList();
 
             this.DtdlVersionsAllowingDynamicExtensions = ((JArray)digest["dtdlVersionsAllowingDynamicExtensions"]).Select(t => ((JValue)t).Value<int>()).ToList();
@@ -125,6 +127,12 @@
         /// Gets a dictionary that maps from DTDL version to a <see cref="PartitionRestriction"/> object that describes restrictions on partition classes.
         /// </summary>
         public Dictionary<int, PartitionRestriction> PartitionRestrictions { get; }
+
+        /// <summary>
+        /// Gets a list of DTDL versions that by default allow undefined extension contexts to be specified in models.
+        /// This behavior can be overridden for all DTDL versions by the <c>AllowUndefinedExtensions</c> field in <c>ParsingOptions</c>.
+        /// </summary>
+        public List<int> DtdlVersionsAllowingUndefinedExtensionsByDefault { get; }
 
         /// <summary>
         /// Gets a list of DTDL versions that allow local term definitions in context blocks.
