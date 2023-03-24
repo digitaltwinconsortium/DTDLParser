@@ -2,28 +2,31 @@
   "valid": true,
   "options": [],
   "input": [
-    {
-      "@context": "dtmi:dtdl:context;3",
-      "@id": "dtmi:example:laterInterface;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Component",
-          "name": "subunit",
-          "schema": {
-            "@context": "dtmi:dtdl:context;2",
-            "@id": "dtmi:example:earlierInterface;1",
-            "@type": "Interface",
-            "contents": [
-              {
-                "@type": "Property",
-                "name": "data",
-                "schema": "integer"
-              }
-            ]
+    [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:laterInterface;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Component",
+            "name": "subunit",
+            "schema": "dtmi:example:earlierInterface;1"
           }
-        }
-      ]
-    }
+        ]
+      },
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:earlierInterface;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Property",
+            "name": "data",
+            "schema": "integer"
+          }
+        ]
+      }
+    ]
   ]
 }

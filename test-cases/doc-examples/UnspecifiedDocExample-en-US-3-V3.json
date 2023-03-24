@@ -4,9 +4,20 @@
   "input": [
     {
       "@context": "dtmi:dtdl:context;3",
-      "@id": "dtmi:com:example:Thermostat;1",
+      "@id": "dtmi:com:example:anInterface;1",
       "@type": "Interface",
-      "displayName": "Thermostat"
+      "contents": [
+        {
+          "@id": "dtmi:com:example:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "currentDistance",
+          "schema": {
+            "@id": "dtmi:com:example:doubleArray;1",
+            "@type": "Array",
+            "elementSchema": "double"
+          }
+        }
+      ]
     }
   ]
 }
