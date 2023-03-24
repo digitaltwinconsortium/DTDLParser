@@ -49,6 +49,21 @@ namespace Tutorial12
             Console.WriteLine(ModelParser.GetTermOrUri(new Dtmi("dtmi:dtdl:property:unit;2")));
             #endregion
 
+            #region Snippet:DtdlParserTutorial12_GetImplicitElement
+            IReadOnlyDictionary<Dtmi, DTEntityInfo> implicitElements = modelParser.GetImplicitElements();
+            #endregion
+
+            #region Snippet:DtdlParserTutorial12_DisplayLengthUnits
+            Dtmi lengthUnitType = new Dtmi("dtmi:standard:class:LengthUnit;2");
+            foreach (KeyValuePair<Dtmi, DTEntityInfo> elt in implicitElements)
+            {
+                if (elt.Value.SupplementalTypes.Contains(lengthUnitType))
+                {
+                    Console.WriteLine(ModelParser.GetTermOrUri(elt.Key));
+                }
+            }
+            #endregion
+
             #region Snippet:DtdlParserTutorial12_ObtainDtdlText
             string jsonText =
             @"{

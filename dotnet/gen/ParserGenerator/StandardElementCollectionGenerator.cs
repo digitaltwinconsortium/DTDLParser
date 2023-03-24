@@ -28,6 +28,7 @@
             standardElementsClass.Summary("A collection of values of standard elements from the DTDL metamodel.");
 
             this.GeneratePopulateEndogenousAliasesMethod(standardElementsClass);
+            this.GenerateGetStandardElementsMethod(standardElementsClass);
         }
 
         private void GeneratePopulateEndogenousAliasesMethod(CsClass standardElementsClass)
@@ -61,6 +62,14 @@
 
             forEachAlias.ForEach("Dtmi equivalentId in equivalentIds")
                 .Line("EndogenousAliases[equivalentId] = toId ?? fromId;");
+        }
+
+        private void GenerateGetStandardElementsMethod(CsClass standardElementsClass)
+        {
+            CsMethod method = standardElementsClass.Method(Access.Internal, Novelty.Normal, $"IReadOnlyDictionary<{ParserGeneratorValues.IdentifierType}, {this.baseClassName}>", "GetStandardElements");
+            method.Summary("Gets an object model representing all the model-level elements implicitly available for reference.");
+            method.Returns($"A dictionary that maps each <c>{ParserGeneratorValues.IdentifierType}</c> to a subclass of <c>{this.baseClassName}</c>.");
+            method.Body.Line("return EndogenousStandardModel.Dict.ExpandWith(this.exogenousStandardModel.Dict);");
         }
     }
 }

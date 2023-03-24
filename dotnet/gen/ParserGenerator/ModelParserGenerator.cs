@@ -46,6 +46,8 @@
                 this.GenerateLoadExtensionsMethod(parserClass);
             }
 
+            this.GenerateGetImplicitElementsMethod(parserClass);
+
             this.GenerateDeclarations(parserClass, isAsync: true);
             this.GenerateDeclarations(parserClass, isAsync: false);
 
@@ -177,6 +179,25 @@
 
             tryLoad.Finally()
                 .Line("this.readerWriterAsyncLock.ExitWriteLock();");
+        }
+
+        private void GenerateGetImplicitElementsMethod(CsClass parserClass)
+        {
+            CsMethod method = parserClass.Method(Access.Public, Novelty.Normal, $"IReadOnlyDictionary<{ParserGeneratorValues.IdentifierType}, {this.baseClassName}>", "GetImplicitElements");
+            method.Summary("Gets an object model representing all the model-level elements implicitly available for reference.");
+            method.Returns($"A dictionary that maps each <c>{ParserGeneratorValues.IdentifierType}</c> to a subclass of <c>{this.baseClassName}</c>.");
+
+            method.Body
+                .Line($"IReadOnlyDictionary<{ParserGeneratorValues.IdentifierType}, {this.baseClassName}> standardElements;")
+                .Break()
+                .Line("this.readerWriterAsyncLock?.EnterReadLock();")
+                .Try()
+                    .Line("standardElements = this.standardElementCollection.GetStandardElements();")
+                .Finally()
+                    .Line("this.readerWriterAsyncLock?.ExitReadLock();");
+
+            method.Body
+                .Line("return standardElements;");
         }
 
         private void GenerateDeclarations(CsClass parserClass, bool isAsync)

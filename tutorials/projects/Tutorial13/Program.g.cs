@@ -50,6 +50,19 @@ namespace Tutorial13
             Console.WriteLine(ModelParser.GetTermOrUri(new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:property:unit")));
             #endregion
 
+            #region Snippet:DtdlParserTutorial13_GetImplicitElement
+            IReadOnlyDictionary<Dtmi, DTEntityInfo> implicitElements = modelParser.GetImplicitElements();
+            #endregion
+
+            #region Snippet:DtdlParserTutorial13_DisplayLengthUnits
+            Dtmi lengthUnitId = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:enum:LengthUnit");
+            DTEnumInfo lengthUnitEnum = (DTEnumInfo)implicitElements[lengthUnitId];
+            foreach (DTEnumValueInfo enumVal in lengthUnitEnum.EnumValues)
+            {
+                Console.WriteLine(ModelParser.GetTermOrUri(enumVal.Id));
+            }
+            #endregion
+
             #region Snippet:DtdlParserTutorial13_ObtainDtdlText
             string jsonText =
             @"{

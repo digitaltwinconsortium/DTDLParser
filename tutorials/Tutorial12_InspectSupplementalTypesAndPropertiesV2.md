@@ -71,6 +71,50 @@ This snippet displays:
 unit
 ```
 
+## Inspect available unit values
+
+Still without needing to parse a model, we can inspect the elements defined by DTDL, by the standard extensions, and by any partner or feature extension that is directly supported by the `ModelParser`.
+
+The `GetImplicitElements()` method returns an object model of elements that are implicitly available for reference by any model that could be submitted to the `Parse()` or `ParseAsync()` methods.
+The type of the returned object model matches the type returned by the parsing methods.
+
+```C# Snippet:DtdlParserTutorial12_GetImplicitElement
+IReadOnlyDictionary<Dtmi, DTEntityInfo> implicitElements = modelParser.GetImplicitElements();
+```
+
+The output above showed that the Distance type has a "unit" property whose type is dtmi:standard:class:LengthUnit;2.
+We can display the terms for all elements that have this supplemental type.
+
+```C# Snippet:DtdlParserTutorial12_DisplayLengthUnits
+Dtmi lengthUnitType = new Dtmi("dtmi:standard:class:LengthUnit;2");
+foreach (KeyValuePair<Dtmi, DTEntityInfo> elt in implicitElements)
+{
+    if (elt.Value.SupplementalTypes.Contains(lengthUnitType))
+    {
+        Console.WriteLine(ModelParser.GetTermOrUri(elt.Key));
+    }
+}
+```
+
+This snippet displays:
+
+```Console
+metre
+centimetre
+millimetre
+micrometre
+nanometre
+kilometre
+foot
+inch
+mile
+nauticalMile
+astronomicalUnit
+```
+
+These are the permitted values for the "unit" property of an element that has co-type Distance.
+The model presented in the next section has one of these values (kilometre) for its "unit" property.
+
 ## Obtain the JSON text of a DTDL model that employs a supplemental type
 
 The DTDL language is syntactically JSON.
