@@ -49,7 +49,7 @@ namespace DTDLParser
                 this.dtmiResolverAsync = null;
                 this.dtdlResolveLocator = null;
                 this.MaxDtdlVersion = ParsingOptions.MaxKnownDtdlVersion;
-                this.AllowUndefinedExtensions = false;
+                this.AllowUndefinedExtensions = WhenToAllow.PerDefault;
             }
 
             this.jsonLdResolvingReader = new JsonLdReader(this.dtdlResolveLocator);

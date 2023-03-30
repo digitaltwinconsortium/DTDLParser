@@ -33,10 +33,12 @@ namespace DTDLParser
         public int MaxDtdlVersion { get; }
 
         /// <summary>
-        /// Gets a value indicating whether the parser will continue parsing if it encounters a reference to an extension that cannot be resolved.
-        /// When this property is true, the parser will not throw a <see cref="ParsingException"/> with a <see cref="ParsingError"/> indicating a <c>ValidationID</c> of dtmi:dtdl:parsingError:unresolvableContextSpecifier or dtmi:dtdl:parsingError:unresolvableContextVersion.
+        /// Gets a value indicating whether and when the parser will continue parsing if it encounters a reference to an extension that cannot be resolved.
+        /// If this property is <see cref="WhenToAllow.Never"/>, an undefined extension context in a model will result in a <see cref="ParsingException"/> with a <see cref="ParsingError"/> indicating a <c>ValidationID</c> of dtmi:dtdl:parsingError:unresolvableContextSpecifier or dtmi:dtdl:parsingError:unresolvableContextVersion.
+        /// If this property is <see cref="WhenToAllow.Always"/>, an undefined extension context in a model will not interrupt parsing, and furthermore the presence of this undefined context will allow the model to use undefined co-types and to use undefined properties in elements that have undefined co-types.
+        /// If this property is not set or is set to <see cref="WhenToAllow.PerDefault"/>, the parsing behavior is determined according to the version of the DTDL context specified by the model.
         /// </summary>
-        public bool AllowUndefinedExtensions { get; }
+        public WhenToAllow AllowUndefinedExtensions { get; }
 
         /// <summary>
         /// Get a term from a URI if defined in the context. If not, return the URI as a string.

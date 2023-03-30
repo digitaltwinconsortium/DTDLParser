@@ -8,6 +8,7 @@
     public class ContextCollectionGenerator : ITypeGenerator
     {
         private readonly Dictionary<string, Dictionary<string, string>> contexts;
+        private readonly List<int> dtdlVersionsAllowingUndefinedExtensionsByDefault;
         private readonly List<int> dtdlVersionsAllowingLocalTerms;
         private readonly List<int> dtdlVersionsRestrictingKeywords;
         private readonly List<int> dtdlVersionsAllowingDynamicExtensions;
@@ -22,6 +23,7 @@
         /// </summary>
         /// <param name="contexts">A dictionary that maps from a context ID to a dictionary of term definitions.</param>
         /// <param name="supplementalTypes">A dictionary that maps from type URI to a <see cref="SupplementalTypeDigest"/> object providing details about the identified supplemental type.</param>
+        /// <param name="dtdlVersionsAllowingUndefinedExtensionsByDefault">A list of DTDL versions that by default allow undefined extension contexts to be specified in models.</param>
         /// <param name="dtdlVersionsAllowingLocalTerms">A list of DTDL versions that allow local term definitions in context blocks.</param>
         /// <param name="dtdlVersionsAllowingDynamicExtensions">A list of DTDL versions that allow language extensions to be added dynamically.</param>
         /// <param name="dtdlVersionsRestrictingKeywords">A list of DTDL versions that restrict the use of JSON-LD keywords.</param>
@@ -32,6 +34,7 @@
         public ContextCollectionGenerator(
             Dictionary<string, Dictionary<string, string>> contexts,
             Dictionary<string, SupplementalTypeDigest> supplementalTypes,
+            List<int> dtdlVersionsAllowingUndefinedExtensionsByDefault,
             List<int> dtdlVersionsAllowingLocalTerms,
             List<int> dtdlVersionsAllowingDynamicExtensions,
             List<int> dtdlVersionsRestrictingKeywords,
@@ -41,6 +44,7 @@
             bool areDynamicExtensionsSupported)
         {
             this.contexts = contexts;
+            this.dtdlVersionsAllowingUndefinedExtensionsByDefault = dtdlVersionsAllowingUndefinedExtensionsByDefault;
             this.dtdlVersionsAllowingLocalTerms = dtdlVersionsAllowingLocalTerms;
             this.dtdlVersionsAllowingDynamicExtensions = dtdlVersionsAllowingDynamicExtensions;
             this.dtdlVersionsRestrictingKeywords = dtdlVersionsRestrictingKeywords;
@@ -91,6 +95,9 @@
         private void GenerateStaticConstructor(CsClass contextClass)
         {
             CsConstructor constructor = contextClass.Constructor(Access.Implicit, Multiplicity.Static);
+
+            constructor.Body.Line($"DtdlVersionsAllowingUndefinedExtensionsByDefault = new HashSet<int>() {{ {string.Join(", ", this.dtdlVersionsAllowingUndefinedExtensionsByDefault)} }};");
+            constructor.Body.Break();
 
             constructor.Body.Line($"DtdlVersionsAllowingLocalTerms = new HashSet<int>() {{ {string.Join(", ", this.dtdlVersionsAllowingLocalTerms)} }};");
             constructor.Body.Break();

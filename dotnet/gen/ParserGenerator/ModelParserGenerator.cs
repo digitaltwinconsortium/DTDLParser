@@ -100,7 +100,7 @@
                 .Line("this.dtmiResolverAsync = null;")
                 .Line("this.dtdlResolveLocator = null;")
                 .Line("this.MaxDtdlVersion = ParsingOptions.MaxKnownDtdlVersion;")
-                .Line("this.AllowUndefinedExtensions = false;");
+                .Line("this.AllowUndefinedExtensions = WhenToAllow.PerDefault;");
 
             if (this.isLayeringSupported)
             {

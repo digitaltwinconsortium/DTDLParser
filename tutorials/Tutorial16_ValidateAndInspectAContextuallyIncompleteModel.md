@@ -98,10 +98,10 @@ Alternatively, this context may refer to an expected future language extension t
 In either case, a service or tool may benefit from being able to perform a best-effort validation of the understood portions of the model and to inspect the opaque portions.
 
 The `ModelParser` constructor takes an optional parameter of type `ParsingOptions` that controls the parsing of DTDL models.
-The following snippet instantiates a new parser with a `ParsingOptions` instance whose `AllowUndefinedExtensions` property is `true`.
+The following snippet instantiates a new parser with a `ParsingOptions` instance whose `AllowUndefinedExtensions` property is `WhenToAllow.Always`.
 
 ```C# Snippet:DtdlParserTutorial16_NewParserSetAllowUndefinedExtensions
-modelParser = new ModelParser(new ParsingOptions() { AllowUndefinedExtensions = true });
+modelParser = new ModelParser(new ParsingOptions() { AllowUndefinedExtensions = WhenToAllow.Always });
 ```
 
 [repeat]: # (Snippet:DtdlParserTutorial16_CallParse)

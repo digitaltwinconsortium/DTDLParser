@@ -51,6 +51,15 @@
                 .Break();
 
             executeTestCaseMethod.Body
+                .Line("bool disallowUndefinedExtensions = optionsToken.Any(t => ((JValue)t).Value<string>() == \"DisallowUndefinedExtensions\");")
+                .Line("remainingOptionCount -= disallowUndefinedExtensions ? 1 : 0;")
+                .Break();
+
+            executeTestCaseMethod.Body
+                .Line("WhenToAllow allowUndefinedExtensionsInTest = allowUndefinedExtensions ? WhenToAllow.Always : disallowUndefinedExtensions ? WhenToAllow.Never : WhenToAllow.PerDefault;")
+                .Break();
+
+            executeTestCaseMethod.Body
                 .If("remainingOptionCount > 0")
                     .Line("Assert.Inconclusive(\"Unrecognized ModelParsingOption\");");
 
@@ -86,7 +95,7 @@
         {
             CsMethod getModelParserMethod = parserUnitTesterClass.Method(Access.Private, Novelty.Normal, "ModelParser", "GetModelParser", Multiplicity.Static);
             getModelParserMethod.Param("int?", "maxDtdlVersion");
-            getModelParserMethod.Param("bool", "allowUndefinedExtensions");
+            getModelParserMethod.Param("WhenToAllow", "allowUndefinedExtensions");
             getModelParserMethod.Param("ModelParsingQuirk", "quirks");
             getModelParserMethod.Param("JObject", "testCaseObject");
             getModelParserMethod.Param("bool", "useAsyncApi");
@@ -221,7 +230,7 @@
 
         private CsScope GetModelParser(CsScope outerScope)
         {
-            const string callGetModelParser = "ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensions, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)";
+            const string callGetModelParser = "ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensionsInTest, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)";
 
             if (this.areDynamicExtensionsSupported)
             {

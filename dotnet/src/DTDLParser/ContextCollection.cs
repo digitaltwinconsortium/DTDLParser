@@ -17,6 +17,7 @@ namespace DTDLParser
         private static readonly ContextHistory DtdlContextHistory;
         private static readonly Dictionary<string, ContextHistory> EndogenousAffiliateContextHistories;
 
+        private static readonly HashSet<int> DtdlVersionsAllowingUndefinedExtensionsByDefault;
         private static readonly HashSet<int> DtdlVersionsAllowingLocalTerms;
         private static readonly HashSet<int> DtdlVersionsRestrictingKeywords;
         private static readonly Dictionary<string, int> EndogenousAffiliateContextsImplicitDtdlVersions;
@@ -116,6 +117,16 @@ namespace DTDLParser
             {
                 this.exogenousAffiliateContextHistories[affiliateName] = new ContextHistory(new List<VersionedContext>() { versionedContext });
             }
+        }
+
+        /// <summary>
+        /// Indicates whether a given DTDL version by default allows undefined extension contexts to be specified in models.
+        /// </summary>
+        /// <param name="dtdlVersion">The DTDL version number to check.</param>
+        /// <returns>True if undefined extension contexts are permitted.</returns>
+        internal bool DoesDtdlVersionAllowUndefinedExtensionsByDefault(int dtdlVersion)
+        {
+            return DtdlVersionsAllowingUndefinedExtensionsByDefault.Contains(dtdlVersion);
         }
 
         /// <summary>

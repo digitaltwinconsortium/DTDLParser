@@ -231,7 +231,7 @@
             method.Param("bool", "allowUndefinedExtensions", null, "false");
             method.Param("int", "maxDtdlVersion", null, "0");
 
-            method.Body.Line("var parsingOptions = new ParsingOptions() { AllowUndefinedExtensions = allowUndefinedExtensions };");
+            method.Body.Line("var parsingOptions = new ParsingOptions() { AllowUndefinedExtensions = allowUndefinedExtensions ? WhenToAllow.Always : WhenToAllow.Never };");
 
             method.Body.If("maxDtdlVersion > 0")
                 .Line("parsingOptions.MaxDtdlVersion = maxDtdlVersion;");

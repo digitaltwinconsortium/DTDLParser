@@ -72,7 +72,7 @@ namespace Tutorial16
             #endregion
 
             #region Snippet:DtdlParserTutorial16_NewParserSetAllowUndefinedExtensions
-            modelParser = new ModelParser(new ParsingOptions() { AllowUndefinedExtensions = true });
+            modelParser = new ModelParser(new ParsingOptions() { AllowUndefinedExtensions = WhenToAllow.Always });
             #endregion
 
             try

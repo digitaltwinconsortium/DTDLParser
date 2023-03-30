@@ -1333,7 +1333,7 @@ namespace ParserUnitTest
         [DataRow("RelationshipTargetUrlV3")]
         [DataRow("RelationshipWithSemanticTypeQuantitativeV3")]
         [DataRow("RelationshipWithSemanticTypeStandardV2")]
-        [DataRow("ResolvableAndUnresolvableAffiliateContextVersionsV3")]
+        [DataRow("ResolvableAndUnresolvableAffiliateContextVersionsAndDisallowUndefinedExtensionsV3")]
         public void TestParser_R(string testName)
         {
             TestParser(testName);
@@ -1553,20 +1553,20 @@ namespace ParserUnitTest
         [DataRow("UnrecognizedDtdlContextVersionV3")]
         [DataRow("UnresolvableAffiliateContextSpecifierAndAllowUndefinedExtensionsV2")]
         [DataRow("UnresolvableAffiliateContextSpecifierAndAllowUndefinedExtensionsV3")]
-        [DataRow("UnresolvableAffiliateContextSpecifierV2")]
-        [DataRow("UnresolvableAffiliateContextSpecifierV3")]
+        [DataRow("UnresolvableAffiliateContextSpecifierAndDisallowUndefinedExtensionsV2")]
+        [DataRow("UnresolvableAffiliateContextSpecifierAndDisallowUndefinedExtensionsV3")]
         [DataRow("UnresolvableAffiliateContextVersionAndAllowUndefinedExtensionsV2")]
         [DataRow("UnresolvableAffiliateContextVersionAndAllowUndefinedExtensionsV3")]
-        [DataRow("UnresolvableAffiliateContextVersionV2")]
-        [DataRow("UnresolvableAffiliateContextVersionV3")]
+        [DataRow("UnresolvableAffiliateContextVersionAndDisallowUndefinedExtensionsV2")]
+        [DataRow("UnresolvableAffiliateContextVersionAndDisallowUndefinedExtensionsV3")]
         [DataRow("UnresolvableContextSpecifierAndAllowUndefinedExtensionsV2")]
         [DataRow("UnresolvableContextSpecifierAndAllowUndefinedExtensionsV3")]
-        [DataRow("UnresolvableContextSpecifierV2")]
-        [DataRow("UnresolvableContextSpecifierV3")]
+        [DataRow("UnresolvableContextSpecifierAndDisallowUndefinedExtensionsV2")]
+        [DataRow("UnresolvableContextSpecifierAndDisallowUndefinedExtensionsV3")]
         [DataRow("UnresolvableContextVersionAndAllowUndefinedExtensionsV2")]
         [DataRow("UnresolvableContextVersionAndAllowUndefinedExtensionsV3")]
-        [DataRow("UnresolvableContextVersionV2")]
-        [DataRow("UnresolvableContextVersionV3")]
+        [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV2")]
+        [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV3")]
         public void TestParser_U(string testName)
         {
             TestParser(testName);

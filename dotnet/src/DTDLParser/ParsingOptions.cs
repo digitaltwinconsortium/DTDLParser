@@ -22,11 +22,5 @@ namespace DTDLParser
         /// Gets or sets an optional <c>DtdlResolveLocator</c> delegate that will be called to convert a resolve DTMI and line number into a source name and line number.
         /// </summary>
         public DtdlResolveLocator DtdlResolveLocator { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the parser should continue parsing if it encounters a reference to an extension that cannot be resolved.
-        /// If this property is true, the parser will not throw a <see cref="ParsingException"/> with a <see cref="ParsingError"/> indicating a <c>ValidationID</c> of dtmi:dtdl:parsingError:unresolvableContextSpecifier or dtmi:dtdl:parsingError:unresolvableContextVersion.
-        /// </summary>
-        public bool AllowUndefinedExtensions { get; set; } = false;
     }
 }
