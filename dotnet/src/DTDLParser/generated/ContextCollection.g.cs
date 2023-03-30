@@ -22,7 +22,7 @@ namespace DTDLParser
     {
         static ContextCollection()
         {
-            DtdlVersionsAllowingUndefinedExtensionsByDefault = new HashSet<int>() {  };
+            DtdlVersionsAllowingUndefinedExtensionsByDefault = new HashSet<int>() { 2 };
 
             DtdlVersionsAllowingLocalTerms = new HashSet<int>() {  };
 

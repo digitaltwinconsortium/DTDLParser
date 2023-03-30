@@ -45,7 +45,7 @@ namespace DTDLParser
         /// If this property is not set or is set to <see cref="WhenToAllow.PerDefault"/>, the parsing behavior is determined according to the version of the DTDL context specified by the model.
         /// </summary>
         /// <remarks>
-        /// For DTDL v2, the default behavior is to disallow undefined extensions.
+        /// For DTDL v2, the default behavior is to allow undefined extensions.
         /// For DTDL v3, the default behavior is to disallow undefined extensions.
         /// </remarks>
         public WhenToAllow AllowUndefinedExtensions { get; set; } = WhenToAllow.PerDefault;
