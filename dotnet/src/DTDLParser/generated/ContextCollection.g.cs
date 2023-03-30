@@ -155,6 +155,7 @@ namespace DTDLParser
             context1_0.AddTermDefinition("electronvolt", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:unit:electronvolt"), isMergeableType: false);
             context1_0.AddTermDefinition("Energy", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Energy"), isMergeableType: false);
             context1_0.AddTermDefinition("EnergyRate", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:EnergyRate"), isMergeableType: false);
+            context1_0.AddTermDefinition("EnergyRateUnit", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:enum:PowerUnit"), isMergeableType: false);
             context1_0.AddTermDefinition("EnergyUnit", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:enum:EnergyUnit"), isMergeableType: false);
             context1_0.AddTermDefinition("exa", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:exa"), isMergeableType: false);
             context1_0.AddTermDefinition("exbi", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:exbi"), isMergeableType: false);

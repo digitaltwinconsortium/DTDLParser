@@ -1101,6 +1101,7 @@ namespace ParserUnitTest
         [DataRow("ObjectV3")]
         [DataRow("ObjectWithAllPrimitiveSchemasV2")]
         [DataRow("ObjectWithAllPrimitiveSchemasV3")]
+        [DataRow("OverridingWithAliasUnitV3")]
         public void TestParser_O(string testName)
         {
             TestParser(testName);
