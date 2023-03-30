@@ -4,17 +4,17 @@
   ],
   "valid": false,
   "quirks": [],
-  "options": [],
+  "options": [
+    "DisallowUndefinedExtensions"
+  ],
   "input": [
     {
-      "@context": [
-        "dtmi:dtdl:context;3",
-        "dtmi:dtdl:extension:historization;100"
-      ],
+      "@context": "dtmi:dtdl:context;2",
       "@id": "dtmi:test:anInterface;1",
       "@type": "Interface",
       "contents": [
         {
+          "@context": "dtmi:dtdl:extension:historization;100",
           "@id": "dtmi:test:aProperty;1",
           "@type": [
             "Property",
@@ -35,7 +35,7 @@
         "Property": null,
         "Value": "dtmi:dtdl:extension:historization;100",
         "PrimaryIndex": 0,
-        "PrimaryStart": 4
+        "PrimaryStart": 7
       }
     ]
   }

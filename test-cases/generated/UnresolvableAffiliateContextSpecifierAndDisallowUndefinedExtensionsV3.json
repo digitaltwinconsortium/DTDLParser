@@ -1,15 +1,19 @@
 ﻿{
   "valid": false,
   "quirks": [],
-  "options": [],
+  "options": [
+    "DisallowUndefinedExtensions"
+  ],
   "input": [
     {
-      "@context": "dtmi:dtdl:context;3",
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:foo:bar;1"
+      ],
       "@id": "dtmi:test:anInterface;1",
       "@type": "Interface",
       "contents": [
         {
-          "@context": "dtmi:foo:bar;1",
           "@id": "dtmi:test:aProperty;1",
           "@type": "Property",
           "name": "expectedDistance",
@@ -38,7 +42,7 @@
         "Property": null,
         "Value": "dtmi:foo:bar;1",
         "PrimaryIndex": 0,
-        "PrimaryStart": 7
+        "PrimaryStart": 4
       }
     ]
   }
