@@ -1,0 +1,23 @@
+{
+    "@context": "dtmi:dtdl:context;3",
+    "@id": "dtmi:com:contoso:CelestialBody;1",
+    "@type": "Interface",
+    "displayName": "Celestial body",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+      },
+      {
+        "@type": "Telemetry",
+        "name": "temperature",
+        "schema": "double"
+      }
+    ]
+  }
