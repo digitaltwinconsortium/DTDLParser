@@ -1,0 +1,27 @@
+{
+    "@context": "dtmi:dtdl:context;3",
+    "@id": "dtmi:com:contoso:PatientRoom;1",
+    "@type": "Interface",
+    "displayName": "Patient Room",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "visitorCount",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "handWashCount",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "handWashPercentage",
+        "schema": "double"
+      },
+      {
+        "@type": "Relationship",
+        "name": "hasDevices"
+      }
+    ]
+  }

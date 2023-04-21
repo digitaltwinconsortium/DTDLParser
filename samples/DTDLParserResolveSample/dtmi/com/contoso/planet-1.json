@@ -1,0 +1,26 @@
+{
+    "@context": "dtmi:dtdl:context;3",
+    "@id": "dtmi:com:contoso:Planet;1",
+    "@type": "Interface",
+    "displayName": "Planet",
+    "extends": "dtmi:com:contoso:CelestialBody;1",
+    "contents": [
+      {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1",
+        "properties": [
+          {
+            "@type": "Property",
+            "name": "Distance",
+            "schema": "double"
+          }
+        ]
+      },
+      {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+      }
+    ]
+  }
