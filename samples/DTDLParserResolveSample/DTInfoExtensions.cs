@@ -13,6 +13,7 @@ public static partial class DTInfoExtensions
         foreach (var t in dtInterface.Telemetries) sb.AppendLine(t.Value.Print());
         foreach (var p in dtInterface.Properties) sb.AppendLine(p.Value.Print());
         foreach (var c in dtInterface.Commands) sb.AppendLine(c.Value.Print());
+        foreach (var r in dtInterface.Relationships) sb.AppendLine(r.Value.Print());
         return sb.ToString();
     }
 
@@ -170,4 +171,11 @@ public static partial class DTInfoExtensions
         }
         return sb.ToString();
     }
+
+      public static string Print(this DTRelationshipInfo r)
+      {
+        StringBuilder sb = new();
+        sb.Append($" [R] {r.Name}");
+        return sb.ToString();
+      }
 }
