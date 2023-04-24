@@ -18,7 +18,7 @@ The DTDLParser is a library that can be used to determine whether one or more mo
 Install the DTDL Parser library for .NET from [NuGet.org](https://www.nuget.org/packages/DTDLParser) with:
 
 ```bash
-dotnet add package DTDLParser --prerelease
+dotnet add package DTDLParser
 ```
 
 #### Preview Feed
