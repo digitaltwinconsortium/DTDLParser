@@ -14,7 +14,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '6.x'
+          dotnet-version: '8.x'
           source-url: https://pkgs.dev.azure.com/azure-dtdl/DTDLParser/_packaging/DTDLParser-prerelease/nuget/v3/index.json
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }} 

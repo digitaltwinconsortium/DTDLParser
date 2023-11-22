@@ -1,4 +1,4 @@
-import { dotnet } from './dotnet.js'
+import { dotnet } from './_framework/dotnet.js'
 const { getAssemblyExports, getConfig } = await dotnet
     .withDiagnosticTracing(false)
     .withApplicationArgumentsFromQuery()
