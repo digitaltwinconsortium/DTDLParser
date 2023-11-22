@@ -22,7 +22,7 @@
             this.projectWriter.WriteLine();
             this.projectWriter.WriteLine("  <PropertyGroup>");
             this.projectWriter.WriteLine("    <OutputType>Exe</OutputType>");
-            this.projectWriter.WriteLine("    <TargetFramework>net8.0</TargetFramework>");
+            this.projectWriter.WriteLine("    <TargetFramework>net6.0</TargetFramework>");
             this.projectWriter.WriteLine("  </PropertyGroup>");
             this.projectWriter.WriteLine();
             this.projectWriter.WriteLine("  <ItemGroup>");
