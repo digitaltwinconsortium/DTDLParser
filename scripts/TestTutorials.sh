@@ -22,7 +22,7 @@ for d in tutorials/projects/Tutorial* ; do
   if [ -d $d ]; then
     echo testing $d ;
     dotnet run --project $d --configuration $DtdlModelParserBuildConfig | grep -v "^##vso" > $d/output.txt ;
-    diff $d/expect.txt $d/output.txt ;
+    diff --strip-trailing-cr $d/expect.txt $d/output.txt ;
     test $? -eq 0 || ErrLev=1
   fi
 done

@@ -345,16 +345,20 @@
                         literalTypeString = "Boolean";
                         break;
                     case "#decimal":
-                        newValue = ValueParser.ParseSingularNumericValueCollection(aggregateContext, parentId, propName, valueCollectionProp.Values, null, null, layer, parsingErrorCollection, isOptional: propertyInfo.IsOptional);
+                        newValue = ValueParser.ParseSingularNumericValueCollection(aggregateContext, parentId, propName, valueCollectionProp.Values, propertyInfo.MinInclusive, propertyInfo.MaxInclusive, layer, parsingErrorCollection, isOptional: propertyInfo.IsOptional);
                         literalTypeString = "Numeric";
                         break;
                     case "#integer":
-                        newValue = ValueParser.ParseSingularIntegerValueCollection(aggregateContext, parentId, propName, valueCollectionProp.Values, null, null, layer, parsingErrorCollection, isOptional: propertyInfo.IsOptional);
+                        newValue = ValueParser.ParseSingularIntegerValueCollection(aggregateContext, parentId, propName, valueCollectionProp.Values, propertyInfo.MinInclusive, propertyInfo.MaxInclusive, layer, parsingErrorCollection, isOptional: propertyInfo.IsOptional);
                         literalTypeString = "Integer";
                         break;
                     case "#string":
-                        newValue = ValueParser.ParseSingularStringValueCollection(aggregateContext, parentId, propName, valueCollectionProp.Values, null, null, layer, parsingErrorCollection, isOptional: propertyInfo.IsOptional);
+                        newValue = ValueParser.ParseSingularStringValueCollection(aggregateContext, parentId, propName, valueCollectionProp.Values, propertyInfo.MaxLength, propertyInfo.Regex, layer, parsingErrorCollection, isOptional: propertyInfo.IsOptional);
                         literalTypeString = "String";
+                        break;
+                    case "#duration":
+                        newValue = ValueParser.ParseSingularDurationValueCollection(aggregateContext, parentId, propName, valueCollectionProp.Values, layer, parsingErrorCollection, isOptional: propertyInfo.IsOptional);
+                        literalTypeString = "Duration";
                         break;
                     case "#JSON":
                         using (JsonDocument propDoc = JsonDocument.Parse(valueCollectionProp.Values.GetJsonText()))
@@ -530,7 +534,11 @@
         /// <param name="propertyTypeUri">URI that defines the type of the property.</param>
         /// <param name="maxCount">The maximum count of permitted values of the property.</param>
         /// <param name="minCount">The minimum count of permitted values of the property.</param>
+        /// <param name="maxInclusive">The maximum permissible value of the property.</param>
+        /// <param name="minInclusive">The minimum permissible value of the property.</param>
+        /// <param name="maxLength">The maximum permissible length of the string property.</param>
         /// <param name="regex">A regex that constrains the permissible values, or null if no pattern constraint.</param>
+        /// <param name="hasUniqueValue">True if the property's value must be unique across the corresponding properties in all sibling objects.</param>
         /// <param name="isPlural">True if the property is plural.</param>
         /// <param name="isOptional">True if the property is optional.</param>
         /// <param name="defaultLanguage">The default language code for a language-tagged string literal property.</param>
@@ -543,9 +551,9 @@
         /// <param name="requiredValues">A list of values that are permitted, or null if no requirement.</param>
         /// <param name="requiredValuesString">A string describing the values that are permitted.</param>
         /// <param name="requiredLiteral">A literal value that is required, or null if no requirement.</param>
-        internal void AddProperty(string propertyName, Uri propertyTypeUri, int? maxCount, int? minCount, Regex regex, bool isPlural, bool isOptional, string defaultLanguage, string dtmiSeg, string dictionaryKey, bool idRequired, bool typeRequired, Dtmi childOf, string instanceProperty, List<Dtmi> requiredValues, string requiredValuesString, object requiredLiteral)
+        internal void AddProperty(string propertyName, Uri propertyTypeUri, int? maxCount, int? minCount, int? maxInclusive, int? minInclusive, int? maxLength, Regex regex, bool hasUniqueValue, bool isPlural, bool isOptional, string defaultLanguage, string dtmiSeg, string dictionaryKey, bool idRequired, bool typeRequired, Dtmi childOf, string instanceProperty, List<Dtmi> requiredValues, string requiredValuesString, object requiredLiteral)
         {
-            ((Dictionary<string, DTSupplementalPropertyInfo>)this.Properties)[propertyName] = new DTSupplementalPropertyInfo(propertyTypeUri, maxCount, minCount, regex, isPlural, isOptional, defaultLanguage, dtmiSeg, dictionaryKey, idRequired, typeRequired, childOf, instanceProperty, requiredValues, requiredValuesString, requiredLiteral);
+            ((Dictionary<string, DTSupplementalPropertyInfo>)this.Properties)[propertyName] = new DTSupplementalPropertyInfo(propertyTypeUri, maxCount, minCount, maxInclusive, minInclusive, maxLength, regex, hasUniqueValue, isPlural, isOptional, defaultLanguage, dtmiSeg, dictionaryKey, idRequired, typeRequired, childOf, instanceProperty, requiredValues, requiredValuesString, requiredLiteral);
         }
 
         /// <summary>

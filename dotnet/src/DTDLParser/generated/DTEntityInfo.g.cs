@@ -2016,6 +2016,13 @@ namespace DTDLParser.Models
         internal abstract HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection);
 
         /// <summary>
+        /// Get an enumeration of elements from the property given by <paramref name="childrenPropertyName"/>.
+        /// </summary>
+        /// <param name="childrenPropertyName">The name of the plural object property that contains the children to get.</param>
+        /// <returns>An enumeration of DTEntityInfo.</returns>
+        internal abstract IEnumerable<DTEntityInfo> GetChildren(string childrenPropertyName);
+
+        /// <summary>
         /// Get the count of all descendant contents or fields or enumValues or request or response or properties or schema or elementSchema or mapValue properties.
         /// </summary>
         /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing errors are added.</param>

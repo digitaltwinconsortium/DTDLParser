@@ -25,7 +25,15 @@
 
             this.MinCount = supplementalPropertyObj.TryGetValue("minCount", out JToken minCount) ? ((JValue)minCount).Value<int?>() : null;
 
+            this.MaxInclusive = supplementalPropertyObj.TryGetValue("maxInclusive", out JToken maxInclusive) ? ((JValue)maxInclusive).Value<int?>() : null;
+
+            this.MinInclusive = supplementalPropertyObj.TryGetValue("minInclusive", out JToken minInclusive) ? ((JValue)minInclusive).Value<int?>() : null;
+
+            this.MaxLength = supplementalPropertyObj.TryGetValue("maxLength", out JToken maxLength) ? ((JValue)maxLength).Value<int?>() : null;
+
             this.Pattern = supplementalPropertyObj.TryGetValue("pattern", out JToken pattern) ? ((JValue)pattern).Value<string>() : null;
+
+            this.HasUniqueValue = ((JValue)supplementalPropertyObj["uniqueValue"]).Value<bool>();
 
             this.IsPlural = ((JValue)supplementalPropertyObj["plural"]).Value<bool>();
 
@@ -84,9 +92,29 @@
         public int? MinCount { get; }
 
         /// <summary>
+        /// Gets the maximum permissible value, or null if no maximum.
+        /// </summary>
+        public int? MaxInclusive { get; }
+
+        /// <summary>
+        /// Gets the minimum permissible value, or null if no minimim.
+        /// </summary>
+        public int? MinInclusive { get; }
+
+        /// <summary>
+        /// Gets the maximum permissible length of a string, or null if no maximum.
+        /// </summary>
+        public int? MaxLength { get; }
+
+        /// <summary>
         /// Gets a regex that constrains the permissible values, or null if no pattern constraint.
         /// </summary>
         public string Pattern { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether the property's value must be unique across the corresponding properties in all sibling objects.
+        /// </summary>
+        public bool HasUniqueValue { get; }
 
         /// <summary>
         /// Gets a value indicating whether the property is plural.

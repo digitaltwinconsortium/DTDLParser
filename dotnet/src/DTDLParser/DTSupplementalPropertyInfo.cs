@@ -17,7 +17,11 @@
         /// <param name="type">URI that defines the type of the property.</param>
         /// <param name="maxCount">The maximum count of permitted values of the property.</param>
         /// <param name="minCount">The minimum count of permitted values of the property.</param>
+        /// <param name="maxInclusive">The maximum permissible value.</param>
+        /// <param name="minInclusive">The minimum permissible value.</param>
+        /// <param name="maxLength">The maximum permissible length of a string.</param>
         /// <param name="regex">A regex that constrains the permissible values, or null if no pattern constraint.</param>
+        /// <param name="hasUniqueValue">True if the property's value must be unique across the corresponding properties in all sibling objects.</param>
         /// <param name="isPlural">True if the property is plural.</param>
         /// <param name="isOptional">True if the property is optional.</param>
         /// <param name="defaultLanguage">The default language code for a language-tagged string literal property.</param>
@@ -30,7 +34,7 @@
         /// <param name="requiredValues">A list of values that are permitted, or null if no requirement.</param>
         /// <param name="requiredValuesString">A string describing the values that are permitted.</param>
         /// <param name="requiredLiteral">A literal value that is required, or null if no requirement.</param>
-        internal DTSupplementalPropertyInfo(Uri type, int? maxCount, int? minCount, Regex regex, bool isPlural, bool isOptional, string defaultLanguage, string dtmiSeg, string dictionaryKey, bool idRequired, bool typeRequired, Dtmi childOf, string instanceProperty, List<Dtmi> requiredValues, string requiredValuesString, object requiredLiteral)
+        internal DTSupplementalPropertyInfo(Uri type, int? maxCount, int? minCount, int? maxInclusive, int? minInclusive, int? maxLength, Regex regex, bool hasUniqueValue, bool isPlural, bool isOptional, string defaultLanguage, string dtmiSeg, string dictionaryKey, bool idRequired, bool typeRequired, Dtmi childOf, string instanceProperty, List<Dtmi> requiredValues, string requiredValuesString, object requiredLiteral)
         {
             this.Type = type;
             this.IsPlural = isPlural;
@@ -43,7 +47,11 @@
             this.ChildOf = childOf;
             this.MaxCount = maxCount;
             this.MinCount = minCount;
+            this.MaxInclusive = maxInclusive;
+            this.MinInclusive = minInclusive;
+            this.MaxLength = maxLength;
             this.Regex = regex;
+            this.HasUniqueValue = hasUniqueValue;
             this.InstanceProperty = instanceProperty;
             this.RequiredLiteral = requiredLiteral;
 
@@ -130,9 +138,29 @@
         internal int? MinCount { get; }
 
         /// <summary>
+        /// Gets the maximum permissible value, or null if no maximum.
+        /// </summary>
+        internal int? MaxInclusive { get; }
+
+        /// <summary>
+        /// Gets the minimum permissible value, or null if no minimim.
+        /// </summary>
+        internal int? MinInclusive { get; }
+
+        /// <summary>
+        /// Gets the maximum permissible length of a string, or null if no maximum.
+        /// </summary>
+        internal int? MaxLength { get; }
+
+        /// <summary>
         /// Gets a regular expression that constrains the permissible values, or null if no pattern constraint.
         /// </summary>
         internal Regex Regex { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether the property's value must be unique across the corresponding properties in all sibling objects.
+        /// </summary>
+        internal bool HasUniqueValue { get; }
 
         /// <summary>
         /// Gets the name of a property of which this property's value must be an instance.

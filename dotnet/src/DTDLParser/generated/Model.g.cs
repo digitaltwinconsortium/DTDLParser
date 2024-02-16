@@ -215,6 +215,40 @@ namespace DTDLParser
             }
         }
 
+        private void CheckSupplementalPropertyConstraints(DTEntityInfo currentSibling, SupplementalTypeCollection supplementalTypeCollection, ParsingErrorCollection parsingErrorCollection)
+        {
+            foreach (Dtmi supplementalTypeId in currentSibling.SupplementalTypes)
+            {
+                if (supplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo))
+                {
+                    foreach (KeyValuePair<string, DTSupplementalPropertyInfo> propInfo in supplementalTypeInfo.Properties)
+                    {
+                        if (propInfo.Value.HasUniqueValue && currentSibling.SupplementalProperties.TryGetValue(propInfo.Key, out object currentPropValue))
+                        {
+                            foreach (ParentReference parentReference in currentSibling.ParentReferences)
+                            {
+                                DTEntityInfo commonParent = this.Dict[parentReference.ParentId];
+                                string commonPropName = parentReference.PropertyName;
+
+                                foreach (DTEntityInfo otherSibling in commonParent.GetChildren(commonPropName))
+                                {
+                                    if (!ReferenceEquals(otherSibling, currentSibling) && otherSibling.SupplementalProperties.TryGetValue(propInfo.Key, out object siblingPropValue) && siblingPropValue.Equals(currentPropValue))
+                                    {
+                                        parsingErrorCollection.Notify(
+                                            "nonUniquePropertyValue",
+                                            elementId: parentReference.ParentId,
+                                            propertyName: commonPropName,
+                                            nestedName: propInfo.Key,
+                                            nestedValue: currentPropValue.ToString());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void CheckValueConstraintOnSibling(ElementPropertyConstraint elementPropertyConstraint, SupplementalTypeCollection supplementalTypeCollection, ParsingErrorCollection parsingErrorCollection)
         {
             DTEntityInfo currentSibling = this.Dict[elementPropertyConstraint.ParentId];

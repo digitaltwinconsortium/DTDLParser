@@ -12,7 +12,11 @@
         private string typeUri;
         private string maxCount;
         private string minCount;
+        private string maxInclusive;
+        private string minInclusive;
+        private string maxLength;
         private string regex;
+        private string hasUniqueValue;
         private string isPlural;
         private string isOptional;
         private string defaultLanguage;
@@ -37,7 +41,11 @@
             this.typeUri = supplementalPropertyDigest.TypeUri;
             this.maxCount = supplementalPropertyDigest.MaxCount != null ? supplementalPropertyDigest.MaxCount.ToString() : "null";
             this.minCount = supplementalPropertyDigest.MinCount != null ? supplementalPropertyDigest.MinCount.ToString() : "null";
+            this.maxInclusive = supplementalPropertyDigest.MaxInclusive != null ? supplementalPropertyDigest.MaxInclusive.ToString() : "null";
+            this.minInclusive = supplementalPropertyDigest.MinInclusive != null ? supplementalPropertyDigest.MinInclusive.ToString() : "null";
+            this.maxLength = supplementalPropertyDigest.MaxLength != null ? supplementalPropertyDigest.MaxLength.ToString() : "null";
             this.regex = $"regex: {(supplementalPropertyDigest.Pattern != null ? $"new Regex(@\"{supplementalPropertyDigest.Pattern.Replace("\"", "\\\"")}\")" : "null")}";
+            this.hasUniqueValue = $"hasUniqueValue: {ParserGeneratorValues.GetBooleanLiteral(supplementalPropertyDigest.HasUniqueValue)}";
             this.isPlural = $"isPlural: {ParserGeneratorValues.GetBooleanLiteral(supplementalPropertyDigest.IsPlural)}";
             this.isOptional = $"isOptional: {ParserGeneratorValues.GetBooleanLiteral(supplementalPropertyDigest.IsOptional)}";
             this.defaultLanguage = $"defaultLanguage: {(supplementalPropertyDigest.DefaultLanguage != null ? $"\"{supplementalPropertyDigest.DefaultLanguage}\"" : "null")}";
@@ -61,7 +69,7 @@
         {
             string typeUriString = this.typeUri != null ? $"new {(this.typeUri.StartsWith("dtmi:") ? "Dtmi" : "Uri")}(\"{this.typeUri}\")" : "null";
 
-            scope.Line($"{infoVariableName}.AddProperty(\"{this.propertyName}\", {typeUriString}, {this.maxCount}, {this.minCount}, {this.regex}, {this.isPlural}, {this.isOptional}, {this.defaultLanguage}, {this.dtmiSeg}, {this.dictionaryKey}, {this.idRequired}, {this.typeRequired}, {this.childOf}, {this.instanceProperty}, {this.requiredValues}, {this.requiredValuesString}, {this.requiredLiteral});");
+            scope.Line($"{infoVariableName}.AddProperty(\"{this.propertyName}\", {typeUriString}, {this.maxCount}, {this.minCount}, {this.maxInclusive}, {this.minInclusive}, {this.maxLength}, {this.regex}, {this.hasUniqueValue}, {this.isPlural}, {this.isOptional}, {this.defaultLanguage}, {this.dtmiSeg}, {this.dictionaryKey}, {this.idRequired}, {this.typeRequired}, {this.childOf}, {this.instanceProperty}, {this.requiredValues}, {this.requiredValuesString}, {this.requiredLiteral});");
         }
 
         private static string ToJsonLiteral(object value, bool escapeQuotes)

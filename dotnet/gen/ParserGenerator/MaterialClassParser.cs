@@ -73,6 +73,7 @@
             GenerateJsonLdElementsProperty(obverseClass, classIsBase);
             GenerateSetLayerDefinedWhereMethod(obverseClass, classIsBase, isLayeringSupported);
             GenerateDoesHaveTypeMethod(obverseClass, classIsAugmentable);
+            GenerateGetChildrenMethod(obverseClass, baseClassName, classIsBase, classIsAbstract, properties);
             GenerateTryGetChildMethod(obverseClass, baseClassName, classIsBase, classIsAbstract, properties);
             GenerateDoesPropertyDictContainKeyMethod(obverseClass, classIsBase, properties);
             GenerateAddSiblingConstraintMethod(obverseClass, classIsBase, classIsAugmentable, properties);
@@ -200,6 +201,32 @@
             MaterialClassAugmentor.AddTypeCheckLine(returnLine, classIsAugmentable);
 
             returnLine.Line(";");
+        }
+
+        private static void GenerateGetChildrenMethod(CsClass obverseClass, string baseClassName, bool classIsBase, bool classIsAbstract, List<MaterialProperty> properties)
+        {
+            if (classIsBase)
+            {
+                CsMethod baseClassMethod = obverseClass.Method(Access.Internal, Novelty.Abstract, $"IEnumerable<{baseClassName}>", "GetChildren");
+                baseClassMethod.Summary("Get an enumeration of elements from the property given by <paramref name=\"childrenPropertyName\"/>.");
+                baseClassMethod.Param(ParserGeneratorValues.ObverseTypeString, "childrenPropertyName", "The name of the plural object property that contains the children to get.");
+                baseClassMethod.Returns($"An enumeration of {baseClassName}.");
+            }
+            else if (!classIsAbstract)
+            {
+                CsMethod concreteClassMethod = obverseClass.Method(Access.Internal, Novelty.Override, $"IEnumerable<{baseClassName}>", "GetChildren");
+                concreteClassMethod.InheritDoc();
+                concreteClassMethod.Param(ParserGeneratorValues.ObverseTypeString, "childrenPropertyName");
+
+                CsSwitch switchOnChildrenPropertyName = concreteClassMethod.Body.Switch("childrenPropertyName");
+
+                foreach (MaterialProperty materialProperty in properties)
+                {
+                    materialProperty.TryAddCaseToGetChildrenSwitch(switchOnChildrenPropertyName);
+                }
+
+                switchOnChildrenPropertyName.Default().Line($"return new List<{baseClassName}>();");
+            }
         }
 
         private static void GenerateTryGetChildMethod(CsClass obverseClass, string baseClassName, bool classIsBase, bool classIsAbstract, List<MaterialProperty> properties)

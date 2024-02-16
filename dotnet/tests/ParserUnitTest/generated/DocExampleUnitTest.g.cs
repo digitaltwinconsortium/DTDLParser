@@ -54,6 +54,8 @@ namespace ParserUnitTest
         [DataRow("iotcentralDocExample-en-US-6-V2")]
         [DataRow("MapDocExample-en-US-1-V2")]
         [DataRow("MapDocExample-en-US-1-V3")]
+        [DataRow("mqttDocExample-en-US-1-V1")]
+        [DataRow("mqttDocExample-en-US-2-V1")]
         [DataRow("ObjectDocExample-en-US-1-V2")]
         [DataRow("ObjectDocExample-en-US-1-V3")]
         [DataRow("overridingDocExample-en-US-1-V1")]

@@ -74,6 +74,20 @@ namespace DTDLParser
 
         private static readonly Uri DuplicatePropertyNameValidationId = new Uri("dtmi:dtdl:parsingError:duplicatePropertyName");
 
+        private static readonly Uri DurationCountBelowMinValidationId = new Uri("dtmi:dtdl:parsingError:durationCountBelowMin");
+
+        private static readonly Uri DurationInvalidValidationId = new Uri("dtmi:dtdl:parsingError:durationInvalid");
+
+        private static readonly Uri DurationMultipleValuesValidationId = new Uri("dtmi:dtdl:parsingError:durationMultipleValues");
+
+        private static readonly Uri DurationNotStringValidationId = new Uri("dtmi:dtdl:parsingError:durationNotString");
+
+        private static readonly Uri DurationObjectNoValueValidationId = new Uri("dtmi:dtdl:parsingError:durationObjectNoValue");
+
+        private static readonly Uri DurationTypeNotDurationValidationId = new Uri("dtmi:dtdl:parsingError:durationTypeNotDuration");
+
+        private static readonly Uri DurationValueNotStringValidationId = new Uri("dtmi:dtdl:parsingError:durationValueNotString");
+
         private static readonly Uri EmptyContextValidationId = new Uri("dtmi:dtdl:parsingError:emptyContext");
 
         private static readonly Uri EmptyExtensionContextValidationId = new Uri("dtmi:dtdl:parsingError:emptyExtensionContext");
@@ -1450,6 +1464,239 @@ namespace DTDLParser
                             DuplicatePropertyNameValidationId,
                             "{primaryId:p} property '{property}' has multiple definitions.",
                             "Remove duplicate uses of property '{property}'.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer);
+                    }
+
+                    return;
+                case "durationCountBelowMin":
+                    if (elementId == null || propertyName == null || observedCount == null || expectedCount == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or propertyName or observedCount or expectedCount when generating durationCountBelowMin ParsingError.");
+                    }
+
+                    if (incidentValues != null && incidentValues.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        StringBuilder causeBuilder = new StringBuilder("In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.");
+                        SetCount(causeBuilder, 1, (int)observedCount, "value", "values");
+                        SetCount(causeBuilder, 2, (int)expectedCount, "value", "values", "is", "are");
+
+                        StringBuilder actionBuilder = new StringBuilder("Provide at least {count2} duration {item2} for '{property}'.");
+                        SetCount(actionBuilder, 2, (int)expectedCount, "value", "values", "is", "are");
+
+                        this.Add(
+                            DurationCountBelowMinValidationId,
+                            causeBuilder.ToString(),
+                            actionBuilder.ToString(),
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        StringBuilder causeBuilder = new StringBuilder("{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.");
+                        SetCount(causeBuilder, 1, (int)observedCount, "value", "values");
+                        SetCount(causeBuilder, 2, (int)expectedCount, "value", "values", "is", "are");
+
+                        StringBuilder actionBuilder = new StringBuilder("Provide at least {count2} duration {item2} for '{property}'.");
+                        SetCount(actionBuilder, 2, (int)expectedCount, "value", "values", "is", "are");
+
+                        this.Add(
+                            DurationCountBelowMinValidationId,
+                            causeBuilder.ToString(),
+                            actionBuilder.ToString(),
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer);
+                    }
+
+                    return;
+                case "durationInvalid":
+                    if (elementId == null || propertyName == null || propertyValue == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or propertyName or propertyValue when generating durationInvalid ParsingError.");
+                    }
+
+                    if (incidentValue != null && incidentValue.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DurationInvalidValidationId,
+                            "In {sourceName1},{line1}, property '{property}' has value '{value}', which does not conform to the ISO 8601 definition of 'duration'.",
+                            "Modify the value of '{property}' to make it a properly formatted ISO 8601 duration string.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            value: propertyValue,
+                            layer: layer,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DurationInvalidValidationId,
+                            "{layer}{primaryId:p} property '{property}' has value '{value}', which does not conform to the ISO 8601 definition of 'duration'.",
+                            "Modify the value of '{property}' to make it a properly formatted ISO 8601 duration string.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            value: propertyValue,
+                            layer: layer);
+                    }
+
+                    return;
+                case "durationMultipleValues":
+                    if (elementId == null || propertyName == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or propertyName when generating durationMultipleValues ParsingError.");
+                    }
+
+                    if (incidentValues != null && incidentValues.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DurationMultipleValuesValidationId,
+                            "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+                            "Remove all but one of the values of '{property}'.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DurationMultipleValuesValidationId,
+                            "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+                            "Remove all but one of the values of '{property}'.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer);
+                    }
+
+                    return;
+                case "durationNotString":
+                    if (elementId == null || propertyName == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or propertyName when generating durationNotString ParsingError.");
+                    }
+
+                    if (incidentValue != null && incidentValue.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DurationNotStringValidationId,
+                            "In {sourceName1},{line1}, property '{property}' has value that is not a JSON string.",
+                            "Change the value of '{property}' to a JSON string that conforms to the ISO 8601 duration format.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DurationNotStringValidationId,
+                            "{layer}{primaryId:p} property '{property}' has value that is not a JSON string.",
+                            "Change the value of '{property}' to a JSON string that conforms to the ISO 8601 duration format.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer);
+                    }
+
+                    return;
+                case "durationObjectNoValue":
+                    if (elementId == null || propertyName == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or propertyName when generating durationObjectNoValue ParsingError.");
+                    }
+
+                    if (incidentValue != null && incidentValue.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DurationObjectNoValueValidationId,
+                            "In {sourceName1},{line1}, property '{property}' has value that is a JSON object with no '@value' property.",
+                            "Add a '@value' property with an ISO 8601 duration string value to the object, or replace the object with a JSON string that conforms to the ISO 8601 duration format.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DurationObjectNoValueValidationId,
+                            "{layer}{primaryId:p} property '{property}' has value that is a JSON object with no '@value' property.",
+                            "Add a '@value' property with an ISO 8601 duration string value to the object, or replace the object with a JSON string that conforms to the ISO 8601 duration format.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer);
+                    }
+
+                    return;
+                case "durationTypeNotDuration":
+                    if (elementId == null || propertyName == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or propertyName when generating durationTypeNotDuration ParsingError.");
+                    }
+
+                    if (incidentValue != null && incidentValue.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DurationTypeNotDurationValidationId,
+                            "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:duration'.",
+                            "Remove the '@type' property of '{property}' or change its value to 'xsd:duration'.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DurationTypeNotDurationValidationId,
+                            "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:duration'.",
+                            "Remove the '@type' property of '{property}' or change its value to 'xsd:duration'.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer);
+                    }
+
+                    return;
+                case "durationValueNotString":
+                    if (elementId == null || propertyName == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or propertyName when generating durationValueNotString ParsingError.");
+                    }
+
+                    if (incidentValue != null && incidentValue.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DurationValueNotStringValidationId,
+                            "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@value' is not a JSON string.",
+                            "Change the value of the '@value' property of '{property}' to a JSON string that conforms to the ISO 8601 duration format.",
+                            primaryId: elementId,
+                            property: propertyName,
+                            layer: layer,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DurationValueNotStringValidationId,
+                            "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@value' is not a JSON string.",
+                            "Change the value of the '@value' property of '{property}' to a JSON string that conforms to the ISO 8601 duration format.",
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer);

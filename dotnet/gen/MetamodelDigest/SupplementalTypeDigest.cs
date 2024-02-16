@@ -37,6 +37,8 @@
 
             this.Constraints = ((JArray)supplementalTypeObj["constraints"]).Select(t => new SupplementalConstraintDigest((JObject)t)).ToList();
 
+            this.Elements = ((JArray)supplementalTypeObj["elements"]).Select(t => new StandardElementDigest((JObject)t)).ToList();
+
             this.Siblings = ((JArray)supplementalTypeObj["siblings"]).Select(t => new SiblingConstraintDigest((JObject)t)).ToList();
         }
 
@@ -94,6 +96,11 @@
         /// Gets a list of <see cref="SupplementalConstraintDigest"/> objects, each of which provides details about a constraint.
         /// </summary>
         public List<SupplementalConstraintDigest> Constraints { get; }
+
+        /// <summary>
+        /// Gets a list of <see cref="StandardElementDigest"/> objects, each of which provides details about a supplemental standard element.
+        /// </summary>
+        public List<StandardElementDigest> Elements { get; }
 
         /// <summary>
         /// Gets a list of <see cref="SiblingConstraintDigest"/> objects, each of which provides details about a sibling constraint.
