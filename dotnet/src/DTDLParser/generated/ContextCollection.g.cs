@@ -71,20 +71,13 @@ namespace DTDLParser
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
             VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:mqtt;1", 1, 0, mergeDefinitions: false);
-            context1_0.AddTermDefinition("avro", new Dtmi("dtmi:dtdl:extension:mqtt:v1:payloadFormat:avro"), isMergeableType: false);
             context1_0.AddTermDefinition("Cacheable", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Cacheable"), isMergeableType: false);
-            context1_0.AddTermDefinition("cbor", new Dtmi("dtmi:dtdl:extension:mqtt:v1:payloadFormat:cbor"), isMergeableType: false);
             context1_0.AddTermDefinition("commandTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic"), isMergeableType: false);
             context1_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Idempotent"), isMergeableType: false);
             context1_0.AddTermDefinition("index", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Indexed:index"), isMergeableType: false);
             context1_0.AddTermDefinition("Indexed", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Indexed"), isMergeableType: false);
-            context1_0.AddTermDefinition("json", new Dtmi("dtmi:dtdl:extension:mqtt:v1:payloadFormat:json"), isMergeableType: false);
             context1_0.AddTermDefinition("Mqtt", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Mqtt"), isMergeableType: false);
             context1_0.AddTermDefinition("payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Mqtt:payloadFormat"), isMergeableType: false);
-            context1_0.AddTermDefinition("PayloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v1:PayloadFormat"), isMergeableType: false);
-            context1_0.AddTermDefinition("proto2", new Dtmi("dtmi:dtdl:extension:mqtt:v1:payloadFormat:proto2"), isMergeableType: false);
-            context1_0.AddTermDefinition("proto3", new Dtmi("dtmi:dtdl:extension:mqtt:v1:payloadFormat:proto3"), isMergeableType: false);
-            context1_0.AddTermDefinition("raw", new Dtmi("dtmi:dtdl:extension:mqtt:v1:payloadFormat:raw"), isMergeableType: false);
             context1_0.AddTermDefinition("telemetryTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Mqtt:telemetryTopic"), isMergeableType: false);
             context1_0.AddTermDefinition("ttl", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Cacheable:ttl"), isMergeableType: false);
             versionedContexts.Add(context1_0);

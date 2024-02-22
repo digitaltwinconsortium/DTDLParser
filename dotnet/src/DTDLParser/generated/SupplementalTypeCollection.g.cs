@@ -51,7 +51,6 @@ namespace DTDLParser
             Dtmi idempotentTypeIdV1 = new Dtmi("dtmi:dtdl:extension:mqtt:v1:Idempotent");
             Dtmi indexedTypeIdV1 = new Dtmi("dtmi:dtdl:extension:mqtt:v1:Indexed");
             Dtmi mqttTypeIdV1 = new Dtmi("dtmi:dtdl:extension:mqtt:v1:Mqtt");
-            Dtmi payloadFormatTypeIdV1 = new Dtmi("dtmi:dtdl:extension:mqtt:v1:PayloadFormat");
             Dtmi overrideTypeIdV1 = new Dtmi("dtmi:dtdl:extension:overriding:v1:Override");
             Dtmi accelerationTypeIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration");
             Dtmi angleTypeIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Angle");
@@ -252,13 +251,11 @@ namespace DTDLParser
             indexedInfoV1.AllowedCotypeVersions = new HashSet<int>() { 3 };
 
             DTSupplementalTypeInfo mqttInfoV1 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV1, mqttTypeIdV1, isAbstract: false, isMergeable: false, adjunctTypeTypeIdV3);
-            mqttInfoV1.AddProperty("dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
-            mqttInfoV1.AddProperty("dtmi:dtdl:extension:mqtt:v1:Mqtt:payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v1:PayloadFormat"), 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: true, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
-            mqttInfoV1.AddProperty("dtmi:dtdl:extension:mqtt:v1:Mqtt:telemetryTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoV1.AddProperty("dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoV1.AddProperty("dtmi:dtdl:extension:mqtt:v1:Mqtt:payloadFormat", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoV1.AddProperty("dtmi:dtdl:extension:mqtt:v1:Mqtt:telemetryTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             mqttInfoV1.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Interface };
             mqttInfoV1.AllowedCotypeVersions = new HashSet<int>() { 3 };
-
-            DTSupplementalTypeInfo payloadFormatInfoV1 = new DTSupplementalTypeInfo(DTExtensionKind.LatentType, dtdlExtensionMqttContextIdV1, payloadFormatTypeIdV1, isAbstract: false, isMergeable: false, latentTypeTypeIdV3);
 
             DTSupplementalTypeInfo overrideInfoV1 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionOverridingContextIdV1, overrideTypeIdV1, isAbstract: false, isMergeable: false, adjunctTypeTypeIdV3);
             overrideInfoV1.AddProperty("dtmi:dtdl:extension:overriding:v1:Override:overrides", null, 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
@@ -918,7 +915,6 @@ namespace DTDLParser
             EndogenousSupplementalTypes[idempotentTypeIdV1] = idempotentInfoV1;
             EndogenousSupplementalTypes[indexedTypeIdV1] = indexedInfoV1;
             EndogenousSupplementalTypes[mqttTypeIdV1] = mqttInfoV1;
-            EndogenousSupplementalTypes[payloadFormatTypeIdV1] = payloadFormatInfoV1;
             EndogenousSupplementalTypes[overrideTypeIdV1] = overrideInfoV1;
             EndogenousSupplementalTypes[accelerationTypeIdV1] = accelerationInfoV1;
             EndogenousSupplementalTypes[angleTypeIdV1] = angleInfoV1;
