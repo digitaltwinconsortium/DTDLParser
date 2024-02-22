@@ -40,7 +40,6 @@ namespace DTDLParser
             termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v1:ValueAnnotation:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:historization:v1:(\w*)");
-            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:payloadFormat:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:Mqtt:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:Indexed:(\w*)");
