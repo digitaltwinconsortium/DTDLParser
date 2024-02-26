@@ -207,6 +207,9 @@
                 case "string":
                     scope.Line($"string {newVar} = ValueParser.ParseSingularStringValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, {maxLengthString}, {patternString}, {layerVar}, parsingErrorCollection, {isOptionalString});");
                     break;
+                case "duration":
+                    scope.Line($"TimeSpan? {newVar} = ValueParser.ParseSingularDurationValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, {layerVar}, parsingErrorCollection, {isOptionalString});");
+                    break;
                 case "integer":
                     scope.Line($"int? {newVar} = ValueParser.ParseSingularIntegerValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, {minInclusiveString}, {maxInclusiveString}, {layerVar}, parsingErrorCollection, {isOptionalString});");
                     break;

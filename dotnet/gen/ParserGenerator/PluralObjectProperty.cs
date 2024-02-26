@@ -205,6 +205,14 @@
         }
 
         /// <inheritdoc/>
+        public override bool TryAddCaseToGetChildrenSwitch(CsSwitch switchOnChildrenProperty)
+        {
+            switchOnChildrenProperty.Case($"\"{this.PropertyName}\"");
+            switchOnChildrenProperty.Line($"return this.{this.ObversePropertyName};");
+            return true;
+        }
+
+        /// <inheritdoc/>
         public override void AddRestrictions(CsScope checkRestrictionsMethodBody, int dtdlVersion, string typeName, bool classIsAugmentable)
         {
             base.AddRestrictions(checkRestrictionsMethodBody, dtdlVersion, typeName, classIsAugmentable);

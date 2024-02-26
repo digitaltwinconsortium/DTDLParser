@@ -278,13 +278,6 @@ namespace DTDLParser.Models
             return this.EntityKind == other?.EntityKind && this.DeepEquals((DTFieldInfo)other);
         }
 
-        /// <inheritdoc/>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object otherObj)
-        {
-            return otherObj is DTFieldInfo other && this.Equals(other);
-        }
-
         /// <summary>
         /// Compares to another <c>DTFieldInfo</c> object.
         /// </summary>
@@ -296,6 +289,13 @@ namespace DTDLParser.Models
                 && Helpers.AreDictionariesIdOrLiteralEqual(this.supplementalProperties, other.supplementalProperties)
                 && this.supplementalTypeIds.SetEquals(other.supplementalTypeIds)
                 ;
+        }
+
+        /// <inheritdoc/>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object otherObj)
+        {
+            return otherObj is DTFieldInfo other && this.Equals(other);
         }
 
         /// <inheritdoc/>
@@ -1715,6 +1715,16 @@ namespace DTDLParser.Models
             tooDeepElementId = null;
             tooDeepElts = null;
             return closure;
+        }
+
+        /// <inheritdoc/>
+        internal override IEnumerable<DTEntityInfo> GetChildren(string childrenPropertyName)
+        {
+            switch (childrenPropertyName)
+            {
+                default:
+                    return new List<DTEntityInfo>();
+            }
         }
 
         /// <inheritdoc/>

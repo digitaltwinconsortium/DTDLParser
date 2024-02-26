@@ -505,6 +505,17 @@
     "dtmi:dtdl:extension:historization;1": {
       "Historized": "dtmi:dtdl:extension:historization:v1:Historized"
     },
+    "dtmi:dtdl:extension:mqtt;1": {
+      "Cacheable": "dtmi:dtdl:extension:mqtt:v1:Cacheable",
+      "commandTopic": "dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic",
+      "Idempotent": "dtmi:dtdl:extension:mqtt:v1:Idempotent",
+      "index": "dtmi:dtdl:extension:mqtt:v1:Indexed:index",
+      "Indexed": "dtmi:dtdl:extension:mqtt:v1:Indexed",
+      "Mqtt": "dtmi:dtdl:extension:mqtt:v1:Mqtt",
+      "payloadFormat": "dtmi:dtdl:extension:mqtt:v1:Mqtt:payloadFormat",
+      "telemetryTopic": "dtmi:dtdl:extension:mqtt:v1:Mqtt:telemetryTopic",
+      "ttl": "dtmi:dtdl:extension:mqtt:v1:Cacheable:ttl"
+    },
     "dtmi:dtdl:extension:overriding;1": {
       "Override": "dtmi:dtdl:extension:overriding:v1:Override",
       "overrides": "dtmi:dtdl:extension:overriding:v1:Override:overrides"
@@ -8398,6 +8409,11 @@
     "dtmi:dtdl:extension:historization;1": {
       "description": {
         "en-us": "Record the historical sequence of values of a Property or Telemetry and the times at which values change."
+      }
+    },
+    "dtmi:dtdl:extension:mqtt;1": {
+      "description": {
+        "en-us": "Specify Interface properties to facilitate communication via the MQTT pub/sub protocol."
       }
     },
     "dtmi:dtdl:extension:overriding;1": {
@@ -21016,6 +21032,7 @@
         2,
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;3",
       "extensionKind": "None",
       "mergeable": false,
@@ -21062,6 +21079,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;3",
       "extensionKind": "None",
       "mergeable": false,
@@ -21078,7 +21096,8 @@
           "propertyName": "aliasFor",
           "type": "dtmi:dtdl:class:Entity;3",
           "typeName": "Entity",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21094,6 +21113,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "None",
       "mergeable": false,
@@ -21116,6 +21136,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;3",
       "extensionKind": "None",
       "mergeable": false,
@@ -21132,6 +21153,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "None",
       "mergeable": false,
@@ -21148,6 +21170,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;3",
       "extensionKind": "None",
       "mergeable": false,
@@ -21165,6 +21188,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:annotation;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
@@ -21183,7 +21207,8 @@
           "propertyName": "annotates",
           "type": "http://www.w3.org/2001/XMLSchema#string",
           "typeName": "string",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": [
@@ -21214,11 +21239,175 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:historization;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
       "parent": "dtmi:dtdl:class:AdjunctType;3",
       "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v1:Cacheable": {
+      "abstract": false,
+      "cocotypes": [
+        "dtmi:dtdl:extension:mqtt:v1:Idempotent"
+      ],
+      "constraints": [],
+      "cotypes": [
+        "Command"
+      ],
+      "cotypeVersions": [
+        3
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;3",
+      "properties": {
+        "dtmi:dtdl:extension:mqtt:v1:Cacheable:ttl": {
+          "deprecated": false,
+          "description": {
+            "en-us": "Maximum duration for which a response to a Command instance may be reused as a response to other Command instances."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "ttl",
+          "type": "http://www.w3.org/2001/XMLSchema#duration",
+          "typeName": "duration",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v1:Idempotent": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Command"
+      ],
+      "cotypeVersions": [
+        3
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;3",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v1:Indexed": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "EnumValue",
+        "Field",
+        "Telemetry"
+      ],
+      "cotypeVersions": [
+        3
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;3",
+      "properties": {
+        "dtmi:dtdl:extension:mqtt:v1:Indexed:index": {
+          "deprecated": false,
+          "description": {
+            "en-us": "Index number to uniquely identify the serialized element within its parent container."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "minInclusive": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "index",
+          "type": "http://www.w3.org/2001/XMLSchema#integer",
+          "typeName": "integer",
+          "typeRequired": true,
+          "uniqueValue": true
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v1:Mqtt": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Interface"
+      ],
+      "cotypeVersions": [
+        3
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;3",
+      "properties": {
+        "dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic": {
+          "deprecated": false,
+          "description": {
+            "en-us": "MQTT topic pattern on which a Command request is published."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$",
+          "patternDesc": {
+            "en-us": "slash-separated sequence of character-restricted labels and/or brace-enclosed tokens"
+          },
+          "plural": false,
+          "propertyName": "commandTopic",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v1:Mqtt:payloadFormat": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The format to use when serializing an instance to an MQTT payload."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "payloadFormat",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v1:Mqtt:telemetryTopic": {
+          "deprecated": false,
+          "description": {
+            "en-us": "MQTT topic pattern on which a Telemetry or a collection of Telemetries is published."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$",
+          "patternDesc": {
+            "en-us": "slash-separated sequence of character-restricted labels and/or brace-enclosed tokens"
+          },
+          "plural": false,
+          "propertyName": "telemetryTopic",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
       "siblings": []
     },
     "dtmi:dtdl:extension:overriding:v1:Override": {
@@ -21243,6 +21432,7 @@
       "discotypes": [
         "dtmi:dtdl:extension:initialization:v1:Initialized"
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:overriding;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
@@ -21260,7 +21450,8 @@
           "plural": false,
           "propertyName": "overrides",
           "typeName": "IRI",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": [
@@ -21299,6 +21490,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21318,7 +21510,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21337,6 +21530,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21356,7 +21550,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21375,6 +21570,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21394,7 +21590,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21413,6 +21610,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21432,7 +21630,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21451,6 +21650,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21470,7 +21670,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21489,6 +21690,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21508,7 +21710,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21527,6 +21730,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21546,7 +21750,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21592,6 +21797,7 @@
         2,
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
@@ -21608,7 +21814,8 @@
           "propertyName": "baseUnit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:extension:quantitativeTypes:v1:property:prefix": {
           "deprecated": false,
@@ -21620,7 +21827,8 @@
           "propertyName": "prefix",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21639,6 +21847,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21658,7 +21867,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21677,6 +21887,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21696,7 +21907,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21715,6 +21927,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21734,7 +21947,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21753,6 +21967,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21772,7 +21987,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21791,6 +22007,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21810,7 +22027,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21824,6 +22042,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
@@ -21840,7 +22059,8 @@
           "propertyName": "baseUnit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:extension:quantitativeTypes:v1:property:prefix": {
           "deprecated": false,
@@ -21852,7 +22072,8 @@
           "propertyName": "prefix",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21871,6 +22092,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21890,7 +22112,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21909,6 +22132,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21928,7 +22152,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21947,6 +22172,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -21966,7 +22192,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -21985,6 +22212,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22004,7 +22232,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22023,6 +22252,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22042,7 +22272,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22061,6 +22292,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22080,7 +22312,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22099,6 +22332,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22118,7 +22352,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22137,6 +22372,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22156,7 +22392,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22175,6 +22412,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22194,7 +22432,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22213,6 +22452,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22232,7 +22472,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22251,6 +22492,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22270,7 +22512,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22289,6 +22532,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22308,7 +22552,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22327,6 +22572,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22346,7 +22592,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22365,6 +22612,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22384,7 +22632,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22403,6 +22652,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22422,7 +22672,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22441,6 +22692,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22460,7 +22712,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22479,6 +22732,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22498,7 +22752,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22517,6 +22772,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22536,7 +22792,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22555,6 +22812,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22574,7 +22832,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22593,6 +22852,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22612,7 +22872,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22631,6 +22892,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22650,7 +22912,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22669,6 +22932,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22688,7 +22952,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22707,6 +22972,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22726,7 +22992,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22745,6 +23012,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22764,7 +23032,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22783,6 +23052,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22802,7 +23072,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22832,6 +23103,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22850,7 +23122,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22869,6 +23142,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22888,7 +23162,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22902,6 +23177,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
@@ -22918,7 +23194,8 @@
           "propertyName": "bottomUnit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:extension:quantitativeTypes:v1:property:topUnit": {
           "deprecated": false,
@@ -22931,7 +23208,8 @@
           "propertyName": "topUnit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22950,6 +23228,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -22969,7 +23248,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -22988,6 +23268,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23007,7 +23288,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23026,6 +23308,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23045,7 +23328,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23064,6 +23348,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23083,7 +23368,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23102,6 +23388,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23121,7 +23408,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23140,6 +23428,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23159,7 +23448,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23173,6 +23463,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
@@ -23189,7 +23480,8 @@
           "propertyName": "symbol",
           "type": "http://www.w3.org/2001/XMLSchema#string",
           "typeName": "string",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23208,6 +23500,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23227,7 +23520,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23246,6 +23540,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23265,7 +23560,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23284,6 +23580,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23303,7 +23600,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23322,6 +23620,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23341,7 +23640,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23355,6 +23655,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "AdjunctType",
       "mergeable": false,
@@ -23371,7 +23672,8 @@
           "propertyName": "exponent",
           "type": "http://www.w3.org/2001/XMLSchema#integer",
           "typeName": "integer",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:property:symbol;3": {
           "deprecated": false,
@@ -23384,7 +23686,8 @@
           "propertyName": "symbol",
           "type": "http://www.w3.org/2001/XMLSchema#string",
           "typeName": "string",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23403,6 +23706,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23422,7 +23726,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23441,6 +23746,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23460,7 +23766,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23479,6 +23786,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23498,7 +23806,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23517,6 +23826,7 @@
       "cotypeVersions": [
         3
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:extension:quantitativeTypes;1",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23536,7 +23846,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:EnumValue;3",
           "typeName": "EnumValue",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23562,6 +23873,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:iotcentral:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23579,7 +23891,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AccelerationUnit;2",
           "typeName": "AccelerationUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23607,6 +23920,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:iotcentral:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23647,6 +23961,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:iotcentral:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23675,6 +23990,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:iotcentral:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23703,6 +24019,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:iotcentral:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23720,7 +24037,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:VelocityUnit;2",
           "typeName": "VelocityUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23735,6 +24053,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23753,7 +24072,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AccelerationUnit;2",
           "typeName": "AccelerationUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23763,6 +24083,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -23780,6 +24101,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23798,7 +24120,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AngleUnit;2",
           "typeName": "AngleUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23808,6 +24131,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -23825,6 +24149,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23843,7 +24168,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AngularAccelerationUnit;2",
           "typeName": "AngularAccelerationUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23853,6 +24179,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -23870,6 +24197,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23888,7 +24216,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AngularVelocityUnit;2",
           "typeName": "AngularVelocityUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23898,6 +24227,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -23915,6 +24245,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -23933,7 +24264,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AreaUnit;2",
           "typeName": "AreaUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23943,6 +24275,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -23955,6 +24288,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "UnitAttribute",
       "mergeable": false,
@@ -23971,7 +24305,8 @@
           "propertyName": "exponent",
           "type": "http://www.w3.org/2001/XMLSchema#integer",
           "typeName": "integer",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:property:symbol;2": {
           "deprecated": false,
@@ -23984,7 +24319,8 @@
           "propertyName": "symbol",
           "type": "http://www.w3.org/2001/XMLSchema#string",
           "typeName": "string",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -23998,6 +24334,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticUnit",
       "mergeable": false,
@@ -24014,7 +24351,8 @@
           "propertyName": "baseUnit",
           "type": "dtmi:dtdl:class:Unit;2",
           "typeName": "Unit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:property:prefix;2": {
           "deprecated": false,
@@ -24026,7 +24364,8 @@
           "propertyName": "prefix",
           "type": "dtmi:standard:class:BinaryPrefix;2",
           "typeName": "BinaryPrefix",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24041,6 +24380,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24059,7 +24399,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:CapacitanceUnit;2",
           "typeName": "CapacitanceUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24069,6 +24410,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24081,6 +24423,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24098,6 +24441,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24116,7 +24460,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:CurrentUnit;2",
           "typeName": "CurrentUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24126,6 +24471,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24143,6 +24489,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24161,7 +24508,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:DataRateUnit;2",
           "typeName": "DataRateUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24171,6 +24519,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24188,6 +24537,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24206,7 +24556,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:DataSizeUnit;2",
           "typeName": "DataSizeUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24216,6 +24567,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24228,6 +24580,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "UnitAttribute",
       "mergeable": false,
@@ -24244,7 +24597,8 @@
           "propertyName": "exponent",
           "type": "http://www.w3.org/2001/XMLSchema#integer",
           "typeName": "integer",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:property:symbol;2": {
           "deprecated": false,
@@ -24257,7 +24611,8 @@
           "propertyName": "symbol",
           "type": "http://www.w3.org/2001/XMLSchema#string",
           "typeName": "string",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24271,6 +24626,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticUnit",
       "mergeable": false,
@@ -24287,7 +24643,8 @@
           "propertyName": "baseUnit",
           "type": "dtmi:dtdl:class:Unit;2",
           "typeName": "Unit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:property:prefix;2": {
           "deprecated": false,
@@ -24299,7 +24656,8 @@
           "propertyName": "prefix",
           "type": "dtmi:standard:class:DecimalPrefix;2",
           "typeName": "DecimalPrefix",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24314,6 +24672,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24332,7 +24691,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:DensityUnit;2",
           "typeName": "DensityUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24342,6 +24702,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24359,6 +24720,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24377,7 +24739,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:LengthUnit;2",
           "typeName": "LengthUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24392,6 +24755,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24410,7 +24774,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:ChargeUnit;2",
           "typeName": "ChargeUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24425,6 +24790,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24443,7 +24809,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:EnergyUnit;2",
           "typeName": "EnergyUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24453,6 +24820,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24470,6 +24838,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24488,7 +24857,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:ForceUnit;2",
           "typeName": "ForceUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24498,6 +24868,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24515,6 +24886,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24533,7 +24905,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:FrequencyUnit;2",
           "typeName": "FrequencyUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24543,6 +24916,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24560,6 +24934,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24578,7 +24953,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:DensityUnit;2",
           "typeName": "DensityUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24593,6 +24969,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24611,7 +24988,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:IlluminanceUnit;2",
           "typeName": "IlluminanceUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24621,6 +24999,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24638,6 +25017,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24656,7 +25036,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:InductanceUnit;2",
           "typeName": "InductanceUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24666,6 +25047,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24683,6 +25065,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24701,7 +25084,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AngleUnit;2",
           "typeName": "AngleUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24716,6 +25100,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24734,7 +25119,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:LengthUnit;2",
           "typeName": "LengthUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24744,6 +25130,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24761,6 +25148,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24779,7 +25167,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:AngleUnit;2",
           "typeName": "AngleUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24794,6 +25183,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24812,7 +25202,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:LuminanceUnit;2",
           "typeName": "LuminanceUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24822,6 +25213,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24839,6 +25231,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24857,7 +25250,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:PowerUnit;2",
           "typeName": "PowerUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24872,6 +25266,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24890,7 +25285,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:LuminousFluxUnit;2",
           "typeName": "LuminousFluxUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24900,6 +25296,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24917,6 +25314,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24935,7 +25333,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:LuminousIntensityUnit;2",
           "typeName": "LuminousIntensityUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24945,6 +25344,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -24962,6 +25362,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -24980,7 +25381,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:MagneticFluxUnit;2",
           "typeName": "MagneticFluxUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -24990,6 +25392,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25007,6 +25410,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25025,7 +25429,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:MagneticInductionUnit;2",
           "typeName": "MagneticInductionUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25035,6 +25440,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25052,6 +25458,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25070,7 +25477,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:MassUnit;2",
           "typeName": "MassUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25085,6 +25493,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25103,7 +25512,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:MassFlowRateUnit;2",
           "typeName": "MassFlowRateUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25113,6 +25523,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25125,6 +25536,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25142,6 +25554,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25160,7 +25573,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:PowerUnit;2",
           "typeName": "PowerUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25170,6 +25584,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25187,6 +25602,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25205,7 +25621,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:PressureUnit;2",
           "typeName": "PressureUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25215,6 +25632,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25243,6 +25661,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25261,7 +25680,8 @@
           "propertyName": "unit",
           "type": "dtmi:dtdl:class:Unit;2",
           "typeName": "Unit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25275,6 +25695,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticUnit",
       "mergeable": false,
@@ -25291,7 +25712,8 @@
           "propertyName": "bottomUnit",
           "type": "dtmi:dtdl:class:Unit;2",
           "typeName": "Unit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         },
         "dtmi:dtdl:property:topUnit;2": {
           "deprecated": false,
@@ -25304,7 +25726,8 @@
           "propertyName": "topUnit",
           "type": "dtmi:dtdl:class:Unit;2",
           "typeName": "Unit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25319,6 +25742,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25337,7 +25761,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:Unitless;2",
           "typeName": "Unitless",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25352,6 +25777,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25370,7 +25796,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:ResistanceUnit;2",
           "typeName": "ResistanceUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25380,6 +25807,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25397,6 +25825,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25415,7 +25844,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:SoundPressureUnit;2",
           "typeName": "SoundPressureUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25425,6 +25855,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25442,6 +25873,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25460,7 +25892,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:TemperatureUnit;2",
           "typeName": "TemperatureUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25470,6 +25903,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25487,6 +25921,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25505,7 +25940,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:ForceUnit;2",
           "typeName": "ForceUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25520,6 +25956,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25538,7 +25975,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:TimeUnit;2",
           "typeName": "TimeUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25548,6 +25986,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25565,6 +26004,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25583,7 +26023,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:TorqueUnit;2",
           "typeName": "TorqueUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25593,6 +26034,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25605,6 +26047,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25622,6 +26065,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25640,7 +26084,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:VelocityUnit;2",
           "typeName": "VelocityUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25650,6 +26095,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25667,6 +26113,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25685,7 +26132,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:VoltageUnit;2",
           "typeName": "VoltageUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25695,6 +26143,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25712,6 +26161,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25730,7 +26180,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:VolumeUnit;2",
           "typeName": "VolumeUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25745,6 +26196,7 @@
       "cotypeVersions": [
         2
       ],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "SemanticType",
       "mergeable": false,
@@ -25763,7 +26215,8 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:VolumeFlowRateUnit;2",
           "typeName": "VolumeFlowRateUnit",
-          "typeRequired": true
+          "typeRequired": true,
+          "uniqueValue": false
         }
       },
       "siblings": []
@@ -25773,6 +26226,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,
@@ -25785,6 +26239,7 @@
       "constraints": [],
       "cotypes": [],
       "cotypeVersions": [],
+      "elements": [],
       "extensionContext": "dtmi:dtdl:context;2",
       "extensionKind": "Unit",
       "mergeable": false,

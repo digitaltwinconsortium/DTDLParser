@@ -4,6 +4,7 @@ namespace DTDLParser
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
+    using System.Xml;
 
     /// <summary>
     /// Class <c>ValueParser</c> parses JSON-LD property values.
@@ -11,6 +12,7 @@ namespace DTDLParser
     internal static class ValueParser
     {
         private static readonly Regex LanguageCodeRegex = new Regex(@"^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$", RegexOptions.Compiled);
+        private static readonly Regex DurationRegex = new Regex(@"^P(?!$)(?:(?:(?:(?:\d+Y)|(?:\d+\.\d+Y$))?(?:(?:\d+M)|(?:\d+\.\d+M$))?)|(?:(?:(?:\d+W)|(?:\d+\.\d+W$))?))(?:(?:\d+D)|(?:\d+\.\d+D$))?(?:T(?!$)(?:(?:\d+H)|(?:\d+\.\d+H$))?(?:(?:\d+M)|(?:\d+\.\d+M$))?(?:\d+(?:\.\d+)?S)?)?$", RegexOptions.Compiled);
 
         /// <summary>
         /// Parse a singular string value from a <see cref="JsonLdValueCollection"/>.
@@ -79,6 +81,71 @@ namespace DTDLParser
             }
 
             return strings;
+        }
+
+        /// <summary>
+        /// Parse a singular duration value from a <see cref="JsonLdValueCollection"/>.
+        /// </summary>
+        /// <param name="aggregateContext">An <see cref="AggregateContext"/> for parsing the model elements.</param>
+        /// <param name="elementId">The DTMI of the element that holds the duration property to parse.</param>
+        /// <param name="propertyName">The name of the duration property to parse.</param>
+        /// <param name="valueCollection">The <see cref="JsonLdValueCollection"/> to parse.</param>
+        /// <param name="layer">Name of the layer currently being parsed.</param>
+        /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing error is added.</param>
+        /// <param name="isOptional">true if the property is optional.</param>
+        /// <returns>The duration value extracted.</returns>
+        internal static TimeSpan? ParseSingularDurationValueCollection(AggregateContext aggregateContext, Dtmi elementId, string propertyName, JsonLdValueCollection valueCollection, string layer, ParsingErrorCollection parsingErrorCollection, bool isOptional)
+        {
+            if (valueCollection.Count > 1)
+            {
+                parsingErrorCollection?.Notify(
+                    "durationMultipleValues",
+                    elementId: elementId,
+                    propertyName: propertyName,
+                    incidentValues: valueCollection,
+                    layer: layer);
+                return null;
+            }
+
+            return ParsePluralDurationValueCollection(aggregateContext, elementId, propertyName, valueCollection, layer, parsingErrorCollection, minCount: isOptional ? 0 : 1).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Parse a plural duration value from a <see cref="JsonLdValueCollection"/>.
+        /// </summary>
+        /// <param name="aggregateContext">An <see cref="AggregateContext"/> for parsing the model elements.</param>
+        /// <param name="elementId">The DTMI of the element that holds the duration property to parse.</param>
+        /// <param name="propertyName">The name of the duration property to parse.</param>
+        /// <param name="valueCollection">The <see cref="JsonLdValueCollection"/> to parse.</param>
+        /// <param name="layer">Name of the layer currently being parsed.</param>
+        /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing error is added.</param>
+        /// <param name="minCount">The minimum count of duration values required.</param>
+        /// <returns>The duration values extracted.</returns>
+        internal static List<TimeSpan> ParsePluralDurationValueCollection(AggregateContext aggregateContext, Dtmi elementId, string propertyName, JsonLdValueCollection valueCollection, string layer, ParsingErrorCollection parsingErrorCollection, int minCount)
+        {
+            List<TimeSpan> durations = new List<TimeSpan>();
+
+            if (valueCollection.Count < minCount)
+            {
+                parsingErrorCollection?.Notify(
+                    "durationCountBelowMin",
+                    elementId: elementId,
+                    propertyName: propertyName,
+                    incidentValues: valueCollection,
+                    layer: layer,
+                    observedCount: valueCollection.Count,
+                    expectedCount: minCount);
+            }
+
+            foreach (JsonLdValue value in valueCollection.Values)
+            {
+                if (TryParseDurationValue(aggregateContext, elementId, propertyName, value, layer, parsingErrorCollection, out TimeSpan? durationValue, "duration", requireDuration: true))
+                {
+                    durations.Add((TimeSpan)durationValue);
+                }
+            }
+
+            return durations;
         }
 
         /// <summary>
@@ -584,6 +651,118 @@ namespace DTDLParser
                     layer: layer,
                     pattern: pattern.ToString());
             }
+
+            return true;
+        }
+
+        private static bool TryParseDurationValue(AggregateContext aggregateContext, Dtmi elementId, string propertyName, JsonLdValue value, string layer, ParsingErrorCollection parsingErrorCollection, out TimeSpan? durationValue, string literalType, bool requireDuration)
+        {
+            durationValue = null;
+            string durationString = null;
+
+            if (value.ValueType == JsonLdValueType.String)
+            {
+                durationString = value.StringValue;
+            }
+            else if (value.ValueType == JsonLdValueType.Element)
+            {
+                CheckForInvalidPropertiesInValueObject(aggregateContext, value.ElementValue, elementId, propertyName, layer, parsingErrorCollection);
+
+                if (value.ElementValue.Value == null)
+                {
+                    parsingErrorCollection?.Notify(
+                        $"{literalType}ObjectNoValue",
+                        elementId: elementId,
+                        propertyName: propertyName,
+                        incidentValue: value,
+                        layer: layer);
+
+                    return false;
+                }
+
+                bool typeDeclaredDuration = false;
+                bool typeDeclaredNonDuration = false;
+                if (value.ElementValue.Types != null)
+                {
+                    if (value.ElementValue.Types.Count != 1)
+                    {
+                        parsingErrorCollection?.Notify(
+                            "literalTypeNotSingular",
+                            elementId: elementId,
+                            propertyName: propertyName,
+                            incidentValue: value,
+                            layer: layer);
+                        return false;
+                    }
+
+                    typeDeclaredDuration = value.ElementValue.Types.Contains("xsd:duration") || value.ElementValue.Types.Contains("http://www.w3.org/2001/XMLSchema#duration");
+                    typeDeclaredNonDuration = !typeDeclaredDuration;
+                }
+
+                if (typeDeclaredNonDuration)
+                {
+                    if (requireDuration)
+                    {
+                        parsingErrorCollection?.Notify(
+                            "durationTypeNotDuration",
+                            elementId: elementId,
+                            propertyName: propertyName,
+                            incidentValue: value,
+                            layer: layer);
+                    }
+
+                    return false;
+                }
+
+                if (value.ElementValue.Value.ValueType != JsonLdValueType.String)
+                {
+                    if (requireDuration || typeDeclaredDuration)
+                    {
+                        parsingErrorCollection?.Notify(
+                            "durationValueNotString",
+                            elementId: elementId,
+                            propertyName: propertyName,
+                            incidentValue: value,
+                            layer: layer);
+                    }
+
+                    return false;
+                }
+
+                durationString = value.ElementValue.Value.StringValue;
+            }
+            else
+            {
+                if (requireDuration)
+                {
+                    parsingErrorCollection?.Notify(
+                        "durationNotString",
+                        elementId: elementId,
+                        propertyName: propertyName,
+                        incidentValue: value,
+                        layer: layer);
+                }
+
+                return false;
+            }
+
+            if (!DurationRegex.IsMatch(durationString))
+            {
+                if (requireDuration)
+                {
+                    parsingErrorCollection?.Notify(
+                    "durationInvalid",
+                    elementId: elementId,
+                    propertyName: propertyName,
+                    incidentValue: value,
+                    propertyValue: durationString,
+                    layer: layer);
+                }
+
+                return false;
+            }
+
+            durationValue = XmlConvert.ToTimeSpan(durationString);
 
             return true;
         }

@@ -378,6 +378,114 @@
       "layer": "layer"
     }
   },
+  "durationCountBelowMin": {
+    "cause": "{layer}{primaryId:p} property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has {count1} {item1} but {count2} {item2} {verb2} required.",
+    "action": "Provide at least {count2} duration {item2} for '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "count1": "observedCount",
+      "count2": "expectedCount"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    },
+    "support": {
+      "item1": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "item2": {
+        "singular": "value",
+        "plural": "values"
+      },
+      "verb2": {
+        "singular": "is",
+        "plural": "are"
+      }
+    }
+  },
+  "durationInvalid": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}', which does not conform to the ISO 8601 definition of 'duration'.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value '{value}', which does not conform to the ISO 8601 definition of 'duration'.",
+    "action": "Modify the value of '{property}' to make it a properly formatted ISO 8601 duration string.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName",
+      "value": "propertyValue"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "durationMultipleValues": {
+    "cause": "{layer}{primaryId:p} property '{property}' has multiple values but only one value is allowed.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has multiple values but only one value is allowed.",
+    "action": "Remove all but one of the values of '{property}'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValues",
+      "layer": "layer"
+    }
+  },
+  "durationNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is not a JSON string.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is not a JSON string.",
+    "action": "Change the value of '{property}' to a JSON string that conforms to the ISO 8601 duration format.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "durationObjectNoValue": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object with no '@value' property.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object with no '@value' property.",
+    "action": "Add a '@value' property with an ISO 8601 duration string value to the object, or replace the object with a JSON string that conforms to the ISO 8601 duration format.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "durationTypeNotDuration": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:duration'.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@type' does not specify 'xsd:duration'.",
+    "action": "Remove the '@type' property of '{property}' or change its value to 'xsd:duration'.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
+  "durationValueNotString": {
+    "cause": "{layer}{primaryId:p} property '{property}' has value that is a JSON object whose '@value' is not a JSON string.",
+    "locatedCause": "In {sourceName1},{line1}, property '{property}' has value that is a JSON object whose '@value' is not a JSON string.",
+    "action": "Change the value of the '@value' property of '{property}' to a JSON string that conforms to the ISO 8601 duration format.",
+    "required": {
+      "primaryId": "elementId",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "incidentValue",
+      "layer": "layer"
+    }
+  },
   "emptyContext": {
     "cause": "Top-level JSON object has a @context specifier that is empty.",
     "locatedCause": "In {sourceName1}, top-level JSON object has a @context specifier{line1} that is empty.",

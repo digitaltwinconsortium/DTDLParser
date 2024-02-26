@@ -236,7 +236,7 @@ namespace DTDLParser
                     return false;
                 }
 
-                typeInfo.AddProperty(pathId.AbsoluteUri, propertyTypeUri, maxCount: maxCount, minCount: minCount, regex: regex, isPlural: isPlural, isOptional: isOptional, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: true, typeRequired: true, childOf: childOfId, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+                typeInfo.AddProperty(pathId.AbsoluteUri, propertyTypeUri, maxCount: maxCount, minCount: minCount, maxInclusive: null, minInclusive: null, maxLength: null, regex: regex, hasUniqueValue: false, isPlural: isPlural, isOptional: isOptional, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: true, typeRequired: true, childOf: childOfId, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             }
 
             return true;

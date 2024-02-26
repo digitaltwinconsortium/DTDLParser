@@ -311,6 +311,16 @@
         public abstract void AddCaseToTrySetObjectPropertySwitch(CsSwitch switchOnProperty, string layerVar, string jsonLdPropVar, string elementVar, string keyPropVar, string keyValueVar, string parsingErrorCollectionVar);
 
         /// <summary>
+        /// Generate code for the property's case within the get children switch statement.
+        /// </summary>
+        /// <param name="switchOnChildrenProperty">The <see cref="CsSwitch"/> to which to add the code.</param>
+        /// <returns>True if case added.</returns>
+        public virtual bool TryAddCaseToGetChildrenSwitch(CsSwitch switchOnChildrenProperty)
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Generate code for the property's case within the get child switch statement.
         /// </summary>
         /// <param name="switchOnChildrenProperty">The <see cref="CsSwitch"/> to which to add the code.</param>

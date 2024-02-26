@@ -47,6 +47,7 @@
             this.GenerateIsKindInSetMethod(modelClass);
             this.GenerateGetKindStringMethod(modelClass);
             this.GenerateCheckValueConstraintOnSiblingMethod(modelClass);
+            this.GenerateCheckSupplementalPropertyConstraintsMethod(modelClass);
             this.GenerateCheckSiblingConstraintsMethod(modelClass);
         }
 
@@ -131,6 +132,31 @@
             this.GenerateCheckForMismatch(forEachParentRef, "SiblingClassOfPropertyId", "Type", "classOfPropertyId");
 
             this.GenerateCheckForMismatch(forEachParentRef, "SiblingParentOfPropertyId", "ChildOf", "parentOfPropertyId");
+        }
+
+        private void GenerateCheckSupplementalPropertyConstraintsMethod(CsClass parserClass)
+        {
+            CsMethod method = parserClass.Method(Access.Private, Novelty.Normal, "void", "CheckSupplementalPropertyConstraints");
+            method.Param(this.baseClassName, "currentSibling");
+            method.Param("SupplementalTypeCollection", "supplementalTypeCollection");
+            method.Param("ParsingErrorCollection", "parsingErrorCollection");
+
+            method.Body.ForEach($"{ParserGeneratorValues.IdentifierType} supplementalTypeId in currentSibling.SupplementalTypes")
+                .If("supplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo)")
+                    .ForEach("KeyValuePair<string, DTSupplementalPropertyInfo> propInfo in supplementalTypeInfo.Properties")
+                        .If("propInfo.Value.HasUniqueValue && currentSibling.SupplementalProperties.TryGetValue(propInfo.Key, out object currentPropValue)")
+                            .ForEach("ParentReference parentReference in currentSibling.ParentReferences")
+                                .Line($"{this.baseClassName} commonParent = this.Dict[parentReference.ParentId];")
+                                .Line("string commonPropName = parentReference.PropertyName;")
+                                .Break()
+                                .ForEach($"{this.baseClassName} otherSibling in commonParent.GetChildren(commonPropName)")
+                                    .If("!ReferenceEquals(otherSibling, currentSibling) && otherSibling.SupplementalProperties.TryGetValue(propInfo.Key, out object siblingPropValue) && siblingPropValue.Equals(currentPropValue)")
+                                        .MultiLine("parsingErrorCollection.Notify(")
+                                            .Line("\"nonUniquePropertyValue\",")
+                                            .Line("elementId: parentReference.ParentId,")
+                                            .Line("propertyName: commonPropName,")
+                                            .Line("nestedName: propInfo.Key,")
+                                            .Line("nestedValue: currentPropValue.ToString());");
         }
 
         private void GenerateCheckSiblingConstraintsMethod(CsClass parserClass)

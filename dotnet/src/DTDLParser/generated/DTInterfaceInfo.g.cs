@@ -1929,6 +1929,22 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
+        internal override IEnumerable<DTEntityInfo> GetChildren(string childrenPropertyName)
+        {
+            switch (childrenPropertyName)
+            {
+                case "contents":
+                    return this.Contents.Values;
+                case "extends":
+                    return this.Extends;
+                case "schemas":
+                    return this.Schemas;
+                default:
+                    return new List<DTEntityInfo>();
+            }
+        }
+
+        /// <inheritdoc/>
         internal override int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(ParsingErrorCollection parsingErrorCollection)
         {
             if (this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus == TraversalStatus.Complete)

@@ -233,6 +233,14 @@
         }
 
         /// <inheritdoc/>
+        public override bool TryAddCaseToGetChildrenSwitch(CsSwitch switchOnChildrenProperty)
+        {
+            switchOnChildrenProperty.Case($"\"{this.PropertyName}\"");
+            switchOnChildrenProperty.Line($"return this.{this.ObversePropertyName}.Values;");
+            return true;
+        }
+
+        /// <inheritdoc/>
         public override bool TryAddCaseToGetChildSwitch(CsSwitch switchOnChildrenProperty, string keyPropertyNameVar, string keyPropertyValueVar, string childVar)
         {
             HashSet<string> propertiesAdded = new HashSet<string>();
