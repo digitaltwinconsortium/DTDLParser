@@ -1,0 +1,31 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:lambda_wum;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:lambda_yuzz;1",
+          "@type": "Interface"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@id": "dtmi:example:lambda_um;1",
+        "@type": "Interface"
+      }
+    ]
+  }
+]

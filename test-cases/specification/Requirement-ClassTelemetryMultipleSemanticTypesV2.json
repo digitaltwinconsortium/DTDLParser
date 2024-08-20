@@ -7,7 +7,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:flunn_rho;1",
+        "@id": "dtmi:example:hi_vroo;1",
         "@type": "Interface",
         "contents": {
           "@type": [
@@ -15,8 +15,8 @@
             "LuminousIntensity",
             "MagneticFlux"
           ],
-          "name": "flunn_pi",
-          "schema": "long"
+          "name": "hi_yekk",
+          "schema": "float"
         }
       }
     ]
@@ -29,7 +29,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:flunn_tau;1",
+        "@id": "dtmi:example:alpha_alpha;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -38,8 +38,8 @@
             "LuminousIntensity",
             "MagneticFlux"
           ],
-          "name": "flunn_sigma",
-          "schema": "double"
+          "name": "hi_hi",
+          "schema": "integer"
         }
       }
     ]
@@ -52,7 +52,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:flunn_phi;1",
+        "@id": "dtmi:example:alpha_gamma;1",
         "@type": "Interface",
         "contents": {
           "@type": [
@@ -60,54 +60,7 @@
             "LuminousIntensity",
             "dtmi:standard:class:MagneticFlux;2"
           ],
-          "name": "flunn_upsilon",
-          "schema": "float",
-          "unit": "candela"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:flunn_psi;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": [
-            "Telemetry",
-            "LuminousIntensity",
-            "dtmi:standard:class:MagneticFlux;2"
-          ],
-          "name": "flunn_chi",
-          "schema": "integer",
-          "unit": "candela"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:flunn_yuzz;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": [
-            "Telemetry",
-            "dtmi:standard:class:LuminousIntensity;2",
-            "dtmi:standard:class:MagneticFlux;2"
-          ],
-          "name": "flunn_omega",
+          "name": "alpha_beta",
           "schema": "long",
           "unit": "candela"
         }
@@ -122,7 +75,54 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:flunn_um;1",
+        "@id": "dtmi:example:alpha_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Telemetry",
+            "LuminousIntensity",
+            "dtmi:standard:class:MagneticFlux;2"
+          ],
+          "name": "alpha_delta",
+          "schema": "double",
+          "unit": "candela"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:alpha_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Telemetry",
+            "dtmi:standard:class:LuminousIntensity;2",
+            "dtmi:standard:class:MagneticFlux;2"
+          ],
+          "name": "alpha_zeta",
+          "schema": "float",
+          "unit": "candela"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:alpha_iota;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -131,8 +131,8 @@
             "dtmi:standard:class:LuminousIntensity;2",
             "dtmi:standard:class:MagneticFlux;2"
           ],
-          "name": "flunn_wum",
-          "schema": "double",
+          "name": "alpha_theta",
+          "schema": "integer",
           "unit": "candela"
         }
       }

@@ -1,0 +1,37 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:lambda_iota;1",
+        "@type": [
+          "Interface",
+          "dtmi:foo//bar"
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:lambda_kappa;1",
+        "@type": [
+          "Interface",
+          "dtmi:foo//bar"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_gamma;1",
+          "@type": "Array",
+          "displayName": [
+            "hi_delta"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "hi_epsilon"
+          ],
+          "elementSchema": "integer"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_kappa;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:hi_eta;1",
+          "@type": "Array",
+          "displayName": [
+            "hi_theta"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "hi_iota"
+          ],
+          "elementSchema": "long"
+        }
+      }
+    ]
+  }
+]

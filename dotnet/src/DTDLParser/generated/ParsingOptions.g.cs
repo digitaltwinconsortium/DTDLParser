@@ -23,7 +23,7 @@ namespace DTDLParser
         /// <summary>
         /// The highest version of DTDL understood by this version of <see cref="ModelParser"/>.
         /// </summary>
-        public const int MaxKnownDtdlVersion = 3;
+        public const int MaxKnownDtdlVersion = 4;
 
         /// <summary>
         /// The lowest version of DTDL understood by this version of <see cref="ModelParser"/>.
@@ -34,7 +34,7 @@ namespace DTDLParser
         /// Gets or sets an integer value that restricts the highest DTDL version the parser should accept; if a higher version model is submitted, a <see cref="ParsingException"/> will be thrown with a <see cref="ParsingError"/> indicating a <c>ValidationID</c> of dtmi:dtdl:parsingError:disallowedContextVersion.
         /// </summary>
         /// <remarks>
-        /// The default value is 3, because this is the highest version of DTDL understood by this version of <see cref="ModelParser"/>.
+        /// The default value is 4, because this is the highest version of DTDL understood by this version of <see cref="ModelParser"/>.
         /// </remarks>
         public int MaxDtdlVersion { get; set; } = MaxKnownDtdlVersion;
 
@@ -47,6 +47,7 @@ namespace DTDLParser
         /// <remarks>
         /// For DTDL v2, the default behavior is to allow undefined extensions.
         /// For DTDL v3, the default behavior is to disallow undefined extensions.
+        /// For DTDL v4, the default behavior is to disallow undefined extensions.
         /// </remarks>
         public WhenToAllow AllowUndefinedExtensions { get; set; } = WhenToAllow.PerDefault;
     }

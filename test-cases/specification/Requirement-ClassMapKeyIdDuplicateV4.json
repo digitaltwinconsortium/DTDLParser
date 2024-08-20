@@ -1,0 +1,65 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:itch_pi;1",
+          "@type": "Property",
+          "name": "itch_tau",
+          "schema": {
+            "@id": "dtmi:example:itch_pi;1",
+            "@type": "Map",
+            "mapValue": {
+              "name": "itch_sigma",
+              "schema": "time"
+            },
+            "mapKey": {
+              "@id": "dtmi:example:itch_pi;1",
+              "name": "itch_rho",
+              "schema": "string"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_upsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:itch_upsilon;1",
+          "@type": "Property",
+          "name": "itch_psi",
+          "schema": {
+            "@id": "dtmi:example:itch_upsilon;1",
+            "@type": "Map",
+            "mapValue": {
+              "name": "itch_chi",
+              "schema": "boolean"
+            },
+            "mapKey": {
+              "@context": "dtmi:undefinedExtension:context;1",
+              "@id": "dtmi:example:itch_upsilon;1",
+              "name": "itch_phi",
+              "schema": "string"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

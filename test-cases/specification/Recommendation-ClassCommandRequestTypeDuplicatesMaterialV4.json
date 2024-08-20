@@ -1,0 +1,54 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "vroo_omicron",
+          "request": {
+            "name": "vroo_xi",
+            "schema": "time",
+            "@type": [
+              "CommandRequest",
+              "CommandRequest"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_tau;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "vroo_sigma",
+          "request": {
+            "name": "vroo_rho",
+            "schema": "boolean",
+            "@type": [
+              "dtmi:dtdl:class:CommandRequest;4",
+              "dtmi:dtdl:class:CommandRequest;4"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

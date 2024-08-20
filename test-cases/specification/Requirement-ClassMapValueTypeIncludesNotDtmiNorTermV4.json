@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:wum_nuh;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:wum_fuddle;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "wum_glikk",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@type": [
+              "MapValue",
+              "http://foo.com/bar"
+            ],
+            "name": "wum_humpf",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:wum_spazz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:wum_quan;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "wum_thnad",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapValue",
+              "http://foo.com/bar"
+            ],
+            "name": "wum_snee",
+            "schema": "dateTime"
+          }
+        }
+      }
+    ]
+  }
+]

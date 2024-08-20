@@ -1,0 +1,66 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry"
+          ],
+          "name": "currentSpeed",
+          "schema": "double"
+        }
+      ]
+    },
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1#foo",
+          "@type": [
+            "Telemetry",
+            "Layer"
+          ],
+          "schema": "double",
+          "comment": "something"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingLiteralProperty",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": null,
+        "Property": "name",
+        "Value": null
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:anInterface;1#foo",
+        "PrimaryIndex": 1,
+        "PrimaryStart": 6
+      }
+    ]
+  }
+}

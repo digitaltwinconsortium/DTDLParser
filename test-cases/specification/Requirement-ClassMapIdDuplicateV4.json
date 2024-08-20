@@ -1,0 +1,63 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:gamma_pi;1",
+          "@type": "Property",
+          "name": "gamma_tau",
+          "schema": {
+            "@id": "dtmi:example:gamma_pi;1",
+            "@type": "Map",
+            "mapKey": {
+              "name": "gamma_rho",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "gamma_sigma",
+              "schema": "duration"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_upsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:gamma_upsilon;1",
+          "@type": "Property",
+          "name": "gamma_psi",
+          "schema": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:example:gamma_upsilon;1",
+            "@type": "Map",
+            "mapKey": {
+              "name": "gamma_phi",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "gamma_chi",
+              "schema": "float"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

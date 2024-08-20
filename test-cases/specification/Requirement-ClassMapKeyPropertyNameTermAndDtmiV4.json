@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_epsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:tau_gamma;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "tau_delta",
+            "schema": "boolean"
+          },
+          "mapKey": {
+            "name": "tau_alpha",
+            "dtmi:dtdl:property:name;4": "tau_beta",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_kappa;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:tau_theta;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "tau_iota",
+            "schema": "date"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "tau_zeta",
+            "dtmi:dtdl:property:name;4": "tau_eta",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

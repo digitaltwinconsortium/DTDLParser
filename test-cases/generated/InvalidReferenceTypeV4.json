@@ -1,0 +1,45 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:example:foo;1",
+          "@type": "Command",
+          "name": "foo"
+        },
+        {
+          "@id": "dtmi:example:bar;1",
+          "@type": "Property",
+          "name": "bar",
+          "schema": "dtmi:example:foo;1"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:example:bar;1",
+        "SecondaryID": "dtmi:example:foo;1",
+        "Property": "schema",
+        "Value": "Command",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 15,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 15
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:propertyCountBelowMin",
+        "PrimaryID": "dtmi:example:bar;1",
+        "Property": "schema"
+      }
+    ]
+  }
+}

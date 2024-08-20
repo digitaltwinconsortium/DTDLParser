@@ -1,0 +1,81 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;2",
+    "dtmi:dtdl:extension:overriding;2"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2",
+        "dtmi:dtdl:extension:annotation;2",
+        "dtmi:dtdl:extension:overriding;2"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Temperature"
+          ],
+          "name": "targetTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "targetTempUnit",
+          "annotates": "targetTemp",
+          "overrides": "unit",
+          "schema": "TemperatureUnit",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:Sensor:_contents:__targetTemp;1",
+        "type": "Property",
+        "properties": {
+          "name": "targetTemp",
+          "schema": "dtmi:dtdl:instance:Schema:double;2",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v2:class:Temperature"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:degreeFahrenheit"
+        }
+      },
+      {
+        "id": "dtmi:test:Sensor:_contents:__targetTempUnit;1",
+        "type": "Property",
+        "properties": {
+          "name": "targetTempUnit",
+          "schema": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:TemperatureUnit",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation",
+          "dtmi:dtdl:extension:overriding:v2:Override"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation:annotates": "targetTemp",
+          "dtmi:dtdl:extension:overriding:v2:Override:overrides": "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit"
+        }
+      }
+    ]
+  }
+}

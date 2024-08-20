@@ -1,0 +1,45 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_glikk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Property",
+            "http://foo.com/bar"
+          ],
+          "name": "sigma_fuddle",
+          "schema": "duration"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_snee;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Property",
+            "http://foo.com/bar"
+          ],
+          "name": "sigma_nuh",
+          "schema": "float"
+        }
+      }
+    ]
+  }
+]

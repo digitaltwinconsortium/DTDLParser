@@ -1,0 +1,51 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_quan;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:jogg_glikk;1",
+          "@type": "Enum",
+          "displayName": [
+            "jogg_nuh"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "jogg_snee"
+          ],
+          "valueSchema": "integer"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_zatz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:jogg_thnad;1",
+          "@type": "Enum",
+          "displayName": [
+            "jogg_spazz"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "jogg_floob"
+          ],
+          "valueSchema": "integer"
+        }
+      }
+    ]
+  }
+]

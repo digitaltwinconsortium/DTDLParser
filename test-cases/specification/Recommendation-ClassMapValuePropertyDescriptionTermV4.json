@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_eta;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "flunn_theta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "description": [
+              "flunn_epsilon"
+            ],
+            "name": "flunn_zeta",
+            "schema": "double"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_xi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_mu;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "flunn_nu",
+            "schema": "string"
+          },
+          "mapValue": {
+            "dtmi:dtdl:property:description;4": [
+              "flunn_kappa"
+            ],
+            "name": "flunn_lambda",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  }
+]

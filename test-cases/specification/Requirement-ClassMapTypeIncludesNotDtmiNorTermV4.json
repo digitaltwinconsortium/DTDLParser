@@ -1,0 +1,59 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_yekk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:um_jogg;1",
+          "@type": [
+            "Map",
+            "http://foo.com/bar"
+          ],
+          "mapKey": {
+            "name": "um_flunn",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "um_itch",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:um_vroo;1",
+          "@type": [
+            "Map",
+            "http://foo.com/bar"
+          ],
+          "mapKey": {
+            "name": "um_hi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "humpf_alpha",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_mu",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "yekk_kappa",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "yekk_lambda",
+              "schema": "date"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:yekk_xi;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "yekk_omicron",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "yekk_pi",
+            "schema": "dateTime"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_upsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@type": "Map",
+          "mapKey": {
+            "name": "yekk_sigma",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "yekk_tau",
+            "schema": "double"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_psi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "yekk_phi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "yekk_chi",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  }
+]

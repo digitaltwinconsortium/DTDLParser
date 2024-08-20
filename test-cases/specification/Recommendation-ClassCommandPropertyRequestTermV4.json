@@ -1,0 +1,46 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "psi_theta",
+          "request": {
+            "name": "psi_iota",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "psi_lambda",
+          "dtmi:dtdl:property:request;4": {
+            "name": "psi_mu",
+            "schema": "time"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -7,17 +7,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:floob_spazz;1",
+        "@id": "dtmi:example:jogg_pi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:floob_thnad;1",
+          "@id": "dtmi:example:jogg_omicron;1",
           "@type": "Interface",
           "contents": {
             "@type": "Command",
-            "name": "floob_quan",
+            "name": "jogg_xi",
             "request": {
-              "@id": "dtmi:example:floob_nuh;1",
-              "name": "floob_snee",
+              "@id": "dtmi:example:jogg_mu;1",
+              "name": "jogg_nu",
               "schema": "dateTime"
             }
           }
@@ -33,18 +33,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:floob_itch;1",
+        "@id": "dtmi:example:jogg_phi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:floob_flunn;1",
+          "@id": "dtmi:example:jogg_upsilon;1",
           "@type": "Interface",
           "contents": {
             "@type": "Command",
-            "name": "floob_jogg",
+            "name": "jogg_tau",
             "request": [
               {
-                "@id": "dtmi:example:floob_floob;1",
-                "name": "floob_zatz",
+                "@id": "dtmi:example:jogg_rho;1",
+                "name": "jogg_sigma",
                 "schema": "double"
               }
             ]
@@ -61,21 +61,21 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:floob_hi;1",
+        "@id": "dtmi:example:jogg_omega;1",
         "@type": "Interface",
         "contents": [
           {
             "@type": "Command",
-            "name": "floob_vroo",
+            "name": "jogg_psi",
             "request": {
               "@id": "dtmi:ex:dependentRef;1",
-              "name": "floob_yekk",
+              "name": "jogg_chi",
               "schema": "duration"
             }
           },
           {
             "@type": "Command",
-            "name": "zatz_alpha",
+            "name": "jogg_yuzz",
             "request": "dtmi:ex:dependentRef;1"
           }
         ]
@@ -90,21 +90,21 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zatz_delta;1",
+        "@id": "dtmi:example:jogg_humpf;1",
         "@type": "Interface",
         "contents": [
           {
             "@type": "Command",
-            "name": "zatz_gamma",
+            "name": "jogg_um",
             "request": {
               "@id": "dtmi:ex:dependentRef;1",
-              "name": "zatz_beta",
+              "name": "jogg_wum",
               "schema": "float"
             }
           },
           {
             "@type": "Command",
-            "name": "zatz_epsilon",
+            "name": "jogg_fuddle",
             "request": [
               "dtmi:ex:dependentRef;1"
             ]
@@ -121,18 +121,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zatz_kappa;1",
+        "@id": "dtmi:example:jogg_thnad;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zatz_iota;1",
+          "@id": "dtmi:example:jogg_quan;1",
           "@type": "Interface",
           "contents": {
             "@type": "Command",
-            "name": "zatz_theta",
+            "name": "jogg_snee",
             "request": {
-              "@id": "dtmi:example:zatz_zeta;1",
+              "@id": "dtmi:example:jogg_glikk;1",
               "@type": "CommandPayload",
-              "name": "zatz_eta",
+              "name": "jogg_nuh",
               "schema": "integer",
               "@context": "dtmi:dtdl:context;3"
             }
@@ -149,21 +149,78 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zatz_omicron;1",
+        "@id": "dtmi:example:jogg_flunn;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zatz_xi;1",
+          "@id": "dtmi:example:jogg_jogg;1",
           "@type": "Interface",
           "contents": {
             "@context": "dtmi:undefinedExtension:context;1",
             "@type": "Command",
-            "name": "zatz_nu",
+            "name": "jogg_zatz",
             "request": {
-              "@id": "dtmi:example:zatz_lambda;1",
+              "@id": "dtmi:example:jogg_spazz;1",
               "@type": "CommandPayload",
-              "name": "zatz_mu",
+              "name": "jogg_floob",
               "schema": "long",
               "@context": "dtmi:dtdl:context;3"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:flunn_alpha;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:jogg_hi;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "jogg_vroo",
+            "request": {
+              "@id": "dtmi:example:jogg_itch;1",
+              "@type": "CommandPayload",
+              "name": "jogg_yekk",
+              "schema": "string",
+              "@context": "dtmi:dtdl:context;4"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:flunn_zeta;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:flunn_epsilon;1",
+          "@type": "Interface",
+          "contents": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": "Command",
+            "name": "flunn_delta",
+            "request": {
+              "@id": "dtmi:example:flunn_beta;1",
+              "@type": "CommandPayload",
+              "name": "flunn_gamma",
+              "schema": "time",
+              "@context": "dtmi:dtdl:context;4"
             }
           }
         }
@@ -178,14 +235,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zatz_sigma;1",
+        "@id": "dtmi:example:flunn_iota;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zatz_rho;1",
+          "@id": "dtmi:example:flunn_theta;1",
           "@type": "Interface",
           "contents": {
             "@type": "Command",
-            "name": "zatz_pi",
+            "name": "flunn_eta",
             "request": []
           }
         }
@@ -200,24 +257,24 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zatz_yuzz;1",
+        "@id": "dtmi:example:flunn_pi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zatz_omega;1",
+          "@id": "dtmi:example:flunn_omicron;1",
           "@type": "Interface",
           "contents": {
             "@type": "Command",
-            "name": "zatz_psi",
+            "name": "flunn_xi",
             "request": [
               {
-                "@id": "dtmi:example:zatz_tau;1",
-                "name": "zatz_upsilon",
-                "schema": "string"
+                "@id": "dtmi:example:flunn_kappa;1",
+                "name": "flunn_lambda",
+                "schema": "boolean"
               },
               {
-                "@id": "dtmi:example:zatz_phi;1",
-                "name": "zatz_chi",
-                "schema": "time"
+                "@id": "dtmi:example:flunn_mu;1",
+                "name": "flunn_nu",
+                "schema": "date"
               }
             ]
           }
@@ -233,25 +290,25 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zatz_snee;1",
+        "@id": "dtmi:example:flunn_psi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zatz_nuh;1",
+          "@id": "dtmi:example:flunn_chi;1",
           "@type": "Interface",
           "contents": {
             "@context": "dtmi:undefinedExtension:context;1",
             "@type": "Command",
-            "name": "zatz_glikk",
+            "name": "flunn_phi",
             "request": [
               {
-                "@id": "dtmi:example:zatz_wum;1",
-                "name": "zatz_um",
-                "schema": "boolean"
+                "@id": "dtmi:example:flunn_rho;1",
+                "name": "flunn_sigma",
+                "schema": "dateTime"
               },
               {
-                "@id": "dtmi:example:zatz_humpf;1",
-                "name": "zatz_fuddle",
-                "schema": "date"
+                "@id": "dtmi:example:flunn_tau;1",
+                "name": "flunn_upsilon",
+                "schema": "double"
               }
             ]
           }

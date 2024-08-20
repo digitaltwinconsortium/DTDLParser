@@ -1,0 +1,80 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_omicron;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Telemetry",
+            "schema": "long",
+            "name": "epsilon_kappa"
+          },
+          {
+            "@type": "Telemetry",
+            "schema": "string",
+            "name": "epsilon_lambda"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_pi;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Telemetry",
+            "schema": "time",
+            "name": "epsilon_kappa"
+          },
+          {
+            "@type": "Telemetry",
+            "schema": "boolean",
+            "name": "epsilon_kappa"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:psi_rho;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Telemetry",
+            "schema": "date",
+            "name": "epsilon_kappa"
+          },
+          {
+            "@type": "Telemetry",
+            "schema": "dateTime",
+            "name": "epsilon_kappa"
+          }
+        ]
+      }
+    ]
+  }
+]

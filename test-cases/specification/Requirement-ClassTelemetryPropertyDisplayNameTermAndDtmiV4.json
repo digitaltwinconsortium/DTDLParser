@@ -1,0 +1,51 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zatz_jogg;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "displayName": [
+            "zatz_spazz"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "zatz_floob"
+          ],
+          "name": "zatz_zatz",
+          "schema": "boolean"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zatz_vroo;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "displayName": [
+            "zatz_flunn"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "zatz_itch"
+          ],
+          "name": "zatz_yekk",
+          "schema": "date"
+        }
+      }
+    ]
+  }
+]

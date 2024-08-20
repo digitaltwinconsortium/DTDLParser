@@ -1,0 +1,65 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:gamma_omicron;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "gamma_pi",
+            "schema": "boolean"
+          },
+          "mapKey": {
+            "description": [
+              "gamma_mu"
+            ],
+            "dtmi:dtdl:property:description;4": [
+              "gamma_nu"
+            ],
+            "name": "gamma_xi",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_psi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:gamma_phi;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "gamma_chi",
+            "schema": "date"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "description": [
+              "gamma_sigma"
+            ],
+            "dtmi:dtdl:property:description;4": [
+              "gamma_tau"
+            ],
+            "name": "gamma_upsilon",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

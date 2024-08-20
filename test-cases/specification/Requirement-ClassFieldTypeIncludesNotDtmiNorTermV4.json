@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_chi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_phi;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "http://foo.com/bar"
+            ],
+            "name": "flunn_upsilon",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_yuzz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_omega;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "http://foo.com/bar"
+            ],
+            "name": "flunn_psi",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

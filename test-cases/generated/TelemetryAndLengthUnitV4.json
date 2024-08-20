@@ -1,0 +1,48 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:illegalEnumAsCotype;1",
+          "@type": [
+            "Telemetry",
+            "LengthUnit"
+          ],
+          "name": "illegal",
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:typeIrrelevantDtmiOrTerm",
+        "PrimaryID": "dtmi:test:illegalEnumAsCotype;1",
+        "Property": null,
+        "Value": "LengthUnit",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:test:anInterface;1",
+        "SecondaryID": "dtmi:test:illegalEnumAsCotype;1",
+        "Property": "contents",
+        "Value": "LengthUnit",
+        "SecondaryIndex": 0,
+        "SecondaryStart": 5,
+        "SecondaryEnd": 17
+      }
+    ]
+  }
+}

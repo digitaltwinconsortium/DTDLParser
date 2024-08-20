@@ -60,13 +60,19 @@ namespace DTDLParser.Models
 
         private HashSet<int> commandTypeAllowedVersionsV3 = new HashSet<int>() { 3 };
 
+        private HashSet<int> commandTypeAllowedVersionsV4 = new HashSet<int>() { 4 };
+
         private HashSet<int> requestAllowedVersionsV2 = new HashSet<int>() { 2 };
 
         private HashSet<int> requestAllowedVersionsV3 = new HashSet<int>() { 3 };
 
+        private HashSet<int> requestAllowedVersionsV4 = new HashSet<int>() { 4 };
+
         private HashSet<int> responseAllowedVersionsV2 = new HashSet<int>() { 2 };
 
         private HashSet<int> responseAllowedVersionsV3 = new HashSet<int>() { 3 };
+
+        private HashSet<int> responseAllowedVersionsV4 = new HashSet<int>() { 4 };
 
         private int countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValue = 0;
 
@@ -132,14 +138,20 @@ namespace DTDLParser.Models
             ConcreteKinds[3] = new HashSet<DTEntityKind>();
             ConcreteKinds[3].Add(DTEntityKind.Command);
 
+            ConcreteKinds[4] = new HashSet<DTEntityKind>();
+            ConcreteKinds[4].Add(DTEntityKind.Command);
+
             BadTypeActionFormat[2] = "Provide a @type{line3} of Command, or provide a value for property '{property}'{line1} with @type of Command.";
             BadTypeActionFormat[3] = "Provide a @type{line3} of Command, or provide a value for property '{property}'{line1} with @type of Command.";
+            BadTypeActionFormat[4] = "Provide a @type{line3} of Command, or provide a value for property '{property}'{line1} with @type of Command.";
 
             BadTypeCauseFormat[2] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Command.";
             BadTypeCauseFormat[3] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Command.";
+            BadTypeCauseFormat[4] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Command.";
 
             BadTypeLocatedCauseFormat[2] = "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that does not have @type of Command.";
             BadTypeLocatedCauseFormat[3] = "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that does not have @type of Command.";
+            BadTypeLocatedCauseFormat[4] = "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that does not have @type of Command.";
         }
 
         /// <summary>
@@ -314,6 +326,12 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
+        public override bool DeepEquals(DTEntityInfo other)
+        {
+            return this.EntityKind == other?.EntityKind && this.DeepEquals((DTCommandInfo)other);
+        }
+
+        /// <inheritdoc/>
         public override bool DeepEquals(DTContentInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.DeepEquals((DTCommandInfo)other);
@@ -321,12 +339,6 @@ namespace DTDLParser.Models
 
         /// <inheritdoc/>
         public override bool DeepEquals(DTNamedEntityInfo other)
-        {
-            return this.EntityKind == other?.EntityKind && this.DeepEquals((DTCommandInfo)other);
-        }
-
-        /// <inheritdoc/>
-        public override bool DeepEquals(DTEntityInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.DeepEquals((DTCommandInfo)other);
         }
@@ -348,9 +360,10 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        public override bool Equals(DTContentInfo other)
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object otherObj)
         {
-            return this.EntityKind == other?.EntityKind && this.Equals((DTCommandInfo)other);
+            return otherObj is DTCommandInfo other && this.Equals(other);
         }
 
         /// <inheritdoc/>
@@ -360,16 +373,15 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        public override bool Equals(DTEntityInfo other)
+        public override bool Equals(DTContentInfo other)
         {
             return this.EntityKind == other?.EntityKind && this.Equals((DTCommandInfo)other);
         }
 
         /// <inheritdoc/>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object otherObj)
+        public override bool Equals(DTEntityInfo other)
         {
-            return otherObj is DTCommandInfo other && this.Equals(other);
+            return this.EntityKind == other?.EntityKind && this.Equals((DTCommandInfo)other);
         }
 
         /// <inheritdoc/>
@@ -735,6 +747,9 @@ namespace DTDLParser.Models
                 case 3:
                     elementInfo.ParsePropertiesV3(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, tolerateSolecisms);
                     break;
+                case 4:
+                    elementInfo.ParsePropertiesV4(model, objectPropertyInfoList, elementPropertyConstraints, childAggregateContext, immediateSupplementalTypeIds, immediateUndefinedTypes, parsingErrorCollection, elt, elementLayer, definedIn, globalize, allowReservedIds, tolerateSolecisms);
+                    break;
             }
 
             elementInfo.RecordSourceAsAppropriate(elementLayer, elt, childAggregateContext, parsingErrorCollection, atRoot: parentId == null, globalized: globalize);
@@ -831,6 +846,13 @@ namespace DTDLParser.Models
                         break;
                     case 3:
                         if (!TryParseTypeStringV3(typeString, elementId, layer, elt, parentId, definedIn, propName, propProp, materialKinds, immediateSupplementalTypeIds, ref elementInfo, ref immediateUndefinedTypes, aggregateContext, parsingErrorCollection))
+                        {
+                            anyFailures = true;
+                        }
+
+                        break;
+                    case 4:
+                        if (!TryParseTypeStringV4(typeString, elementId, layer, elt, parentId, definedIn, propName, propProp, materialKinds, immediateSupplementalTypeIds, ref elementInfo, ref immediateUndefinedTypes, aggregateContext, parsingErrorCollection))
                         {
                             anyFailures = true;
                         }
@@ -1477,6 +1499,308 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
+        /// Parse a string @type value, whether material or supplemental.
+        /// </summary>
+        /// <param name="typeString">The string value to parse.</param>
+        /// <param name="elementId">The identifier of the element of this type to create.</param>
+        /// <param name="layer">Name of the layer currently being parsed.</param>
+        /// <param name="elt">The <see cref="JsonLdElement"/> currently being parsed.</param>
+        /// <param name="parentId">The identifier of the parent of the element.</param>
+        /// <param name="definedIn">Identifier of the partition or top-level element under which this element is defined.</param>
+        /// <param name="propName">The name of the property by which the parent refers to this element.</param>
+        /// <param name="propProp">The <see cref="JsonLdProperty"/> representing the source of the property by which the parent refers to this element.</param>
+        /// <param name="materialKinds">A set of material kinds to update with the material kind of the type, if any.</param>
+        /// <param name="supplementalTypeIds">A set of supplemental type IDs to update with the supplemental type, if any.</param>
+        /// <param name="elementInfo">The element created if the type is material.</param>
+        /// <param name="undefinedTypes">A list of string values of any undefined supplemental types.</param>
+        /// <param name="aggregateContext">An <c>AggregateContext</c> object representing information retrieved from JSON-LD context blocks.</param>
+        /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing errors are added.</param>
+        /// <returns>True if the parse is sucessful.</returns>
+        internal static bool TryParseTypeStringV4(string typeString, Dtmi elementId, string layer, JsonLdElement elt, Dtmi parentId, Dtmi definedIn, string propName, JsonLdProperty propProp, HashSet<DTEntityKind> materialKinds, HashSet<Dtmi> supplementalTypeIds, ref DTCommandInfo elementInfo, ref List<string> undefinedTypes, AggregateContext aggregateContext, ParsingErrorCollection parsingErrorCollection)
+        {
+            switch (typeString)
+            {
+                case "Command":
+                case "dtmi:dtdl:class:Command;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTCommandInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.Command);
+                    return true;
+            }
+
+            if (MaterialTypeNameCollection.IsMaterialType(typeString))
+            {
+                string sourceName1 = null;
+                int sourceLine1 = 0;
+                if (propProp != null && propProp.TryGetSourceLocation(out sourceName1, out sourceLine1) && elt.TryGetSourceLocation(out string sourceName2, out int startLine2, out int endLine2))
+                {
+                    elt.TryGetSourceLocationForType(out _, out int sourceLine3);
+                    parsingErrorCollection.Add(
+                        new Uri("dtmi:dtdl:parsingError:badType"),
+                        BadTypeLocatedCauseFormat[4],
+                        BadTypeActionFormat[4],
+                        primaryId: parentId,
+                        property: propName,
+                        secondaryId: elementId,
+                        value: typeString,
+                        layer: layer,
+                        sourceName1: sourceName1,
+                        startLine1: sourceLine1,
+                        sourceName2: sourceName2,
+                        startLine2: startLine2,
+                        endLine2: endLine2,
+                        startLine3: sourceLine3);
+                }
+                else
+                {
+                    parsingErrorCollection.Add(
+                        new Uri("dtmi:dtdl:parsingError:badType"),
+                        BadTypeCauseFormat[4],
+                        BadTypeActionFormat[4],
+                        primaryId: parentId,
+                        property: propName,
+                        secondaryId: elementId,
+                        value: typeString,
+                        layer: layer);
+                }
+
+                return false;
+            }
+
+            if (!aggregateContext.TryCreateDtmi(typeString, out Dtmi supplementalTypeId))
+            {
+                if (typeString.StartsWith("dtmi:"))
+                {
+                    parsingErrorCollection.Notify(
+                        "typeInvalidDtmi",
+                        elementId: elementId,
+                        cotype: typeString,
+                        element: elt,
+                        layer: layer);
+                    return false;
+                }
+                else if (typeString.Contains(":"))
+                {
+                    parsingErrorCollection.Notify(
+                        "typeNotDtmiNorTerm",
+                        elementId: elementId,
+                        cotype: typeString,
+                        element: elt,
+                        layer: layer);
+                    return false;
+                }
+                else
+                {
+                    if (aggregateContext.IsComplete)
+                    {
+                        parsingErrorCollection.Notify(
+                            "typeUndefinedTerm",
+                            elementId: elementId,
+                            cotype: typeString,
+                            element: elt,
+                            layer: layer);
+                        return false;
+                    }
+                }
+
+                undefinedTypes.Add(typeString);
+                return true;
+            }
+
+            if (!aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo))
+            {
+                if (aggregateContext.IsComplete)
+                {
+                    parsingErrorCollection.Notify(
+                        "typeIrrelevantDtmiOrTerm",
+                        elementId: elementId,
+                        cotype: typeString,
+                        element: elt,
+                        layer: layer);
+                    return false;
+                }
+
+                undefinedTypes.Add(typeString);
+                return true;
+            }
+
+            if (supplementalTypeInfo.IsAbstract)
+            {
+                parsingErrorCollection.Notify(
+                    "abstractSupplementalType",
+                    elementId: elementId,
+                    cotype: ContextCollection.GetTermOrUri(supplementalTypeId),
+                    element: elt,
+                    layer: layer);
+                return false;
+            }
+
+            switch (supplementalTypeInfo.ExtensionKind)
+            {
+                case DTExtensionKind.LatentType:
+                    {
+                        string sourceName1 = null;
+                        int sourceLine1 = 0;
+                        if (propProp != null && propProp.TryGetSourceLocation(out sourceName1, out sourceLine1) && elt.TryGetSourceLocation(out string sourceName2, out int startLine2, out int endLine2))
+                        {
+                            elt.TryGetSourceLocationForType(out _, out int sourceLine3);
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeLocatedCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer,
+                                sourceName1: sourceName1,
+                                startLine1: sourceLine1,
+                                sourceName2: sourceName2,
+                                startLine2: startLine2,
+                                endLine2: endLine2,
+                                startLine3: sourceLine3);
+                        }
+                        else
+                        {
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer);
+                        }
+                    }
+
+                    return false;
+                case DTExtensionKind.NamedLatentType:
+                    {
+                        string sourceName1 = null;
+                        int sourceLine1 = 0;
+                        if (propProp != null && propProp.TryGetSourceLocation(out sourceName1, out sourceLine1) && elt.TryGetSourceLocation(out string sourceName2, out int startLine2, out int endLine2))
+                        {
+                            elt.TryGetSourceLocationForType(out _, out int sourceLine3);
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeLocatedCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer,
+                                sourceName1: sourceName1,
+                                startLine1: sourceLine1,
+                                sourceName2: sourceName2,
+                                startLine2: startLine2,
+                                endLine2: endLine2,
+                                startLine3: sourceLine3);
+                        }
+                        else
+                        {
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer);
+                        }
+                    }
+
+                    return false;
+                case DTExtensionKind.Unit:
+                    {
+                        string sourceName1 = null;
+                        int sourceLine1 = 0;
+                        if (propProp != null && propProp.TryGetSourceLocation(out sourceName1, out sourceLine1) && elt.TryGetSourceLocation(out string sourceName2, out int startLine2, out int endLine2))
+                        {
+                            elt.TryGetSourceLocationForType(out _, out int sourceLine3);
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeLocatedCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer,
+                                sourceName1: sourceName1,
+                                startLine1: sourceLine1,
+                                sourceName2: sourceName2,
+                                startLine2: startLine2,
+                                endLine2: endLine2,
+                                startLine3: sourceLine3);
+                        }
+                        else
+                        {
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer);
+                        }
+                    }
+
+                    return false;
+                case DTExtensionKind.UnitAttribute:
+                    {
+                        string sourceName1 = null;
+                        int sourceLine1 = 0;
+                        if (propProp != null && propProp.TryGetSourceLocation(out sourceName1, out sourceLine1) && elt.TryGetSourceLocation(out string sourceName2, out int startLine2, out int endLine2))
+                        {
+                            elt.TryGetSourceLocationForType(out _, out int sourceLine3);
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeLocatedCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer,
+                                sourceName1: sourceName1,
+                                startLine1: sourceLine1,
+                                sourceName2: sourceName2,
+                                startLine2: startLine2,
+                                endLine2: endLine2,
+                                startLine3: sourceLine3);
+                        }
+                        else
+                        {
+                            parsingErrorCollection.Add(
+                                new Uri("dtmi:dtdl:parsingError:badType"),
+                                BadTypeCauseFormat[4],
+                                BadTypeActionFormat[4],
+                                primaryId: parentId,
+                                property: propName,
+                                secondaryId: elementId,
+                                value: typeString,
+                                layer: layer);
+                        }
+                    }
+
+                    return false;
+            }
+
+            supplementalTypeIds.Add(supplementalTypeId);
+
+            return true;
+        }
+
+        /// <summary>
         /// Parse elements encoded in a <see cref="JsonLdValueCollection"/> into objects of subclasses of type <c>DTCommandInfo</c>.
         /// </summary>
         /// <param name="model">The model to add the element to.</param>
@@ -1754,6 +2078,7 @@ namespace DTDLParser.Models
                 case "commandType":
                 case "dtmi:dtdl:property:commandType;2":
                 case "dtmi:dtdl:property:commandType;3":
+                case "dtmi:dtdl:property:commandType;4":
                     if (this.CommandType != null)
                     {
                         if (this.CommandType.Id != element.Id)
@@ -1780,6 +2105,7 @@ namespace DTDLParser.Models
                 case "request":
                 case "dtmi:dtdl:property:request;2":
                 case "dtmi:dtdl:property:request;3":
+                case "dtmi:dtdl:property:request;4":
                     if (this.Request != null)
                     {
                         if (this.Request.Id != element.Id)
@@ -1806,6 +2132,7 @@ namespace DTDLParser.Models
                 case "response":
                 case "dtmi:dtdl:property:response;2":
                 case "dtmi:dtdl:property:response;3":
+                case "dtmi:dtdl:property:response;4":
                     if (this.Response != null)
                     {
                         if (this.Response.Id != element.Id)
@@ -1961,6 +2288,9 @@ namespace DTDLParser.Models
                 case 3:
                     this.ApplyTransformationsV3(model, parsingErrorCollection);
                     break;
+                case 4:
+                    this.ApplyTransformationsV4(model, parsingErrorCollection);
+                    break;
             }
         }
 
@@ -2004,6 +2334,9 @@ namespace DTDLParser.Models
                     break;
                 case 3:
                     this.CheckRestrictionsV3(parsingErrorCollection);
+                    break;
+                case 4:
+                    this.CheckRestrictionsV4(parsingErrorCollection);
                     break;
             }
         }
@@ -2785,6 +3118,417 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
+        /// Parse the properties in a JSON Command object.
+        /// </summary>
+        /// <param name="model">Model to which to add object properties.</param>
+        /// <param name="objectPropertyInfoList">List of object info structs for deferred assignments.</param>
+        /// <param name="elementPropertyConstraints">List of <c>ElementPropertyConstraint</c> to be checked after object property assignment.</param>
+        /// <param name="aggregateContext">An <c>AggregateContext</c> object representing information retrieved from JSON-LD context blocks.</param>
+        /// <param name="immediateSupplementalTypeIds">A set of supplemental type IDs.</param>
+        /// <param name="immediateUndefinedTypes">A list of undefind type strings.</param>
+        /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing errors are added.</param>
+        /// <param name="elt">The <see cref="JsonLdElement"/> to parse.</param>
+        /// <param name="layer">Name of the layer currently being parsed.</param>
+        /// <param name="definedIn">Identifier of the partition or top-level element under which this element is defined.</param>
+        /// <param name="globalize">Treat all nested definitions as though defined globally.</param>
+        /// <param name="allowReservedIds">Allow elements to define IDs that have reserved prefixes.</param>
+        /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
+        internal override void ParsePropertiesV4(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, HashSet<Dtmi> immediateSupplementalTypeIds, List<string> immediateUndefinedTypes, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi definedIn, bool globalize, bool allowReservedIds, bool tolerateSolecisms)
+        {
+            this.LanguageMajorVersion = 3;
+
+            JsonLdProperty commandTypeProperty = null;
+            JsonLdProperty commentProperty = null;
+            JsonLdProperty descriptionProperty = null;
+            JsonLdProperty displayNameProperty = null;
+            JsonLdProperty nameProperty = null;
+            JsonLdProperty requestProperty = null;
+            JsonLdProperty responseProperty = null;
+            Dictionary<string, JsonLdProperty> supplementalJsonLdProperties = new Dictionary<string, JsonLdProperty>();
+
+            foreach (JsonLdProperty prop in elt.Properties)
+            {
+                switch (prop.Name)
+                {
+                    case "commandType":
+                    case "dtmi:dtdl:property:commandType;4":
+                        if (commandTypeProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "commandType",
+                                incidentProperty: prop,
+                                extantProperty: commandTypeProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            commandTypeProperty = prop;
+                            DTCommandTypeInfo.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, this.commandTypeValueConstraints, aggregateContext, parsingErrorCollection, prop, layer, this.Id, globalize ? null : definedIn ?? this.Id, "commandType", null, null, 0, isPlural: false, idRequired: true, typeRequired: true, globalize: globalize, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms, allowedVersions: this.commandTypeAllowedVersionsV4);
+                        }
+
+                        continue;
+                    case "comment":
+                    case "dtmi:dtdl:property:comment;4":
+                        if (commentProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "comment",
+                                incidentProperty: prop,
+                                extantProperty: commentProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            commentProperty = prop;
+                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, 512, null, layer, parsingErrorCollection, isOptional: true);
+                            if (this.commentPropertyLayer != null)
+                            {
+                                if (this.Comment != newComment)
+                                {
+                                    JsonLdProperty extantProp = this.JsonLdElements[this.commentPropertyLayer].Properties.FirstOrDefault(p => p.Name == "comment");
+                                    parsingErrorCollection.Notify(
+                                        "inconsistentStringValues",
+                                        elementId: this.Id,
+                                        propertyName: "comment",
+                                        propertyValue: newComment.ToString(),
+                                        valueRestriction: this.Comment.ToString(),
+                                        incidentProperty: prop,
+                                        extantProperty: extantProp,
+                                        layer: layer);
+                                }
+                            }
+                            else
+                            {
+                                this.Comment = newComment;
+                                this.commentPropertyLayer = layer;
+
+                                if (this.commentValueConstraints != null)
+                                {
+                                    foreach (ValueConstraint valueConstraint in this.commentValueConstraints)
+                                    {
+                                        if (valueConstraint.RequiredLiteral != null && !valueConstraint.RequiredLiteral.Equals(newComment))
+                                        {
+                                            parsingErrorCollection.Notify(
+                                                "notRequiredStringValue",
+                                                elementId: this.Id,
+                                                propertyName: "comment",
+                                                propertyValue: newComment.ToString(),
+                                                valueRestriction: valueConstraint.RequiredLiteral.ToString(),
+                                                incidentProperty: prop,
+                                                layer: layer);
+                                        }
+                                    }
+                                }
+
+                                ((Dictionary<string, string>)this.StringProperties)["comment"] = newComment;
+                            }
+                        }
+
+                        continue;
+                    case "description":
+                    case "dtmi:dtdl:property:description;4":
+                        if (descriptionProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "description",
+                                incidentProperty: prop,
+                                extantProperty: descriptionProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            descriptionProperty = prop;
+                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
+                            if (descriptionCodes.Any())
+                            {
+                                JsonLdProperty extantProp = Helpers.TryGetSingleUniqueValue(descriptionCodes.Select(c => this.descriptionPropertyLayer[c]), out string uniqueCodeLayer) && this.JsonLdElements[uniqueCodeLayer].Properties.Any(p => p.Name == "description") ? this.JsonLdElements[uniqueCodeLayer].Properties.First(p => p.Name == "description") : null;
+                                parsingErrorCollection.Notify(
+                                    "inconsistentLangStringValues",
+                                    elementId: this.Id,
+                                    propertyName: "description",
+                                    langCode: string.Join(" and ", descriptionCodes.Select(c => $"'{c}'")),
+                                    observedCount: descriptionCodes.Count,
+                                    incidentProperty: prop,
+                                    extantProperty: extantProp,
+                                    layer: layer);
+                            }
+                            else if (this.Description.Any())
+                            {
+                                foreach (KeyValuePair<string, string> kvp in newDescription)
+                                {
+                                    ((Dictionary<string, string>)this.Description)[kvp.Key] = kvp.Value;
+                                    this.descriptionPropertyLayer[kvp.Key] = layer;
+                                }
+                            }
+                            else
+                            {
+                                this.Description = newDescription;
+                                this.descriptionPropertyLayer = newDescription.ToDictionary(e => e.Key, e => layer);
+                            }
+                        }
+
+                        continue;
+                    case "displayName":
+                    case "dtmi:dtdl:property:displayName;4":
+                        if (displayNameProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "displayName",
+                                incidentProperty: prop,
+                                extantProperty: displayNameProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            displayNameProperty = prop;
+                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
+                            if (displayNameCodes.Any())
+                            {
+                                JsonLdProperty extantProp = Helpers.TryGetSingleUniqueValue(displayNameCodes.Select(c => this.displayNamePropertyLayer[c]), out string uniqueCodeLayer) && this.JsonLdElements[uniqueCodeLayer].Properties.Any(p => p.Name == "displayName") ? this.JsonLdElements[uniqueCodeLayer].Properties.First(p => p.Name == "displayName") : null;
+                                parsingErrorCollection.Notify(
+                                    "inconsistentLangStringValues",
+                                    elementId: this.Id,
+                                    propertyName: "displayName",
+                                    langCode: string.Join(" and ", displayNameCodes.Select(c => $"'{c}'")),
+                                    observedCount: displayNameCodes.Count,
+                                    incidentProperty: prop,
+                                    extantProperty: extantProp,
+                                    layer: layer);
+                            }
+                            else if (this.DisplayName.Any())
+                            {
+                                foreach (KeyValuePair<string, string> kvp in newDisplayName)
+                                {
+                                    ((Dictionary<string, string>)this.DisplayName)[kvp.Key] = kvp.Value;
+                                    this.displayNamePropertyLayer[kvp.Key] = layer;
+                                }
+                            }
+                            else
+                            {
+                                this.DisplayName = newDisplayName;
+                                this.displayNamePropertyLayer = newDisplayName.ToDictionary(e => e.Key, e => layer);
+                            }
+                        }
+
+                        continue;
+                    case "name":
+                    case "dtmi:dtdl:property:name;4":
+                        if (nameProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "name",
+                                incidentProperty: prop,
+                                extantProperty: nameProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            nameProperty = prop;
+                            string newName = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "name", prop.Values, 512, NamePropertyRegexPatternV4, layer, parsingErrorCollection, isOptional: false);
+                            if (this.namePropertyLayer != null)
+                            {
+                                if (this.Name != newName)
+                                {
+                                    JsonLdProperty extantProp = this.JsonLdElements[this.namePropertyLayer].Properties.FirstOrDefault(p => p.Name == "name");
+                                    parsingErrorCollection.Notify(
+                                        "inconsistentStringValues",
+                                        elementId: this.Id,
+                                        propertyName: "name",
+                                        propertyValue: newName.ToString(),
+                                        valueRestriction: this.Name.ToString(),
+                                        incidentProperty: prop,
+                                        extantProperty: extantProp,
+                                        layer: layer);
+                                }
+                            }
+                            else
+                            {
+                                this.Name = newName;
+                                this.namePropertyLayer = layer;
+
+                                if (this.nameValueConstraints != null)
+                                {
+                                    foreach (ValueConstraint valueConstraint in this.nameValueConstraints)
+                                    {
+                                        if (valueConstraint.RequiredLiteral != null && !valueConstraint.RequiredLiteral.Equals(newName))
+                                        {
+                                            parsingErrorCollection.Notify(
+                                                "notRequiredStringValue",
+                                                elementId: this.Id,
+                                                propertyName: "name",
+                                                propertyValue: newName.ToString(),
+                                                valueRestriction: valueConstraint.RequiredLiteral.ToString(),
+                                                incidentProperty: prop,
+                                                layer: layer);
+                                        }
+                                    }
+                                }
+
+                                ((Dictionary<string, string>)this.StringProperties)["name"] = newName;
+                            }
+                        }
+
+                        continue;
+                    case "request":
+                    case "dtmi:dtdl:property:request;4":
+                        if (requestProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "request",
+                                incidentProperty: prop,
+                                extantProperty: requestProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            requestProperty = prop;
+                            DTCommandRequestInfo.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, this.requestValueConstraints, aggregateContext, parsingErrorCollection, prop, layer, this.Id, globalize ? null : definedIn ?? this.Id, "request", null, null, 0, isPlural: false, idRequired: false, typeRequired: false, globalize: globalize, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms, allowedVersions: this.requestAllowedVersionsV4);
+                        }
+
+                        continue;
+                    case "response":
+                    case "dtmi:dtdl:property:response;4":
+                        if (responseProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "response",
+                                incidentProperty: prop,
+                                extantProperty: responseProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            responseProperty = prop;
+                            DTCommandResponseInfo.ParseValueCollection(model, objectPropertyInfoList, elementPropertyConstraints, this.responseValueConstraints, aggregateContext, parsingErrorCollection, prop, layer, this.Id, globalize ? null : definedIn ?? this.Id, "response", null, null, 0, isPlural: false, idRequired: false, typeRequired: false, globalize: globalize, allowReservedIds: allowReservedIds, tolerateSolecisms: tolerateSolecisms, allowedVersions: this.responseAllowedVersionsV4);
+                        }
+
+                        continue;
+                }
+
+                if (this.TryParseSupplementalProperty(model, immediateSupplementalTypeIds, objectPropertyInfoList, elementPropertyConstraints, aggregateContext, layer, definedIn, parsingErrorCollection, prop.Name, globalize, allowReservedIds, tolerateSolecisms, prop, supplementalJsonLdProperties))
+                {
+                    continue;
+                }
+
+                if (aggregateContext.TryCreateDtmi(prop.Name, out Dtmi _))
+                {
+                    if (aggregateContext.IsComplete)
+                    {
+                        parsingErrorCollection.Notify(
+                            "propertyIrrelevantDtmiOrTerm",
+                            elementId: this.Id,
+                            propertyName: prop.Name,
+                            incidentProperty: prop,
+                            element: elt,
+                            layer: layer);
+                        continue;
+                    }
+                }
+                else if (prop.Name.StartsWith("dtmi:"))
+                {
+                    parsingErrorCollection.Notify(
+                        "propertyInvalidDtmi",
+                        elementId: this.Id,
+                        propertyName: prop.Name,
+                        incidentProperty: prop,
+                        element: elt,
+                        layer: layer);
+                    continue;
+                }
+                else if (prop.Name.Contains(":"))
+                {
+                    parsingErrorCollection.Notify(
+                        "propertyNotDtmiNorTerm",
+                        elementId: this.Id,
+                        propertyName: prop.Name,
+                        incidentProperty: prop,
+                        element: elt,
+                        layer: layer);
+                    continue;
+                }
+                else
+                {
+                    if (aggregateContext.IsComplete)
+                    {
+                        parsingErrorCollection.Notify(
+                            "propertyUndefinedTerm",
+                            elementId: this.Id,
+                            propertyName: prop.Name,
+                            incidentProperty: prop,
+                            element: elt,
+                            layer: layer);
+                        continue;
+                    }
+                }
+
+                if (!immediateUndefinedTypes.Any())
+                {
+                    if (elt.Types != null)
+                    {
+                        parsingErrorCollection.Notify(
+                            "noTypeThatAllows",
+                            elementId: this.Id,
+                            propertyName: prop.Name,
+                            incidentProperty: prop,
+                            element: elt,
+                            layer: layer);
+                    }
+                    else
+                    {
+                        parsingErrorCollection.Notify(
+                            "inferredTypeDoesNotAllow",
+                            elementId: this.Id,
+                            referenceType: "Command",
+                            propertyName: prop.Name,
+                            incidentProperty: prop,
+                            element: elt,
+                            layer: layer);
+                    }
+
+                    continue;
+                }
+
+                using (JsonDocument propDoc = JsonDocument.Parse(prop.Values.GetJsonText()))
+                {
+                    this.UndefinedPropertyDictionary[prop.Name] = propDoc.RootElement.Clone();
+                }
+            }
+
+            if (nameProperty == null)
+            {
+                parsingErrorCollection.Notify(
+                    "missingLiteralProperty",
+                    elementId: this.Id,
+                    propertyName: "name",
+                    element: elt);
+            }
+
+            foreach (Dtmi supplementalTypeId in immediateSupplementalTypeIds)
+            {
+                if (aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo))
+                {
+                    supplementalTypeInfo.CheckForRequiredProperties(parsingErrorCollection, this.Id, elt, supplementalJsonLdProperties);
+                }
+            }
+        }
+
+        /// <summary>
         /// Record JSON-LD source as appropriate and check length of text against limit.
         /// </summary>
         /// <param name="layer">The name of the layer whose source to record.</param>
@@ -2841,6 +3585,10 @@ namespace DTDLParser.Models
         }
 
         private void ApplyTransformationsV3(Model model, ParsingErrorCollection parsingErrorCollection)
+        {
+        }
+
+        private void ApplyTransformationsV4(Model model, ParsingErrorCollection parsingErrorCollection)
         {
         }
 
@@ -2942,6 +3690,100 @@ namespace DTDLParser.Models
         private void CheckRestrictionsV3(ParsingErrorCollection parsingErrorCollection)
         {
             if (this.CommandType != null && this.CommandType.Id.AbsoluteUri != "dtmi:dtdl:instance:CommandType:asynchronous;3" && this.CommandType.Id.AbsoluteUri != "dtmi:dtdl:instance:CommandType:synchronous;3")
+            {
+                JsonLdProperty propProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First();
+                parsingErrorCollection.Notify(
+                    "incorrectPropertyValue",
+                    elementId: this.Id,
+                    propertyName: "commandType",
+                    propertyValue: ContextCollection.GetTermOrUri(this.CommandType.Id),
+                    valueRestriction: "'asynchronous' or 'synchronous'",
+                    incidentProperty: propProp);
+            }
+
+            if (this.commandTypeInstanceProperties != null)
+            {
+                foreach (string instanceProp in this.commandTypeInstanceProperties)
+                {
+                    object supplementalProperty = this.supplementalProperties[instanceProp];
+                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.CommandType.ValidateInstance(jsonElement) : this.CommandType.ValidateInstance(supplementalProperty.ToString());
+                    if (violations.Any())
+                    {
+                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First(p => p.Name == "commandType");
+
+                        parsingErrorCollection.Notify(
+                            "nonConformantPropertyValue",
+                            elementId: this.Id,
+                            propertyName: instanceTerm,
+                            governingPropertyName: "commandType",
+                            violations: violations,
+                            violationCount: violations.Count,
+                            incidentValues: instancePropProp.Values,
+                            governingValues: conformanceProp.Values);
+                    }
+                }
+            }
+
+            if (this.requestInstanceProperties != null)
+            {
+                foreach (string instanceProp in this.requestInstanceProperties)
+                {
+                    object supplementalProperty = this.supplementalProperties[instanceProp];
+                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Request.ValidateInstance(jsonElement) : this.Request.ValidateInstance(supplementalProperty.ToString());
+                    if (violations.Any())
+                    {
+                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "request")).Value?.Properties?.First(p => p.Name == "request");
+
+                        parsingErrorCollection.Notify(
+                            "nonConformantPropertyValue",
+                            elementId: this.Id,
+                            propertyName: instanceTerm,
+                            governingPropertyName: "request",
+                            violations: violations,
+                            violationCount: violations.Count,
+                            incidentValues: instancePropProp.Values,
+                            governingValues: conformanceProp.Values);
+                    }
+                }
+            }
+
+            if (this.responseInstanceProperties != null)
+            {
+                foreach (string instanceProp in this.responseInstanceProperties)
+                {
+                    object supplementalProperty = this.supplementalProperties[instanceProp];
+                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Response.ValidateInstance(jsonElement) : this.Response.ValidateInstance(supplementalProperty.ToString());
+                    if (violations.Any())
+                    {
+                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "response")).Value?.Properties?.First(p => p.Name == "response");
+
+                        parsingErrorCollection.Notify(
+                            "nonConformantPropertyValue",
+                            elementId: this.Id,
+                            propertyName: instanceTerm,
+                            governingPropertyName: "response",
+                            violations: violations,
+                            violationCount: violations.Count,
+                            incidentValues: instancePropProp.Values,
+                            governingValues: conformanceProp.Values);
+                    }
+                }
+            }
+        }
+
+        /// <inheritdoc/>
+        private void CheckRestrictionsV4(ParsingErrorCollection parsingErrorCollection)
+        {
+            if (this.CommandType != null && this.CommandType.Id.AbsoluteUri != "dtmi:dtdl:instance:CommandType:asynchronous;4" && this.CommandType.Id.AbsoluteUri != "dtmi:dtdl:instance:CommandType:synchronous;4")
             {
                 JsonLdProperty propProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First();
                 parsingErrorCollection.Notify(

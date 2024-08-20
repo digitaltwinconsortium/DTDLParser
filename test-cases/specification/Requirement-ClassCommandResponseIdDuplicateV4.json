@@ -1,0 +1,57 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_floob;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:snee_floob;1",
+          "@type": "Interface",
+          "contents": {
+            "@id": "dtmi:example:snee_floob;1",
+            "@type": "Command",
+            "name": "snee_jogg",
+            "response": {
+              "@id": "dtmi:example:snee_floob;1",
+              "name": "snee_zatz",
+              "schema": "long"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_flunn;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:snee_flunn;1",
+          "@type": "Interface",
+          "contents": {
+            "@id": "dtmi:example:snee_flunn;1",
+            "@type": "Command",
+            "name": "snee_yekk",
+            "response": {
+              "@context": "dtmi:undefinedExtension:context;1",
+              "@id": "dtmi:example:snee_flunn;1",
+              "name": "snee_itch",
+              "schema": "string"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

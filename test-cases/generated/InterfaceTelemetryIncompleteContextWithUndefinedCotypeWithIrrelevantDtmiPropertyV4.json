@@ -1,0 +1,49 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:foo:bar;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Foobar"
+          ],
+          "name": "currentDistance",
+          "schema": "double",
+          "dtmi:dtdl:class:Boolean;4": 626
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aTelemetry;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentDistance",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [],
+        "supplementalProperties": {},
+        "undefinedTypes": [
+          "Foobar"
+        ],
+        "undefinedProperties": {
+          "dtmi:dtdl:class:Boolean;4": 626
+        }
+      }
+    ]
+  }
+}

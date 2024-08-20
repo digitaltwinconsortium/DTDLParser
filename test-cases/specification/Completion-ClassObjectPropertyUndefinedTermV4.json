@@ -1,0 +1,45 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:pi_humpf;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:pi_um;1",
+          "@type": [
+            "Object",
+            "Foobar"
+          ],
+          "foobar": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:pi_glikk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:pi_fuddle;1",
+          "@type": [
+            "Object",
+            "Foobar"
+          ],
+          "foobar": {}
+        }
+      }
+    ]
+  }
+]

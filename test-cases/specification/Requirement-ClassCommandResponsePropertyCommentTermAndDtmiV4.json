@@ -1,0 +1,49 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "thnad_hi",
+          "response": {
+            "comment": "thnad_itch",
+            "dtmi:dtdl:property:comment;4": "thnad_yekk",
+            "name": "thnad_vroo",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_zeta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "spazz_epsilon",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "comment": "spazz_beta",
+            "dtmi:dtdl:property:comment;4": "spazz_gamma",
+            "name": "spazz_delta",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  }
+]

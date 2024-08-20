@@ -1,0 +1,56 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:floob_gamma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:floob_alpha;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "floob_beta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "comment": "spazz_vroo",
+            "name": "spazz_hi",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:floob_theta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:floob_zeta;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "floob_eta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "dtmi:dtdl:property:comment;4": "floob_delta",
+            "name": "floob_epsilon",
+            "schema": "dateTime"
+          }
+        }
+      }
+    ]
+  }
+]

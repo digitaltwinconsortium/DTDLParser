@@ -133,7 +133,7 @@ Parsing DTDL v3 JSON text... model is valid!
 Parsing DTDL v99 JSON text... model is invalid:
 Validation ID = dtmi:dtdl:parsingError:unrecognizedContextVersion
 Cause of error: @context specifier has value 'dtmi:dtdl:context;99', which specifies a DTDL version that is not recognized.
-Action to fix: Modify @context specifier to indicate one of the following DTDL versions: 2, 3.
+Action to fix: Modify @context specifier to indicate one of the following DTDL versions: 2, 3, 4.
 ```
 
 The two models that specify DTDL versions 2 and 3 both parse as valid.
@@ -153,7 +153,7 @@ Console.WriteLine($"MaxDtdlVersion is {modelParser.MaxDtdlVersion}");
 This code snippet displays:
 
 ```Console
-MaxDtdlVersion is 3
+MaxDtdlVersion is 4
 ```
 
 The `ParsingOptions` class can be used to set options for the `ModelParser` behavior.
@@ -173,7 +173,7 @@ Console.WriteLine($"MaxDtdlVersion is {parsingOptions.MaxDtdlVersion}");
 This code snippet displays:
 
 ```Console
-MaxDtdlVersion is 3
+MaxDtdlVersion is 4
 ```
 
 The following snippet sets the value of `MaxDtdlVersion` to 2 and instantiates a new parser with the `parsingOptions` object passed into the `ModelParser` constructor.

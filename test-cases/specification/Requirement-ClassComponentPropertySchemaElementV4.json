@@ -1,0 +1,274 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_fuddle;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:delta_humpf;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "delta_um",
+            "schema": {
+              "@id": "dtmi:example:delta_wum;1",
+              "@type": "Interface"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_quan;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:delta_snee;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "delta_nuh",
+            "schema": [
+              {
+                "@id": "dtmi:example:delta_glikk;1",
+                "@type": "Interface"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      [
+        {
+          "@context": "dtmi:dtdl:context;4",
+          "@id": "dtmi:example:delta_floob;1",
+          "@type": "Interface",
+          "extends": {
+            "@id": "dtmi:example:delta_spazz;1",
+            "@type": "Interface",
+            "contents": {
+              "@type": "Component",
+              "name": "delta_thnad",
+              "schema": "dtmi:ex:dependentRef;1"
+            }
+          }
+        },
+        {
+          "@context": "dtmi:dtdl:context;4",
+          "@id": "dtmi:ex:dependentRef;1",
+          "@type": "Interface"
+        }
+      ]
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      [
+        {
+          "@context": "dtmi:dtdl:context;4",
+          "@id": "dtmi:example:delta_flunn;1",
+          "@type": "Interface",
+          "extends": {
+            "@id": "dtmi:example:delta_jogg;1",
+            "@type": "Interface",
+            "contents": {
+              "@type": "Component",
+              "name": "delta_zatz",
+              "schema": [
+                "dtmi:ex:dependentRef;1"
+              ]
+            }
+          }
+        },
+        {
+          "@context": "dtmi:dtdl:context;4",
+          "@id": "dtmi:ex:dependentRef;1",
+          "@type": "Interface"
+        }
+      ]
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_hi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:delta_vroo;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "delta_yekk",
+            "schema": {
+              "@id": "dtmi:example:delta_itch;1",
+              "@type": "Interface",
+              "@context": "dtmi:dtdl:context;2"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_delta;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_gamma;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "epsilon_beta",
+            "schema": {
+              "@id": "dtmi:example:epsilon_alpha;1",
+              "@type": "Interface",
+              "@context": "dtmi:dtdl:context;3"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_eta;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_zeta;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "epsilon_epsilon",
+            "schema": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_kappa;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_iota;1",
+          "@type": "Interface",
+          "contents": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": "Component",
+            "name": "epsilon_theta",
+            "schema": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_omicron;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_xi;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "epsilon_nu",
+            "schema": [
+              {
+                "@id": "dtmi:example:epsilon_lambda;1",
+                "@type": "Interface"
+              },
+              {
+                "@id": "dtmi:example:epsilon_mu;1",
+                "@type": "Interface"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_upsilon;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_tau;1",
+          "@type": "Interface",
+          "contents": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": "Component",
+            "name": "epsilon_sigma",
+            "schema": [
+              {
+                "@id": "dtmi:example:epsilon_pi;1",
+                "@type": "Interface"
+              },
+              {
+                "@id": "dtmi:example:epsilon_rho;1",
+                "@type": "Interface"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

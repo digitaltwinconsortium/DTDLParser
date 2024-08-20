@@ -89,11 +89,11 @@
             int versionSuffixStart = typeUri.IndexOf(';') + 1;
             if (versionSuffixStart > 0)
             {
-                return $"V{typeUri.Substring(versionSuffixStart).Replace('.', '_')}";
+                return $"EV{typeUri.Substring(versionSuffixStart).Replace('.', '_')}";
             }
             else
             {
-                return $"V{Regex.Match(typeUri, @":[Vv](\d+):").Groups[1].Captures[0].Value}";
+                return $"CV{Regex.Match(typeUri, @":[Vv](\d+):").Groups[1].Captures[0].Value}";
             }
         }
     }

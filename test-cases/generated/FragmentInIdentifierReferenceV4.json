@@ -1,0 +1,51 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anInterface;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ]
+    },
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:layering;1"
+      ],
+      "@id": "dtmi:test:anotherInterface;1",
+      "@type": [
+        "Interface"
+      ],
+      "extends": [
+        "dtmi:test:anInterface;1#foo"
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badDtmiOrTerm",
+        "PrimaryID": "dtmi:test:anotherInterface;1",
+        "SecondaryID": null,
+        "Property": "extends",
+        "Value": "dtmi:test:anInterface;1#foo"
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:anInterface;1#foo",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6
+      }
+    ]
+  }
+}

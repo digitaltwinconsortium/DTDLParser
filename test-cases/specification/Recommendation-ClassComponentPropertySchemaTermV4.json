@@ -1,0 +1,46 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:theta_omega;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "theta_chi",
+          "schema": {
+            "@id": "dtmi:example:theta_psi;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:theta_um;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "theta_yuzz",
+          "dtmi:dtdl:property:schema;4": {
+            "@id": "dtmi:example:theta_wum;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  }
+]

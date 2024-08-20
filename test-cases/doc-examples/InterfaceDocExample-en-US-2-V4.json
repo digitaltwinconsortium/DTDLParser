@@ -1,0 +1,35 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:com:example:Phone;2",
+      "@type": "Interface",
+      "displayName": "Phone",
+      "contents": [
+        {
+          "@type": "Component",
+          "name": "frontCamera",
+          "schema": {
+            "@id": "dtmi:com:example:Camera;3",
+            "@type": "Interface"
+          }
+        },
+        {
+          "@type": "Component",
+          "name": "backCamera",
+          "schema": "dtmi:com:example:Camera;3"
+        },
+        {
+          "@type": "Component",
+          "name": "deviceInfo",
+          "schema": {
+            "@id": "dtmi:azure:deviceManagement:DeviceInformation;1",
+            "@type": "Interface"
+          }
+        }
+      ]
+    }
+  ]
+}

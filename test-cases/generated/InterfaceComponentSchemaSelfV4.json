@@ -1,0 +1,46 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:recursiveInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Component",
+          "name": "self",
+          "schema": "dtmi:test:recursiveInterface;1"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:excludedType",
+        "PrimaryID": "dtmi:test:recursiveInterface:_contents:__self;1",
+        "SecondaryID": "dtmi:test:recursiveInterface:_contents:__self;1",
+        "Property": "'schema' or 'contents'",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6,
+        "PrimaryEnd": 10,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 6,
+        "SecondaryEnd": 10
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:recursiveStructureNarrow",
+        "PrimaryID": "dtmi:test:recursiveInterface;1",
+        "SecondaryID": null,
+        "Property": "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 1,
+        "PrimaryEnd": 12
+      }
+    ]
+  }
+}

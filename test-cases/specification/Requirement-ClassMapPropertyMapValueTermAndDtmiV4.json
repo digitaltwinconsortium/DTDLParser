@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_xi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_kappa;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "flunn_lambda",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "flunn_mu",
+            "schema": "string"
+          },
+          "dtmi:dtdl:property:mapValue;4": {
+            "name": "flunn_nu",
+            "schema": "time"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_tau;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:flunn_omicron;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "flunn_pi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "flunn_rho",
+            "schema": "boolean"
+          },
+          "dtmi:dtdl:property:mapValue;4": {
+            "name": "flunn_sigma",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  }
+]

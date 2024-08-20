@@ -1,0 +1,51 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_delta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "description": [
+            "quan_alpha"
+          ],
+          "dtmi:dtdl:property:description;4": [
+            "quan_beta"
+          ],
+          "name": "quan_gamma",
+          "schema": "integer"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Property",
+          "description": [
+            "quan_epsilon"
+          ],
+          "dtmi:dtdl:property:description;4": [
+            "quan_zeta"
+          ],
+          "name": "quan_eta",
+          "schema": "long"
+        }
+      }
+    ]
+  }
+]

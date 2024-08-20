@@ -1,0 +1,108 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:eta_jogg;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:eta_floob;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "eta_zatz",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "name": "eta_spazz",
+            "schema": "string",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:eta_vroo;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:eta_itch;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "eta_yekk",
+            "schema": "long"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "eta_flunn",
+            "schema": "string",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:theta_gamma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:theta_alpha;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "theta_beta",
+            "schema": "string"
+          },
+          "mapKey": {
+            "name": "eta_hi",
+            "schema": "string",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:theta_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:theta_epsilon;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "theta_zeta",
+            "schema": "time"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "theta_delta",
+            "schema": "string",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  }
+]

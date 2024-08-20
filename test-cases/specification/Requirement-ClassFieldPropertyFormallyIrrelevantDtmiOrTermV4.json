@@ -1,0 +1,92 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_omega;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:iota_psi;1",
+          "@type": "Object",
+          "fields": {
+            "name": "iota_chi",
+            "schema": "long",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_um;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:iota_wum;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "iota_yuzz",
+            "schema": "string",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_glikk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:iota_fuddle;1",
+          "@type": "Object",
+          "fields": {
+            "name": "iota_humpf",
+            "schema": "time",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_quan;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:iota_snee;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "iota_nuh",
+            "schema": "boolean",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  }
+]

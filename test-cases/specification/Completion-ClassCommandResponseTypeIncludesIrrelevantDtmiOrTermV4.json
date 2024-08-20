@@ -1,0 +1,104 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "um_omicron",
+          "response": {
+            "@type": [
+              "CommandResponse",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "um_xi",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_tau;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "um_sigma",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "CommandResponse",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "um_rho",
+            "schema": "time"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_chi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "um_phi",
+          "response": {
+            "@type": [
+              "CommandResponse",
+              "boolean"
+            ],
+            "name": "um_upsilon",
+            "schema": "boolean"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_yuzz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "um_omega",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "CommandResponse",
+              "boolean"
+            ],
+            "name": "um_psi",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  }
+]

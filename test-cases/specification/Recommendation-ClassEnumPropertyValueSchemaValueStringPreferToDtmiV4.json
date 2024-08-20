@@ -1,0 +1,48 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_vroo;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_yekk;1",
+          "@type": "Enum",
+          "enumValues": {
+            "name": "glikk_itch",
+            "enumValue": "delta_nu"
+          },
+          "valueSchema": "string"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nuh_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nuh_alpha;1",
+          "@type": "Enum",
+          "enumValues": {
+            "name": "glikk_hi",
+            "enumValue": "delta_nu"
+          },
+          "valueSchema": "dtmi:dtdl:instance:Schema:string;4"
+        }
+      }
+    ]
+  }
+]

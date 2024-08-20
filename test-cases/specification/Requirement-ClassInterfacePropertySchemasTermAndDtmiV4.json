@@ -1,0 +1,59 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_upsilon;1",
+        "@type": "Interface",
+        "schemas": [
+          {
+            "@id": "dtmi:example:psi_phi;1",
+            "@type": "Array",
+            "elementSchema": "double"
+          }
+        ],
+        "dtmi:dtdl:property:schemas;4": [
+          {
+            "@id": "dtmi:example:psi_chi;1",
+            "@type": "Array",
+            "elementSchema": "duration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:psi_psi;1",
+        "@type": "Interface",
+        "schemas": [
+          {
+            "@id": "dtmi:example:psi_omega;1",
+            "@type": "Array",
+            "elementSchema": "float"
+          }
+        ],
+        "dtmi:dtdl:property:schemas;4": [
+          {
+            "@id": "dtmi:example:psi_yuzz;1",
+            "@type": "Array",
+            "elementSchema": "integer"
+          }
+        ]
+      }
+    ]
+  }
+]

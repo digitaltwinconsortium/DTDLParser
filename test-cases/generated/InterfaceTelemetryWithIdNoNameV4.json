@@ -1,0 +1,43 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingDictKeyPropertyValue",
+        "PrimaryID": "dtmi:test:anInterface;1",
+        "SecondaryID": "dtmi:test:aTelemetry;1",
+        "Property": "contents",
+        "Value": "name",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 5,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 6,
+        "SecondaryEnd": 10
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingLiteralProperty",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": "name",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6,
+        "PrimaryEnd": 10
+      }
+    ]
+  },
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "schema": "double"
+        }
+      ]
+    }
+  ]
+}

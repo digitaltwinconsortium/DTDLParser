@@ -1,0 +1,57 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_epsilon;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_epsilon;1",
+          "@type": "Interface",
+          "contents": {
+            "@id": "dtmi:example:epsilon_epsilon;1",
+            "@type": "Command",
+            "name": "epsilon_eta",
+            "request": {
+              "@id": "dtmi:example:epsilon_epsilon;1",
+              "name": "epsilon_zeta",
+              "schema": "dateTime"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_theta;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_theta;1",
+          "@type": "Interface",
+          "contents": {
+            "@id": "dtmi:example:epsilon_theta;1",
+            "@type": "Command",
+            "name": "epsilon_kappa",
+            "request": {
+              "@context": "dtmi:undefinedExtension:context;1",
+              "@id": "dtmi:example:epsilon_theta;1",
+              "name": "epsilon_iota",
+              "schema": "double"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

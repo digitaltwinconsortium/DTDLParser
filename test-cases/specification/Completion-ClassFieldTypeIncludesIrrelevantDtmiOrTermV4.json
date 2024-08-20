@@ -1,0 +1,104 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_gamma;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "flunn_beta",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_zeta;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "flunn_epsilon",
+            "schema": "dateTime"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_kappa;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_iota;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "boolean"
+            ],
+            "name": "flunn_theta",
+            "schema": "double"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_nu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_mu;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "boolean"
+            ],
+            "name": "flunn_lambda",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  }
+]

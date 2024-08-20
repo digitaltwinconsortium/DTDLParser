@@ -1,0 +1,40 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Velocity"
+          ],
+          "name": "currentSpeed",
+          "schema": "string",
+          "unit": "kilometrePerSecond"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:notRequiredType",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": "dtmi:dtdl:instance:Schema:string;2",
+        "Property": "schema",
+        "Type": "NumericSchema",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:mu_zatz;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "mu_jogg",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "mu_floob",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:mu_yekk;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "mu_vroo",
+            "schema": "string"
+          },
+          "mapValue": {
+            "dtmi:dtdl:property:name;4": "mu_itch",
+            "schema": "dateTime"
+          }
+        }
+      }
+    ]
+  }
+]

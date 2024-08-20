@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_psi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nu_chi",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "Foobar"
+            ],
+            "name": "nu_phi",
+            "schema": "float",
+            "http://foo.com/bar": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_wum;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nu_yuzz",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "CommandRequest",
+              "Foobar"
+            ],
+            "name": "nu_omega",
+            "schema": "integer",
+            "http://foo.com/bar": true
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,55 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2",
+        {
+          "foo": "dtmi:foo:"
+        }
+      ],
+      "@id": "dtmi:test:aTelemetry;1",
+      "@type": [
+        "Telemetry",
+        "Length"
+      ],
+      "name": "height",
+      "schema": "double",
+      "unit": "foo:a/b"
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:disallowedLocalContext",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 5,
+        "PrimaryEnd": 7
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badDtmiOrTerm",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": null,
+        "Property": "unit",
+        "Value": "foo:a/b",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:objectCountBelowMin",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": null,
+        "Property": "unit",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      }
+    ]
+  }
+}

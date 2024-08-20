@@ -1,0 +1,56 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:vroo_yekk;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "vroo_vroo",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "comment": "vroo_flunn",
+            "name": "vroo_itch",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_epsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_gamma;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "hi_delta",
+            "schema": "long"
+          },
+          "mapKey": {
+            "dtmi:dtdl:property:comment;4": "hi_alpha",
+            "name": "hi_beta",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

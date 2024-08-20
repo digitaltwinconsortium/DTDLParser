@@ -1,0 +1,27 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_fuddle;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "hi_um",
+          "schema": {
+            "@id": "dtmi:example:hi_humpf;1",
+            "@type": "Interface"
+          },
+          "@type": [
+            "Component",
+            "dtmi:dtdl:class:Component;4"
+          ]
+        }
+      }
+    ]
+  }
+]

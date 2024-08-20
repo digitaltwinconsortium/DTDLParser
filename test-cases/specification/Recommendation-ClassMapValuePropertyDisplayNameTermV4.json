@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_omicron;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:vroo_nu;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "vroo_xi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "displayName": [
+              "vroo_lambda"
+            ],
+            "name": "vroo_mu",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_upsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:vroo_sigma;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "vroo_tau",
+            "schema": "string"
+          },
+          "mapValue": {
+            "dtmi:dtdl:property:displayName;4": [
+              "vroo_pi"
+            ],
+            "name": "vroo_rho",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -3,18 +3,14 @@
   "options": [],
   "input": [
     {
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:Sensor;1",
+      "@context": "dtmi:dtdl:context;3",
+      "@id": "dtmi:example:anInterface;1",
       "@type": "Interface",
       "contents": [
         {
-          "@type": [
-            "Telemetry",
-            "Temperature"
-          ],
-          "name": "currentTemp",
-          "schema": "double",
-          "unit": "degreeFahrenheit"
+          "@type": "Relationship",
+          "name": "proximity",
+          "target": "dtmi:foo:bar:baz;1"
         }
       ]
     }

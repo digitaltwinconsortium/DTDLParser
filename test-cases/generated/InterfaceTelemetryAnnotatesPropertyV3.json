@@ -1,6 +1,6 @@
 ﻿{
   "requiredContexts": [
-    "dtmi:dtdl:extension:annotation;1"
+    "dtmi:dtdl:extension:annotation;2"
   ],
   "valid": true,
   "quirks": [],
@@ -9,7 +9,7 @@
     {
       "@context": [
         "dtmi:dtdl:context;3",
-        "dtmi:dtdl:extension:annotation;1"
+        "dtmi:dtdl:extension:annotation;2"
       ],
       "@id": "dtmi:test:Sensor;1",
       "@type": "Interface",
@@ -53,10 +53,10 @@
           "schema": "dtmi:dtdl:instance:Schema:string;2"
         },
         "supplementalTypes": [
-          "dtmi:dtdl:extension:annotation:v1:ValueAnnotation"
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation"
         ],
         "supplementalProperties": {
-          "dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates": "targetTemp"
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation:annotates": "targetTemp"
         }
       }
     ]

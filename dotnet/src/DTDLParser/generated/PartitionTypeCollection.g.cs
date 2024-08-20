@@ -29,9 +29,11 @@ namespace DTDLParser
 
             PartitionTypeStrings.Add("dtmi:dtdl:class:Interface;2");
             PartitionTypeStrings.Add("dtmi:dtdl:class:Interface;3");
+            PartitionTypeStrings.Add("dtmi:dtdl:class:Interface;4");
 
             PartitionMaxBytes = new Dictionary<int, int>();
             PartitionMaxBytes[3] = 1048576;
+            PartitionMaxBytes[4] = 1048576;
         }
     }
 }

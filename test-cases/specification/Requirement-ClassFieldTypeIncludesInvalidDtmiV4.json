@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_pi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_omicron;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "dtmi:foo//bar"
+            ],
+            "name": "flunn_xi",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_tau;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_sigma;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "dtmi:foo//bar"
+            ],
+            "name": "flunn_rho",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  }
+]

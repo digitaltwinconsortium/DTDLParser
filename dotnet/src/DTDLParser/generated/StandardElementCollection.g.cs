@@ -33,6 +33,7 @@ namespace DTDLParser
         {
             Dictionary<Dtmi, string> aliasTypePropertyMap = new Dictionary<Dtmi, string>();
             aliasTypePropertyMap[new Dtmi("dtmi:dtdl:class:Alias;3")] = "dtmi:dtdl:property:aliasFor;3";
+            aliasTypePropertyMap[new Dtmi("dtmi:dtdl:class:Alias;4")] = "dtmi:dtdl:property:aliasFor;4";
 
             Dictionary<Dtmi, string> aliasElementPropertyMap = new Dictionary<Dtmi, string>();
             foreach (var kvp in EndogenousStandardModel.Dict)

@@ -1,0 +1,51 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_tau;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Component",
+            "http://foo.com/bar"
+          ],
+          "name": "alpha_rho",
+          "schema": {
+            "@id": "dtmi:example:alpha_sigma;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_chi;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Component",
+            "http://foo.com/bar"
+          ],
+          "name": "alpha_upsilon",
+          "schema": {
+            "@id": "dtmi:example:alpha_phi;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  }
+]

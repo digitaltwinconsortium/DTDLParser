@@ -1,0 +1,65 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_mu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "xi_iota",
+          "properties": [
+            {
+              "@type": "Property",
+              "name": "xi_kappa",
+              "schema": "boolean"
+            }
+          ],
+          "dtmi:dtdl:property:properties;4": [
+            {
+              "@type": "Property",
+              "name": "xi_lambda",
+              "schema": "date"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Relationship",
+          "name": "xi_nu",
+          "properties": [
+            {
+              "@type": "Property",
+              "name": "xi_xi",
+              "schema": "dateTime"
+            }
+          ],
+          "dtmi:dtdl:property:properties;4": [
+            {
+              "@type": "Property",
+              "name": "xi_omicron",
+              "schema": "double"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

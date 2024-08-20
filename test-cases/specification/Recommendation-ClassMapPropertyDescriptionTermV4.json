@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:iota_beta;1",
+          "@type": "Map",
+          "description": [
+            "iota_gamma"
+          ],
+          "mapKey": {
+            "name": "iota_delta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "iota_epsilon",
+            "schema": "double"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:iota_eta;1",
+          "@type": "Map",
+          "dtmi:dtdl:property:description;4": [
+            "iota_theta"
+          ],
+          "mapKey": {
+            "name": "iota_iota",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "iota_kappa",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,108 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_jogg;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_spazz;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "nu_floob",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "nu_zatz",
+            "schema": "date"
+          },
+          "dtmi:foo:bar;1": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_vroo;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:nu_flunn;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "nu_itch",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "nu_yekk",
+            "schema": "dateTime"
+          },
+          "dtmi:foo:bar;1": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_gamma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_hi;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "xi_alpha",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "xi_beta",
+            "schema": "double"
+          },
+          "boolean": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:xi_delta;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "xi_epsilon",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "xi_zeta",
+            "schema": "duration"
+          },
+          "boolean": null
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_humpf;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_wum;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "quan_um",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "@type": [
+              "MapKey",
+              "http://foo.com/bar"
+            ],
+            "name": "quan_yuzz",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_snee;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_glikk;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "quan_nuh",
+            "schema": "long"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapKey",
+              "http://foo.com/bar"
+            ],
+            "name": "quan_fuddle",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

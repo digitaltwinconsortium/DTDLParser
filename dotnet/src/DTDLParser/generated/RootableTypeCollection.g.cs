@@ -30,13 +30,19 @@ namespace DTDLParser
             RootableTypeStrings[3] = new HashSet<string>();
             RootableTypeStrings[3].Add("Interface");
 
+            RootableTypeStrings[4] = new HashSet<string>();
+            RootableTypeStrings[4].Add("Interface");
+
             RootableTypeDescriptions = new Dictionary<int, string>();
             RootableTypeDescriptions[2] = string.Join(" or ", RootableTypeStrings[2].Select(t => $"'{t}'"));
             RootableTypeDescriptions[3] = string.Join(" or ", RootableTypeStrings[3].Select(t => $"'{t}'"));
+            RootableTypeDescriptions[4] = string.Join(" or ", RootableTypeStrings[4].Select(t => $"'{t}'"));
 
             RootableTypeStrings[2].Add("dtmi:dtdl:class:Interface;2");
 
             RootableTypeStrings[3].Add("dtmi:dtdl:class:Interface;3");
+
+            RootableTypeStrings[4].Add("dtmi:dtdl:class:Interface;4");
         }
     }
 }

@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:mu_zeta;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@type": [
+              "EnumValue",
+              "http://foo.com/bar"
+            ],
+            "enumValue": 1655,
+            "name": "mu_epsilon"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_kappa;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:mu_iota;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "EnumValue",
+              "http://foo.com/bar"
+            ],
+            "enumValue": 1656,
+            "name": "mu_theta"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,208 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:distanceMap;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "myMapKey",
+            "schema": "string",
+            "displayName": {
+              "en-US": "Place",
+              "es-ES": "Lugar"
+            },
+            "description": {
+              "en-US": "start",
+              "es-ES": "empezar"
+            },
+            "comment": "Starting location"
+          },
+          "mapValue": {
+            "name": "myMapValue",
+            "schema": "double",
+            "displayName": {
+              "en-US": "Distance",
+              "es-ES": "Distancia"
+            },
+            "description": {
+              "en-US": "distance to start",
+              "es-ES": "distancia para comenzar"
+            },
+            "comment": "Starting distance"
+          },
+          "displayName": {
+            "en-US": "Distance to start",
+            "es-ES": "Distancia para comenzar"
+          },
+          "description": [
+            {
+              "@language": "en-US",
+              "@value": "how close"
+            },
+            {
+              "@language": "es-ES",
+              "@value": "lo cerca que"
+            }
+          ],
+          "comment": "How close is each place?"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elementCount": 6,
+    "elements": [
+      {
+        "id": "dtmi:test:distanceMap;1",
+        "type": "Map",
+        "properties": {
+          "mapKey": "dtmi:test:distanceMap:_mapKey;1",
+          "mapValue": "dtmi:test:distanceMap:_mapValue;1",
+          "displayName": {
+            "en-US": "Distance to start",
+            "es-ES": "Distancia para comenzar"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close is each place?"
+        }
+      },
+      {
+        "id": "dtmi:test:distanceMap:_mapKey;1",
+        "type": "MapKey",
+        "name": "myMapKey",
+        "schema": "dtmi:dtdl:instance:Schema:string;2",
+        "displayName": {
+          "en-US": "Place",
+          "es-ES": "Lugar"
+        },
+        "description": {
+          "en-US": "start",
+          "es-ES": "empezar"
+        },
+        "comment": "Starting location"
+      },
+      {
+        "id": "dtmi:test:distanceMap:_mapValue;1",
+        "type": "MapValue",
+        "name": "myMapValue",
+        "schema": "dtmi:dtdl:instance:Schema:double;2",
+        "displayName": {
+          "en-US": "Distance",
+          "es-ES": "Distancia"
+        },
+        "description": {
+          "en-US": "distance to start",
+          "es-ES": "distancia para comenzar"
+        },
+        "comment": "Starting distance"
+      }
+    ]
+  },
+  "instances": [
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": true,
+      "submit": "{ \"home\": 3.14, \"office\": 6.28 }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "{ \"home\": true, \"office\": 6.28 }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "{ \"home\": 3.14, \"office\": \"6.28\" }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": true,
+      "submit": "{ \"home\": 3.14 }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": true,
+      "submit": "{ \"office\": 6.28 }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": true,
+      "submit": "{ }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": true,
+      "submit": "{ \"home\": 3.14, \"office\": 6.28, \"gym\": 9.42 }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "{ \"home\": 3.14, \"office\": null }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "[ { \"home\": 3.14, \"office\": 6.28 } ]"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": ""
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "true"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "\"{ \"home\": 3.14, \"office\": 6.28 }\""
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "3.14"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "null"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "{ \"value\": { \"home\": 3.14, \"office\": 6.28 } }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "$$"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "[ \"hi\": \"there\" ]"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "{ \"hello\" }"
+    },
+    {
+      "subject": "dtmi:test:distanceMap;1",
+      "conforms": false,
+      "submit": "{ 23 ]"
+    }
+  ]
+}

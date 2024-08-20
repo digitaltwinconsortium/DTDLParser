@@ -1,0 +1,98 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_beta;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Component",
+            "schema": {
+              "@id": "dtmi:example:gamma_hi;1",
+              "@type": "Interface"
+            },
+            "name": "delta_iota"
+          },
+          {
+            "@type": "Component",
+            "schema": {
+              "@id": "dtmi:example:delta_alpha;1",
+              "@type": "Interface"
+            },
+            "name": "delta_kappa"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_epsilon;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Component",
+            "schema": {
+              "@id": "dtmi:example:delta_gamma;1",
+              "@type": "Interface"
+            },
+            "name": "delta_iota"
+          },
+          {
+            "@type": "Component",
+            "schema": {
+              "@id": "dtmi:example:delta_delta;1",
+              "@type": "Interface"
+            },
+            "name": "delta_iota"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:delta_theta;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Component",
+            "schema": {
+              "@id": "dtmi:example:delta_zeta;1",
+              "@type": "Interface"
+            },
+            "name": "delta_iota"
+          },
+          {
+            "@type": "Component",
+            "schema": {
+              "@id": "dtmi:example:delta_eta;1",
+              "@type": "Interface"
+            },
+            "name": "delta_iota"
+          }
+        ]
+      }
+    ]
+  }
+]

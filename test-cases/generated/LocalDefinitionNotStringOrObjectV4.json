@@ -1,0 +1,41 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        {
+          "foo": 626
+        }
+      ],
+      "@id": "dtmi:test:aTelemetry;1",
+      "@type": [
+        "Telemetry"
+      ],
+      "name": "height",
+      "schema": "double"
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:disallowedLocalContext",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": null
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:termDefinitionNotStringOrObject",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 5
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nu_delta",
+          "request": {
+            "name": "nu_gamma",
+            "schema": "time",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nu_eta",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "nu_zeta",
+            "schema": "boolean",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nu_kappa",
+          "request": {
+            "name": "nu_iota",
+            "schema": "date",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_xi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nu_nu",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "nu_mu",
+            "schema": "dateTime",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  }
+]

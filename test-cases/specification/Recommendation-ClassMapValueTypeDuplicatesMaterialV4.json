@@ -1,0 +1,62 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_thnad;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:yuzz_snee;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "yuzz_quan",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "yuzz_nuh",
+            "schema": "date",
+            "@type": [
+              "MapValue",
+              "MapValue"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_jogg;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:yuzz_floob;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "yuzz_zatz",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "yuzz_spazz",
+            "schema": "dateTime",
+            "@type": [
+              "dtmi:dtdl:class:MapValue;4",
+              "dtmi:dtdl:class:MapValue;4"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

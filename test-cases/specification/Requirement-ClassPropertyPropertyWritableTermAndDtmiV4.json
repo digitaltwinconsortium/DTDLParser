@@ -1,0 +1,43 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:floob_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "floob_eta",
+          "schema": "string",
+          "writable": true,
+          "dtmi:dtdl:property:writable;4": false
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:floob_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Property",
+          "name": "floob_iota",
+          "schema": "time",
+          "writable": true,
+          "dtmi:dtdl:property:writable;4": false
+        }
+      }
+    ]
+  }
+]

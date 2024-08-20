@@ -1,0 +1,103 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "expect": {
+    "unresolvedIdentifiers": [
+      "dtmi:test:aProperty;1",
+      "dtmi:test:aTelemetry;1",
+      "dtmi:test:aCommand;1",
+      "dtmi:test:aRelationship;1"
+    ],
+    "unresolvedIdentifierReferences": [
+      {
+        "ID": "dtmi:test:aProperty;1",
+        "Dtmi": "dtmi:test:anInterface;1",
+        "Line": 6
+      },
+      {
+        "ID": "dtmi:test:aTelemetry;1",
+        "Dtmi": "dtmi:test:anInterface;1",
+        "Line": 7
+      },
+      {
+        "ID": "dtmi:test:aTelemetry;1",
+        "Dtmi": "dtmi:test:anotherInterface;1",
+        "Line": 6
+      },
+      {
+        "ID": "dtmi:test:aCommand;1",
+        "Dtmi": "dtmi:test:anInterface;1",
+        "Line": 8
+      },
+      {
+        "ID": "dtmi:test:aCommand;1",
+        "Dtmi": "dtmi:test:anotherInterface;1",
+        "Line": 7
+      },
+      {
+        "ID": "dtmi:test:aRelationship;1",
+        "Dtmi": "dtmi:test:anInterface;1",
+        "Line": 9
+      }
+    ]
+  },
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:parentInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Component",
+          "name": "aChild",
+          "schema": "dtmi:test:anInterface;1"
+        },
+        {
+          "@type": "Component",
+          "name": "anotherChild",
+          "schema": "dtmi:test:anotherInterface;1"
+        }
+      ]
+    }
+  ],
+  "resolution": [
+    {
+      "request": [
+        "dtmi:test:anInterface;1",
+        "dtmi:test:anotherInterface;1"
+      ],
+      "response": [
+        {
+          "@context": "dtmi:dtdl:context;4",
+          "@id": "dtmi:test:anInterface;1",
+          "@type": "Interface",
+          "contents": [
+            "dtmi:test:aProperty;1",
+            "dtmi:test:aTelemetry;1",
+            "dtmi:test:aCommand;1",
+            "dtmi:test:aRelationship;1"
+          ]
+        },
+        {
+          "@context": "dtmi:dtdl:context;4",
+          "@id": "dtmi:test:anotherInterface;1",
+          "@type": "Interface",
+          "contents": [
+            "dtmi:test:aTelemetry;1",
+            "dtmi:test:aCommand;1"
+          ]
+        }
+      ]
+    },
+    {
+      "request": [
+        "dtmi:test:aProperty;1",
+        "dtmi:test:aTelemetry;1",
+        "dtmi:test:aCommand;1",
+        "dtmi:test:aRelationship;1"
+      ],
+      "response": null
+    }
+  ]
+}

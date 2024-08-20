@@ -7,17 +7,68 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:chi_nu;1",
+        "@id": "dtmi:example:humpf_zeta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "chi_mu",
+          "name": "humpf_epsilon",
           "response": {
             "@type": [
               "CommandResponse",
               "dtmi:foo:bar;1"
             ],
-            "name": "chi_lambda",
+            "name": "humpf_delta",
+            "schema": "boolean"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:humpf_iota;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "humpf_theta",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "CommandResponse",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "humpf_eta",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:humpf_mu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "humpf_lambda",
+          "response": {
+            "@type": [
+              "CommandResponse",
+              "boolean"
+            ],
+            "name": "humpf_kappa",
             "schema": "dateTime"
           }
         }
@@ -32,70 +83,19 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:chi_pi;1",
+        "@id": "dtmi:example:humpf_omicron;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "chi_omicron",
+          "name": "humpf_xi",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
             "@type": [
               "CommandResponse",
-              "dtmi:foo:bar;1"
+              "boolean"
             ],
-            "name": "chi_xi",
+            "name": "humpf_nu",
             "schema": "double"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:chi_tau;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "chi_sigma",
-          "response": {
-            "@type": [
-              "CommandResponse",
-              "boolean"
-            ],
-            "name": "chi_rho",
-            "schema": "duration"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:chi_chi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "chi_phi",
-          "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@type": [
-              "CommandResponse",
-              "boolean"
-            ],
-            "name": "chi_upsilon",
-            "schema": "float"
           }
         }
       }

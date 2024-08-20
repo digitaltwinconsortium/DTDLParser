@@ -1,0 +1,84 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_yuzz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:humpf_omega;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "schema": "boolean",
+              "name": "delta_omega"
+            },
+            {
+              "schema": "date",
+              "name": "delta_yuzz"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_um;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:humpf_wum;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "schema": "dateTime",
+              "name": "delta_omega"
+            },
+            {
+              "schema": "double",
+              "name": "delta_omega"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_fuddle;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:humpf_humpf;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "schema": "duration",
+              "name": "delta_omega"
+            },
+            {
+              "schema": "float",
+              "name": "delta_omega"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

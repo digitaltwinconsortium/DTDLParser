@@ -1,0 +1,66 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "targetTemp",
+          "schema": "double",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation"
+          ],
+          "name": "targetTempNote",
+          "annotates": "targetTemp",
+          "schema": "string",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:Sensor:_contents:__targetTemp;1",
+        "type": "Property",
+        "properties": {
+          "name": "targetTemp",
+          "schema": "dtmi:dtdl:instance:Schema:double;2",
+          "writable": true
+        },
+        "supplementalTypes": [],
+        "supplementalProperties": {}
+      },
+      {
+        "id": "dtmi:test:Sensor:_contents:__targetTempNote;1",
+        "type": "Property",
+        "properties": {
+          "name": "targetTempNote",
+          "schema": "dtmi:dtdl:instance:Schema:string;2",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation:annotates": "targetTemp"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:doubleArray;1",
+          "@type": "Array",
+          "elementSchema": "double"
+        }
+      ]
+    }
+  ],
+  "partialResolution": [],
+  "expect": {
+    "elementCount": 3,
+    "elements": [
+      {
+        "id": "dtmi:test:doubleArray;1",
+        "type": "Array",
+        "properties": {
+          "elementSchema": "dtmi:dtdl:instance:Schema:double;2"
+        }
+      }
+    ]
+  }
+}

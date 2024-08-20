@@ -256,6 +256,154 @@
     "displayName": "synchronous"
   },
   {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:boolean;4",
+    "@type": [
+      "Boolean",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:boolean;3",
+    "description": {
+      "en-US": "a boolean value"
+    },
+    "displayName": "boolean"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:double;4",
+    "@type": [
+      "Double",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:double;3",
+    "description": {
+      "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+    },
+    "displayName": "double"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:float;4",
+    "@type": [
+      "Float",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:float;3",
+    "description": {
+      "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+    },
+    "displayName": "float"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:integer;4",
+    "@type": [
+      "Integer",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:integer;3",
+    "description": {
+      "en-US": "a signed integral numeric value that is expressible in 4 bytes"
+    },
+    "displayName": "integer"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:long;4",
+    "@type": [
+      "Long",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:long;3",
+    "description": {
+      "en-US": "a signed integral numeric value that is expressible in 8 bytes"
+    },
+    "displayName": "long"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:date;4",
+    "@type": [
+      "Date",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:date;3",
+    "description": {
+      "en-US": "a date in ISO 8601 format, per [RFC 3339](https://tools.ietf.org/html/rfc3339)"
+    },
+    "displayName": "date"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:dateTime;4",
+    "@type": [
+      "DateTime",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:dateTime;3",
+    "description": {
+      "en-US": "a date and time in ISO 8601 format, per [RFC 3339](https://tools.ietf.org/html/rfc3339)"
+    },
+    "displayName": "dateTime"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:duration;4",
+    "@type": [
+      "Duration",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:duration;3",
+    "description": {
+      "en-US": "a duration in ISO 8601 format"
+    },
+    "displayName": "duration"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:time;4",
+    "@type": [
+      "Time",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:time;3",
+    "description": {
+      "en-US": "a time in ISO 8601 format, per [RFC 3339](https://tools.ietf.org/html/rfc3339)"
+    },
+    "displayName": "time"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:Schema:string;4",
+    "@type": [
+      "String",
+      "Alias"
+    ],
+    "aliasFor": "dtmi:dtdl:instance:Schema:string;3",
+    "description": {
+      "en-US": "a UTF8 string"
+    },
+    "displayName": "string"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:CommandType:asynchronous;4",
+    "@type": "CommandType",
+    "description": {
+      "en-US": "The command will complete sometime after control returns to the caller. After the command completes, the result and any outputs are available."
+    },
+    "displayName": "asynchronous"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:dtdl:instance:CommandType:synchronous;4",
+    "@type": "CommandType",
+    "description": {
+      "en-US": "The command will be complete when control returns to the caller. The result and any outputs are available immediately."
+    },
+    "displayName": "synchronous"
+  },
+  {
     "@context": "dtmi:dtdl:context;2",
     "@id": "dtmi:standard:unitprefix:deci;2",
     "@type": "DecimalPrefix",
@@ -2963,6 +3111,256 @@
           "@id": "dtmi:standard:schema:geospatial:polygonCoordinateArrayArray;3",
           "@type": "Array",
           "elementSchema": "dtmi:standard:schema:geospatial:polygonCoordinateArray;3"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatialPointType;4",
+    "@type": "Enum",
+    "enumValues": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:enumValue:point;4",
+        "@type": "EnumValue",
+        "enumValue": "Point",
+        "name": "point"
+      }
+    ],
+    "valueSchema": "dtmi:dtdl:instance:Schema:string;2"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatialMultiPointType;4",
+    "@type": "Enum",
+    "enumValues": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:enumValue:multiPoint;4",
+        "@type": "EnumValue",
+        "enumValue": "MultiPoint",
+        "name": "multiPoint"
+      }
+    ],
+    "valueSchema": "dtmi:dtdl:instance:Schema:string;2"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatialLineStringType;4",
+    "@type": "Enum",
+    "enumValues": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:enumValue:lineString;4",
+        "@type": "EnumValue",
+        "enumValue": "LineString",
+        "name": "lineString"
+      }
+    ],
+    "valueSchema": "dtmi:dtdl:instance:Schema:string;2"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatialMultiLineStringType;4",
+    "@type": "Enum",
+    "enumValues": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:enumValue:multiLineString;4",
+        "@type": "EnumValue",
+        "enumValue": "MultiLineString",
+        "name": "multiLineString"
+      }
+    ],
+    "valueSchema": "dtmi:dtdl:instance:Schema:string;2"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatialPolygonType;4",
+    "@type": "Enum",
+    "enumValues": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:enumValue:polygon;4",
+        "@type": "EnumValue",
+        "enumValue": "Polygon",
+        "name": "polygon"
+      }
+    ],
+    "valueSchema": "dtmi:dtdl:instance:Schema:string;2"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatialMultiPolygonType;4",
+    "@type": "Enum",
+    "enumValues": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:enumValue:multiPolygon;4",
+        "@type": "EnumValue",
+        "enumValue": "MultiPolygon",
+        "name": "multiPolygon"
+      }
+    ],
+    "valueSchema": "dtmi:dtdl:instance:Schema:string;2"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:position;4",
+    "@type": "Array",
+    "elementSchema": "dtmi:dtdl:instance:Schema:double;2"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:lineStringCoordinateArray;4",
+    "@type": "Array",
+    "elementSchema": "dtmi:standard:schema:geospatial:position;4"
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:polygonCoordinateArray;4",
+    "@type": "Array",
+    "elementSchema": {
+      "@id": "dtmi:standard:schema:geospatial:linearRingCoordinateArray;4",
+      "@type": "Array",
+      "elementSchema": "dtmi:standard:schema:geospatial:position;4"
+    }
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:point;4",
+    "@type": "Object",
+    "description": {
+      "en-US": "GeoJSON Point"
+    },
+    "fields": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:point:type;4",
+        "@type": "Field",
+        "name": "type",
+        "schema": "dtmi:standard:schema:geospatialPointType;4"
+      },
+      {
+        "@id": "dtmi:standard:schema:geospatial:point:coordinates;4",
+        "@type": "Field",
+        "name": "coordinates",
+        "schema": "dtmi:standard:schema:geospatial:position;4"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:multiPoint;4",
+    "@type": "Object",
+    "description": {
+      "en-US": "GeoJSON MultiPoint"
+    },
+    "fields": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:multiPoint:type;4",
+        "@type": "Field",
+        "name": "type",
+        "schema": "dtmi:standard:schema:geospatialMultiPointType;4"
+      },
+      {
+        "@id": "dtmi:standard:schema:geospatial:multiPoint:coordinates;4",
+        "@type": "Field",
+        "name": "coordinates",
+        "schema": {
+          "@id": "dtmi:standard:schema:geospatial:positionArray;4",
+          "@type": "Array",
+          "elementSchema": "dtmi:standard:schema:geospatial:position;4"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:lineString;4",
+    "@type": "Object",
+    "description": {
+      "en-US": "GeoJSON LineString"
+    },
+    "fields": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:lineString:type;4",
+        "@type": "Field",
+        "name": "type",
+        "schema": "dtmi:standard:schema:geospatialLineStringType;4"
+      },
+      {
+        "@id": "dtmi:standard:schema:geospatial:lineString:coordinates;4",
+        "@type": "Field",
+        "name": "coordinates",
+        "schema": "dtmi:standard:schema:geospatial:lineStringCoordinateArray;4"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:multiLineString;4",
+    "@type": "Object",
+    "description": {
+      "en-US": "GeoJSON MultiLineString"
+    },
+    "fields": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:multiLineString:type;4",
+        "@type": "Field",
+        "name": "type",
+        "schema": "dtmi:standard:schema:geospatialMultiLineStringType;4"
+      },
+      {
+        "@id": "dtmi:standard:schema:geospatial:multiLineString:coordinates;4",
+        "@type": "Field",
+        "name": "coordinates",
+        "schema": {
+          "@id": "dtmi:standard:schema:geospatial:lineStringCoordinateArrayArray;4",
+          "@type": "Array",
+          "elementSchema": "dtmi:standard:schema:geospatial:lineStringCoordinateArray;4"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:polygon;4",
+    "@type": "Object",
+    "description": {
+      "en-US": "GeoJSON Polygon"
+    },
+    "fields": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:polygon:type;4",
+        "@type": "Field",
+        "name": "type",
+        "schema": "dtmi:standard:schema:geospatialPolygonType;4"
+      },
+      {
+        "@id": "dtmi:standard:schema:geospatial:polygon:coordinates;4",
+        "@type": "Field",
+        "name": "coordinates",
+        "schema": "dtmi:standard:schema:geospatial:polygonCoordinateArray;4"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:geospatial:multiPolygon;4",
+    "@type": "Object",
+    "description": {
+      "en-US": "GeoJSON MultiPolygon"
+    },
+    "fields": [
+      {
+        "@id": "dtmi:standard:schema:geospatial:multiPolygon:type;4",
+        "@type": "Field",
+        "name": "type",
+        "schema": "dtmi:standard:schema:geospatialMultiPolygonType;4"
+      },
+      {
+        "@id": "dtmi:standard:schema:geospatial:multiPolygon:coordinates;4",
+        "@type": "Field",
+        "name": "coordinates",
+        "schema": {
+          "@id": "dtmi:standard:schema:geospatial:polygonCoordinateArrayArray;4",
+          "@type": "Array",
+          "elementSchema": "dtmi:standard:schema:geospatial:polygonCoordinateArray;4"
         }
       }
     ]
@@ -7154,6 +7552,4146 @@
       },
       {
         "@id": "dtmi:dtdl:extension:quantitativeTypes:v1:unit:cubicMetrePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "second",
+        "displayName": "cubic metre per second",
+        "enumValue": "cubicMetrePerSecond",
+        "name": "cubicMetrePerSecond",
+        "symbol": "ft³/s",
+        "topUnit": "cubicMetre"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:DecimalPrefix",
+    "@type": "Enum",
+    "displayName": "DecimalPrefix",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:deci",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "deci",
+        "exponent": -1,
+        "name": "deci",
+        "symbol": "d"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:centi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "centi",
+        "exponent": -2,
+        "name": "centi",
+        "symbol": "c"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:milli",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "milli",
+        "exponent": -3,
+        "name": "milli",
+        "symbol": "m"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:micro",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "micro",
+        "exponent": -6,
+        "name": "micro",
+        "symbol": "µ"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:nano",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "nano",
+        "exponent": -9,
+        "name": "nano",
+        "symbol": "n"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:pico",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "pico",
+        "exponent": -12,
+        "name": "pico",
+        "symbol": "p"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:femto",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "femto",
+        "exponent": -15,
+        "name": "femto",
+        "symbol": "f"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:atto",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "atto",
+        "exponent": -18,
+        "name": "atto",
+        "symbol": "a"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:zepto",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "zepto",
+        "exponent": -21,
+        "name": "zepto",
+        "symbol": "z"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:yocto",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "yocto",
+        "exponent": -24,
+        "name": "yocto",
+        "symbol": "y"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:deca",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "deca",
+        "exponent": 1,
+        "name": "deca",
+        "symbol": "da"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:hecto",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "hecto",
+        "exponent": 2,
+        "name": "hecto",
+        "symbol": "h"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:kilo",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "kilo",
+        "exponent": 3,
+        "name": "kilo",
+        "symbol": "k"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:mega",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "mega",
+        "exponent": 6,
+        "name": "mega",
+        "symbol": "M"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:giga",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "giga",
+        "exponent": 9,
+        "name": "giga",
+        "symbol": "G"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:tera",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "tera",
+        "exponent": 12,
+        "name": "tera",
+        "symbol": "T"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:peta",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "peta",
+        "exponent": 15,
+        "name": "peta",
+        "symbol": "P"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:exa",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "exa",
+        "exponent": 18,
+        "name": "exa",
+        "symbol": "E"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:zetta",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "zetta",
+        "exponent": 21,
+        "name": "zetta",
+        "symbol": "Z"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:yotta",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "yotta",
+        "exponent": 24,
+        "name": "yotta",
+        "symbol": "Y"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:BinaryPrefix",
+    "@type": "Enum",
+    "displayName": "BinaryPrefix",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:kibi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "kibi",
+        "exponent": 10,
+        "name": "kibi",
+        "symbol": "Ki"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:mebi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "mebi",
+        "exponent": 20,
+        "name": "mebi",
+        "symbol": "Mi"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:gibi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "gibi",
+        "exponent": 30,
+        "name": "gibi",
+        "symbol": "Gi"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:tebi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "tebi",
+        "exponent": 40,
+        "name": "tebi",
+        "symbol": "Ti"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:pebi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "pebi",
+        "exponent": 50,
+        "name": "pebi",
+        "symbol": "Pi"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:exbi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "exbi",
+        "exponent": 60,
+        "name": "exbi",
+        "symbol": "Ei"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:zebi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "zebi",
+        "exponent": 70,
+        "name": "zebi",
+        "symbol": "Zi"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:yobi",
+        "@type": [
+          "EnumValue",
+          "UnitPrefix"
+        ],
+        "enumValue": "yobi",
+        "exponent": 80,
+        "name": "yobi",
+        "symbol": "Yi"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:AccelerationUnit",
+    "@type": "Enum",
+    "displayName": "AccelerationUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:metrePerSecondSquared",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "metrePerSecondSquared",
+        "bottomUnit": "second",
+        "displayName": "metre per second squared",
+        "enumValue": "metrePerSecondSquared",
+        "name": "metrePerSecondSquared",
+        "symbol": "m/s²",
+        "topUnit": "metrePerSecond"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:centimetrePerSecondSquared",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "metrePerSecondSquared",
+        "bottomUnit": "second",
+        "displayName": "centimetre per second squared",
+        "enumValue": "centimetrePerSecondSquared",
+        "name": "centimetrePerSecondSquared",
+        "prefix": "centi",
+        "symbol": "cm/s²",
+        "topUnit": "centimetrePerSecond"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gForce",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "g-force",
+        "enumValue": "gForce",
+        "name": "gForce",
+        "symbol": "g"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:AngleUnit",
+    "@type": "Enum",
+    "displayName": "AngleUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:radian",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "radian",
+        "enumValue": "radian",
+        "name": "radian",
+        "symbol": "rad"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:degreeOfArc",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "degree of arc",
+        "enumValue": "degreeOfArc",
+        "name": "degreeOfArc",
+        "symbol": "°"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:minuteOfArc",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "minute of arc",
+        "enumValue": "minuteOfArc",
+        "name": "minuteOfArc",
+        "symbol": "'"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:secondOfArc",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "second of arc",
+        "enumValue": "secondOfArc",
+        "name": "secondOfArc",
+        "symbol": "\""
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:turn",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "turn",
+        "enumValue": "turn",
+        "name": "turn",
+        "symbol": "turn"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:AngularAccelerationUnit",
+    "@type": "Enum",
+    "displayName": "AngularAccelerationUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:radianPerSecondSquared",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "second",
+        "displayName": "radian per second squared",
+        "enumValue": "radianPerSecondSquared",
+        "name": "radianPerSecondSquared",
+        "symbol": "rad/s²",
+        "topUnit": "radianPerSecond"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:AngularVelocityUnit",
+    "@type": "Enum",
+    "displayName": "AngularVelocityUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:radianPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "second",
+        "displayName": "radian per second",
+        "enumValue": "radianPerSecond",
+        "name": "radianPerSecond",
+        "symbol": "rad/s",
+        "topUnit": "radian"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:degreePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "second",
+        "displayName": "degree per second",
+        "enumValue": "degreePerSecond",
+        "name": "degreePerSecond",
+        "symbol": "°/s",
+        "topUnit": "degreeOfArc"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:revolutionPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "second",
+        "displayName": "revolution per second",
+        "enumValue": "revolutionPerSecond",
+        "name": "revolutionPerSecond",
+        "symbol": "rps",
+        "topUnit": "turn"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:revolutionPerMinute",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "minute",
+        "displayName": "revolution per minute",
+        "enumValue": "revolutionPerMinute",
+        "name": "revolutionPerMinute",
+        "symbol": "rpm",
+        "topUnit": "turn"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:ApparentEnergyUnit",
+    "@type": "Enum",
+    "displayName": "ApparentEnergyUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:voltAmpereHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereHour",
+        "displayName": "volt-ampere-hour",
+        "enumValue": "voltAmpereHour",
+        "name": "voltAmpereHour",
+        "symbol": "VAh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilovoltAmpereHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereHour",
+        "displayName": "kilovolt-ampere-hour",
+        "enumValue": "kilovoltAmpereHour",
+        "name": "kilovoltAmpereHour",
+        "prefix": "kilo",
+        "symbol": "kVAh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megavoltAmpereHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereHour",
+        "displayName": "megavolt-ampere-hour",
+        "enumValue": "megavoltAmpereHour",
+        "name": "megavoltAmpereHour",
+        "prefix": "mega",
+        "symbol": "MVAh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigavoltAmpereHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereHour",
+        "displayName": "gigavolt-ampere-hour",
+        "enumValue": "gigavoltAmpereHour",
+        "name": "gigavoltAmpereHour",
+        "prefix": "giga",
+        "symbol": "GVAh"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:ApparentPowerUnit",
+    "@type": "Enum",
+    "displayName": "ApparentPowerUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:voltAmpere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpere",
+        "displayName": "volt-ampere",
+        "enumValue": "voltAmpere",
+        "name": "voltAmpere",
+        "symbol": "VA"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millivoltAmpere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpere",
+        "displayName": "millivolt-ampere",
+        "enumValue": "millivoltAmpere",
+        "name": "millivoltAmpere",
+        "prefix": "milli",
+        "symbol": "mVA"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilovoltAmpere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpere",
+        "displayName": "kilovolt-ampere",
+        "enumValue": "kilovoltAmpere",
+        "name": "kilovoltAmpere",
+        "prefix": "kilo",
+        "symbol": "kVA"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megavoltAmpere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpere",
+        "displayName": "megavolt-ampere",
+        "enumValue": "megavoltAmpere",
+        "name": "megavoltAmpere",
+        "prefix": "mega",
+        "symbol": "MVA"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigavoltAmpere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpere",
+        "displayName": "gigavolt-ampere",
+        "enumValue": "gigavoltAmpere",
+        "name": "gigavoltAmpere",
+        "prefix": "giga",
+        "symbol": "GVA"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:AreaUnit",
+    "@type": "Enum",
+    "displayName": "AreaUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:squareMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "square metre",
+        "enumValue": "squareMetre",
+        "name": "squareMetre",
+        "symbol": "m²"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:squareCentimetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "square centimetre",
+        "enumValue": "squareCentimetre",
+        "name": "squareCentimetre",
+        "symbol": "cm²"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:squareMillimetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "square millimetre",
+        "enumValue": "squareMillimetre",
+        "name": "squareMillimetre",
+        "symbol": "mm²"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:squareKilometre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "square kilometre",
+        "enumValue": "squareKilometre",
+        "name": "squareKilometre",
+        "symbol": "km²"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:hectare",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "hectare",
+        "enumValue": "hectare",
+        "name": "hectare",
+        "symbol": "ha"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:squareFoot",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "square foot",
+        "enumValue": "squareFoot",
+        "name": "squareFoot",
+        "symbol": "ft²"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:squareInch",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "square inch",
+        "enumValue": "squareInch",
+        "name": "squareInch",
+        "symbol": "in²"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:acre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "acre",
+        "enumValue": "acre",
+        "name": "acre",
+        "symbol": "ac"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:CapacitanceUnit",
+    "@type": "Enum",
+    "displayName": "CapacitanceUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:farad",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "farad",
+        "displayName": "farad",
+        "enumValue": "farad",
+        "name": "farad",
+        "symbol": "F"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millifarad",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "farad",
+        "displayName": "millifarad",
+        "enumValue": "millifarad",
+        "name": "millifarad",
+        "prefix": "milli",
+        "symbol": "mF"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microfarad",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "farad",
+        "displayName": "microfarad",
+        "enumValue": "microfarad",
+        "name": "microfarad",
+        "prefix": "micro",
+        "symbol": "µF"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:nanofarad",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "farad",
+        "displayName": "nanofarad",
+        "enumValue": "nanofarad",
+        "name": "nanofarad",
+        "prefix": "nano",
+        "symbol": "nF"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:picofarad",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "farad",
+        "displayName": "picofarad",
+        "enumValue": "picofarad",
+        "name": "picofarad",
+        "prefix": "pico",
+        "symbol": "pF"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:ChargeUnit",
+    "@type": "Enum",
+    "displayName": "ChargeUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:coulomb",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "coulomb",
+        "displayName": "coulomb",
+        "enumValue": "coulomb",
+        "name": "coulomb",
+        "symbol": "C"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:ampereHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ampereHour",
+        "displayName": "ampere hour",
+        "enumValue": "ampereHour",
+        "name": "ampereHour",
+        "symbol": "Ah"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milliampereHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ampereHour",
+        "displayName": "milliampere hour",
+        "enumValue": "milliampereHour",
+        "name": "milliampereHour",
+        "prefix": "milli",
+        "symbol": "mAh"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:CurrentUnit",
+    "@type": "Enum",
+    "displayName": "CurrentUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:ampere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ampere",
+        "displayName": "ampere",
+        "enumValue": "ampere",
+        "name": "ampere",
+        "symbol": "A"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microampere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ampere",
+        "displayName": "microampere",
+        "enumValue": "microampere",
+        "name": "microampere",
+        "prefix": "micro",
+        "symbol": "µA"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milliampere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ampere",
+        "displayName": "milliampere",
+        "enumValue": "milliampere",
+        "name": "milliampere",
+        "prefix": "milli",
+        "symbol": "mA"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kiloampere",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ampere",
+        "displayName": "kiloampere",
+        "enumValue": "kiloampere",
+        "name": "kiloampere",
+        "prefix": "kilo",
+        "symbol": "kA"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:DataRateUnit",
+    "@type": "Enum",
+    "displayName": "DataRateUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:bitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "bit per second",
+        "enumValue": "bitPerSecond",
+        "name": "bitPerSecond",
+        "symbol": "bps",
+        "topUnit": "bit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kibibitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "kibibit per second",
+        "enumValue": "kibibitPerSecond",
+        "name": "kibibitPerSecond",
+        "prefix": "kibi",
+        "symbol": "Kibps",
+        "topUnit": "kibibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:mebibitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "mebibit per second",
+        "enumValue": "mebibitPerSecond",
+        "name": "mebibitPerSecond",
+        "prefix": "mebi",
+        "symbol": "Mibps",
+        "topUnit": "mebibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gibibitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "gibibit per second",
+        "enumValue": "gibibitPerSecond",
+        "name": "gibibitPerSecond",
+        "prefix": "gibi",
+        "symbol": "Gibps",
+        "topUnit": "gibibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:tebibitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "tebibit per second",
+        "enumValue": "tebibitPerSecond",
+        "name": "tebibitPerSecond",
+        "prefix": "tebi",
+        "symbol": "Tibps",
+        "topUnit": "tebibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:exbibitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "exbibit per second",
+        "enumValue": "exbibitPerSecond",
+        "name": "exbibitPerSecond",
+        "prefix": "exbi",
+        "symbol": "Eibps",
+        "topUnit": "exbibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:zebibitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "zebibit per second",
+        "enumValue": "zebibitPerSecond",
+        "name": "zebibitPerSecond",
+        "prefix": "zebi",
+        "symbol": "Zibps",
+        "topUnit": "zebibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:yobibitPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bitPerSecond",
+        "bottomUnit": "second",
+        "displayName": "yobibit per second",
+        "enumValue": "yobibitPerSecond",
+        "name": "yobibitPerSecond",
+        "prefix": "yobi",
+        "symbol": "Yibps",
+        "topUnit": "yobibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:bytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "byte per second",
+        "enumValue": "bytePerSecond",
+        "name": "bytePerSecond",
+        "symbol": "Bps",
+        "topUnit": "byte"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kibibytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "kibibyte per second",
+        "enumValue": "kibibytePerSecond",
+        "name": "kibibytePerSecond",
+        "prefix": "kibi",
+        "symbol": "KiBps",
+        "topUnit": "kibibyte"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:mebibytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "mebibyte per second",
+        "enumValue": "mebibytePerSecond",
+        "name": "mebibytePerSecond",
+        "prefix": "mebi",
+        "symbol": "MiBps",
+        "topUnit": "mebibyte"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gibibytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "gibibyte per second",
+        "enumValue": "gibibytePerSecond",
+        "name": "gibibytePerSecond",
+        "prefix": "gibi",
+        "symbol": "GiBps",
+        "topUnit": "gibibyte"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:tebibytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "tebibyte per second",
+        "enumValue": "tebibytePerSecond",
+        "name": "tebibytePerSecond",
+        "prefix": "tebi",
+        "symbol": "TiBps",
+        "topUnit": "tebibyte"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:exbibytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "exbibyte per second",
+        "enumValue": "exbibytePerSecond",
+        "name": "exbibytePerSecond",
+        "prefix": "exbi",
+        "symbol": "EiBps",
+        "topUnit": "exbibyte"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:zebibytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "zebibyte per second",
+        "enumValue": "zebibytePerSecond",
+        "name": "zebibytePerSecond",
+        "prefix": "zebi",
+        "symbol": "ZiBps",
+        "topUnit": "zebibyte"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:yobibytePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "bytePerSecond",
+        "bottomUnit": "second",
+        "displayName": "yobibyte per second",
+        "enumValue": "yobibytePerSecond",
+        "name": "yobibytePerSecond",
+        "prefix": "yobi",
+        "symbol": "YiBps",
+        "topUnit": "yobibyte"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:DataSizeUnit",
+    "@type": "Enum",
+    "displayName": "DataSizeUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:bit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "bit",
+        "enumValue": "bit",
+        "name": "bit",
+        "symbol": "bit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kibibit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "kibibit",
+        "enumValue": "kibibit",
+        "name": "kibibit",
+        "prefix": "kibi",
+        "symbol": "Kibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:mebibit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "mebibit",
+        "enumValue": "mebibit",
+        "name": "mebibit",
+        "prefix": "mebi",
+        "symbol": "Mibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gibibit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "gibibit",
+        "enumValue": "gibibit",
+        "name": "gibibit",
+        "prefix": "gibi",
+        "symbol": "Gibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:tebibit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "tebibit",
+        "enumValue": "tebibit",
+        "name": "tebibit",
+        "prefix": "tebi",
+        "symbol": "Tibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:exbibit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "exbibit",
+        "enumValue": "exbibit",
+        "name": "exbibit",
+        "prefix": "exbi",
+        "symbol": "Eibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:zebibit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "zebibit",
+        "enumValue": "zebibit",
+        "name": "zebibit",
+        "prefix": "zebi",
+        "symbol": "Zibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:yobibit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "bit",
+        "displayName": "yobibit",
+        "enumValue": "yobibit",
+        "name": "yobibit",
+        "prefix": "yobi",
+        "symbol": "Yibit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:byte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "byte",
+        "enumValue": "byte",
+        "name": "byte",
+        "symbol": "B"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kibibyte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "kibibyte",
+        "enumValue": "kibibyte",
+        "name": "kibibyte",
+        "prefix": "kibi",
+        "symbol": "KiB"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:mebibyte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "mebibyte",
+        "enumValue": "mebibyte",
+        "name": "mebibyte",
+        "prefix": "mebi",
+        "symbol": "MiB"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gibibyte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "gibibyte",
+        "enumValue": "gibibyte",
+        "name": "gibibyte",
+        "prefix": "gibi",
+        "symbol": "GiB"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:tebibyte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "tebibyte",
+        "enumValue": "tebibyte",
+        "name": "tebibyte",
+        "prefix": "tebi",
+        "symbol": "TiB"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:exbibyte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "exbibyte",
+        "enumValue": "exbibyte",
+        "name": "exbibyte",
+        "prefix": "exbi",
+        "symbol": "EiB"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:zebibyte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "zebibyte",
+        "enumValue": "zebibyte",
+        "name": "zebibyte",
+        "prefix": "zebi",
+        "symbol": "ZiB"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:yobibyte",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "BinaryUnit"
+        ],
+        "baseUnit": "byte",
+        "displayName": "yobibyte",
+        "enumValue": "yobibyte",
+        "name": "yobibyte",
+        "prefix": "yobi",
+        "symbol": "YiB"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:DensityUnit",
+    "@type": "Enum",
+    "displayName": "DensityUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilogramPerCubicMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerCubicMetre",
+        "bottomUnit": "cubicMetre",
+        "displayName": "kilogram per cubic metre",
+        "enumValue": "kilogramPerCubicMetre",
+        "name": "kilogramPerCubicMetre",
+        "prefix": "kilo",
+        "symbol": "kg/m³",
+        "topUnit": "kilogram"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gramPerCubicMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerCubicMetre",
+        "bottomUnit": "cubicMetre",
+        "displayName": "gram per cubic metre",
+        "enumValue": "gramPerCubicMetre",
+        "name": "gramPerCubicMetre",
+        "symbol": "g/m³",
+        "topUnit": "gram"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milligramPerCubicMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerCubicMetre",
+        "bottomUnit": "cubicMetre",
+        "displayName": "milligram per cubic metre",
+        "enumValue": "milligramPerCubicMetre",
+        "name": "milligramPerCubicMetre",
+        "prefix": "milli",
+        "symbol": "mg/m³",
+        "topUnit": "milligram"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microgramPerCubicMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerCubicMetre",
+        "bottomUnit": "cubicMetre",
+        "displayName": "microgram per cubic metre",
+        "enumValue": "microgramPerCubicMetre",
+        "name": "microgramPerCubicMetre",
+        "prefix": "micro",
+        "symbol": "µg/m³",
+        "topUnit": "microgram"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:EnergyUnit",
+    "@type": "Enum",
+    "displayName": "EnergyUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:joule",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "joule",
+        "displayName": "joule",
+        "enumValue": "joule",
+        "name": "joule",
+        "symbol": "J"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilojoule",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "joule",
+        "displayName": "kilojoule",
+        "enumValue": "kilojoule",
+        "name": "kilojoule",
+        "prefix": "kilo",
+        "symbol": "kJ"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megajoule",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "joule",
+        "displayName": "megajoule",
+        "enumValue": "megajoule",
+        "name": "megajoule",
+        "prefix": "mega",
+        "symbol": "MJ"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigajoule",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "joule",
+        "displayName": "gigajoule",
+        "enumValue": "gigajoule",
+        "name": "gigajoule",
+        "prefix": "giga",
+        "symbol": "GJ"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:electronvolt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "electronvolt",
+        "displayName": "electronvolt",
+        "enumValue": "electronvolt",
+        "name": "electronvolt",
+        "symbol": "eV"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megaelectronvolt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "electronvolt",
+        "displayName": "megaelectronvolt",
+        "enumValue": "megaelectronvolt",
+        "name": "megaelectronvolt",
+        "prefix": "mega",
+        "symbol": "MeV"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:wattHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "wattHour",
+        "displayName": "watt-hour",
+        "enumValue": "wattHour",
+        "name": "wattHour",
+        "symbol": "Wh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milliwattHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "wattHour",
+        "displayName": "milliwatt-hour",
+        "enumValue": "milliwattHour",
+        "name": "milliwattHour",
+        "prefix": "milli",
+        "symbol": "mWh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilowattHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "wattHour",
+        "displayName": "kilowatt-hour",
+        "enumValue": "kilowattHour",
+        "name": "kilowattHour",
+        "prefix": "kilo",
+        "symbol": "kWh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megawattHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "wattHour",
+        "displayName": "megawatt-hour",
+        "enumValue": "megawattHour",
+        "name": "megawattHour",
+        "prefix": "mega",
+        "symbol": "MWh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigawattHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "wattHour",
+        "displayName": "gigawatt-hour",
+        "enumValue": "gigawattHour",
+        "name": "gigawattHour",
+        "prefix": "giga",
+        "symbol": "GWh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:terawattHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "wattHour",
+        "displayName": "terawatt-hour",
+        "enumValue": "terawattHour",
+        "name": "terawattHour",
+        "prefix": "tera",
+        "symbol": "TWh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:britishThermalUnit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "britishThermalUnit",
+        "displayName": "British thermal unit",
+        "enumValue": "britishThermalUnit",
+        "name": "britishThermalUnit",
+        "symbol": "BTU"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kiloBritishThermalUnit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "britishThermalUnit",
+        "displayName": "kilo-British thermal unit",
+        "enumValue": "kiloBritishThermalUnit",
+        "name": "kiloBritishThermalUnit",
+        "prefix": "kilo",
+        "symbol": "kBTU"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:ForceUnit",
+    "@type": "Enum",
+    "displayName": "ForceUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:newton",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "newton",
+        "displayName": "newton",
+        "enumValue": "newton",
+        "name": "newton",
+        "symbol": "N"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:pound",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "pound",
+        "enumValue": "pound",
+        "name": "pound",
+        "symbol": "lb"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:ounce",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "ounce",
+        "enumValue": "ounce",
+        "name": "ounce",
+        "symbol": "oz"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:ton",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "ton",
+        "enumValue": "ton",
+        "name": "ton",
+        "symbol": "T"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:FrequencyUnit",
+    "@type": "Enum",
+    "displayName": "FrequencyUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:hertz",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "hertz",
+        "displayName": "hertz",
+        "enumValue": "hertz",
+        "name": "hertz",
+        "symbol": "Hz"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millihertz",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "hertz",
+        "displayName": "millihertz",
+        "enumValue": "millihertz",
+        "name": "millihertz",
+        "prefix": "milli",
+        "symbol": "mHz"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilohertz",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "hertz",
+        "displayName": "kilohertz",
+        "enumValue": "kilohertz",
+        "name": "kilohertz",
+        "prefix": "kilo",
+        "symbol": "kHz"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megahertz",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "hertz",
+        "displayName": "megahertz",
+        "enumValue": "megahertz",
+        "name": "megahertz",
+        "prefix": "mega",
+        "symbol": "MHz"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigahertz",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "hertz",
+        "displayName": "gigahertz",
+        "enumValue": "gigahertz",
+        "name": "gigahertz",
+        "prefix": "giga",
+        "symbol": "GHz"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:IlluminanceUnit",
+    "@type": "Enum",
+    "displayName": "IlluminanceUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:lux",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "lux",
+        "displayName": "lux",
+        "enumValue": "lux",
+        "name": "lux",
+        "symbol": "lx"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:footcandle",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "footcandle",
+        "enumValue": "footcandle",
+        "name": "footcandle",
+        "symbol": "fc"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:InductanceUnit",
+    "@type": "Enum",
+    "displayName": "InductanceUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:henry",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "henry",
+        "displayName": "henry",
+        "enumValue": "henry",
+        "name": "henry",
+        "symbol": "H"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millihenry",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "henry",
+        "displayName": "millihenry",
+        "enumValue": "millihenry",
+        "name": "millihenry",
+        "prefix": "milli",
+        "symbol": "mH"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microhenry",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "henry",
+        "displayName": "microhenry",
+        "enumValue": "microhenry",
+        "name": "microhenry",
+        "prefix": "micro",
+        "symbol": "µH"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:IonizingRadiationDoseUnit",
+    "@type": "Enum",
+    "displayName": "IonizingRadiationDoseUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gray",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gray",
+        "displayName": "gray",
+        "enumValue": "gray",
+        "name": "gray",
+        "symbol": "Gy"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milligray",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gray",
+        "displayName": "milligray",
+        "enumValue": "milligray",
+        "name": "milligray",
+        "prefix": "milli",
+        "symbol": "mGy"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microgray",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gray",
+        "displayName": "microgray",
+        "enumValue": "microgray",
+        "name": "microgray",
+        "prefix": "micro",
+        "symbol": "µGy"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:sievert",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "sievert",
+        "displayName": "sievert",
+        "enumValue": "sievert",
+        "name": "sievert",
+        "symbol": "Sv"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millisievert",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "sievert",
+        "displayName": "millisievert",
+        "enumValue": "millisievert",
+        "name": "millisievert",
+        "prefix": "milli",
+        "symbol": "mSv"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microsievert",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "sievert",
+        "displayName": "microsievert",
+        "enumValue": "microsievert",
+        "name": "microsievert",
+        "prefix": "micro",
+        "symbol": "µSv"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:IrradianceUnit",
+    "@type": "Enum",
+    "displayName": "IrradianceUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:wattPerSquareMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "wattPerSquareMetre",
+        "bottomUnit": "squareMetre",
+        "displayName": "watt per square metre",
+        "enumValue": "wattPerSquareMetre",
+        "name": "wattPerSquareMetre",
+        "symbol": "W/m²",
+        "topUnit": "watt"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:LengthUnit",
+    "@type": "Enum",
+    "displayName": "LengthUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:metre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "metre",
+        "displayName": "metre",
+        "enumValue": "metre",
+        "name": "metre",
+        "symbol": "m"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:centimetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "metre",
+        "displayName": "centimetre",
+        "enumValue": "centimetre",
+        "name": "centimetre",
+        "prefix": "centi",
+        "symbol": "cm"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millimetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "metre",
+        "displayName": "millimetre",
+        "enumValue": "millimetre",
+        "name": "millimetre",
+        "prefix": "milli",
+        "symbol": "mm"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:micrometre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "metre",
+        "displayName": "micrometre",
+        "enumValue": "micrometre",
+        "name": "micrometre",
+        "prefix": "micro",
+        "symbol": "µm"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:nanometre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "metre",
+        "displayName": "nanometre",
+        "enumValue": "nanometre",
+        "name": "nanometre",
+        "prefix": "nano",
+        "symbol": "nm"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilometre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "metre",
+        "displayName": "kilometre",
+        "enumValue": "kilometre",
+        "name": "kilometre",
+        "prefix": "kilo",
+        "symbol": "km"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:foot",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "foot",
+        "enumValue": "foot",
+        "name": "foot",
+        "symbol": "ft"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:inch",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "inch",
+        "enumValue": "inch",
+        "name": "inch",
+        "symbol": "in"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:mile",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "mile",
+        "enumValue": "mile",
+        "name": "mile",
+        "symbol": "mi"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:nauticalMile",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "nautical mile",
+        "enumValue": "nauticalMile",
+        "name": "nauticalMile",
+        "symbol": "M"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:astronomicalUnit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "astronomical unit",
+        "enumValue": "astronomicalUnit",
+        "name": "astronomicalUnit",
+        "symbol": "AU"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:LuminanceUnit",
+    "@type": "Enum",
+    "displayName": "LuminanceUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:candelaPerSquareMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "candelaPerSquareMetre",
+        "bottomUnit": "squareMetre",
+        "displayName": "candela per square metre",
+        "enumValue": "candelaPerSquareMetre",
+        "name": "candelaPerSquareMetre",
+        "symbol": "cd/m²",
+        "topUnit": "candela"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:LuminousFluxUnit",
+    "@type": "Enum",
+    "displayName": "LuminousFluxUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:lumen",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "lumen",
+        "displayName": "lumen",
+        "enumValue": "lumen",
+        "name": "lumen",
+        "symbol": "lm"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:LuminousIntensityUnit",
+    "@type": "Enum",
+    "displayName": "LuminousIntensityUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:candela",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "candela",
+        "displayName": "candela",
+        "enumValue": "candela",
+        "name": "candela",
+        "symbol": "cd"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:MagneticFluxUnit",
+    "@type": "Enum",
+    "displayName": "MagneticFluxUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:weber",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "weber",
+        "displayName": "weber",
+        "enumValue": "weber",
+        "name": "weber",
+        "symbol": "Wb"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:maxwell",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "maxwell",
+        "enumValue": "maxwell",
+        "name": "maxwell",
+        "symbol": "Mx"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:MagneticInductionUnit",
+    "@type": "Enum",
+    "displayName": "MagneticInductionUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:tesla",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "tesla",
+        "displayName": "tesla",
+        "enumValue": "tesla",
+        "name": "tesla",
+        "symbol": "T"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gauss",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gauss",
+        "displayName": "gauss",
+        "enumValue": "gauss",
+        "name": "gauss",
+        "symbol": "G"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:MassUnit",
+    "@type": "Enum",
+    "displayName": "MassUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilogram",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gram",
+        "displayName": "kilogram",
+        "enumValue": "kilogram",
+        "name": "kilogram",
+        "prefix": "kilo",
+        "symbol": "kg"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gram",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gram",
+        "displayName": "gram",
+        "enumValue": "gram",
+        "name": "gram",
+        "symbol": "g"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milligram",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gram",
+        "displayName": "milligram",
+        "enumValue": "milligram",
+        "name": "milligram",
+        "prefix": "milli",
+        "symbol": "mg"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microgram",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "gram",
+        "displayName": "microgram",
+        "enumValue": "microgram",
+        "name": "microgram",
+        "prefix": "micro",
+        "symbol": "µg"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:tonne",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "tonne",
+        "enumValue": "tonne",
+        "name": "tonne",
+        "symbol": "t"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:slug",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "slug",
+        "enumValue": "slug",
+        "name": "slug",
+        "symbol": "slug"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:massPound",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "pound",
+        "enumValue": "massPound",
+        "name": "massPound",
+        "symbol": "lb"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:MassFlowRateUnit",
+    "@type": "Enum",
+    "displayName": "MassFlowRateUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gramPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerSecond",
+        "bottomUnit": "second",
+        "displayName": "gram per second",
+        "enumValue": "gramPerSecond",
+        "name": "gramPerSecond",
+        "symbol": "g/s",
+        "topUnit": "gram"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilogramPerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerSecond",
+        "bottomUnit": "second",
+        "displayName": "kilogram per second",
+        "enumValue": "kilogramPerSecond",
+        "name": "kilogramPerSecond",
+        "prefix": "kilo",
+        "symbol": "kg/s",
+        "topUnit": "kilogram"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gramPerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerHour",
+        "bottomUnit": "hour",
+        "displayName": "gram per hour",
+        "enumValue": "gramPerHour",
+        "name": "gramPerHour",
+        "symbol": "g/h",
+        "topUnit": "gram"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilogramPerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "gramPerHour",
+        "bottomUnit": "hour",
+        "displayName": "kilogram per hour",
+        "enumValue": "kilogramPerHour",
+        "name": "kilogramPerHour",
+        "prefix": "kilo",
+        "symbol": "kg/h",
+        "topUnit": "kilogram"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:massPoundPerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "hour",
+        "displayName": "pound per hour",
+        "enumValue": "massPoundPerHour",
+        "name": "massPoundPerHour",
+        "symbol": "lb/h",
+        "topUnit": "massPound"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:PowerUnit",
+    "@type": "Enum",
+    "displayName": "PowerUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:watt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "watt",
+        "displayName": "watt",
+        "enumValue": "watt",
+        "name": "watt",
+        "symbol": "W"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microwatt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "watt",
+        "displayName": "microwatt",
+        "enumValue": "microwatt",
+        "name": "microwatt",
+        "prefix": "micro",
+        "symbol": "µW"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milliwatt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "watt",
+        "displayName": "milliwatt",
+        "enumValue": "milliwatt",
+        "name": "milliwatt",
+        "prefix": "milli",
+        "symbol": "mW"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilowatt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "watt",
+        "displayName": "kilowatt",
+        "enumValue": "kilowatt",
+        "name": "kilowatt",
+        "prefix": "kilo",
+        "symbol": "kW"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megawatt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "watt",
+        "displayName": "megawatt",
+        "enumValue": "megawatt",
+        "name": "megawatt",
+        "prefix": "mega",
+        "symbol": "MW"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigawatt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "watt",
+        "displayName": "gigawatt",
+        "enumValue": "gigawatt",
+        "name": "gigawatt",
+        "prefix": "giga",
+        "symbol": "GW"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:horsepower",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "horsepower",
+        "enumValue": "horsepower",
+        "name": "horsepower",
+        "symbol": "hp"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:joulePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "joule",
+        "bottomUnit": "second",
+        "displayName": "joulePerSecond",
+        "enumValue": "joulePerSecond",
+        "name": "joulePerSecond",
+        "symbol": "J/s",
+        "topUnit": "joule"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilojoulePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "joulePerSecond",
+        "bottomUnit": "second",
+        "displayName": "kilojoulePerSecond",
+        "enumValue": "kilojoulePerSecond",
+        "name": "kilojoulePerSecond",
+        "prefix": "kilo",
+        "symbol": "kJ/s",
+        "topUnit": "kilojoule"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:joulePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "joule",
+        "bottomUnit": "hour",
+        "displayName": "joulePerHour",
+        "enumValue": "joulePerHour",
+        "name": "joulePerHour",
+        "symbol": "J/h",
+        "topUnit": "joule"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilojoulePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "joulePerHour",
+        "bottomUnit": "hour",
+        "displayName": "kilojoulePerHour",
+        "enumValue": "kilojoulePerHour",
+        "name": "kilojoulePerHour",
+        "prefix": "kilo",
+        "symbol": "kJ/h",
+        "topUnit": "kilojoule"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megajoulePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "joulePerHour",
+        "bottomUnit": "hour",
+        "displayName": "megajoulePerHour",
+        "enumValue": "megajoulePerHour",
+        "name": "megajoulePerHour",
+        "prefix": "mega",
+        "symbol": "MJ/h",
+        "topUnit": "megajoule"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigajoulePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "joulePerHour",
+        "bottomUnit": "hour",
+        "displayName": "gigajoulePerHour",
+        "enumValue": "gigajoulePerHour",
+        "name": "gigajoulePerHour",
+        "prefix": "giga",
+        "symbol": "GJ/h",
+        "topUnit": "gigajoule"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:britishThermalUnitPerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "britishThermalUnit",
+        "bottomUnit": "hour",
+        "displayName": "British thermal unitPerHour",
+        "enumValue": "britishThermalUnitPerHour",
+        "name": "britishThermalUnitPerHour",
+        "symbol": "BTU/h",
+        "topUnit": "britishThermalUnit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kiloBritishThermalUnitPerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "britishThermalUnitPerHour",
+        "bottomUnit": "hour",
+        "displayName": "kilo-British thermal unitPerHour",
+        "enumValue": "kiloBritishThermalUnitPerHour",
+        "name": "kiloBritishThermalUnitPerHour",
+        "prefix": "kilo",
+        "symbol": "kBTU/h",
+        "topUnit": "kiloBritishThermalUnit"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilowattHourPerYear",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "year",
+        "displayName": "kilowatt-hour per year",
+        "enumValue": "kilowattHourPerYear",
+        "name": "kilowattHourPerYear",
+        "symbol": "kWh/yr",
+        "topUnit": "kilowattHour"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:tonOfRefrigeration",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "ton of refrigeration",
+        "enumValue": "tonOfRefrigeration",
+        "name": "tonOfRefrigeration",
+        "symbol": "TR"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:PressureUnit",
+    "@type": "Enum",
+    "displayName": "PressureUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:pascal",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "pascal",
+        "displayName": "pascal",
+        "enumValue": "pascal",
+        "name": "pascal",
+        "symbol": "Pa"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:decapascal",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "pascal",
+        "displayName": "decapascal",
+        "enumValue": "decapascal",
+        "name": "decapascal",
+        "prefix": "deca",
+        "symbol": "daPa"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:hectopascal",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "pascal",
+        "displayName": "hectopascal",
+        "enumValue": "hectopascal",
+        "name": "hectopascal",
+        "prefix": "hecto",
+        "symbol": "hPa"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilopascal",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "pascal",
+        "displayName": "kilopascal",
+        "enumValue": "kilopascal",
+        "name": "kilopascal",
+        "prefix": "kilo",
+        "symbol": "kPa"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:bar",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "bar",
+        "displayName": "bar",
+        "enumValue": "bar",
+        "name": "bar",
+        "symbol": "bar"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millibar",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "bar",
+        "displayName": "millibar",
+        "enumValue": "millibar",
+        "name": "millibar",
+        "prefix": "milli",
+        "symbol": "mbar"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millimetresOfMercury",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "millimetres of mercury",
+        "enumValue": "millimetresOfMercury",
+        "name": "millimetresOfMercury",
+        "symbol": "mmHg"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:poundPerSquareInch",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "squareInch",
+        "displayName": "pound per square inch",
+        "enumValue": "poundPerSquareInch",
+        "name": "poundPerSquareInch",
+        "symbol": "psi",
+        "topUnit": "pound"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:inchesOfMercury",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "inches of mercury",
+        "enumValue": "inchesOfMercury",
+        "name": "inchesOfMercury",
+        "symbol": "inHg"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:inchesOfWater",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "inches of water",
+        "enumValue": "inchesOfWater",
+        "name": "inchesOfWater",
+        "symbol": "inH2O"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:RadioactivityUnit",
+    "@type": "Enum",
+    "displayName": "RadioactivityUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:becquerel",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "becquerel",
+        "displayName": "becquerel",
+        "enumValue": "becquerel",
+        "name": "becquerel",
+        "symbol": "Bq"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilobecquerel",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "becquerel",
+        "displayName": "kilobecquerel",
+        "enumValue": "kilobecquerel",
+        "name": "kilobecquerel",
+        "prefix": "kilo",
+        "symbol": "kBq"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megabecquerel",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "becquerel",
+        "displayName": "megabecquerel",
+        "enumValue": "megabecquerel",
+        "name": "megabecquerel",
+        "prefix": "mega",
+        "symbol": "MBq"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigabecquerel",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "becquerel",
+        "displayName": "gigabecquerel",
+        "enumValue": "gigabecquerel",
+        "name": "gigabecquerel",
+        "prefix": "giga",
+        "symbol": "GBq"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:ReactiveEnergyUnit",
+    "@type": "Enum",
+    "displayName": "ReactiveEnergyUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:voltAmpereReactiveHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactiveHour",
+        "displayName": "volt-ampere-reactive-hour",
+        "enumValue": "voltAmpereReactiveHour",
+        "name": "voltAmpereReactiveHour",
+        "symbol": "varh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilovoltAmpereReactiveHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactiveHour",
+        "displayName": "kilovolt-ampere-reactive-hour",
+        "enumValue": "kilovoltAmpereReactiveHour",
+        "name": "kilovoltAmpereReactiveHour",
+        "prefix": "kilo",
+        "symbol": "kvarh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megavoltAmpereReactiveHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactiveHour",
+        "displayName": "megavolt-ampere-reactive-hour",
+        "enumValue": "megavoltAmpereReactiveHour",
+        "name": "megavoltAmpereReactiveHour",
+        "prefix": "mega",
+        "symbol": "Mvarh"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigavoltAmpereReactiveHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactiveHour",
+        "displayName": "gigavolt-ampere-reactive-hour",
+        "enumValue": "gigavoltAmpereReactiveHour",
+        "name": "gigavoltAmpereReactiveHour",
+        "prefix": "giga",
+        "symbol": "Gvarh"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:ReactivePowerUnit",
+    "@type": "Enum",
+    "displayName": "ReactivePowerUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:voltAmpereReactive",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactive",
+        "displayName": "volt-ampere reactive",
+        "enumValue": "voltAmpereReactive",
+        "name": "voltAmpereReactive",
+        "symbol": "var"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millivoltAmpereReactive",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactive",
+        "displayName": "millivolt-ampere reactive",
+        "enumValue": "millivoltAmpereReactive",
+        "name": "millivoltAmpereReactive",
+        "prefix": "milli",
+        "symbol": "mvar"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilovoltAmpereReactive",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactive",
+        "displayName": "kilovolt-ampere reactive",
+        "enumValue": "kilovoltAmpereReactive",
+        "name": "kilovoltAmpereReactive",
+        "prefix": "kilo",
+        "symbol": "kvar"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megavoltAmpereReactive",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactive",
+        "displayName": "megavolt-ampere reactive",
+        "enumValue": "megavoltAmpereReactive",
+        "name": "megavoltAmpereReactive",
+        "prefix": "mega",
+        "symbol": "Mvar"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gigavoltAmpereReactive",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "voltAmpereReactive",
+        "displayName": "gigavolt-ampere reactive",
+        "enumValue": "gigavoltAmpereReactive",
+        "name": "gigavoltAmpereReactive",
+        "prefix": "giga",
+        "symbol": "Gvar"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:ResistanceUnit",
+    "@type": "Enum",
+    "displayName": "ResistanceUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:ohm",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ohm",
+        "displayName": "ohm",
+        "enumValue": "ohm",
+        "name": "ohm",
+        "symbol": "Ω"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milliohm",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ohm",
+        "displayName": "milliohm",
+        "enumValue": "milliohm",
+        "name": "milliohm",
+        "prefix": "milli",
+        "symbol": "mΩ"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kiloohm",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ohm",
+        "displayName": "kiloohm",
+        "enumValue": "kiloohm",
+        "name": "kiloohm",
+        "prefix": "kilo",
+        "symbol": "kΩ"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megaohm",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "ohm",
+        "displayName": "megaohm",
+        "enumValue": "megaohm",
+        "name": "megaohm",
+        "prefix": "mega",
+        "symbol": "MΩ"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:SoundPressureUnit",
+    "@type": "Enum",
+    "displayName": "SoundPressureUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:decibel",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "bel",
+        "displayName": "decibel",
+        "enumValue": "decibel",
+        "name": "decibel",
+        "prefix": "deci",
+        "symbol": "dB"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:bel",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "bel",
+        "displayName": "bel",
+        "enumValue": "bel",
+        "name": "bel",
+        "symbol": "B"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:TemperatureUnit",
+    "@type": "Enum",
+    "displayName": "TemperatureUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kelvin",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "kelvin",
+        "enumValue": "kelvin",
+        "name": "kelvin",
+        "symbol": "K"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:degreeCelsius",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "degree celsius",
+        "enumValue": "degreeCelsius",
+        "name": "degreeCelsius",
+        "symbol": "°C"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:degreeFahrenheit",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "degree fahrenheit",
+        "enumValue": "degreeFahrenheit",
+        "name": "degreeFahrenheit",
+        "symbol": "°F"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:TimeUnit",
+    "@type": "Enum",
+    "displayName": "TimeUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:second",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "second",
+        "displayName": "second",
+        "enumValue": "second",
+        "name": "second",
+        "symbol": "s"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millisecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "second",
+        "displayName": "millisecond",
+        "enumValue": "millisecond",
+        "name": "millisecond",
+        "prefix": "milli",
+        "symbol": "ms"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microsecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "second",
+        "displayName": "microsecond",
+        "enumValue": "microsecond",
+        "name": "microsecond",
+        "prefix": "micro",
+        "symbol": "µs"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:nanosecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "second",
+        "displayName": "nanosecond",
+        "enumValue": "nanosecond",
+        "name": "nanosecond",
+        "prefix": "nano",
+        "symbol": "ns"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:minute",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "minute",
+        "enumValue": "minute",
+        "name": "minute",
+        "symbol": "m"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:hour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "hour",
+        "enumValue": "hour",
+        "name": "hour",
+        "symbol": "h"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:day",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "day",
+        "enumValue": "day",
+        "name": "day",
+        "symbol": "d"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:year",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "year",
+        "enumValue": "year",
+        "name": "year",
+        "symbol": "yr"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:TorqueUnit",
+    "@type": "Enum",
+    "displayName": "TorqueUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:newtonMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "newtonMetre",
+        "displayName": "newton-metre",
+        "enumValue": "newtonMetre",
+        "name": "newtonMetre",
+        "symbol": "N m"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:Unitless",
+    "@type": "Enum",
+    "displayName": "Unitless",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:unity",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "",
+        "enumValue": "unity",
+        "name": "unity",
+        "symbol": ""
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:percent",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "percent",
+        "enumValue": "percent",
+        "name": "percent",
+        "symbol": "%"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:partsPerMillion",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "partsPerMillion",
+        "enumValue": "partsPerMillion",
+        "name": "partsPerMillion",
+        "symbol": "ppm"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:partsPerBillion",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "partsPerBillion",
+        "enumValue": "partsPerBillion",
+        "name": "partsPerBillion",
+        "symbol": "ppb"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:partsPerTrillion",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "partsPerTrillion",
+        "enumValue": "partsPerTrillion",
+        "name": "partsPerTrillion",
+        "symbol": "ppt"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:partsPerQuadrillion",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "partsPerQuadrillion",
+        "enumValue": "partsPerQuadrillion",
+        "name": "partsPerQuadrillion",
+        "symbol": "ppq"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:VelocityUnit",
+    "@type": "Enum",
+    "displayName": "VelocityUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:metrePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "metrePerSecond",
+        "bottomUnit": "second",
+        "displayName": "metre per second",
+        "enumValue": "metrePerSecond",
+        "name": "metrePerSecond",
+        "symbol": "m/s",
+        "topUnit": "metre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:centimetrePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "metrePerSecond",
+        "bottomUnit": "second",
+        "displayName": "centimetre per second",
+        "enumValue": "centimetrePerSecond",
+        "name": "centimetrePerSecond",
+        "prefix": "centi",
+        "symbol": "cm/s",
+        "topUnit": "centimetre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilometrePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "metrePerSecond",
+        "bottomUnit": "second",
+        "displayName": "kilometre per second",
+        "enumValue": "kilometrePerSecond",
+        "name": "kilometrePerSecond",
+        "prefix": "kilo",
+        "symbol": "km/s",
+        "topUnit": "kilometre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:metrePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "metrePerHour",
+        "bottomUnit": "hour",
+        "displayName": "metre per hour",
+        "enumValue": "metrePerHour",
+        "name": "metrePerHour",
+        "symbol": "m/h",
+        "topUnit": "metre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilometrePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "metrePerHour",
+        "bottomUnit": "hour",
+        "displayName": "kilometre per hour",
+        "enumValue": "kilometrePerHour",
+        "name": "kilometrePerHour",
+        "prefix": "kilo",
+        "symbol": "km/h",
+        "topUnit": "kilometre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "hour",
+        "displayName": "mile per hour",
+        "enumValue": "milePerHour",
+        "name": "milePerHour",
+        "symbol": "mph",
+        "topUnit": "mile"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:milePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "second",
+        "displayName": "mile per second",
+        "enumValue": "milePerSecond",
+        "name": "milePerSecond",
+        "symbol": "mi/s",
+        "topUnit": "mile"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:knot",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "knot",
+        "enumValue": "knot",
+        "name": "knot",
+        "symbol": "kn"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:VoltageUnit",
+    "@type": "Enum",
+    "displayName": "VoltageUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:volt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "volt",
+        "displayName": "volt",
+        "enumValue": "volt",
+        "name": "volt",
+        "symbol": "V"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millivolt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "volt",
+        "displayName": "millivolt",
+        "enumValue": "millivolt",
+        "name": "millivolt",
+        "prefix": "milli",
+        "symbol": "mV"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:microvolt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "volt",
+        "displayName": "microvolt",
+        "enumValue": "microvolt",
+        "name": "microvolt",
+        "prefix": "micro",
+        "symbol": "µV"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilovolt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "volt",
+        "displayName": "kilovolt",
+        "enumValue": "kilovolt",
+        "name": "kilovolt",
+        "prefix": "kilo",
+        "symbol": "kV"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:megavolt",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "volt",
+        "displayName": "megavolt",
+        "enumValue": "megavolt",
+        "name": "megavolt",
+        "prefix": "mega",
+        "symbol": "MV"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:VolumeUnit",
+    "@type": "Enum",
+    "displayName": "VolumeUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicMetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "cubic metre",
+        "enumValue": "cubicMetre",
+        "name": "cubicMetre",
+        "symbol": "m³"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicCentimetre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "cubic centimetre",
+        "enumValue": "cubicCentimetre",
+        "name": "cubicCentimetre",
+        "symbol": "cm³"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:litre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "litre",
+        "displayName": "litre",
+        "enumValue": "litre",
+        "name": "litre",
+        "symbol": "l"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millilitre",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit"
+        ],
+        "baseUnit": "litre",
+        "displayName": "millilitre",
+        "enumValue": "millilitre",
+        "name": "millilitre",
+        "prefix": "milli",
+        "symbol": "ml"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicFoot",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "cubic foot",
+        "enumValue": "cubicFoot",
+        "name": "cubicFoot",
+        "symbol": "ft³"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicInch",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "cubic inch",
+        "enumValue": "cubicInch",
+        "name": "cubicInch",
+        "symbol": "in³"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:fluidOunce",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "fluid ounce",
+        "enumValue": "fluidOunce",
+        "name": "fluidOunce",
+        "symbol": "fl oz"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gallon",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit"
+        ],
+        "displayName": "gallon",
+        "enumValue": "gallon",
+        "name": "gallon",
+        "symbol": "gal"
+      }
+    ],
+    "valueSchema": "string"
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;4",
+      "dtmi:dtdl:extension:quantitativeTypes;2"
+    ],
+    "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:VolumeFlowRateUnit",
+    "@type": "Enum",
+    "displayName": "VolumeFlowRateUnit",
+    "enumValues": [
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:litrePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "litrePerSecond",
+        "bottomUnit": "second",
+        "displayName": "litre per second",
+        "enumValue": "litrePerSecond",
+        "name": "litrePerSecond",
+        "symbol": "l/s",
+        "topUnit": "litre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millilitrePerSecond",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "litrePerSecond",
+        "bottomUnit": "second",
+        "displayName": "millilitre per second",
+        "enumValue": "millilitrePerSecond",
+        "name": "millilitrePerSecond",
+        "prefix": "milli",
+        "symbol": "ml/s",
+        "topUnit": "millilitre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:litrePerMinute",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "litrePerMinute",
+        "bottomUnit": "minute",
+        "displayName": "litre per minute",
+        "enumValue": "litrePerMinute",
+        "name": "litrePerMinute",
+        "symbol": "l/min",
+        "topUnit": "litre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millilitrePerMinute",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "litrePerMinute",
+        "bottomUnit": "minute",
+        "displayName": "millilitre per minute",
+        "enumValue": "millilitrePerMinute",
+        "name": "millilitrePerMinute",
+        "prefix": "milli",
+        "symbol": "ml/min",
+        "topUnit": "millilitre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:litrePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "litrePerHour",
+        "bottomUnit": "hour",
+        "displayName": "litre per hour",
+        "enumValue": "litrePerHour",
+        "name": "litrePerHour",
+        "symbol": "l/h",
+        "topUnit": "litre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:millilitrePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "DecimalUnit",
+          "RatioUnit"
+        ],
+        "baseUnit": "litrePerHour",
+        "bottomUnit": "hour",
+        "displayName": "millilitre per hour",
+        "enumValue": "millilitrePerHour",
+        "name": "millilitrePerHour",
+        "prefix": "milli",
+        "symbol": "ml/h",
+        "topUnit": "millilitre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gallonPerMinute",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "minute",
+        "displayName": "gallon per minute",
+        "enumValue": "gallonPerMinute",
+        "name": "gallonPerMinute",
+        "symbol": "gal/min",
+        "topUnit": "gallon"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:gallonPerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "hour",
+        "displayName": "gallon per hour",
+        "enumValue": "gallonPerHour",
+        "name": "gallonPerHour",
+        "symbol": "gal/h",
+        "topUnit": "gallon"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicFootPerMinute",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "minute",
+        "displayName": "cubic foot per minute",
+        "enumValue": "cubicFootPerMinute",
+        "name": "cubicFootPerMinute",
+        "symbol": "ft³/min",
+        "topUnit": "cubicFoot"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicMetrePerHour",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "hour",
+        "displayName": "cubic metre per hour",
+        "enumValue": "cubicMetrePerHour",
+        "name": "cubicMetrePerHour",
+        "symbol": "ft³/h",
+        "topUnit": "cubicMetre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicMetrePerMinute",
+        "@type": [
+          "EnumValue",
+          "SymbolicUnit",
+          "RatioUnit"
+        ],
+        "bottomUnit": "minute",
+        "displayName": "cubic metre per minute",
+        "enumValue": "cubicMetrePerMinute",
+        "name": "cubicMetrePerMinute",
+        "symbol": "ft³/min",
+        "topUnit": "cubicMetre"
+      },
+      {
+        "@id": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:cubicMetrePerSecond",
         "@type": [
           "EnumValue",
           "SymbolicUnit",

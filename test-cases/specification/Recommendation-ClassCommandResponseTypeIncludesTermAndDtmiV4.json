@@ -1,0 +1,28 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "wum_hi",
+          "response": {
+            "name": "wum_vroo",
+            "schema": "double",
+            "@type": [
+              "CommandResponse",
+              "dtmi:dtdl:class:CommandResponse;4"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:humpf_epsilon;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "humpf_zeta",
+            "schema": "long"
+          },
+          "mapKey": {
+            "name": "humpf_delta",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:humpf_iota;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "humpf_kappa",
+            "schema": "string"
+          },
+          "mapKey": {
+            "name": "humpf_theta",
+            "dtmi:dtdl:property:schema;4": "string"
+          }
+        }
+      }
+    ]
+  }
+]

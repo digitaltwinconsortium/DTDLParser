@@ -1,0 +1,27 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_gamma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:humpf_alpha;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "humpf_beta",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "name": "um_hi",
+            "dtmi:dtdl:property:schema;4": "string"
+          }
+        }
+      }
+    ]
+  }
+]

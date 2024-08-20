@@ -1,0 +1,50 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_xi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:sigma_nu;1",
+          "@type": "Interface",
+          "extends": "dtmi:ex:dependentRef;1"
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_pi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:sigma_omicron;1",
+          "@type": "Interface",
+          "extends": [
+            "dtmi:ex:dependentRef;1"
+          ]
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  }
+]

@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:zeta_kappa;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "zeta_lambda",
+            "schema": "boolean"
+          },
+          "mapKey": {
+            "displayName": [
+              "zeta_theta"
+            ],
+            "name": "zeta_iota",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:zeta_omicron;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "zeta_pi",
+            "schema": "date"
+          },
+          "mapKey": {
+            "dtmi:dtdl:property:displayName;4": [
+              "zeta_nu"
+            ],
+            "name": "zeta_xi",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

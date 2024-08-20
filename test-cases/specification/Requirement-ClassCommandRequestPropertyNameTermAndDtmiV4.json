@@ -1,0 +1,47 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nuh_hi",
+          "request": {
+            "name": "nuh_yekk",
+            "dtmi:dtdl:property:name;4": "nuh_vroo",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "snee_delta",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "snee_beta",
+            "dtmi:dtdl:property:name;4": "snee_gamma",
+            "schema": "dateTime"
+          }
+        }
+      }
+    ]
+  }
+]

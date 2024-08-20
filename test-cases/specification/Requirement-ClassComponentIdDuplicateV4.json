@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_omicron;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:omicron_omicron;1",
+          "@type": "Interface",
+          "contents": {
+            "@id": "dtmi:example:omicron_omicron;1",
+            "@type": "Component",
+            "name": "omicron_pi",
+            "schema": {
+              "@id": "dtmi:example:omicron_rho;1",
+              "@type": "Interface"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_sigma;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:omicron_sigma;1",
+          "@type": "Interface",
+          "contents": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:example:omicron_sigma;1",
+            "@type": "Component",
+            "name": "omicron_tau",
+            "schema": {
+              "@id": "dtmi:example:omicron_upsilon;1",
+              "@type": "Interface"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

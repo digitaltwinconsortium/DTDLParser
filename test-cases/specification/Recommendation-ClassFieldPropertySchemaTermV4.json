@@ -1,0 +1,46 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:spazz_pi;1",
+          "@type": "Object",
+          "fields": {
+            "name": "spazz_omicron",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_upsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:spazz_tau;1",
+          "@type": "Object",
+          "fields": {
+            "name": "spazz_sigma",
+            "dtmi:dtdl:property:schema;4": "long"
+          }
+        }
+      }
+    ]
+  }
+]
