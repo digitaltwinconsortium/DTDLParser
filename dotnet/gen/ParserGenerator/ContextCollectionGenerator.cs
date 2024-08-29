@@ -11,11 +11,13 @@
         private readonly List<int> dtdlVersionsAllowingUndefinedExtensionsByDefault;
         private readonly List<int> dtdlVersionsAllowingLocalTerms;
         private readonly List<int> dtdlVersionsRestrictingKeywords;
+        private readonly List<int> dtdlVersionsAllowingCustomLimits;
         private readonly List<int> dtdlVersionsAllowingDynamicExtensions;
         private readonly List<string> contextsMergeDefinitions;
         private readonly Dictionary<string, List<string>> reservedIdPrefixes;
         private readonly bool areDynamicExtensionsSupported;
         private Dictionary<string, int> affiliateContextsImplicitDtdlVersions;
+        private Dictionary<string, LimitContextDigest> limitContexts;
         private Dictionary<string, HashSet<string>> contextMergeableTypes;
 
         /// <summary>
@@ -27,9 +29,11 @@
         /// <param name="dtdlVersionsAllowingLocalTerms">A list of DTDL versions that allow local term definitions in context blocks.</param>
         /// <param name="dtdlVersionsAllowingDynamicExtensions">A list of DTDL versions that allow language extensions to be added dynamically.</param>
         /// <param name="dtdlVersionsRestrictingKeywords">A list of DTDL versions that restrict the use of JSON-LD keywords.</param>
+        /// <param name="dtdlVersionsAllowingCustomLimits">A list of DTDL versions that allow extensions to customize the language's modeling limits.</param>
         /// <param name="contextsMergeDefinitions">A list of context specifiers for which definitions whose identifiers contain IRI fragments should be merged.</param>
         /// <param name="reservedIdPrefixes">A dicictionary that maps from context ID to a list of identifier prefixes that are reserved for this context.</param>
         /// <param name="affiliateContextsImplicitDtdlVersions">A dictionary that maps from affiliate context specifiers to implicit DTDL versions, for those affiliate contexts that are permitted to precede a DTDL context for back-compat reasons.</param>
+        /// <param name="limitContexts">A dictionary that maps from affiliate context specifier to a <see cref="LimitContextDigest"/> object.</param>
         /// <param name="areDynamicExtensionsSupported">True if dynamic extensions are supported by any recognized language version.</param>
         public ContextCollectionGenerator(
             Dictionary<string, Dictionary<string, string>> contexts,
@@ -38,9 +42,11 @@
             List<int> dtdlVersionsAllowingLocalTerms,
             List<int> dtdlVersionsAllowingDynamicExtensions,
             List<int> dtdlVersionsRestrictingKeywords,
+            List<int> dtdlVersionsAllowingCustomLimits,
             List<string> contextsMergeDefinitions,
             Dictionary<string, List<string>> reservedIdPrefixes,
             Dictionary<string, int> affiliateContextsImplicitDtdlVersions,
+            Dictionary<string, LimitContextDigest> limitContexts,
             bool areDynamicExtensionsSupported)
         {
             this.contexts = contexts;
@@ -48,10 +54,12 @@
             this.dtdlVersionsAllowingLocalTerms = dtdlVersionsAllowingLocalTerms;
             this.dtdlVersionsAllowingDynamicExtensions = dtdlVersionsAllowingDynamicExtensions;
             this.dtdlVersionsRestrictingKeywords = dtdlVersionsRestrictingKeywords;
+            this.dtdlVersionsAllowingCustomLimits = dtdlVersionsAllowingCustomLimits;
             this.contextsMergeDefinitions = contextsMergeDefinitions;
             this.reservedIdPrefixes = reservedIdPrefixes;
             this.affiliateContextsImplicitDtdlVersions = affiliateContextsImplicitDtdlVersions;
             this.areDynamicExtensionsSupported = areDynamicExtensionsSupported;
+            this.limitContexts = limitContexts;
 
             this.contextMergeableTypes = new Dictionary<string, HashSet<string>>();
             foreach (KeyValuePair<string, SupplementalTypeDigest> kvp in supplementalTypes)
@@ -111,6 +119,9 @@
             constructor.Body.Line($"DtdlVersionsRestrictingKeywords = new HashSet<int>() {{ {string.Join(", ", this.dtdlVersionsRestrictingKeywords)} }};");
             constructor.Body.Break();
 
+            constructor.Body.Line($"DtdlVersionsAllowingCustomLimits = new HashSet<int>() {{ {string.Join(", ", this.dtdlVersionsAllowingCustomLimits)} }};");
+            constructor.Body.Break();
+
             constructor.Body.Line("EndogenousAffiliateContextsImplicitDtdlVersions = new Dictionary<string, int>();");
             foreach (KeyValuePair<string, int> kvp in this.affiliateContextsImplicitDtdlVersions)
             {
@@ -135,7 +146,7 @@
                 string contextSpecifier = contextPair.Key;
                 if (contextSpecifier.StartsWith(ParserGeneratorValues.DtdlContextPrefix))
                 {
-                    this.AddContextVersion(dtdlContextMethod.Body, contextSpecifier, contextPair.Value);
+                    this.AddContextVersion(dtdlContextMethod.Body, contextSpecifier, contextPair.Value, 0, null);
                 }
                 else
                 {
@@ -150,7 +161,12 @@
                         affiliateContextMethods[affiliateIndex] = affiliateContextMethod;
                     }
 
-                    this.AddContextVersion(affiliateContextMethods[affiliateIndex].Body, contextSpecifier, contextPair.Value);
+                    if (!this.limitContexts.TryGetValue(contextSpecifier, out LimitContextDigest limitContext))
+                    {
+                        limitContext = new LimitContextDigest();
+                    }
+
+                    this.AddContextVersion(affiliateContextMethods[affiliateIndex].Body, contextSpecifier, contextPair.Value, limitContext.DtdlVersion, limitContext.LimitSpec);
                 }
             }
 
@@ -177,7 +193,7 @@
             method.Body.Line("return DtdlVersionsAllowingDynamicExtensions.Contains(dtdlVersion);");
         }
 
-        private void AddContextVersion(CsScope contextMethodBody, string contextSpecifer, Dictionary<string, string> termDefinitions)
+        private void AddContextVersion(CsScope contextMethodBody, string contextSpecifer, Dictionary<string, string> termDefinitions, int limitsDtdlVersion, string limitSpec)
         {
             string versionString = contextSpecifer.Substring(contextSpecifer.IndexOf(';') + 1);
             int dotIx = versionString.IndexOf('.');
@@ -185,6 +201,7 @@
             int minorVersion = dotIx < 0 ? 0 : int.Parse(versionString.Substring(dotIx + 1));
 
             string mergeDefinitions = this.contextsMergeDefinitions.Contains(contextSpecifer) ? "true" : "false";
+            string limitSpecString = limitSpec == null ? "null" : $"\"{limitSpec}\"";
 
             if (!this.contextMergeableTypes.TryGetValue(contextSpecifer, out HashSet<string> mergeableTypes))
             {
@@ -193,7 +210,7 @@
 
             string contextVar = $"context{majorVersion}_{minorVersion}";
 
-            contextMethodBody.Line($"VersionedContext {contextVar} = new VersionedContext(\"{contextSpecifer}\", {majorVersion}, {minorVersion}, mergeDefinitions: {mergeDefinitions});");
+            contextMethodBody.Line($"VersionedContext {contextVar} = new VersionedContext(\"{contextSpecifer}\", {majorVersion}, {minorVersion}, {limitsDtdlVersion}, {limitSpecString}, mergeDefinitions: {mergeDefinitions});");
 
             if (this.reservedIdPrefixes.TryGetValue(contextSpecifer, out List<string> reservedIdPrefixes))
             {

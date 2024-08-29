@@ -14,11 +14,12 @@
         private List<string> propertyNames;
         private bool isNarrow;
         private List<string> importProperties;
-        private int maxDepth;
+        private Dictionary<string, int> maxDepth;
         private string getTransitivePropertiesMethodName;
         private Dictionary<string, string> importPropertyMethodNames;
         private Dictionary<string, string> fieldNames;
         private string propertiesDesc;
+        private string maxDepthName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DescendantControlImportProperties"/> class.
@@ -30,7 +31,7 @@
         /// <param name="isNarrow">Indicates whether the descendant hierarchy should be scanned only along relevant properties.</param>
         /// <param name="importProperties">A list of names of properties whose values should be imported from the relevant descendants.</param>
         /// <param name="maxDepth">The maximum allowed count of relevant properties in a hierarchical chain.</param>
-        public DescendantControlImportProperties(int dtdlVersion, string rootClass, string definingClass, List<string> propertyNames, bool isNarrow, List<string> importProperties, int maxDepth)
+        public DescendantControlImportProperties(int dtdlVersion, string rootClass, string definingClass, List<string> propertyNames, bool isNarrow, List<string> importProperties, Dictionary<string, int> maxDepth)
         {
             this.dtdlVersion = dtdlVersion;
             this.rootClass = rootClass;
@@ -53,6 +54,7 @@
             }
 
             this.propertiesDesc = string.Join(" or ", this.propertyNames.Select(p => $"'{p}'"));
+            this.maxDepthName = $"maxDepthOf{propertyNameDisjunction}";
         }
 
         /// <inheritdoc/>
@@ -96,7 +98,9 @@
                         .Line($"this.{ParserGeneratorValues.ShadowPropertyPrefix}{importPropName} = new {materialProperty.ConcretePropertyType}(({materialProperty.ConcretePropertyType})this.{importPropName});");
                 }
 
-                applyTransformationsMethodBody.Line($"HashSet<Dtmi> sources = this.{this.getTransitivePropertiesMethodName}(0, {this.maxDepth}, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);");
+                ValueLimiter.DefineLimitVariable(applyTransformationsMethodBody, this.maxDepth, this.maxDepthName, $"this.{ParserGeneratorValues.LimitSpecifierPropertyName}", nullable: false);
+
+                applyTransformationsMethodBody.Line($"HashSet<Dtmi> sources = this.{this.getTransitivePropertiesMethodName}(0, {this.maxDepthName}, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);");
                 applyTransformationsMethodBody.Break();
 
                 CsIf ifSourcesNotNull = applyTransformationsMethodBody.If("sources != null");
@@ -118,8 +122,8 @@
                         .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
                         .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
                         .Line($"referenceId: tooDeepElementId,")
-                        .Line($"observedCount: {this.maxDepth + 1},")
-                        .Line($"expectedCount: {this.maxDepth},")
+                        .Line($"observedCount: {this.maxDepthName} + 1,")
+                        .Line($"expectedCount: {this.maxDepthName},")
                         .Line("ancestorElement: this.JsonLdElements.First().Value,")
                         .Line("descendantElement: tooDeepElts.First().Value);");
             }

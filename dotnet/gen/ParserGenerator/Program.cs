@@ -59,7 +59,19 @@
 
                 List<ITypeGenerator> typeGenerators = new List<ITypeGenerator>();
 
-                typeGenerators.Add(new ContextCollectionGenerator(metamodelDigest.Contexts, metamodelDigest.SupplementalTypes, metamodelDigest.DtdlVersionsAllowingUndefinedExtensionsByDefault, metamodelDigest.DtdlVersionsAllowingLocalTerms, metamodelDigest.DtdlVersionsAllowingDynamicExtensions, metamodelDigest.DtdlVersionsRestrictingKeywords, metamodelDigest.ContextsMergeDefinitions, metamodelDigest.ReservedIdPrefixes, metamodelDigest.AffiliateContextsImplicitDtdlVersions, areDynamicExtensionsSupported));
+                typeGenerators.Add(new ContextCollectionGenerator(
+                    metamodelDigest.Contexts,
+                    metamodelDigest.SupplementalTypes,
+                    metamodelDigest.DtdlVersionsAllowingUndefinedExtensionsByDefault,
+                    metamodelDigest.DtdlVersionsAllowingLocalTerms,
+                    metamodelDigest.DtdlVersionsAllowingDynamicExtensions,
+                    metamodelDigest.DtdlVersionsRestrictingKeywords,
+                    metamodelDigest.DtdlVersionsAllowingCustomLimits,
+                    metamodelDigest.ContextsMergeDefinitions,
+                    metamodelDigest.ReservedIdPrefixes,
+                    metamodelDigest.AffiliateContextsImplicitDtdlVersions,
+                    metamodelDigest.LimitContexts,
+                    areDynamicExtensionsSupported));
                 typeGenerators.Add(new AggregateContextGenerator(metamodelDigest.BaseClass, areDynamicExtensionsSupported, metamodelDigest.SupplementalTypes));
                 typeGenerators.Add(new HelpersGenerator(metamodelDigest.BaseClass));
                 typeGenerators.Add(new StandardElementCollectionGenerator(metamodelDigest.BaseClass, metamodelDigest.Aliases));

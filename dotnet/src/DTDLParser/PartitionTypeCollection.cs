@@ -16,9 +16,9 @@ namespace DTDLParser
         internal static string PartitionTypeDescription { get; }
 
         /// <summary>
-        /// Gets a dictionary that maps from DTDL version to the maximum allowed size of a partition in bytes.
+        /// Gets a dictionary that maps from DTDL version to a limit specifier to the maximum allowed size of a partition in bytes.
         /// </summary>
-        internal static Dictionary<int, int> PartitionMaxBytes { get; }
+        internal static Dictionary<int, Dictionary<string, int>> PartitionMaxBytes { get; }
 
         /// <summary>
         /// Determines whether a list of strings includes a partition type string.

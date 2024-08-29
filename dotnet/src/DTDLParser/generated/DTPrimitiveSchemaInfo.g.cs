@@ -511,6 +511,8 @@ namespace DTDLParser.Models
                     break;
             }
 
+            elementInfo.LimitSpecifier = aggregateContext.LimitSpecifier;
+
             elementInfo.RecordSourceAsAppropriate(elementLayer, elt, childAggregateContext, parsingErrorCollection, atRoot: parentId == null, globalized: globalize);
 
             model.Dict[baseElementId] = elementInfo;
@@ -1715,7 +1717,8 @@ namespace DTDLParser.Models
                         else
                         {
                             commentProperty = prop;
-                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, 512, null, layer, parsingErrorCollection, isOptional: true);
+                            int? maxLength = 512;
+                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, maxLength, null, layer, parsingErrorCollection, isOptional: true);
                             if (this.commentPropertyLayer != null)
                             {
                                 if (this.Comment != newComment)
@@ -1756,7 +1759,8 @@ namespace DTDLParser.Models
                         else
                         {
                             descriptionProperty = prop;
-                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = 512;
+                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
                             if (descriptionCodes.Any())
                             {
@@ -1802,7 +1806,8 @@ namespace DTDLParser.Models
                         else
                         {
                             displayNameProperty = prop;
-                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", 64, null, layer, parsingErrorCollection);
+                            int? maxLength = 64;
+                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
                             if (displayNameCodes.Any())
                             {
@@ -1918,7 +1923,8 @@ namespace DTDLParser.Models
                         else
                         {
                             commentProperty = prop;
-                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, 512, null, layer, parsingErrorCollection, isOptional: true);
+                            int? maxLength = 512;
+                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, maxLength, null, layer, parsingErrorCollection, isOptional: true);
                             if (this.commentPropertyLayer != null)
                             {
                                 if (this.Comment != newComment)
@@ -1959,7 +1965,8 @@ namespace DTDLParser.Models
                         else
                         {
                             descriptionProperty = prop;
-                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = 512;
+                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
                             if (descriptionCodes.Any())
                             {
@@ -2005,7 +2012,8 @@ namespace DTDLParser.Models
                         else
                         {
                             displayNameProperty = prop;
-                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = 512;
+                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
                             if (displayNameCodes.Any())
                             {
@@ -2141,7 +2149,7 @@ namespace DTDLParser.Models
         /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
         internal override void ParsePropertiesV4(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, HashSet<Dtmi> immediateSupplementalTypeIds, List<string> immediateUndefinedTypes, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi definedIn, bool globalize, bool allowReservedIds, bool tolerateSolecisms)
         {
-            this.LanguageMajorVersion = 3;
+            this.LanguageMajorVersion = 4;
 
             JsonLdProperty commentProperty = null;
             JsonLdProperty descriptionProperty = null;
@@ -2167,7 +2175,14 @@ namespace DTDLParser.Models
                         else
                         {
                             commentProperty = prop;
-                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, 512, null, layer, parsingErrorCollection, isOptional: true);
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 515,
+                                _ => null,
+                            };
+
+                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, maxLength, null, layer, parsingErrorCollection, isOptional: true);
                             if (this.commentPropertyLayer != null)
                             {
                                 if (this.Comment != newComment)
@@ -2208,7 +2223,14 @@ namespace DTDLParser.Models
                         else
                         {
                             descriptionProperty = prop;
-                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 514,
+                                _ => null,
+                            };
+
+                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
                             if (descriptionCodes.Any())
                             {
@@ -2254,7 +2276,14 @@ namespace DTDLParser.Models
                         else
                         {
                             displayNameProperty = prop;
-                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 513,
+                                _ => null,
+                            };
+
+                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
                             if (displayNameCodes.Any())
                             {

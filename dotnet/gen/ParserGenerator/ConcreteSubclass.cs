@@ -13,7 +13,7 @@
         private string subclassType;
         private string kindValue;
         private string subclassTypeUri;
-        private int? maxIdLength;
+        private Dictionary<string, int> maxIdLength;
         private string pattern;
 
         /// <summary>
@@ -94,12 +94,14 @@
 
             if (this.maxIdLength != null)
             {
-                switchOnTypeString.If($"elementId.AbsoluteUri.Length > {this.maxIdLength}")
+                string limitVar = $"{NameFormatter.FormatNameAsVariable(this.subclassType)}MaxIdLength";
+                ValueLimiter.DefineLimitVariable(switchOnTypeString, this.maxIdLength, limitVar, "aggregateContext.LimitSpecifier", nullable: false);
+                switchOnTypeString.If($"elementId.AbsoluteUri.Length > {limitVar}")
                     .MultiLine($"{errorVar}.Notify(")
                         .Line("\"idTooLongForType\",")
                         .Line($"identifier: {elementIdVar}.ToString(),")
                         .Line($"elementType: \"{this.subclassType}\",")
-                        .Line($"expectedCount: {this.maxIdLength},")
+                        .Line($"expectedCount: {limitVar},")
                         .Line($"element: {jsonLdEltVar});");
             }
 

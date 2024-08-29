@@ -28,6 +28,8 @@ namespace DTDLParser
 
             DtdlVersionsRestrictingKeywords = new HashSet<int>() { 3, 4 };
 
+            DtdlVersionsAllowingCustomLimits = new HashSet<int>() { 4 };
+
             EndogenousAffiliateContextsImplicitDtdlVersions = new Dictionary<string, int>();
             EndogenousAffiliateContextsImplicitDtdlVersions["dtmi:iotcentral:context;2"] = 2;
 
@@ -40,19 +42,20 @@ namespace DTDLParser
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:mqtt"] = GetAffiliate2ContextHistory();
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:overriding"] = GetAffiliate3ContextHistory();
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:quantitativeTypes"] = GetAffiliate4ContextHistory();
-            EndogenousAffiliateContextHistories["dtmi:iotcentral:context"] = GetAffiliate5ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:dtdl:limits:onvif"] = GetAffiliate5ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:iotcentral:context"] = GetAffiliate6ContextHistory();
         }
 
         private static ContextHistory GetAffiliate0ContextHistory()
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
-            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:annotation;1", 1, 0, mergeDefinitions: false);
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:annotation;1", 1, 0, 0, null, mergeDefinitions: false);
             context1_0.AddTermDefinition("annotates", new Dtmi("dtmi:dtdl:extension:annotation:v1:ValueAnnotation:annotates"), isMergeableType: false);
             context1_0.AddTermDefinition("ValueAnnotation", new Dtmi("dtmi:dtdl:extension:annotation:v1:ValueAnnotation"), isMergeableType: false);
             versionedContexts.Add(context1_0);
 
-            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:annotation;2", 2, 0, mergeDefinitions: false);
+            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:annotation;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.AddTermDefinition("annotates", new Dtmi("dtmi:dtdl:extension:annotation:v2:ValueAnnotation:annotates"), isMergeableType: false);
             context2_0.AddTermDefinition("ValueAnnotation", new Dtmi("dtmi:dtdl:extension:annotation:v2:ValueAnnotation"), isMergeableType: false);
             versionedContexts.Add(context2_0);
@@ -64,11 +67,11 @@ namespace DTDLParser
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
-            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:historization;1", 1, 0, mergeDefinitions: false);
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:historization;1", 1, 0, 0, null, mergeDefinitions: false);
             context1_0.AddTermDefinition("Historized", new Dtmi("dtmi:dtdl:extension:historization:v1:Historized"), isMergeableType: false);
             versionedContexts.Add(context1_0);
 
-            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:historization;2", 2, 0, mergeDefinitions: false);
+            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:historization;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.AddTermDefinition("Historized", new Dtmi("dtmi:dtdl:extension:historization:v2:Historized"), isMergeableType: false);
             versionedContexts.Add(context2_0);
 
@@ -79,7 +82,7 @@ namespace DTDLParser
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
-            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:mqtt;1", 1, 0, mergeDefinitions: false);
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:mqtt;1", 1, 0, 0, null, mergeDefinitions: false);
             context1_0.AddTermDefinition("Cacheable", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Cacheable"), isMergeableType: false);
             context1_0.AddTermDefinition("commandTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic"), isMergeableType: false);
             context1_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Idempotent"), isMergeableType: false);
@@ -91,7 +94,7 @@ namespace DTDLParser
             context1_0.AddTermDefinition("ttl", new Dtmi("dtmi:dtdl:extension:mqtt:v1:Cacheable:ttl"), isMergeableType: false);
             versionedContexts.Add(context1_0);
 
-            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:mqtt;2", 2, 0, mergeDefinitions: false);
+            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:mqtt;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.AddTermDefinition("Cacheable", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Cacheable"), isMergeableType: false);
             context2_0.AddTermDefinition("commandTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic"), isMergeableType: false);
             context2_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Idempotent"), isMergeableType: false);
@@ -110,12 +113,12 @@ namespace DTDLParser
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
-            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:overriding;1", 1, 0, mergeDefinitions: false);
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:overriding;1", 1, 0, 0, null, mergeDefinitions: false);
             context1_0.AddTermDefinition("Override", new Dtmi("dtmi:dtdl:extension:overriding:v1:Override"), isMergeableType: false);
             context1_0.AddTermDefinition("overrides", new Dtmi("dtmi:dtdl:extension:overriding:v1:Override:overrides"), isMergeableType: false);
             versionedContexts.Add(context1_0);
 
-            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:overriding;2", 2, 0, mergeDefinitions: false);
+            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:overriding;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.AddTermDefinition("Override", new Dtmi("dtmi:dtdl:extension:overriding:v2:Override"), isMergeableType: false);
             context2_0.AddTermDefinition("overrides", new Dtmi("dtmi:dtdl:extension:overriding:v2:Override:overrides"), isMergeableType: false);
             versionedContexts.Add(context2_0);
@@ -127,7 +130,7 @@ namespace DTDLParser
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
-            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:quantitativeTypes;1", 1, 0, mergeDefinitions: false);
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:extension:quantitativeTypes;1", 1, 0, 0, null, mergeDefinitions: false);
             context1_0.AddTermDefinition("Acceleration", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration"), isMergeableType: false);
             context1_0.AddTermDefinition("AccelerationUnit", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:enum:AccelerationUnit"), isMergeableType: false);
             context1_0.AddTermDefinition("acre", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:unit:acre"), isMergeableType: false);
@@ -507,7 +510,7 @@ namespace DTDLParser
             context1_0.AddTermDefinition("zetta", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:zetta"), isMergeableType: false);
             versionedContexts.Add(context1_0);
 
-            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:quantitativeTypes;2", 2, 0, mergeDefinitions: false);
+            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:quantitativeTypes;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.AddTermDefinition("Acceleration", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v2:class:Acceleration"), isMergeableType: false);
             context2_0.AddTermDefinition("AccelerationUnit", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v2:enum:AccelerationUnit"), isMergeableType: false);
             context2_0.AddTermDefinition("acre", new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v2:unit:acre"), isMergeableType: false);
@@ -894,7 +897,17 @@ namespace DTDLParser
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
-            VersionedContext context2_0 = new VersionedContext("dtmi:iotcentral:context;2", 2, 0, mergeDefinitions: false);
+            VersionedContext context1_0 = new VersionedContext("dtmi:dtdl:limits:onvif;1", 1, 0, 4, "onvif_1", mergeDefinitions: false);
+            versionedContexts.Add(context1_0);
+
+            return new ContextHistory(versionedContexts);
+        }
+
+        private static ContextHistory GetAffiliate6ContextHistory()
+        {
+            List<VersionedContext> versionedContexts = new List<VersionedContext>();
+
+            VersionedContext context2_0 = new VersionedContext("dtmi:iotcentral:context;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.ReserveIdDefinitionPrefix("dtmi:iotcentral:");
             context2_0.AddTermDefinition("AccelerationVector", new Dtmi("dtmi:iotcentral:class:AccelerationVector;2"), isMergeableType: false);
             context2_0.AddTermDefinition("Event", new Dtmi("dtmi:iotcentral:class:Event;2"), isMergeableType: false);
@@ -912,7 +925,7 @@ namespace DTDLParser
         {
             List<VersionedContext> versionedContexts = new List<VersionedContext>();
 
-            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:context;2", 2, 0, mergeDefinitions: false);
+            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:context;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.ReserveIdDefinitionPrefix("dtmi:dtdl:");
             context2_0.ReserveIdDefinitionPrefix("dtmi:standard:");
             context2_0.AddTermDefinition("Acceleration", new Dtmi("dtmi:standard:class:Acceleration;2"), isMergeableType: false);
@@ -1289,7 +1302,7 @@ namespace DTDLParser
             context2_0.AddTermDefinition("zetta", new Dtmi("dtmi:standard:unitprefix:zetta;2"), isMergeableType: false);
             versionedContexts.Add(context2_0);
 
-            VersionedContext context3_0 = new VersionedContext("dtmi:dtdl:context;3", 3, 0, mergeDefinitions: false);
+            VersionedContext context3_0 = new VersionedContext("dtmi:dtdl:context;3", 3, 0, 0, null, mergeDefinitions: false);
             context3_0.ReserveIdDefinitionPrefix("dtmi:dtdl:");
             context3_0.ReserveIdDefinitionPrefix("dtmi:standard:");
             context3_0.AddTermDefinition("AdjunctType", new Dtmi("dtmi:dtdl:class:AdjunctType;3"), isMergeableType: false);
@@ -1387,7 +1400,7 @@ namespace DTDLParser
             context3_0.AddTermDefinition("writable", new Dtmi("dtmi:dtdl:property:writable;3"), isMergeableType: false);
             versionedContexts.Add(context3_0);
 
-            VersionedContext context4_0 = new VersionedContext("dtmi:dtdl:context;4", 4, 0, mergeDefinitions: false);
+            VersionedContext context4_0 = new VersionedContext("dtmi:dtdl:context;4", 4, 0, 0, null, mergeDefinitions: false);
             context4_0.ReserveIdDefinitionPrefix("dtmi:dtdl:");
             context4_0.ReserveIdDefinitionPrefix("dtmi:standard:");
             context4_0.AddTermDefinition("AdjunctType", new Dtmi("dtmi:dtdl:class:AdjunctType;4"), isMergeableType: false);

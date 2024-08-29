@@ -721,6 +721,9 @@
                 }
             }
 
+            method.Body.Line($"elementInfo.{ParserGeneratorValues.LimitSpecifierPropertyName} = aggregateContext.LimitSpecifier;");
+            method.Body.Break();
+
             method.Body.Line("elementInfo.RecordSourceAsAppropriate(elementLayer, elt, childAggregateContext, parsingErrorCollection, atRoot: parentId == null, globalized: globalize);");
             method.Body.Break();
 

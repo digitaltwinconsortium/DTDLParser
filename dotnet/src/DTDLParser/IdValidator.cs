@@ -10,8 +10,8 @@ namespace DTDLParser
     /// </summary>
     internal static partial class IdValidator
     {
-        private static readonly Dictionary<int, int> IdDefinitionMaxLengths = new Dictionary<int, int>();
-        private static readonly Dictionary<int, int> IdReferenceMaxLengths = new Dictionary<int, int>();
+        private static readonly Dictionary<int, Dictionary<string, int>> IdDefinitionMaxLengths = new Dictionary<int, Dictionary<string, int>>();
+        private static readonly Dictionary<int, Dictionary<string, int>> IdReferenceMaxLengths = new Dictionary<int, Dictionary<string, int>>();
         private static readonly Dictionary<int, Regex> IdDefinitionRegexPatterns = new Dictionary<int, Regex>();
         private static readonly Dictionary<int, Regex> IdReferenceRegexPatterns = new Dictionary<int, Regex>();
 
@@ -37,14 +37,15 @@ namespace DTDLParser
                     parsingErrorCollection.Quit("idNotString", element: elt);
                 }
 
-                if (IdDefinitionMaxLengths.TryGetValue(aggregateContext.DtdlVersion, out int maxLength) && elt.Id.Length > maxLength)
+                if (IdDefinitionMaxLengths.TryGetValue(aggregateContext.DtdlVersion, out Dictionary<string, int> specMaxLength) && specMaxLength.TryGetValue(aggregateContext.LimitSpecifier, out int maxLength) && elt.Id.Length > maxLength)
                 {
                     parsingErrorCollection.Quit(
                         "idTooLong",
                         element: elt,
                         identifier: elt.Id,
                         expectedCount: maxLength,
-                        version: aggregateContext.DtdlVersion.ToString());
+                        version: aggregateContext.DtdlVersion.ToString(),
+                        contextValue: aggregateContext.LimitContext);
                 }
 
                 if (IdDefinitionRegexPatterns.TryGetValue(aggregateContext.DtdlVersion, out Regex regex) && !regex.IsMatch(elt.Id))
@@ -152,10 +153,11 @@ namespace DTDLParser
         /// </summary>
         /// <param name="idString">The string putatively representing a DTMI.</param>
         /// <param name="dtdlVersion">The version of DTDL whose identifier syntax applies.</param>
+        /// <param name="limitSpecifier">A limit specifier to indicate a customized limit.</param>
         /// <returns>True if the string represents a valid DTMI for an element reference.</returns>
-        internal static bool IsIdReferenceValid(string idString, int dtdlVersion)
+        internal static bool IsIdReferenceValid(string idString, int dtdlVersion, string limitSpecifier)
         {
-            if (IdReferenceMaxLengths.TryGetValue(dtdlVersion, out int maxLength) && idString.Length > maxLength)
+            if (IdReferenceMaxLengths.TryGetValue(dtdlVersion, out Dictionary<string, int> specMaxLength) && specMaxLength.TryGetValue(limitSpecifier, out int maxLength) && idString.Length > maxLength)
             {
                 return false;
             }
@@ -173,11 +175,12 @@ namespace DTDLParser
         /// </summary>
         /// <param name="idString">The string putatively representing a DTMI.</param>
         /// <param name="dtdlVersion">The version of DTDL whose identifier syntax applies.</param>
+        /// <param name="limitSpecifier">A limit specifier to indicate a customized limit.</param>
         /// <param name="uri">A <c>Uri</c> object to receive the created DTMI reference.</param>
         /// <returns>True if the string represents a valid DTMI for an element reference.</returns>
-        internal static bool TryCreateIdReference(string idString, int dtdlVersion, out Uri uri)
+        internal static bool TryCreateIdReference(string idString, int dtdlVersion, string limitSpecifier, out Uri uri)
         {
-            if (IsIdReferenceValid(idString, dtdlVersion))
+            if (IsIdReferenceValid(idString, dtdlVersion, limitSpecifier))
             {
                 uri = new Dtmi(idString, skipValidation: true);
                 return true;

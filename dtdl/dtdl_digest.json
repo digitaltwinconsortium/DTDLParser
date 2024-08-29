@@ -1406,6 +1406,7 @@
       "zepto": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:zepto",
       "zetta": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:zetta"
     },
+    "dtmi:dtdl:limits:onvif;1": {},
     "dtmi:iotcentral:context;2": {
       "AccelerationVector": "dtmi:iotcentral:class:AccelerationVector;2",
       "Event": "dtmi:iotcentral:class:Event;2",
@@ -1426,7 +1427,9 @@
           "Schema"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1438,7 +1441,9 @@
       "definingClass": "ComplexSchema",
       "dtdlVersion": 2,
       "entailments": {},
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1469,7 +1474,9 @@
           "PrimitiveSchema"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1502,7 +1509,9 @@
       "importProperties": [
         "contents"
       ],
-      "maxDepth": 10,
+      "maxDepth": {
+        "": 10
+      },
       "narrow": true,
       "properties": [
         "extends"
@@ -1520,7 +1529,9 @@
           "MapValue"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1536,7 +1547,9 @@
           "Field"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1567,7 +1580,9 @@
           "Schema"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1579,7 +1594,9 @@
       "definingClass": "ComplexSchema",
       "dtdlVersion": 3,
       "entailments": {},
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1610,7 +1627,9 @@
           "PrimitiveSchema"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1643,8 +1662,12 @@
       "importProperties": [
         "contents"
       ],
-      "maxCount": 1024,
-      "maxDepth": 10,
+      "maxCount": {
+        "": 1024
+      },
+      "maxDepth": {
+        "": 10
+      },
       "narrow": true,
       "properties": [
         "extends"
@@ -1655,7 +1678,9 @@
       "definingClass": "Interface",
       "dtdlVersion": 3,
       "entailments": {},
-      "maxCount": 100000,
+      "maxCount": {
+        "": 100000
+      },
       "narrow": true,
       "properties": [
         "contents",
@@ -1681,7 +1706,9 @@
           "MapValue"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1697,7 +1724,9 @@
           "Field"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1713,7 +1742,10 @@
           "Schema"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5,
+        "onvif_1": 20
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1725,7 +1757,10 @@
       "definingClass": "ComplexSchema",
       "dtdlVersion": 4,
       "entailments": {},
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5,
+        "onvif_1": 20
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1756,7 +1791,10 @@
           "PrimitiveSchema"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5,
+        "onvif_1": 20
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1789,8 +1827,14 @@
       "importProperties": [
         "contents"
       ],
-      "maxCount": 1024,
-      "maxDepth": 10,
+      "maxCount": {
+        "": 1024,
+        "onvif_1": 1024
+      },
+      "maxDepth": {
+        "": 10,
+        "onvif_1": 15
+      },
       "narrow": true,
       "properties": [
         "extends"
@@ -1801,7 +1845,10 @@
       "definingClass": "Interface",
       "dtdlVersion": 4,
       "entailments": {},
-      "maxCount": 100000,
+      "maxCount": {
+        "": 100000,
+        "onvif_1": 100000
+      },
       "narrow": true,
       "properties": [
         "contents",
@@ -1827,7 +1874,10 @@
           "MapValue"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5,
+        "onvif_1": 20
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1843,7 +1893,10 @@
           "Field"
         ]
       },
-      "maxDepth": 5,
+      "maxDepth": {
+        "": 5,
+        "onvif_1": 20
+      },
       "narrow": false,
       "properties": [
         "elementSchema",
@@ -1852,10 +1905,13 @@
       "rootClass": "Object"
     }
   ],
-  "digestFormatVersion": 2,
+  "digestFormatVersion": 3,
   "dtdlVersions": [
     2,
     3,
+    4
+  ],
+  "dtdlVersionsAllowingCustomLimits": [
     4
   ],
   "dtdlVersionsAllowingDynamicExtensions": [],
@@ -13651,6 +13707,11 @@
         "en-us": "A set of standard semantic types, unit types, and units."
       }
     },
+    "dtmi:dtdl:limits:onvif;1": {
+      "description": {
+        "en-us": "Some limits."
+      }
+    },
     "dtmi:iotcentral:context;2": {
       "description": {
         "en-us": "A set of semantic types and schema types used by IoT Central."
@@ -14387,44 +14448,71 @@
   },
   "identifierDefinition": {
     "2": {
-      "maxLength": 2048,
+      "maxLength": {
+        "": 2048
+      },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$"
     },
     "3": {
-      "maxLength": 2048,
+      "maxLength": {
+        "": 2048
+      },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
     },
     "4": {
-      "maxLength": 2048,
+      "maxLength": {
+        "": 2048,
+        "onvif_1": 512
+      },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
     },
     "Interface": {
       "2": {
-        "maxLength": 128
+        "maxLength": {
+          "": 128
+        }
       },
       "3": {
-        "maxLength": 128
+        "maxLength": {
+          "": 128
+        }
       },
       "4": {
-        "maxLength": 128
+        "maxLength": {
+          "": 128,
+          "onvif_1": 256
+        }
       }
     }
   },
   "identifierReference": {
     "2": {
-      "maxLength": 2048,
+      "maxLength": {
+        "": 2048
+      },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$"
     },
     "3": {
-      "maxLength": 2048,
+      "maxLength": {
+        "": 2048
+      },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
     },
     "4": {
-      "maxLength": 2048,
+      "maxLength": {
+        "": 2048,
+        "onvif_1": 512
+      },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
     }
   },
   "layeringSupported": false,
+  "limitContexts": {
+    "dtmi:dtdl:limits:onvif;1": {
+      "dtdlVersion": 4,
+      "spec": "onvif_1"
+    }
+  },
   "materialClasses": {
     "Array": {
       "abstract": false,
@@ -14554,7 +14642,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14564,7 +14654,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14574,7 +14666,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -14599,7 +14694,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14609,7 +14706,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14619,7 +14718,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -14644,7 +14746,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14654,7 +14758,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14664,7 +14770,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -14768,7 +14877,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -14939,7 +15048,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14949,7 +15060,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14959,7 +15072,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -14984,7 +15100,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -14994,7 +15112,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15004,7 +15124,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15029,7 +15152,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15039,7 +15164,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15049,7 +15176,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15093,7 +15223,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -15274,7 +15404,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15284,7 +15416,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15294,7 +15428,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15319,7 +15456,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15329,7 +15468,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15339,7 +15480,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15364,7 +15508,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15374,7 +15520,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15384,7 +15532,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15428,7 +15579,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -15451,7 +15602,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -15471,7 +15624,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -15491,7 +15646,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -15705,7 +15862,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15715,7 +15874,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15725,7 +15886,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15750,7 +15914,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15760,7 +15926,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15770,7 +15938,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15795,7 +15966,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15805,7 +15978,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -15815,7 +15990,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -15859,7 +16037,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -15882,7 +16060,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -15897,7 +16077,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -15912,7 +16094,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -16062,7 +16246,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16072,7 +16258,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16097,7 +16286,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16107,7 +16298,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16132,7 +16326,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16142,7 +16338,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16177,7 +16376,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -16200,7 +16399,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -16215,7 +16416,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -16353,7 +16556,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16363,7 +16568,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16388,7 +16596,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16398,7 +16608,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16423,7 +16636,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16433,7 +16648,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16468,7 +16686,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -16491,7 +16709,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -16506,7 +16726,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -16706,7 +16928,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16716,7 +16940,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16726,7 +16952,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16751,7 +16980,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16761,7 +16992,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16771,7 +17004,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16796,7 +17032,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16806,7 +17044,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -16816,7 +17056,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -16860,7 +17103,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -17116,7 +17359,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17126,7 +17371,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17136,7 +17383,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17161,7 +17411,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17171,7 +17423,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17181,7 +17435,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17206,7 +17463,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17216,7 +17475,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17226,7 +17487,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17270,7 +17534,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -17361,7 +17625,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17371,7 +17637,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17381,7 +17649,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17406,7 +17677,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17416,7 +17689,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17426,7 +17701,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17451,7 +17729,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17461,7 +17741,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17471,7 +17753,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17515,7 +17800,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -17538,7 +17823,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -17558,7 +17845,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -17578,7 +17867,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -17754,7 +18045,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17764,7 +18057,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17774,7 +18069,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17799,7 +18097,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17809,7 +18109,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17819,7 +18121,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17844,7 +18149,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17854,7 +18161,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -17864,7 +18173,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -17908,7 +18220,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -17931,7 +18243,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -17951,7 +18265,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -17971,7 +18287,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -18160,7 +18478,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18170,7 +18490,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18180,7 +18502,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18205,7 +18530,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18215,7 +18542,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18225,7 +18554,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18250,7 +18582,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18260,7 +18594,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18270,7 +18606,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18314,7 +18653,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -18504,7 +18843,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18514,7 +18855,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18524,7 +18867,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18549,7 +18895,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18559,7 +18907,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18569,7 +18919,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18594,7 +18947,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18604,7 +18959,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18614,7 +18971,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18658,7 +19018,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -18845,7 +19205,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18855,7 +19217,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18865,7 +19229,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18890,7 +19257,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18900,7 +19269,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18910,7 +19281,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18935,7 +19309,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18945,7 +19321,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -18955,7 +19333,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -18999,7 +19380,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -19189,7 +19570,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19199,7 +19582,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19209,7 +19594,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -19234,7 +19622,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19244,7 +19634,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19254,7 +19646,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -19279,7 +19674,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19289,7 +19686,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19299,7 +19698,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -19343,7 +19745,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -19968,7 +20370,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19978,7 +20382,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -19988,7 +20394,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20013,7 +20422,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20023,7 +20434,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20033,7 +20446,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20058,7 +20474,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20068,7 +20486,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20078,7 +20498,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20122,7 +20545,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -20256,7 +20679,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20266,7 +20691,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20276,7 +20703,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20301,7 +20731,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20311,7 +20743,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20321,7 +20755,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20346,7 +20783,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20356,7 +20795,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20366,7 +20807,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20476,7 +20920,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "valueSchema": {
@@ -20679,7 +21123,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20689,7 +21135,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20699,7 +21147,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20724,7 +21175,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20734,7 +21187,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20744,7 +21199,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20769,7 +21227,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20779,7 +21239,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -20789,7 +21251,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -20892,7 +21357,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -20915,7 +21380,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -20935,7 +21402,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -20955,7 +21424,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -21092,7 +21563,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21102,7 +21575,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21112,7 +21587,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21137,7 +21615,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21147,7 +21627,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21157,7 +21639,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21182,7 +21667,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21192,7 +21679,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21202,7 +21691,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21246,7 +21738,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -21269,7 +21761,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -21289,7 +21783,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -21309,7 +21805,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -21560,7 +22058,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21570,7 +22070,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21580,7 +22082,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21605,7 +22110,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21615,7 +22122,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21625,7 +22134,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21650,7 +22162,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21660,7 +22174,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21670,7 +22186,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21714,7 +22233,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -21901,7 +22420,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21911,7 +22432,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21921,7 +22444,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21946,7 +22472,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21956,7 +22484,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -21966,7 +22496,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -21991,7 +22524,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22001,7 +22536,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22011,7 +22548,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22055,7 +22595,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -22159,7 +22699,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22169,7 +22711,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22179,7 +22723,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22287,7 +22834,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22297,7 +22846,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22307,7 +22858,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22332,7 +22886,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22342,7 +22898,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22352,7 +22910,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22452,7 +23013,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "schemas": {
@@ -22582,7 +23143,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22592,7 +23155,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22617,7 +23183,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22627,7 +23195,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22652,7 +23223,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22662,7 +23235,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22697,7 +23273,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -22870,7 +23446,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22880,7 +23458,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22890,7 +23470,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22915,7 +23498,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22925,7 +23510,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22935,7 +23522,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -22960,7 +23550,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22970,7 +23562,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -22980,7 +23574,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23024,7 +23621,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -23177,7 +23774,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23187,7 +23786,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23197,7 +23798,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23222,7 +23826,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23232,7 +23838,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23242,7 +23850,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23267,7 +23878,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23277,7 +23890,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23287,7 +23902,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23331,7 +23949,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "mapKey": {
@@ -23537,7 +24155,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23547,7 +24167,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23557,7 +24179,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23582,7 +24207,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23592,7 +24219,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23602,7 +24231,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23627,7 +24259,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23637,7 +24271,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23647,7 +24283,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23691,7 +24330,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -23714,7 +24353,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -23729,7 +24370,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -23744,7 +24387,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -23954,7 +24599,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23964,7 +24611,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -23974,7 +24623,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -23999,7 +24651,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24009,7 +24663,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24019,7 +24675,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24044,7 +24703,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24054,7 +24715,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24064,7 +24727,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24108,7 +24774,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -24131,7 +24797,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -24146,7 +24814,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -24161,7 +24831,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -24361,7 +25033,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24371,7 +25045,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24381,7 +25057,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24406,7 +25085,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24416,7 +25097,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24426,7 +25109,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24451,7 +25137,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24461,7 +25149,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24471,7 +25161,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24515,7 +25208,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -24538,7 +25231,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -24553,7 +25248,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -24568,7 +25265,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -24654,7 +25353,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24664,7 +25365,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24689,7 +25393,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24699,7 +25405,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24724,7 +25433,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -24734,7 +25445,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -24769,7 +25483,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -24792,7 +25506,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -24807,7 +25523,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -25043,7 +25761,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25053,7 +25773,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25063,7 +25785,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -25088,7 +25813,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25098,7 +25825,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25108,7 +25837,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -25133,7 +25865,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25143,7 +25877,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25153,7 +25889,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -25197,7 +25936,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -25481,7 +26220,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25491,7 +26232,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25501,7 +26244,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -25526,7 +26272,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25536,7 +26284,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25546,7 +26296,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -25571,7 +26324,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25581,7 +26336,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -25591,7 +26348,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -25698,7 +26458,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -26063,7 +26823,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26073,7 +26835,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26083,7 +26847,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26108,7 +26875,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26118,7 +26887,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26128,7 +26899,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26153,7 +26927,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26163,7 +26939,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26173,7 +26951,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26217,7 +26998,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -26308,7 +27089,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26318,7 +27101,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26328,7 +27113,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26353,7 +27141,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26363,7 +27153,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26373,7 +27165,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26398,7 +27193,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26408,7 +27205,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26418,7 +27217,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26462,7 +27264,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -26485,7 +27287,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -26509,7 +27313,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -26533,7 +27339,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -26743,7 +27551,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26753,7 +27563,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26763,7 +27575,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26788,7 +27603,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26798,7 +27615,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26808,7 +27627,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26833,7 +27655,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26843,7 +27667,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -26853,7 +27679,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -26897,7 +27726,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "maxMultiplicity": {
@@ -27014,7 +27843,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -27034,7 +27865,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -27054,7 +27887,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -27153,7 +27988,9 @@
             "hidden": false,
             "idRequired": true,
             "maxCount": 1,
-            "maxLength": 2048,
+            "maxLength": {
+              "": 2048
+            },
             "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$",
             "patternDesc": {
               "en-us": "must follow user DTMI syntax"
@@ -27167,7 +28004,9 @@
             "hidden": false,
             "idRequired": true,
             "maxCount": 1,
-            "maxLength": 2048,
+            "maxLength": {
+              "": 2048
+            },
             "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$",
             "patternDesc": {
               "en-us": "must follow user DTMI syntax"
@@ -27181,7 +28020,9 @@
             "hidden": false,
             "idRequired": true,
             "maxCount": 1,
-            "maxLength": 2048,
+            "maxLength": {
+              "": 2048
+            },
             "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$",
             "patternDesc": {
               "en-us": "must follow user DTMI syntax"
@@ -27746,7 +28587,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -27756,7 +28599,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -27766,7 +28611,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -27791,7 +28639,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -27801,7 +28651,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -27811,7 +28663,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -27836,7 +28691,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -27846,7 +28703,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -27856,7 +28715,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -27900,7 +28762,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -27998,7 +28860,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28008,7 +28872,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28018,7 +28884,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28043,7 +28912,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28053,7 +28924,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28063,7 +28936,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28088,7 +28964,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28098,7 +28976,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28108,7 +28988,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28152,7 +29035,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -28175,7 +29058,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -28190,7 +29075,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -28205,7 +29092,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -28415,7 +29304,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28425,7 +29316,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28435,7 +29328,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28460,7 +29356,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28470,7 +29368,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28480,7 +29380,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28505,7 +29408,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28515,7 +29420,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28525,7 +29432,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28569,7 +29479,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -28672,7 +29582,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28682,7 +29594,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28692,7 +29606,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28717,7 +29634,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28727,7 +29646,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28737,7 +29658,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28762,7 +29686,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28772,7 +29698,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -28782,7 +29710,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -28826,7 +29757,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -28849,7 +29780,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -28869,7 +29802,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -28889,7 +29824,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -29191,7 +30128,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29201,7 +30140,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29211,7 +30152,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29236,7 +30180,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29246,7 +30192,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29256,7 +30204,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29281,7 +30232,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29291,7 +30244,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29301,7 +30256,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29345,7 +30303,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -29523,7 +30481,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29533,7 +30493,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29543,7 +30505,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29568,7 +30533,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29578,7 +30545,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29588,7 +30557,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29613,7 +30585,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29623,7 +30597,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29633,7 +30609,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29677,7 +30656,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -29781,7 +30760,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29791,7 +30772,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29801,7 +30784,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29826,7 +30812,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29836,7 +30824,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29846,7 +30836,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29871,7 +30864,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29881,7 +30876,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -29891,7 +30888,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -29935,7 +30935,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "symbol": {
@@ -30067,7 +31067,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -30077,7 +31079,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -30087,7 +31091,10 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -30112,7 +31119,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -30122,7 +31131,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -30132,7 +31143,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -30157,7 +31171,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -30167,7 +31183,9 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "typeRequired": true,
             "uniqueAmong": []
           },
@@ -30177,7 +31195,10 @@
             "deprecated": false,
             "hidden": false,
             "idRequired": false,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
             "typeRequired": true,
             "uniqueAmong": []
           }
@@ -30221,7 +31242,7 @@
             "idRequired": false,
             "typeRequired": true,
             "uniqueAmong": [],
-            "value": 3
+            "value": 4
           }
         },
         "name": {
@@ -30244,7 +31265,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 64,
+            "maxLength": {
+              "": 64
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -30259,7 +31282,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -30274,7 +31299,9 @@
             "hidden": false,
             "idRequired": false,
             "maxCount": 1,
-            "maxLength": 512,
+            "maxLength": {
+              "": 512
+            },
             "minCount": 1,
             "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
             "patternDesc": {
@@ -30300,10 +31327,15 @@
   "partitions": {
     "2": {},
     "3": {
-      "maxBytes": 1048576
+      "maxBytes": {
+        "": 1048576
+      }
     },
     "4": {
-      "maxBytes": 1048576
+      "maxBytes": {
+        "": 1048576,
+        "onvif_1": 1048576
+      }
     }
   },
   "quantitativeTypes": {

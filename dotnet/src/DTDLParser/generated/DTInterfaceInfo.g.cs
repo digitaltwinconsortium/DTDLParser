@@ -787,6 +787,8 @@ namespace DTDLParser.Models
                     break;
             }
 
+            elementInfo.LimitSpecifier = aggregateContext.LimitSpecifier;
+
             elementInfo.RecordSourceAsAppropriate(elementLayer, elt, childAggregateContext, parsingErrorCollection, atRoot: parentId == null, globalized: globalize);
 
             model.Dict[baseElementId] = elementInfo;
@@ -1047,13 +1049,14 @@ namespace DTDLParser.Models
             {
                 case "Interface":
                 case "dtmi:dtdl:class:Interface;2":
-                    if (elementId.AbsoluteUri.Length > 128)
+                    int interfaceMaxIdLength = 128;
+                    if (elementId.AbsoluteUri.Length > interfaceMaxIdLength)
                     {
                         parsingErrorCollection.Notify(
                             "idTooLongForType",
                             identifier: elementId.ToString(),
                             elementType: "Interface",
-                            expectedCount: 128,
+                            expectedCount: interfaceMaxIdLength,
                             element: elt);
                     }
 
@@ -1265,13 +1268,14 @@ namespace DTDLParser.Models
             {
                 case "Interface":
                 case "dtmi:dtdl:class:Interface;3":
-                    if (elementId.AbsoluteUri.Length > 128)
+                    int interfaceMaxIdLength = 128;
+                    if (elementId.AbsoluteUri.Length > interfaceMaxIdLength)
                     {
                         parsingErrorCollection.Notify(
                             "idTooLongForType",
                             identifier: elementId.ToString(),
                             elementType: "Interface",
-                            expectedCount: 128,
+                            expectedCount: interfaceMaxIdLength,
                             element: elt);
                     }
 
@@ -1577,13 +1581,20 @@ namespace DTDLParser.Models
             {
                 case "Interface":
                 case "dtmi:dtdl:class:Interface;4":
-                    if (elementId.AbsoluteUri.Length > 128)
+                    int interfaceMaxIdLength = aggregateContext.LimitSpecifier switch
+                    {
+                        "" => 128,
+                        "onvif_1" => 256,
+                        _ => 0,
+                    };
+
+                    if (elementId.AbsoluteUri.Length > interfaceMaxIdLength)
                     {
                         parsingErrorCollection.Notify(
                             "idTooLongForType",
                             identifier: elementId.ToString(),
                             elementType: "Interface",
-                            expectedCount: 128,
+                            expectedCount: interfaceMaxIdLength,
                             element: elt);
                     }
 
@@ -2521,7 +2532,8 @@ namespace DTDLParser.Models
                         else
                         {
                             commentProperty = prop;
-                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, 512, null, layer, parsingErrorCollection, isOptional: true);
+                            int? maxLength = 512;
+                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, maxLength, null, layer, parsingErrorCollection, isOptional: true);
                             if (this.commentPropertyLayer != null)
                             {
                                 if (this.Comment != newComment)
@@ -2600,7 +2612,8 @@ namespace DTDLParser.Models
                         else
                         {
                             descriptionProperty = prop;
-                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = 512;
+                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
                             if (descriptionCodes.Any())
                             {
@@ -2646,7 +2659,8 @@ namespace DTDLParser.Models
                         else
                         {
                             displayNameProperty = prop;
-                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", 64, null, layer, parsingErrorCollection);
+                            int? maxLength = 64;
+                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
                             if (displayNameCodes.Any())
                             {
@@ -2816,7 +2830,8 @@ namespace DTDLParser.Models
                         else
                         {
                             commentProperty = prop;
-                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, 512, null, layer, parsingErrorCollection, isOptional: true);
+                            int? maxLength = 512;
+                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, maxLength, null, layer, parsingErrorCollection, isOptional: true);
                             if (this.commentPropertyLayer != null)
                             {
                                 if (this.Comment != newComment)
@@ -2895,7 +2910,8 @@ namespace DTDLParser.Models
                         else
                         {
                             descriptionProperty = prop;
-                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = 512;
+                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
                             if (descriptionCodes.Any())
                             {
@@ -2941,7 +2957,8 @@ namespace DTDLParser.Models
                         else
                         {
                             displayNameProperty = prop;
-                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = 512;
+                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
                             if (displayNameCodes.Any())
                             {
@@ -3128,7 +3145,7 @@ namespace DTDLParser.Models
         /// <param name="tolerateSolecisms">Tolerate specific minor invalidities to support backward compatibility.</param>
         internal override void ParsePropertiesV4(Model model, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, HashSet<Dtmi> immediateSupplementalTypeIds, List<string> immediateUndefinedTypes, ParsingErrorCollection parsingErrorCollection, JsonLdElement elt, string layer, Dtmi definedIn, bool globalize, bool allowReservedIds, bool tolerateSolecisms)
         {
-            this.LanguageMajorVersion = 3;
+            this.LanguageMajorVersion = 4;
 
             JsonLdProperty commentProperty = null;
             JsonLdProperty contentsProperty = null;
@@ -3157,7 +3174,14 @@ namespace DTDLParser.Models
                         else
                         {
                             commentProperty = prop;
-                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, 512, null, layer, parsingErrorCollection, isOptional: true);
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 515,
+                                _ => null,
+                            };
+
+                            string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, maxLength, null, layer, parsingErrorCollection, isOptional: true);
                             if (this.commentPropertyLayer != null)
                             {
                                 if (this.Comment != newComment)
@@ -3236,7 +3260,14 @@ namespace DTDLParser.Models
                         else
                         {
                             descriptionProperty = prop;
-                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 514,
+                                _ => null,
+                            };
+
+                            Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
                             if (descriptionCodes.Any())
                             {
@@ -3282,7 +3313,14 @@ namespace DTDLParser.Models
                         else
                         {
                             displayNameProperty = prop;
-                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", 512, null, layer, parsingErrorCollection);
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 513,
+                                _ => null,
+                            };
+
+                            Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
                             if (displayNameCodes.Any())
                             {
@@ -3466,14 +3504,14 @@ namespace DTDLParser.Models
             if ((atRoot || addPartition) && !globalized)
             {
                 string jsonText = elt.GetOutlinedJsonText(addPartition ? aggregateContext.GetJsonLdText() : null);
-                if (PartitionTypeCollection.PartitionMaxBytes.TryGetValue(this.DtdlVersion, out int partitionMaxBytes) && jsonText.Length > partitionMaxBytes)
+                if (PartitionTypeCollection.PartitionMaxBytes.TryGetValue(this.DtdlVersion, out Dictionary<string, int> specMaxBytes) && specMaxBytes.TryGetValue(aggregateContext.LimitSpecifier, out int maxBytes) && jsonText.Length > maxBytes)
                 {
                     parsingErrorCollection.Notify(
                         "partitionTooLarge",
                         elementId: this.Id,
                         partition: "Interface",
                         observedCount: jsonText.Length,
-                        expectedCount: partitionMaxBytes,
+                        expectedCount: maxBytes,
                         element: elt);
                 }
 
@@ -3611,7 +3649,8 @@ namespace DTDLParser.Models
                 this.originalContents = new Dictionary<string, DTContentInfo>((Dictionary<string, DTContentInfo>)this.Contents);
             }
 
-            HashSet<Dtmi> sources = this.GetTransitiveExtendsNarrow(0, 10, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);
+            int maxDepthOfExtends = 10;
+            HashSet<Dtmi> sources = this.GetTransitiveExtendsNarrow(0, maxDepthOfExtends, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);
 
             if (sources != null)
             {
@@ -3627,8 +3666,8 @@ namespace DTDLParser.Models
                     elementId: this.Id,
                     propertyDisjunction: "'extends'",
                     referenceId: tooDeepElementId,
-                    observedCount: 11,
-                    expectedCount: 10,
+                    observedCount: maxDepthOfExtends + 1,
+                    expectedCount: maxDepthOfExtends,
                     ancestorElement: this.JsonLdElements.First().Value,
                     descendantElement: tooDeepElts.First().Value);
             }
@@ -3641,7 +3680,8 @@ namespace DTDLParser.Models
                 this.originalContents = new Dictionary<string, DTContentInfo>((Dictionary<string, DTContentInfo>)this.Contents);
             }
 
-            HashSet<Dtmi> sources = this.GetTransitiveExtendsNarrow(0, 10, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);
+            int maxDepthOfExtends = 10;
+            HashSet<Dtmi> sources = this.GetTransitiveExtendsNarrow(0, maxDepthOfExtends, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);
 
             if (sources != null)
             {
@@ -3657,8 +3697,8 @@ namespace DTDLParser.Models
                     elementId: this.Id,
                     propertyDisjunction: "'extends'",
                     referenceId: tooDeepElementId,
-                    observedCount: 11,
-                    expectedCount: 10,
+                    observedCount: maxDepthOfExtends + 1,
+                    expectedCount: maxDepthOfExtends,
                     ancestorElement: this.JsonLdElements.First().Value,
                     descendantElement: tooDeepElts.First().Value);
             }
@@ -3671,7 +3711,14 @@ namespace DTDLParser.Models
                 this.originalContents = new Dictionary<string, DTContentInfo>((Dictionary<string, DTContentInfo>)this.Contents);
             }
 
-            HashSet<Dtmi> sources = this.GetTransitiveExtendsNarrow(0, 10, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);
+            int maxDepthOfExtends = this.LimitSpecifier switch
+            {
+                "" => 10,
+                "onvif_1" => 15,
+                _ => 0,
+            };
+
+            HashSet<Dtmi> sources = this.GetTransitiveExtendsNarrow(0, maxDepthOfExtends, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);
 
             if (sources != null)
             {
@@ -3687,8 +3734,8 @@ namespace DTDLParser.Models
                     elementId: this.Id,
                     propertyDisjunction: "'extends'",
                     referenceId: tooDeepElementId,
-                    observedCount: 11,
-                    expectedCount: 10,
+                    observedCount: maxDepthOfExtends + 1,
+                    expectedCount: maxDepthOfExtends,
                     ancestorElement: this.JsonLdElements.First().Value,
                     descendantElement: tooDeepElts.First().Value);
             }
@@ -3750,27 +3797,29 @@ namespace DTDLParser.Models
         /// <inheritdoc/>
         private void CheckRestrictionsV3(ParsingErrorCollection parsingErrorCollection)
         {
+            int maxCountOfExtends = 1024;
             int numExtendsNarrowValues = this.GetCountOfExtendsNarrow(parsingErrorCollection);
-            if (numExtendsNarrowValues > 1024)
+            if (numExtendsNarrowValues > maxCountOfExtends)
             {
                 parsingErrorCollection.Notify(
                     "excessiveCount",
                     elementId: this.Id,
                     propertyDisjunction: "'extends'",
                     observedCount: numExtendsNarrowValues,
-                    expectedCount: 1024,
+                    expectedCount: maxCountOfExtends,
                     element: this.JsonLdElements.First().Value);
             }
 
+            int maxCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValue = 100000;
             int numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues = this.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(parsingErrorCollection);
-            if (numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues > 100000)
+            if (numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues > maxCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValue)
             {
                 parsingErrorCollection.Notify(
                     "excessiveCount",
                     elementId: this.Id,
                     propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
                     observedCount: numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues,
-                    expectedCount: 100000,
+                    expectedCount: maxCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValue,
                     element: this.JsonLdElements.First().Value);
             }
         }
@@ -3778,27 +3827,41 @@ namespace DTDLParser.Models
         /// <inheritdoc/>
         private void CheckRestrictionsV4(ParsingErrorCollection parsingErrorCollection)
         {
+            int maxCountOfExtends = this.LimitSpecifier switch
+            {
+                "" => 1024,
+                "onvif_1" => 1024,
+                _ => 0,
+            };
+
             int numExtendsNarrowValues = this.GetCountOfExtendsNarrow(parsingErrorCollection);
-            if (numExtendsNarrowValues > 1024)
+            if (numExtendsNarrowValues > maxCountOfExtends)
             {
                 parsingErrorCollection.Notify(
                     "excessiveCount",
                     elementId: this.Id,
                     propertyDisjunction: "'extends'",
                     observedCount: numExtendsNarrowValues,
-                    expectedCount: 1024,
+                    expectedCount: maxCountOfExtends,
                     element: this.JsonLdElements.First().Value);
             }
 
+            int maxCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValue = this.LimitSpecifier switch
+            {
+                "" => 100000,
+                "onvif_1" => 100000,
+                _ => 0,
+            };
+
             int numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues = this.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(parsingErrorCollection);
-            if (numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues > 100000)
+            if (numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues > maxCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValue)
             {
                 parsingErrorCollection.Notify(
                     "excessiveCount",
                     elementId: this.Id,
                     propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
                     observedCount: numContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValues,
-                    expectedCount: 100000,
+                    expectedCount: maxCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValue,
                     element: this.JsonLdElements.First().Value);
             }
         }

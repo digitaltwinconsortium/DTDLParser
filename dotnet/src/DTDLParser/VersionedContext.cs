@@ -18,8 +18,10 @@ namespace DTDLParser
         /// <param name="contextSpecifer">The JSON-LD specifier for the context.</param>
         /// <param name="majorVersion">The major version of the context.</param>
         /// <param name="minorVersion">The minor version of the context.</param>
+        /// <param name="limitsDtdlVersion">The version of DTDL for which this context defines limits, or zero if not extension or no limits defined.</param>
+        /// <param name="limitSpec">A string to use for referencing the limits defined by this context, or null if not extension or no limits defined.</param>
         /// <param name="mergeDefinitions">An indication of whether definitions whose identifiers contain IRI fragments should be merged.</param>
-        internal VersionedContext(string contextSpecifer, int majorVersion, int minorVersion, bool mergeDefinitions = false)
+        internal VersionedContext(string contextSpecifer, int majorVersion, int minorVersion, int limitsDtdlVersion, string limitSpec, bool mergeDefinitions = false)
         {
             this.termDict = new Dictionary<string, Uri>();
             this.prefixDict = new Dictionary<string, string>();
@@ -28,6 +30,8 @@ namespace DTDLParser
             this.ContextSpecifier = contextSpecifer;
             this.MajorVersion = majorVersion;
             this.MinorVersion = minorVersion;
+            this.LimitsDtdlVersion = limitsDtdlVersion;
+            this.LimitSpec = limitSpec;
             this.MergeDefinitions = mergeDefinitions;
             this.MergeableTypeIds = new List<Dtmi>();
             this.IdDefinitionReservedPrefixes = new List<string>();
@@ -47,6 +51,16 @@ namespace DTDLParser
         /// Gets the minor version of the context.
         /// </summary>
         internal int MinorVersion { get; }
+
+        /// <summary>
+        /// Gets the version of DTDL for which this context defines limits, or zero if not extension or no limits defined.
+        /// </summary>
+        internal int LimitsDtdlVersion { get; }
+
+        /// <summary>
+        /// Gets a string to use for referencing the limits defined by this context, or null if not extension or no limits defined.
+        /// </summary>
+        internal string LimitSpec { get; }
 
         /// <summary>
         /// Gets a value indicating whether definitions whose identifiers contain IRI fragments should be merged.

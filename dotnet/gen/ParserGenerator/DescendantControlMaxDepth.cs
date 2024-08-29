@@ -12,11 +12,12 @@
         private string rootClass;
         private List<string> propertyNames;
         private bool isNarrow;
-        private int maxDepth;
+        private Dictionary<string, int> maxDepth;
         private string methodName;
         private string propertiesDesc;
         private string elementIdName;
         private string jsonLdEltsName;
+        private string maxDepthName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DescendantControlMaxDepth"/> class.
@@ -25,8 +26,8 @@
         /// <param name="rootClass">The name of the concete class the control pertains to.</param>
         /// <param name="propertyNames">The names of the properties for which this control is relevant.</param>
         /// <param name="isNarrow">Indicates whether the descendant hierarchy should be scanned only along relevant properties.</param>
-        /// <param name="maxDepth">The maximum allowed count of relevant properties in a hierarchical chain.</param>
-        public DescendantControlMaxDepth(int dtdlVersion, string rootClass, List<string> propertyNames, bool isNarrow, int maxDepth)
+        /// <param name="maxDepth">The maximum allowed count of relevant properties in a hierarchical chain, according to a limit spec.</param>
+        public DescendantControlMaxDepth(int dtdlVersion, string rootClass, List<string> propertyNames, bool isNarrow, Dictionary<string, int> maxDepth)
         {
             this.dtdlVersion = dtdlVersion;
             this.rootClass = rootClass;
@@ -39,6 +40,7 @@
             this.propertiesDesc = string.Join(" or ", this.propertyNames.Select(p => $"'{p}'"));
             this.elementIdName = $"tooDeep{propertyNameDisjunction}ElementId";
             this.jsonLdEltsName = $"tooDeep{propertyNameDisjunction}Elts";
+            this.maxDepthName = $"maxDepthOf{propertyNameDisjunction}";
         }
 
         /// <inheritdoc/>
@@ -127,14 +129,16 @@
         {
             if (this.dtdlVersion == dtdlVersion && this.rootClass == typeName)
             {
-                checkRestrictionsMethodBody.If($"!this.{this.methodName}(0, {this.maxDepth}, out Dtmi {this.elementIdName}, out Dictionary<string, JsonLdElement> {this.jsonLdEltsName}, parsingErrorCollection) && {this.elementIdName} != null")
+                ValueLimiter.DefineLimitVariable(checkRestrictionsMethodBody, this.maxDepth, this.maxDepthName, $"this.{ParserGeneratorValues.LimitSpecifierPropertyName}", nullable: false);
+
+                checkRestrictionsMethodBody.If($"!this.{this.methodName}(0, {this.maxDepthName}, out Dtmi {this.elementIdName}, out Dictionary<string, JsonLdElement> {this.jsonLdEltsName}, parsingErrorCollection) && {this.elementIdName} != null")
                     .MultiLine("parsingErrorCollection.Notify(")
                         .Line(this.isNarrow ? "\"excessiveDepthNarrow\"," : "\"excessiveDepthWide\",")
                         .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
                         .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
                         .Line($"referenceId: {this.elementIdName},")
-                        .Line($"observedCount: {this.maxDepth + 1},")
-                        .Line($"expectedCount: {this.maxDepth},")
+                        .Line($"observedCount: {this.maxDepthName} + 1,")
+                        .Line($"expectedCount: {this.maxDepthName},")
                         .Line("ancestorElement: this.JsonLdElements.First().Value,")
                         .Line($"descendantElement: {this.jsonLdEltsName}.First().Value);");
             }

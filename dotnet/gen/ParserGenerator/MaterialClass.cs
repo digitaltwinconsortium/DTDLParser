@@ -239,6 +239,18 @@
                     isNullable: true));
 
                 this.properties.Add(new InternalProperty(
+                    "string",
+                    "string",
+                    ParserGeneratorValues.LimitSpecifierPropertyName,
+                    Access.Internal,
+                    "string.Empty",
+                    "Gets the limit specifier for the context that was active when the instance was defined.",
+                    "A limit specifier string",
+                    isRelevantToIdentity: false,
+                    isSettable: true,
+                    isNullable: false));
+
+                this.properties.Add(new InternalProperty(
                     "HashSet<ParentReference>",
                     "HashSet<ParentReference>",
                     ParserGeneratorValues.ParentReferencesName,

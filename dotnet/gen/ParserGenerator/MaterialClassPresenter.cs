@@ -66,13 +66,13 @@
 
             string partitionDescription = classIsPartition ? typeName : "top-level element";
 
-            ifShouldRecord.If($"PartitionTypeCollection.PartitionMaxBytes.TryGetValue(this.{ParserGeneratorValues.DtdlVersionPropertyName}, out int partitionMaxBytes) && jsonText.Length > partitionMaxBytes")
+            ifShouldRecord.If($"PartitionTypeCollection.PartitionMaxBytes.TryGetValue(this.{ParserGeneratorValues.DtdlVersionPropertyName}, out Dictionary<string, int> specMaxBytes) && specMaxBytes.TryGetValue(aggregateContext.LimitSpecifier, out int maxBytes) && jsonText.Length > maxBytes")
                 .MultiLine("parsingErrorCollection.Notify(")
                     .Line("\"partitionTooLarge\",")
                     .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
                     .Line($"partition: \"{partitionDescription}\",")
                     .Line($"observedCount: jsonText.Length,")
-                    .Line($"expectedCount: partitionMaxBytes,")
+                    .Line($"expectedCount: maxBytes,")
                     .Line("element: elt);");
             ifShouldRecord.Line($"this.sourceTexts[layer] = jsonText;");
         }

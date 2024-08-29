@@ -59,12 +59,12 @@
             }
 
             constructor.Body.Break();
-            constructor.Body.Line("PartitionMaxBytes = new Dictionary<int, int>();");
+            constructor.Body.Line("PartitionMaxBytes = new Dictionary<int, Dictionary<string, int>>();");
             foreach (KeyValuePair<int, PartitionRestriction> kvp in this.partitionRestrictions)
             {
                 if (kvp.Value.MaxBytes != null)
                 {
-                    constructor.Body.Line($"PartitionMaxBytes[{kvp.Key}] = {kvp.Value.MaxBytes};");
+                    ValueLimiter.AssignLimitDictionary(constructor.Body, kvp.Value.MaxBytes, $"PartitionMaxBytes[{kvp.Key}]");
                 }
             }
         }

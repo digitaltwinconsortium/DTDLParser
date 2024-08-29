@@ -56,6 +56,11 @@
         public const string DtdlVersionPropertyName = "DtdlVersion";
 
         /// <summary>
+        /// Name of the internal property in obverse classes that holds the limit specifier for the context that was active when the instance was defined.
+        /// </summary>
+        public const string LimitSpecifierPropertyName = "LimitSpecifier";
+
+        /// <summary>
         /// Name of the SupplementalTypes property to generate in augmentable obverse classes.
         /// </summary>
         public const string SupplementalTypesPropertyName = "SupplementalTypes";

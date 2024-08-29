@@ -33,7 +33,7 @@
             {
                 if (kvp.Value.MaxLength != null)
                 {
-                    constructor.Body.Line($"IdDefinitionMaxLengths[{kvp.Key}] = {kvp.Value.MaxLength};");
+                    ValueLimiter.AssignLimitDictionary(constructor.Body, kvp.Value.MaxLength, $"IdDefinitionMaxLengths[{kvp.Key}]");
                 }
 
                 if (kvp.Value.Pattern != null)
@@ -48,7 +48,7 @@
             {
                 if (kvp.Value.MaxLength != null)
                 {
-                    constructor.Body.Line($"IdReferenceMaxLengths[{kvp.Key}] = {kvp.Value.MaxLength};");
+                    ValueLimiter.AssignLimitDictionary(constructor.Body, kvp.Value.MaxLength, $"IdReferenceMaxLengths[{kvp.Key}]");
                 }
 
                 if (kvp.Value.Pattern != null)

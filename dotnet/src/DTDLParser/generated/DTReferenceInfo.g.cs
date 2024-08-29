@@ -450,6 +450,8 @@ namespace DTDLParser.Models
                 return false;
             }
 
+            elementInfo.LimitSpecifier = aggregateContext.LimitSpecifier;
+
             elementInfo.RecordSourceAsAppropriate(elementLayer, elt, childAggregateContext, parsingErrorCollection, atRoot: parentId == null, globalized: globalize);
 
             model.Dict[baseElementId] = elementInfo;

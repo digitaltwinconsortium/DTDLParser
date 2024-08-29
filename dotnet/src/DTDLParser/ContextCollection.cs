@@ -20,6 +20,7 @@ namespace DTDLParser
         private static readonly HashSet<int> DtdlVersionsAllowingUndefinedExtensionsByDefault;
         private static readonly HashSet<int> DtdlVersionsAllowingLocalTerms;
         private static readonly HashSet<int> DtdlVersionsRestrictingKeywords;
+        private static readonly HashSet<int> DtdlVersionsAllowingCustomLimits;
         private static readonly Dictionary<string, int> EndogenousAffiliateContextsImplicitDtdlVersions;
 
         private Dictionary<string, ContextHistory> exogenousAffiliateContextHistories;
@@ -85,7 +86,7 @@ namespace DTDLParser
                 return;
             }
 
-            VersionedContext versionedContext = new VersionedContext(extensionId.AbsoluteUri, extensionId.MajorVersion, extensionId.MinorVersion);
+            VersionedContext versionedContext = new VersionedContext(extensionId.AbsoluteUri, extensionId.MajorVersion, extensionId.MinorVersion, 0, null);
 
             if (contextComponents.Last().IsLocal)
             {
@@ -94,7 +95,7 @@ namespace DTDLParser
                 {
                     this.ValidateTerm(kvp.Key, localContextComponent, parsingErrorCollection, extensionId);
 
-                    if (this.TryGetTermDefinition(kvp.Key, kvp.Value, localContextComponent, out Uri termDefinition, out string prefixDefinition, dtdlContextDtmi.MajorVersion, parsingErrorCollection, extensionId))
+                    if (this.TryGetTermDefinition(kvp.Key, kvp.Value, localContextComponent, out Uri termDefinition, out string prefixDefinition, dtdlContextDtmi.MajorVersion, string.Empty, parsingErrorCollection, extensionId))
                     {
                         if (termDefinition != null)
                         {
@@ -150,6 +151,16 @@ namespace DTDLParser
         }
 
         /// <summary>
+        /// Indicates whether a given DTDL version allows custom limits to be specified via a limit context.
+        /// </summary>
+        /// <param name="dtdlVersion">The DTDL version number to check.</param>
+        /// <returns>True if custom limits are allowed.</returns>
+        internal bool DoesDtdlVersionAllowCustomLimits(int dtdlVersion)
+        {
+            return DtdlVersionsAllowingCustomLimits.Contains(dtdlVersion);
+        }
+
+        /// <summary>
         /// Get the implicit DTDL version for an affiliate context if one is specified by the affiliate extension.
         /// </summary>
         /// <param name="affiliateContextSpecifier">The context specifier for the affiliate extension.</param>
@@ -167,9 +178,10 @@ namespace DTDLParser
         /// <param name="dtdlContext">The <see cref="VersionedContext"/> returned.</param>
         /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing error is added.</param>
         /// <param name="maxDtdlVersion">An optional integer value that restricts the highest DTDL version the parser should accept.</param>
-        internal void GetDtdlContextFromContextComponent(JsonLdContextComponent contextComponent, ref VersionedContext dtdlContext, ParsingErrorCollection parsingErrorCollection, int? maxDtdlVersion)
+        /// <param name="specifiesLimits">An out parameter indicating whether the context specifies modeling limits.</param>
+        internal void GetDtdlContextFromContextComponent(JsonLdContextComponent contextComponent, ref VersionedContext dtdlContext, ParsingErrorCollection parsingErrorCollection, int? maxDtdlVersion, out bool specifiesLimits)
         {
-            if (!Dtmi.TryCreateDtmi(contextComponent.RemoteId, out Dtmi dtdlContextDtmi) || dtdlContextDtmi.Fragment != string.Empty)
+            if (!Dtmi.TryCreateDtmi(contextComponent.RemoteId, out Dtmi dtdlContextDtmi))
             {
                 parsingErrorCollection.Quit(
                     "invalidContextSpecifier",
@@ -177,10 +189,35 @@ namespace DTDLParser
                     contextValue: contextComponent.RemoteId);
             }
 
+            if (dtdlContextDtmi.Fragment != string.Empty && dtdlContextDtmi.Fragment != "#limitless" && dtdlContextDtmi.Fragment != "#limits")
+            {
+                parsingErrorCollection.Quit(
+                    "invalidContextFragment",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId);
+            }
+
+            if (!this.DoesDtdlVersionAllowCustomLimits(dtdlContextDtmi.MajorVersion) && dtdlContextDtmi.Fragment != string.Empty)
+            {
+                parsingErrorCollection.Quit(
+                    "disallowedContextFragment",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId,
+                    version: dtdlContextDtmi.MajorVersion.ToString());
+            }
+
             if (dtdlContextDtmi.MajorVersion == 0)
             {
                 parsingErrorCollection.Quit(
                     "missingContextVersion",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId);
+            }
+
+            if (dtdlContextDtmi.Fragment == "#limits")
+            {
+                parsingErrorCollection.Quit(
+                    "misplacedLimitContext",
                     contextComponent: contextComponent,
                     contextValue: contextComponent.RemoteId);
             }
@@ -203,7 +240,7 @@ namespace DTDLParser
                     version: maxDtdlVersion.ToString());
             }
 
-            if (!IdValidator.IsIdReferenceValid(contextComponent.RemoteId, dtdlContextDtmi.MajorVersion))
+            if (!IdValidator.IsIdReferenceValid(dtdlContextDtmi.Fragmentless.ToString(), dtdlContextDtmi.MajorVersion, string.Empty))
             {
                 parsingErrorCollection.Quit(
                     "invalidContextSpecifierForVersion",
@@ -211,6 +248,8 @@ namespace DTDLParser
                     contextValue: contextComponent.RemoteId,
                     version: dtdlContextDtmi.MajorVersion.ToString());
             }
+
+            specifiesLimits = dtdlContextDtmi.Fragment != "#limitless";
         }
 
         /// <summary>
@@ -258,7 +297,7 @@ namespace DTDLParser
                     contextValue: contextComponent.RemoteId);
             }
 
-            if (!IdValidator.IsIdReferenceValid(contextComponent.RemoteId, dtdlVersion))
+            if (!IdValidator.IsIdReferenceValid(contextComponent.RemoteId, dtdlVersion, string.Empty))
             {
                 parsingErrorCollection.Quit(
                     "invalidContextSpecifierForVersion",
@@ -311,6 +350,99 @@ namespace DTDLParser
         }
 
         /// <summary>
+        /// Get a limit specifier if the context specified by <paramref name="contextComponent"/> specifies limits.
+        /// </summary>
+        /// <param name="contextComponent">A <see cref="JsonLdContextComponent"/> that should contain a remote context specifier.</param>
+        /// <param name="limitSpecifier">A string representing the limit specifier if the context specifies limits.</param>
+        /// <param name="dtdlVersion">The version of DTDL requiring limits.</param>
+        /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing error is added.</param>
+        /// <returns>True if a matching limit context is found.</returns>
+        internal bool TryGetLimitSpecifierFromContextComponent(JsonLdContextComponent contextComponent, out string limitSpecifier, int dtdlVersion, ParsingErrorCollection parsingErrorCollection)
+        {
+            if (contextComponent.IsLocal)
+            {
+                limitSpecifier = null;
+                return false;
+            }
+
+            if (!contextComponent.RemoteId.StartsWith("dtmi:"))
+            {
+                parsingErrorCollection.Quit(
+                    "nonDtmiContextSpecifier",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId);
+            }
+
+            if (!Dtmi.TryCreateDtmi(contextComponent.RemoteId, out Dtmi contextDtmi))
+            {
+                parsingErrorCollection.Quit(
+                    "invalidContextSpecifier",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId);
+            }
+
+            if (contextDtmi.MajorVersion == 0)
+            {
+                parsingErrorCollection.Quit(
+                    "missingContextVersion",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId);
+            }
+
+            if (!IdValidator.IsIdReferenceValid(contextDtmi.Fragmentless.ToString(), dtdlVersion, string.Empty))
+            {
+                parsingErrorCollection.Quit(
+                    "invalidContextSpecifierForVersion",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId,
+                    version: dtdlVersion.ToString());
+            }
+
+            if (contextComponent.RemoteId.StartsWith(DtdlContextPrefix))
+            {
+                if (contextDtmi.Fragment != string.Empty && contextDtmi.Fragment != "#limitless" && contextDtmi.Fragment != "#limits")
+                {
+                    parsingErrorCollection.Quit(
+                        "invalidContextFragment",
+                        contextComponent: contextComponent,
+                        contextValue: contextComponent.RemoteId);
+                }
+
+                if (contextDtmi.Fragment != "#limitless" && contextDtmi.MajorVersion == dtdlVersion)
+                {
+                    limitSpecifier = string.Empty;
+                    return true;
+                }
+            }
+            else
+            {
+                if (contextDtmi.Fragment != string.Empty)
+                {
+                    parsingErrorCollection.Quit(
+                        "invalidContextSpecifier",
+                        contextComponent: contextComponent,
+                        contextValue: contextComponent.RemoteId);
+                }
+
+                string affiliateName = contextDtmi.Versionless;
+
+                if (EndogenousAffiliateContextHistories.TryGetValue(affiliateName, out ContextHistory affiliateContextHistory) ||
+                    this.exogenousAffiliateContextHistories.TryGetValue(affiliateName, out affiliateContextHistory))
+                {
+                    if (affiliateContextHistory.TryGetMatchingContext(contextDtmi.MajorVersion, contextDtmi.MinorVersion, out VersionedContext affiliateContext) &&
+                        affiliateContext.LimitsDtdlVersion == dtdlVersion)
+                    {
+                        limitSpecifier = affiliateContext.LimitSpec;
+                        return true;
+                    }
+                }
+            }
+
+            limitSpecifier = null;
+            return false;
+        }
+
+        /// <summary>
         /// Get a set of term definitions and a set of prefix definitions from the <paramref name="contextComponent"/>.
         /// </summary>
         /// <param name="contextComponent">The <see cref="JsonLdContextComponent"/> from which to obtain the definitions.</param>
@@ -319,8 +451,9 @@ namespace DTDLParser
         /// <param name="parentTermDefinitions">The term definitions defined prior to parsing the <paramref name="contextComponent"/>.</param>
         /// <param name="parentPrefixDefinitions">The prefix definitions defined prior to parsing the <paramref name="contextComponent"/>.</param>
         /// <param name="dtdlVersion">The version of DTDL whose identifier syntax applies.</param>
+        /// <param name="limitSpecifier">A limit specifier to indicate a customized limit.</param>
         /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing error is added.</param>
-        internal void GetChildDefinitionsfromContextComponent(JsonLdContextComponent contextComponent, out Dictionary<string, Uri> termDefinitions, out Dictionary<string, string> prefixDefinitions, Dictionary<string, Uri> parentTermDefinitions, Dictionary<string, string> parentPrefixDefinitions, int dtdlVersion, ParsingErrorCollection parsingErrorCollection)
+        internal void GetChildDefinitionsfromContextComponent(JsonLdContextComponent contextComponent, out Dictionary<string, Uri> termDefinitions, out Dictionary<string, string> prefixDefinitions, Dictionary<string, Uri> parentTermDefinitions, Dictionary<string, string> parentPrefixDefinitions, int dtdlVersion, string limitSpecifier, ParsingErrorCollection parsingErrorCollection)
         {
             termDefinitions = new Dictionary<string, Uri>(parentTermDefinitions);
             prefixDefinitions = new Dictionary<string, string>(parentPrefixDefinitions);
@@ -332,7 +465,7 @@ namespace DTDLParser
                 termDefinitions.Remove(kvp.Key);
                 prefixDefinitions.Remove(kvp.Key);
 
-                if (this.TryGetTermDefinition(kvp.Key, kvp.Value, contextComponent, out Uri termDefinition, out string prefixDefinition, dtdlVersion, parsingErrorCollection))
+                if (this.TryGetTermDefinition(kvp.Key, kvp.Value, contextComponent, out Uri termDefinition, out string prefixDefinition, dtdlVersion, limitSpecifier, parsingErrorCollection))
                 {
                     if (termDefinition != null)
                     {
@@ -387,7 +520,7 @@ namespace DTDLParser
             }
         }
 
-        private bool TryGetTermDefinition(string term, string definition, JsonLdContextComponent contextComponent, out Uri termDefinition, out string prefixDefinition, int dtdlVersion, ParsingErrorCollection parsingErrorCollection, Dtmi extensionId = null)
+        private bool TryGetTermDefinition(string term, string definition, JsonLdContextComponent contextComponent, out Uri termDefinition, out string prefixDefinition, int dtdlVersion, string limitSpecifier, ParsingErrorCollection parsingErrorCollection, Dtmi extensionId = null)
         {
             if (definition == null)
             {
@@ -409,7 +542,7 @@ namespace DTDLParser
 
                 if (definition.StartsWith("dtmi:"))
                 {
-                    if (!IdValidator.IsIdReferenceValid(definition, dtdlVersion))
+                    if (!IdValidator.IsIdReferenceValid(definition, dtdlVersion, limitSpecifier))
                     {
                         parsingErrorCollection.Quit(
                             $"{validationPrefix}TermDefinitionInvalidDtmi",
