@@ -11,14 +11,20 @@
           "myProp": "dtmi:dtdl:extension:quantitativeTypes:v2:property:"
         }
       ],
-      "@id": "dtmi:test:aTelemetry;1",
-      "@type": [
-        "Telemetry",
-        "Length"
-      ],
-      "name": "height",
-      "schema": "double",
-      "myProp:unit": "kilometre"
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Length"
+          ],
+          "name": "height",
+          "schema": "double",
+          "myProp:unit": "kilometre"
+        }
+      ]
     }
   ],
   "expect": {

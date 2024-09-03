@@ -13,14 +13,20 @@
           }
         }
       ],
-      "@id": "dtmi:test:aTelemetry;1",
-      "@type": [
-        "Telemetry",
-        "myType:Length"
-      ],
-      "name": "height",
-      "schema": "double",
-      "unit": "kilometre"
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "myType:Length"
+          ],
+          "name": "height",
+          "schema": "double",
+          "unit": "kilometre"
+        }
+      ]
     }
   ],
   "expect": {

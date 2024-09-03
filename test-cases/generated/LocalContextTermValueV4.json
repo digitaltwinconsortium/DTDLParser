@@ -11,14 +11,20 @@
           "kilometer": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilometre"
         }
       ],
-      "@id": "dtmi:test:aTelemetry;1",
-      "@type": [
-        "Telemetry",
-        "Length"
-      ],
-      "name": "height",
-      "schema": "double",
-      "unit": "kilometer"
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Length"
+          ],
+          "name": "height",
+          "schema": "double",
+          "unit": "kilometer"
+        }
+      ]
     }
   ],
   "expect": {
