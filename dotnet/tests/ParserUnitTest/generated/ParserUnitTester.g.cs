@@ -15,7 +15,7 @@ namespace ParserUnitTest
 
     internal static partial class ParserUnitTester
     {
-        private static ModelParser GetModelParser(int? maxDtdlVersion, WhenToAllow allowUndefinedExtensions, ModelParsingQuirk quirks, JObject testCaseObject, bool useAsyncApi, int maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)
+        private static ModelParser GetModelParser(int? maxDtdlVersion, WhenToAllow allowUndefinedExtensions, List<Dtmi> acceptableLimits, ModelParsingQuirk quirks, JObject testCaseObject, bool useAsyncApi, int maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)
         {
             TestDtmiResolver dtmiResolver = new TestDtmiResolver(testCaseObject, useAsyncApi);
             resolutionChecker = dtmiResolver;
@@ -26,6 +26,7 @@ namespace ParserUnitTest
                 DtmiResolverAsync = dtmiResolver.GetResolverAsync(),
                 DtdlResolveLocator = LocateForResolve,
                 AllowUndefinedExtensions = allowUndefinedExtensions,
+                ExtensionLimitContexts = acceptableLimits,
             };
 
             if (maxDtdlVersion != null)
@@ -66,9 +67,11 @@ namespace ParserUnitTest
             int? maxDtdlVersion = testCaseObject.ContainsKey("maxDtdlVersion") ? ((JValue)testCaseObject["maxDtdlVersion"]).Value<int?>() : null;
             int maxReadConcurrency = testCaseObject.ContainsKey("maxReadConcurrency") ? ((JValue)testCaseObject["maxReadConcurrency"]).Value<int>() : 0;
 
+            List<Dtmi> acceptableLimits = testCaseObject.ContainsKey("acceptableLimits") ? ((JArray)testCaseObject["acceptableLimits"]).Select(c => new Dtmi(((JValue)c).Value<string>())).ToList() : new List<Dtmi>();
+
             bool inputGiven = testCaseObject.TryGetValue("input", out JToken inputToken);
 
-            ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensionsInTest, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker);
+            ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensionsInTest, acceptableLimits, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker);
             if (testCaseObject.TryGetValue("extensions", out JToken loadToken))
             {
                 TestExtension(modelParser, loadToken, testCaseObject, extensionValid: valid || inputGiven);

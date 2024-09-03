@@ -19,7 +19,10 @@
 
             string modelFile = args[0];
 
-            var modelParser = new ModelParser();
+            ParsingOptions options = new ParsingOptions();
+            options.ExtensionLimitContexts.Add(new Dtmi("dtmi:dtdl:limits:onvif"));
+
+            var modelParser = new ModelParser(options);
             string modelText = File.OpenText(modelFile).ReadToEnd();
 
             DtdlParseLocator parseLocator = (int parseIndex, int parseLine, out string sourceName, out int sourceLine) =>

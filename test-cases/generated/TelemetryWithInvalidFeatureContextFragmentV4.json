@@ -1,0 +1,43 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:quantitativeTypes;2"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2#limits"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Velocity"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "unit": "kilometrePerSecond"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidContextSpecifier",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": "dtmi:dtdl:extension:quantitativeTypes;2#limits",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 4
+      }
+    ]
+  }
+}

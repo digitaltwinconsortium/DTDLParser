@@ -23,13 +23,16 @@ namespace DTDLParser
         private static readonly HashSet<int> DtdlVersionsAllowingCustomLimits;
         private static readonly Dictionary<string, int> EndogenousAffiliateContextsImplicitDtdlVersions;
 
+        private List<Dtmi> acceptableLimitContexts;
         private Dictionary<string, ContextHistory> exogenousAffiliateContextHistories;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ContextCollection"/> class.
         /// </summary>
-        internal ContextCollection()
+        /// <param name="acceptableLimitContexts">A list of <c>Dtmi</c> context specifiers of limit extensions that are acceptable.</param>
+        internal ContextCollection(List<Dtmi> acceptableLimitContexts)
         {
+            this.acceptableLimitContexts = acceptableLimitContexts;
             this.exogenousAffiliateContextHistories = new Dictionary<string, ContextHistory>();
         }
 
@@ -283,10 +286,6 @@ namespace DTDLParser
                     "nonDtmiContextSpecifier",
                     contextComponent: contextComponent,
                     contextValue: contextComponent.RemoteId);
-
-                affiliateName = null;
-                affiliateContext = null;
-                return false;
             }
 
             if (!Dtmi.TryCreateDtmi(contextComponent.RemoteId, out Dtmi affiliateContextDtmi) || affiliateContextDtmi.Fragment != string.Empty)
@@ -344,6 +343,14 @@ namespace DTDLParser
 
                 affiliateContext = null;
                 return false;
+            }
+
+            if (affiliateContext.LimitSpec != null)
+            {
+                parsingErrorCollection.Quit(
+                    "misplacedLimitContext",
+                    contextComponent: contextComponent,
+                    contextValue: contextComponent.RemoteId);
             }
 
             return true;
@@ -432,8 +439,24 @@ namespace DTDLParser
                     if (affiliateContextHistory.TryGetMatchingContext(contextDtmi.MajorVersion, contextDtmi.MinorVersion, out VersionedContext affiliateContext) &&
                         affiliateContext.LimitsDtdlVersion == dtdlVersion)
                     {
-                        limitSpecifier = affiliateContext.LimitSpec;
-                        return true;
+                        foreach (Dtmi acceptableContext in this.acceptableLimitContexts)
+                        {
+                            if (acceptableContext.Versionless == contextDtmi.Versionless)
+                            {
+                                if (acceptableContext.MajorVersion == 0 ||
+                                    (acceptableContext.MajorVersion == contextDtmi.MajorVersion && acceptableContext.MinorVersion <= contextDtmi.MinorVersion))
+                                {
+                                    limitSpecifier = affiliateContext.LimitSpec;
+                                    return true;
+                                }
+                            }
+                        }
+
+                        parsingErrorCollection.Quit(
+                            "disallowedLimitContext",
+                            contextComponent: contextComponent,
+                            contextValue: contextComponent.RemoteId,
+                            valueRestriction: $"\"{DtdlContextPrefix}{dtdlVersion}#limits\"" + string.Concat(this.acceptableLimitContexts.Select(c => $" or \"{c}\"")));
                     }
                 }
             }

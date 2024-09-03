@@ -60,6 +60,8 @@ namespace DTDLParser
 
         private static readonly Uri DisallowedIdFragmentValidationId = new Uri("dtmi:dtdl:parsingError:disallowedIdFragment");
 
+        private static readonly Uri DisallowedLimitContextValidationId = new Uri("dtmi:dtdl:parsingError:disallowedLimitContext");
+
         private static readonly Uri DisallowedLocalContextValidationId = new Uri("dtmi:dtdl:parsingError:disallowedLocalContext");
 
         private static readonly Uri DisallowedTypeValidationId = new Uri("dtmi:dtdl:parsingError:disallowedType");
@@ -1237,6 +1239,35 @@ namespace DTDLParser
                             "Identifier '{primaryId}' includes a fragment suffix, which is not permitted.",
                             "Remove fragment suffix from identifier.",
                             primaryId: elementId);
+                    }
+
+                    return;
+                case "disallowedLimitContext":
+                    if (contextValue == null || valueRestriction == null)
+                    {
+                        throw new ArgumentException("Missing required parameter contextValue or valueRestriction when generating disallowedLimitContext ParsingError.");
+                    }
+
+                    if (contextComponent != null && contextComponent.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DisallowedLimitContextValidationId,
+                            "In {sourceName1}, @context specifier '{value}'{line1} is not an acceptable limit extension.",
+                            "Replace the @context specifier with an acceptable limit context value: {restriction}.",
+                            value: contextValue,
+                            restriction: valueRestriction,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DisallowedLimitContextValidationId,
+                            "@context specifier '{value}' is not an acceptable limit extension.",
+                            "Replace the @context specifier with an acceptable limit context value: {restriction}.",
+                            value: contextValue,
+                            restriction: valueRestriction);
                     }
 
                     return;

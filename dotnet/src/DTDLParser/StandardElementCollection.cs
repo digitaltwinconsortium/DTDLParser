@@ -23,7 +23,7 @@ namespace DTDLParser
             EndogenousElementReferences = new Dictionary<Dtmi, HashSet<Dtmi>>();
 
             var objectPropertyInfoList = new List<ParsedObjectPropertyInfo>();
-            var endogenousAggregateContext = new AggregateContext(new ContextCollection(), new SupplementalTypeCollection(), allowUndefinedExtensions: WhenToAllow.Never, suppressDefinitionMerging: true);
+            var endogenousAggregateContext = new AggregateContext(new ContextCollection(new List<Dtmi>()), new SupplementalTypeCollection(), allowUndefinedExtensions: WhenToAllow.Never, suppressDefinitionMerging: true);
             var parsingErrorCollection = new ParsingErrorCollection();
 
             ParseResourceIntoEndogenousStandardModel(Assembly.GetExecutingAssembly().GetManifestResourceNames().First(), objectPropertyInfoList, endogenousAggregateContext, parsingErrorCollection);
