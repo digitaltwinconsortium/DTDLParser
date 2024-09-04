@@ -1469,6 +1469,7 @@ namespace DTDLParser
             context4_0.AddTermDefinition("name", new Dtmi("dtmi:dtdl:property:name;4"), isMergeableType: false);
             context4_0.AddTermDefinition("NamedEntity", new Dtmi("dtmi:dtdl:class:NamedEntity;4"), isMergeableType: false);
             context4_0.AddTermDefinition("NamedLatentType", new Dtmi("dtmi:dtdl:class:NamedLatentType;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("nullable", new Dtmi("dtmi:dtdl:property:nullable;4"), isMergeableType: false);
             context4_0.AddTermDefinition("NumericSchema", new Dtmi("dtmi:dtdl:class:NumericSchema;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Object", new Dtmi("dtmi:dtdl:class:Object;4"), isMergeableType: false);
             context4_0.AddTermDefinition("point", new Dtmi("dtmi:standard:schema:geospatial:point;4"), isMergeableType: false);

@@ -7,57 +7,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_kappa;1",
+        "@id": "dtmi:example:um_omega;1",
         "@type": "Interface",
         "contents": {
           "@type": [
             "Telemetry",
             "dtmi:foo:bar;1"
           ],
-          "name": "psi_iota",
-          "schema": "bytes"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_mu;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": [
-            "Telemetry",
-            "dtmi:foo:bar;1"
-          ],
-          "name": "psi_lambda",
-          "schema": "date"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_xi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": [
-            "Telemetry",
-            "boolean"
-          ],
-          "name": "psi_nu",
+          "name": "um_psi",
           "schema": "dateTime"
         }
       }
@@ -71,7 +28,50 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_pi;1",
+        "@id": "dtmi:example:um_wum;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Telemetry",
+            "dtmi:foo:bar;1"
+          ],
+          "name": "um_yuzz",
+          "schema": "double"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_humpf;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Telemetry",
+            "boolean"
+          ],
+          "name": "um_um",
+          "schema": "duration"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_glikk;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -79,8 +79,8 @@
             "Telemetry",
             "boolean"
           ],
-          "name": "psi_omicron",
-          "schema": "double"
+          "name": "um_fuddle",
+          "schema": "float"
         }
       }
     ]

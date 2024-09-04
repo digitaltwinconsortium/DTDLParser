@@ -78,11 +78,15 @@ namespace DTDLParser.Models
 
         private List<ValueConstraint> nameValueConstraints = null;
 
+        private List<ValueConstraint> nullableValueConstraints = null;
+
         private List<ValueConstraint> schemaValueConstraints = null;
 
         private string commentPropertyLayer = null;
 
         private string namePropertyLayer = null;
+
+        private string nullablePropertyLayer = null;
 
         private TraversalStatus countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.NotStarted;
 
@@ -102,6 +106,7 @@ namespace DTDLParser.Models
             PropertyNames.Add("displayName");
             PropertyNames.Add("languageMajorVersion");
             PropertyNames.Add("name");
+            PropertyNames.Add("nullable");
             PropertyNames.Add("schema");
 
             ConcreteKinds[2] = new HashSet<DTEntityKind>();
@@ -139,6 +144,8 @@ namespace DTDLParser.Models
         internal DTCommandPayloadInfo(int dtdlVersion, Dtmi id, Dtmi childOf, string myPropertyName, Dtmi definedIn)
             : base(dtdlVersion, id, childOf, myPropertyName, definedIn, DTEntityKind.CommandPayload)
         {
+            this.Nullable = false;
+
             this.supplementalTypeIds = new HashSet<Dtmi>();
             this.supplementalProperties = new Dictionary<string, object>();
             this.supplementalTypes = new List<DTSupplementalTypeInfo>();
@@ -160,6 +167,8 @@ namespace DTDLParser.Models
         internal DTCommandPayloadInfo(int dtdlVersion, Dtmi id, Dtmi childOf, string myPropertyName, Dtmi definedIn, DTEntityKind entityKind)
             : base(dtdlVersion, id, childOf, myPropertyName, definedIn, entityKind)
         {
+            this.Nullable = false;
+
             this.supplementalTypeIds = new HashSet<Dtmi>();
             this.supplementalProperties = new Dictionary<string, object>();
             this.supplementalTypes = new List<DTSupplementalTypeInfo>();
@@ -168,6 +177,12 @@ namespace DTDLParser.Models
 
             this.MaybePartial = false;
         }
+
+        /// <summary>
+        /// Gets the value of the 'nullable' property of the DTDL element that corresponds to this object.
+        /// </summary>
+        /// <value>The 'nullable' property of the DTDL element.</value>
+        public bool Nullable { get; internal set; }
 
         /// <summary>
         /// Get the DTMI that identifies type CommandPayload in the version of DTDL used to define this element.
@@ -266,6 +281,7 @@ namespace DTDLParser.Models
         {
             return base.DeepEquals(other)
                 && Helpers.AreDictionariesDeepOrLiteralEqual(this.supplementalProperties, other.supplementalProperties)
+                && this.Nullable == other.Nullable
                 && this.supplementalTypeIds.SetEquals(other.supplementalTypeIds)
                 ;
         }
@@ -297,6 +313,7 @@ namespace DTDLParser.Models
         {
             return base.Equals(other)
                 && Helpers.AreDictionariesIdOrLiteralEqual(this.supplementalProperties, other.supplementalProperties)
+                && this.Nullable == other.Nullable
                 && this.supplementalTypeIds.SetEquals(other.supplementalTypeIds)
                 ;
         }
@@ -344,6 +361,7 @@ namespace DTDLParser.Models
             {
                 hashCode = (hashCode * 131) + Helpers.GetDictionaryIdOrLiteralHashCode(this.supplementalProperties);
                 hashCode = (hashCode * 131) + Helpers.GetSetLiteralHashCode(this.supplementalTypeIds);
+                hashCode = (hashCode * 131) + this.Nullable.GetHashCode();
             }
 
             return hashCode;
@@ -385,6 +403,14 @@ namespace DTDLParser.Models
                     }
 
                     this.nameValueConstraints.Add(valueConstraint);
+                    break;
+                case "nullable":
+                    if (this.nullableValueConstraints == null)
+                    {
+                        this.nullableValueConstraints = new List<ValueConstraint>();
+                    }
+
+                    this.nullableValueConstraints.Add(valueConstraint);
                     break;
                 case "schema":
                     if (this.schemaValueConstraints == null)
@@ -2902,6 +2928,7 @@ namespace DTDLParser.Models
             JsonLdProperty descriptionProperty = null;
             JsonLdProperty displayNameProperty = null;
             JsonLdProperty nameProperty = null;
+            JsonLdProperty nullableProperty = null;
             JsonLdProperty schemaProperty = null;
             Dictionary<string, JsonLdProperty> supplementalJsonLdProperties = new Dictionary<string, JsonLdProperty>();
 
@@ -3143,6 +3170,64 @@ namespace DTDLParser.Models
                         }
 
                         continue;
+                    case "nullable":
+                    case "dtmi:dtdl:property:nullable;4":
+                        if (nullableProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "nullable",
+                                incidentProperty: prop,
+                                extantProperty: nullableProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            nullableProperty = prop;
+                            bool newNullable = ValueParser.ParseSingularBooleanValueCollection(aggregateContext, this.Id, "nullable", prop.Values, layer, parsingErrorCollection, isOptional: true);
+                            if (this.nullablePropertyLayer != null)
+                            {
+                                if (this.Nullable != newNullable)
+                                {
+                                    JsonLdProperty extantProp = this.JsonLdElements[this.nullablePropertyLayer].Properties.FirstOrDefault(p => p.Name == "nullable");
+                                    parsingErrorCollection.Notify(
+                                        "inconsistentBooleanValues",
+                                        elementId: this.Id,
+                                        propertyName: "nullable",
+                                        propertyValue: newNullable.ToString(),
+                                        valueRestriction: this.Nullable.ToString(),
+                                        incidentProperty: prop,
+                                        extantProperty: extantProp,
+                                        layer: layer);
+                                }
+                            }
+                            else
+                            {
+                                this.Nullable = newNullable;
+                                this.nullablePropertyLayer = layer;
+
+                                if (this.nullableValueConstraints != null)
+                                {
+                                    foreach (ValueConstraint valueConstraint in this.nullableValueConstraints)
+                                    {
+                                        if (valueConstraint.RequiredLiteral != null && !valueConstraint.RequiredLiteral.Equals(newNullable))
+                                        {
+                                            parsingErrorCollection.Notify(
+                                                "notRequiredBooleanValue",
+                                                elementId: this.Id,
+                                                propertyName: "nullable",
+                                                propertyValue: newNullable.ToString(),
+                                                valueRestriction: valueConstraint.RequiredLiteral.ToString(),
+                                                incidentProperty: prop,
+                                                layer: layer);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        continue;
                     case "schema":
                     case "dtmi:dtdl:property:schema;4":
                         if (schemaProperty != null)
@@ -3306,6 +3391,8 @@ namespace DTDLParser.Models
             {
                 jsonWriter.WriteString("ClassId", $"dtmi:dtdl:class:CommandPayload;{this.LanguageMajorVersion}");
             }
+
+            jsonWriter.WriteBoolean("nullable", this.Nullable);
         }
 
         private bool TryParseSupplementalProperty(Model model, HashSet<Dtmi> immediateSupplementalTypeIds, List<ParsedObjectPropertyInfo> objectPropertyInfoList, List<ElementPropertyConstraint> elementPropertyConstraints, AggregateContext aggregateContext, string layer, Dtmi definedIn, ParsingErrorCollection parsingErrorCollection, string propName, bool globalize, bool allowReservedIds, bool tolerateSolecisms, JsonLdProperty valueCollectionProp, Dictionary<string, JsonLdProperty> supplementalJsonLdProperties)

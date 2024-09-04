@@ -76,11 +76,15 @@ namespace DTDLParser.Models
 
         private List<ValueConstraint> nameValueConstraints = null;
 
+        private List<ValueConstraint> nullableValueConstraints = null;
+
         private List<ValueConstraint> schemaValueConstraints = null;
 
         private string commentPropertyLayer = null;
 
         private string namePropertyLayer = null;
+
+        private string nullablePropertyLayer = null;
 
         private TraversalStatus countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.NotStarted;
 
@@ -101,6 +105,7 @@ namespace DTDLParser.Models
             PropertyNames.Add("displayName");
             PropertyNames.Add("languageMajorVersion");
             PropertyNames.Add("name");
+            PropertyNames.Add("nullable");
             PropertyNames.Add("schema");
 
             ConcreteKinds[3] = new HashSet<DTEntityKind>();
@@ -388,6 +393,14 @@ namespace DTDLParser.Models
                     }
 
                     this.nameValueConstraints.Add(valueConstraint);
+                    break;
+                case "nullable":
+                    if (this.nullableValueConstraints == null)
+                    {
+                        this.nullableValueConstraints = new List<ValueConstraint>();
+                    }
+
+                    this.nullableValueConstraints.Add(valueConstraint);
                     break;
                 case "schema":
                     if (this.schemaValueConstraints == null)
@@ -2323,6 +2336,7 @@ namespace DTDLParser.Models
             JsonLdProperty descriptionProperty = null;
             JsonLdProperty displayNameProperty = null;
             JsonLdProperty nameProperty = null;
+            JsonLdProperty nullableProperty = null;
             JsonLdProperty schemaProperty = null;
             Dictionary<string, JsonLdProperty> supplementalJsonLdProperties = new Dictionary<string, JsonLdProperty>();
 
@@ -2560,6 +2574,64 @@ namespace DTDLParser.Models
                                 }
 
                                 ((Dictionary<string, string>)this.StringProperties)["name"] = newName;
+                            }
+                        }
+
+                        continue;
+                    case "nullable":
+                    case "dtmi:dtdl:property:nullable;4":
+                        if (nullableProperty != null)
+                        {
+                            parsingErrorCollection.Notify(
+                                "duplicatePropertyName",
+                                elementId: this.Id,
+                                propertyName: "nullable",
+                                incidentProperty: prop,
+                                extantProperty: nullableProperty,
+                                layer: layer);
+                        }
+                        else
+                        {
+                            nullableProperty = prop;
+                            bool newNullable = ValueParser.ParseSingularBooleanValueCollection(aggregateContext, this.Id, "nullable", prop.Values, layer, parsingErrorCollection, isOptional: true);
+                            if (this.nullablePropertyLayer != null)
+                            {
+                                if (this.Nullable != newNullable)
+                                {
+                                    JsonLdProperty extantProp = this.JsonLdElements[this.nullablePropertyLayer].Properties.FirstOrDefault(p => p.Name == "nullable");
+                                    parsingErrorCollection.Notify(
+                                        "inconsistentBooleanValues",
+                                        elementId: this.Id,
+                                        propertyName: "nullable",
+                                        propertyValue: newNullable.ToString(),
+                                        valueRestriction: this.Nullable.ToString(),
+                                        incidentProperty: prop,
+                                        extantProperty: extantProp,
+                                        layer: layer);
+                                }
+                            }
+                            else
+                            {
+                                this.Nullable = newNullable;
+                                this.nullablePropertyLayer = layer;
+
+                                if (this.nullableValueConstraints != null)
+                                {
+                                    foreach (ValueConstraint valueConstraint in this.nullableValueConstraints)
+                                    {
+                                        if (valueConstraint.RequiredLiteral != null && !valueConstraint.RequiredLiteral.Equals(newNullable))
+                                        {
+                                            parsingErrorCollection.Notify(
+                                                "notRequiredBooleanValue",
+                                                elementId: this.Id,
+                                                propertyName: "nullable",
+                                                propertyValue: newNullable.ToString(),
+                                                valueRestriction: valueConstraint.RequiredLiteral.ToString(),
+                                                incidentProperty: prop,
+                                                layer: layer);
+                                        }
+                                    }
+                                }
                             }
                         }
 

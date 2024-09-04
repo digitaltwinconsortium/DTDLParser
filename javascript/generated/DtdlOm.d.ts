@@ -30,6 +30,7 @@ export type CommandType = CommandInfo;
 
 export interface CommandPayloadInfo extends SchemaFieldInfo {
   EntityKind: 'CommandPayload' | 'CommandRequest' | 'CommandResponse';
+  nullable: boolean;
 }
 
 export type CommandPayloadType = CommandPayloadInfo | CommandRequestType | CommandResponseType;

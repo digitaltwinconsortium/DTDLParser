@@ -7,28 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_epsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "vroo_delta",
-          "request": {
-            "name": "vroo_gamma",
-            "schema": "date",
-            "@type": "CommandRequest"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:vroo_theta;1",
         "@type": "Interface",
         "contents": {
@@ -37,9 +15,7 @@
           "request": {
             "name": "vroo_zeta",
             "schema": "dateTime",
-            "@type": [
-              "CommandRequest"
-            ]
+            "@type": "CommandRequest"
           }
         }
       }
@@ -61,7 +37,9 @@
           "request": {
             "name": "vroo_iota",
             "schema": "double",
-            "@type": "dtmi:dtdl:class:CommandRequest;4"
+            "@type": [
+              "CommandRequest"
+            ]
           }
         }
       }
@@ -83,6 +61,28 @@
           "request": {
             "name": "vroo_mu",
             "schema": "duration",
+            "@type": "dtmi:dtdl:class:CommandRequest;4"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "vroo_pi",
+          "request": {
+            "name": "vroo_omicron",
+            "schema": "float",
             "@type": [
               "dtmi:dtdl:class:CommandRequest;4"
             ]
@@ -99,14 +99,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_rho;1",
+        "@id": "dtmi:example:vroo_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "vroo_pi",
+          "name": "vroo_tau",
           "request": {
-            "name": "vroo_omicron",
-            "schema": "float",
+            "name": "vroo_sigma",
+            "schema": "integer",
             "@type": "Something"
           }
         }
@@ -121,15 +121,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_upsilon;1",
+        "@id": "dtmi:example:vroo_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "vroo_tau",
+          "name": "vroo_chi",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "vroo_sigma",
-            "schema": "integer",
+            "name": "vroo_phi",
+            "schema": "long",
             "@type": "Something"
           }
         }
@@ -144,14 +144,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_psi;1",
+        "@id": "dtmi:example:vroo_wum;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "vroo_chi",
+          "name": "vroo_yuzz",
           "request": {
-            "name": "vroo_phi",
-            "schema": "long",
+            "name": "vroo_omega",
+            "schema": "string",
             "@type": [
               "Something"
             ]
@@ -168,15 +168,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_wum;1",
+        "@id": "dtmi:example:vroo_fuddle;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "vroo_yuzz",
+          "name": "vroo_humpf",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "vroo_omega",
-            "schema": "string",
+            "name": "vroo_um",
+            "schema": "time",
             "@type": [
               "Something"
             ]

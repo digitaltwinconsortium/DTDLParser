@@ -7,57 +7,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_flunn;1",
+        "@id": "dtmi:example:omega_kappa;1",
         "@type": "Interface",
         "contents": {
           "@type": [
             "Property",
             "dtmi:foo:bar;1"
           ],
-          "name": "tau_jogg",
-          "schema": "boolean"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_yekk;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": [
-            "Property",
-            "dtmi:foo:bar;1"
-          ],
-          "name": "tau_itch",
-          "schema": "bytes"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_hi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": [
-            "Property",
-            "boolean"
-          ],
-          "name": "tau_vroo",
+          "name": "omega_iota",
           "schema": "date"
         }
       }
@@ -71,7 +28,50 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:upsilon_beta;1",
+        "@id": "dtmi:example:omega_mu;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Property",
+            "dtmi:foo:bar;1"
+          ],
+          "name": "omega_lambda",
+          "schema": "dateTime"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omega_xi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Property",
+            "boolean"
+          ],
+          "name": "omega_nu",
+          "schema": "double"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omega_pi;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -79,8 +79,8 @@
             "Property",
             "boolean"
           ],
-          "name": "upsilon_alpha",
-          "schema": "dateTime"
+          "name": "omega_omicron",
+          "schema": "duration"
         }
       }
     ]

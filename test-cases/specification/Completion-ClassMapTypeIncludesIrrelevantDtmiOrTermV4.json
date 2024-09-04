@@ -7,77 +7,20 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:humpf_zeta;1",
+        "@id": "dtmi:example:snee_upsilon;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:humpf_gamma;1",
+          "@id": "dtmi:example:snee_rho;1",
           "@type": [
             "Map",
             "dtmi:foo:bar;1"
           ],
           "mapKey": {
-            "name": "humpf_delta",
+            "name": "snee_sigma",
             "schema": "string"
           },
           "mapValue": {
-            "name": "humpf_epsilon",
-            "schema": "double"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:humpf_kappa;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:humpf_eta;1",
-          "@type": [
-            "Map",
-            "dtmi:foo:bar;1"
-          ],
-          "mapKey": {
-            "name": "humpf_theta",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "humpf_iota",
-            "schema": "duration"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:humpf_xi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:humpf_lambda;1",
-          "@type": [
-            "Map",
-            "boolean"
-          ],
-          "mapKey": {
-            "name": "humpf_mu",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "humpf_nu",
+            "name": "snee_tau",
             "schema": "float"
           }
         }
@@ -92,22 +35,79 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:humpf_sigma;1",
+        "@id": "dtmi:example:snee_omega;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:humpf_omicron;1",
+          "@id": "dtmi:example:snee_phi;1",
+          "@type": [
+            "Map",
+            "dtmi:foo:bar;1"
+          ],
+          "mapKey": {
+            "name": "snee_chi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_psi",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_humpf;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_yuzz;1",
           "@type": [
             "Map",
             "boolean"
           ],
           "mapKey": {
-            "name": "humpf_pi",
+            "name": "snee_wum",
             "schema": "string"
           },
           "mapValue": {
-            "name": "humpf_rho",
-            "schema": "integer"
+            "name": "snee_um",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_snee;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:snee_fuddle;1",
+          "@type": [
+            "Map",
+            "boolean"
+          ],
+          "mapKey": {
+            "name": "snee_glikk",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_nuh",
+            "schema": "string"
           }
         }
       }

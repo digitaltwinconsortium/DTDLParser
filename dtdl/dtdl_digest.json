@@ -576,6 +576,7 @@
       "name": "dtmi:dtdl:property:name;4",
       "NamedEntity": "dtmi:dtdl:class:NamedEntity;4",
       "NamedLatentType": "dtmi:dtdl:class:NamedLatentType;4",
+      "nullable": "dtmi:dtdl:property:nullable;4",
       "NumericSchema": "dtmi:dtdl:class:NumericSchema;4",
       "Object": "dtmi:dtdl:class:Object;4",
       "point": "dtmi:standard:schema:geospatial:point;4",
@@ -16318,6 +16319,30 @@
             "uniqueAmong": []
           }
         },
+        "nullable": {
+          "_": {
+            "abstract": false,
+            "datatype": "boolean",
+            "description": {
+              "en-us": "A boolean value that indicates whether the Command payload may be null. The default value is false, indicating the payload is mandatory."
+            },
+            "inherited": false,
+            "inheritedFrom": "CommandPayload",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
         "schema": {
           "_": {
             "abstract": true,
@@ -16640,6 +16665,30 @@
             "uniqueAmong": []
           }
         },
+        "nullable": {
+          "_": {
+            "abstract": false,
+            "datatype": "boolean",
+            "description": {
+              "en-us": "A boolean value that indicates whether the Command payload may be null. The default value is false, indicating the payload is mandatory."
+            },
+            "inherited": true,
+            "inheritedFrom": "CommandPayload",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
         "schema": {
           "_": {
             "abstract": false,
@@ -16946,6 +16995,30 @@
             "patternDesc": {
               "en-us": "contains only alphanumerics and underscore, starting with a letter, ending with alphanumeric"
             },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "nullable": {
+          "_": {
+            "abstract": false,
+            "datatype": "boolean",
+            "description": {
+              "en-us": "A boolean value that indicates whether the Command payload may be null. The default value is false, indicating the payload is mandatory."
+            },
+            "inherited": true,
+            "inheritedFrom": "CommandPayload",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
             "typeRequired": true,
             "uniqueAmong": []
           }

@@ -7,35 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_nuh;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "hi_glikk",
-          "request": {
-            "@id": "dtmi:foo:bar;7",
-            "name": "hi_fuddle",
-            "schema": "bytes"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:hi_thnad;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "hi_quan",
           "request": {
-            "@id": "dtmi:foo:bar;108675309",
+            "@id": "dtmi:foo:bar;7",
             "name": "hi_snee",
             "schema": "date"
           }
@@ -57,7 +35,7 @@
           "@type": "Command",
           "name": "hi_floob",
           "request": {
-            "@id": "dtmi:foo:bar;999999999",
+            "@id": "dtmi:foo:bar;108675309",
             "name": "hi_spazz",
             "schema": "dateTime"
           }
@@ -79,7 +57,7 @@
           "@type": "Command",
           "name": "hi_flunn",
           "request": {
-            "@id": "dtmi:foo;1",
+            "@id": "dtmi:foo:bar;999999999",
             "name": "hi_jogg",
             "schema": "double"
           }
@@ -101,7 +79,7 @@
           "@type": "Command",
           "name": "hi_vroo",
           "request": {
-            "@id": "dtmi:foo:bar",
+            "@id": "dtmi:foo;1",
             "name": "hi_yekk",
             "schema": "duration"
           }
@@ -123,7 +101,7 @@
           "@type": "Command",
           "name": "alpha_beta",
           "request": {
-            "@id": "dtmi:foo:bar;3.14",
+            "@id": "dtmi:foo:bar",
             "name": "alpha_alpha",
             "schema": "float"
           }
@@ -145,7 +123,7 @@
           "@type": "Command",
           "name": "alpha_epsilon",
           "request": {
-            "@id": "dtmi:foo:bar;3.141592",
+            "@id": "dtmi:foo:bar;3.14",
             "name": "alpha_delta",
             "schema": "integer"
           }
@@ -154,7 +132,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -167,7 +145,7 @@
           "@type": "Command",
           "name": "alpha_theta",
           "request": {
-            "@id": null,
+            "@id": "dtmi:foo:bar;3.141592",
             "name": "alpha_eta",
             "schema": "long"
           }
@@ -178,7 +156,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -189,7 +167,6 @@
           "@type": "Command",
           "name": "alpha_lambda",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": null,
             "name": "alpha_kappa",
             "schema": "string"
@@ -201,7 +178,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -212,7 +189,8 @@
           "@type": "Command",
           "name": "alpha_xi",
           "request": {
-            "@id": 626,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": null,
             "name": "alpha_nu",
             "schema": "time"
           }
@@ -223,7 +201,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -234,7 +212,6 @@
           "@type": "Command",
           "name": "alpha_rho",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": 626,
             "name": "alpha_pi",
             "schema": "uuid"
@@ -246,7 +223,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -257,7 +234,8 @@
           "@type": "Command",
           "name": "alpha_upsilon",
           "request": {
-            "@id": true,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": 626,
             "name": "alpha_tau",
             "schema": "boolean"
           }
@@ -268,7 +246,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -279,7 +257,6 @@
           "@type": "Command",
           "name": "alpha_psi",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": true,
             "name": "alpha_chi",
             "schema": "bytes"
@@ -291,7 +268,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -302,9 +279,8 @@
           "@type": "Command",
           "name": "alpha_wum",
           "request": {
-            "@id": {
-              "@value": "dtmi:apparently:valid:identifier;3"
-            },
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": true,
             "name": "alpha_yuzz",
             "schema": "date"
           }
@@ -315,7 +291,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -326,7 +302,6 @@
           "@type": "Command",
           "name": "alpha_fuddle",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": {
               "@value": "dtmi:apparently:valid:identifier;3"
             },
@@ -340,7 +315,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -351,7 +326,10 @@
           "@type": "Command",
           "name": "alpha_snee",
           "request": {
-            "@id": "dtmi:foo:bar;0",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": {
+              "@value": "dtmi:apparently:valid:identifier;3"
+            },
             "name": "alpha_nuh",
             "schema": "double"
           }
@@ -362,7 +340,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -373,7 +351,6 @@
           "@type": "Command",
           "name": "alpha_spazz",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;0",
             "name": "alpha_thnad",
             "schema": "duration"
@@ -385,7 +362,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -396,7 +373,8 @@
           "@type": "Command",
           "name": "alpha_jogg",
           "request": {
-            "@id": "dtmi:foo:bar;0.0",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;0",
             "name": "alpha_zatz",
             "schema": "float"
           }
@@ -407,7 +385,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -418,7 +396,6 @@
           "@type": "Command",
           "name": "alpha_yekk",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;0.0",
             "name": "alpha_itch",
             "schema": "integer"
@@ -430,7 +407,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -441,7 +418,8 @@
           "@type": "Command",
           "name": "beta_alpha",
           "request": {
-            "@id": "dtmi:foo:bar;1234567890",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;0.0",
             "name": "alpha_hi",
             "schema": "long"
           }
@@ -452,7 +430,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -463,7 +441,6 @@
           "@type": "Command",
           "name": "beta_delta",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;1234567890",
             "name": "beta_gamma",
             "schema": "string"
@@ -475,7 +452,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -486,7 +463,8 @@
           "@type": "Command",
           "name": "beta_eta",
           "request": {
-            "@id": "dtmi:foo:bar;1a",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;1234567890",
             "name": "beta_zeta",
             "schema": "time"
           }
@@ -497,7 +475,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -508,7 +486,6 @@
           "@type": "Command",
           "name": "beta_kappa",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;1a",
             "name": "beta_iota",
             "schema": "uuid"
@@ -520,7 +497,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -531,7 +508,8 @@
           "@type": "Command",
           "name": "beta_nu",
           "request": {
-            "@id": "dtmi:foo:bar;3.0",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;1a",
             "name": "beta_mu",
             "schema": "boolean"
           }
@@ -542,7 +520,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -553,7 +531,6 @@
           "@type": "Command",
           "name": "beta_pi",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;3.0",
             "name": "beta_omicron",
             "schema": "bytes"
@@ -565,7 +542,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -576,7 +553,8 @@
           "@type": "Command",
           "name": "beta_tau",
           "request": {
-            "@id": "dtmi:foo:bar;3.1415926",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;3.0",
             "name": "beta_sigma",
             "schema": "date"
           }
@@ -587,7 +565,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -598,7 +576,6 @@
           "@type": "Command",
           "name": "beta_chi",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;3.1415926",
             "name": "beta_phi",
             "schema": "dateTime"
@@ -610,7 +587,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -621,7 +598,8 @@
           "@type": "Command",
           "name": "beta_yuzz",
           "request": {
-            "@id": "dtmi:foo:bar;6.02",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;3.1415926",
             "name": "beta_omega",
             "schema": "double"
           }
@@ -632,7 +610,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -643,7 +621,6 @@
           "@type": "Command",
           "name": "beta_humpf",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;6.02",
             "name": "beta_um",
             "schema": "duration"
@@ -655,7 +632,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -666,7 +643,8 @@
           "@type": "Command",
           "name": "beta_nuh",
           "request": {
-            "@id": "dtmi:foo:bar;0.1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;6.02",
             "name": "beta_glikk",
             "schema": "float"
           }
@@ -677,7 +655,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -688,7 +666,6 @@
           "@type": "Command",
           "name": "beta_thnad",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;0.1",
             "name": "beta_quan",
             "schema": "integer"
@@ -700,7 +677,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -711,7 +688,8 @@
           "@type": "Command",
           "name": "beta_zatz",
           "request": {
-            "@id": "dtmi:foo:bar;01",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;0.1",
             "name": "beta_floob",
             "schema": "long"
           }
@@ -722,7 +700,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -733,7 +711,6 @@
           "@type": "Command",
           "name": "beta_itch",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;01",
             "name": "beta_flunn",
             "schema": "string"
@@ -745,7 +722,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -756,7 +733,8 @@
           "@type": "Command",
           "name": "beta_hi",
           "request": {
-            "@id": "dtmi:foo:bar;",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;01",
             "name": "beta_vroo",
             "schema": "time"
           }
@@ -767,7 +745,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -778,7 +756,6 @@
           "@type": "Command",
           "name": "gamma_gamma",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar;",
             "name": "gamma_beta",
             "schema": "uuid"
@@ -790,7 +767,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -801,7 +778,8 @@
           "@type": "Command",
           "name": "gamma_zeta",
           "request": {
-            "@id": "dtmi:test:invalidId_;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;",
             "name": "gamma_epsilon",
             "schema": "boolean"
           }
@@ -812,7 +790,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -823,7 +801,6 @@
           "@type": "Command",
           "name": "gamma_iota",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:test:invalidId_;1",
             "name": "gamma_theta",
             "schema": "bytes"
@@ -835,7 +812,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -846,7 +823,8 @@
           "@type": "Command",
           "name": "gamma_mu",
           "request": {
-            "@id": "dtmi:test:_invalidUserId;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:test:invalidId_;1",
             "name": "gamma_lambda",
             "schema": "date"
           }
@@ -857,7 +835,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -868,7 +846,6 @@
           "@type": "Command",
           "name": "gamma_omicron",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:test:_invalidUserId;1",
             "name": "gamma_xi",
             "schema": "dateTime"
@@ -880,7 +857,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -891,7 +868,8 @@
           "@type": "Command",
           "name": "gamma_sigma",
           "request": {
-            "@id": "dtmi:test:1seg;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:test:_invalidUserId;1",
             "name": "gamma_rho",
             "schema": "double"
           }
@@ -902,7 +880,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -913,7 +891,6 @@
           "@type": "Command",
           "name": "gamma_phi",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:test:1seg;1",
             "name": "gamma_upsilon",
             "schema": "duration"
@@ -925,7 +902,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -936,7 +913,8 @@
           "@type": "Command",
           "name": "gamma_omega",
           "request": {
-            "@id": "dtmi:foo:bar.baz;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:test:1seg;1",
             "name": "gamma_psi",
             "schema": "float"
           }
@@ -947,7 +925,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -958,7 +936,6 @@
           "@type": "Command",
           "name": "gamma_um",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo:bar.baz;1",
             "name": "gamma_wum",
             "schema": "integer"
@@ -970,7 +947,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -981,7 +958,8 @@
           "@type": "Command",
           "name": "gamma_glikk",
           "request": {
-            "@id": "dtmi:foo::bar;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar.baz;1",
             "name": "gamma_fuddle",
             "schema": "long"
           }
@@ -992,7 +970,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1003,7 +981,6 @@
           "@type": "Command",
           "name": "gamma_quan",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:foo::bar;1",
             "name": "gamma_snee",
             "schema": "string"
@@ -1015,7 +992,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1026,7 +1003,8 @@
           "@type": "Command",
           "name": "gamma_floob",
           "request": {
-            "@id": "urn:foo:bar:1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo::bar;1",
             "name": "gamma_spazz",
             "schema": "time"
           }
@@ -1037,7 +1015,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1048,7 +1026,6 @@
           "@type": "Command",
           "name": "gamma_flunn",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "urn:foo:bar:1",
             "name": "gamma_jogg",
             "schema": "uuid"
@@ -1060,7 +1037,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1071,7 +1048,8 @@
           "@type": "Command",
           "name": "gamma_vroo",
           "request": {
-            "@id": "http://foo/bar/baz",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "urn:foo:bar:1",
             "name": "gamma_yekk",
             "schema": "boolean"
           }
@@ -1082,7 +1060,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1093,7 +1071,6 @@
           "@type": "Command",
           "name": "delta_beta",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "http://foo/bar/baz",
             "name": "delta_alpha",
             "schema": "bytes"
@@ -1105,7 +1082,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1116,7 +1093,8 @@
           "@type": "Command",
           "name": "delta_epsilon",
           "request": {
-            "@id": "dtmi:;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "http://foo/bar/baz",
             "name": "delta_delta",
             "schema": "date"
           }
@@ -1127,7 +1105,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1138,7 +1116,6 @@
           "@type": "Command",
           "name": "delta_theta",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:;1",
             "name": "delta_eta",
             "schema": "dateTime"
@@ -1150,7 +1127,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1161,7 +1138,8 @@
           "@type": "Command",
           "name": "delta_lambda",
           "request": {
-            "@id": "dtmi:dtdl:example;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:;1",
             "name": "delta_kappa",
             "schema": "double"
           }
@@ -1172,7 +1150,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1183,7 +1161,6 @@
           "@type": "Command",
           "name": "delta_xi",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:dtdl:example;1",
             "name": "delta_nu",
             "schema": "duration"
@@ -1195,7 +1172,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1206,9 +1183,32 @@
           "@type": "Command",
           "name": "delta_rho",
           "request": {
-            "@id": "dtmi:standard:example;1",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:dtdl:example;1",
             "name": "delta_pi",
             "schema": "float"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_phi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "delta_upsilon",
+          "request": {
+            "@id": "dtmi:standard:example;1",
+            "name": "delta_tau",
+            "schema": "integer"
           }
         }
       }
@@ -1222,16 +1222,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_phi;1",
+        "@id": "dtmi:example:delta_omega;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "delta_upsilon",
+          "name": "delta_psi",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:standard:example;1",
-            "name": "delta_tau",
-            "schema": "integer"
+            "name": "delta_chi",
+            "schema": "long"
           }
         }
       }

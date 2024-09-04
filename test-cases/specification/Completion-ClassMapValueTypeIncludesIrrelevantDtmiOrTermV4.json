@@ -7,13 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:um_humpf;1",
+        "@id": "dtmi:example:nuh_vroo;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:um_wum;1",
+          "@id": "dtmi:example:nuh_itch;1",
           "@type": "Map",
           "mapKey": {
-            "name": "um_um",
+            "name": "nuh_yekk",
             "schema": "string"
           },
           "mapValue": {
@@ -21,66 +21,7 @@
               "MapValue",
               "dtmi:foo:bar;1"
             ],
-            "name": "um_yuzz",
-            "schema": "bytes"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:um_snee;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:um_glikk;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "um_nuh",
-            "schema": "string"
-          },
-          "mapValue": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@type": [
-              "MapValue",
-              "dtmi:foo:bar;1"
-            ],
-            "name": "um_fuddle",
-            "schema": "date"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:um_floob;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:um_thnad;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "um_spazz",
-            "schema": "string"
-          },
-          "mapValue": {
-            "@type": [
-              "MapValue",
-              "boolean"
-            ],
-            "name": "um_quan",
+            "name": "nuh_flunn",
             "schema": "dateTime"
           }
         }
@@ -95,13 +36,72 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:um_itch;1",
+        "@id": "dtmi:example:snee_gamma;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:um_jogg;1",
+          "@id": "dtmi:example:snee_alpha;1",
           "@type": "Map",
           "mapKey": {
-            "name": "um_flunn",
+            "name": "snee_beta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapValue",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "nuh_hi",
+            "schema": "double"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_epsilon;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "snee_zeta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@type": [
+              "MapValue",
+              "boolean"
+            ],
+            "name": "snee_delta",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_iota;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "snee_kappa",
             "schema": "string"
           },
           "mapValue": {
@@ -110,8 +110,8 @@
               "MapValue",
               "boolean"
             ],
-            "name": "um_zatz",
-            "schema": "double"
+            "name": "snee_theta",
+            "schema": "float"
           }
         }
       }

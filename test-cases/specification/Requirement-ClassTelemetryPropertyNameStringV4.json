@@ -7,11 +7,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_fuddle;1",
+        "@id": "dtmi:example:um_hi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "uuid",
+          "schema": "bytes",
           "name": "hello"
         }
       }
@@ -25,11 +25,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_glikk;1",
+        "@id": "dtmi:example:humpf_alpha;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "boolean",
+          "schema": "date",
           "name": [
             "hello"
           ]
@@ -45,11 +45,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_nuh;1",
+        "@id": "dtmi:example:humpf_beta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "bytes",
+          "schema": "dateTime",
           "name": {
             "@value": "hello",
             "@type": "xsd:string"
@@ -66,11 +66,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_snee;1",
+        "@id": "dtmi:example:humpf_gamma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "date",
+          "schema": "double",
           "name": [
             {
               "@value": "hello",
@@ -89,49 +89,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_quan;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "dateTime",
-          "name": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_thnad;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "schema": "double",
-          "name": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_spazz;1",
+        "@id": "dtmi:example:humpf_delta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
           "schema": "duration",
-          "name": true
+          "name": null
         }
       }
     ]
@@ -144,12 +107,49 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_floob;1",
+        "@id": "dtmi:example:humpf_epsilon;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "schema": "float",
+          "name": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_zeta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "schema": "integer",
+          "name": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "long",
           "name": true
         }
       }
@@ -163,51 +163,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_zatz;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "integer",
-          "name": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_jogg;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "schema": "long",
-          "name": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_flunn;1",
+        "@id": "dtmi:example:humpf_theta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
           "schema": "string",
-          "name": [
-            null
-          ]
+          "name": 626
         }
       }
     ]
@@ -220,15 +181,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_itch;1",
+        "@id": "dtmi:example:humpf_iota;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "schema": "time",
-          "name": [
-            null
-          ]
+          "name": 626
         }
       }
     ]
@@ -241,13 +200,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_yekk;1",
+        "@id": "dtmi:example:humpf_kappa;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
           "schema": "uuid",
           "name": [
-            true
+            null
           ]
         }
       }
@@ -261,13 +220,54 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_vroo;1",
+        "@id": "dtmi:example:humpf_lambda;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "schema": "boolean",
           "name": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_mu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "schema": "bytes",
+          "name": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "date",
+          "name": [
             true
           ]
         }
@@ -282,53 +282,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:psi_hi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "bytes",
-          "name": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_alpha;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "schema": "date",
-          "name": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_beta;1",
+        "@id": "dtmi:example:humpf_xi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
           "schema": "dateTime",
-          "name": {}
+          "name": [
+            626
+          ]
         }
       }
     ]
@@ -341,12 +302,51 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_gamma;1",
+        "@id": "dtmi:example:humpf_omicron;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "schema": "double",
+          "name": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "schema": "duration",
+          "name": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "float",
           "name": {}
         }
       }
@@ -360,11 +360,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_delta;1",
+        "@id": "dtmi:example:humpf_sigma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "duration",
+          "schema": "integer",
           "name": [
             {}
           ]
@@ -380,12 +380,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_epsilon;1",
+        "@id": "dtmi:example:humpf_tau;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "schema": "float",
+          "schema": "long",
           "name": [
             {}
           ]
@@ -401,11 +401,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_zeta;1",
+        "@id": "dtmi:example:humpf_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "integer",
+          "schema": "string",
           "name": []
         }
       }
@@ -419,12 +419,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_eta;1",
+        "@id": "dtmi:example:humpf_phi;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "schema": "long",
+          "schema": "time",
           "name": []
         }
       }

@@ -7,35 +7,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_hi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "itch_vroo",
-          "request": {
-            "name": "itch_yekk",
-            "schema": "time",
-            "@type": 626
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:yekk_gamma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "yekk_beta",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_alpha",
             "schema": "uuid",
             "@type": 626
@@ -47,7 +24,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -58,9 +35,10 @@
           "@type": "Command",
           "name": "yekk_epsilon",
           "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_delta",
             "schema": "boolean",
-            "@type": null
+            "@type": 626
           }
         }
       }
@@ -69,7 +47,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -80,7 +58,6 @@
           "@type": "Command",
           "name": "yekk_theta",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_eta",
             "schema": "bytes",
             "@type": null
@@ -92,7 +69,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -103,9 +80,10 @@
           "@type": "Command",
           "name": "yekk_lambda",
           "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_kappa",
             "schema": "date",
-            "@type": true
+            "@type": null
           }
         }
       }
@@ -114,7 +92,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -125,7 +103,6 @@
           "@type": "Command",
           "name": "yekk_xi",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_nu",
             "schema": "dateTime",
             "@type": true
@@ -137,7 +114,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -148,9 +125,10 @@
           "@type": "Command",
           "name": "yekk_rho",
           "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_pi",
             "schema": "double",
-            "@type": {}
+            "@type": true
           }
         }
       }
@@ -159,7 +137,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -170,7 +148,6 @@
           "@type": "Command",
           "name": "yekk_upsilon",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_tau",
             "schema": "duration",
             "@type": {}
@@ -182,7 +159,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -193,11 +170,10 @@
           "@type": "Command",
           "name": "yekk_psi",
           "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_chi",
             "schema": "float",
-            "@type": [
-              626
-            ]
+            "@type": {}
           }
         }
       }
@@ -206,7 +182,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -217,7 +193,6 @@
           "@type": "Command",
           "name": "yekk_wum",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_yuzz",
             "schema": "integer",
             "@type": [
@@ -231,7 +206,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -242,10 +217,11 @@
           "@type": "Command",
           "name": "yekk_fuddle",
           "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_humpf",
             "schema": "long",
             "@type": [
-              null
+              626
             ]
           }
         }
@@ -255,7 +231,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -266,7 +242,6 @@
           "@type": "Command",
           "name": "yekk_snee",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_nuh",
             "schema": "string",
             "@type": [
@@ -280,7 +255,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -291,8 +266,33 @@
           "@type": "Command",
           "name": "yekk_spazz",
           "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_thnad",
             "schema": "time",
+            "@type": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_flunn;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "yekk_jogg",
+          "request": {
+            "name": "yekk_zatz",
+            "schema": "uuid",
             "@type": [
               true
             ]
@@ -309,15 +309,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yekk_flunn;1",
+        "@id": "dtmi:example:yekk_vroo;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "yekk_jogg",
+          "name": "yekk_yekk",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "yekk_zatz",
-            "schema": "uuid",
+            "name": "yekk_itch",
+            "schema": "boolean",
             "@type": [
               true
             ]
@@ -334,14 +334,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yekk_vroo;1",
+        "@id": "dtmi:example:vroo_beta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "yekk_yekk",
+          "name": "vroo_alpha",
           "request": {
-            "name": "yekk_itch",
-            "schema": "boolean",
+            "name": "yekk_hi",
+            "schema": "bytes",
             "@type": [
               {}
             ]
@@ -358,15 +358,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_beta;1",
+        "@id": "dtmi:example:vroo_epsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "vroo_alpha",
+          "name": "vroo_delta",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "yekk_hi",
-            "schema": "bytes",
+            "name": "vroo_gamma",
+            "schema": "date",
             "@type": [
               {}
             ]
