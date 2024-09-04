@@ -83,6 +83,7 @@ namespace DTDLParser.Models
             ConcreteKinds[4] = new HashSet<DTEntityKind>();
             ConcreteKinds[4].Add(DTEntityKind.Array);
             ConcreteKinds[4].Add(DTEntityKind.Boolean);
+            ConcreteKinds[4].Add(DTEntityKind.Bytes);
             ConcreteKinds[4].Add(DTEntityKind.Date);
             ConcreteKinds[4].Add(DTEntityKind.DateTime);
             ConcreteKinds[4].Add(DTEntityKind.Double);
@@ -99,7 +100,7 @@ namespace DTDLParser.Models
 
             BadTypeActionFormat[2] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.";
             BadTypeActionFormat[3] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.";
-            BadTypeActionFormat[4] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time, uuid.";
+            BadTypeActionFormat[4] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, bytes, date, dateTime, double, duration, float, integer, long, string, time, uuid.";
 
             BadTypeCauseFormat[2] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Array, Enum, Map, or Object, and it is not a standard value for this property.";
             BadTypeCauseFormat[3] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Array, Enum, Map, or Object, and it is not a standard value for this property.";

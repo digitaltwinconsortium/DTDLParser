@@ -7,13 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_omicron;1",
+        "@id": "dtmi:example:xi_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "xi_xi",
+          "name": "xi_chi",
           "response": {
-            "schema": "date",
+            "schema": "uuid",
             "name": "hello"
           }
         }
@@ -28,13 +28,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_rho;1",
+        "@id": "dtmi:example:xi_yuzz;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "xi_pi",
+          "name": "xi_omega",
           "response": {
-            "schema": "dateTime",
+            "schema": "boolean",
             "name": [
               "hello"
             ]
@@ -51,13 +51,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_tau;1",
+        "@id": "dtmi:example:xi_um;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "xi_sigma",
+          "name": "xi_wum",
           "response": {
-            "schema": "double",
+            "schema": "bytes",
             "name": {
               "@value": "hello",
               "@type": "xsd:string"
@@ -75,13 +75,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_phi;1",
+        "@id": "dtmi:example:xi_fuddle;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "xi_upsilon",
+          "name": "xi_humpf",
           "response": {
-            "schema": "duration",
+            "schema": "date",
             "name": [
               {
                 "@value": "hello",
@@ -101,100 +101,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_psi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "xi_chi",
-          "response": {
-            "schema": "float",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_yuzz;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "xi_omega",
-          "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "integer",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_um;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "xi_wum",
-          "response": {
-            "schema": "long",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:xi_fuddle;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "xi_humpf",
-          "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "string",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:xi_nuh;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "xi_glikk",
           "response": {
-            "schema": "time",
-            "name": 626
+            "schema": "dateTime",
+            "name": null
           }
         }
       }
@@ -215,8 +129,8 @@
           "name": "xi_snee",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "uuid",
-            "name": 626
+            "schema": "double",
+            "name": null
           }
         }
       }
@@ -236,10 +150,8 @@
           "@type": "Command",
           "name": "xi_thnad",
           "response": {
-            "schema": "boolean",
-            "name": [
-              null
-            ]
+            "schema": "duration",
+            "name": true
           }
         }
       }
@@ -260,10 +172,8 @@
           "name": "xi_floob",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
-            "name": [
-              null
-            ]
+            "schema": "float",
+            "name": true
           }
         }
       }
@@ -283,10 +193,8 @@
           "@type": "Command",
           "name": "xi_jogg",
           "response": {
-            "schema": "dateTime",
-            "name": [
-              true
-            ]
+            "schema": "integer",
+            "name": 626
           }
         }
       }
@@ -307,10 +215,8 @@
           "name": "xi_itch",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "double",
-            "name": [
-              true
-            ]
+            "schema": "long",
+            "name": 626
           }
         }
       }
@@ -330,9 +236,9 @@
           "@type": "Command",
           "name": "xi_vroo",
           "response": {
-            "schema": "duration",
+            "schema": "string",
             "name": [
-              626
+              null
             ]
           }
         }
@@ -354,9 +260,9 @@
           "name": "omicron_alpha",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "float",
+            "schema": "time",
             "name": [
-              626
+              null
             ]
           }
         }
@@ -377,8 +283,10 @@
           "@type": "Command",
           "name": "omicron_gamma",
           "response": {
-            "schema": "integer",
-            "name": {}
+            "schema": "uuid",
+            "name": [
+              true
+            ]
           }
         }
       }
@@ -399,8 +307,10 @@
           "name": "omicron_epsilon",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "long",
-            "name": {}
+            "schema": "boolean",
+            "name": [
+              true
+            ]
           }
         }
       }
@@ -420,9 +330,9 @@
           "@type": "Command",
           "name": "omicron_eta",
           "response": {
-            "schema": "string",
+            "schema": "bytes",
             "name": [
-              {}
+              626
             ]
           }
         }
@@ -444,9 +354,9 @@
           "name": "omicron_iota",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "time",
+            "schema": "date",
             "name": [
-              {}
+              626
             ]
           }
         }
@@ -467,8 +377,8 @@
           "@type": "Command",
           "name": "omicron_lambda",
           "response": {
-            "schema": "uuid",
-            "name": []
+            "schema": "dateTime",
+            "name": {}
           }
         }
       }
@@ -489,7 +399,97 @@
           "name": "omicron_nu",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "boolean",
+            "schema": "double",
+            "name": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "omicron_omicron",
+          "response": {
+            "schema": "duration",
+            "name": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_sigma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "omicron_rho",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "float",
+            "name": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_upsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "omicron_tau",
+          "response": {
+            "schema": "integer",
+            "name": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_chi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "omicron_phi",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "long",
             "name": []
           }
         }

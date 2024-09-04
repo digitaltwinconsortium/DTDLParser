@@ -7,36 +7,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_iota;1",
+        "@id": "dtmi:example:quan_yekk;1",
         "@type": "Interface",
         "contents": {
           "@id": [
             "dtmi:foo:bar;7"
           ],
           "@type": "Telemetry",
-          "name": "quan_theta",
-          "schema": "long"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_lambda;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": [
-            "dtmi:foo:bar;7"
-          ],
-          "@type": "Telemetry",
-          "name": "quan_kappa",
+          "name": "quan_itch",
           "schema": "string"
         }
       }
@@ -45,19 +23,20 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_nu;1",
+        "@id": "dtmi:example:quan_hi;1",
         "@type": "Interface",
         "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
           "@id": [
-            "dtmi:foo:bar;108675309"
+            "dtmi:foo:bar;7"
           ],
           "@type": "Telemetry",
-          "name": "quan_mu",
+          "name": "quan_vroo",
           "schema": "time"
         }
       }
@@ -66,12 +45,33 @@
   {
     "valid": false,
     "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_beta;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": [
+            "dtmi:foo:bar;108675309"
+          ],
+          "@type": "Telemetry",
+          "name": "thnad_alpha",
+          "schema": "uuid"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
       "AllowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_omicron;1",
+        "@id": "dtmi:example:thnad_delta;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -79,8 +79,8 @@
             "dtmi:foo:bar;108675309"
           ],
           "@type": "Telemetry",
-          "name": "quan_xi",
-          "schema": "uuid"
+          "name": "thnad_gamma",
+          "schema": "boolean"
         }
       }
     ]
@@ -93,15 +93,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_rho;1",
+        "@id": "dtmi:example:thnad_zeta;1",
         "@type": "Interface",
         "contents": {
           "@id": [
             "dtmi:foo:bar;999999999"
           ],
           "@type": "Telemetry",
-          "name": "quan_pi",
-          "schema": "boolean"
+          "name": "thnad_epsilon",
+          "schema": "bytes"
         }
       }
     ]
@@ -114,7 +114,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_tau;1",
+        "@id": "dtmi:example:thnad_theta;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -122,7 +122,7 @@
             "dtmi:foo:bar;999999999"
           ],
           "@type": "Telemetry",
-          "name": "quan_sigma",
+          "name": "thnad_eta",
           "schema": "date"
         }
       }
@@ -136,14 +136,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_phi;1",
+        "@id": "dtmi:example:thnad_kappa;1",
         "@type": "Interface",
         "contents": {
           "@id": [
             "dtmi:foo;1"
           ],
           "@type": "Telemetry",
-          "name": "quan_upsilon",
+          "name": "thnad_iota",
           "schema": "dateTime"
         }
       }
@@ -157,7 +157,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_psi;1",
+        "@id": "dtmi:example:thnad_mu;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -165,7 +165,7 @@
             "dtmi:foo;1"
           ],
           "@type": "Telemetry",
-          "name": "quan_chi",
+          "name": "thnad_lambda",
           "schema": "double"
         }
       }
@@ -179,14 +179,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_yuzz;1",
+        "@id": "dtmi:example:thnad_xi;1",
         "@type": "Interface",
         "contents": {
           "@id": [
             "dtmi:foo:bar"
           ],
           "@type": "Telemetry",
-          "name": "quan_omega",
+          "name": "thnad_nu",
           "schema": "duration"
         }
       }
@@ -200,7 +200,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_um;1",
+        "@id": "dtmi:example:thnad_pi;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -208,7 +208,7 @@
             "dtmi:foo:bar"
           ],
           "@type": "Telemetry",
-          "name": "quan_wum",
+          "name": "thnad_omicron",
           "schema": "float"
         }
       }
@@ -222,14 +222,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_fuddle;1",
+        "@id": "dtmi:example:thnad_sigma;1",
         "@type": "Interface",
         "contents": {
           "@id": [
             "dtmi:foo:bar;3.14"
           ],
           "@type": "Telemetry",
-          "name": "quan_humpf",
+          "name": "thnad_rho",
           "schema": "integer"
         }
       }
@@ -243,7 +243,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_nuh;1",
+        "@id": "dtmi:example:thnad_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -251,7 +251,7 @@
             "dtmi:foo:bar;3.14"
           ],
           "@type": "Telemetry",
-          "name": "quan_glikk",
+          "name": "thnad_tau",
           "schema": "long"
         }
       }
@@ -265,14 +265,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_quan;1",
+        "@id": "dtmi:example:thnad_chi;1",
         "@type": "Interface",
         "contents": {
           "@id": [
             "dtmi:foo:bar;3.141592"
           ],
           "@type": "Telemetry",
-          "name": "quan_snee",
+          "name": "thnad_phi",
           "schema": "string"
         }
       }
@@ -286,7 +286,7 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_spazz;1",
+        "@id": "dtmi:example:thnad_omega;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -294,7 +294,7 @@
             "dtmi:foo:bar;3.141592"
           ],
           "@type": "Telemetry",
-          "name": "quan_thnad",
+          "name": "thnad_psi",
           "schema": "time"
         }
       }

@@ -517,6 +517,8 @@
       "asynchronous": "dtmi:dtdl:instance:CommandType:asynchronous;4",
       "boolean": "dtmi:dtdl:instance:Schema:boolean;4",
       "Boolean": "dtmi:dtdl:class:Boolean;4",
+      "bytes": "dtmi:dtdl:instance:Schema:bytes;4",
+      "Bytes": "dtmi:dtdl:class:Bytes;4",
       "Command": "dtmi:dtdl:class:Command;4",
       "CommandPayload": "dtmi:dtdl:class:CommandPayload;4",
       "CommandRequest": "dtmi:dtdl:class:CommandRequest;4",
@@ -2316,6 +2318,17 @@
         "en-US": "a UTF8 string"
       },
       "displayName": "string"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:bytes;4",
+      "@type": [
+        "Bytes"
+      ],
+      "description": {
+        "en-US": "an array of bytes, either raw or Base64 encoded"
+      },
+      "displayName": "bytes"
     },
     {
       "@context": "dtmi:dtdl:context;4",
@@ -15260,6 +15273,192 @@
       ],
       "typeOptionalVersions": []
     },
+    "Bytes": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: bytes."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "Bytes"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "Bytes"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "an array of bytes, either raw or Base64 encoded"
+            },
+            "id": "dtmi:dtdl:instance:Schema:bytes;4",
+            "name": "bytes"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "jsonType": "string",
+            "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+          }
+        },
+        "criteriaText": "is a string value",
+        "typeText": "a string value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "PrimitiveSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:bytes;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Bytes",
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema"
+      ],
+      "typeOptionalVersions": []
+    },
     "Command": {
       "abstract": false,
       "badTypeActionFormat": {
@@ -19861,6 +20060,7 @@
         "4": [
           "Array",
           "Boolean",
+          "Bytes",
           "Command",
           "CommandRequest",
           "CommandResponse",
@@ -19923,6 +20123,7 @@
         ],
         "4": [
           "Boolean",
+          "Bytes",
           "CommandType",
           "Date",
           "DateTime",
@@ -20228,6 +20429,13 @@
             },
             "id": "dtmi:dtdl:instance:Schema:boolean;4",
             "name": "boolean"
+          },
+          {
+            "description": {
+              "en-us": "an array of bytes, either raw or Base64 encoded"
+            },
+            "id": "dtmi:dtdl:instance:Schema:bytes;4",
+            "name": "bytes"
           },
           {
             "description": {
@@ -26498,7 +26706,7 @@
       "badTypeActionFormat": {
         "2": "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
         "3": "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
-        "4": "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time, uuid."
+        "4": "Use one of these standard values for property '{property}'{line1}: boolean, bytes, date, dateTime, double, duration, float, integer, long, string, time, uuid."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.",
@@ -26537,6 +26745,7 @@
         ],
         "4": [
           "Boolean",
+          "Bytes",
           "Date",
           "DateTime",
           "Double",
@@ -26581,6 +26790,7 @@
         ],
         "4": [
           "Boolean",
+          "Bytes",
           "Date",
           "DateTime",
           "Double",
@@ -26745,6 +26955,13 @@
             },
             "id": "dtmi:dtdl:instance:Schema:boolean;4",
             "name": "boolean"
+          },
+          {
+            "description": {
+              "en-us": "an array of bytes, either raw or Base64 encoded"
+            },
+            "id": "dtmi:dtdl:instance:Schema:bytes;4",
+            "name": "bytes"
           },
           {
             "description": {
@@ -28119,7 +28336,7 @@
       "badTypeActionFormat": {
         "2": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
         "3": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
-        "4": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time, uuid."
+        "4": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, bytes, date, dateTime, double, duration, float, integer, long, string, time, uuid."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Array, Enum, Map, or Object, and it is not a standard value for this property.",
@@ -28167,6 +28384,7 @@
         "4": [
           "Array",
           "Boolean",
+          "Bytes",
           "Date",
           "DateTime",
           "Double",
@@ -28214,6 +28432,7 @@
         ],
         "4": [
           "Boolean",
+          "Bytes",
           "Date",
           "DateTime",
           "Double",
@@ -28476,6 +28695,13 @@
             },
             "id": "dtmi:dtdl:instance:Schema:boolean;4",
             "name": "boolean"
+          },
+          {
+            "description": {
+              "en-us": "an array of bytes, either raw or Base64 encoded"
+            },
+            "id": "dtmi:dtdl:instance:Schema:bytes;4",
+            "name": "bytes"
           },
           {
             "description": {
@@ -31802,6 +32028,7 @@
       "cotypes": [
         "Array",
         "Boolean",
+        "Bytes",
         "Command",
         "CommandPayload",
         "CommandRequest",
@@ -31915,6 +32142,7 @@
       "cotypes": [
         "Array",
         "Boolean",
+        "Bytes",
         "Command",
         "CommandRequest",
         "CommandResponse",
@@ -35360,6 +35588,7 @@
       "cotypes": [
         "Array",
         "Boolean",
+        "Bytes",
         "Command",
         "CommandPayload",
         "CommandRequest",

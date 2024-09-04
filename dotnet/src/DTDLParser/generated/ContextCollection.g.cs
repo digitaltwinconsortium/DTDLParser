@@ -1410,6 +1410,8 @@ namespace DTDLParser
             context4_0.AddTermDefinition("asynchronous", new Dtmi("dtmi:dtdl:instance:CommandType:asynchronous;4"), isMergeableType: false);
             context4_0.AddTermDefinition("boolean", new Dtmi("dtmi:dtdl:instance:Schema:boolean;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Boolean", new Dtmi("dtmi:dtdl:class:Boolean;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("bytes", new Dtmi("dtmi:dtdl:instance:Schema:bytes;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Bytes", new Dtmi("dtmi:dtdl:class:Bytes;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Command", new Dtmi("dtmi:dtdl:class:Command;4"), isMergeableType: false);
             context4_0.AddTermDefinition("CommandPayload", new Dtmi("dtmi:dtdl:class:CommandPayload;4"), isMergeableType: false);
             context4_0.AddTermDefinition("CommandRequest", new Dtmi("dtmi:dtdl:class:CommandRequest;4"), isMergeableType: false);

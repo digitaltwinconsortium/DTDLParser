@@ -7,218 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_zeta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_delta;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_epsilon",
-            "schema": "float"
-          },
-          "mapKey": {
-            "name": "nuh_gamma",
-            "schema": "string",
-            "@type": 626
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_kappa;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_theta;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_iota",
-            "schema": "integer"
-          },
-          "mapKey": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "nuh_eta",
-            "schema": "string",
-            "@type": 626
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_xi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_mu;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_nu",
-            "schema": "long"
-          },
-          "mapKey": {
-            "name": "nuh_lambda",
-            "schema": "string",
-            "@type": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_sigma;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_pi;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_rho",
-            "schema": "string"
-          },
-          "mapKey": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "nuh_omicron",
-            "schema": "string",
-            "@type": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_chi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_upsilon;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_phi",
-            "schema": "time"
-          },
-          "mapKey": {
-            "name": "nuh_tau",
-            "schema": "string",
-            "@type": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_wum;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_omega;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_yuzz",
-            "schema": "uuid"
-          },
-          "mapKey": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "nuh_psi",
-            "schema": "string",
-            "@type": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_glikk;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_humpf;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_fuddle",
-            "schema": "boolean"
-          },
-          "mapKey": {
-            "name": "nuh_um",
-            "schema": "string",
-            "@type": {}
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_thnad;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_snee;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "nuh_quan",
-            "schema": "date"
-          },
-          "mapKey": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "nuh_nuh",
-            "schema": "string",
-            "@type": {}
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:nuh_jogg;1",
         "@type": "Interface",
         "schemas": {
@@ -226,14 +14,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "nuh_zatz",
-            "schema": "dateTime"
+            "schema": "string"
           },
           "mapKey": {
             "name": "nuh_spazz",
             "schema": "string",
-            "@type": [
-              626
-            ]
+            "@type": 626
           }
         }
       }
@@ -254,15 +40,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "nuh_yekk",
-            "schema": "double"
+            "schema": "time"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "nuh_flunn",
             "schema": "string",
-            "@type": [
-              626
-            ]
+            "@type": 626
           }
         }
       }
@@ -283,14 +67,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "snee_beta",
-            "schema": "duration"
+            "schema": "uuid"
           },
           "mapKey": {
             "name": "nuh_hi",
             "schema": "string",
-            "@type": [
-              null
-            ]
+            "@type": null
           }
         }
       }
@@ -311,15 +93,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "snee_zeta",
-            "schema": "float"
+            "schema": "boolean"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "snee_delta",
             "schema": "string",
-            "@type": [
-              null
-            ]
+            "@type": null
           }
         }
       }
@@ -340,14 +120,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "snee_kappa",
-            "schema": "integer"
+            "schema": "bytes"
           },
           "mapKey": {
             "name": "snee_theta",
             "schema": "string",
-            "@type": [
-              true
-            ]
+            "@type": true
           }
         }
       }
@@ -368,15 +146,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "snee_xi",
-            "schema": "long"
+            "schema": "date"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "snee_mu",
             "schema": "string",
-            "@type": [
-              true
-            ]
+            "@type": true
           }
         }
       }
@@ -397,14 +173,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "snee_sigma",
-            "schema": "string"
+            "schema": "dateTime"
           },
           "mapKey": {
             "name": "snee_pi",
             "schema": "string",
-            "@type": [
-              {}
-            ]
+            "@type": {}
           }
         }
       }
@@ -425,11 +199,237 @@
           "@type": "Map",
           "mapValue": {
             "name": "snee_chi",
-            "schema": "time"
+            "schema": "double"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "snee_upsilon",
+            "schema": "string",
+            "@type": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_um;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_yuzz;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "snee_wum",
+            "schema": "duration"
+          },
+          "mapKey": {
+            "name": "snee_omega",
+            "schema": "string",
+            "@type": [
+              626
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_nuh;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_fuddle;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "snee_glikk",
+            "schema": "float"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "snee_humpf",
+            "schema": "string",
+            "@type": [
+              626
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_spazz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_quan;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "snee_thnad",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "name": "snee_snee",
+            "schema": "string",
+            "@type": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_zatz;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "snee_jogg",
+            "schema": "long"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "snee_floob",
+            "schema": "string",
+            "@type": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_yekk;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "snee_vroo",
+            "schema": "string"
+          },
+          "mapKey": {
+            "name": "snee_itch",
+            "schema": "string",
+            "@type": [
+              true
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_beta;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "quan_gamma",
+            "schema": "time"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "quan_alpha",
+            "schema": "string",
+            "@type": [
+              true
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_theta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_zeta;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "quan_eta",
+            "schema": "uuid"
+          },
+          "mapKey": {
+            "name": "quan_epsilon",
+            "schema": "string",
+            "@type": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_kappa;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "quan_lambda",
+            "schema": "boolean"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "quan_iota",
             "schema": "string",
             "@type": [
               {}

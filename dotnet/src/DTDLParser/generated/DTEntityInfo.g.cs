@@ -110,6 +110,7 @@ namespace DTDLParser.Models
             ConcreteKinds[4] = new HashSet<DTEntityKind>();
             ConcreteKinds[4].Add(DTEntityKind.Array);
             ConcreteKinds[4].Add(DTEntityKind.Boolean);
+            ConcreteKinds[4].Add(DTEntityKind.Bytes);
             ConcreteKinds[4].Add(DTEntityKind.Command);
             ConcreteKinds[4].Add(DTEntityKind.CommandRequest);
             ConcreteKinds[4].Add(DTEntityKind.CommandResponse);
@@ -1907,6 +1908,16 @@ namespace DTDLParser.Models
 
                     elementInfo.JsonLdElements[string.Empty] = elt;
                     materialKinds.Add(DTEntityKind.Boolean);
+                    return true;
+                case "Bytes":
+                case "dtmi:dtdl:class:Bytes;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTBytesInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.Bytes);
                     return true;
                 case "Command":
                 case "dtmi:dtdl:class:Command;4":

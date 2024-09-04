@@ -7,58 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:flunn_psi;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:flunn_chi;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "flunn_phi",
-            "request": {
-              "name": "flunn_upsilon",
-              "schema": "boolean",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:flunn_um;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:flunn_wum;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "flunn_yuzz",
-            "request": {
-              "name": "flunn_omega",
-              "schema": "date",
-              "@context": []
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:flunn_nuh;1",
         "@type": "Interface",
         "extends": {
@@ -69,10 +17,8 @@
             "name": "flunn_fuddle",
             "request": {
               "name": "flunn_humpf",
-              "schema": "dateTime",
-              "@context": [
-                "dtmi:dtdl:extension:quantitativeTypes;1"
-              ]
+              "schema": "long",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
             }
           }
         }
@@ -80,7 +26,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -97,8 +43,8 @@
             "name": "flunn_quan",
             "request": {
               "name": "flunn_snee",
-              "schema": "double",
-              "@context": null
+              "schema": "string",
+              "@context": []
             }
           }
         }
@@ -106,7 +52,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -123,8 +69,10 @@
             "name": "flunn_zatz",
             "request": {
               "name": "flunn_floob",
-              "schema": "duration",
-              "@context": 626
+              "schema": "time",
+              "@context": [
+                "dtmi:dtdl:extension:quantitativeTypes;1"
+              ]
             }
           }
         }
@@ -149,8 +97,8 @@
             "name": "flunn_yekk",
             "request": {
               "name": "flunn_itch",
-              "schema": "float",
-              "@context": true
+              "schema": "uuid",
+              "@context": null
             }
           }
         }
@@ -175,10 +123,8 @@
             "name": "itch_beta",
             "request": {
               "name": "itch_alpha",
-              "schema": "integer",
-              "@context": [
-                null
-              ]
+              "schema": "boolean",
+              "@context": 626
             }
           }
         }
@@ -203,10 +149,8 @@
             "name": "itch_zeta",
             "request": {
               "name": "itch_epsilon",
-              "schema": "long",
-              "@context": [
-                626
-              ]
+              "schema": "bytes",
+              "@context": true
             }
           }
         }
@@ -231,9 +175,9 @@
             "name": "itch_kappa",
             "request": {
               "name": "itch_iota",
-              "schema": "string",
+              "schema": "date",
               "@context": [
-                true
+                null
               ]
             }
           }
@@ -259,8 +203,10 @@
             "name": "itch_xi",
             "request": {
               "name": "itch_nu",
-              "schema": "time",
-              "@context": {}
+              "schema": "dateTime",
+              "@context": [
+                626
+              ]
             }
           }
         }
@@ -285,9 +231,9 @@
             "name": "itch_sigma",
             "request": {
               "name": "itch_rho",
-              "schema": "uuid",
+              "schema": "double",
               "@context": [
-                {}
+                true
               ]
             }
           }
@@ -313,8 +259,8 @@
             "name": "itch_chi",
             "request": {
               "name": "itch_phi",
-              "schema": "boolean",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes"
+              "schema": "duration",
+              "@context": {}
             }
           }
         }
@@ -339,8 +285,10 @@
             "name": "itch_wum",
             "request": {
               "name": "itch_yuzz",
-              "schema": "date",
-              "@context": "http://dtdl/extension/quantitativeTypes/1"
+              "schema": "float",
+              "@context": [
+                {}
+              ]
             }
           }
         }
@@ -365,7 +313,59 @@
             "name": "itch_glikk",
             "request": {
               "name": "itch_fuddle",
-              "schema": "dateTime",
+              "schema": "integer",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_floob;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:itch_spazz;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "itch_thnad",
+            "request": {
+              "name": "itch_quan",
+              "schema": "long",
+              "@context": "http://dtdl/extension/quantitativeTypes/1"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_itch;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:itch_flunn;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "itch_jogg",
+            "request": {
+              "name": "itch_zatz",
+              "schema": "string",
               "@context": "quantitativeTypes;1"
             }
           }

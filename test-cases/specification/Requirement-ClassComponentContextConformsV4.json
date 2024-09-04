@@ -7,58 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:iota_phi;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:iota_upsilon;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Component",
-            "name": "iota_sigma",
-            "schema": {
-              "@id": "dtmi:example:iota_tau;1",
-              "@type": "Interface"
-            },
-            "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:iota_yuzz;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:iota_omega;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Component",
-            "name": "iota_chi",
-            "schema": {
-              "@id": "dtmi:example:iota_psi;1",
-              "@type": "Interface"
-            },
-            "@context": []
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:iota_fuddle;1",
         "@type": "Interface",
         "extends": {
@@ -71,16 +19,14 @@
               "@id": "dtmi:example:iota_um;1",
               "@type": "Interface"
             },
-            "@context": [
-              "dtmi:dtdl:extension:quantitativeTypes;1"
-            ]
+            "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
           }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -99,14 +45,14 @@
               "@id": "dtmi:example:iota_nuh;1",
               "@type": "Interface"
             },
-            "@context": null
+            "@context": []
           }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -125,7 +71,9 @@
               "@id": "dtmi:example:iota_spazz;1",
               "@type": "Interface"
             },
-            "@context": 626
+            "@context": [
+              "dtmi:dtdl:extension:quantitativeTypes;1"
+            ]
           }
         }
       }
@@ -151,7 +99,7 @@
               "@id": "dtmi:example:iota_flunn;1",
               "@type": "Interface"
             },
-            "@context": true
+            "@context": null
           }
         }
       }
@@ -177,9 +125,7 @@
               "@id": "dtmi:example:iota_hi;1",
               "@type": "Interface"
             },
-            "@context": [
-              null
-            ]
+            "@context": 626
           }
         }
       }
@@ -205,9 +151,7 @@
               "@id": "dtmi:example:kappa_delta;1",
               "@type": "Interface"
             },
-            "@context": [
-              626
-            ]
+            "@context": true
           }
         }
       }
@@ -234,7 +178,7 @@
               "@type": "Interface"
             },
             "@context": [
-              true
+              null
             ]
           }
         }
@@ -261,7 +205,9 @@
               "@id": "dtmi:example:kappa_mu;1",
               "@type": "Interface"
             },
-            "@context": {}
+            "@context": [
+              626
+            ]
           }
         }
       }
@@ -288,7 +234,7 @@
               "@type": "Interface"
             },
             "@context": [
-              {}
+              true
             ]
           }
         }
@@ -315,7 +261,7 @@
               "@id": "dtmi:example:kappa_upsilon;1",
               "@type": "Interface"
             },
-            "@context": "dtmi:dtdl:extension:quantitativeTypes"
+            "@context": {}
           }
         }
       }
@@ -341,7 +287,9 @@
               "@id": "dtmi:example:kappa_omega;1",
               "@type": "Interface"
             },
-            "@context": "http://dtdl/extension/quantitativeTypes/1"
+            "@context": [
+              {}
+            ]
           }
         }
       }
@@ -365,6 +313,58 @@
             "name": "kappa_um",
             "schema": {
               "@id": "dtmi:example:kappa_humpf;1",
+              "@type": "Interface"
+            },
+            "@context": "dtmi:dtdl:extension:quantitativeTypes"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:kappa_thnad;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:kappa_quan;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "kappa_nuh",
+            "schema": {
+              "@id": "dtmi:example:kappa_snee;1",
+              "@type": "Interface"
+            },
+            "@context": "http://dtdl/extension/quantitativeTypes/1"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:kappa_jogg;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:kappa_zatz;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "kappa_spazz",
+            "schema": {
+              "@id": "dtmi:example:kappa_floob;1",
               "@type": "Interface"
             },
             "@context": "quantitativeTypes;1"

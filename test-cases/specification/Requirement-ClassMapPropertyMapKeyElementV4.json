@@ -7,20 +7,20 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:humpf_nuh;1",
+        "@id": "dtmi:example:fuddle_delta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "humpf_glikk",
+          "name": "fuddle_gamma",
           "schema": {
             "@type": "Map",
             "mapValue": {
-              "name": "humpf_fuddle",
-              "schema": "float"
+              "name": "fuddle_beta",
+              "schema": "date"
             },
             "mapKey": {
-              "@id": "dtmi:example:humpf_um;1",
-              "name": "humpf_humpf",
+              "@id": "dtmi:example:humpf_hi;1",
+              "name": "fuddle_alpha",
               "schema": "string"
             }
           }
@@ -36,21 +36,21 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:humpf_floob;1",
+        "@id": "dtmi:example:fuddle_iota;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "humpf_spazz",
+          "name": "fuddle_theta",
           "schema": {
             "@type": "Map",
             "mapValue": {
-              "name": "humpf_thnad",
-              "schema": "integer"
+              "name": "fuddle_eta",
+              "schema": "dateTime"
             },
             "mapKey": [
               {
-                "@id": "dtmi:example:humpf_snee;1",
-                "name": "humpf_quan",
+                "@id": "dtmi:example:fuddle_epsilon;1",
+                "name": "fuddle_zeta",
                 "schema": "string"
               }
             ]
@@ -67,29 +67,29 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:humpf_itch;1",
+        "@id": "dtmi:example:fuddle_nu;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:humpf_jogg;1",
+          "@id": "dtmi:example:fuddle_lambda;1",
           "@type": "Map",
           "mapValue": {
-            "name": "humpf_flunn",
-            "schema": "long"
+            "name": "fuddle_mu",
+            "schema": "double"
           },
           "mapKey": {
             "@id": "dtmi:ex:dependentRef;1",
-            "name": "humpf_zatz",
+            "name": "fuddle_kappa",
             "schema": "string"
           }
         },
         "contents": {
           "@type": "Property",
-          "name": "humpf_vroo",
+          "name": "fuddle_omicron",
           "schema": {
             "@type": "Map",
             "mapValue": {
-              "name": "humpf_yekk",
-              "schema": "string"
+              "name": "fuddle_xi",
+              "schema": "duration"
             },
             "mapKey": "dtmi:ex:dependentRef;1"
           }
@@ -105,29 +105,29 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:fuddle_gamma;1",
+        "@id": "dtmi:example:fuddle_tau;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:fuddle_alpha;1",
+          "@id": "dtmi:example:fuddle_rho;1",
           "@type": "Map",
           "mapValue": {
-            "name": "fuddle_beta",
-            "schema": "time"
+            "name": "fuddle_sigma",
+            "schema": "float"
           },
           "mapKey": {
             "@id": "dtmi:ex:dependentRef;1",
-            "name": "humpf_hi",
+            "name": "fuddle_pi",
             "schema": "string"
           }
         },
         "contents": {
           "@type": "Property",
-          "name": "fuddle_epsilon",
+          "name": "fuddle_phi",
           "schema": {
             "@type": "Map",
             "mapValue": {
-              "name": "fuddle_delta",
-              "schema": "uuid"
+              "name": "fuddle_upsilon",
+              "schema": "integer"
             },
             "mapKey": [
               "dtmi:ex:dependentRef;1"
@@ -145,140 +145,23 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:fuddle_kappa;1",
+        "@id": "dtmi:example:fuddle_wum;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "fuddle_iota",
+          "name": "fuddle_yuzz",
           "schema": {
             "@type": "Map",
             "mapValue": {
-              "name": "fuddle_theta",
-              "schema": "boolean"
+              "name": "fuddle_omega",
+              "schema": "long"
             },
             "mapKey": {
-              "@id": "dtmi:example:fuddle_zeta;1",
-              "name": "fuddle_eta",
-              "schema": "string",
-              "@context": "dtmi:dtdl:context;2"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:fuddle_omicron;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "fuddle_xi",
-          "schema": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@type": "Map",
-            "mapValue": {
-              "name": "fuddle_nu",
-              "schema": "date"
-            },
-            "mapKey": {
-              "@id": "dtmi:example:fuddle_lambda;1",
-              "name": "fuddle_mu",
-              "schema": "string",
-              "@context": "dtmi:dtdl:context;2"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:fuddle_upsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "fuddle_tau",
-          "schema": {
-            "@type": "Map",
-            "mapValue": {
-              "name": "fuddle_sigma",
-              "schema": "dateTime"
-            },
-            "mapKey": {
-              "@id": "dtmi:example:fuddle_pi;1",
-              "name": "fuddle_rho",
-              "schema": "string",
-              "@context": "dtmi:dtdl:context;3"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:fuddle_yuzz;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "fuddle_omega",
-          "schema": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@type": "Map",
-            "mapValue": {
+              "@id": "dtmi:example:fuddle_chi;1",
               "name": "fuddle_psi",
-              "schema": "double"
-            },
-            "mapKey": {
-              "@id": "dtmi:example:fuddle_phi;1",
-              "name": "fuddle_chi",
               "schema": "string",
-              "@context": "dtmi:dtdl:context;3"
+              "@context": "dtmi:dtdl:context;2"
             }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:fuddle_humpf;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "fuddle_um",
-          "schema": {
-            "@type": "Map",
-            "mapValue": {
-              "name": "fuddle_wum",
-              "schema": "duration"
-            },
-            "mapKey": []
           }
         }
       }
@@ -302,7 +185,124 @@
             "@type": "Map",
             "mapValue": {
               "name": "fuddle_fuddle",
-              "schema": "float"
+              "schema": "string"
+            },
+            "mapKey": {
+              "@id": "dtmi:example:fuddle_um;1",
+              "name": "fuddle_humpf",
+              "schema": "string",
+              "@context": "dtmi:dtdl:context;2"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:fuddle_floob;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "fuddle_spazz",
+          "schema": {
+            "@type": "Map",
+            "mapValue": {
+              "name": "fuddle_thnad",
+              "schema": "time"
+            },
+            "mapKey": {
+              "@id": "dtmi:example:fuddle_snee;1",
+              "name": "fuddle_quan",
+              "schema": "string",
+              "@context": "dtmi:dtdl:context;3"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:fuddle_yekk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "fuddle_itch",
+          "schema": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": "Map",
+            "mapValue": {
+              "name": "fuddle_flunn",
+              "schema": "uuid"
+            },
+            "mapKey": {
+              "@id": "dtmi:example:fuddle_zatz;1",
+              "name": "fuddle_jogg",
+              "schema": "string",
+              "@context": "dtmi:dtdl:context;3"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "fuddle_hi",
+          "schema": {
+            "@type": "Map",
+            "mapValue": {
+              "name": "fuddle_vroo",
+              "schema": "boolean"
+            },
+            "mapKey": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_delta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "glikk_gamma",
+          "schema": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": "Map",
+            "mapValue": {
+              "name": "glikk_beta",
+              "schema": "bytes"
             },
             "mapKey": []
           }
@@ -318,26 +318,26 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:fuddle_jogg;1",
+        "@id": "dtmi:example:glikk_lambda;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "fuddle_zatz",
+          "name": "glikk_kappa",
           "schema": {
             "@type": "Map",
             "mapValue": {
-              "name": "fuddle_floob",
-              "schema": "integer"
+              "name": "glikk_iota",
+              "schema": "date"
             },
             "mapKey": [
               {
-                "@id": "dtmi:example:fuddle_snee;1",
-                "name": "fuddle_quan",
+                "@id": "dtmi:example:glikk_epsilon;1",
+                "name": "glikk_zeta",
                 "schema": "string"
               },
               {
-                "@id": "dtmi:example:fuddle_thnad;1",
-                "name": "fuddle_spazz",
+                "@id": "dtmi:example:glikk_eta;1",
+                "name": "glikk_theta",
                 "schema": "string"
               }
             ]
@@ -354,27 +354,27 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_beta;1",
+        "@id": "dtmi:example:glikk_sigma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "glikk_alpha",
+          "name": "glikk_rho",
           "schema": {
             "@context": "dtmi:undefinedExtension:context;1",
             "@type": "Map",
             "mapValue": {
-              "name": "fuddle_hi",
-              "schema": "long"
+              "name": "glikk_pi",
+              "schema": "dateTime"
             },
             "mapKey": [
               {
-                "@id": "dtmi:example:fuddle_flunn;1",
-                "name": "fuddle_itch",
+                "@id": "dtmi:example:glikk_mu;1",
+                "name": "glikk_nu",
                 "schema": "string"
               },
               {
-                "@id": "dtmi:example:fuddle_yekk;1",
-                "name": "fuddle_vroo",
+                "@id": "dtmi:example:glikk_xi;1",
+                "name": "glikk_omicron",
                 "schema": "string"
               }
             ]

@@ -32,6 +32,8 @@ namespace DTDLParser
             TypeNames.Add("dtmi:dtdl:class:Boolean;2");
             TypeNames.Add("dtmi:dtdl:class:Boolean;3");
             TypeNames.Add("dtmi:dtdl:class:Boolean;4");
+            TypeNames.Add("Bytes");
+            TypeNames.Add("dtmi:dtdl:class:Bytes;4");
             TypeNames.Add("Command");
             TypeNames.Add("dtmi:dtdl:class:Command;2");
             TypeNames.Add("dtmi:dtdl:class:Command;3");

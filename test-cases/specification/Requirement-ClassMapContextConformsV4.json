@@ -7,124 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_pi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_omicron",
-          "schema": {
-            "@type": "Map",
-            "mapKey": {
-              "name": "itch_nu",
-              "schema": "string"
-            },
-            "mapValue": {
-              "name": "itch_xi",
-              "schema": "dateTime"
-            },
-            "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_upsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_tau",
-          "schema": {
-            "@type": "Map",
-            "mapKey": {
-              "name": "itch_rho",
-              "schema": "string"
-            },
-            "mapValue": {
-              "name": "itch_sigma",
-              "schema": "double"
-            },
-            "@context": []
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_omega;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_psi",
-          "schema": {
-            "@type": "Map",
-            "mapKey": {
-              "name": "itch_phi",
-              "schema": "string"
-            },
-            "mapValue": {
-              "name": "itch_chi",
-              "schema": "duration"
-            },
-            "@context": [
-              "dtmi:dtdl:extension:quantitativeTypes;1"
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_humpf;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_um",
-          "schema": {
-            "@type": "Map",
-            "mapKey": {
-              "name": "itch_yuzz",
-              "schema": "string"
-            },
-            "mapValue": {
-              "name": "itch_wum",
-              "schema": "float"
-            },
-            "@context": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:itch_snee;1",
         "@type": "Interface",
         "contents": {
@@ -138,16 +20,16 @@
             },
             "mapValue": {
               "name": "itch_glikk",
-              "schema": "integer"
+              "schema": "bytes"
             },
-            "@context": 626
+            "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
           }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -167,16 +49,16 @@
             },
             "mapValue": {
               "name": "itch_thnad",
-              "schema": "long"
+              "schema": "date"
             },
-            "@context": true
+            "@context": []
           }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -196,10 +78,10 @@
             },
             "mapValue": {
               "name": "itch_jogg",
-              "schema": "string"
+              "schema": "dateTime"
             },
             "@context": [
-              null
+              "dtmi:dtdl:extension:quantitativeTypes;1"
             ]
           }
         }
@@ -227,11 +109,9 @@
             },
             "mapValue": {
               "name": "itch_vroo",
-              "schema": "time"
+              "schema": "double"
             },
-            "@context": [
-              626
-            ]
+            "@context": null
           }
         }
       }
@@ -258,11 +138,9 @@
             },
             "mapValue": {
               "name": "yekk_gamma",
-              "schema": "uuid"
+              "schema": "duration"
             },
-            "@context": [
-              true
-            ]
+            "@context": 626
           }
         }
       }
@@ -289,9 +167,9 @@
             },
             "mapValue": {
               "name": "yekk_eta",
-              "schema": "boolean"
+              "schema": "float"
             },
-            "@context": {}
+            "@context": true
           }
         }
       }
@@ -318,10 +196,10 @@
             },
             "mapValue": {
               "name": "yekk_lambda",
-              "schema": "date"
+              "schema": "integer"
             },
             "@context": [
-              {}
+              null
             ]
           }
         }
@@ -349,9 +227,11 @@
             },
             "mapValue": {
               "name": "yekk_omicron",
-              "schema": "dateTime"
+              "schema": "long"
             },
-            "@context": "dtmi:dtdl:extension:quantitativeTypes"
+            "@context": [
+              626
+            ]
           }
         }
       }
@@ -378,9 +258,11 @@
             },
             "mapValue": {
               "name": "yekk_tau",
-              "schema": "double"
+              "schema": "string"
             },
-            "@context": "http://dtdl/extension/quantitativeTypes/1"
+            "@context": [
+              true
+            ]
           }
         }
       }
@@ -407,7 +289,125 @@
             },
             "mapValue": {
               "name": "yekk_psi",
-              "schema": "duration"
+              "schema": "time"
+            },
+            "@context": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_fuddle;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_humpf",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "yekk_wum",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "yekk_um",
+              "schema": "uuid"
+            },
+            "@context": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_snee",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "yekk_glikk",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "yekk_nuh",
+              "schema": "boolean"
+            },
+            "@context": "dtmi:dtdl:extension:quantitativeTypes"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_zatz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_floob",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "yekk_thnad",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "yekk_spazz",
+              "schema": "bytes"
+            },
+            "@context": "http://dtdl/extension/quantitativeTypes/1"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yekk_yekk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_itch",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "yekk_jogg",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "yekk_flunn",
+              "schema": "date"
             },
             "@context": "quantitativeTypes;1"
           }

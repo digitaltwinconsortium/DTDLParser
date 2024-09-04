@@ -13,6 +13,12 @@ export interface BooleanInfo extends PrimitiveSchemaInfo {
 
 export type BooleanType = BooleanInfo;
 
+export interface BytesInfo extends PrimitiveSchemaInfo {
+  EntityKind: 'Bytes';
+}
+
+export type BytesType = BytesInfo;
+
 export interface CommandInfo extends ContentInfo {
   EntityKind: 'Command';
   commandType?: string;
@@ -90,7 +96,7 @@ export interface DurationInfo extends TemporalSchemaInfo {
 export type DurationType = DurationInfo;
 
 export interface EntityInfo {
-  EntityKind: 'Array' | 'Boolean' | 'Command' | 'CommandPayload' | 'CommandType' | 'Component' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'EnumValue' | 'Field' | 'Float' | 'Integer' | 'Interface' | 'Long' | 'Map' | 'MapKey' | 'MapValue' | 'Object' | 'Property' | 'Relationship' | 'String' | 'Telemetry' | 'Time' | 'CommandRequest' | 'CommandResponse' | 'Uuid' | 'Unit' | 'UnitAttribute' | 'LatentType' | 'NamedLatentType';
+  EntityKind: 'Array' | 'Boolean' | 'Command' | 'CommandPayload' | 'CommandType' | 'Component' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'EnumValue' | 'Field' | 'Float' | 'Integer' | 'Interface' | 'Long' | 'Map' | 'MapKey' | 'MapValue' | 'Object' | 'Property' | 'Relationship' | 'String' | 'Telemetry' | 'Time' | 'CommandRequest' | 'CommandResponse' | 'Bytes' | 'Uuid' | 'Unit' | 'UnitAttribute' | 'LatentType' | 'NamedLatentType';
   SupplementalTypes: string[];
   SupplementalProperties: { [property: string]: any };
   UndefinedTypes: string[];
@@ -215,10 +221,10 @@ export interface ObjectInfo extends ComplexSchemaInfo {
 export type ObjectType = ObjectInfo;
 
 export interface PrimitiveSchemaInfo extends SchemaInfo {
-  EntityKind: 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Float' | 'Integer' | 'Long' | 'String' | 'Time' | 'Uuid';
+  EntityKind: 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Float' | 'Integer' | 'Long' | 'String' | 'Time' | 'Bytes' | 'Uuid';
 }
 
-export type PrimitiveSchemaType = PrimitiveSchemaInfo | BooleanType | NumericSchemaType | StringType | TemporalSchemaType | UuidType;
+export type PrimitiveSchemaType = PrimitiveSchemaInfo | BooleanType | BytesType | NumericSchemaType | StringType | TemporalSchemaType | UuidType;
 
 export interface PropertyInfo extends ContentInfo {
   EntityKind: 'Property';
@@ -240,7 +246,7 @@ export interface RelationshipInfo extends ContentInfo {
 export type RelationshipType = RelationshipInfo;
 
 export interface SchemaInfo extends EntityInfo {
-  EntityKind: 'Array' | 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'Float' | 'Integer' | 'Long' | 'Map' | 'Object' | 'String' | 'Time' | 'Uuid';
+  EntityKind: 'Array' | 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'Float' | 'Integer' | 'Long' | 'Map' | 'Object' | 'String' | 'Time' | 'Bytes' | 'Uuid';
 }
 
 export type SchemaType = SchemaInfo | ComplexSchemaType | PrimitiveSchemaType;

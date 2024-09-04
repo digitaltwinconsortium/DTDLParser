@@ -7,14 +7,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_iota;1",
+        "@id": "dtmi:example:quan_rho;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_theta",
+          "name": "quan_pi",
           "response": {
-            "name": "quan_eta",
-            "schema": "string",
+            "name": "quan_omicron",
+            "schema": "uuid",
             "comment": "hello"
           }
         }
@@ -29,14 +29,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_mu;1",
+        "@id": "dtmi:example:quan_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_lambda",
+          "name": "quan_tau",
           "response": {
-            "name": "quan_kappa",
-            "schema": "time",
+            "name": "quan_sigma",
+            "schema": "boolean",
             "comment": [
               "hello"
             ]
@@ -53,14 +53,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_omicron;1",
+        "@id": "dtmi:example:quan_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_xi",
+          "name": "quan_chi",
           "response": {
-            "name": "quan_nu",
-            "schema": "uuid",
+            "name": "quan_phi",
+            "schema": "bytes",
             "comment": {
               "@value": "hello",
               "@type": "xsd:string"
@@ -78,14 +78,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_sigma;1",
+        "@id": "dtmi:example:quan_wum;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_rho",
+          "name": "quan_yuzz",
           "response": {
-            "name": "quan_pi",
-            "schema": "boolean",
+            "name": "quan_omega",
+            "schema": "date",
             "comment": [
               {
                 "@value": "hello",
@@ -105,14 +105,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_phi;1",
+        "@id": "dtmi:example:quan_fuddle;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_upsilon",
+          "name": "quan_humpf",
           "response": {
-            "name": "quan_tau",
-            "schema": "date",
+            "name": "quan_um",
+            "schema": "dateTime",
             "comment": []
           }
         }
@@ -127,36 +127,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_omega;1",
+        "@id": "dtmi:example:quan_snee;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_psi",
+          "name": "quan_nuh",
           "response": {
-            "name": "quan_chi",
-            "schema": "dateTime",
-            "comment": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_um;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "quan_wum",
-          "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "quan_yuzz",
+            "name": "quan_glikk",
             "schema": "double",
             "comment": null
           }
@@ -167,20 +144,21 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_glikk;1",
+        "@id": "dtmi:example:quan_spazz;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_fuddle",
+          "name": "quan_thnad",
           "response": {
-            "name": "quan_humpf",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "quan_quan",
             "schema": "duration",
-            "comment": true
+            "comment": null
           }
         }
       }
@@ -189,19 +167,18 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_quan;1",
+        "@id": "dtmi:example:quan_jogg;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_snee",
+          "name": "quan_zatz",
           "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "quan_nuh",
+            "name": "quan_floob",
             "schema": "float",
             "comment": true
           }
@@ -212,20 +189,21 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_floob;1",
+        "@id": "dtmi:example:quan_yekk;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_spazz",
+          "name": "quan_itch",
           "response": {
-            "name": "quan_thnad",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "quan_flunn",
             "schema": "integer",
-            "comment": 626
+            "comment": true
           }
         }
       }
@@ -234,19 +212,18 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_flunn;1",
+        "@id": "dtmi:example:thnad_alpha;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_jogg",
+          "name": "quan_hi",
           "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "quan_zatz",
+            "name": "quan_vroo",
             "schema": "long",
             "comment": 626
           }
@@ -257,22 +234,21 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_vroo;1",
+        "@id": "dtmi:example:thnad_delta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "quan_yekk",
+          "name": "thnad_gamma",
           "response": {
-            "name": "quan_itch",
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "thnad_beta",
             "schema": "string",
-            "comment": [
-              null
-            ]
+            "comment": 626
           }
         }
       }
@@ -281,19 +257,18 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_beta;1",
+        "@id": "dtmi:example:thnad_eta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_alpha",
+          "name": "thnad_zeta",
           "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "quan_hi",
+            "name": "thnad_epsilon",
             "schema": "time",
             "comment": [
               null
@@ -306,19 +281,44 @@
   {
     "valid": false,
     "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "thnad_iota",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "thnad_theta",
+            "schema": "uuid",
+            "comment": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
       "DisallowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_epsilon;1",
+        "@id": "dtmi:example:thnad_nu;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_delta",
+          "name": "thnad_mu",
           "response": {
-            "name": "thnad_gamma",
-            "schema": "uuid",
+            "name": "thnad_lambda",
+            "schema": "boolean",
             "comment": [
               true
             ]
@@ -335,15 +335,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_theta;1",
+        "@id": "dtmi:example:thnad_pi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_eta",
+          "name": "thnad_omicron",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "thnad_zeta",
-            "schema": "boolean",
+            "name": "thnad_xi",
+            "schema": "bytes",
             "comment": [
               true
             ]
@@ -360,13 +360,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_lambda;1",
+        "@id": "dtmi:example:thnad_tau;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_kappa",
+          "name": "thnad_sigma",
           "response": {
-            "name": "thnad_iota",
+            "name": "thnad_rho",
             "schema": "date",
             "comment": [
               626
@@ -384,14 +384,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_xi;1",
+        "@id": "dtmi:example:thnad_chi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_nu",
+          "name": "thnad_phi",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "thnad_mu",
+            "name": "thnad_upsilon",
             "schema": "dateTime",
             "comment": [
               626
@@ -409,13 +409,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_rho;1",
+        "@id": "dtmi:example:thnad_yuzz;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_pi",
+          "name": "thnad_omega",
           "response": {
-            "name": "thnad_omicron",
+            "name": "thnad_psi",
             "schema": "double",
             "comment": {}
           }
@@ -431,14 +431,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_upsilon;1",
+        "@id": "dtmi:example:thnad_humpf;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_tau",
+          "name": "thnad_um",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "thnad_sigma",
+            "name": "thnad_wum",
             "schema": "duration",
             "comment": {}
           }
@@ -454,13 +454,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_psi;1",
+        "@id": "dtmi:example:thnad_nuh;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_chi",
+          "name": "thnad_glikk",
           "response": {
-            "name": "thnad_phi",
+            "name": "thnad_fuddle",
             "schema": "float",
             "comment": [
               {}
@@ -478,14 +478,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_wum;1",
+        "@id": "dtmi:example:thnad_thnad;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "thnad_yuzz",
+          "name": "thnad_quan",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "name": "thnad_omega",
+            "name": "thnad_snee",
             "schema": "integer",
             "comment": [
               {}

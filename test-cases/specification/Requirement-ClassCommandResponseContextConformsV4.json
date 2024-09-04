@@ -7,58 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_lambda;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:omega_kappa;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "omega_iota",
-            "response": {
-              "name": "omega_theta",
-              "schema": "float",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_omicron;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:omega_xi;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "omega_nu",
-            "response": {
-              "name": "omega_mu",
-              "schema": "integer",
-              "@context": []
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:omega_tau;1",
         "@type": "Interface",
         "extends": {
@@ -69,10 +17,8 @@
             "name": "omega_rho",
             "response": {
               "name": "omega_pi",
-              "schema": "long",
-              "@context": [
-                "dtmi:dtdl:extension:quantitativeTypes;1"
-              ]
+              "schema": "integer",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
             }
           }
         }
@@ -80,7 +26,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -97,8 +43,8 @@
             "name": "omega_phi",
             "response": {
               "name": "omega_upsilon",
-              "schema": "string",
-              "@context": null
+              "schema": "long",
+              "@context": []
             }
           }
         }
@@ -106,7 +52,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -123,8 +69,10 @@
             "name": "omega_yuzz",
             "response": {
               "name": "omega_omega",
-              "schema": "time",
-              "@context": 626
+              "schema": "string",
+              "@context": [
+                "dtmi:dtdl:extension:quantitativeTypes;1"
+              ]
             }
           }
         }
@@ -149,8 +97,8 @@
             "name": "omega_fuddle",
             "response": {
               "name": "omega_humpf",
-              "schema": "uuid",
-              "@context": true
+              "schema": "time",
+              "@context": null
             }
           }
         }
@@ -175,10 +123,8 @@
             "name": "omega_quan",
             "response": {
               "name": "omega_snee",
-              "schema": "boolean",
-              "@context": [
-                null
-              ]
+              "schema": "uuid",
+              "@context": 626
             }
           }
         }
@@ -203,10 +149,8 @@
             "name": "omega_zatz",
             "response": {
               "name": "omega_floob",
-              "schema": "date",
-              "@context": [
-                626
-              ]
+              "schema": "boolean",
+              "@context": true
             }
           }
         }
@@ -231,9 +175,9 @@
             "name": "omega_yekk",
             "response": {
               "name": "omega_itch",
-              "schema": "dateTime",
+              "schema": "bytes",
               "@context": [
-                true
+                null
               ]
             }
           }
@@ -259,8 +203,10 @@
             "name": "yuzz_beta",
             "response": {
               "name": "yuzz_alpha",
-              "schema": "double",
-              "@context": {}
+              "schema": "date",
+              "@context": [
+                626
+              ]
             }
           }
         }
@@ -285,9 +231,9 @@
             "name": "yuzz_zeta",
             "response": {
               "name": "yuzz_epsilon",
-              "schema": "duration",
+              "schema": "dateTime",
               "@context": [
-                {}
+                true
               ]
             }
           }
@@ -313,8 +259,8 @@
             "name": "yuzz_kappa",
             "response": {
               "name": "yuzz_iota",
-              "schema": "float",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes"
+              "schema": "double",
+              "@context": {}
             }
           }
         }
@@ -339,8 +285,10 @@
             "name": "yuzz_xi",
             "response": {
               "name": "yuzz_nu",
-              "schema": "integer",
-              "@context": "http://dtdl/extension/quantitativeTypes/1"
+              "schema": "duration",
+              "@context": [
+                {}
+              ]
             }
           }
         }
@@ -365,6 +313,58 @@
             "name": "yuzz_sigma",
             "response": {
               "name": "yuzz_rho",
+              "schema": "float",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_omega;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:yuzz_psi;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "yuzz_chi",
+            "response": {
+              "name": "yuzz_phi",
+              "schema": "integer",
+              "@context": "http://dtdl/extension/quantitativeTypes/1"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_humpf;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:yuzz_um;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "yuzz_wum",
+            "response": {
+              "name": "yuzz_yuzz",
               "schema": "long",
               "@context": "quantitativeTypes;1"
             }

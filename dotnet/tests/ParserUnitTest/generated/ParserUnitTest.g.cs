@@ -80,6 +80,7 @@ namespace ParserUnitTest
         [DataRow("BooleanInstancesV2")]
         [DataRow("BooleanInstancesV3")]
         [DataRow("BooleanInstancesV4")]
+        [DataRow("BytesInstancesV4")]
         public void TestParser_B(string testName)
         {
             TestParser(testName);
