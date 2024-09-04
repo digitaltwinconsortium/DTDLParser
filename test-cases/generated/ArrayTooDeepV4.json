@@ -26,7 +26,19 @@
                   "elementSchema": {
                     "@id": "dtmi:test:deepArray6;1",
                     "@type": "Array",
-                    "elementSchema": "double"
+                    "elementSchema": {
+                      "@id": "dtmi:test:deepArray7;1",
+                      "@type": "Array",
+                      "elementSchema": {
+                        "@id": "dtmi:test:deepArray8;1",
+                        "@type": "Array",
+                        "elementSchema": {
+                          "@id": "dtmi:test:deepArray9;1",
+                          "@type": "Array",
+                          "elementSchema": "double"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -41,15 +53,15 @@
       {
         "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthWide",
         "PrimaryID": "dtmi:test:deepArray1;1",
-        "SecondaryID": "dtmi:test:deepArray6;1",
+        "SecondaryID": "dtmi:test:deepArray9;1",
         "Property": null,
         "Value": null,
         "PrimaryIndex": 0,
         "PrimaryStart": 6,
-        "PrimaryEnd": 30,
+        "PrimaryEnd": 42,
         "SecondaryIndex": 0,
-        "SecondaryStart": 21,
-        "SecondaryEnd": 25
+        "SecondaryStart": 30,
+        "SecondaryEnd": 34
       }
     ]
   }

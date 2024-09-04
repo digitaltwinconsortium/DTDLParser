@@ -23,7 +23,19 @@
                 "elementSchema": {
                   "@id": "dtmi:test:deepArray5;1",
                   "@type": "Array",
-                  "elementSchema": "double"
+                  "elementSchema": {
+                    "@id": "dtmi:test:deepArray6;1",
+                    "@type": "Array",
+                    "elementSchema": {
+                      "@id": "dtmi:test:deepArray7;1",
+                      "@type": "Array",
+                      "elementSchema": {
+                        "@id": "dtmi:test:deepArray8;1",
+                        "@type": "Array",
+                        "elementSchema": "double"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -33,6 +45,6 @@
     }
   ],
   "expect": {
-    "elementsCount": 6
+    "elementsCount": 9
   }
 }

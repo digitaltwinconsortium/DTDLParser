@@ -34,7 +34,28 @@
                             "@type": "Object",
                             "fields": {
                               "name": "Field5",
-                              "schema": "double"
+                              "schema": {
+                                "@id": "dtmi:test:deepObject6;1",
+                                "@type": "Object",
+                                "fields": {
+                                  "name": "Field6",
+                                  "schema": {
+                                    "@id": "dtmi:test:deepObject7;1",
+                                    "@type": "Object",
+                                    "fields": {
+                                      "name": "Field7",
+                                      "schema": {
+                                        "@id": "dtmi:test:deepObject8;1",
+                                        "@type": "Object",
+                                        "fields": {
+                                          "name": "Field8",
+                                          "schema": "double"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -50,6 +71,6 @@
     }
   ],
   "expect": {
-    "elementsCount": 7
+    "elementsCount": 10
   }
 }

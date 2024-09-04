@@ -39,7 +39,28 @@
                                 "@type": "Object",
                                 "fields": {
                                   "name": "Field6",
-                                  "schema": "double"
+                                  "schema": {
+                                    "@id": "dtmi:test:deepObject7;1",
+                                    "@type": "Object",
+                                    "fields": {
+                                      "name": "Field7",
+                                      "schema": {
+                                        "@id": "dtmi:test:deepObject8;1",
+                                        "@type": "Object",
+                                        "fields": {
+                                          "name": "Field8",
+                                          "schema": {
+                                            "@id": "dtmi:test:deepObject9;1",
+                                            "@type": "Object",
+                                            "fields": {
+                                              "name": "Field9",
+                                              "schema": "double"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -61,15 +82,15 @@
       {
         "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthWide",
         "PrimaryID": "dtmi:test:deepObject1;1",
-        "SecondaryID": "dtmi:test:deepObject6:_fields:__Field6;1",
+        "SecondaryID": "dtmi:test:deepObject9:_fields:__Field9;1",
         "Property": null,
         "Value": null,
         "PrimaryIndex": 0,
         "PrimaryStart": 6,
-        "PrimaryEnd": 50,
+        "PrimaryEnd": 71,
         "SecondaryIndex": 0,
-        "SecondaryStart": 35,
-        "SecondaryEnd": 38
+        "SecondaryStart": 50,
+        "SecondaryEnd": 53
       }
     ]
   }

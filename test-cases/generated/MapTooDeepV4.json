@@ -62,7 +62,40 @@
                               },
                               "mapValue": {
                                 "name": "MapValue6",
-                                "schema": "double"
+                                "schema": {
+                                  "@id": "dtmi:test:deepMap7;1",
+                                  "@type": "Map",
+                                  "mapKey": {
+                                    "name": "MapKey7",
+                                    "schema": "string"
+                                  },
+                                  "mapValue": {
+                                    "name": "MapValue7",
+                                    "schema": {
+                                      "@id": "dtmi:test:deepMap8;1",
+                                      "@type": "Map",
+                                      "mapKey": {
+                                        "name": "MapKey8",
+                                        "schema": "string"
+                                      },
+                                      "mapValue": {
+                                        "name": "MapValue8",
+                                        "schema": {
+                                          "@id": "dtmi:test:deepMap9;1",
+                                          "@type": "Map",
+                                          "mapKey": {
+                                            "name": "MapKey9",
+                                            "schema": "string"
+                                          },
+                                          "mapValue": {
+                                            "name": "MapValue9",
+                                            "schema": "double"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                               }
                             }
                           }
@@ -83,15 +116,15 @@
       {
         "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthWide",
         "PrimaryID": "dtmi:test:deepMap1;1",
-        "SecondaryID": "dtmi:test:deepMap6:_mapKey;1",
+        "SecondaryID": "dtmi:test:deepMap9:_mapKey;1",
         "Property": null,
         "Value": null,
         "PrimaryIndex": 0,
         "PrimaryStart": 6,
-        "PrimaryEnd": 72,
+        "PrimaryEnd": 105,
         "SecondaryIndex": 0,
-        "SecondaryStart": 54,
-        "SecondaryEnd": 57
+        "SecondaryStart": 81,
+        "SecondaryEnd": 84
       }
     ]
   }

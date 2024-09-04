@@ -3705,7 +3705,7 @@ namespace DTDLParser.Models
 
             int maxDepthOfElementSchemaOrSchema = this.LimitSpecifier switch
             {
-                "" => 5,
+                "" => 8,
                 "onvif_1" => 20,
                 _ => 0,
             };
