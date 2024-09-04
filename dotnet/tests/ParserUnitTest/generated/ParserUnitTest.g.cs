@@ -2321,6 +2321,7 @@ namespace ParserUnitTest
         [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV2")]
         [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV3")]
         [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV4")]
+        [DataRow("UuidInstancesV4")]
         public void TestParser_U(string testName)
         {
             TestParser(testName);

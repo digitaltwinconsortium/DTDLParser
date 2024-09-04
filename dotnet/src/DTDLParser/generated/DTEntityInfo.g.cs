@@ -135,6 +135,7 @@ namespace DTDLParser.Models
             ConcreteKinds[4].Add(DTEntityKind.String);
             ConcreteKinds[4].Add(DTEntityKind.Telemetry);
             ConcreteKinds[4].Add(DTEntityKind.Time);
+            ConcreteKinds[4].Add(DTEntityKind.Uuid);
 
             BadTypeActionFormat[2] = "Provide a @type{line3} in the set of allowable types.";
             BadTypeActionFormat[3] = "Provide a @type{line3} in the set of allowable types.";
@@ -2173,6 +2174,16 @@ namespace DTDLParser.Models
 
                     elementInfo.JsonLdElements[string.Empty] = elt;
                     materialKinds.Add(DTEntityKind.Time);
+                    return true;
+                case "Uuid":
+                case "dtmi:dtdl:class:Uuid;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTUuidInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.Uuid);
                     return true;
             }
 

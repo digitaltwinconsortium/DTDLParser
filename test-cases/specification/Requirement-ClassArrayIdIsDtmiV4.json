@@ -12,7 +12,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;7",
           "@type": "Array",
-          "elementSchema": "duration"
+          "elementSchema": "integer"
         }
       }
     ]
@@ -30,7 +30,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;108675309",
           "@type": "Array",
-          "elementSchema": "float"
+          "elementSchema": "long"
         }
       }
     ]
@@ -48,7 +48,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;999999999",
           "@type": "Array",
-          "elementSchema": "integer"
+          "elementSchema": "string"
         }
       }
     ]
@@ -66,7 +66,7 @@
         "schemas": {
           "@id": "dtmi:foo;1",
           "@type": "Array",
-          "elementSchema": "long"
+          "elementSchema": "time"
         }
       }
     ]
@@ -84,7 +84,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar",
           "@type": "Array",
-          "elementSchema": "string"
+          "elementSchema": "uuid"
         }
       }
     ]
@@ -102,7 +102,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;3.14",
           "@type": "Array",
-          "elementSchema": "time"
+          "elementSchema": "boolean"
         }
       }
     ]
@@ -120,7 +120,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;3.141592",
           "@type": "Array",
-          "elementSchema": "boolean"
+          "elementSchema": "date"
         }
       }
     ]
@@ -138,7 +138,7 @@
         "schemas": {
           "@id": null,
           "@type": "Array",
-          "elementSchema": "date"
+          "elementSchema": "dateTime"
         }
       }
     ]
@@ -157,7 +157,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": null,
           "@type": "Array",
-          "elementSchema": "dateTime"
+          "elementSchema": "double"
         }
       }
     ]
@@ -175,7 +175,7 @@
         "schemas": {
           "@id": 626,
           "@type": "Array",
-          "elementSchema": "double"
+          "elementSchema": "duration"
         }
       }
     ]
@@ -194,7 +194,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": 626,
           "@type": "Array",
-          "elementSchema": "duration"
+          "elementSchema": "float"
         }
       }
     ]
@@ -212,7 +212,7 @@
         "schemas": {
           "@id": true,
           "@type": "Array",
-          "elementSchema": "float"
+          "elementSchema": "integer"
         }
       }
     ]
@@ -231,7 +231,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": true,
           "@type": "Array",
-          "elementSchema": "integer"
+          "elementSchema": "long"
         }
       }
     ]
@@ -251,7 +251,7 @@
             "@value": "dtmi:apparently:valid:identifier;3"
           },
           "@type": "Array",
-          "elementSchema": "long"
+          "elementSchema": "string"
         }
       }
     ]
@@ -272,7 +272,7 @@
             "@value": "dtmi:apparently:valid:identifier;3"
           },
           "@type": "Array",
-          "elementSchema": "string"
+          "elementSchema": "time"
         }
       }
     ]
@@ -290,7 +290,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;0",
           "@type": "Array",
-          "elementSchema": "time"
+          "elementSchema": "uuid"
         }
       }
     ]
@@ -494,7 +494,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:foo:bar;3.1415926",
           "@type": "Array",
-          "elementSchema": "boolean"
+          "elementSchema": "uuid"
         }
       }
     ]
@@ -512,7 +512,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;6.02",
           "@type": "Array",
-          "elementSchema": "date"
+          "elementSchema": "boolean"
         }
       }
     ]
@@ -531,7 +531,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:foo:bar;6.02",
           "@type": "Array",
-          "elementSchema": "dateTime"
+          "elementSchema": "date"
         }
       }
     ]
@@ -549,7 +549,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;0.1",
           "@type": "Array",
-          "elementSchema": "double"
+          "elementSchema": "dateTime"
         }
       }
     ]
@@ -568,7 +568,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:foo:bar;0.1",
           "@type": "Array",
-          "elementSchema": "duration"
+          "elementSchema": "double"
         }
       }
     ]
@@ -586,7 +586,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;01",
           "@type": "Array",
-          "elementSchema": "float"
+          "elementSchema": "duration"
         }
       }
     ]
@@ -605,7 +605,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:foo:bar;01",
           "@type": "Array",
-          "elementSchema": "integer"
+          "elementSchema": "float"
         }
       }
     ]
@@ -623,7 +623,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar;",
           "@type": "Array",
-          "elementSchema": "long"
+          "elementSchema": "integer"
         }
       }
     ]
@@ -642,7 +642,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:foo:bar;",
           "@type": "Array",
-          "elementSchema": "string"
+          "elementSchema": "long"
         }
       }
     ]
@@ -660,7 +660,7 @@
         "schemas": {
           "@id": "dtmi:test:invalidId_;1",
           "@type": "Array",
-          "elementSchema": "time"
+          "elementSchema": "string"
         }
       }
     ]
@@ -679,7 +679,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:test:invalidId_;1",
           "@type": "Array",
-          "elementSchema": "boolean"
+          "elementSchema": "time"
         }
       }
     ]
@@ -697,7 +697,7 @@
         "schemas": {
           "@id": "dtmi:test:_invalidUserId;1",
           "@type": "Array",
-          "elementSchema": "date"
+          "elementSchema": "uuid"
         }
       }
     ]
@@ -716,7 +716,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:test:_invalidUserId;1",
           "@type": "Array",
-          "elementSchema": "dateTime"
+          "elementSchema": "boolean"
         }
       }
     ]
@@ -734,7 +734,7 @@
         "schemas": {
           "@id": "dtmi:test:1seg;1",
           "@type": "Array",
-          "elementSchema": "double"
+          "elementSchema": "date"
         }
       }
     ]
@@ -753,7 +753,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:test:1seg;1",
           "@type": "Array",
-          "elementSchema": "duration"
+          "elementSchema": "dateTime"
         }
       }
     ]
@@ -771,7 +771,7 @@
         "schemas": {
           "@id": "dtmi:foo:bar.baz;1",
           "@type": "Array",
-          "elementSchema": "float"
+          "elementSchema": "double"
         }
       }
     ]
@@ -790,7 +790,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:foo:bar.baz;1",
           "@type": "Array",
-          "elementSchema": "integer"
+          "elementSchema": "duration"
         }
       }
     ]
@@ -808,7 +808,7 @@
         "schemas": {
           "@id": "dtmi:foo::bar;1",
           "@type": "Array",
-          "elementSchema": "long"
+          "elementSchema": "float"
         }
       }
     ]
@@ -827,7 +827,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:foo::bar;1",
           "@type": "Array",
-          "elementSchema": "string"
+          "elementSchema": "integer"
         }
       }
     ]
@@ -845,7 +845,7 @@
         "schemas": {
           "@id": "urn:foo:bar:1",
           "@type": "Array",
-          "elementSchema": "time"
+          "elementSchema": "long"
         }
       }
     ]
@@ -864,7 +864,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "urn:foo:bar:1",
           "@type": "Array",
-          "elementSchema": "boolean"
+          "elementSchema": "string"
         }
       }
     ]
@@ -882,7 +882,7 @@
         "schemas": {
           "@id": "http://foo/bar/baz",
           "@type": "Array",
-          "elementSchema": "date"
+          "elementSchema": "time"
         }
       }
     ]
@@ -901,7 +901,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "http://foo/bar/baz",
           "@type": "Array",
-          "elementSchema": "dateTime"
+          "elementSchema": "uuid"
         }
       }
     ]
@@ -919,7 +919,7 @@
         "schemas": {
           "@id": "dtmi:;1",
           "@type": "Array",
-          "elementSchema": "double"
+          "elementSchema": "boolean"
         }
       }
     ]
@@ -938,7 +938,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:;1",
           "@type": "Array",
-          "elementSchema": "duration"
+          "elementSchema": "date"
         }
       }
     ]
@@ -956,7 +956,7 @@
         "schemas": {
           "@id": "dtmi:dtdl:example;1",
           "@type": "Array",
-          "elementSchema": "float"
+          "elementSchema": "dateTime"
         }
       }
     ]
@@ -975,7 +975,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:dtdl:example;1",
           "@type": "Array",
-          "elementSchema": "integer"
+          "elementSchema": "double"
         }
       }
     ]
@@ -993,7 +993,7 @@
         "schemas": {
           "@id": "dtmi:standard:example;1",
           "@type": "Array",
-          "elementSchema": "long"
+          "elementSchema": "duration"
         }
       }
     ]
@@ -1012,7 +1012,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:standard:example;1",
           "@type": "Array",
-          "elementSchema": "string"
+          "elementSchema": "float"
         }
       }
     ]

@@ -95,10 +95,11 @@ namespace DTDLParser.Models
             ConcreteKinds[4].Add(DTEntityKind.Object);
             ConcreteKinds[4].Add(DTEntityKind.String);
             ConcreteKinds[4].Add(DTEntityKind.Time);
+            ConcreteKinds[4].Add(DTEntityKind.Uuid);
 
             BadTypeActionFormat[2] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.";
             BadTypeActionFormat[3] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.";
-            BadTypeActionFormat[4] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.";
+            BadTypeActionFormat[4] = "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time, uuid.";
 
             BadTypeCauseFormat[2] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Array, Enum, Map, or Object, and it is not a standard value for this property.";
             BadTypeCauseFormat[3] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Array, Enum, Map, or Object, and it is not a standard value for this property.";

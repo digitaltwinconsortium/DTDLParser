@@ -7,13 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_wum;1",
+        "@id": "dtmi:example:glikk_thnad;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "glikk_yuzz",
+          "name": "glikk_quan",
           "request": {
-            "schema": "double",
+            "schema": "uuid",
             "name": "EARTH"
           }
         }
@@ -28,13 +28,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_humpf;1",
+        "@id": "dtmi:example:glikk_floob;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "glikk_um",
+          "name": "glikk_spazz",
           "request": {
-            "schema": "duration",
+            "schema": "boolean",
             "name": "Air"
           }
         }
@@ -49,13 +49,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_glikk;1",
+        "@id": "dtmi:example:glikk_jogg;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "glikk_fuddle",
+          "name": "glikk_zatz",
           "request": {
-            "schema": "float",
+            "schema": "date",
             "name": "fire"
           }
         }
@@ -70,13 +70,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_snee;1",
+        "@id": "dtmi:example:glikk_itch;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "glikk_nuh",
+          "name": "glikk_flunn",
           "request": {
-            "schema": "integer",
+            "schema": "dateTime",
             "name": "hello_world"
           }
         }
@@ -91,100 +91,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_thnad;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "glikk_quan",
-          "request": {
-            "schema": "long",
-            "name": "Anarchy99"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_floob;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "glikk_spazz",
-          "request": {
-            "schema": "string",
-            "name": "23skidoo"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_jogg;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "glikk_zatz",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "time",
-            "name": "23skidoo"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_itch;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "glikk_flunn",
-          "request": {
-            "schema": "boolean",
-            "name": "626"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:glikk_vroo;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "glikk_yekk",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
-            "name": "626"
+            "schema": "double",
+            "name": "Anarchy99"
           }
         }
       }
@@ -204,8 +118,8 @@
           "@type": "Command",
           "name": "glikk_hi",
           "request": {
-            "schema": "dateTime",
-            "name": "goodbye-world"
+            "schema": "duration",
+            "name": "23skidoo"
           }
         }
       }
@@ -226,8 +140,8 @@
           "name": "nuh_beta",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "double",
-            "name": "goodbye-world"
+            "schema": "float",
+            "name": "23skidoo"
           }
         }
       }
@@ -247,8 +161,8 @@
           "@type": "Command",
           "name": "nuh_delta",
           "request": {
-            "schema": "duration",
-            "name": "_haha"
+            "schema": "integer",
+            "name": "626"
           }
         }
       }
@@ -269,8 +183,8 @@
           "name": "nuh_zeta",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "float",
-            "name": "_haha"
+            "schema": "long",
+            "name": "626"
           }
         }
       }
@@ -290,8 +204,8 @@
           "@type": "Command",
           "name": "nuh_theta",
           "request": {
-            "schema": "integer",
-            "name": "toodaloo_"
+            "schema": "string",
+            "name": "goodbye-world"
           }
         }
       }
@@ -312,8 +226,8 @@
           "name": "nuh_kappa",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "long",
-            "name": "toodaloo_"
+            "schema": "time",
+            "name": "goodbye-world"
           }
         }
       }
@@ -333,8 +247,8 @@
           "@type": "Command",
           "name": "nuh_mu",
           "request": {
-            "schema": "string",
-            "name": "pro:con"
+            "schema": "uuid",
+            "name": "_haha"
           }
         }
       }
@@ -355,8 +269,8 @@
           "name": "nuh_xi",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "time",
-            "name": "pro:con"
+            "schema": "boolean",
+            "name": "_haha"
           }
         }
       }
@@ -376,8 +290,8 @@
           "@type": "Command",
           "name": "nuh_pi",
           "request": {
-            "schema": "boolean",
-            "name": "mish/mash"
+            "schema": "date",
+            "name": "toodaloo_"
           }
         }
       }
@@ -398,8 +312,8 @@
           "name": "nuh_sigma",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
-            "name": "mish/mash"
+            "schema": "dateTime",
+            "name": "toodaloo_"
           }
         }
       }
@@ -419,8 +333,8 @@
           "@type": "Command",
           "name": "nuh_upsilon",
           "request": {
-            "schema": "dateTime",
-            "name": "#tag"
+            "schema": "double",
+            "name": "pro:con"
           }
         }
       }
@@ -441,8 +355,8 @@
           "name": "nuh_chi",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "double",
-            "name": "#tag"
+            "schema": "duration",
+            "name": "pro:con"
           }
         }
       }
@@ -462,8 +376,8 @@
           "@type": "Command",
           "name": "nuh_omega",
           "request": {
-            "schema": "duration",
-            "name": "@tweet"
+            "schema": "float",
+            "name": "mish/mash"
           }
         }
       }
@@ -484,8 +398,8 @@
           "name": "nuh_wum",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "float",
-            "name": "@tweet"
+            "schema": "integer",
+            "name": "mish/mash"
           }
         }
       }
@@ -505,8 +419,8 @@
           "@type": "Command",
           "name": "nuh_humpf",
           "request": {
-            "schema": "integer",
-            "name": "$money"
+            "schema": "long",
+            "name": "#tag"
           }
         }
       }
@@ -527,7 +441,93 @@
           "name": "nuh_glikk",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "long",
+            "schema": "string",
+            "name": "#tag"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nuh_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nuh_snee",
+          "request": {
+            "schema": "time",
+            "name": "@tweet"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nuh_spazz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nuh_thnad",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "uuid",
+            "name": "@tweet"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nuh_zatz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nuh_floob",
+          "request": {
+            "schema": "boolean",
+            "name": "$money"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nuh_flunn;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "nuh_jogg",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "date",
             "name": "$money"
           }
         }

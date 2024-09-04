@@ -1494,6 +1494,8 @@ namespace DTDLParser
             context4_0.AddTermDefinition("Time", new Dtmi("dtmi:dtdl:class:Time;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Unit", new Dtmi("dtmi:dtdl:class:Unit;4"), isMergeableType: false);
             context4_0.AddTermDefinition("UnitAttribute", new Dtmi("dtmi:dtdl:class:UnitAttribute;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("uuid", new Dtmi("dtmi:dtdl:instance:Schema:uuid;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Uuid", new Dtmi("dtmi:dtdl:class:Uuid;4"), isMergeableType: false);
             context4_0.AddTermDefinition("valueSchema", new Dtmi("dtmi:dtdl:property:valueSchema;4"), isMergeableType: false);
             context4_0.AddTermDefinition("writable", new Dtmi("dtmi:dtdl:property:writable;4"), isMergeableType: false);
             versionedContexts.Add(context4_0);

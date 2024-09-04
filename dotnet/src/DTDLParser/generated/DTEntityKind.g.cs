@@ -118,5 +118,8 @@ namespace DTDLParser
 
         /// <summary>The kind of the Entity is UnitAttribute.</summary>
         UnitAttribute,
+
+        /// <summary>The kind of the Entity is Uuid.</summary>
+        Uuid,
     }
 }

@@ -184,6 +184,8 @@ namespace DTDLParser
             TypeNames.Add("dtmi:dtdl:class:UnitAttribute;2");
             TypeNames.Add("dtmi:dtdl:class:UnitAttribute;3");
             TypeNames.Add("dtmi:dtdl:class:UnitAttribute;4");
+            TypeNames.Add("Uuid");
+            TypeNames.Add("dtmi:dtdl:class:Uuid;4");
         }
 
         /// <summary>
