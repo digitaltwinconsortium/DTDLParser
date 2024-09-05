@@ -1,66 +1,103 @@
-name: Build and Test
+name: Develop
 
 on:
+  workflow_dispatch:
+
   pull_request:
     branches: [ "main" ]
     paths:
+    - 'dtdl/**'
     - 'dotnet/**'
+    - 'scripts/**'
+    - 'test-cases/**'
     - 'samples/**'
     - 'tutorials/**'
-    - '!**/**.md'
+
   push:
     branches: [ "main" ]
     paths:
+    - 'dtdl/**'
     - 'dotnet/**'
-    - '!**/**.md'
+    - 'scripts/**'
+    - 'test-cases/**'
+    - 'samples/**'
+    - 'tutorials/**'
 
 jobs:
   build:
+    name: develop-main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
       - name: Install WASM workload
         run: dotnet workload install wasm-tools
 
+      - name: Build Metamodel Digest
+        run: scripts/BuildMetaDigest.sh Release
+
+      - name: Build Code Generator
+        run: scripts/BuildCodeGenerator.sh Release
+
+      - name: Build Parser Generator
+        run: scripts/BuildParserGen.sh Release
+
+      - name: Generate Parser
+        run: scripts/GenerateParser.sh Release
+
+      - name: Build Unit Test Generator
+        run: scripts/BuildTestGen.sh Release
+
+      - name: Generate ParserUnitTest
+        run: scripts/GenerateParserTests.sh Release
+
+      - name: Build Remodel Generator
+        run: scripts/BuildRemodelGen.sh Release
+
+      - name: Generate Remodel Tool
+        run: scripts/GenerateRemodelTool.sh Release
+
+      - name: Build Tutorial Extractor
+        run: scripts/BuildTutorialExtractor.sh Release
+
+      - name: Extract Tutorial Projects
+        run: scripts/ExtractTutorials.sh Release
+
       - name: Install DocFx
-        run: dotnet tool install -g docfx
+        run: nuget install docfx.console
 
       - name: Run DocFx
-        run: docfx api-docs/dotnet/docfx.json
+        run: scripts/RunDocFx.sh Release "mono $DocFxFolder/tools/"
 
       - name: Build Parser
-        run: dotnet build -c Release dotnet/src/DTDLParser
+        run: scripts/BuildParser.sh Release
+
+      - name: Pack Parser
+        run: scripts/PackParser.sh Release
+
+      - name: Derive Parser SBOM
+        run: scripts/DeriveParserSbom.sh Release $(nbgv get-version -v SimpleVersion)
+
+      - name: Build Parser Tests
+        run: scripts/BuildParserTests.sh Release
 
       - name: Test Parser
-        run: |
-          dotnet test dotnet/tests/ParserUnitTest -c Release --logger trx 
+        run: scripts/TestParser.sh Release
 
-      - name: Test Tutorials
-        run: |
-          for d in tutorials/projects/Tutorial*; do
-            if [ -d $d ]; then
-              echo testing $d ;
-              dotnet run --project $d > $d/output.txt ;
-              diff $d/expect.txt $d/output.txt ;
-              test $? -eq 0 || exit 1
-            fi
-          done
+      - name: Build Remodel Tool
+        run: scripts/BuildRemodelTool.sh Release
+
+      - name: Pack Remodel Tool
+        run: scripts/PackRemodelTool.sh Release
+
+      - name: Build Parser Tutorial Projects
+        run: scripts/BuildTutorials.sh Release
+
+      - name: Test Parser Tutorial Projects
+        run: scripts/TestTutorials.sh Release
 
       - name: Build Samples
         run: dotnet build samples/Samples.sln
-
-      - name: Pack Parser
-        run: dotnet pack -c Release dotnet/src/DTDLParser
-
-      # - name: Process trx reports with default
-      #   if: always()
-      #   uses: im-open/process-dotnet-test-results@v2.2.2
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     base-directory: dotnet/
-      
-      
