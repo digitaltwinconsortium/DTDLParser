@@ -163,6 +163,7 @@ namespace DTDLParser
                         return false;
                     }
 
+                case "nullable":
                 case "comment":
                 case "languageMajorVersion":
                 case "enumValue":
