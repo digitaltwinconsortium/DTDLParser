@@ -322,7 +322,7 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
-        /// Validate a <c>JsonElement</c> to determine whether it is a string value.
+        /// Validate a <c>JsonElement</c> to determine whether it is a string value that conforms to the RFC 9562 definition of 'UUID'.
         /// </summary>
         /// <param name="instanceElt">The <c>JsonElement</c> to validate.</param>
         /// <returns>A list of strings that each indicate a validation failure; the list is empty if the <c>JsonElement</c> conforms.</returns>
@@ -1341,7 +1341,7 @@ namespace DTDLParser.Models
         }
 
         /// <summary>
-        /// Validate a <c>JsonElement</c> to determine whether it is a string value.
+        /// Validate a <c>JsonElement</c> to determine whether it is a string value that conforms to the RFC 9562 definition of 'UUID'.
         /// </summary>
         /// <param name="instanceElt">The <c>JsonElement</c> to validate.</param>
         /// <param name="instanceName">If the instance is a property in a JSON object, the name corresponding to <paramref name="instanceElt"/>; otherwise, null.</param>
@@ -1838,7 +1838,7 @@ namespace DTDLParser.Models
 
             if (!ElementValueInstanceRegexPatternV4.IsMatch(instanceElt.GetString()))
             {
-                violations.Add($"\"{instanceElt.GetString()}\" does not conform to ");
+                violations.Add($"\"{instanceElt.GetString()}\" does not conform to the RFC 9562 definition of 'UUID'");
                 return false;
             }
 
