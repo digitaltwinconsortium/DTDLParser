@@ -1,5 +1,7 @@
 ﻿namespace DTDLParser
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Newtonsoft.Json.Linq;
 
     /// <summary>
@@ -13,15 +15,17 @@
         /// <param name="restrictionObj">A <c>JObject</c> from the metamodel digest containing restrictions on the string value.</param>
         public StringRestriction(JObject restrictionObj)
         {
-            this.MaxLength = restrictionObj.TryGetValue("maxLength", out JToken maxLength) ? ((JValue)maxLength).Value<int?>() : null;
+            this.MaxLength = restrictionObj.TryGetValue("maxLength", out JToken specMaxLength) ?
+                ((JObject)specMaxLength).Properties().ToDictionary(p => p.Name, p => ((JValue)p.Value).Value<int>()) :
+                null;
 
             this.Pattern = restrictionObj.TryGetValue("pattern", out JToken pattern) ? ((JValue)pattern).Value<string>() : null;
         }
 
         /// <summary>
-        /// Gets the maximum permissible length of a string, or null if no maximum.
+        /// Gets the maximum permissible length of a string, according to a limit spec, or null if no maximum.
         /// </summary>
-        public int? MaxLength { get; }
+        public Dictionary<string, int> MaxLength { get; }
 
         /// <summary>
         /// Gets a regex that constrains the permissible values, or null if no pattern constraint.

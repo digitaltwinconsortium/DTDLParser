@@ -31,13 +31,15 @@
         {
           "@type": [
             "Command",
-            "Idempotent"
+            "Idempotent",
+            "Cacheable"
           ],
           "name": "getSpeed",
           "response": {
             "name": "mph",
             "schema": "integer"
-          }
+          },
+          "ttl": "PT15S"
         },
         {
           "@type": "Command",

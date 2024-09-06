@@ -1,0 +1,40 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_upsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "um_tau",
+          "schema": "bytes",
+          "@type": "Telemetry"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_chi;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "um_phi",
+          "schema": "date",
+          "@type": "dtmi:dtdl:class:Telemetry;4"
+        }
+      }
+    ]
+  }
+]

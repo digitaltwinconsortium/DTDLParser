@@ -1,0 +1,28 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:historization;2"
+      ],
+      "@id": "dtmi:com:example:Thermostat;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Temperature",
+            "Historized"
+          ],
+          "name": "setPointTemp",
+          "writable": true,
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+        }
+      ]
+    }
+  ]
+}

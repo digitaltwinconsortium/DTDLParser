@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_wum;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Component",
+            "Foobar"
+          ],
+          "name": "humpf_omega",
+          "schema": {
+            "@id": "dtmi:example:humpf_yuzz;1",
+            "@type": "Interface"
+          },
+          "foobar": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_fuddle;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Component",
+            "Foobar"
+          ],
+          "name": "humpf_um",
+          "schema": {
+            "@id": "dtmi:example:humpf_humpf;1",
+            "@type": "Interface"
+          },
+          "foobar": {}
+        }
+      }
+    ]
+  }
+]

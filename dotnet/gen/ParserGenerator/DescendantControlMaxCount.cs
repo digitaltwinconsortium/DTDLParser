@@ -12,10 +12,11 @@
         private string rootClass;
         private List<string> propertyNames;
         private bool isNarrow;
-        private int maxCount;
+        private Dictionary<string, int> maxCount;
         private string coreName;
         private string methodName;
         private string propertiesDesc;
+        private string maxCountName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DescendantControlMaxCount"/> class.
@@ -24,8 +25,8 @@
         /// <param name="rootClass">The name of the concete class the control pertains to.</param>
         /// <param name="propertyNames">The names of the properties for which this control is relevant.</param>
         /// <param name="isNarrow">Indicates whether the descendant hierarchy should be scanned only along relevant properties.</param>
-        /// <param name="maxCount">The maximum allowed count of relevant properties in a hierarchical chain.</param>
-        public DescendantControlMaxCount(int dtdlVersion, string rootClass, List<string> propertyNames, bool isNarrow, int maxCount)
+        /// <param name="maxCount">The maximum allowed count of relevant properties in a hierarchy, according to a limit spec.</param>
+        public DescendantControlMaxCount(int dtdlVersion, string rootClass, List<string> propertyNames, bool isNarrow, Dictionary<string, int> maxCount)
         {
             this.dtdlVersion = dtdlVersion;
             this.rootClass = rootClass;
@@ -37,6 +38,7 @@
             this.coreName = $"{propertyNameDisjunction}{(this.isNarrow ? "Narrow" : string.Empty)}";
             this.methodName = $"GetCountOf{this.coreName}";
             this.propertiesDesc = string.Join(" or ", this.propertyNames.Select(p => $"'{p}'"));
+            this.maxCountName = $"maxCountOf{propertyNameDisjunction}";
         }
 
         /// <inheritdoc/>
@@ -111,15 +113,17 @@
         {
             if (this.dtdlVersion == dtdlVersion && this.rootClass == typeName)
             {
+                ValueLimiter.DefineLimitVariable(checkRestrictionsMethodBody, this.maxCount, this.maxCountName, $"this.{ParserGeneratorValues.LimitSpecifierPropertyName}", nullable: false);
+
                 checkRestrictionsMethodBody
                     .Line($"{ParserGeneratorValues.ObverseTypeInteger} num{this.coreName}Values = this.{this.methodName}(parsingErrorCollection);")
-                    .If($"num{this.coreName}Values > {this.maxCount}")
+                    .If($"num{this.coreName}Values > {this.maxCountName}")
                         .MultiLine("parsingErrorCollection.Notify(")
                             .Line("\"excessiveCount\",")
                             .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
                             .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
                             .Line($"observedCount: num{this.coreName}Values,")
-                            .Line($"expectedCount: {this.maxCount},")
+                            .Line($"expectedCount: {this.maxCountName},")
                             .Line("element: this.JsonLdElements.First().Value);");
             }
         }

@@ -1,0 +1,177 @@
+﻿{
+  "@context": [
+    "dtmi:dtdl:context;4#limitless",
+    "dtmi:dtdl:limits:onvif;1",
+    "dtmi:dtdl:extension:mqtt;2"
+  ],
+  "@type": [ "Interface", "Mqtt" ],
+  "@id": "dtmi:jsonTest:TelemetryAndCommandSeparate;1",
+  "payloadFormat": "Cbor/rfc/8949",
+  "telemetryTopic": "vehicles/{modelId}/{senderId}/telemetry/{telemetryName}",
+  "commandTopic": "vehicles/{modelId}/{executorId}/command/{commandName}",
+  "contents": [
+    {
+      "@type": [ "Telemetry", "Indexed" ],
+      "name": "distance",
+      "schema": "double",
+      "description": "The total distance from the origin.",
+      "index": 1
+    },
+    {
+      "@type": [ "Telemetry", "Indexed" ],
+      "name": "color",
+      "schema": "string",
+      "description": "The color currently being applied.",
+      "comment": "12345678901234567890",
+      "index": 2
+    },
+    {
+      "@type": [ "Command", "Idempotent", "Cacheable" ],
+      "ttl": "PT3H85M22S",
+      "name": "setColor",
+      "request": {
+        "name": "newColor",
+        "schema": "string"
+      },
+      "response": {
+        "name": "oldColor",
+        "schema": "string"
+      }
+    }
+  ],
+  "extends": {
+    "@id": "dtmi:test:interface2;1",
+    "@type": "Interface",
+    "contents": {
+      "@type": "Property",
+      "name": "prop2",
+      "schema": "double"
+    },
+    "extends": {
+      "@id": "dtmi:test:interface3;1",
+      "@type": "Interface",
+      "contents": {
+        "@type": "Property",
+        "name": "prop3",
+        "schema": "double"
+      },
+      "extends": {
+        "@id": "dtmi:test:interface4;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "prop4",
+          "schema": "double"
+        },
+        "extends": {
+          "@id": "dtmi:test:interface5;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Property",
+            "name": "prop5",
+            "schema": "double"
+          },
+          "extends": {
+            "@id": "dtmi:test:interface6;1",
+            "@type": "Interface",
+            "contents": {
+              "@type": "Property",
+              "name": "prop6",
+              "schema": "double"
+            },
+            "extends": {
+              "@id": "dtmi:test:interface7;1",
+              "@type": "Interface",
+              "contents": {
+                "@type": "Property",
+                "name": "prop7",
+                "schema": "double"
+              },
+              "extends": {
+                "@id": "dtmi:test:interface8;1",
+                "@type": "Interface",
+                "contents": {
+                  "@type": "Property",
+                  "name": "prop8",
+                  "schema": "double"
+                },
+                "extends": {
+                  "@id": "dtmi:test:interface9;1",
+                  "@type": "Interface",
+                  "contents": {
+                    "@type": "Property",
+                    "name": "prop9",
+                    "schema": "double"
+                  },
+                  "extends": {
+                    "@id": "dtmi:test:interface10;1",
+                    "@type": "Interface",
+                    "contents": {
+                      "@type": "Property",
+                      "name": "prop10",
+                      "schema": "double"
+                    },
+                    "extends": {
+                      "@id": "dtmi:test:interface11;1",
+                      "@type": "Interface",
+                      "contents": {
+                        "@type": "Property",
+                        "name": "prop11",
+                        "schema": "double"
+                      },
+                      "extends": {
+                        "@id": "dtmi:test:interface12;1",
+                        "@type": "Interface",
+                        "contents": {
+                          "@type": "Property",
+                          "name": "prop12",
+                          "schema": "double"
+                        },
+                        "extends": {
+                          "@id": "dtmi:test:interface13;1",
+                          "@type": "Interface",
+                          "contents": {
+                            "@type": "Property",
+                            "name": "prop13",
+                            "schema": "double"
+                          },
+                          "extends": {
+                            "@id": "dtmi:test:interface14;1",
+                            "@type": "Interface",
+                            "contents": {
+                              "@type": "Property",
+                              "name": "prop14",
+                              "schema": "double"
+                            },
+                            "extends": {
+                              "@id": "dtmi:test:interface15;1",
+                              "@type": "Interface",
+                              "contents": {
+                                "@type": "Property",
+                                "name": "prop15",
+                                "schema": "double"
+                              },
+                              "extends": {
+                                "@id": "dtmi:test:interface16;1",
+                                "@type": "Interface",
+                                "contents": {
+                                  "@type": "Property",
+                                  "name": "prop16",
+                                  "schema": "double"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

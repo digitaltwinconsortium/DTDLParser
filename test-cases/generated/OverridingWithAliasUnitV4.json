@@ -1,0 +1,135 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;2",
+    "dtmi:dtdl:extension:overriding;2"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2",
+        "dtmi:dtdl:extension:annotation;2",
+        "dtmi:dtdl:extension:overriding;2"
+      ],
+      "@id": "dtmi:test:AirHandlingUnit;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "EnergyRate"
+          ],
+          "name": "nominalHeatingCapacity",
+          "schema": "double",
+          "unit": "britishThermalUnitPerHour",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "nominalHeatingCapacityUnit",
+          "annotates": "nominalHeatingCapacity",
+          "overrides": "unit",
+          "schema": "PowerUnit",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "EnergyRate"
+          ],
+          "name": "nominalCoolingCapacity",
+          "schema": "double",
+          "unit": "britishThermalUnitPerHour",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "nominalCoolingCapacityUnit",
+          "annotates": "nominalCoolingCapacity",
+          "overrides": "unit",
+          "schema": "EnergyRateUnit",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:AirHandlingUnit:_contents:__nominalHeatingCapacity;1",
+        "type": "Property",
+        "properties": {
+          "name": "nominalHeatingCapacity",
+          "schema": "dtmi:dtdl:instance:Schema:double;2",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v2:class:EnergyRate"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:britishThermalUnitPerHour"
+        }
+      },
+      {
+        "id": "dtmi:test:AirHandlingUnit:_contents:__nominalHeatingCapacityUnit;1",
+        "type": "Property",
+        "properties": {
+          "name": "nominalHeatingCapacityUnit",
+          "schema": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:PowerUnit",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation",
+          "dtmi:dtdl:extension:overriding:v2:Override"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation:annotates": "nominalHeatingCapacity",
+          "dtmi:dtdl:extension:overriding:v2:Override:overrides": "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit"
+        }
+      },
+      {
+        "id": "dtmi:test:AirHandlingUnit:_contents:__nominalCoolingCapacity;1",
+        "type": "Property",
+        "properties": {
+          "name": "nominalCoolingCapacity",
+          "schema": "dtmi:dtdl:instance:Schema:double;2",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v2:class:EnergyRate"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:britishThermalUnitPerHour"
+        }
+      },
+      {
+        "id": "dtmi:test:AirHandlingUnit:_contents:__nominalCoolingCapacityUnit;1",
+        "type": "Property",
+        "properties": {
+          "name": "nominalCoolingCapacityUnit",
+          "schema": "dtmi:dtdl:extension:quantitativeTypes:v2:enum:PowerUnit",
+          "writable": true
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation",
+          "dtmi:dtdl:extension:overriding:v2:Override"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:annotation:v2:ValueAnnotation:annotates": "nominalCoolingCapacity",
+          "dtmi:dtdl:extension:overriding:v2:Override:overrides": "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:upsilon_delta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "upsilon_alpha",
+          "properties": [
+            {
+              "@type": "Property",
+              "name": "upsilon_beta",
+              "schema": "date"
+            }
+          ],
+          "dtmi:dtdl:property:properties;4": [
+            {
+              "@type": "Property",
+              "name": "upsilon_gamma",
+              "schema": "dateTime"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:upsilon_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Relationship",
+          "name": "upsilon_epsilon",
+          "properties": [
+            {
+              "@type": "Property",
+              "name": "upsilon_zeta",
+              "schema": "double"
+            }
+          ],
+          "dtmi:dtdl:property:properties;4": [
+            {
+              "@type": "Property",
+              "name": "upsilon_eta",
+              "schema": "duration"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -77,6 +77,10 @@
                 .Break();
 
             executeTestCaseMethod.Body
+                .Line("List<Dtmi> acceptableLimits = testCaseObject.ContainsKey(\"acceptableLimits\") ? ((JArray)testCaseObject[\"acceptableLimits\"]).Select(c => new Dtmi(((JValue)c).Value<string>())).ToList() : new List<Dtmi>();")
+                .Break();
+
+            executeTestCaseMethod.Body
                 .Line("bool inputGiven = testCaseObject.TryGetValue(\"input\", out JToken inputToken);")
                 .Break();
 
@@ -96,6 +100,7 @@
             CsMethod getModelParserMethod = parserUnitTesterClass.Method(Access.Private, Novelty.Normal, "ModelParser", "GetModelParser", Multiplicity.Static);
             getModelParserMethod.Param("int?", "maxDtdlVersion");
             getModelParserMethod.Param("WhenToAllow", "allowUndefinedExtensions");
+            getModelParserMethod.Param("List<Dtmi>", "acceptableLimits");
             getModelParserMethod.Param("ModelParsingQuirk", "quirks");
             getModelParserMethod.Param("JObject", "testCaseObject");
             getModelParserMethod.Param("bool", "useAsyncApi");
@@ -123,7 +128,8 @@
                 .Line("DtmiResolver = dtmiResolver.GetResolver(),")
                 .Line("DtmiResolverAsync = dtmiResolver.GetResolverAsync(),")
                 .Line("DtdlResolveLocator = LocateForResolve,")
-                .Line("AllowUndefinedExtensions = allowUndefinedExtensions,");
+                .Line("AllowUndefinedExtensions = allowUndefinedExtensions,")
+                .Line("ExtensionLimitContexts = acceptableLimits,");
 
             getModelParserMethod.Body.If("maxDtdlVersion != null")
                 .Line("parsingOptions.MaxDtdlVersion = (int)maxDtdlVersion;");
@@ -230,7 +236,7 @@
 
         private CsScope GetModelParser(CsScope outerScope)
         {
-            const string callGetModelParser = "ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensionsInTest, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)";
+            const string callGetModelParser = "ModelParser modelParser = GetModelParser(maxDtdlVersion, allowUndefinedExtensionsInTest, acceptableLimits, quirks, testCaseObject, useAsyncApi, maxReadConcurrency, out IResolutionChecker resolutionChecker, out IResolutionChecker partialResolutionChecker)";
 
             if (this.areDynamicExtensionsSupported)
             {

@@ -1,0 +1,188 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_kappa;1",
+          "@type": "Object",
+          "fields": {
+            "name": "hi_iota",
+            "schema": "double",
+            "@type": "Field"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_xi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_nu;1",
+          "@type": "Object",
+          "fields": {
+            "name": "hi_mu",
+            "schema": "duration",
+            "@type": [
+              "Field"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_pi;1",
+          "@type": "Object",
+          "fields": {
+            "name": "hi_omicron",
+            "schema": "float",
+            "@type": "dtmi:dtdl:class:Field;4"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_upsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_tau;1",
+          "@type": "Object",
+          "fields": {
+            "name": "hi_sigma",
+            "schema": "integer",
+            "@type": [
+              "dtmi:dtdl:class:Field;4"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_psi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_chi;1",
+          "@type": "Object",
+          "fields": {
+            "name": "hi_phi",
+            "schema": "long",
+            "@type": "Something"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_wum;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_yuzz;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "hi_omega",
+            "schema": "string",
+            "@type": "Something"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_fuddle;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_humpf;1",
+          "@type": "Object",
+          "fields": {
+            "name": "hi_um",
+            "schema": "time",
+            "@type": [
+              "Something"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_snee;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:hi_nuh;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "hi_glikk",
+            "schema": "uuid",
+            "@type": [
+              "Something"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

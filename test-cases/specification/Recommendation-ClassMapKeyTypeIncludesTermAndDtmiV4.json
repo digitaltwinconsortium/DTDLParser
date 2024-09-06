@@ -1,0 +1,32 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_tau;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:jogg_rho;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "jogg_sigma",
+            "schema": "uuid"
+          },
+          "mapKey": {
+            "name": "jogg_pi",
+            "schema": "string",
+            "@type": [
+              "MapKey",
+              "dtmi:dtdl:class:MapKey;4"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

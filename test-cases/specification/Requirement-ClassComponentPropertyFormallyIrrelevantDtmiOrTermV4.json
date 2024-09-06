@@ -1,0 +1,92 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_beta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "um_hi",
+          "schema": {
+            "@id": "dtmi:example:humpf_alpha;1",
+            "@type": "Interface"
+          },
+          "dtmi:foo:bar;1": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Component",
+          "name": "humpf_gamma",
+          "schema": {
+            "@id": "dtmi:example:humpf_delta;1",
+            "@type": "Interface"
+          },
+          "dtmi:foo:bar;1": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "humpf_zeta",
+          "schema": {
+            "@id": "dtmi:example:humpf_eta;1",
+            "@type": "Interface"
+          },
+          "boolean": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Component",
+          "name": "humpf_iota",
+          "schema": {
+            "@id": "dtmi:example:humpf_kappa;1",
+            "@type": "Interface"
+          },
+          "boolean": null
+        }
+      }
+    ]
+  }
+]

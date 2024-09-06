@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:rho_kappa;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:rho_iota;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@type": [
+              "EnumValue",
+              "http://foo.com/bar"
+            ],
+            "enumValue": 1655,
+            "name": "rho_theta"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:rho_nu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:rho_mu;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "EnumValue",
+              "http://foo.com/bar"
+            ],
+            "enumValue": 1656,
+            "name": "rho_lambda"
+          }
+        }
+      }
+    ]
+  }
+]

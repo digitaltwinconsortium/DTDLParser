@@ -1,0 +1,57 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_tau;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:spazz_tau;1",
+          "@type": "Interface",
+          "contents": {
+            "@id": "dtmi:example:spazz_tau;1",
+            "@type": "Command",
+            "name": "spazz_phi",
+            "response": {
+              "@id": "dtmi:example:spazz_tau;1",
+              "name": "spazz_upsilon",
+              "schema": "duration"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_chi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:spazz_chi;1",
+          "@type": "Interface",
+          "contents": {
+            "@id": "dtmi:example:spazz_chi;1",
+            "@type": "Command",
+            "name": "spazz_omega",
+            "response": {
+              "@context": "dtmi:undefinedExtension:context;1",
+              "@id": "dtmi:example:spazz_chi;1",
+              "name": "spazz_psi",
+              "schema": "float"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

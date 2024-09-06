@@ -1,0 +1,104 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_delta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_gamma",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "hi_beta",
+            "schema": "double"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_zeta",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "CommandRequest",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "hi_epsilon",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_iota",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "boolean"
+            ],
+            "name": "hi_theta",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_mu",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "CommandRequest",
+              "boolean"
+            ],
+            "name": "hi_lambda",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  }
+]

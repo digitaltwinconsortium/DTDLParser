@@ -1,0 +1,44 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_tau;1",
+        "@type": "Interface",
+        "schemas": [
+          {
+            "@id": "dtmi:example:humpf_upsilon;1",
+            "@type": "Array",
+            "elementSchema": "dateTime"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_phi;1",
+        "@type": "Interface",
+        "dtmi:dtdl:property:schemas;4": [
+          {
+            "@id": "dtmi:example:humpf_chi;1",
+            "@type": "Array",
+            "elementSchema": "double"
+          }
+        ]
+      }
+    ]
+  }
+]

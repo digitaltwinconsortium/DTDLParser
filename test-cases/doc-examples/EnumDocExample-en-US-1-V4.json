@@ -1,0 +1,31 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:ex:id;1",
+      "@type": "Interface",
+      "contents": {
+        "@type": "Telemetry",
+        "name": "state",
+        "schema": {
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": [
+            {
+              "name": "offline",
+              "displayName": "Offline",
+              "enumValue": 1
+            },
+            {
+              "name": "online",
+              "displayName": "Online",
+              "enumValue": 2
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

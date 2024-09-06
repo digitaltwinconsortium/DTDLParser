@@ -1,6 +1,6 @@
 ﻿{
   "requiredContexts": [
-    "dtmi:dtdl:extension:historization;1"
+    "dtmi:dtdl:extension:historization;2"
   ],
   "valid": true,
   "quirks": [],
@@ -15,7 +15,7 @@
           "@type": "Component",
           "name": "child",
           "schema": {
-            "@context": "dtmi:dtdl:extension:historization;1",
+            "@context": "dtmi:dtdl:extension:historization;2",
             "@id": "dtmi:test:anInterface;1",
             "@type": "Interface",
             "contents": [
@@ -44,7 +44,7 @@
           "schema": "dtmi:dtdl:instance:Schema:double;2"
         },
         "supplementalTypes": [
-          "dtmi:dtdl:extension:historization:v1:Historized"
+          "dtmi:dtdl:extension:historization:v2:Historized"
         ],
         "supplementalProperties": {}
       },

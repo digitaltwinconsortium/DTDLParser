@@ -1,0 +1,187 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:limits:onvif;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "acceptableLimits": [
+    "dtmi:dtdl:limits:onvif"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4#limitless",
+        "dtmi:dtdl:limits:onvif;1"
+      ],
+      "@id": "dtmi:test:interface1;1",
+      "@type": "Interface",
+      "contents": {
+        "@type": "Property",
+        "name": "prop1",
+        "schema": "double"
+      },
+      "extends": {
+        "@id": "dtmi:test:interface2;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "prop2",
+          "schema": "double"
+        },
+        "extends": {
+          "@id": "dtmi:test:interface3;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Property",
+            "name": "prop3",
+            "schema": "double"
+          },
+          "extends": {
+            "@id": "dtmi:test:interface4;1",
+            "@type": "Interface",
+            "contents": {
+              "@type": "Property",
+              "name": "prop4",
+              "schema": "double"
+            },
+            "extends": {
+              "@id": "dtmi:test:interface5;1",
+              "@type": "Interface",
+              "contents": {
+                "@type": "Property",
+                "name": "prop5",
+                "schema": "double"
+              },
+              "extends": {
+                "@id": "dtmi:test:interface6;1",
+                "@type": "Interface",
+                "contents": {
+                  "@type": "Property",
+                  "name": "prop6",
+                  "schema": "double"
+                },
+                "extends": {
+                  "@id": "dtmi:test:interface7;1",
+                  "@type": "Interface",
+                  "contents": {
+                    "@type": "Property",
+                    "name": "prop7",
+                    "schema": "double"
+                  },
+                  "extends": {
+                    "@id": "dtmi:test:interface8;1",
+                    "@type": "Interface",
+                    "contents": {
+                      "@type": "Property",
+                      "name": "prop8",
+                      "schema": "double"
+                    },
+                    "extends": {
+                      "@id": "dtmi:test:interface9;1",
+                      "@type": "Interface",
+                      "contents": {
+                        "@type": "Property",
+                        "name": "prop9",
+                        "schema": "double"
+                      },
+                      "extends": {
+                        "@id": "dtmi:test:interface10;1",
+                        "@type": "Interface",
+                        "contents": {
+                          "@type": "Property",
+                          "name": "prop10",
+                          "schema": "double"
+                        },
+                        "extends": {
+                          "@id": "dtmi:test:interface11;1",
+                          "@type": "Interface",
+                          "contents": {
+                            "@type": "Property",
+                            "name": "prop11",
+                            "schema": "double"
+                          },
+                          "extends": {
+                            "@id": "dtmi:test:interface12;1",
+                            "@type": "Interface",
+                            "contents": {
+                              "@type": "Property",
+                              "name": "prop12",
+                              "schema": "double"
+                            },
+                            "extends": {
+                              "@id": "dtmi:test:interface13;1",
+                              "@type": "Interface",
+                              "contents": {
+                                "@type": "Property",
+                                "name": "prop13",
+                                "schema": "double"
+                              },
+                              "extends": {
+                                "@id": "dtmi:test:interface14;1",
+                                "@type": "Interface",
+                                "contents": {
+                                  "@type": "Property",
+                                  "name": "prop14",
+                                  "schema": "double"
+                                },
+                                "extends": {
+                                  "@id": "dtmi:test:interface15;1",
+                                  "@type": "Interface",
+                                  "contents": {
+                                    "@type": "Property",
+                                    "name": "prop15",
+                                    "schema": "double"
+                                  },
+                                  "extends": {
+                                    "@id": "dtmi:test:interface16;1",
+                                    "@type": "Interface",
+                                    "contents": {
+                                      "@type": "Property",
+                                      "name": "prop16",
+                                      "schema": "double"
+                                    },
+                                    "extends": {
+                                      "@id": "dtmi:test:interface0;1",
+                                      "@type": "Interface",
+                                      "contents": {
+                                        "@type": "Property",
+                                        "name": "prop0",
+                                        "schema": "double"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthNarrow",
+        "PrimaryID": "dtmi:test:interface1;1",
+        "SecondaryID": "dtmi:test:interface0;1",
+        "Property": "'extends'",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 1,
+        "PrimaryEnd": 157,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 133,
+        "SecondaryEnd": 141
+      }
+    ]
+  }
+}

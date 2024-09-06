@@ -1,0 +1,100 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:upsilon_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:tau_hi;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "upsilon_alpha",
+            "schema": "duration"
+          },
+          "mapKey": {
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:upsilon_epsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:upsilon_gamma;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "upsilon_delta",
+            "schema": "float"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:upsilon_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:upsilon_eta;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "upsilon_theta",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "name": "upsilon_zeta"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:upsilon_nu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:upsilon_lambda;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "upsilon_mu",
+            "schema": "long"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "upsilon_kappa"
+          }
+        }
+      }
+    ]
+  }
+]

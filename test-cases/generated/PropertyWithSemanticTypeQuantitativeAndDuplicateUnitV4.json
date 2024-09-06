@@ -1,0 +1,42 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aProperty;1",
+          "@type": [
+            "Property",
+            "Velocity"
+          ],
+          "name": "expectedSpeed",
+          "schema": "double",
+          "unit": "kilometrePerSecond",
+          "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit": "kilometrePerSecond"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:duplicatePropertyName",
+        "PrimaryID": "dtmi:test:aProperty;1",
+        "SecondaryID": null,
+        "Property": "unit",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 18,
+        "SecondaryStart": 17
+      }
+    ]
+  }
+}

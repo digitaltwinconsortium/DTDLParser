@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_chi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_phi",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "http://foo.com/bar"
+            ],
+            "name": "hi_upsilon",
+            "schema": "time"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_yuzz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_omega",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "CommandRequest",
+              "http://foo.com/bar"
+            ],
+            "name": "hi_psi",
+            "schema": "uuid"
+          }
+        }
+      }
+    ]
+  }
+]

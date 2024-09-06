@@ -26,6 +26,9 @@ namespace DTDLParser
         /// <summary>The kind of the Entity is Boolean.</summary>
         Boolean,
 
+        /// <summary>The kind of the Entity is Bytes.</summary>
+        Bytes,
+
         /// <summary>The kind of the Entity is Command.</summary>
         Command,
 
@@ -118,5 +121,8 @@ namespace DTDLParser
 
         /// <summary>The kind of the Entity is UnitAttribute.</summary>
         UnitAttribute,
+
+        /// <summary>The kind of the Entity is Uuid.</summary>
+        Uuid,
     }
 }

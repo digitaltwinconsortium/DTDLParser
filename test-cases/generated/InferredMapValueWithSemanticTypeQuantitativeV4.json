@@ -1,0 +1,55 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:aMap;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "myMapKey",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@type": [
+              "Velocity"
+            ],
+            "name": "myMapValue",
+            "schema": "double",
+            "unit": "metrePerSecond"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:test:aMap;1",
+        "SecondaryID": "dtmi:test:aMap:_mapValue;1",
+        "Property": "mapValue",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 16,
+        "SecondaryEnd": 23
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:objectCountBelowMin",
+        "PrimaryID": "dtmi:test:aMap;1",
+        "Property": "mapValue",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      }
+    ]
+  }
+}

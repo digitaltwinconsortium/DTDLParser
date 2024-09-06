@@ -54,9 +54,13 @@ namespace DTDLParser
 
         private static readonly Uri DisallowedCocotypeValidationId = new Uri("dtmi:dtdl:parsingError:disallowedCocotype");
 
+        private static readonly Uri DisallowedContextFragmentValidationId = new Uri("dtmi:dtdl:parsingError:disallowedContextFragment");
+
         private static readonly Uri DisallowedContextVersionValidationId = new Uri("dtmi:dtdl:parsingError:disallowedContextVersion");
 
         private static readonly Uri DisallowedIdFragmentValidationId = new Uri("dtmi:dtdl:parsingError:disallowedIdFragment");
+
+        private static readonly Uri DisallowedLimitContextValidationId = new Uri("dtmi:dtdl:parsingError:disallowedLimitContext");
 
         private static readonly Uri DisallowedLocalContextValidationId = new Uri("dtmi:dtdl:parsingError:disallowedLocalContext");
 
@@ -194,6 +198,8 @@ namespace DTDLParser
 
         private static readonly Uri IntegerValueNotIntegerValidationId = new Uri("dtmi:dtdl:parsingError:integerValueNotInteger");
 
+        private static readonly Uri InvalidContextFragmentValidationId = new Uri("dtmi:dtdl:parsingError:invalidContextFragment");
+
         private static readonly Uri InvalidContextSpecifierForVersionValidationId = new Uri("dtmi:dtdl:parsingError:invalidContextSpecifierForVersion");
 
         private static readonly Uri InvalidContextSpecifierValidationId = new Uri("dtmi:dtdl:parsingError:invalidContextSpecifier");
@@ -294,6 +300,8 @@ namespace DTDLParser
 
         private static readonly Uri MismatchedLayersValidationId = new Uri("dtmi:dtdl:parsingError:mismatchedLayers");
 
+        private static readonly Uri MisplacedLimitContextValidationId = new Uri("dtmi:dtdl:parsingError:misplacedLimitContext");
+
         private static readonly Uri MissingCocotypeValidationId = new Uri("dtmi:dtdl:parsingError:missingCocotype");
 
         private static readonly Uri MissingContextValidationId = new Uri("dtmi:dtdl:parsingError:missingContext");
@@ -317,6 +325,8 @@ namespace DTDLParser
         private static readonly Uri MissingExtensionVersionValidationId = new Uri("dtmi:dtdl:parsingError:missingExtensionVersion");
 
         private static readonly Uri MissingIdentifierPropertyValidationId = new Uri("dtmi:dtdl:parsingError:missingIdentifierProperty");
+
+        private static readonly Uri MissingLimitContextValidationId = new Uri("dtmi:dtdl:parsingError:missingLimitContext");
 
         private static readonly Uri MissingLiteralPropertyValidationId = new Uri("dtmi:dtdl:parsingError:missingLiteralProperty");
 
@@ -1147,6 +1157,35 @@ namespace DTDLParser
                     }
 
                     return;
+                case "disallowedContextFragment":
+                    if (contextValue == null || version == null)
+                    {
+                        throw new ArgumentException("Missing required parameter contextValue or version when generating disallowedContextFragment ParsingError.");
+                    }
+
+                    if (contextComponent != null && contextComponent.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DisallowedContextFragmentValidationId,
+                            "In {sourceName1}, @context specifier has value '{value}'{line1}, which includes a fragment, which is not valid for DTDL version {restriction}.",
+                            "Remove the fragment from the @context specifier.",
+                            value: contextValue,
+                            restriction: version,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DisallowedContextFragmentValidationId,
+                            "@context specifier has value '{value}', which includes a fragment, which is not valid for DTDL version {restriction}.",
+                            "Remove the fragment from the @context specifier.",
+                            value: contextValue,
+                            restriction: version);
+                    }
+
+                    return;
                 case "disallowedContextVersion":
                     if (contextValue == null || version == null)
                     {
@@ -1200,6 +1239,35 @@ namespace DTDLParser
                             "Identifier '{primaryId}' includes a fragment suffix, which is not permitted.",
                             "Remove fragment suffix from identifier.",
                             primaryId: elementId);
+                    }
+
+                    return;
+                case "disallowedLimitContext":
+                    if (contextValue == null || valueRestriction == null)
+                    {
+                        throw new ArgumentException("Missing required parameter contextValue or valueRestriction when generating disallowedLimitContext ParsingError.");
+                    }
+
+                    if (contextComponent != null && contextComponent.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            DisallowedLimitContextValidationId,
+                            "In {sourceName1}, @context specifier '{value}'{line1} is not an acceptable limit extension.",
+                            "Replace the @context specifier with an acceptable limit context value: {restriction}.",
+                            value: contextValue,
+                            restriction: valueRestriction,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            DisallowedLimitContextValidationId,
+                            "@context specifier '{value}' is not an acceptable limit extension.",
+                            "Replace the @context specifier with an acceptable limit context value: {restriction}.",
+                            value: contextValue,
+                            restriction: valueRestriction);
                     }
 
                     return;
@@ -2541,14 +2609,14 @@ namespace DTDLParser
 
                     return;
                 case "idTooLong":
-                    if (identifier == null || expectedCount == null || version == null)
+                    if (identifier == null || expectedCount == null || version == null || contextValue == null)
                     {
-                        throw new ArgumentException("Missing required parameter identifier or expectedCount or version when generating idTooLong ParsingError.");
+                        throw new ArgumentException("Missing required parameter identifier or expectedCount or version or contextValue when generating idTooLong ParsingError.");
                     }
 
                     if (element != null && element.TryGetSourceLocationForId(out sourceName1, out startLine1))
                     {
-                        StringBuilder causeBuilder = new StringBuilder("In {sourceName1}, identifier '{value}'{line1} is too long -- length limit is {count1} {item1} for DTDL version {restriction}.");
+                        StringBuilder causeBuilder = new StringBuilder("In {sourceName1}, identifier '{value}'{line1} is too long -- length limit is {count1} {item1} for DTDL version {restriction} with limits from {transformation}.");
                         SetCount(causeBuilder, 1, (int)expectedCount, "character", "characters");
 
                         StringBuilder actionBuilder = new StringBuilder("Select a shorter value for the identifier or trim current value to no more than {count1} {item1}.");
@@ -2560,13 +2628,14 @@ namespace DTDLParser
                             actionBuilder.ToString(),
                             value: identifier,
                             restriction: version,
+                            transformation: contextValue,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
                             endLine1: endLine1);
                     }
                     else
                     {
-                        StringBuilder causeBuilder = new StringBuilder("Identifier '{value}' is too long -- length limit is {count1} {item1} for DTDL version {restriction}.");
+                        StringBuilder causeBuilder = new StringBuilder("Identifier '{value}' is too long -- length limit is {count1} {item1} for DTDL version {restriction} with limits from {transformation}.");
                         SetCount(causeBuilder, 1, (int)expectedCount, "character", "characters");
 
                         StringBuilder actionBuilder = new StringBuilder("Select a shorter value for the identifier or trim current value to no more than {count1} {item1}.");
@@ -2577,7 +2646,8 @@ namespace DTDLParser
                             causeBuilder.ToString(),
                             actionBuilder.ToString(),
                             value: identifier,
-                            restriction: version);
+                            restriction: version,
+                            transformation: contextValue);
                     }
 
                     return;
@@ -3414,6 +3484,33 @@ namespace DTDLParser
                             primaryId: elementId,
                             property: propertyName,
                             layer: layer);
+                    }
+
+                    return;
+                case "invalidContextFragment":
+                    if (contextValue == null)
+                    {
+                        throw new ArgumentException("Missing required parameter contextValue when generating invalidContextFragment ParsingError.");
+                    }
+
+                    if (contextComponent != null && contextComponent.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            InvalidContextFragmentValidationId,
+                            "In {sourceName1}, @context specifier has value '{value}'{line1}, which includes a fragment other than '#limitless' or '#limits'.",
+                            "Remove the fragment from the @context specifier or replace it with '#limitless' or '#limits'.",
+                            value: contextValue,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            InvalidContextFragmentValidationId,
+                            "@context specifier has value '{value}', which includes a fragment other than '#limitless' or '#limits'.",
+                            "Remove the fragment from the @context specifier or replace it with '#limitless' or '#limits'.",
+                            value: contextValue);
                     }
 
                     return;
@@ -4962,6 +5059,33 @@ namespace DTDLParser
                     }
 
                     return;
+                case "misplacedLimitContext":
+                    if (contextValue == null)
+                    {
+                        throw new ArgumentException("Missing required parameter contextValue when generating misplacedLimitContext ParsingError.");
+                    }
+
+                    if (contextComponent != null && contextComponent.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            MisplacedLimitContextValidationId,
+                            "In {sourceName1}, @context specifier with value '{value}'{line1} specifies limits but does not immediately follow a DTDL limitless context specifier.",
+                            "Insert a DTDL limitless context specifier immediately before this context specifier.",
+                            value: contextValue,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            MisplacedLimitContextValidationId,
+                            "@context specifier with value '{value}' specifies limits but does not immediately follow a DTDL limitless context specifier.",
+                            "Insert a DTDL limitless context specifier immediately before this context specifier.",
+                            value: contextValue);
+                    }
+
+                    return;
                 case "missingCocotype":
                     if (elementId == null || elementType == null || cotype == null)
                     {
@@ -5285,6 +5409,35 @@ namespace DTDLParser
                             "Add a property '{property}' to the element.",
                             primaryId: elementId,
                             property: propertyName);
+                    }
+
+                    return;
+                case "missingLimitContext":
+                    if (contextValue == null || version == null)
+                    {
+                        throw new ArgumentException("Missing required parameter contextValue or version when generating missingLimitContext ParsingError.");
+                    }
+
+                    if (contextComponent != null && contextComponent.TryGetSourceLocation(out sourceName1, out startLine1, out endLine1))
+                    {
+                        this.Add(
+                            MissingLimitContextValidationId,
+                            "In {sourceName1}, @context specifier has value '{value}'{line1} but is not immediately followed by a context that specifies modeling limits for DTDL version {restriction}.",
+                            "Remove the '#limitless' fragment from the @context specifier or immediately follow this value with another context value that specifies modeling limits for DTDL version {restriction}.",
+                            value: contextValue,
+                            restriction: version,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            MissingLimitContextValidationId,
+                            "@context specifier has value '{value}' but is not immediately followed by a context that specifies modeling limits for DTDL version {restriction}.",
+                            "Remove the '#limitless' fragment from the @context specifier or immediately follow this value with another context value that specifies modeling limits for DTDL version {restriction}.",
+                            value: contextValue,
+                            restriction: version);
                     }
 
                     return;

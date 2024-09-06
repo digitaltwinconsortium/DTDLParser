@@ -2,23 +2,36 @@
   "valid": true,
   "options": [],
   "input": [
-    {
-      "@context": [
-        "dtmi:dtdl:context;3",
-        "dtmi:dtdl:extension:historization;1"
-      ],
-      "@id": "dtmi:com:example:Thermometer;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": [
-            "Property",
-            "Historized"
-          ],
-          "name": "currentTemp",
-          "schema": "double"
-        }
-      ]
-    }
+    [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:derivedInterface;1",
+        "@type": "Interface",
+        "extends": "dtmi:example:baseInterface;1",
+        "contents": [
+          {
+            "@type": "Telemetry",
+            "name": "resolution",
+            "schema": "integer"
+          }
+        ]
+      },
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:baseInterface;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Telemetry",
+            "name": "pixels",
+            "schema": {
+              "@id": "dtmi:example:boolArray;1",
+              "@type": "Array",
+              "elementSchema": "boolean"
+            }
+          }
+        ]
+      }
+    ]
   ]
 }

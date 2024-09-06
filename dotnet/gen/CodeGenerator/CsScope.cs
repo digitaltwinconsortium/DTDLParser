@@ -154,6 +154,19 @@
         }
 
         /// <summary>
+        /// Add a C# switch expression to the scope.
+        /// </summary>
+        /// <param name="expressionText">Text for the expression preceding the 'switch' keyword.</param>
+        /// <param name="terminate">True if the expression should be terminated with a semicolon; defaults to true.</param>
+        /// <returns>The <see cref="CsSwitchExpr"/> object added.</returns>
+        public CsSwitchExpr SwitchExpr(string expressionText, bool terminate = true)
+        {
+            CsSwitchExpr csSwitchExpr = new CsSwitchExpr(expressionText, terminate);
+            this.csStatements.Add(csSwitchExpr);
+            return csSwitchExpr;
+        }
+
+        /// <summary>
         /// Add a C# try statement to the scope.
         /// </summary>
         /// <returns>The <see cref="CsTry"/> object added.</returns>

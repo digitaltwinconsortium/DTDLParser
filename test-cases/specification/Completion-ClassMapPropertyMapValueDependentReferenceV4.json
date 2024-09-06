@@ -1,0 +1,64 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_sigma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "itch_rho",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "itch_pi",
+              "schema": "string"
+            },
+            "mapValue": "dtmi:ex:dependentRef;1"
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_phi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "itch_upsilon",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "itch_tau",
+              "schema": "string"
+            },
+            "mapValue": [
+              "dtmi:ex:dependentRef;1"
+            ]
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  }
+]

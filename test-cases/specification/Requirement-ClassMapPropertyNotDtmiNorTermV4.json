@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_chi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:tau_tau;1",
+          "@type": [
+            "Map",
+            "Foobar"
+          ],
+          "mapKey": {
+            "name": "tau_upsilon",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "tau_phi",
+            "schema": "uuid"
+          },
+          "http://foo.com/bar": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_wum;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:tau_psi;1",
+          "@type": [
+            "Map",
+            "Foobar"
+          ],
+          "mapKey": {
+            "name": "tau_omega",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "tau_yuzz",
+            "schema": "boolean"
+          },
+          "http://foo.com/bar": true
+        }
+      }
+    ]
+  }
+]

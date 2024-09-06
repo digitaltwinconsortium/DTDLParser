@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_tau;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:alpha_sigma;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "dtmi:foo//bar"
+            ],
+            "name": "alpha_rho",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_chi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:alpha_phi;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "dtmi:foo//bar"
+            ],
+            "name": "alpha_upsilon",
+            "schema": "time"
+          }
+        }
+      }
+    ]
+  }
+]

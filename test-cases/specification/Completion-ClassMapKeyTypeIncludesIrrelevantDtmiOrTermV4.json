@@ -1,0 +1,120 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:jogg_zatz;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "jogg_jogg",
+            "schema": "double"
+          },
+          "mapKey": {
+            "@type": [
+              "MapKey",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "jogg_floob",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:jogg_yekk;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "jogg_vroo",
+            "schema": "duration"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapKey",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "jogg_itch",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_beta;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "flunn_gamma",
+            "schema": "float"
+          },
+          "mapKey": {
+            "@type": [
+              "MapKey",
+              "boolean"
+            ],
+            "name": "flunn_alpha",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:flunn_theta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:flunn_zeta;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "flunn_eta",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapKey",
+              "boolean"
+            ],
+            "name": "flunn_epsilon",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

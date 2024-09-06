@@ -1,0 +1,156 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:fuddle_zatz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:fuddle_floob;1",
+          "elementSchema": "dateTime",
+          "@type": "Array"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:fuddle_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:fuddle_jogg;1",
+          "elementSchema": "double",
+          "@type": [
+            "Array"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:fuddle_yekk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:fuddle_itch;1",
+          "elementSchema": "duration",
+          "@type": "dtmi:dtdl:class:Array;4"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:fuddle_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:fuddle_vroo;1",
+          "elementSchema": "float",
+          "@type": [
+            "dtmi:dtdl:class:Array;4"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_alpha;1",
+          "elementSchema": "integer",
+          "@type": "Something"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:glikk_gamma;1",
+          "elementSchema": "long",
+          "@type": "Something"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_epsilon;1",
+          "elementSchema": "string",
+          "@type": [
+            "Something"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_theta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:glikk_eta;1",
+          "elementSchema": "time",
+          "@type": [
+            "Something"
+          ]
+        }
+      }
+    ]
+  }
+]

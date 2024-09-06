@@ -1,0 +1,54 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_iota;1",
+          "mapKey": {
+            "name": "snee_kappa",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_lambda",
+            "schema": "double"
+          },
+          "@type": "Map"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_pi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_nu;1",
+          "mapKey": {
+            "name": "snee_xi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_omicron",
+            "schema": "duration"
+          },
+          "@type": "dtmi:dtdl:class:Map;4"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,90 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_itch;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "yuzz_flunn",
+          "properties": [
+            {
+              "@type": "Property",
+              "schema": "long",
+              "name": "epsilon_beta"
+            },
+            {
+              "@type": "Property",
+              "schema": "string",
+              "name": "epsilon_gamma"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_vroo;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "yuzz_yekk",
+          "properties": [
+            {
+              "@type": "Property",
+              "schema": "time",
+              "name": "epsilon_beta"
+            },
+            {
+              "@type": "Property",
+              "schema": "uuid",
+              "name": "epsilon_beta"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:wum_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Relationship",
+          "name": "yuzz_hi",
+          "properties": [
+            {
+              "@type": "Property",
+              "schema": "boolean",
+              "name": "epsilon_beta"
+            },
+            {
+              "@type": "Property",
+              "schema": "bytes",
+              "name": "epsilon_beta"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

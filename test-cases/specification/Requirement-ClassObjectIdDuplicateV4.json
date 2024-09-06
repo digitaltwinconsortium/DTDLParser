@@ -1,0 +1,47 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:mu_rho;1",
+          "@type": "Property",
+          "name": "mu_sigma",
+          "schema": {
+            "@id": "dtmi:example:mu_rho;1",
+            "@type": "Object"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_tau;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:mu_tau;1",
+          "@type": "Property",
+          "name": "mu_upsilon",
+          "schema": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:example:mu_tau;1",
+            "@type": "Object"
+          }
+        }
+      }
+    ]
+  }
+]

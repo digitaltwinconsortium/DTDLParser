@@ -1,0 +1,40 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:floob_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:floob_theta;1",
+          "@type": "Enum",
+          "valueSchema": "integer"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:floob_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:floob_kappa;1",
+          "@type": "Enum",
+          "dtmi:dtdl:property:valueSchema;4": "integer"
+        }
+      }
+    ]
+  }
+]

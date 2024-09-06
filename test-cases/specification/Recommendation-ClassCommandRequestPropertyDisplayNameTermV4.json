@@ -1,0 +1,52 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_xi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "mu_nu",
+          "request": {
+            "displayName": [
+              "mu_lambda"
+            ],
+            "name": "mu_mu",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:mu_sigma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "mu_rho",
+          "request": {
+            "dtmi:dtdl:property:displayName;4": [
+              "mu_omicron"
+            ],
+            "name": "mu_pi",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  }
+]

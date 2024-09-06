@@ -1,0 +1,63 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:delta_vroo;1",
+          "@type": "Enum",
+          "enumValues": [
+            {
+              "enumValue": 1526,
+              "name": "delta_hi"
+            }
+          ],
+          "dtmi:dtdl:property:enumValues;4": [
+            {
+              "enumValue": 1527,
+              "name": "epsilon_alpha"
+            }
+          ],
+          "valueSchema": "integer"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:epsilon_gamma;1",
+          "@type": "Enum",
+          "enumValues": [
+            {
+              "enumValue": 1528,
+              "name": "epsilon_delta"
+            }
+          ],
+          "dtmi:dtdl:property:enumValues;4": [
+            {
+              "enumValue": 1529,
+              "name": "epsilon_epsilon"
+            }
+          ],
+          "valueSchema": "integer"
+        }
+      }
+    ]
+  }
+]

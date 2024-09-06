@@ -1,0 +1,40 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "Foo",
+          "displayName": [
+            {
+              "en-US": "hello",
+              "@value": "hello",
+              "@language": "en-US"
+            }
+          ],
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:langStringElementInvalidProp",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": null,
+        "Property": "displayName",
+        "Value": "en-US",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 12
+      }
+    ]
+  }
+}

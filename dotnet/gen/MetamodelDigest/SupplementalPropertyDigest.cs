@@ -33,6 +33,8 @@
 
             this.Pattern = supplementalPropertyObj.TryGetValue("pattern", out JToken pattern) ? ((JValue)pattern).Value<string>() : null;
 
+            this.PatternDesc = supplementalPropertyObj.TryGetValue("patternDesc", out JToken patternDesc) ? ((JObject)patternDesc).Properties().ToDictionary(p => p.Name, p => ((JValue)p.Value).Value<string>()) : null;
+
             this.HasUniqueValue = ((JValue)supplementalPropertyObj["uniqueValue"]).Value<bool>();
 
             this.IsPlural = ((JValue)supplementalPropertyObj["plural"]).Value<bool>();
@@ -110,6 +112,11 @@
         /// Gets a regex that constrains the permissible values, or null if no pattern constraint.
         /// </summary>
         public string Pattern { get; }
+
+        /// <summary>
+        /// Gets a language map description of the pattern constraint.
+        /// </summary>
+        public Dictionary<string, string> PatternDesc { get; }
 
         /// <summary>
         /// Gets a value indicating whether the property's value must be unique across the corresponding properties in all sibling objects.

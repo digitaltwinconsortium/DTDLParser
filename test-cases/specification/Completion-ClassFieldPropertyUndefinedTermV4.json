@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_theta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:omicron_eta;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "omicron_zeta",
+            "schema": "integer",
+            "foobar": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:omicron_kappa;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "omicron_iota",
+            "schema": "long",
+            "foobar": {}
+          }
+        }
+      }
+    ]
+  }
+]

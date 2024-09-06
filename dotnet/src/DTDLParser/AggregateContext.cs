@@ -45,6 +45,7 @@ namespace DTDLParser
             this.localTermDefinitions = new Dictionary<string, Uri>();
             this.localPrefixDefinitions = new Dictionary<string, string>();
             this.DtdlContextComponent = null;
+            this.LimitSpecifier = null;
             this.MergeDefinitions = false;
             this.SupplementalTypeCollection = supplementalTypeCollection;
         }
@@ -60,7 +61,9 @@ namespace DTDLParser
             HashSet<string> unrecognizedContexts,
             Dictionary<string, Uri> localTermDefinitions,
             Dictionary<string, string> localPrefixDefinitions,
-            JsonLdContextComponent dtdlContextComponent)
+            JsonLdContextComponent dtdlContextComponent,
+            string limitSpecifier,
+            string limitContext)
         {
             this.contextCollection = contextCollection;
             this.allowUndefinedExtensions = allowUndefinedExtensions;
@@ -72,6 +75,8 @@ namespace DTDLParser
             this.localTermDefinitions = localTermDefinitions;
             this.localPrefixDefinitions = localPrefixDefinitions;
             this.DtdlContextComponent = dtdlContextComponent;
+            this.LimitSpecifier = limitSpecifier;
+            this.LimitContext = limitContext;
             this.MergeDefinitions = !suppressDefinitionMerging && (activeDtdlContext.MergeDefinitions || activeAffiliateContexts.Any(kvp => kvp.Value.MergeDefinitions));
             this.SupplementalTypeCollection = supplementalTypeCollection;
         }
@@ -85,6 +90,16 @@ namespace DTDLParser
         /// Gets the JSON-LD context component that defines the DTDL version in use.
         /// </summary>
         internal JsonLdContextComponent DtdlContextComponent { get; }
+
+        /// <summary>
+        /// Gets the limit specifier indicated by the active context, or empty if there is no active context yet.
+        /// </summary>
+        internal string LimitSpecifier { get; }
+
+        /// <summary>
+        /// Gets the ID of the context that specifies the active limits, or null if there is no active context yet.
+        /// </summary>
+        internal string LimitContext { get; }
 
         /// <summary>
         /// Gets a value indicating whether definitions whose identifiers contain IRI fragments should be merged.
@@ -142,7 +157,16 @@ namespace DTDLParser
         {
             List<string> contextComponents = new List<string>();
 
-            contextComponents.Add($"\"{this.activeDtdlContext.ContextSpecifier}\"");
+            if (this.LimitSpecifier == string.Empty)
+            {
+                contextComponents.Add($"\"{this.activeDtdlContext.ContextSpecifier}\"");
+            }
+            else
+            {
+                contextComponents.Add($"\"{this.activeDtdlContext.ContextSpecifier}#limitless\"");
+                contextComponents.Add($"\"{this.LimitContext}\"");
+            }
+
             foreach (VersionedContext activeAffiliateContext in this.activeAffiliateContexts.Values)
             {
                 contextComponents.Add($"\"{activeAffiliateContext.ContextSpecifier}\"");
@@ -239,7 +263,7 @@ namespace DTDLParser
 
             if (uriOrTerm.StartsWith("dtmi:"))
             {
-                return IdValidator.TryCreateIdReference(uriOrTerm, this.activeDtdlContext.MajorVersion, out uri);
+                return IdValidator.TryCreateIdReference(uriOrTerm, this.activeDtdlContext.MajorVersion, this.LimitSpecifier, out uri);
             }
 
             int colonPos = uriOrTerm.IndexOf(':');
@@ -257,7 +281,7 @@ namespace DTDLParser
                 string conjunction = $"{definition}{uriOrTerm.Substring(colonPos + 1)}";
                 if (conjunction.StartsWith("dtmi:"))
                 {
-                    return IdValidator.TryCreateIdReference(conjunction, this.activeDtdlContext.MajorVersion, out uri);
+                    return IdValidator.TryCreateIdReference(conjunction, this.activeDtdlContext.MajorVersion, this.LimitSpecifier, out uri);
                 }
                 else
                 {
@@ -280,6 +304,8 @@ namespace DTDLParser
         internal AggregateContext GetChildContextFromContextArray(JsonLdContextComponent[] contextComponents, ParsingErrorCollection parsingErrorCollection, bool forceAllowLocalContext)
         {
             JsonLdContextComponent dtdlContextComponent = this.DtdlContextComponent;
+            string limitContext = null;
+            string limitSpecifier = string.Empty;
             VersionedContext childDtdlContext = this.activeDtdlContext;
             int startIndex = 0;
 
@@ -297,8 +323,27 @@ namespace DTDLParser
             while (startIndex < contextComponents.Count() && !contextComponents[startIndex].IsLocal && contextComponents[startIndex].RemoteId.StartsWith(DtdlContextPrefix))
             {
                 dtdlContextComponent = contextComponents[startIndex];
-                this.contextCollection.GetDtdlContextFromContextComponent(dtdlContextComponent, ref childDtdlContext, parsingErrorCollection, this.maxDtdlVersion);
+                this.contextCollection.GetDtdlContextFromContextComponent(dtdlContextComponent, ref childDtdlContext, parsingErrorCollection, this.maxDtdlVersion, out bool specifiesLimits);
                 ++startIndex;
+
+                if (specifiesLimits)
+                {
+                    limitContext = dtdlContextComponent.RemoteId;
+                    limitSpecifier = string.Empty;
+                }
+                else if (startIndex < contextComponents.Count() && this.contextCollection.TryGetLimitSpecifierFromContextComponent(contextComponents[startIndex], out limitSpecifier, childDtdlContext.MajorVersion, parsingErrorCollection))
+                {
+                    limitContext = contextComponents[startIndex].RemoteId;
+                    ++startIndex;
+                }
+                else
+                {
+                    parsingErrorCollection.Quit(
+                        "missingLimitContext",
+                        contextComponent: dtdlContextComponent,
+                        contextValue: dtdlContextComponent.RemoteId,
+                        version: childDtdlContext.MajorVersion.ToString());
+                }
             }
 
             if (childDtdlContext == null)
@@ -319,7 +364,7 @@ namespace DTDLParser
                         version: childDtdlContext.MajorVersion.ToString());
                 }
 
-                this.contextCollection.GetChildDefinitionsfromContextComponent(contextComponents[endIndex], out childTermDefinitions, out childPrefixDefinitions, this.localTermDefinitions, this.localPrefixDefinitions, childDtdlContext.MajorVersion, parsingErrorCollection);
+                this.contextCollection.GetChildDefinitionsfromContextComponent(contextComponents[endIndex], out childTermDefinitions, out childPrefixDefinitions, this.localTermDefinitions, this.localPrefixDefinitions, childDtdlContext.MajorVersion, limitSpecifier, parsingErrorCollection);
                 --endIndex;
             }
 
@@ -362,7 +407,9 @@ namespace DTDLParser
                 childUnrecognizedContexts,
                 childTermDefinitions,
                 childPrefixDefinitions,
-                dtdlContextComponent);
+                dtdlContextComponent,
+                limitSpecifier,
+                limitContext);
         }
 
         private bool TryGetAffiliateUri(string uriOrTerm, out Uri uri)

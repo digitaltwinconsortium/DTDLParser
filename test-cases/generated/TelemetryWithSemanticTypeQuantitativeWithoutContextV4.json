@@ -1,0 +1,45 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:typeUndefinedTerm",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": null,
+        "Value": "Velocity",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 10
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:propertyUndefinedTerm",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": "unit",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      }
+    ]
+  },
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Velocity"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "unit": "kilometrePerSecond"
+        }
+      ]
+    }
+  ]
+}

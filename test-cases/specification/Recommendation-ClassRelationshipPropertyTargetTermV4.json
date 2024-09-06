@@ -1,0 +1,40 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "psi_epsilon",
+          "target": "dtmi:example:psi_zeta;1"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "psi_theta",
+          "dtmi:dtdl:property:target;4": "dtmi:example:psi_iota;1"
+        }
+      }
+    ]
+  }
+]

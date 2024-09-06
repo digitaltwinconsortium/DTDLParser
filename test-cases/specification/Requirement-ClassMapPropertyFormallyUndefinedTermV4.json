@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_jogg;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:tau_spazz;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "tau_floob",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "tau_zatz",
+            "schema": "dateTime"
+          },
+          "foobar": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_vroo;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:tau_flunn;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "tau_itch",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "tau_yekk",
+            "schema": "double"
+          },
+          "foobar": {}
+        }
+      }
+    ]
+  }
+]

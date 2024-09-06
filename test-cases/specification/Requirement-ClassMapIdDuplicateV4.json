@@ -1,0 +1,63 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:theta_tau;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:theta_tau;1",
+          "@type": "Property",
+          "name": "theta_chi",
+          "schema": {
+            "@id": "dtmi:example:theta_tau;1",
+            "@type": "Map",
+            "mapKey": {
+              "name": "theta_upsilon",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "theta_phi",
+              "schema": "float"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:theta_psi;1",
+        "@type": "Interface",
+        "contents": {
+          "@id": "dtmi:example:theta_psi;1",
+          "@type": "Property",
+          "name": "theta_wum",
+          "schema": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:example:theta_psi;1",
+            "@type": "Map",
+            "mapKey": {
+              "name": "theta_omega",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "theta_yuzz",
+              "schema": "integer"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

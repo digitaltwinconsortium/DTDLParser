@@ -1,0 +1,59 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_psi;1",
+        "@type": "Interface",
+        "schemas": [
+          {
+            "@id": "dtmi:example:humpf_omega;1",
+            "@type": "Array",
+            "elementSchema": "duration"
+          }
+        ],
+        "dtmi:dtdl:property:schemas;4": [
+          {
+            "@id": "dtmi:example:humpf_yuzz;1",
+            "@type": "Array",
+            "elementSchema": "float"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:humpf_wum;1",
+        "@type": "Interface",
+        "schemas": [
+          {
+            "@id": "dtmi:example:humpf_um;1",
+            "@type": "Array",
+            "elementSchema": "integer"
+          }
+        ],
+        "dtmi:dtdl:property:schemas;4": [
+          {
+            "@id": "dtmi:example:humpf_humpf;1",
+            "@type": "Array",
+            "elementSchema": "long"
+          }
+        ]
+      }
+    ]
+  }
+]

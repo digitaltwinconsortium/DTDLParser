@@ -22,15 +22,45 @@ namespace DTDLParser
     {
         static IdValidator()
         {
-            IdDefinitionMaxLengths[2] = 2048;
-            IdDefinitionRegexPatterns[2] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$", RegexOptions.Compiled);
-            IdDefinitionMaxLengths[3] = 2048;
-            IdDefinitionRegexPatterns[3] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\.[1-9][0-9]{0,5})?)?$", RegexOptions.Compiled);
+            IdDefinitionMaxLengths[2] = new Dictionary<string, int>
+            {
+                { "", 2048 },
+            };
 
-            IdReferenceMaxLengths[2] = 2048;
+            IdDefinitionRegexPatterns[2] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$", RegexOptions.Compiled);
+            IdDefinitionMaxLengths[3] = new Dictionary<string, int>
+            {
+                { "", 2048 },
+            };
+
+            IdDefinitionRegexPatterns[3] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\.[1-9][0-9]{0,5})?)?$", RegexOptions.Compiled);
+            IdDefinitionMaxLengths[4] = new Dictionary<string, int>
+            {
+                { "", 2048 },
+                { "onvif_1", 512 },
+            };
+
+            IdDefinitionRegexPatterns[4] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\.[1-9][0-9]{0,5})?)?$", RegexOptions.Compiled);
+
+            IdReferenceMaxLengths[2] = new Dictionary<string, int>
+            {
+                { "", 2048 },
+            };
+
             IdReferenceRegexPatterns[2] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$", RegexOptions.Compiled);
-            IdReferenceMaxLengths[3] = 2048;
+            IdReferenceMaxLengths[3] = new Dictionary<string, int>
+            {
+                { "", 2048 },
+            };
+
             IdReferenceRegexPatterns[3] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\.[1-9][0-9]{0,5})?)?$", RegexOptions.Compiled);
+            IdReferenceMaxLengths[4] = new Dictionary<string, int>
+            {
+                { "", 2048 },
+                { "onvif_1", 512 },
+            };
+
+            IdReferenceRegexPatterns[4] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\.[1-9][0-9]{0,5})?)?$", RegexOptions.Compiled);
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Command",
+          "name": "setTemp"
+        },
+        {
+          "@type": [
+            "Telemetry",
+            "ValueAnnotation"
+          ],
+          "name": "setTempNote",
+          "annotates": "setTemp",
+          "schema": "string"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:notSiblingRequiredType",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__setTempNote;1",
+        "SecondaryID": "dtmi:test:Sensor:_contents:__setTemp;1",
+        "Property": "annotates",
+        "AuxProperty": "name",
+        "Type": "Property or Telemetry",
+        "Value": "setTemp",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 19,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 9,
+        "SecondaryEnd": 12
+      }
+    ]
+  }
+}

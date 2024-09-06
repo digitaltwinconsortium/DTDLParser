@@ -1,0 +1,46 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "nu_iota",
+          "schema": {
+            "@id": "dtmi:example:nu_kappa;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_xi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "nu_mu",
+          "dtmi:dtdl:property:schema;4": {
+            "@id": "dtmi:example:nu_nu;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  }
+]

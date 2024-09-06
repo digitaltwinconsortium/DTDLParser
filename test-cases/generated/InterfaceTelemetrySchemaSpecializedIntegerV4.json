@@ -1,0 +1,46 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "specialized",
+          "schema": {
+            "@id": "dtmi:test:myInteger;1",
+            "@type": "Integer"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badType",
+        "PrimaryID": "dtmi:test:anInterface:_contents:__specialized;1",
+        "SecondaryID": "dtmi:test:myInteger;1",
+        "Property": "schema",
+        "Value": "Integer",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 9,
+        "SecondaryEnd": 12
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:objectCountBelowMin",
+        "PrimaryID": "dtmi:test:anInterface:_contents:__specialized;1",
+        "SecondaryID": null,
+        "Property": "schema",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9
+      }
+    ]
+  }
+}

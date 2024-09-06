@@ -1,0 +1,125 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:limits:onvif;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "acceptableLimits": [
+    "dtmi:dtdl:limits:onvif"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4#limitless",
+        "dtmi:dtdl:limits:onvif;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:deepArray1;1",
+          "@type": "Array",
+          "elementSchema": {
+            "@id": "dtmi:test:deepArray2;1",
+            "@type": "Array",
+            "elementSchema": {
+              "@id": "dtmi:test:deepArray3;1",
+              "@type": "Array",
+              "elementSchema": {
+                "@id": "dtmi:test:deepArray4;1",
+                "@type": "Array",
+                "elementSchema": {
+                  "@id": "dtmi:test:deepArray5;1",
+                  "@type": "Array",
+                  "elementSchema": {
+                    "@id": "dtmi:test:deepArray6;1",
+                    "@type": "Array",
+                    "elementSchema": {
+                      "@id": "dtmi:test:deepArray7;1",
+                      "@type": "Array",
+                      "elementSchema": {
+                        "@id": "dtmi:test:deepArray8;1",
+                        "@type": "Array",
+                        "elementSchema": {
+                          "@id": "dtmi:test:deepArray9;1",
+                          "@type": "Array",
+                          "elementSchema": {
+                            "@id": "dtmi:test:deepArray10;1",
+                            "@type": "Array",
+                            "elementSchema": {
+                              "@id": "dtmi:test:deepArray11;1",
+                              "@type": "Array",
+                              "elementSchema": {
+                                "@id": "dtmi:test:deepArray12;1",
+                                "@type": "Array",
+                                "elementSchema": {
+                                  "@id": "dtmi:test:deepArray13;1",
+                                  "@type": "Array",
+                                  "elementSchema": {
+                                    "@id": "dtmi:test:deepArray14;1",
+                                    "@type": "Array",
+                                    "elementSchema": {
+                                      "@id": "dtmi:test:deepArray15;1",
+                                      "@type": "Array",
+                                      "elementSchema": {
+                                        "@id": "dtmi:test:deepArray16;1",
+                                        "@type": "Array",
+                                        "elementSchema": {
+                                          "@id": "dtmi:test:deepArray17;1",
+                                          "@type": "Array",
+                                          "elementSchema": {
+                                            "@id": "dtmi:test:deepArray18;1",
+                                            "@type": "Array",
+                                            "elementSchema": {
+                                              "@id": "dtmi:test:deepArray19;1",
+                                              "@type": "Array",
+                                              "elementSchema": {
+                                                "@id": "dtmi:test:deepArray20;1",
+                                                "@type": "Array",
+                                                "elementSchema": {
+                                                  "@id": "dtmi:test:deepArray21;1",
+                                                  "@type": "Array",
+                                                  "elementSchema": "double"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthWide",
+        "PrimaryID": "dtmi:test:deepArray1;1",
+        "SecondaryID": "dtmi:test:deepArray21;1",
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9,
+        "PrimaryEnd": 93,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 69,
+        "SecondaryEnd": 73
+      }
+    ]
+  }
+}

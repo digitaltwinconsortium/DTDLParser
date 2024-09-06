@@ -1,0 +1,52 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_pi;1",
+          "@type": "Object",
+          "fields": {
+            "displayName": [
+              "nu_xi"
+            ],
+            "name": "nu_omicron",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_phi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_upsilon;1",
+          "@type": "Object",
+          "fields": {
+            "dtmi:dtdl:property:displayName;4": [
+              "nu_sigma"
+            ],
+            "name": "nu_tau",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  }
+]

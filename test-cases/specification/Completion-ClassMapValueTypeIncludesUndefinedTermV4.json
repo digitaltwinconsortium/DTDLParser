@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_nuh;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_fuddle;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "snee_glikk",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@type": [
+              "MapValue",
+              "Foobar"
+            ],
+            "name": "snee_humpf",
+            "schema": "uuid"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_spazz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_quan;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "snee_thnad",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapValue",
+              "Foobar"
+            ],
+            "name": "snee_snee",
+            "schema": "boolean"
+          }
+        }
+      }
+    ]
+  }
+]

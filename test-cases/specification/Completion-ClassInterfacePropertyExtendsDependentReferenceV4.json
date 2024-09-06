@@ -1,0 +1,50 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_rho;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:psi_pi;1",
+          "@type": "Interface",
+          "extends": "dtmi:ex:dependentRef;1"
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_tau;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:psi_sigma;1",
+          "@type": "Interface",
+          "extends": [
+            "dtmi:ex:dependentRef;1"
+          ]
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  }
+]

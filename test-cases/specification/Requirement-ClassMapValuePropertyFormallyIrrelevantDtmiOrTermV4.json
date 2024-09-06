@@ -1,0 +1,108 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_quan;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:zeta_nuh;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "zeta_snee",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "zeta_glikk",
+            "schema": "string",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_zatz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:zeta_spazz;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "zeta_floob",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "zeta_thnad",
+            "schema": "time",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_yekk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:zeta_flunn;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "zeta_itch",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "zeta_jogg",
+            "schema": "uuid",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:eta_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:zeta_hi;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "eta_alpha",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "zeta_vroo",
+            "schema": "boolean",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  }
+]

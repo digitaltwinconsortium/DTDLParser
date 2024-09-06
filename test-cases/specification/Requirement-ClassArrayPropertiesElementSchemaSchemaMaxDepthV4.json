@@ -1,0 +1,135 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_yekk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "alpha_itch",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": {
+              "@type": "Array",
+              "elementSchema": {
+                "@type": "Array",
+                "elementSchema": {
+                  "@type": "Array",
+                  "elementSchema": {
+                    "@type": "Array",
+                    "elementSchema": {
+                      "@type": "Array",
+                      "elementSchema": {
+                        "@type": "Array",
+                        "elementSchema": {
+                          "@type": "Array",
+                          "elementSchema": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_hi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "alpha_vroo",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": {
+              "@type": "Array",
+              "elementSchema": {
+                "@type": "Array",
+                "elementSchema": {
+                  "@type": "Array",
+                  "elementSchema": {
+                    "@type": "Array",
+                    "elementSchema": {
+                      "@type": "Array",
+                      "elementSchema": {
+                        "@type": "Array",
+                        "elementSchema": {
+                          "@type": "Array",
+                          "elementSchema": {
+                            "@type": "Array",
+                            "elementSchema": "bytes"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_beta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "beta_alpha",
+          "schema": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": "Array",
+            "elementSchema": {
+              "@type": "Array",
+              "elementSchema": {
+                "@type": "Array",
+                "elementSchema": {
+                  "@type": "Array",
+                  "elementSchema": {
+                    "@type": "Array",
+                    "elementSchema": {
+                      "@type": "Array",
+                      "elementSchema": {
+                        "@type": "Array",
+                        "elementSchema": {
+                          "@type": "Array",
+                          "elementSchema": {
+                            "@type": "Array",
+                            "elementSchema": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+]

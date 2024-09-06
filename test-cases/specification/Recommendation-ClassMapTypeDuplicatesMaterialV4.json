@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_alpha;1",
+          "mapKey": {
+            "name": "snee_beta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_gamma",
+            "schema": "date"
+          },
+          "@type": [
+            "Map",
+            "Map"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_theta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_epsilon;1",
+          "mapKey": {
+            "name": "snee_zeta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_eta",
+            "schema": "dateTime"
+          },
+          "@type": [
+            "dtmi:dtdl:class:Map;4",
+            "dtmi:dtdl:class:Map;4"
+          ]
+        }
+      }
+    ]
+  }
+]

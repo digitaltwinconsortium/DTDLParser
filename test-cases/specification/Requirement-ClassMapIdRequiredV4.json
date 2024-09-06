@@ -1,0 +1,104 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "gamma_omicron",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "gamma_nu",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "gamma_xi",
+              "schema": "duration"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_upsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:gamma_rho;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "gamma_sigma",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "gamma_tau",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_psi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@type": "Map",
+          "mapKey": {
+            "name": "gamma_phi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "gamma_chi",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_wum;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "gamma_omega",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "gamma_yuzz",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  }
+]

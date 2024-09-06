@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "psi_glikk",
+          "request": {
+            "name": "psi_nuh",
+            "schema": "time"
+          },
+          "dtmi:dtdl:property:request;4": {
+            "name": "psi_snee",
+            "schema": "uuid"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_zatz;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Command",
+          "name": "psi_thnad",
+          "request": {
+            "name": "psi_spazz",
+            "schema": "boolean"
+          },
+          "dtmi:dtdl:property:request;4": {
+            "name": "psi_floob",
+            "schema": "bytes"
+          }
+        }
+      }
+    ]
+  }
+]

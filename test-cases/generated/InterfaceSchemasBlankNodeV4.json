@@ -1,0 +1,147 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": {
+        "@id": "dtmi:test:aCommand;1",
+        "@type": "Command",
+        "name": "setDistance"
+      },
+      "schemas": [
+        {
+          "@type": "Array",
+          "elementSchema": "double",
+          "displayName": {
+            "en-US": "Value array",
+            "es-ES": "Matriz de valores"
+          },
+          "description": {
+            "en-US": "array of values",
+            "es-ES": "matriz de valores"
+          },
+          "comment": "Each value is a double"
+        },
+        {
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": [
+            {
+              "name": "near",
+              "enumValue": 1
+            },
+            {
+              "name": "far",
+              "enumValue": 2
+            }
+          ],
+          "displayName": {
+            "en-US": "Distance",
+            "es-ES": "Distancia"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close is it?"
+        },
+        {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "latitude",
+              "schema": "double",
+              "displayName": {
+                "en-US": "Latitude",
+                "es-ES": "Latitud"
+              },
+              "description": {
+                "en-US": "distance from equator",
+                "es-ES": "distancia del ecuador"
+              },
+              "comment": "positive is north"
+            },
+            {
+              "name": "longitude",
+              "schema": "double",
+              "displayName": {
+                "en-US": "Longitude",
+                "es-ES": "Longitud"
+              },
+              "description": {
+                "en-US": "distance from meridian",
+                "es-ES": "distancia del meridiano"
+              },
+              "comment": "positive is east"
+            }
+          ],
+          "displayName": {
+            "en-US": "Latitude/Longitude",
+            "es-ES": "Latitud/Longitud"
+          },
+          "description": {
+            "en-US": "distances from origin",
+            "es-ES": "distancias desde el origen"
+          },
+          "comment": "Where in the world?"
+        },
+        {
+          "@type": "Map",
+          "mapKey": {
+            "name": "myMapKey",
+            "schema": "string",
+            "displayName": {
+              "en-US": "Place",
+              "es-ES": "Lugar"
+            },
+            "description": {
+              "en-US": "start",
+              "es-ES": "empezar"
+            },
+            "comment": "Starting location"
+          },
+          "mapValue": {
+            "name": "myMapValue",
+            "schema": "double",
+            "displayName": {
+              "en-US": "Distance",
+              "es-ES": "Distancia"
+            },
+            "description": {
+              "en-US": "distance to start",
+              "es-ES": "distancia para comenzar"
+            },
+            "comment": "Starting distance"
+          },
+          "displayName": {
+            "en-US": "Distance to start",
+            "es-ES": "Distancia para comenzar"
+          },
+          "description": {
+            "en-US": "how close",
+            "es-ES": "lo cerca que"
+          },
+          "comment": "How close is each place?"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingRequiredId",
+        "PrimaryID": "dtmi:test:anInterface;1",
+        "SecondaryID": null,
+        "Property": "schemas",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11,
+        "PrimaryEnd": 23
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotcentral:context;2"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotcentral:context;2"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aProperty;1",
+          "@type": [
+            "Property",
+            "VelocityVector"
+          ],
+          "name": "currentVelocity",
+          "schema": "vector"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotypeVersion",
+        "PrimaryID": "dtmi:test:aProperty;1",
+        "Type": "VelocityVector",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      }
+    ]
+  }
+}

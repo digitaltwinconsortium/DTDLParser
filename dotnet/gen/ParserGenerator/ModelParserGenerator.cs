@@ -72,7 +72,7 @@
             }
 
             constructor.Body
-                .Line("this.contextCollection = new ContextCollection();")
+                .Line("this.contextCollection = new ContextCollection(parsingOptions?.ExtensionLimitContexts ?? new List<Dtmi>());")
                 .Line("this.supplementalTypeCollection = new SupplementalTypeCollection();")
                 .Line("this.standardElementCollection = new StandardElementCollection();")
                 .Break();

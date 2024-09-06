@@ -1,0 +1,45 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:annotation;2"
+      ],
+      "@id": "dtmi:com:example:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "Temperature"
+          ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+        },
+        {
+          "@type": [
+            "Telemetry",
+            "ValueAnnotation"
+          ],
+          "name": "currentTempAccuracy",
+          "annotates": "currentTemp",
+          "schema": "double"
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation"
+          ],
+          "name": "currentTempLastCalibrated",
+          "annotates": "currentTemp",
+          "schema": "date",
+          "writable": true
+        }
+      ]
+    }
+  ]
+}

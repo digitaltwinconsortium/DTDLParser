@@ -1,0 +1,89 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;2",
+    "dtmi:dtdl:extension:overriding;2"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [
+    "AllowUndefinedExtensions"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:layering;1",
+        "dtmi:dtdl:extension:quantitativeTypes;2",
+        "dtmi:dtdl:extension:annotation;2",
+        "dtmi:dtdl:extension:overriding;2"
+      ],
+      "@id": "dtmi:test:Sensor;1#foo",
+      "@type": [
+        "Interface",
+        "Layer"
+      ],
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Override"
+          ],
+          "name": "targetTempUnit",
+          "overrides": "unit",
+          "schema": "TemperatureUnit",
+          "writable": true
+        }
+      ]
+    },
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2",
+        "dtmi:dtdl:extension:annotation;2",
+        "dtmi:dtdl:extension:overriding;2"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Temperature"
+          ],
+          "name": "targetTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation"
+          ],
+          "name": "targetTempUnit",
+          "annotates": "targetTemp",
+          "schema": "TemperatureUnit",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingCocotype",
+        "PrimaryID": "dtmi:test:Sensor:_contents:__targetTempUnit;1",
+        "Value": "Override",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidId",
+        "PrimaryID": null,
+        "Value": "dtmi:test:Sensor;1#foo",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9
+      }
+    ]
+  }
+}

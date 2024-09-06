@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_xi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:tau_lambda;1",
+          "@type": [
+            "Map",
+            "Foobar"
+          ],
+          "mapKey": {
+            "name": "tau_mu",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "tau_nu",
+            "schema": "string"
+          },
+          "dtmi:foo//bar": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_sigma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:tau_omicron;1",
+          "@type": [
+            "Map",
+            "Foobar"
+          ],
+          "mapKey": {
+            "name": "tau_pi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "tau_rho",
+            "schema": "time"
+          },
+          "dtmi:foo//bar": 626
+        }
+      }
+    ]
+  }
+]

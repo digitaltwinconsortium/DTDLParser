@@ -1,0 +1,74 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_nu;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Relationship",
+            "name": "epsilon_zeta"
+          },
+          {
+            "@type": "Relationship",
+            "name": "epsilon_eta"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_xi;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Relationship",
+            "name": "epsilon_zeta"
+          },
+          {
+            "@type": "Relationship",
+            "name": "epsilon_zeta"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:gamma_omicron;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Relationship",
+            "name": "epsilon_zeta"
+          },
+          {
+            "@type": "Relationship",
+            "name": "epsilon_zeta"
+          }
+        ]
+      }
+    ]
+  }
+]

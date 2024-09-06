@@ -1,0 +1,84 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_humpf;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_um;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "schema": "time",
+              "name": "delta_omega"
+            },
+            {
+              "schema": "uuid",
+              "name": "delta_yuzz"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_glikk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_fuddle;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "schema": "boolean",
+              "name": "delta_omega"
+            },
+            {
+              "schema": "bytes",
+              "name": "delta_omega"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_snee;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_nuh;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "schema": "date",
+              "name": "delta_omega"
+            },
+            {
+              "schema": "dateTime",
+              "name": "delta_omega"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

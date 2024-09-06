@@ -1,0 +1,108 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_omicron;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_xi;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "xi_nu",
+            "schema": "integer",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_sigma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_rho;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "xi_pi",
+            "schema": "long",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_phi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_upsilon;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "xi_tau",
+            "schema": "string",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_omega;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_psi;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "xi_chi",
+            "schema": "time",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  }
+]

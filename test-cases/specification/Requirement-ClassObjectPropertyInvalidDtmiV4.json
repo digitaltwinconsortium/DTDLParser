@@ -1,0 +1,45 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:chi_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:chi_lambda;1",
+          "@type": [
+            "Object",
+            "Foobar"
+          ],
+          "dtmi:foo//bar": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:chi_xi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:chi_nu;1",
+          "@type": [
+            "Object",
+            "Foobar"
+          ],
+          "dtmi:foo//bar": 626
+        }
+      }
+    ]
+  }
+]

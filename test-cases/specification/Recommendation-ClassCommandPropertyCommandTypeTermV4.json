@@ -1,0 +1,40 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_omicron;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "commandType": "asynchronous",
+          "name": "xi_xi"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "dtmi:dtdl:property:commandType;4": "asynchronous",
+          "name": "xi_pi"
+        }
+      }
+    ]
+  }
+]

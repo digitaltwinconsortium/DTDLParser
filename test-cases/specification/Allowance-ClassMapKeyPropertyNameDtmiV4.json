@@ -1,0 +1,27 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_jogg;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:psi_floob;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "psi_zatz",
+            "schema": "uuid"
+          },
+          "mapKey": {
+            "dtmi:dtdl:property:name;4": "psi_spazz",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  }
+]

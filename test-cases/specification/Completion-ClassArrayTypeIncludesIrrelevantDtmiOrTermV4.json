@@ -1,0 +1,88 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_upsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_tau;1",
+          "@type": [
+            "Array",
+            "dtmi:foo:bar;1"
+          ],
+          "elementSchema": "double"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_chi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:glikk_phi;1",
+          "@type": [
+            "Array",
+            "dtmi:foo:bar;1"
+          ],
+          "elementSchema": "duration"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_omega;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_psi;1",
+          "@type": [
+            "Array",
+            "boolean"
+          ],
+          "elementSchema": "float"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_wum;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:glikk_yuzz;1",
+          "@type": [
+            "Array",
+            "boolean"
+          ],
+          "elementSchema": "integer"
+        }
+      }
+    ]
+  }
+]

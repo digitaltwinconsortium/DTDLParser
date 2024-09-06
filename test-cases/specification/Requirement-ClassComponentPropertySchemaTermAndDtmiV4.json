@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_sigma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "nu_omicron",
+          "schema": {
+            "@id": "dtmi:example:nu_pi;1",
+            "@type": "Interface"
+          },
+          "dtmi:dtdl:property:schema;4": {
+            "@id": "dtmi:example:nu_rho;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_chi;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Component",
+          "name": "nu_tau",
+          "schema": {
+            "@id": "dtmi:example:nu_upsilon;1",
+            "@type": "Interface"
+          },
+          "dtmi:dtdl:property:schema;4": {
+            "@id": "dtmi:example:nu_phi;1",
+            "@type": "Interface"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_jogg;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:delta_floob;1",
+          "@type": "Enum",
+          "enumValues": [
+            {
+              "enumValue": 1524,
+              "name": "delta_zatz"
+            }
+          ],
+          "valueSchema": "integer"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:delta_yekk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:delta_flunn;1",
+          "@type": "Enum",
+          "dtmi:dtdl:property:enumValues;4": [
+            {
+              "enumValue": 1525,
+              "name": "delta_itch"
+            }
+          ],
+          "valueSchema": "integer"
+        }
+      }
+    ]
+  }
+]

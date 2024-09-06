@@ -31,7 +31,7 @@ namespace DTDLParser
         /// <param name="quirks">An optional set of <see cref="ModelParsingQuirk"/> values that control parsing of DTDL models.</param>
         public ModelParser(ParsingOptions parsingOptions = null, ModelParsingQuirk quirks = ModelParsingQuirk.None)
         {
-            this.contextCollection = new ContextCollection();
+            this.contextCollection = new ContextCollection(parsingOptions?.ExtensionLimitContexts ?? new List<Dtmi>());
             this.supplementalTypeCollection = new SupplementalTypeCollection();
             this.standardElementCollection = new StandardElementCollection();
 

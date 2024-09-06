@@ -31,9 +31,13 @@
 
             this.DatatypeProperty = descendantControlObj.TryGetValue("datatypeProperty", out JToken datatypeProperty) ? ((JValue)datatypeProperty).Value<string>() : null;
 
-            this.MaxDepth = descendantControlObj.TryGetValue("maxDepth", out JToken maxDepth) ? ((JValue)maxDepth).Value<int?>() : null;
+            this.MaxDepth = descendantControlObj.TryGetValue("maxDepth", out JToken specMaxDepth) ?
+                ((JObject)specMaxDepth).Properties().ToDictionary(p => p.Name, p => ((JValue)p.Value).Value<int>()) :
+                null;
 
-            this.MaxCount = descendantControlObj.TryGetValue("maxCount", out JToken maxCount) ? ((JValue)maxCount).Value<int?>() : null;
+            this.MaxCount = descendantControlObj.TryGetValue("maxCount", out JToken specMaxCount) ?
+                ((JObject)specMaxCount).Properties().ToDictionary(p => p.Name, p => ((JValue)p.Value).Value<int>()) :
+                null;
 
             this.ImportProperties = descendantControlObj.TryGetValue("importProperties", out JToken importProperties) ? ((JArray)importProperties).Select(t => ((JValue)t).Value<string>()).ToList() : null;
         }
@@ -79,14 +83,14 @@
         public string DatatypeProperty { get; }
 
         /// <summary>
-        /// Gets the maximum allowed count of relevant properties in a hierarchical chain.
+        /// Gets the maximum allowed count of relevant properties in a hierarchical chain, according to a limit spec.
         /// </summary>
-        public int? MaxDepth { get; }
+        public Dictionary<string, int> MaxDepth { get; }
 
         /// <summary>
-        /// Gets the maximum allowed count of relevant properties in a descendant hierarchy.
+        /// Gets the maximum allowed count of relevant properties in a descendant hierarchy, according to a limit spec.
         /// </summary>
-        public int? MaxCount { get; }
+        public Dictionary<string, int> MaxCount { get; }
 
         /// <summary>
         /// Gets a list of names of properties whose values should be imported from the relevant descendants.

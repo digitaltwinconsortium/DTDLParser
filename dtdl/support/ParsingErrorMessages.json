@@ -244,6 +244,18 @@
       "source1": "typeProp"
     }
   },
+  "disallowedContextFragment": {
+    "cause": "@context specifier has value '{value}', which includes a fragment, which is not valid for DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which includes a fragment, which is not valid for DTDL version {restriction}.",
+    "action": "Remove the fragment from the @context specifier.",
+    "required": {
+      "value": "contextValue",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
   "disallowedContextVersion": {
     "cause": "@context specifier has value '{value}', which specifies a DTDL version that exceeds the configured max version of {restriction}.",
     "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which specifies a DTDL version that exceeds the configured max version of {restriction}.",
@@ -265,6 +277,18 @@
     },
     "optional": {
       "source1": "idProp"
+    }
+  },
+  "disallowedLimitContext": {
+    "cause": "@context specifier '{value}' is not an acceptable limit extension.",
+    "locatedCause": "In {sourceName1}, @context specifier '{value}'{line1} is not an acceptable limit extension.",
+    "action": "Replace the @context specifier with an acceptable limit context value: {restriction}.",
+    "required": {
+      "value": "contextValue",
+      "restriction": "valueRestriction"
+    },
+    "optional": {
+      "source1": "contextComponent"
     }
   },
   "disallowedLocalContext": {
@@ -860,13 +884,14 @@
     }
   },
   "idTooLong": {
-    "cause": "Identifier '{value}' is too long -- length limit is {count1} {item1} for DTDL version {restriction}.",
-    "locatedCause": "In {sourceName1}, identifier '{value}'{line1} is too long -- length limit is {count1} {item1} for DTDL version {restriction}.",
+    "cause": "Identifier '{value}' is too long -- length limit is {count1} {item1} for DTDL version {restriction} with limits from {transformation}.",
+    "locatedCause": "In {sourceName1}, identifier '{value}'{line1} is too long -- length limit is {count1} {item1} for DTDL version {restriction} with limits from {transformation}.",
     "action": "Select a shorter value for the identifier or trim current value to no more than {count1} {item1}.",
     "required": {
       "value": "identifier",
       "count1": "expectedCount",
-      "restriction": "version"
+      "restriction": "version",
+      "transformation": "contextValue"
     },
     "optional": {
       "source1": "idProp"
@@ -1264,6 +1289,17 @@
     "optional": {
       "source1": "incidentValue",
       "layer": "layer"
+    }
+  },
+  "invalidContextFragment": {
+    "cause": "@context specifier has value '{value}', which includes a fragment other than '#limitless' or '#limits'.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1}, which includes a fragment other than '#limitless' or '#limits'.",
+    "action": "Remove the fragment from the @context specifier or replace it with '#limitless' or '#limits'.",
+    "required": {
+      "value": "contextValue"
+    },
+    "optional": {
+      "source1": "contextComponent"
     }
   },
   "invalidContextSpecifier": {
@@ -1933,6 +1969,17 @@
     },
     "optional": {}
   },
+  "misplacedLimitContext": {
+    "cause": "@context specifier with value '{value}' specifies limits but does not immediately follow a DTDL limitless context specifier.",
+    "locatedCause": "In {sourceName1}, @context specifier with value '{value}'{line1} specifies limits but does not immediately follow a DTDL limitless context specifier.",
+    "action": "Insert a DTDL limitless context specifier immediately before this context specifier.",
+    "required": {
+      "value": "contextValue"
+    },
+    "optional": {
+      "source1": "contextComponent"
+    }
+  },
   "missingCocotype": {
     "cause": "{primaryId:n} has @type with value {type} that can only be co-typed on elements that are also co-typed with {restriction}.",
     "locatedCause": "In {sourceName1}, element has @type{line1} with value {type} that can only be co-typed on elements that are also co-typed with {restriction}.",
@@ -2068,6 +2115,18 @@
     },
     "optional": {
       "source1": "element"
+    }
+  },
+  "missingLimitContext": {
+    "cause": "@context specifier has value '{value}' but is not immediately followed by a context that specifies modeling limits for DTDL version {restriction}.",
+    "locatedCause": "In {sourceName1}, @context specifier has value '{value}'{line1} but is not immediately followed by a context that specifies modeling limits for DTDL version {restriction}.",
+    "action": "Remove the '#limitless' fragment from the @context specifier or immediately follow this value with another context value that specifies modeling limits for DTDL version {restriction}.",
+    "required": {
+      "value": "contextValue",
+      "restriction": "version"
+    },
+    "optional": {
+      "source1": "contextComponent"
     }
   },
   "missingLiteralProperty": {

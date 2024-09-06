@@ -1,0 +1,96 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_lambda;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "enumValue": 1835,
+            "name": "glikk_kappa",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_omicron;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_xi;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "enumValue": 1836,
+            "name": "glikk_nu",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_sigma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_rho;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "enumValue": 1837,
+            "name": "glikk_pi",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:glikk_phi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:glikk_upsilon;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "enumValue": 1838,
+            "name": "glikk_tau",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  }
+]

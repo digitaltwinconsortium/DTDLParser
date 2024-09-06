@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:omicron_alpha;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "xi_hi",
+            "schema": "duration",
+            "http://foo.com/bar": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:omicron_epsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:omicron_delta;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "Foobar"
+            ],
+            "name": "omicron_gamma",
+            "schema": "float",
+            "http://foo.com/bar": true
+          }
+        }
+      }
+    ]
+  }
+]

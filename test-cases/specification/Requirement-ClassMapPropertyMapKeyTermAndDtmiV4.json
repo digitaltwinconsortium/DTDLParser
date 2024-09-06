@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_thnad;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:jogg_glikk;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "jogg_nuh",
+            "schema": "string"
+          },
+          "dtmi:dtdl:property:mapKey;4": {
+            "name": "jogg_snee",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "jogg_quan",
+            "schema": "time"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:jogg_spazz;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "jogg_floob",
+            "schema": "string"
+          },
+          "dtmi:dtdl:property:mapKey;4": {
+            "name": "jogg_zatz",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "jogg_jogg",
+            "schema": "uuid"
+          }
+        }
+      }
+    ]
+  }
+]

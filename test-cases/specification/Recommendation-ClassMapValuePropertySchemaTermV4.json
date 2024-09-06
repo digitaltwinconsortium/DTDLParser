@@ -1,0 +1,54 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:wum_hi;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "um_alpha",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "wum_vroo",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:um_delta;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "um_epsilon",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "um_gamma",
+            "dtmi:dtdl:property:schema;4": "string"
+          }
+        }
+      }
+    ]
+  }
+]

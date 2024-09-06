@@ -16,7 +16,7 @@ namespace DTDLParser
         /// <summary>
         /// The version of DTDL to which models will be upgraded.
         /// </summary>
-        public const int TargetDtdlVersion = 3;
+        public const int TargetDtdlVersion = 4;
 
         private IReadOnlyDictionary<Dtmi, DTEntityInfo> model;
 
@@ -37,21 +37,42 @@ namespace DTDLParser
             termIriRegexes.Add(@"dtmi:dtdl:instance:Schema:(\w*);3");
             termIriRegexes.Add(@"dtmi:dtdl:meta:(\w*);3");
             termIriRegexes.Add(@"dtmi:standard:schema:geospatial:(\w*);3");
+            termIriRegexes.Add(@"dtmi:dtdl:class:(\w*);4");
+            termIriRegexes.Add(@"dtmi:dtdl:property:(\w*);4");
+            termIriRegexes.Add(@"dtmi:dtdl:instance:CommandType:(\w*);4");
+            termIriRegexes.Add(@"dtmi:dtdl:instance:Schema:(\w*);4");
+            termIriRegexes.Add(@"dtmi:dtdl:meta:(\w*);4");
+            termIriRegexes.Add(@"dtmi:standard:schema:geospatial:(\w*);4");
             termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v1:ValueAnnotation:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v1:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v2:ValueAnnotation:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v2:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:historization:v1:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:historization:v2:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:Mqtt:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:Indexed:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v1:Cacheable:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v2:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v2:Mqtt:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v2:Indexed:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v2:Cacheable:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:overriding:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:overriding:v1:Override:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:overriding:v2:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:overriding:v2:Override:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:class:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:enum:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:unit:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:unitprefix:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:property:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v1:enum:PowerUnit");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:class:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:enum:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:unit:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:property:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:enum:PowerUnit");
             termIriRegexes.Add(@"dtmi:iotcentral:class:(\w*);2");
             termIriRegexes.Add(@"dtmi:iotcentral:schema:(\w*);2");
 
@@ -120,7 +141,7 @@ namespace DTDLParser
             quantitativeTypesTypeMap.Add(new Dtmi("dtmi:standard:class:Voltage;2"));
             quantitativeTypesTypeMap.Add(new Dtmi("dtmi:standard:class:Volume;2"));
             quantitativeTypesTypeMap.Add(new Dtmi("dtmi:standard:class:VolumeFlowRate;2"));
-            featureSplitoutTypeMap["dtmi:dtdl:extension:quantitativeTypes;1"] = quantitativeTypesTypeMap;
+            featureSplitoutTypeMap["dtmi:dtdl:extension:quantitativeTypes;2"] = quantitativeTypesTypeMap;
 
             partnerMaxVersions = new Dictionary<string, int>();
             partnerMaxVersions["iotcentral"] = 2;
@@ -142,6 +163,7 @@ namespace DTDLParser
                         return false;
                     }
 
+                case "nullable":
                 case "comment":
                 case "languageMajorVersion":
                 case "enumValue":

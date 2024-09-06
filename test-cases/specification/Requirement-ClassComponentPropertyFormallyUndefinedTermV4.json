@@ -1,0 +1,47 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_snee;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Component",
+          "name": "humpf_glikk",
+          "schema": {
+            "@id": "dtmi:example:humpf_nuh;1",
+            "@type": "Interface"
+          },
+          "foobar": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:humpf_spazz;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Component",
+          "name": "humpf_quan",
+          "schema": {
+            "@id": "dtmi:example:humpf_thnad;1",
+            "@type": "Interface"
+          },
+          "foobar": {}
+        }
+      }
+    ]
+  }
+]

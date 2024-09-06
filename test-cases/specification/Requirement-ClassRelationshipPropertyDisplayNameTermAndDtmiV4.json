@@ -1,0 +1,49 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_zeta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "displayName": [
+            "nu_gamma"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "nu_delta"
+          ],
+          "name": "nu_epsilon"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Relationship",
+          "displayName": [
+            "nu_eta"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "nu_theta"
+          ],
+          "name": "nu_iota"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "xi_kappa",
+          "maxMultiplicity": 1
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Relationship",
+          "name": "xi_mu",
+          "maxMultiplicity": 0
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_omicron;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Relationship",
+          "name": "xi_xi",
+          "maxMultiplicity": 0
+        }
+      }
+    ]
+  }
+]

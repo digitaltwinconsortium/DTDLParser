@@ -1,0 +1,65 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_kappa;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "beta_lambda",
+            "schema": "string"
+          },
+          "mapValue": {
+            "description": [
+              "beta_eta"
+            ],
+            "dtmi:dtdl:property:description;4": [
+              "beta_theta"
+            ],
+            "name": "beta_iota",
+            "schema": "uuid"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_sigma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_pi;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "beta_rho",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "description": [
+              "beta_nu"
+            ],
+            "dtmi:dtdl:property:description;4": [
+              "beta_xi"
+            ],
+            "name": "beta_omicron",
+            "schema": "boolean"
+          }
+        }
+      }
+    ]
+  }
+]

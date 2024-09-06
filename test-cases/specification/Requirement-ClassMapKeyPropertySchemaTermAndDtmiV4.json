@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:thnad_epsilon;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "thnad_zeta",
+            "schema": "bytes"
+          },
+          "mapKey": {
+            "name": "thnad_delta",
+            "schema": "string",
+            "dtmi:dtdl:property:schema;4": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:thnad_iota;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "thnad_kappa",
+            "schema": "date"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "thnad_theta",
+            "schema": "string",
+            "dtmi:dtdl:property:schema;4": "string"
+          }
+        }
+      }
+    ]
+  }
+]

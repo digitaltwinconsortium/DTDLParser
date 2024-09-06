@@ -1,0 +1,51 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "AccelerationVector"
+          ],
+          "name": "currentAcceleration",
+          "schema": "vector"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:typeUndefinedTerm",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": null,
+        "Value": "AccelerationVector",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 8
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:badDtmiOrTerm",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "SecondaryID": null,
+        "Property": "schema",
+        "Value": "vector",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 13
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:objectCountBelowMin",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": "schema",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 13
+      }
+    ]
+  }
+}

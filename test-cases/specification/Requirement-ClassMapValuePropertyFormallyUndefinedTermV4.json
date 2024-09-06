@@ -1,0 +1,55 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:eta_glikk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:eta_humpf;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "eta_fuddle",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "eta_um",
+            "schema": "integer",
+            "foobar": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:eta_thnad;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:eta_snee;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "eta_quan",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "eta_nuh",
+            "schema": "long",
+            "foobar": {}
+          }
+        }
+      }
+    ]
+  }
+]

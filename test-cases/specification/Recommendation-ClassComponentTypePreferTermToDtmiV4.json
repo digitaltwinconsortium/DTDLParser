@@ -1,0 +1,46 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_yuzz;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "epsilon_psi",
+          "schema": {
+            "@id": "dtmi:example:epsilon_omega;1",
+            "@type": "Interface"
+          },
+          "@type": "Component"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_humpf;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "epsilon_wum",
+          "schema": {
+            "@id": "dtmi:example:epsilon_um;1",
+            "@type": "Interface"
+          },
+          "@type": "dtmi:dtdl:class:Component;4"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:epsilon_epsilon;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "epsilon_zeta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "displayName": [
+              "epsilon_gamma"
+            ],
+            "name": "epsilon_delta",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:epsilon_kappa;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "epsilon_lambda",
+            "schema": "string"
+          },
+          "mapValue": {
+            "dtmi:dtdl:property:displayName;4": [
+              "epsilon_theta"
+            ],
+            "name": "epsilon_iota",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  }
+]

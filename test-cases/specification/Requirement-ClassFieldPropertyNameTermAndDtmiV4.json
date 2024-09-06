@@ -1,0 +1,47 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:thnad_alpha;1",
+          "@type": "Object",
+          "fields": {
+            "name": "quan_vroo",
+            "dtmi:dtdl:property:name;4": "quan_hi",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:thnad_epsilon;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "thnad_gamma",
+            "dtmi:dtdl:property:name;4": "thnad_delta",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  }
+]

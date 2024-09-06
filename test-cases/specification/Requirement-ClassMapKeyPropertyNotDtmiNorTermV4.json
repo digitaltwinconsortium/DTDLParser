@@ -1,0 +1,63 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_iota;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "xi_kappa",
+            "schema": "double"
+          },
+          "mapKey": {
+            "@type": [
+              "MapKey",
+              "Foobar"
+            ],
+            "name": "xi_theta",
+            "schema": "string",
+            "http://foo.com/bar": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_omicron;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_nu;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "xi_xi",
+            "schema": "duration"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapKey",
+              "Foobar"
+            ],
+            "name": "xi_mu",
+            "schema": "string",
+            "http://foo.com/bar": true
+          }
+        }
+      }
+    ]
+  }
+]

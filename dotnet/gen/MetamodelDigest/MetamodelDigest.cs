@@ -45,6 +45,8 @@
 
             this.DtdlVersionsRestrictingKeywords = ((JArray)digest["dtdlVersionsRestrictingKeywords"]).Select(t => ((JValue)t).Value<int>()).ToList();
 
+            this.DtdlVersionsAllowingCustomLimits = ((JArray)digest["dtdlVersionsAllowingCustomLimits"]).Select(t => ((JValue)t).Value<int>()).ToList();
+
             this.DtdlVersionsWithApocryphalPropertyCotypeDependency = ((JArray)digest["dtdlVersionsWithApocryphalPropertyCotypeDependency"]).Select(t => ((JValue)t).Value<int>()).ToList();
 
             this.Apocrypha = ((JObject)digest["apocrypha"]).Properties().ToDictionary(p => int.Parse(p.Name), p => new ApocryphaDigest((JObject)p.Value));
@@ -52,6 +54,8 @@
             this.IsLayeringSupported = ((JValue)digest["layeringSupported"]).Value<bool>();
 
             this.ContextsMergeDefinitions = ((JArray)digest["contextsMergeDefinitions"]).Select(t => ((JValue)t).Value<string>()).ToList();
+
+            this.LimitContexts = ((JObject)digest["limitContexts"]).Properties().ToDictionary(p => p.Name, p => new LimitContextDigest((JObject)p.Value));
 
             this.ExtensionDocumentationDigests = ((JObject)digest["extensionDocumentation"]).Properties().ToDictionary(p => p.Name, p => new ExtensionDocumentationDigest((JObject)p.Value));
 
@@ -150,6 +154,11 @@
         public List<int> DtdlVersionsRestrictingKeywords { get; }
 
         /// <summary>
+        /// Gets a list of DTDL versions that allow extensions to customize the language's modeling limits.
+        /// </summary>
+        public List<int> DtdlVersionsAllowingCustomLimits { get; }
+
+        /// <summary>
         /// Gets a list of DTDL versions for which apocryphal properties are dependent on an apocryphal cotype.
         /// </summary>
         public List<int> DtdlVersionsWithApocryphalPropertyCotypeDependency { get; }
@@ -168,6 +177,11 @@
         /// Gets a list of context specifiers for which definitions whose identifiers contain IRI fragments should be merged.
         /// </summary>
         public List<string> ContextsMergeDefinitions { get; }
+
+        /// <summary>
+        /// Gets a dictionary that maps from affiliate context specifier to a <see cref="LimitContextDigest"/> object.
+        /// </summary>
+        public Dictionary<string, LimitContextDigest> LimitContexts { get; }
 
         /// <summary>
         /// Gets a dictionary that maps from affiliate context specifier to a <see cref="ExtensionDocumentationDigest"/>.

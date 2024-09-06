@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:rho_omicron;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:rho_lambda;1",
+          "@type": "Map",
+          "displayName": [
+            "rho_mu"
+          ],
+          "mapKey": {
+            "name": "rho_nu",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "rho_xi",
+            "schema": "bytes"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:rho_upsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:rho_pi;1",
+          "@type": "Map",
+          "dtmi:dtdl:property:displayName;4": [
+            "rho_rho"
+          ],
+          "mapKey": {
+            "name": "rho_sigma",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "rho_tau",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  }
+]

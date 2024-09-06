@@ -146,12 +146,13 @@
         /// <inheritdoc/>
         protected override void AddDetailToParseSwitchCase(int dtdlVersion, string propVar, PropertyVersionDigest propertyVersionDigest, CsScope scope, bool classIsAugmentable, bool classIsPartition, string layerVar, string valueCountVar, string definedInVar, string aggregateContextVar)
         {
-            string maxLengthString = this.PropertyDigest.PropertyVersions[dtdlVersion].MaxLength?.ToString() ?? "null";
+            ValueLimiter.DefineLimitVariable(scope, this.PropertyDigest.PropertyVersions[dtdlVersion].MaxLength, "maxLength", "aggregateContext.LimitSpecifier", nullable: true);
+
             string patternString = this.PropertyDigest.PropertyVersions[dtdlVersion].Pattern != null ? $"{this.ObversePropertyName}{RegexPatternFieldSuffix}{dtdlVersion}" : "null";
             string newVar = $"new{this.ObversePropertyName}";
             string codesVar = $"{this.PropertyName}Codes";
 
-            scope.Line($"Dictionary<string, string> {newVar} = ValueParser.ParseLangStringValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, \"{this.PropertyDigest.PropertyVersions[dtdlVersion].DefaultLanguage}\", {maxLengthString}, {patternString}, {layerVar}, parsingErrorCollection);");
+            scope.Line($"Dictionary<string, string> {newVar} = ValueParser.ParseLangStringValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, \"{this.PropertyDigest.PropertyVersions[dtdlVersion].DefaultLanguage}\", maxLength, {patternString}, {layerVar}, parsingErrorCollection);");
             scope.Line($"List<string> {codesVar} = Helpers.GetKeysWithDifferingLiteralValues(this.{this.ObversePropertyName}, {newVar});");
 
             CsIf ifInconsistent = scope.If($"{codesVar}.Any()");

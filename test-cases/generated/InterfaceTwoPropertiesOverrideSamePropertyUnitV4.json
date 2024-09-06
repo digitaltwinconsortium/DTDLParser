@@ -1,0 +1,75 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:annotation;2",
+    "dtmi:dtdl:extension:overriding;2"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:quantitativeTypes;2",
+        "dtmi:dtdl:extension:annotation;2",
+        "dtmi:dtdl:extension:overriding;2"
+      ],
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Temperature"
+          ],
+          "name": "targetTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "targetTempUnit1",
+          "annotates": "targetTemp",
+          "overrides": "unit",
+          "schema": "TemperatureUnit",
+          "writable": true
+        },
+        {
+          "@type": [
+            "Property",
+            "ValueAnnotation",
+            "Override"
+          ],
+          "name": "targetTempUnit2",
+          "annotates": "targetTemp",
+          "overrides": "unit",
+          "schema": "TemperatureUnit",
+          "writable": true
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:multipleReference",
+        "PrimaryID": "dtmi:test:Sensor;1",
+        "SecondaryID": "dtmi:dtdl:extension:overriding:v2:Override:overrides",
+        "Property": "contents",
+        "AuxProperty": "'annotates' and 'overrides'",
+        "Value": "'targetTemp' and 'unit'",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 21,
+        "PrimaryEnd": 32,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 33,
+        "SecondaryEnd": 44
+      }
+    ]
+  }
+}

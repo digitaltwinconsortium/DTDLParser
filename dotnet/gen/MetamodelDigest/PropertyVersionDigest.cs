@@ -33,7 +33,7 @@
 
             this.MinInclusive = propertyVersionObj.TryGetValue("minInclusive", out JToken minInclusive) ? ((JValue)minInclusive).Value<int?>() : null;
 
-            this.MaxLength = propertyVersionObj.TryGetValue("maxLength", out JToken maxLength) ? ((JValue)maxLength).Value<int?>() : null;
+            this.MaxLength = propertyVersionObj.TryGetValue("maxLength", out JToken maxLength) ? ((JObject)maxLength).Properties().ToDictionary(p => p.Name, p => ((JValue)p.Value).Value<int>()) : null;
 
             this.Pattern = propertyVersionObj.TryGetValue("pattern", out JToken pattern) ? ((JValue)pattern).Value<string>() : null;
 
@@ -102,9 +102,9 @@
         public int? MinInclusive { get; }
 
         /// <summary>
-        /// Gets the maximum permissible length of a string, or null if no maximum.
+        /// Gets the maximum permissible length of a string, according to a limit spec, or null if no maximum.
         /// </summary>
-        public int? MaxLength { get; }
+        public Dictionary<string, int> MaxLength { get; }
 
         /// <summary>
         /// Gets a regex that constrains the permissible values, or null if no pattern constraint.

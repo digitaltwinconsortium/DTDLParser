@@ -1,0 +1,37 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "acceptableLimits": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4#limitless",
+        "dtmi:dtdl:context;4#limitless"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": "Telemetry",
+          "name": "example",
+          "schema": "double"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingLimitContext",
+        "PrimaryID": null,
+        "SecondaryID": null,
+        "Property": null,
+        "Value": "dtmi:dtdl:context;4#limitless",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 3
+      }
+    ]
+  }
+}

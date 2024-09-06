@@ -1,0 +1,62 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@id": "dtmi:example:pi_nuh;1",
+        "@type": "Interface",
+        "@context": []
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@id": "dtmi:example:pi_snee;1",
+        "@type": "Interface",
+        "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:pi_thnad;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:pi_quan;1",
+          "@type": "Interface",
+          "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@id": "dtmi:example:pi_spazz;1",
+        "@type": "Interface",
+        "@context": [
+          "dtmi:dtdl:context;4",
+          "dtmi:dtdl:extension:quantitativeTypes;1"
+        ]
+      }
+    ]
+  }
+]

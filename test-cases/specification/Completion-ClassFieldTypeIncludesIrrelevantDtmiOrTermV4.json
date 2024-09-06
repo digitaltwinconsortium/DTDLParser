@@ -1,0 +1,104 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:alpha_zeta;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "alpha_epsilon",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_kappa;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:alpha_iota;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "dtmi:foo:bar;1"
+            ],
+            "name": "alpha_theta",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_nu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:alpha_mu;1",
+          "@type": "Object",
+          "fields": {
+            "@type": [
+              "Field",
+              "boolean"
+            ],
+            "name": "alpha_lambda",
+            "schema": "integer"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_pi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:alpha_omicron;1",
+          "@type": "Object",
+          "fields": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "Field",
+              "boolean"
+            ],
+            "name": "alpha_xi",
+            "schema": "long"
+          }
+        }
+      }
+    ]
+  }
+]

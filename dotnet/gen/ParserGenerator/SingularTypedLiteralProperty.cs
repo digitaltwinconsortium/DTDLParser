@@ -195,7 +195,6 @@
         /// <inheritdoc/>
         protected override void AddDetailToParseSwitchCase(int dtdlVersion, string propVar, PropertyVersionDigest propertyVersionDigest, CsScope scope, bool classIsAugmentable, bool classIsPartition, string layerVar, string valueCountVar, string definedInVar, string aggregateContextVar)
         {
-            string maxLengthString = this.PropertyDigest.PropertyVersions[dtdlVersion].MaxLength?.ToString() ?? "null";
             string patternString = this.PropertyDigest.PropertyVersions[dtdlVersion].Pattern != null ? $"{this.ObversePropertyName}{RegexPatternFieldSuffix}{dtdlVersion}" : "null";
             string minInclusiveString = this.PropertyDigest.PropertyVersions[dtdlVersion].MinInclusive?.ToString() ?? "null";
             string maxInclusiveString = this.PropertyDigest.PropertyVersions[dtdlVersion].MaxInclusive?.ToString() ?? "null";
@@ -205,7 +204,8 @@
             switch (this.Datatype)
             {
                 case "string":
-                    scope.Line($"string {newVar} = ValueParser.ParseSingularStringValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, {maxLengthString}, {patternString}, {layerVar}, parsingErrorCollection, {isOptionalString});");
+                    ValueLimiter.DefineLimitVariable(scope, this.PropertyDigest.PropertyVersions[dtdlVersion].MaxLength, "maxLength", "aggregateContext.LimitSpecifier", nullable: true);
+                    scope.Line($"string {newVar} = ValueParser.ParseSingularStringValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, maxLength, {patternString}, {layerVar}, parsingErrorCollection, {isOptionalString});");
                     break;
                 case "duration":
                     scope.Line($"TimeSpan? {newVar} = ValueParser.ParseSingularDurationValueCollection({aggregateContextVar}, this.{ParserGeneratorValues.IdentifierName}, \"{this.PropertyName}\", prop.Values, {layerVar}, parsingErrorCollection, {isOptionalString});");

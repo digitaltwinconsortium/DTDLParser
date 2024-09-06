@@ -1,0 +1,43 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "comment": "itch_xi",
+          "dtmi:dtdl:property:comment;4": "itch_omicron",
+          "name": "itch_pi",
+          "schema": "float"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_phi;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "comment": "itch_sigma",
+          "dtmi:dtdl:property:comment;4": "itch_tau",
+          "name": "itch_upsilon",
+          "schema": "integer"
+        }
+      }
+    ]
+  }
+]

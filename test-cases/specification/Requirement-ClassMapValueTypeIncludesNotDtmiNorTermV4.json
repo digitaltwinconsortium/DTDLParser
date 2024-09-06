@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_psi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_phi;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "snee_chi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@type": [
+              "MapValue",
+              "http://foo.com/bar"
+            ],
+            "name": "snee_upsilon",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_um;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_yuzz;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "snee_wum",
+            "schema": "string"
+          },
+          "mapValue": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@type": [
+              "MapValue",
+              "http://foo.com/bar"
+            ],
+            "name": "snee_omega",
+            "schema": "time"
+          }
+        }
+      }
+    ]
+  }
+]

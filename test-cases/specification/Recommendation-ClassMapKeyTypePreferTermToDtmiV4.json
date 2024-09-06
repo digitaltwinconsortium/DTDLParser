@@ -1,0 +1,56 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_nuh;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:jogg_fuddle;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "jogg_glikk",
+            "schema": "date"
+          },
+          "mapKey": {
+            "name": "jogg_humpf",
+            "schema": "string",
+            "@type": "MapKey"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_spazz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:jogg_quan;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "jogg_thnad",
+            "schema": "dateTime"
+          },
+          "mapKey": {
+            "name": "jogg_snee",
+            "schema": "string",
+            "@type": "dtmi:dtdl:class:MapKey;4"
+          }
+        }
+      }
+    ]
+  }
+]

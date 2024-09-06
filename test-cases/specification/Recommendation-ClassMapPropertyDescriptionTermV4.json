@@ -1,0 +1,60 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_epsilon;1",
+          "@type": "Map",
+          "description": [
+            "xi_zeta"
+          ],
+          "mapKey": {
+            "name": "xi_eta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "xi_theta",
+            "schema": "duration"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_xi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:xi_kappa;1",
+          "@type": "Map",
+          "dtmi:dtdl:property:description;4": [
+            "xi_lambda"
+          ],
+          "mapKey": {
+            "name": "xi_mu",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "xi_nu",
+            "schema": "float"
+          }
+        }
+      }
+    ]
+  }
+]

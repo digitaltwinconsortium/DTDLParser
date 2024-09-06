@@ -1,0 +1,50 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:deepArray1;1",
+          "@type": "Array",
+          "elementSchema": {
+            "@id": "dtmi:test:deepArray2;1",
+            "@type": "Array",
+            "elementSchema": {
+              "@id": "dtmi:test:deepArray3;1",
+              "@type": "Array",
+              "elementSchema": {
+                "@id": "dtmi:test:deepArray4;1",
+                "@type": "Array",
+                "elementSchema": {
+                  "@id": "dtmi:test:deepArray5;1",
+                  "@type": "Array",
+                  "elementSchema": {
+                    "@id": "dtmi:test:deepArray6;1",
+                    "@type": "Array",
+                    "elementSchema": {
+                      "@id": "dtmi:test:deepArray7;1",
+                      "@type": "Array",
+                      "elementSchema": {
+                        "@id": "dtmi:test:deepArray8;1",
+                        "@type": "Array",
+                        "elementSchema": "double"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elementsCount": 9
+  }
+}

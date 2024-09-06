@@ -1,0 +1,51 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_glikk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "displayName": [
+            "hi_um"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "hi_humpf"
+          ],
+          "name": "hi_fuddle",
+          "schema": "time"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_thnad;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "displayName": [
+            "hi_nuh"
+          ],
+          "dtmi:dtdl:property:displayName;4": [
+            "hi_snee"
+          ],
+          "name": "hi_quan",
+          "schema": "uuid"
+        }
+      }
+    ]
+  }
+]

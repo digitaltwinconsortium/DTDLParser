@@ -1,0 +1,104 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Component",
+            "Foobar"
+          ],
+          "name": "um_nuh",
+          "schema": {
+            "@id": "dtmi:example:um_snee;1",
+            "@type": "Interface"
+          },
+          "dtmi:foo:bar;1": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_floob;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Component",
+            "Foobar"
+          ],
+          "name": "um_thnad",
+          "schema": {
+            "@id": "dtmi:example:um_spazz;1",
+            "@type": "Interface"
+          },
+          "dtmi:foo:bar;1": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_flunn;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Component",
+            "Foobar"
+          ],
+          "name": "um_zatz",
+          "schema": {
+            "@id": "dtmi:example:um_jogg;1",
+            "@type": "Interface"
+          },
+          "boolean": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:um_vroo;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Component",
+            "Foobar"
+          ],
+          "name": "um_itch",
+          "schema": {
+            "@id": "dtmi:example:um_yekk;1",
+            "@type": "Interface"
+          },
+          "boolean": null
+        }
+      }
+    ]
+  }
+]

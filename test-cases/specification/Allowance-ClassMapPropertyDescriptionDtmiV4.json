@@ -1,0 +1,30 @@
+﻿[
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:xi_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_hi;1",
+          "@type": "Map",
+          "dtmi:dtdl:property:description;4": [
+            "xi_alpha"
+          ],
+          "mapKey": {
+            "name": "xi_beta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "xi_gamma",
+            "schema": "double"
+          }
+        }
+      }
+    ]
+  }
+]

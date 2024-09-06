@@ -1,0 +1,64 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_kappa;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:spazz_iota;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "spazz_theta",
+            "request": {
+              "name": "spazz_eta",
+              "schema": "dtmi:ex:dependentRef;1"
+            }
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_xi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:spazz_nu;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "spazz_mu",
+            "request": {
+              "name": "spazz_lambda",
+              "schema": [
+                "dtmi:ex:dependentRef;1"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  }
+]

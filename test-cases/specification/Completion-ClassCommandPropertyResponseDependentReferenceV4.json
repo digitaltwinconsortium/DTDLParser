@@ -1,0 +1,58 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_eta;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:yuzz_zeta;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "yuzz_epsilon",
+            "response": "dtmi:ex:dependentRef;1"
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_kappa;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:yuzz_iota;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "yuzz_theta",
+            "response": [
+              "dtmi:ex:dependentRef;1"
+            ]
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  }
+]

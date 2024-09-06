@@ -1,0 +1,32 @@
+﻿[
+  {
+    "valid": true,
+    "desirable": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nuh_chi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nuh_upsilon;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "nuh_phi",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "nuh_tau",
+            "schema": "time",
+            "@type": [
+              "MapValue",
+              "dtmi:dtdl:class:MapValue;4"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

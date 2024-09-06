@@ -1,0 +1,70 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:chi_psi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "chi_chi",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "chi_phi",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "chi_upsilon",
+              "schema": "dtmi:ex:dependentRef;1"
+            }
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:chi_um;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "chi_wum",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "chi_yuzz",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "chi_omega",
+              "schema": [
+                "dtmi:ex:dependentRef;1"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "expect": {
+      "unresolvedIdentifiers": [
+        "dtmi:ex:dependentRef;1"
+      ]
+    }
+  }
+]

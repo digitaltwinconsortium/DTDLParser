@@ -1,0 +1,108 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_glikk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_humpf;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "nu_fuddle",
+            "schema": "time"
+          },
+          "mapKey": {
+            "name": "nu_um",
+            "schema": "string",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_thnad;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_snee;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "nu_quan",
+            "schema": "uuid"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "nu_nuh",
+            "schema": "string",
+            "dtmi:foo:bar;1": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_jogg;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_floob;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "nu_zatz",
+            "schema": "boolean"
+          },
+          "mapKey": {
+            "name": "nu_spazz",
+            "schema": "string",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:nu_vroo;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:nu_itch;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "nu_yekk",
+            "schema": "bytes"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "nu_flunn",
+            "schema": "string",
+            "boolean": null
+          }
+        }
+      }
+    ]
+  }
+]

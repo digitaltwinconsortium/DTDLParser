@@ -1,0 +1,131 @@
+﻿{
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:deepMap1;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "MapKey1",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "MapValue1",
+            "schema": {
+              "@id": "dtmi:test:deepMap2;1",
+              "@type": "Map",
+              "mapKey": {
+                "name": "MapKey2",
+                "schema": "string"
+              },
+              "mapValue": {
+                "name": "MapValue2",
+                "schema": {
+                  "@id": "dtmi:test:deepMap3;1",
+                  "@type": "Map",
+                  "mapKey": {
+                    "name": "MapKey3",
+                    "schema": "string"
+                  },
+                  "mapValue": {
+                    "name": "MapValue3",
+                    "schema": {
+                      "@id": "dtmi:test:deepMap4;1",
+                      "@type": "Map",
+                      "mapKey": {
+                        "name": "MapKey4",
+                        "schema": "string"
+                      },
+                      "mapValue": {
+                        "name": "MapValue4",
+                        "schema": {
+                          "@id": "dtmi:test:deepMap5;1",
+                          "@type": "Map",
+                          "mapKey": {
+                            "name": "MapKey5",
+                            "schema": "string"
+                          },
+                          "mapValue": {
+                            "name": "MapValue5",
+                            "schema": {
+                              "@id": "dtmi:test:deepMap6;1",
+                              "@type": "Map",
+                              "mapKey": {
+                                "name": "MapKey6",
+                                "schema": "string"
+                              },
+                              "mapValue": {
+                                "name": "MapValue6",
+                                "schema": {
+                                  "@id": "dtmi:test:deepMap7;1",
+                                  "@type": "Map",
+                                  "mapKey": {
+                                    "name": "MapKey7",
+                                    "schema": "string"
+                                  },
+                                  "mapValue": {
+                                    "name": "MapValue7",
+                                    "schema": {
+                                      "@id": "dtmi:test:deepMap8;1",
+                                      "@type": "Map",
+                                      "mapKey": {
+                                        "name": "MapKey8",
+                                        "schema": "string"
+                                      },
+                                      "mapValue": {
+                                        "name": "MapValue8",
+                                        "schema": {
+                                          "@id": "dtmi:test:deepMap9;1",
+                                          "@type": "Map",
+                                          "mapKey": {
+                                            "name": "MapKey9",
+                                            "schema": "string"
+                                          },
+                                          "mapValue": {
+                                            "name": "MapValue9",
+                                            "schema": "double"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthWide",
+        "PrimaryID": "dtmi:test:deepMap1;1",
+        "SecondaryID": "dtmi:test:deepMap9:_mapKey;1",
+        "Property": null,
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 6,
+        "PrimaryEnd": 105,
+        "SecondaryIndex": 0,
+        "SecondaryStart": 81,
+        "SecondaryEnd": 84
+      }
+    ]
+  }
+}

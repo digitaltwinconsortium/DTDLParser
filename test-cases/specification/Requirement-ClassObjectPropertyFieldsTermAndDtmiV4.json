@@ -1,0 +1,61 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:phi_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:phi_xi;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "phi_omicron",
+              "schema": "bytes"
+            }
+          ],
+          "dtmi:dtdl:property:fields;4": [
+            {
+              "name": "phi_pi",
+              "schema": "date"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:phi_phi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:phi_sigma;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "phi_tau",
+              "schema": "dateTime"
+            }
+          ],
+          "dtmi:dtdl:property:fields;4": [
+            {
+              "name": "phi_upsilon",
+              "schema": "double"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

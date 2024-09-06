@@ -1,0 +1,51 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_beta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "description": [
+            "yekk_vroo"
+          ],
+          "dtmi:dtdl:property:description;4": [
+            "yekk_hi"
+          ],
+          "name": "vroo_alpha",
+          "schema": "date"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:vroo_zeta;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "description": [
+            "vroo_gamma"
+          ],
+          "dtmi:dtdl:property:description;4": [
+            "vroo_delta"
+          ],
+          "name": "vroo_epsilon",
+          "schema": "dateTime"
+        }
+      }
+    ]
+  }
+]
