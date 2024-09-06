@@ -36,6 +36,9 @@ jobs:
       - name: Install WASM workload
         run: dotnet workload install wasm-tools
 
+      - name: Install SBOM Tool
+        run: dotnet tool install --global Microsoft.Sbom.DotNetTool
+
       - name: Build Metamodel Digest
         run: scripts/BuildMetaDigest.sh Release
 
