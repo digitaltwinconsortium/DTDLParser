@@ -66,12 +66,6 @@ jobs:
       - name: Extract Tutorial Projects
         run: scripts/ExtractTutorials.sh Release
 
-      - name: Install DocFx
-        run: nuget install docfx.console
-
-      - name: Run DocFx
-        run: scripts/RunDocFx.sh Release "mono $DocFxFolder/tools/"
-
       - name: Build Parser
         run: scripts/BuildParser.sh Release
 
