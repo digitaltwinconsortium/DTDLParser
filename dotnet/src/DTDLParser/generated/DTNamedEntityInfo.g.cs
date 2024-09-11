@@ -341,6 +341,7 @@ namespace DTDLParser.Models
                             propertyName: propName,
                             propertyValue: elt.Id,
                             element: elt,
+                            version: aggregateContext.DtdlVersion.ToString(),
                             layer: layer);
                         return false;
                     }
@@ -961,6 +962,7 @@ namespace DTDLParser.Models
                         elementId: elementId,
                         cotype: typeString,
                         element: elt,
+                        version: aggregateContext.DtdlVersion.ToString(),
                         layer: layer);
                     return false;
                 }
@@ -1259,6 +1261,7 @@ namespace DTDLParser.Models
                         elementId: elementId,
                         cotype: typeString,
                         element: elt,
+                        version: aggregateContext.DtdlVersion.ToString(),
                         layer: layer);
                     return false;
                 }
@@ -1605,6 +1608,7 @@ namespace DTDLParser.Models
                         elementId: elementId,
                         cotype: typeString,
                         element: elt,
+                        version: aggregateContext.DtdlVersion.ToString(),
                         layer: layer);
                     return false;
                 }
@@ -1788,6 +1792,7 @@ namespace DTDLParser.Models
                                     propertyValue: value.StringValue,
                                     incidentProperty: valueCollectionProp,
                                     incidentValue: value,
+                                    version: aggregateContext.DtdlVersion.ToString(),
                                     layer: layer);
                             }
                         }

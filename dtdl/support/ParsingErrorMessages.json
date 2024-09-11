@@ -13,13 +13,14 @@
     }
   },
   "badDtmiOrTerm": {
-    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
-    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}'{line2} that is neither a valid DTMI reference nor a DTDL term.",
-    "action": "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
+    "cause": "{layer}{primaryId:p} property '{property}' has value '{value}' that is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} has value '{value}'{line2} that is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+    "action": "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL v{restriction} -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName",
-      "value": "propertyValue"
+      "value": "propertyValue",
+      "restriction": "version"
     },
     "optional": {
       "source1": "incidentProperty",
@@ -855,14 +856,16 @@
       "source1": "idProp"
     }
   },
+
   "idRefBadDtmiOrTerm": {
-    "cause": "{layer}{primaryId:n} has '{property}' value whose '@id' value '{value}' is neither a valid DTMI reference nor a DTDL term.",
-    "locatedCause": "In {sourceName1}, '@id'{line1} has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
-    "action": "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
+    "cause": "{layer}{primaryId:n} has '{property}' value whose '@id' value '{value}' is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+    "locatedCause": "In {sourceName1}, '@id'{line1} has value '{value}' that is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+    "action": "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL v{restriction} -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "property": "propertyName",
-      "value": "propertyValue"
+      "value": "propertyValue",
+      "restriction": "version"
     },
     "optional": {
       "source1": "idProp",
@@ -3232,9 +3235,9 @@
     }
   },
   "typeIrrelevantDtmiOrTerm": {
-    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is not a DTDL material type or supplemental type.",
-    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is not a DTDL material type or supplemental type.",
-    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
+    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is not a DTDL v{restriction} material type or supplemental type.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is not a DTDL v{restriction} material type or supplemental type.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL v{restriction} type -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
       "value": "cotype"
