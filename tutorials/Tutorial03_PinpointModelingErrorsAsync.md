@@ -120,7 +120,7 @@ For the JSON text above, the code snippet above will display a single error:
 
 ```Console
 DTDL model is invalid:
-In string variable 'jsonText', property 'content' on line 5 is an undefined term. Replace property 'content' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.
+In string variable 'jsonText', property 'content' on line 5 is an undefined term in DTDL v3. Replace property 'content' with a string that is either a defined term in DTDL v3 or a valid DTMI -- see aka.ms/dtmi.
 ```
 
 ## Fix first parsing error and resubmit
@@ -156,7 +156,7 @@ And then wait on the `Task` per the code snippet above, it displays:
 
 ```Console
 DTDL model is invalid:
-In string variable 'jsonText', element has @type on line 7 that specifies type Telemtry that is an undefined term. Remove @type Telemtry or replace with an appropriate DTDL type -- see aka.ms/dtdl.
+In string variable 'jsonText', element has @type on line 7 that specifies type Telemtry that is an undefined term in DTDL v3. Remove @type Telemtry or replace with an appropriate DTDL v3 type -- see aka.ms/dtdl.
 ```
 
 ## Fix second parsing error and resubmit
