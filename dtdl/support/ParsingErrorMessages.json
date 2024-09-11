@@ -2917,12 +2917,13 @@
     }
   },
   "propertyUndefinedTerm": {
-    "cause": "{layer}{primaryId:p} property '{property}' is an undefined term.",
-    "locatedCause": "In {sourceName1}, property '{property}'{line1} is an undefined term.",
-    "action": "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
+    "cause": "{layer}{primaryId:p} property '{property}' is an undefined term in DTDL v{restriction}.",
+    "locatedCause": "In {sourceName1}, property '{property}'{line1} is an undefined term in DTDL v{restriction}.",
+    "action": "Replace property '{property}' with a string that is either a defined term in DTDL v{restriction} or a valid DTMI -- see aka.ms/dtmi.",
     "required": {
       "primaryId": "elementId",
-      "property": "propertyName"
+      "property": "propertyName",
+      "restriction": "version"
     },
     "optional": {
       "source1": "incidentProperty",
@@ -3273,12 +3274,13 @@
     }
   },
   "typeUndefinedTerm": {
-    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an undefined term.",
-    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an undefined term.",
-    "action": "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
+    "cause": "{layer}{primaryId:n} has @type that specifies type {value} that is an undefined term in DTDL v{restriction}.",
+    "locatedCause": "In {sourceName1}, element has @type{line1} that specifies type {value} that is an undefined term in DTDL v{restriction}.",
+    "action": "Remove @type {value} or replace with an appropriate DTDL v{restriction} type -- see aka.ms/dtdl.",
     "required": {
       "primaryId": "elementId",
-      "value": "cotype"
+      "value": "cotype",
+      "restriction": "version"
     },
     "optional": {
       "source1": "typeProp",

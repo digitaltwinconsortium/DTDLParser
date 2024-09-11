@@ -920,6 +920,7 @@ namespace DTDLParser.Models
                             elementId: elementId,
                             cotype: typeString,
                             element: elt,
+                            version: aggregateContext.DtdlVersion.ToString(),
                             layer: layer);
                         return false;
                     }
@@ -1733,6 +1734,7 @@ namespace DTDLParser.Models
                             propertyName: prop.Name,
                             incidentProperty: prop,
                             element: elt,
+                            version: aggregateContext.DtdlVersion.ToString(),
                             layer: layer);
                         continue;
                     }

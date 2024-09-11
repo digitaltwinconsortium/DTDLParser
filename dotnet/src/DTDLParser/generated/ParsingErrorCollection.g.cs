@@ -7208,19 +7208,20 @@ namespace DTDLParser
 
                     return;
                 case "propertyUndefinedTerm":
-                    if (elementId == null || propertyName == null)
+                    if (elementId == null || propertyName == null || version == null)
                     {
-                        throw new ArgumentException("Missing required parameter elementId or propertyName when generating propertyUndefinedTerm ParsingError.");
+                        throw new ArgumentException("Missing required parameter elementId or propertyName or version when generating propertyUndefinedTerm ParsingError.");
                     }
 
                     if (incidentProperty != null && incidentProperty.TryGetSourceLocation(out sourceName1, out startLine1))
                     {
                         this.Add(
                             PropertyUndefinedTermValidationId,
-                            "In {sourceName1}, property '{property}'{line1} is an undefined term.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
+                            "In {sourceName1}, property '{property}'{line1} is an undefined term in DTDL v{restriction}.",
+                            "Replace property '{property}' with a string that is either a defined term in DTDL v{restriction} or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
+                            restriction: version,
                             layer: layer,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -7230,10 +7231,11 @@ namespace DTDLParser
                     {
                         this.Add(
                             PropertyUndefinedTermValidationId,
-                            "{layer}{primaryId:p} property '{property}' is an undefined term.",
-                            "Replace property '{property}' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.",
+                            "{layer}{primaryId:p} property '{property}' is an undefined term in DTDL v{restriction}.",
+                            "Replace property '{property}' with a string that is either a defined term in DTDL v{restriction} or a valid DTMI -- see aka.ms/dtmi.",
                             primaryId: elementId,
                             property: propertyName,
+                            restriction: version,
                             layer: layer);
                     }
 
@@ -8029,19 +8031,20 @@ namespace DTDLParser
 
                     return;
                 case "typeUndefinedTerm":
-                    if (elementId == null || cotype == null)
+                    if (elementId == null || cotype == null || version == null)
                     {
-                        throw new ArgumentException("Missing required parameter elementId or cotype when generating typeUndefinedTerm ParsingError.");
+                        throw new ArgumentException("Missing required parameter elementId or cotype or version when generating typeUndefinedTerm ParsingError.");
                     }
 
                     if (element != null && element.TryGetSourceLocationForType(out sourceName1, out startLine1))
                     {
                         this.Add(
                             TypeUndefinedTermValidationId,
-                            "In {sourceName1}, element has @type{line1} that specifies type {value} that is an undefined term.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
+                            "In {sourceName1}, element has @type{line1} that specifies type {value} that is an undefined term in DTDL v{restriction}.",
+                            "Remove @type {value} or replace with an appropriate DTDL v{restriction} type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
+                            restriction: version,
                             layer: layer,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -8051,10 +8054,11 @@ namespace DTDLParser
                     {
                         this.Add(
                             TypeUndefinedTermValidationId,
-                            "{layer}{primaryId:n} has @type that specifies type {value} that is an undefined term.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
+                            "{layer}{primaryId:n} has @type that specifies type {value} that is an undefined term in DTDL v{restriction}.",
+                            "Remove @type {value} or replace with an appropriate DTDL v{restriction} type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
+                            restriction: version,
                             layer: layer);
                     }
 

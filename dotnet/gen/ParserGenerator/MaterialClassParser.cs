@@ -1018,6 +1018,7 @@
                         .Line("elementId: elementId,")
                         .Line("cotype: typeString,")
                         .Line("element: elt,")
+                        .Line("version: aggregateContext.DtdlVersion.ToString(),")
                         .Line("layer: layer);");
                 undefinedTermScope.Line("return false;");
             }
@@ -1182,6 +1183,7 @@
                         .Line("propertyName: prop.Name,")
                         .Line("incidentProperty: prop,")
                         .Line("element: elt,")
+                        .Line("version: aggregateContext.DtdlVersion.ToString(),")
                         .Line("layer: layer);");
                 undefinedTermScope.Line("continue;");
             }
