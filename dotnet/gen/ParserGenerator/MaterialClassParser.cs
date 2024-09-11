@@ -413,6 +413,7 @@
                     .Line("propertyValue: value.StringValue,")
                     .Line("incidentProperty: valueCollectionProp,")
                     .Line("incidentValue: value,")
+                    .Line("version: aggregateContext.DtdlVersion.ToString(),")
                     .Line("layer: layer);");
 
             switchOnTokenType.Line("break;");
@@ -527,6 +528,7 @@
                     .Line("propertyName: propName,")
                     .Line("propertyValue: elt.Id,")
                     .Line("element: elt,")
+                    .Line("version: aggregateContext.DtdlVersion.ToString(),")
                     .Line("layer: layer);");
 
             elseNotTryParseIdString.Line("return false;");
@@ -1035,6 +1037,7 @@
                         .Line("elementId: elementId,")
                         .Line("cotype: typeString,")
                         .Line("element: elt,")
+                        .Line("version: aggregateContext.DtdlVersion.ToString(),")
                         .Line("layer: layer);");
                 irrelevantDtmiOrTermScope.Line("return false;");
             }

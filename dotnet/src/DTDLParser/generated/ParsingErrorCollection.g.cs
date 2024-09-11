@@ -630,20 +630,21 @@ namespace DTDLParser
 
                     return;
                 case "badDtmiOrTerm":
-                    if (elementId == null || propertyName == null || propertyValue == null)
+                    if (elementId == null || propertyName == null || propertyValue == null || version == null)
                     {
-                        throw new ArgumentException("Missing required parameter elementId or propertyName or propertyValue when generating badDtmiOrTerm ParsingError.");
+                        throw new ArgumentException("Missing required parameter elementId or propertyName or propertyValue or version when generating badDtmiOrTerm ParsingError.");
                     }
 
                     if (incidentProperty != null && incidentProperty.TryGetSourceLocation(out sourceName1, out startLine1) && incidentValue != null && incidentValue.TryGetSourceLocation(out sourceName2, out startLine2, out endLine2))
                     {
                         this.Add(
                             BadDtmiOrTermValidationId,
-                            "In {sourceName1}, property '{property}'{line1} has value '{value}'{line2} that is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
+                            "In {sourceName1}, property '{property}'{line1} has value '{value}'{line2} that is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL v{restriction} -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
+                            restriction: version,
                             layer: layer,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -656,11 +657,12 @@ namespace DTDLParser
                     {
                         this.Add(
                             BadDtmiOrTermValidationId,
-                            "{layer}{primaryId:p} property '{property}' has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
+                            "{layer}{primaryId:p} property '{property}' has value '{value}' that is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+                            "Replace the value of property '{property}' with a valid DTMI reference or a term defined by DTDL v{restriction} -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
+                            restriction: version,
                             layer: layer);
                     }
 
@@ -2543,20 +2545,21 @@ namespace DTDLParser
 
                     return;
                 case "idRefBadDtmiOrTerm":
-                    if (elementId == null || propertyName == null || propertyValue == null)
+                    if (elementId == null || propertyName == null || propertyValue == null || version == null)
                     {
-                        throw new ArgumentException("Missing required parameter elementId or propertyName or propertyValue when generating idRefBadDtmiOrTerm ParsingError.");
+                        throw new ArgumentException("Missing required parameter elementId or propertyName or propertyValue or version when generating idRefBadDtmiOrTerm ParsingError.");
                     }
 
                     if (element != null && element.TryGetSourceLocationForId(out sourceName1, out startLine1))
                     {
                         this.Add(
                             IdRefBadDtmiOrTermValidationId,
-                            "In {sourceName1}, '@id'{line1} has value '{value}' that is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
+                            "In {sourceName1}, '@id'{line1} has value '{value}' that is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL v{restriction} -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
+                            restriction: version,
                             layer: layer,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -2566,11 +2569,12 @@ namespace DTDLParser
                     {
                         this.Add(
                             IdRefBadDtmiOrTermValidationId,
-                            "{layer}{primaryId:n} has '{property}' value whose '@id' value '{value}' is neither a valid DTMI reference nor a DTDL term.",
-                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL -- see aka.ms/dtdl.",
+                            "{layer}{primaryId:n} has '{property}' value whose '@id' value '{value}' is neither a valid DTMI reference nor a DTDL v{restriction} term.",
+                            "Replace the value of '@id' with a valid DTMI reference or a term defined by DTDL v{restriction} -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             property: propertyName,
                             value: propertyValue,
+                            restriction: version,
                             layer: layer);
                     }
 
@@ -7943,8 +7947,8 @@ namespace DTDLParser
                     {
                         this.Add(
                             TypeIrrelevantDtmiOrTermValidationId,
-                            "In {sourceName1}, element has @type{line1} that specifies type {value} that is not a DTDL material type or supplemental type.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
+                            "In {sourceName1}, element has @type{line1} that specifies type {value} that is not a DTDL v{restriction} material type or supplemental type.",
+                            "Remove @type {value} or replace with an appropriate DTDL v{restriction} type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer,
@@ -7956,8 +7960,8 @@ namespace DTDLParser
                     {
                         this.Add(
                             TypeIrrelevantDtmiOrTermValidationId,
-                            "{layer}{primaryId:n} has @type that specifies type {value} that is not a DTDL material type or supplemental type.",
-                            "Remove @type {value} or replace with an appropriate DTDL type -- see aka.ms/dtdl.",
+                            "{layer}{primaryId:n} has @type that specifies type {value} that is not a DTDL v{restriction} material type or supplemental type.",
+                            "Remove @type {value} or replace with an appropriate DTDL v{restriction} type -- see aka.ms/dtdl.",
                             primaryId: elementId,
                             value: cotype,
                             layer: layer);

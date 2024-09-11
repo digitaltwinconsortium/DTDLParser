@@ -683,6 +683,7 @@
                                     propertyValue: value.StringValue,
                                     incidentProperty: valueCollectionProp,
                                     incidentValue: value,
+                                    version: aggregateContext.DtdlVersion.ToString(),
                                     layer: layer);
                             }
                         }
