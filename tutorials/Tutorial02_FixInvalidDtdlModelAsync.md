@@ -88,7 +88,7 @@ For the JSON text above, the code snippet above will display a single error:
 
 ```Console
 DTDL model is invalid:
-dtmi:example:anInterface;1's property 'content' is an undefined term. Replace property 'content' with a string that is either a defined term or a valid DTMI -- see aka.ms/dtmi.
+dtmi:example:anInterface;1's property 'content' is an undefined term in DTDL v3. Replace property 'content' with a string that is either a defined term in DTDL v3 or a valid DTMI -- see aka.ms/dtmi.
 ```
 
 ## Fix first parsing error and resubmit
@@ -124,7 +124,7 @@ And then wait on the `Task` per the code snippet above, it displays:
 
 ```Console
 DTDL model is invalid:
-dtmi:example:anInterface;1 has 'contents' value with name 'currentDistance' which has @type that specifies type Telemtry that is an undefined term. Remove @type Telemtry or replace with an appropriate DTDL type -- see aka.ms/dtdl.
+dtmi:example:anInterface;1 has 'contents' value with name 'currentDistance' which has @type that specifies type Telemtry that is an undefined term in DTDL v3. Remove @type Telemtry or replace with an appropriate DTDL v3 type -- see aka.ms/dtdl.
 ```
 
 ## Fix second parsing error and resubmit
