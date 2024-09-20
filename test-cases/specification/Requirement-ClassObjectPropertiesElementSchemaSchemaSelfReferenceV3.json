@@ -1,0 +1,53 @@
+﻿[
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:glikk_delta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "glikk_gamma",
+          "schema": {
+            "@id": "dtmi:foo:delta_gamma;1",
+            "@type": "Object",
+            "fields": {
+              "name": "glikk_beta",
+              "schema": "dtmi:foo:delta_gamma;1"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:glikk_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "glikk_zeta",
+          "schema": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:delta_gamma;1",
+            "@type": "Object",
+            "fields": {
+              "name": "glikk_epsilon",
+              "schema": "dtmi:foo:delta_gamma;1"
+            }
+          }
+        }
+      }
+    ]
+  }
+]

@@ -7251,7 +7251,7 @@ namespace DTDLParser
                         this.Add(
                             RecursiveStructureNarrowValidationId,
                             "In {sourceName1}, element{line1} is at the root of a chain of {property} properties that includes itself.",
-                            "Change the value of one or more {property} properties in the hierarchy to remeve the recursion.",
+                            "Change the value of one or more {property} properties in the hierarchy to remove the recursion.",
                             primaryId: elementId,
                             property: propertyDisjunction,
                             sourceName1: sourceName1,
@@ -7263,7 +7263,7 @@ namespace DTDLParser
                         this.Add(
                             RecursiveStructureNarrowValidationId,
                             "{primaryId:n} is at the root of a chain of {property} properties that includes itself.",
-                            "Change the value of one or more {property} properties in the hierarchy to remeve the recursion.",
+                            "Change the value of one or more {property} properties in the hierarchy to remove the recursion.",
                             primaryId: elementId,
                             property: propertyDisjunction);
                     }
@@ -7280,7 +7280,7 @@ namespace DTDLParser
                         this.Add(
                             RecursiveStructureWideValidationId,
                             "In {sourceName1}, element{line1} is at the root of a hierarchy that includes itself.",
-                            "Change the value of one or more properties of elements in the hierarchy to remeve the recursion.",
+                            "Change the value of one or more properties of elements in the hierarchy to remove the recursion.",
                             primaryId: elementId,
                             sourceName1: sourceName1,
                             startLine1: startLine1,
@@ -7291,7 +7291,7 @@ namespace DTDLParser
                         this.Add(
                             RecursiveStructureWideValidationId,
                             "{primaryId:n} is at the root of a hierarchy that includes itself.",
-                            "Change the value of one or more properties of elements in the hierarchy to remeve the recursion.",
+                            "Change the value of one or more properties of elements in the hierarchy to remove the recursion.",
                             primaryId: elementId);
                     }
 

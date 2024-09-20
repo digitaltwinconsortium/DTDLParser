@@ -15,6 +15,7 @@
         private bool isNarrow;
         private List<string> importProperties;
         private Dictionary<string, int> maxDepth;
+        private bool allowSelf;
         private string getTransitivePropertiesMethodName;
         private Dictionary<string, string> importPropertyMethodNames;
         private Dictionary<string, string> fieldNames;
@@ -31,7 +32,8 @@
         /// <param name="isNarrow">Indicates whether the descendant hierarchy should be scanned only along relevant properties.</param>
         /// <param name="importProperties">A list of names of properties whose values should be imported from the relevant descendants.</param>
         /// <param name="maxDepth">The maximum allowed count of relevant properties in a hierarchical chain.</param>
-        public DescendantControlImportProperties(int dtdlVersion, string rootClass, string definingClass, List<string> propertyNames, bool isNarrow, List<string> importProperties, Dictionary<string, int> maxDepth)
+        /// <param name="allowSelf">True if descendants are permitted to refer to the object at the root of the hierarchy.</param>
+        public DescendantControlImportProperties(int dtdlVersion, string rootClass, string definingClass, List<string> propertyNames, bool isNarrow, List<string> importProperties, Dictionary<string, int> maxDepth, bool allowSelf)
         {
             this.dtdlVersion = dtdlVersion;
             this.rootClass = rootClass;
@@ -40,6 +42,7 @@
             this.isNarrow = isNarrow;
             this.importProperties = importProperties;
             this.maxDepth = maxDepth;
+            this.allowSelf = allowSelf;
 
             string propertyNameDisjunction = string.Join("Or", this.propertyNames.Select(p => NameFormatter.FormatNameAsProperty(p)));
             this.getTransitivePropertiesMethodName = $"GetTransitive{propertyNameDisjunction}{(this.isNarrow ? "Narrow" : string.Empty)}";
@@ -100,7 +103,8 @@
 
                 ValueLimiter.DefineLimitVariable(applyTransformationsMethodBody, this.maxDepth, this.maxDepthName, $"this.{ParserGeneratorValues.LimitSpecifierPropertyName}", nullable: false);
 
-                applyTransformationsMethodBody.Line($"HashSet<Dtmi> sources = this.{this.getTransitivePropertiesMethodName}(0, {this.maxDepthName}, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);");
+                applyTransformationsMethodBody.Line($"List<{ParserGeneratorValues.IdentifierType}> tooDeepElementIds = new List<{ParserGeneratorValues.IdentifierType}>();");
+                applyTransformationsMethodBody.Line($"HashSet<Dtmi> sources = this.{this.getTransitivePropertiesMethodName}(0, {this.maxDepthName}, {ParserGeneratorValues.GetBooleanLiteral(this.allowSelf)}, tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, parsingErrorCollection);");
                 applyTransformationsMethodBody.Break();
 
                 CsIf ifSourcesNotNull = applyTransformationsMethodBody.If("sources != null");
@@ -116,12 +120,12 @@
                     forEachDtmi.Line($"(({NameFormatter.FormatNameAsClass(this.definingClass)})model.Dict[dtmi]).Import{importPropName}(this.{ParserGeneratorValues.IdentifierName}, \"{this.propertyNames.First()}\", \"{this.propertiesDesc}\", this.{importPropName}, this.JsonLdElements, parsingErrorCollection);");
                 }
 
-                ifSourcesNotNull.ElseIf("tooDeepElementId != null")
+                ifSourcesNotNull.ElseIf("tooDeepElementIds.Any()")
                     .MultiLine("parsingErrorCollection.Notify(")
                         .Line(this.isNarrow ? "\"excessiveDepthNarrow\"," : "\"excessiveDepthWide\",")
                         .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
                         .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
-                        .Line($"referenceId: tooDeepElementId,")
+                        .Line($"referenceId: tooDeepElementIds.First(),")
                         .Line($"observedCount: {this.maxDepthName} + 1,")
                         .Line($"expectedCount: {this.maxDepthName},")
                         .Line("ancestorElement: this.JsonLdElements.First().Value,")
@@ -142,7 +146,8 @@
                 baseClassMethod.Summary($"Get the transitive closure of the IDs of all descendant {string.Join(" or ", this.propertyNames)} properties, and also check the nesting depth.");
                 baseClassMethod.Param(ParserGeneratorValues.ObverseTypeInteger, "depth", "The depth from the root to this element.");
                 baseClassMethod.Param(ParserGeneratorValues.ObverseTypeInteger, "depthLimit", "The allowed limit on the depth.");
-                baseClassMethod.Param(ParserGeneratorValues.IdentifierType, "tooDeepElementId", "An out parameter for the ID of the first element that exceeds the depth.", passage: Passage.Out);
+                baseClassMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowSelf", "True if descendants are permitted to refer to the object at the root of the hierarchy.");
+                baseClassMethod.Param($"List<{ParserGeneratorValues.IdentifierType}>", "tooDeepElementIds", "A logica out parameter for the IDs of the chain of elements that exceed the depth.");
                 baseClassMethod.Param("Dictionary<string, JsonLdElement>", "tooDeepElts", "An out parameter providing a dictionary that maps from layer name to the <see cref=\"JsonLdElement\"/> that defines the layer of the first element that exceeds the depth.", passage: Passage.Out);
                 baseClassMethod.Param("ParsingErrorCollection", "parsingErrorCollection", "A <c>ParsingErrorCollection</c> to which any parsing errors are added.");
                 baseClassMethod.Returns("A <c>HashSet</c> of the IDs, or null if the depth exceeds the limit.");
@@ -153,7 +158,8 @@
                 concreteClassMethod.InheritDoc();
                 concreteClassMethod.Param(ParserGeneratorValues.ObverseTypeInteger, "depth");
                 concreteClassMethod.Param(ParserGeneratorValues.ObverseTypeInteger, "depthLimit");
-                concreteClassMethod.Param(ParserGeneratorValues.IdentifierType, "tooDeepElementId", passage: Passage.Out);
+                concreteClassMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowSelf");
+                concreteClassMethod.Param($"List<{ParserGeneratorValues.IdentifierType}>", "tooDeepElementIds");
                 concreteClassMethod.Param("Dictionary<string, JsonLdElement>", "tooDeepElts", passage: Passage.Out);
                 concreteClassMethod.Param("ParsingErrorCollection", "parsingErrorCollection");
 
@@ -164,7 +170,7 @@
                         string varName = "item";
                         materialProperty.One(concreteClassMethod.Body, ref varName)
                             .If("depth == depthLimit")
-                                .Line($"tooDeepElementId = {varName}.{ParserGeneratorValues.IdentifierName};")
+                                .Line($"tooDeepElementIds.Add({varName}.{ParserGeneratorValues.IdentifierName});")
                                 .Line($"tooDeepElts = {varName}.JsonLdElements;")
                                 .Line("return null;");
                     }
@@ -183,7 +189,7 @@
                         string varName = "item";
                         CsScope iterationScope = materialProperty.Iterate(concreteClassMethod.Body, ref varName);
 
-                        iterationScope.Line($"HashSet<Dtmi> others = {varName}.{this.getTransitivePropertiesMethodName}(depth{conditionalIncrement}, depthLimit, out tooDeepElementId, out tooDeepElts, parsingErrorCollection);");
+                        iterationScope.Line($"HashSet<Dtmi> others = {varName}.{this.getTransitivePropertiesMethodName}(depth{conditionalIncrement}, depthLimit, allowSelf, tooDeepElementIds, out tooDeepElts, parsingErrorCollection);");
 
                         CsIf ifOthersNotNull = iterationScope.If("others != null");
 
@@ -196,23 +202,27 @@
 
                         CsElse othersIsNull = ifOthersNotNull.Else();
 
-                        CsIf ifTooDeepElementIsThis = othersIsNull.If($"tooDeepElementId == this.{ParserGeneratorValues.IdentifierName}");
+                        CsIf ifTooDeepElementIsThis = othersIsNull.If($"tooDeepElementIds.Contains(this.{ParserGeneratorValues.IdentifierName})");
 
                         ifTooDeepElementIsThis
-                            .MultiLine("parsingErrorCollection.Notify(")
-                                .Line(this.isNarrow ? "\"recursiveStructureNarrow\"," : "\"recursiveStructureWide\",")
-                                .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
-                                .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
-                                .Line("element: this.JsonLdElements.First().Value);");
+                            .If("!allowSelf")
+                                .MultiLine("parsingErrorCollection.Notify(")
+                                    .Line(this.isNarrow ? "\"recursiveStructureNarrow\"," : "\"recursiveStructureWide\",")
+                                    .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
+                                    .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
+                                    .Line("element: this.JsonLdElements.First().Value);");
 
-                        ifTooDeepElementIsThis.Line("tooDeepElementId = null;");
+                        ifTooDeepElementIsThis
+                            .Line("tooDeepElementIds.Clear();")
+                            .Line("return closure;");
 
-                        othersIsNull.Line("return null;");
+                        othersIsNull
+                            .Line("tooDeepElementIds.Add(this.Id);")
+                            .Line("return null;");
                     }
                 }
 
                 concreteClassMethod.Body
-                    .Line("tooDeepElementId = null;")
                     .Line("tooDeepElts = null;")
                     .Line("return closure;");
             }

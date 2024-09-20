@@ -274,7 +274,7 @@ namespace DTDLParser.Models
 
             unchecked
             {
-                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.Schema) ? 0 : this.Schema.GetHashCode());
+                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.Schema) ? 0 : this.Schema.Id.GetHashCode());
             }
 
             return hashCode;

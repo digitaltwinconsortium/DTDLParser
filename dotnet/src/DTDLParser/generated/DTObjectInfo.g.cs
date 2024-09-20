@@ -1823,28 +1823,33 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
+        internal override bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
         {
             foreach (DTFieldInfo item in this.Fields)
             {
-                if (!item.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, out tooDeepElementId, out tooDeepElts, parsingErrorCollection))
+                if (!item.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, allowSelf, tooDeepElementIds, out tooDeepElts, parsingErrorCollection))
                 {
-                    if (tooDeepElementId == this.Id)
+                    if (tooDeepElementIds.Contains(this.Id))
                     {
-                        parsingErrorCollection.Notify(
-                            "recursiveStructureWide",
-                            elementId: this.Id,
-                            propertyDisjunction: "'elementSchema' or 'schema'",
-                            element: this.JsonLdElements.First().Value);
-                        tooDeepElementId = null;
+                        if (!allowSelf)
+                        {
+                            parsingErrorCollection.Notify(
+                                "recursiveStructureWide",
+                                elementId: this.Id,
+                                propertyDisjunction: "'elementSchema' or 'schema'",
+                                element: this.JsonLdElements.First().Value);
+                        }
+
+                        tooDeepElementIds.Clear();
+                        return true;
                     }
 
+                    tooDeepElementIds.Add(this.Id);
                     return false;
                 }
             }
 
-            tooDeepElementId = null;
-            tooDeepElts = this.JsonLdElements;
+            tooDeepElts = null;
             return true;
         }
 
@@ -2009,11 +2014,10 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
+        internal override HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
         {
             HashSet<Dtmi> closure = new HashSet<Dtmi>();
 
-            tooDeepElementId = null;
             tooDeepElts = null;
             return closure;
         }
@@ -2031,7 +2035,7 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(ParsingErrorCollection parsingErrorCollection)
+        internal override int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection)
         {
             if (this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus == TraversalStatus.Complete)
             {
@@ -2040,18 +2044,26 @@ namespace DTDLParser.Models
 
             if (this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus == TraversalStatus.InProgress)
             {
-                parsingErrorCollection.Notify(
-                    "recursiveStructureNarrow",
-                    elementId: this.Id,
-                    propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
-                    element: this.JsonLdElements.First().Value);
+                if (allowSelf)
+                {
+                    this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.Complete;
+                }
+                else
+                {
+                    parsingErrorCollection.Notify(
+                        "recursiveStructureNarrow",
+                        elementId: this.Id,
+                        propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
+                        element: this.JsonLdElements.First().Value);
+                }
+
                 return 0;
             }
 
             this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.InProgress;
             foreach (DTFieldInfo item in this.Fields)
             {
-                this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValue += item.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(parsingErrorCollection) + 1;
+                this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValue += item.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(allowSelf, parsingErrorCollection) + 1;
             }
 
             this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.Complete;
@@ -2059,7 +2071,7 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override int GetCountOfExtendsNarrow(ParsingErrorCollection parsingErrorCollection)
+        internal override int GetCountOfExtendsNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection)
         {
             if (this.countOfExtendsNarrowStatus == TraversalStatus.Complete)
             {
@@ -2068,11 +2080,19 @@ namespace DTDLParser.Models
 
             if (this.countOfExtendsNarrowStatus == TraversalStatus.InProgress)
             {
-                parsingErrorCollection.Notify(
-                    "recursiveStructureNarrow",
-                    elementId: this.Id,
-                    propertyDisjunction: "'extends'",
-                    element: this.JsonLdElements.First().Value);
+                if (allowSelf)
+                {
+                    this.countOfExtendsNarrowStatus = TraversalStatus.Complete;
+                }
+                else
+                {
+                    parsingErrorCollection.Notify(
+                        "recursiveStructureNarrow",
+                        elementId: this.Id,
+                        propertyDisjunction: "'extends'",
+                        element: this.JsonLdElements.First().Value);
+                }
+
                 return 0;
             }
 
@@ -3255,13 +3275,14 @@ namespace DTDLParser.Models
             }
 
             int maxDepthOfElementSchemaOrSchema = 5;
-            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, out Dtmi tooDeepElementSchemaOrSchemaElementId, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementId != null)
+            List<Dtmi> tooDeepElementSchemaOrSchemaElementIds = new List<Dtmi>();
+            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, false, tooDeepElementSchemaOrSchemaElementIds, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementIds != null)
             {
                 parsingErrorCollection.Notify(
                     "excessiveDepthWide",
                     elementId: this.Id,
                     propertyDisjunction: "'elementSchema' or 'schema'",
-                    referenceId: tooDeepElementSchemaOrSchemaElementId,
+                    referenceId: tooDeepElementSchemaOrSchemaElementIds.First(),
                     observedCount: maxDepthOfElementSchemaOrSchema + 1,
                     expectedCount: maxDepthOfElementSchemaOrSchema,
                     ancestorElement: this.JsonLdElements.First().Value,
@@ -3294,13 +3315,14 @@ namespace DTDLParser.Models
             }
 
             int maxDepthOfElementSchemaOrSchema = 5;
-            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, out Dtmi tooDeepElementSchemaOrSchemaElementId, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementId != null)
+            List<Dtmi> tooDeepElementSchemaOrSchemaElementIds = new List<Dtmi>();
+            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, false, tooDeepElementSchemaOrSchemaElementIds, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementIds != null)
             {
                 parsingErrorCollection.Notify(
                     "excessiveDepthWide",
                     elementId: this.Id,
                     propertyDisjunction: "'elementSchema' or 'schema'",
-                    referenceId: tooDeepElementSchemaOrSchemaElementId,
+                    referenceId: tooDeepElementSchemaOrSchemaElementIds.First(),
                     observedCount: maxDepthOfElementSchemaOrSchema + 1,
                     expectedCount: maxDepthOfElementSchemaOrSchema,
                     ancestorElement: this.JsonLdElements.First().Value,
@@ -3339,13 +3361,14 @@ namespace DTDLParser.Models
                 _ => 0,
             };
 
-            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, out Dtmi tooDeepElementSchemaOrSchemaElementId, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementId != null)
+            List<Dtmi> tooDeepElementSchemaOrSchemaElementIds = new List<Dtmi>();
+            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, true, tooDeepElementSchemaOrSchemaElementIds, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementIds != null)
             {
                 parsingErrorCollection.Notify(
                     "excessiveDepthWide",
                     elementId: this.Id,
                     propertyDisjunction: "'elementSchema' or 'schema'",
-                    referenceId: tooDeepElementSchemaOrSchemaElementId,
+                    referenceId: tooDeepElementSchemaOrSchemaElementIds.First(),
                     observedCount: maxDepthOfElementSchemaOrSchema + 1,
                     expectedCount: maxDepthOfElementSchemaOrSchema,
                     ancestorElement: this.JsonLdElements.First().Value,

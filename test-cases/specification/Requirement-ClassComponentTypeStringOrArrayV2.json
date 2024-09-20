@@ -7,123 +7,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:snee_itch;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "snee_jogg",
-          "schema": {
-            "@id": "dtmi:example:snee_flunn;1",
-            "@type": "Interface"
-          },
-          "@type": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:snee_hi;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "name": "snee_yekk",
-          "schema": {
-            "@id": "dtmi:example:snee_vroo;1",
-            "@type": "Interface"
-          },
-          "@type": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_gamma;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "quan_alpha",
-          "schema": {
-            "@id": "dtmi:example:quan_beta;1",
-            "@type": "Interface"
-          },
-          "@type": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_zeta;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "name": "quan_delta",
-          "schema": {
-            "@id": "dtmi:example:quan_epsilon;1",
-            "@type": "Interface"
-          },
-          "@type": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_iota;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "quan_eta",
-          "schema": {
-            "@id": "dtmi:example:quan_theta;1",
-            "@type": "Interface"
-          },
-          "@type": true
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:quan_mu;1",
         "@type": "Interface",
         "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "name": "quan_kappa",
           "schema": {
             "@id": "dtmi:example:quan_lambda;1",
             "@type": "Interface"
           },
-          "@type": true
+          "@type": 626
         }
       }
     ]
@@ -131,7 +23,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -139,12 +31,13 @@
         "@id": "dtmi:example:quan_omicron;1",
         "@type": "Interface",
         "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
           "name": "quan_nu",
           "schema": {
             "@id": "dtmi:example:quan_xi;1",
             "@type": "Interface"
           },
-          "@type": {}
+          "@type": 626
         }
       }
     ]
@@ -152,7 +45,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -160,10 +53,117 @@
         "@id": "dtmi:example:quan_sigma;1",
         "@type": "Interface",
         "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "name": "quan_pi",
           "schema": {
             "@id": "dtmi:example:quan_rho;1",
+            "@type": "Interface"
+          },
+          "@type": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:quan_phi;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "name": "quan_tau",
+          "schema": {
+            "@id": "dtmi:example:quan_upsilon;1",
+            "@type": "Interface"
+          },
+          "@type": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:quan_omega;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "quan_chi",
+          "schema": {
+            "@id": "dtmi:example:quan_psi;1",
+            "@type": "Interface"
+          },
+          "@type": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:quan_um;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "name": "quan_yuzz",
+          "schema": {
+            "@id": "dtmi:example:quan_wum;1",
+            "@type": "Interface"
+          },
+          "@type": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:quan_glikk;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "quan_humpf",
+          "schema": {
+            "@id": "dtmi:example:quan_fuddle;1",
+            "@type": "Interface"
+          },
+          "@type": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:quan_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "name": "quan_nuh",
+          "schema": {
+            "@id": "dtmi:example:quan_snee;1",
             "@type": "Interface"
           },
           "@type": {}
@@ -179,134 +179,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_phi;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "quan_tau",
-          "schema": {
-            "@id": "dtmi:example:quan_upsilon;1",
-            "@type": "Interface"
-          },
-          "@type": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_omega;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "name": "quan_chi",
-          "schema": {
-            "@id": "dtmi:example:quan_psi;1",
-            "@type": "Interface"
-          },
-          "@type": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_um;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "quan_yuzz",
-          "schema": {
-            "@id": "dtmi:example:quan_wum;1",
-            "@type": "Interface"
-          },
-          "@type": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_glikk;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "name": "quan_humpf",
-          "schema": {
-            "@id": "dtmi:example:quan_fuddle;1",
-            "@type": "Interface"
-          },
-          "@type": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_quan;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "quan_nuh",
-          "schema": {
-            "@id": "dtmi:example:quan_snee;1",
-            "@type": "Interface"
-          },
-          "@type": [
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:quan_floob;1",
         "@type": "Interface",
         "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "name": "quan_thnad",
           "schema": {
             "@id": "dtmi:example:quan_spazz;1",
             "@type": "Interface"
           },
           "@type": [
-            true
+            626
           ]
         }
       }
@@ -315,7 +197,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -323,9 +205,127 @@
         "@id": "dtmi:example:quan_flunn;1",
         "@type": "Interface",
         "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
           "name": "quan_zatz",
           "schema": {
             "@id": "dtmi:example:quan_jogg;1",
+            "@type": "Interface"
+          },
+          "@type": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:quan_vroo;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "quan_itch",
+          "schema": {
+            "@id": "dtmi:example:quan_yekk;1",
+            "@type": "Interface"
+          },
+          "@type": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:thnad_beta;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "name": "quan_hi",
+          "schema": {
+            "@id": "dtmi:example:thnad_alpha;1",
+            "@type": "Interface"
+          },
+          "@type": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:thnad_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "thnad_gamma",
+          "schema": {
+            "@id": "dtmi:example:thnad_delta;1",
+            "@type": "Interface"
+          },
+          "@type": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:thnad_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "name": "thnad_zeta",
+          "schema": {
+            "@id": "dtmi:example:thnad_eta;1",
+            "@type": "Interface"
+          },
+          "@type": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:thnad_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "thnad_iota",
+          "schema": {
+            "@id": "dtmi:example:thnad_kappa;1",
             "@type": "Interface"
           },
           "@type": [
@@ -343,13 +343,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_vroo;1",
+        "@id": "dtmi:example:thnad_xi;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "name": "quan_itch",
+          "name": "thnad_mu",
           "schema": {
-            "@id": "dtmi:example:quan_yekk;1",
+            "@id": "dtmi:example:thnad_nu;1",
             "@type": "Interface"
           },
           "@type": [

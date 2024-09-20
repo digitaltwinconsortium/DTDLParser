@@ -13,6 +13,7 @@
         private List<string> propertyNames;
         private bool isNarrow;
         private Dictionary<string, int> maxCount;
+        private bool allowSelf;
         private string coreName;
         private string methodName;
         private string propertiesDesc;
@@ -26,13 +27,15 @@
         /// <param name="propertyNames">The names of the properties for which this control is relevant.</param>
         /// <param name="isNarrow">Indicates whether the descendant hierarchy should be scanned only along relevant properties.</param>
         /// <param name="maxCount">The maximum allowed count of relevant properties in a hierarchy, according to a limit spec.</param>
-        public DescendantControlMaxCount(int dtdlVersion, string rootClass, List<string> propertyNames, bool isNarrow, Dictionary<string, int> maxCount)
+        /// <param name="allowSelf">True if descendants are permitted to refer to the object at the root of the hierarchy.</param>
+        public DescendantControlMaxCount(int dtdlVersion, string rootClass, List<string> propertyNames, bool isNarrow, Dictionary<string, int> maxCount, bool allowSelf)
         {
             this.dtdlVersion = dtdlVersion;
             this.rootClass = rootClass;
             this.propertyNames = propertyNames;
             this.isNarrow = isNarrow;
             this.maxCount = maxCount;
+            this.allowSelf = allowSelf;
 
             string propertyNameDisjunction = string.Join("Or", this.propertyNames.Select(p => NameFormatter.FormatNameAsProperty(p)));
             this.coreName = $"{propertyNameDisjunction}{(this.isNarrow ? "Narrow" : string.Empty)}";
@@ -59,6 +62,7 @@
             {
                 CsMethod baseClassMethod = obverseClass.Method(Access.Internal, Novelty.Abstract, ParserGeneratorValues.ObverseTypeInteger, this.methodName);
                 baseClassMethod.Summary($"Get the count of all descendant {string.Join(" or ", this.propertyNames)} properties.");
+                baseClassMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowSelf", "True if descendants are permitted to refer to the object at the root of the hierarchy.");
                 baseClassMethod.Param("ParsingErrorCollection", "parsingErrorCollection", "A <c>ParsingErrorCollection</c> to which any parsing errors are added.");
                 baseClassMethod.Returns("The count of relevant property values.");
             }
@@ -72,6 +76,7 @@
 
                 CsMethod concreteClassMethod = obverseClass.Method(Access.Internal, Novelty.Override, ParserGeneratorValues.ObverseTypeInteger, this.methodName);
                 concreteClassMethod.InheritDoc();
+                concreteClassMethod.Param(ParserGeneratorValues.ObverseTypeBoolean, "allowSelf");
                 concreteClassMethod.Param("ParsingErrorCollection", "parsingErrorCollection");
 
                 concreteClassMethod.Body.If($"this.{statusFieldName} == TraversalStatus.Complete")
@@ -80,11 +85,14 @@
                 CsIf ifInProgress = concreteClassMethod.Body.If($"this.{statusFieldName} == TraversalStatus.InProgress");
 
                 ifInProgress
-                    .MultiLine("parsingErrorCollection.Notify(")
-                        .Line(this.isNarrow ? "\"recursiveStructureNarrow\"," : "\"recursiveStructureWide\",")
-                        .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
-                        .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
-                        .Line("element: this.JsonLdElements.First().Value);");
+                    .If("allowSelf")
+                        .Line($"this.{statusFieldName} = TraversalStatus.Complete;")
+                    .Else()
+                        .MultiLine("parsingErrorCollection.Notify(")
+                            .Line(this.isNarrow ? "\"recursiveStructureNarrow\"," : "\"recursiveStructureWide\",")
+                            .Line($"elementId: this.{ParserGeneratorValues.IdentifierName},")
+                            .Line($"propertyDisjunction: \"{this.propertiesDesc}\",")
+                            .Line("element: this.JsonLdElements.First().Value);");
 
                 ifInProgress.Line("return 0;");
 
@@ -99,7 +107,7 @@
                     {
                         string varName = "item";
                         materialProperty.Iterate(concreteClassMethod.Body, ref varName)
-                            .Line($"this.{valueFieldName} += {varName}.{this.methodName}(parsingErrorCollection){conditionalIncrement};");
+                            .Line($"this.{valueFieldName} += {varName}.{this.methodName}(allowSelf, parsingErrorCollection){conditionalIncrement};");
                     }
                 }
 
@@ -116,7 +124,7 @@
                 ValueLimiter.DefineLimitVariable(checkRestrictionsMethodBody, this.maxCount, this.maxCountName, $"this.{ParserGeneratorValues.LimitSpecifierPropertyName}", nullable: false);
 
                 checkRestrictionsMethodBody
-                    .Line($"{ParserGeneratorValues.ObverseTypeInteger} num{this.coreName}Values = this.{this.methodName}(parsingErrorCollection);")
+                    .Line($"{ParserGeneratorValues.ObverseTypeInteger} num{this.coreName}Values = this.{this.methodName}({ParserGeneratorValues.GetBooleanLiteral(this.allowSelf)}, parsingErrorCollection);")
                     .If($"num{this.coreName}Values > {this.maxCountName}")
                         .MultiLine("parsingErrorCollection.Notify(")
                             .Line("\"excessiveCount\",")

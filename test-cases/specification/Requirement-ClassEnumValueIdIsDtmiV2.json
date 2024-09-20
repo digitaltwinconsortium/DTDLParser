@@ -7,121 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:rho_yekk;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:rho_itch;1",
-          "@type": "Enum",
-          "valueSchema": "integer",
-          "enumValues": {
-            "@id": "dtmi:foo:bar;7",
-            "enumValue": 848,
-            "name": "rho_flunn"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:sigma_alpha;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:rho_hi;1",
-          "@type": "Enum",
-          "valueSchema": "integer",
-          "enumValues": {
-            "@id": "dtmi:foo:bar;108675309",
-            "enumValue": 849,
-            "name": "rho_vroo"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:sigma_delta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:sigma_gamma;1",
-          "@type": "Enum",
-          "valueSchema": "integer",
-          "enumValues": {
-            "@id": "dtmi:foo:bar;999999999",
-            "enumValue": 850,
-            "name": "sigma_beta"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:sigma_eta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:sigma_zeta;1",
-          "@type": "Enum",
-          "valueSchema": "integer",
-          "enumValues": {
-            "@id": "dtmi:foo;1",
-            "enumValue": 851,
-            "name": "sigma_epsilon"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:sigma_kappa;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:sigma_iota;1",
-          "@type": "Enum",
-          "valueSchema": "integer",
-          "enumValues": {
-            "@id": null,
-            "enumValue": 852,
-            "name": "sigma_theta"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:sigma_nu;1",
         "@type": "Interface",
         "schemas": {
@@ -129,9 +14,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": null,
-            "enumValue": 853,
+            "@id": "dtmi:foo:bar;7",
+            "enumValue": 848,
             "name": "sigma_lambda"
           }
         }
@@ -139,7 +23,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -153,8 +37,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": 626,
-            "enumValue": 854,
+            "@id": "dtmi:foo:bar;108675309",
+            "enumValue": 849,
             "name": "sigma_xi"
           }
         }
@@ -162,9 +46,9 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -176,9 +60,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": 626,
-            "enumValue": 855,
+            "@id": "dtmi:foo:bar;999999999",
+            "enumValue": 850,
             "name": "sigma_rho"
           }
         }
@@ -186,7 +69,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -200,8 +83,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": true,
-            "enumValue": 856,
+            "@id": "dtmi:foo;1",
+            "enumValue": 851,
             "name": "sigma_upsilon"
           }
         }
@@ -211,7 +94,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -223,9 +106,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": true,
-            "enumValue": 857,
+            "@id": null,
+            "enumValue": 852,
             "name": "sigma_psi"
           }
         }
@@ -235,7 +117,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -247,10 +129,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": {
-              "@value": "dtmi:apparently:valid:identifier;3"
-            },
-            "enumValue": 858,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": null,
+            "enumValue": 853,
             "name": "sigma_wum"
           }
         }
@@ -260,7 +141,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -272,11 +153,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": {
-              "@value": "dtmi:apparently:valid:identifier;3"
-            },
-            "enumValue": 859,
+            "@id": 626,
+            "enumValue": 854,
             "name": "sigma_fuddle"
           }
         }
@@ -286,7 +164,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -298,8 +176,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;0",
-            "enumValue": 860,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": 626,
+            "enumValue": 855,
             "name": "sigma_snee"
           }
         }
@@ -309,7 +188,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -321,9 +200,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;0",
-            "enumValue": 861,
+            "@id": true,
+            "enumValue": 856,
             "name": "sigma_spazz"
           }
         }
@@ -333,7 +211,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -345,8 +223,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;0.0",
-            "enumValue": 862,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": true,
+            "enumValue": 857,
             "name": "sigma_jogg"
           }
         }
@@ -356,7 +235,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -368,9 +247,10 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;0.0",
-            "enumValue": 863,
+            "@id": {
+              "@value": "dtmi:apparently:valid:identifier;3"
+            },
+            "enumValue": 858,
             "name": "sigma_yekk"
           }
         }
@@ -380,7 +260,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -392,8 +272,11 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;1234567890",
-            "enumValue": 864,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": {
+              "@value": "dtmi:apparently:valid:identifier;3"
+            },
+            "enumValue": 859,
             "name": "tau_alpha"
           }
         }
@@ -403,7 +286,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -415,9 +298,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;1234567890",
-            "enumValue": 865,
+            "@id": "dtmi:foo:bar;0",
+            "enumValue": 860,
             "name": "tau_delta"
           }
         }
@@ -427,7 +309,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -439,8 +321,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;1a",
-            "enumValue": 866,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;0",
+            "enumValue": 861,
             "name": "tau_eta"
           }
         }
@@ -450,7 +333,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -462,9 +345,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;1a",
-            "enumValue": 867,
+            "@id": "dtmi:foo:bar;0.0",
+            "enumValue": 862,
             "name": "tau_kappa"
           }
         }
@@ -474,7 +356,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -486,8 +368,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;3.0",
-            "enumValue": 868,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;0.0",
+            "enumValue": 863,
             "name": "tau_nu"
           }
         }
@@ -497,7 +380,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -509,9 +392,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;3.0",
-            "enumValue": 869,
+            "@id": "dtmi:foo:bar;1234567890",
+            "enumValue": 864,
             "name": "tau_pi"
           }
         }
@@ -521,7 +403,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -533,8 +415,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;3.1415926",
-            "enumValue": 870,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;1234567890",
+            "enumValue": 865,
             "name": "tau_tau"
           }
         }
@@ -544,7 +427,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -556,9 +439,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;3.1415926",
-            "enumValue": 871,
+            "@id": "dtmi:foo:bar;1a",
+            "enumValue": 866,
             "name": "tau_chi"
           }
         }
@@ -568,7 +450,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -580,8 +462,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;6.02",
-            "enumValue": 872,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;1a",
+            "enumValue": 867,
             "name": "tau_yuzz"
           }
         }
@@ -591,7 +474,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -603,9 +486,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;6.02",
-            "enumValue": 873,
+            "@id": "dtmi:foo:bar;3.0",
+            "enumValue": 868,
             "name": "tau_humpf"
           }
         }
@@ -615,7 +497,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -627,8 +509,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;0.1",
-            "enumValue": 874,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;3.0",
+            "enumValue": 869,
             "name": "tau_nuh"
           }
         }
@@ -638,7 +521,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -650,9 +533,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;0.1",
-            "enumValue": 875,
+            "@id": "dtmi:foo:bar;3.1415926",
+            "enumValue": 870,
             "name": "tau_thnad"
           }
         }
@@ -662,7 +544,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -674,8 +556,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;01",
-            "enumValue": 876,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;3.1415926",
+            "enumValue": 871,
             "name": "tau_zatz"
           }
         }
@@ -685,7 +568,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -697,9 +580,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;01",
-            "enumValue": 877,
+            "@id": "dtmi:foo:bar;6.02",
+            "enumValue": 872,
             "name": "tau_itch"
           }
         }
@@ -709,7 +591,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -721,8 +603,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;",
-            "enumValue": 878,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;6.02",
+            "enumValue": 873,
             "name": "tau_hi"
           }
         }
@@ -732,7 +615,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -744,9 +627,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;",
-            "enumValue": 879,
+            "@id": "dtmi:foo:bar;0.1",
+            "enumValue": 874,
             "name": "upsilon_gamma"
           }
         }
@@ -756,7 +638,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -768,8 +650,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:test:invalidId_;1",
-            "enumValue": 880,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;0.1",
+            "enumValue": 875,
             "name": "upsilon_zeta"
           }
         }
@@ -779,7 +662,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -791,9 +674,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:test:invalidId_;1",
-            "enumValue": 881,
+            "@id": "dtmi:foo:bar;01",
+            "enumValue": 876,
             "name": "upsilon_iota"
           }
         }
@@ -803,7 +685,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -815,8 +697,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:test:_invalidUserId;1",
-            "enumValue": 882,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;01",
+            "enumValue": 877,
             "name": "upsilon_mu"
           }
         }
@@ -826,7 +709,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -838,9 +721,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:test:_invalidUserId;1",
-            "enumValue": 883,
+            "@id": "dtmi:foo:bar;",
+            "enumValue": 878,
             "name": "upsilon_omicron"
           }
         }
@@ -850,7 +732,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -862,8 +744,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:test:1seg;1",
-            "enumValue": 884,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;",
+            "enumValue": 879,
             "name": "upsilon_sigma"
           }
         }
@@ -873,7 +756,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -885,9 +768,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:test:1seg;1",
-            "enumValue": 885,
+            "@id": "dtmi:test:invalidId_;1",
+            "enumValue": 880,
             "name": "upsilon_phi"
           }
         }
@@ -897,7 +779,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -909,8 +791,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar.baz;1",
-            "enumValue": 886,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:test:invalidId_;1",
+            "enumValue": 881,
             "name": "upsilon_omega"
           }
         }
@@ -920,7 +803,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -932,9 +815,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar.baz;1",
-            "enumValue": 887,
+            "@id": "dtmi:test:_invalidUserId;1",
+            "enumValue": 882,
             "name": "upsilon_um"
           }
         }
@@ -944,7 +826,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -956,8 +838,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo::bar;1",
-            "enumValue": 888,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:test:_invalidUserId;1",
+            "enumValue": 883,
             "name": "upsilon_glikk"
           }
         }
@@ -967,7 +850,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -979,9 +862,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo::bar;1",
-            "enumValue": 889,
+            "@id": "dtmi:test:1seg;1",
+            "enumValue": 884,
             "name": "upsilon_quan"
           }
         }
@@ -991,7 +873,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1003,8 +885,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "urn:foo:bar:1",
-            "enumValue": 890,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:test:1seg;1",
+            "enumValue": 885,
             "name": "upsilon_floob"
           }
         }
@@ -1014,7 +897,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1026,9 +909,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "urn:foo:bar:1",
-            "enumValue": 891,
+            "@id": "dtmi:foo:bar.baz;1",
+            "enumValue": 886,
             "name": "upsilon_flunn"
           }
         }
@@ -1038,7 +920,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1050,8 +932,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "http://foo/bar/baz",
-            "enumValue": 892,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar.baz;1",
+            "enumValue": 887,
             "name": "upsilon_vroo"
           }
         }
@@ -1061,7 +944,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1073,9 +956,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "http://foo/bar/baz",
-            "enumValue": 893,
+            "@id": "dtmi:foo::bar;1",
+            "enumValue": 888,
             "name": "phi_beta"
           }
         }
@@ -1085,7 +967,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1097,8 +979,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:;1",
-            "enumValue": 894,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo::bar;1",
+            "enumValue": 889,
             "name": "phi_epsilon"
           }
         }
@@ -1108,7 +991,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1120,9 +1003,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:;1",
-            "enumValue": 895,
+            "@id": "urn:foo:bar:1",
+            "enumValue": 890,
             "name": "phi_theta"
           }
         }
@@ -1132,7 +1014,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1144,8 +1026,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar",
-            "enumValue": 896,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "urn:foo:bar:1",
+            "enumValue": 891,
             "name": "phi_lambda"
           }
         }
@@ -1155,7 +1038,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1167,9 +1050,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar",
-            "enumValue": 897,
+            "@id": "http://foo/bar/baz",
+            "enumValue": 892,
             "name": "phi_xi"
           }
         }
@@ -1179,7 +1061,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1191,8 +1073,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;3.14",
-            "enumValue": 898,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "http://foo/bar/baz",
+            "enumValue": 893,
             "name": "phi_rho"
           }
         }
@@ -1202,7 +1085,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1214,9 +1097,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;3.14",
-            "enumValue": 899,
+            "@id": "dtmi:;1",
+            "enumValue": 894,
             "name": "phi_upsilon"
           }
         }
@@ -1226,7 +1108,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1238,8 +1120,9 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:foo:bar;3.141592",
-            "enumValue": 900,
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:;1",
+            "enumValue": 895,
             "name": "phi_psi"
           }
         }
@@ -1249,7 +1132,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1261,9 +1144,8 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:foo:bar;3.141592",
-            "enumValue": 901,
+            "@id": "dtmi:foo:bar",
+            "enumValue": 896,
             "name": "phi_wum"
           }
         }
@@ -1273,7 +1155,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -1285,33 +1167,10 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:dtdl:example;1",
-            "enumValue": 902,
-            "name": "phi_fuddle"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:phi_thnad;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:phi_quan;1",
-          "@type": "Enum",
-          "valueSchema": "integer",
-          "enumValues": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "@id": "dtmi:dtdl:example;1",
-            "enumValue": 903,
-            "name": "phi_snee"
+            "@id": "dtmi:foo:bar",
+            "enumValue": 897,
+            "name": "phi_fuddle"
           }
         }
       }
@@ -1325,16 +1184,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:phi_zatz;1",
+        "@id": "dtmi:example:phi_thnad;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:phi_floob;1",
+          "@id": "dtmi:example:phi_quan;1",
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
-            "@id": "dtmi:standard:example;1",
-            "enumValue": 904,
-            "name": "phi_spazz"
+            "@id": "dtmi:foo:bar;3.14",
+            "enumValue": 898,
+            "name": "phi_snee"
           }
         }
       }
@@ -1348,6 +1207,30 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:phi_zatz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:phi_floob;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;3.14",
+            "enumValue": 899,
+            "name": "phi_spazz"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:phi_itch;1",
         "@type": "Interface",
         "schemas": {
@@ -1355,10 +1238,127 @@
           "@type": "Enum",
           "valueSchema": "integer",
           "enumValues": {
+            "@id": "dtmi:foo:bar;3.141592",
+            "enumValue": 900,
+            "name": "phi_jogg"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:phi_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:phi_vroo;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:foo:bar;3.141592",
+            "enumValue": 901,
+            "name": "phi_yekk"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_gamma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:chi_beta;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@id": "dtmi:dtdl:example;1",
+            "enumValue": 902,
+            "name": "chi_alpha"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:chi_epsilon;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "@id": "dtmi:dtdl:example;1",
+            "enumValue": 903,
+            "name": "chi_delta"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:chi_theta;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
+            "@id": "dtmi:standard:example;1",
+            "enumValue": 904,
+            "name": "chi_eta"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_mu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:chi_lambda;1",
+          "@type": "Enum",
+          "valueSchema": "integer",
+          "enumValues": {
             "@context": "dtmi:undefinedExtension:context;1",
             "@id": "dtmi:standard:example;1",
             "enumValue": 905,
-            "name": "phi_jogg"
+            "name": "chi_kappa"
           }
         }
       }

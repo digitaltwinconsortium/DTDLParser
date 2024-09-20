@@ -7,13 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_jogg;1",
+        "@id": "dtmi:example:snee_eta;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:glikk_zatz;1",
+          "@id": "dtmi:example:snee_zeta;1",
           "@type": "Enum",
           "enumValues": {
-            "name": "glikk_floob",
+            "name": "snee_epsilon",
             "enumValue": 17
           },
           "valueSchema": "integer"
@@ -29,13 +29,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:glikk_yekk;1",
+        "@id": "dtmi:example:snee_kappa;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:glikk_itch;1",
+          "@id": "dtmi:example:snee_iota;1",
           "@type": "Enum",
           "enumValues": {
-            "name": "glikk_flunn",
+            "name": "snee_theta",
             "enumValue": 17
           },
           "valueSchema": [
@@ -53,13 +53,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_alpha;1",
+        "@id": "dtmi:example:snee_nu;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:glikk_hi;1",
+          "@id": "dtmi:example:snee_mu;1",
           "@type": "Enum",
           "enumValues": {
-            "name": "glikk_vroo",
+            "name": "snee_lambda",
             "enumValue": 17
           },
           "valueSchema": "dtmi:dtdl:instance:Schema:integer;4"
@@ -75,520 +75,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_delta;1",
+        "@id": "dtmi:example:snee_pi;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:nuh_gamma;1",
+          "@id": "dtmi:example:snee_omicron;1",
           "@type": "Enum",
           "enumValues": {
-            "name": "nuh_beta",
+            "name": "snee_xi",
             "enumValue": 17
           },
           "valueSchema": [
             "dtmi:dtdl:instance:Schema:integer;4"
           ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_eta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_zeta;1",
-          "@type": "Enum",
-          "enumValues": {
-            "name": "nuh_epsilon",
-            "enumValue": 17
-          },
-          "valueSchema": [
-            "integer",
-            "dtmi:dtdl:instance:Schema:integer;4"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_kappa;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_iota;1",
-          "@type": "Enum",
-          "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "nuh_theta",
-            "enumValue": 17
-          },
-          "valueSchema": [
-            "integer",
-            "dtmi:dtdl:instance:Schema:integer;4"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_nu;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_mu;1",
-          "@type": "Enum",
-          "enumValues": {
-            "name": "nuh_lambda",
-            "enumValue": "delta_nu"
-          },
-          "valueSchema": "string"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_pi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_omicron;1",
-          "@type": "Enum",
-          "enumValues": {
-            "name": "nuh_xi",
-            "enumValue": "delta_nu"
-          },
-          "valueSchema": [
-            "string"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_tau;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_sigma;1",
-          "@type": "Enum",
-          "enumValues": {
-            "name": "nuh_rho",
-            "enumValue": "delta_nu"
-          },
-          "valueSchema": "dtmi:dtdl:instance:Schema:string;4"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_chi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_phi;1",
-          "@type": "Enum",
-          "enumValues": {
-            "name": "nuh_upsilon",
-            "enumValue": "delta_nu"
-          },
-          "valueSchema": [
-            "dtmi:dtdl:instance:Schema:string;4"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_yuzz;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_omega;1",
-          "@type": "Enum",
-          "enumValues": {
-            "name": "nuh_psi",
-            "enumValue": "delta_nu"
-          },
-          "valueSchema": [
-            "string",
-            "dtmi:dtdl:instance:Schema:string;4"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_humpf;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_um;1",
-          "@type": "Enum",
-          "enumValues": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "nuh_wum",
-            "enumValue": "delta_nu"
-          },
-          "valueSchema": [
-            "string",
-            "dtmi:dtdl:instance:Schema:string;4"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_glikk;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_fuddle;1",
-          "@type": "Enum",
-          "valueSchema": []
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_snee;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:nuh_nuh;1",
-          "@type": "Enum",
-          "valueSchema": []
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_thnad;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_quan;1",
-          "@type": "Enum",
-          "valueSchema": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_floob;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:nuh_spazz;1",
-          "@type": "Enum",
-          "valueSchema": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_jogg;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_zatz;1",
-          "@type": "Enum",
-          "valueSchema": true
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_itch;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:nuh_flunn;1",
-          "@type": "Enum",
-          "valueSchema": true
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:nuh_vroo;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:nuh_yekk;1",
-          "@type": "Enum",
-          "valueSchema": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_alpha;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:nuh_hi;1",
-          "@type": "Enum",
-          "valueSchema": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_gamma;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:snee_beta;1",
-          "@type": "Enum",
-          "valueSchema": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_epsilon;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_delta;1",
-          "@type": "Enum",
-          "valueSchema": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_eta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:snee_zeta;1",
-          "@type": "Enum",
-          "valueSchema": [
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_iota;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_theta;1",
-          "@type": "Enum",
-          "valueSchema": [
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_lambda;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:snee_kappa;1",
-          "@type": "Enum",
-          "valueSchema": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_nu;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_mu;1",
-          "@type": "Enum",
-          "valueSchema": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_omicron;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:snee_xi;1",
-          "@type": "Enum",
-          "valueSchema": {}
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_rho;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_pi;1",
-          "@type": "Enum",
-          "valueSchema": {}
         }
       }
     ]
@@ -606,8 +104,13 @@
         "schemas": {
           "@id": "dtmi:example:snee_sigma;1",
           "@type": "Enum",
+          "enumValues": {
+            "name": "snee_rho",
+            "enumValue": 17
+          },
           "valueSchema": [
-            {}
+            "integer",
+            "dtmi:dtdl:instance:Schema:integer;4"
           ]
         }
       }
@@ -621,41 +124,28 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_phi;1",
+        "@id": "dtmi:example:snee_chi;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_upsilon;1",
+          "@id": "dtmi:example:snee_phi;1",
           "@type": "Enum",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "snee_upsilon",
+            "enumValue": 17
+          },
           "valueSchema": [
-            {}
+            "integer",
+            "dtmi:dtdl:instance:Schema:integer;4"
           ]
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_psi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:snee_chi;1",
-          "@type": "Enum",
-          "valueSchema": "asynchronous"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -663,53 +153,43 @@
         "@id": "dtmi:example:snee_yuzz;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:example:snee_omega;1",
           "@type": "Enum",
-          "valueSchema": "asynchronous"
+          "enumValues": {
+            "name": "snee_psi",
+            "enumValue": "delta_psi"
+          },
+          "valueSchema": "string"
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_um;1",
+        "@id": "dtmi:example:snee_humpf;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:snee_wum;1",
+          "@id": "dtmi:example:snee_um;1",
           "@type": "Enum",
-          "valueSchema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
+          "enumValues": {
+            "name": "snee_wum",
+            "enumValue": "delta_psi"
+          },
+          "valueSchema": [
+            "string"
+          ]
         }
       }
     ]
   },
   {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_fuddle;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_humpf;1",
-          "@type": "Enum",
-          "valueSchema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -721,26 +201,35 @@
         "schemas": {
           "@id": "dtmi:example:snee_glikk;1",
           "@type": "Enum",
-          "valueSchema": "synchronous"
+          "enumValues": {
+            "name": "snee_fuddle",
+            "enumValue": "delta_psi"
+          },
+          "valueSchema": "dtmi:dtdl:instance:Schema:string;4"
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_quan;1",
+        "@id": "dtmi:example:snee_thnad;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_snee;1",
+          "@id": "dtmi:example:snee_quan;1",
           "@type": "Enum",
-          "valueSchema": "synchronous"
+          "enumValues": {
+            "name": "snee_snee",
+            "enumValue": "delta_psi"
+          },
+          "valueSchema": [
+            "dtmi:dtdl:instance:Schema:string;4"
+          ]
         }
       }
     ]
@@ -749,24 +238,6 @@
     "valid": false,
     "options": [
       "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_spazz;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:snee_thnad;1",
-          "@type": "Enum",
-          "valueSchema": "dtmi:dtdl:instance:CommandType:synchronous;4"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -774,8 +245,537 @@
         "@id": "dtmi:example:snee_zatz;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:example:snee_floob;1",
+          "@type": "Enum",
+          "enumValues": {
+            "name": "snee_spazz",
+            "enumValue": "delta_psi"
+          },
+          "valueSchema": [
+            "string",
+            "dtmi:dtdl:instance:Schema:string;4"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_itch;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_flunn;1",
+          "@type": "Enum",
+          "enumValues": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "snee_jogg",
+            "enumValue": "delta_psi"
+          },
+          "valueSchema": [
+            "string",
+            "dtmi:dtdl:instance:Schema:string;4"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_vroo;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_yekk;1",
+          "@type": "Enum",
+          "valueSchema": []
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_alpha;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:snee_hi;1",
+          "@type": "Enum",
+          "valueSchema": []
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_gamma;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_beta;1",
+          "@type": "Enum",
+          "valueSchema": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_epsilon;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_delta;1",
+          "@type": "Enum",
+          "valueSchema": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_zeta;1",
+          "@type": "Enum",
+          "valueSchema": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_theta;1",
+          "@type": "Enum",
+          "valueSchema": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_lambda;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_kappa;1",
+          "@type": "Enum",
+          "valueSchema": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_nu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_mu;1",
+          "@type": "Enum",
+          "valueSchema": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_omicron;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_xi;1",
+          "@type": "Enum",
+          "valueSchema": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_rho;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_pi;1",
+          "@type": "Enum",
+          "valueSchema": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_tau;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_sigma;1",
+          "@type": "Enum",
+          "valueSchema": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_phi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_upsilon;1",
+          "@type": "Enum",
+          "valueSchema": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_psi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_chi;1",
+          "@type": "Enum",
+          "valueSchema": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_yuzz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_omega;1",
+          "@type": "Enum",
+          "valueSchema": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_um;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_wum;1",
+          "@type": "Enum",
+          "valueSchema": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_fuddle;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_humpf;1",
+          "@type": "Enum",
+          "valueSchema": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_nuh;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_glikk;1",
+          "@type": "Enum",
+          "valueSchema": [
+            {}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_quan;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_snee;1",
+          "@type": "Enum",
+          "valueSchema": [
+            {}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_spazz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_thnad;1",
+          "@type": "Enum",
+          "valueSchema": "asynchronous"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_zatz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_floob;1",
+          "@type": "Enum",
+          "valueSchema": "asynchronous"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_jogg;1",
+          "@type": "Enum",
+          "valueSchema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_yekk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:quan_itch;1",
+          "@type": "Enum",
+          "valueSchema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:quan_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:quan_vroo;1",
+          "@type": "Enum",
+          "valueSchema": "synchronous"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_beta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:thnad_alpha;1",
+          "@type": "Enum",
+          "valueSchema": "synchronous"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:thnad_gamma;1",
+          "@type": "Enum",
+          "valueSchema": "dtmi:dtdl:instance:CommandType:synchronous;4"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:thnad_zeta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:thnad_epsilon;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:CommandType:synchronous;4"
         }
@@ -790,10 +790,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_flunn;1",
+        "@id": "dtmi:example:thnad_theta;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:snee_jogg;1",
+          "@id": "dtmi:example:thnad_eta;1",
           "@type": "Enum",
           "valueSchema": "boolean"
         }
@@ -808,11 +808,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_yekk;1",
+        "@id": "dtmi:example:thnad_kappa;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_itch;1",
+          "@id": "dtmi:example:thnad_iota;1",
           "@type": "Enum",
           "valueSchema": "boolean"
         }
@@ -827,10 +827,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:snee_hi;1",
+        "@id": "dtmi:example:thnad_mu;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:snee_vroo;1",
+          "@id": "dtmi:example:thnad_lambda;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:boolean;4"
         }
@@ -845,11 +845,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_beta;1",
+        "@id": "dtmi:example:thnad_xi;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_alpha;1",
+          "@id": "dtmi:example:thnad_nu;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:boolean;4"
         }
@@ -864,10 +864,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_delta;1",
+        "@id": "dtmi:example:thnad_pi;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_gamma;1",
+          "@id": "dtmi:example:thnad_omicron;1",
           "@type": "Enum",
           "valueSchema": "bytes"
         }
@@ -882,11 +882,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_zeta;1",
+        "@id": "dtmi:example:thnad_sigma;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_epsilon;1",
+          "@id": "dtmi:example:thnad_rho;1",
           "@type": "Enum",
           "valueSchema": "bytes"
         }
@@ -901,10 +901,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_theta;1",
+        "@id": "dtmi:example:thnad_upsilon;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_eta;1",
+          "@id": "dtmi:example:thnad_tau;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:bytes;4"
         }
@@ -919,11 +919,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_kappa;1",
+        "@id": "dtmi:example:thnad_chi;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_iota;1",
+          "@id": "dtmi:example:thnad_phi;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:bytes;4"
         }
@@ -938,10 +938,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_mu;1",
+        "@id": "dtmi:example:thnad_omega;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_lambda;1",
+          "@id": "dtmi:example:thnad_psi;1",
           "@type": "Enum",
           "valueSchema": "date"
         }
@@ -956,11 +956,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_xi;1",
+        "@id": "dtmi:example:thnad_wum;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_nu;1",
+          "@id": "dtmi:example:thnad_yuzz;1",
           "@type": "Enum",
           "valueSchema": "date"
         }
@@ -975,10 +975,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_pi;1",
+        "@id": "dtmi:example:thnad_humpf;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_omicron;1",
+          "@id": "dtmi:example:thnad_um;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:date;4"
         }
@@ -993,11 +993,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_sigma;1",
+        "@id": "dtmi:example:thnad_glikk;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_rho;1",
+          "@id": "dtmi:example:thnad_fuddle;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:date;4"
         }
@@ -1012,10 +1012,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_upsilon;1",
+        "@id": "dtmi:example:thnad_snee;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_tau;1",
+          "@id": "dtmi:example:thnad_nuh;1",
           "@type": "Enum",
           "valueSchema": "dateTime"
         }
@@ -1030,11 +1030,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_chi;1",
+        "@id": "dtmi:example:thnad_thnad;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_phi;1",
+          "@id": "dtmi:example:thnad_quan;1",
           "@type": "Enum",
           "valueSchema": "dateTime"
         }
@@ -1049,10 +1049,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_omega;1",
+        "@id": "dtmi:example:thnad_floob;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_psi;1",
+          "@id": "dtmi:example:thnad_spazz;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:dateTime;4"
         }
@@ -1067,11 +1067,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_wum;1",
+        "@id": "dtmi:example:thnad_jogg;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_yuzz;1",
+          "@id": "dtmi:example:thnad_zatz;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:dateTime;4"
         }
@@ -1086,10 +1086,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_humpf;1",
+        "@id": "dtmi:example:thnad_itch;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_um;1",
+          "@id": "dtmi:example:thnad_flunn;1",
           "@type": "Enum",
           "valueSchema": "double"
         }
@@ -1104,11 +1104,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_glikk;1",
+        "@id": "dtmi:example:thnad_vroo;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_fuddle;1",
+          "@id": "dtmi:example:thnad_yekk;1",
           "@type": "Enum",
           "valueSchema": "double"
         }
@@ -1123,10 +1123,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_snee;1",
+        "@id": "dtmi:example:spazz_alpha;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_nuh;1",
+          "@id": "dtmi:example:thnad_hi;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:double;4"
         }
@@ -1141,11 +1141,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_thnad;1",
+        "@id": "dtmi:example:spazz_gamma;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_quan;1",
+          "@id": "dtmi:example:spazz_beta;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:double;4"
         }
@@ -1160,10 +1160,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_floob;1",
+        "@id": "dtmi:example:spazz_epsilon;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_spazz;1",
+          "@id": "dtmi:example:spazz_delta;1",
           "@type": "Enum",
           "valueSchema": "duration"
         }
@@ -1178,11 +1178,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_jogg;1",
+        "@id": "dtmi:example:spazz_eta;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_zatz;1",
+          "@id": "dtmi:example:spazz_zeta;1",
           "@type": "Enum",
           "valueSchema": "duration"
         }
@@ -1197,10 +1197,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_itch;1",
+        "@id": "dtmi:example:spazz_iota;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_flunn;1",
+          "@id": "dtmi:example:spazz_theta;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:duration;4"
         }
@@ -1215,11 +1215,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_vroo;1",
+        "@id": "dtmi:example:spazz_lambda;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_yekk;1",
+          "@id": "dtmi:example:spazz_kappa;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:duration;4"
         }
@@ -1234,10 +1234,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_alpha;1",
+        "@id": "dtmi:example:spazz_nu;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_hi;1",
+          "@id": "dtmi:example:spazz_mu;1",
           "@type": "Enum",
           "valueSchema": "float"
         }
@@ -1252,11 +1252,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_gamma;1",
+        "@id": "dtmi:example:spazz_omicron;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_beta;1",
+          "@id": "dtmi:example:spazz_xi;1",
           "@type": "Enum",
           "valueSchema": "float"
         }
@@ -1271,10 +1271,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_epsilon;1",
+        "@id": "dtmi:example:spazz_rho;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_delta;1",
+          "@id": "dtmi:example:spazz_pi;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:float;4"
         }
@@ -1289,11 +1289,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_eta;1",
+        "@id": "dtmi:example:spazz_tau;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_zeta;1",
+          "@id": "dtmi:example:spazz_sigma;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:float;4"
         }
@@ -1308,10 +1308,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_iota;1",
+        "@id": "dtmi:example:spazz_phi;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_theta;1",
+          "@id": "dtmi:example:spazz_upsilon;1",
           "@type": "Enum",
           "valueSchema": "long"
         }
@@ -1326,11 +1326,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_lambda;1",
+        "@id": "dtmi:example:spazz_psi;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_kappa;1",
+          "@id": "dtmi:example:spazz_chi;1",
           "@type": "Enum",
           "valueSchema": "long"
         }
@@ -1345,10 +1345,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_nu;1",
+        "@id": "dtmi:example:spazz_yuzz;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_mu;1",
+          "@id": "dtmi:example:spazz_omega;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:long;4"
         }
@@ -1363,11 +1363,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_omicron;1",
+        "@id": "dtmi:example:spazz_um;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_xi;1",
+          "@id": "dtmi:example:spazz_wum;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:long;4"
         }
@@ -1382,10 +1382,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_rho;1",
+        "@id": "dtmi:example:spazz_fuddle;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_pi;1",
+          "@id": "dtmi:example:spazz_humpf;1",
           "@type": "Enum",
           "valueSchema": "time"
         }
@@ -1400,11 +1400,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_tau;1",
+        "@id": "dtmi:example:spazz_nuh;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_sigma;1",
+          "@id": "dtmi:example:spazz_glikk;1",
           "@type": "Enum",
           "valueSchema": "time"
         }
@@ -1419,10 +1419,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_phi;1",
+        "@id": "dtmi:example:spazz_quan;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_upsilon;1",
+          "@id": "dtmi:example:spazz_snee;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:time;4"
         }
@@ -1437,11 +1437,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_psi;1",
+        "@id": "dtmi:example:spazz_spazz;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_chi;1",
+          "@id": "dtmi:example:spazz_thnad;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:time;4"
         }
@@ -1456,10 +1456,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_yuzz;1",
+        "@id": "dtmi:example:spazz_zatz;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_omega;1",
+          "@id": "dtmi:example:spazz_floob;1",
           "@type": "Enum",
           "valueSchema": "uuid"
         }
@@ -1474,11 +1474,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_um;1",
+        "@id": "dtmi:example:spazz_flunn;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_wum;1",
+          "@id": "dtmi:example:spazz_jogg;1",
           "@type": "Enum",
           "valueSchema": "uuid"
         }
@@ -1493,10 +1493,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_fuddle;1",
+        "@id": "dtmi:example:spazz_yekk;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_humpf;1",
+          "@id": "dtmi:example:spazz_itch;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:uuid;4"
         }
@@ -1511,11 +1511,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_nuh;1",
+        "@id": "dtmi:example:spazz_hi;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_glikk;1",
+          "@id": "dtmi:example:spazz_vroo;1",
           "@type": "Enum",
           "valueSchema": "dtmi:dtdl:instance:Schema:uuid;4"
         }
@@ -1530,10 +1530,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_quan;1",
+        "@id": "dtmi:example:floob_beta;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_snee;1",
+          "@id": "dtmi:example:floob_alpha;1",
           "@type": "Enum",
           "valueSchema": "lineString"
         }
@@ -1548,11 +1548,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_spazz;1",
+        "@id": "dtmi:example:floob_delta;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_thnad;1",
+          "@id": "dtmi:example:floob_gamma;1",
           "@type": "Enum",
           "valueSchema": "lineString"
         }
@@ -1567,10 +1567,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_zatz;1",
+        "@id": "dtmi:example:floob_zeta;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_floob;1",
+          "@id": "dtmi:example:floob_epsilon;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:lineString;4"
         }
@@ -1585,11 +1585,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_flunn;1",
+        "@id": "dtmi:example:floob_theta;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_jogg;1",
+          "@id": "dtmi:example:floob_eta;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:lineString;4"
         }
@@ -1604,10 +1604,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_yekk;1",
+        "@id": "dtmi:example:floob_kappa;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_itch;1",
+          "@id": "dtmi:example:floob_iota;1",
           "@type": "Enum",
           "valueSchema": "multiLineString"
         }
@@ -1622,11 +1622,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_hi;1",
+        "@id": "dtmi:example:floob_mu;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:thnad_vroo;1",
+          "@id": "dtmi:example:floob_lambda;1",
           "@type": "Enum",
           "valueSchema": "multiLineString"
         }
@@ -1641,10 +1641,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_beta;1",
+        "@id": "dtmi:example:floob_xi;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_alpha;1",
+          "@id": "dtmi:example:floob_nu;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:multiLineString;4"
         }
@@ -1659,11 +1659,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_delta;1",
+        "@id": "dtmi:example:floob_pi;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_gamma;1",
+          "@id": "dtmi:example:floob_omicron;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:multiLineString;4"
         }
@@ -1678,10 +1678,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_zeta;1",
+        "@id": "dtmi:example:floob_sigma;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_epsilon;1",
+          "@id": "dtmi:example:floob_rho;1",
           "@type": "Enum",
           "valueSchema": "multiPoint"
         }
@@ -1696,11 +1696,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_theta;1",
+        "@id": "dtmi:example:floob_upsilon;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_eta;1",
+          "@id": "dtmi:example:floob_tau;1",
           "@type": "Enum",
           "valueSchema": "multiPoint"
         }
@@ -1715,10 +1715,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_kappa;1",
+        "@id": "dtmi:example:floob_chi;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_iota;1",
+          "@id": "dtmi:example:floob_phi;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:multiPoint;4"
         }
@@ -1733,11 +1733,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_mu;1",
+        "@id": "dtmi:example:floob_omega;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_lambda;1",
+          "@id": "dtmi:example:floob_psi;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:multiPoint;4"
         }
@@ -1752,10 +1752,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_xi;1",
+        "@id": "dtmi:example:floob_wum;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_nu;1",
+          "@id": "dtmi:example:floob_yuzz;1",
           "@type": "Enum",
           "valueSchema": "multiPolygon"
         }
@@ -1770,11 +1770,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_pi;1",
+        "@id": "dtmi:example:floob_humpf;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_omicron;1",
+          "@id": "dtmi:example:floob_um;1",
           "@type": "Enum",
           "valueSchema": "multiPolygon"
         }
@@ -1789,10 +1789,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_sigma;1",
+        "@id": "dtmi:example:floob_glikk;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_rho;1",
+          "@id": "dtmi:example:floob_fuddle;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:multiPolygon;4"
         }
@@ -1807,11 +1807,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_upsilon;1",
+        "@id": "dtmi:example:floob_snee;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_tau;1",
+          "@id": "dtmi:example:floob_nuh;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:multiPolygon;4"
         }
@@ -1826,10 +1826,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_chi;1",
+        "@id": "dtmi:example:floob_thnad;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_phi;1",
+          "@id": "dtmi:example:floob_quan;1",
           "@type": "Enum",
           "valueSchema": "point"
         }
@@ -1844,11 +1844,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_omega;1",
+        "@id": "dtmi:example:floob_floob;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_psi;1",
+          "@id": "dtmi:example:floob_spazz;1",
           "@type": "Enum",
           "valueSchema": "point"
         }
@@ -1863,10 +1863,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_wum;1",
+        "@id": "dtmi:example:floob_jogg;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_yuzz;1",
+          "@id": "dtmi:example:floob_zatz;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:point;4"
         }
@@ -1881,11 +1881,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_humpf;1",
+        "@id": "dtmi:example:floob_itch;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_um;1",
+          "@id": "dtmi:example:floob_flunn;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:point;4"
         }
@@ -1900,10 +1900,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_glikk;1",
+        "@id": "dtmi:example:floob_vroo;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_fuddle;1",
+          "@id": "dtmi:example:floob_yekk;1",
           "@type": "Enum",
           "valueSchema": "polygon"
         }
@@ -1918,11 +1918,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_snee;1",
+        "@id": "dtmi:example:zatz_alpha;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_nuh;1",
+          "@id": "dtmi:example:floob_hi;1",
           "@type": "Enum",
           "valueSchema": "polygon"
         }
@@ -1937,10 +1937,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_thnad;1",
+        "@id": "dtmi:example:zatz_gamma;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:spazz_quan;1",
+          "@id": "dtmi:example:zatz_beta;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:polygon;4"
         }
@@ -1955,11 +1955,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:spazz_floob;1",
+        "@id": "dtmi:example:zatz_epsilon;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:spazz_spazz;1",
+          "@id": "dtmi:example:zatz_delta;1",
           "@type": "Enum",
           "valueSchema": "dtmi:standard:schema:geospatial:polygon;4"
         }

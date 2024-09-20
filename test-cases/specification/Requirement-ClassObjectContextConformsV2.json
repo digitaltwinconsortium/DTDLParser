@@ -7,16 +7,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:itch_epsilon;1",
+        "@id": "dtmi:example:itch_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "itch_delta",
+          "name": "itch_tau",
           "schema": {
             "@type": "Object",
             "fields": [
               {
-                "name": "itch_gamma",
+                "name": "itch_sigma",
                 "schema": "string"
               }
             ],
@@ -34,16 +34,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:itch_theta;1",
+        "@id": "dtmi:example:itch_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "itch_eta",
+          "name": "itch_chi",
           "schema": {
             "@type": "Object",
             "fields": [
               {
-                "name": "itch_zeta",
+                "name": "itch_phi",
                 "schema": "time"
               }
             ],
@@ -61,145 +61,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:itch_lambda;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_kappa",
-          "schema": {
-            "@type": "Object",
-            "fields": [
-              {
-                "name": "itch_iota",
-                "schema": "boolean"
-              }
-            ],
-            "@context": [
-              "dtmi:iotcentral:context;2"
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:itch_xi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_nu",
-          "schema": {
-            "@type": "Object",
-            "fields": [
-              {
-                "name": "itch_mu",
-                "schema": "date"
-              }
-            ],
-            "@context": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:itch_rho;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_pi",
-          "schema": {
-            "@type": "Object",
-            "fields": [
-              {
-                "name": "itch_omicron",
-                "schema": "dateTime"
-              }
-            ],
-            "@context": 626
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:itch_upsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_tau",
-          "schema": {
-            "@type": "Object",
-            "fields": [
-              {
-                "name": "itch_sigma",
-                "schema": "double"
-              }
-            ],
-            "@context": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:itch_psi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "itch_chi",
-          "schema": {
-            "@type": "Object",
-            "fields": [
-              {
-                "name": "itch_phi",
-                "schema": "duration"
-              }
-            ],
-            "@context": [
-              null
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:itch_wum;1",
         "@type": "Interface",
         "contents": {
@@ -210,11 +71,11 @@
             "fields": [
               {
                 "name": "itch_omega",
-                "schema": "float"
+                "schema": "boolean"
               }
             ],
             "@context": [
-              626
+              "dtmi:iotcentral:context;2"
             ]
           }
         }
@@ -239,12 +100,10 @@
             "fields": [
               {
                 "name": "itch_um",
-                "schema": "integer"
+                "schema": "date"
               }
             ],
-            "@context": [
-              true
-            ]
+            "@context": null
           }
         }
       }
@@ -268,10 +127,10 @@
             "fields": [
               {
                 "name": "itch_glikk",
-                "schema": "long"
+                "schema": "dateTime"
               }
             ],
-            "@context": {}
+            "@context": 626
           }
         }
       }
@@ -295,12 +154,10 @@
             "fields": [
               {
                 "name": "itch_quan",
-                "schema": "string"
+                "schema": "double"
               }
             ],
-            "@context": [
-              {}
-            ]
+            "@context": true
           }
         }
       }
@@ -324,10 +181,12 @@
             "fields": [
               {
                 "name": "itch_floob",
-                "schema": "time"
+                "schema": "duration"
               }
             ],
-            "@context": "dtmi:iotcentral:context"
+            "@context": [
+              null
+            ]
           }
         }
       }
@@ -351,10 +210,12 @@
             "fields": [
               {
                 "name": "itch_flunn",
-                "schema": "boolean"
+                "schema": "float"
               }
             ],
-            "@context": "http://iotcentral/context/2"
+            "@context": [
+              626
+            ]
           }
         }
       }
@@ -378,6 +239,145 @@
             "fields": [
               {
                 "name": "itch_vroo",
+                "schema": "integer"
+              }
+            ],
+            "@context": [
+              true
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:yekk_delta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_gamma",
+          "schema": {
+            "@type": "Object",
+            "fields": [
+              {
+                "name": "yekk_beta",
+                "schema": "long"
+              }
+            ],
+            "@context": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:yekk_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_zeta",
+          "schema": {
+            "@type": "Object",
+            "fields": [
+              {
+                "name": "yekk_epsilon",
+                "schema": "string"
+              }
+            ],
+            "@context": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:yekk_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_iota",
+          "schema": {
+            "@type": "Object",
+            "fields": [
+              {
+                "name": "yekk_theta",
+                "schema": "time"
+              }
+            ],
+            "@context": "dtmi:iotcentral:context"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:yekk_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_mu",
+          "schema": {
+            "@type": "Object",
+            "fields": [
+              {
+                "name": "yekk_lambda",
+                "schema": "boolean"
+              }
+            ],
+            "@context": "http://iotcentral/context/2"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:yekk_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "yekk_omicron",
+          "schema": {
+            "@type": "Object",
+            "fields": [
+              {
+                "name": "yekk_xi",
                 "schema": "date"
               }
             ],
