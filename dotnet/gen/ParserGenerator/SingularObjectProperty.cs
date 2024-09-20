@@ -77,7 +77,7 @@
         {
             if (!this.PropertyDigest.IsInherited)
             {
-                sorted.Line($"hashCode = (hashCode * 131) + (ReferenceEquals(null, this.{this.ObversePropertyName}) ? 0 : this.{this.ObversePropertyName}.GetHashCode());");
+                sorted.Line($"hashCode = (hashCode * 131) + (ReferenceEquals(null, this.{this.ObversePropertyName}) ? 0 : this.{this.ObversePropertyName}.{ParserGeneratorValues.IdentifierName}.GetHashCode());");
             }
         }
 

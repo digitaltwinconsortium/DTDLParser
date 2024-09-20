@@ -7,10 +7,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_upsilon;1",
+        "@id": "dtmi:example:epsilon_spazz;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:epsilon_tau;1",
+          "@id": "dtmi:example:epsilon_thnad;1",
           "elementSchema": "dateTime",
           "@type": "Array"
         }
@@ -28,10 +28,10 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:epsilon_chi;1",
+        "@id": "dtmi:example:epsilon_zatz;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:epsilon_phi;1",
+          "@id": "dtmi:example:epsilon_floob;1",
           "elementSchema": "double",
           "@type": "Array"
         }
@@ -46,11 +46,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_yuzz;1",
+        "@id": "dtmi:example:epsilon_itch;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:epsilon_psi;1",
-          "name": "epsilon_omega",
+          "@id": "dtmi:example:epsilon_jogg;1",
+          "name": "epsilon_flunn",
           "@type": "Command"
         }
       }
@@ -67,11 +67,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:epsilon_humpf;1",
+        "@id": "dtmi:example:epsilon_hi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:epsilon_wum;1",
-          "name": "epsilon_um",
+          "@id": "dtmi:example:epsilon_yekk;1",
+          "name": "epsilon_vroo",
           "@type": "Command"
         }
       }
@@ -85,11 +85,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_nuh;1",
+        "@id": "dtmi:example:zeta_gamma;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:epsilon_fuddle;1",
-          "name": "epsilon_glikk",
+          "@id": "dtmi:example:zeta_alpha;1",
+          "name": "zeta_beta",
           "schema": "duration",
           "@type": "CommandPayload"
         }
@@ -107,11 +107,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:epsilon_thnad;1",
+        "@id": "dtmi:example:zeta_zeta;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:epsilon_snee;1",
-          "name": "epsilon_quan",
+          "@id": "dtmi:example:zeta_delta;1",
+          "name": "zeta_epsilon",
           "schema": "float",
           "@type": "CommandPayload"
         }
@@ -126,13 +126,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_jogg;1",
+        "@id": "dtmi:example:zeta_kappa;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:epsilon_spazz;1",
-          "name": "epsilon_floob",
+          "@id": "dtmi:example:zeta_eta;1",
+          "name": "zeta_theta",
           "schema": {
-            "@id": "dtmi:example:epsilon_zatz;1",
+            "@id": "dtmi:example:zeta_iota;1",
             "@type": "Interface"
           },
           "@type": "Component"
@@ -151,125 +151,125 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:epsilon_vroo;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:epsilon_flunn;1",
-          "name": "epsilon_itch",
-          "schema": {
-            "@id": "dtmi:example:epsilon_yekk;1",
-            "@type": "Interface"
-          },
-          "@type": "Component"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_beta;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:epsilon_hi;1",
-          "enumValues": [
-            {
-              "enumValue": 1044,
-              "name": "zeta_alpha"
-            }
-          ],
-          "valueSchema": "integer",
-          "@type": "Enum"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": [
-          "dtmi:dtdl:context;2",
-          "dtmi:undefinedExtension:context;1"
-        ],
-        "@id": "dtmi:example:zeta_epsilon;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:zeta_gamma;1",
-          "enumValues": [
-            {
-              "enumValue": 1045,
-              "name": "zeta_delta"
-            }
-          ],
-          "valueSchema": "integer",
-          "@type": "Enum"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_theta;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:zeta_zeta;1",
-          "enumValue": 1046,
-          "name": "zeta_eta",
-          "@type": "EnumValue"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": [
-          "dtmi:dtdl:context;2",
-          "dtmi:undefinedExtension:context;1"
-        ],
-        "@id": "dtmi:example:zeta_lambda;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:zeta_iota;1",
-          "enumValue": 1047,
-          "name": "zeta_kappa",
-          "@type": "EnumValue"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:zeta_xi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_mu;1",
-          "name": "zeta_nu",
+          "@id": "dtmi:example:zeta_lambda;1",
+          "name": "zeta_mu",
+          "schema": {
+            "@id": "dtmi:example:zeta_nu;1",
+            "@type": "Interface"
+          },
+          "@type": "Component"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_rho;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:zeta_omicron;1",
+          "enumValues": [
+            {
+              "enumValue": 1044,
+              "name": "zeta_pi"
+            }
+          ],
+          "valueSchema": "integer",
+          "@type": "Enum"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;2",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:zeta_upsilon;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:zeta_sigma;1",
+          "enumValues": [
+            {
+              "enumValue": 1045,
+              "name": "zeta_tau"
+            }
+          ],
+          "valueSchema": "integer",
+          "@type": "Enum"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_psi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:zeta_phi;1",
+          "enumValue": 1046,
+          "name": "zeta_chi",
+          "@type": "EnumValue"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;2",
+          "dtmi:undefinedExtension:context;1"
+        ],
+        "@id": "dtmi:example:zeta_wum;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:zeta_omega;1",
+          "enumValue": 1047,
+          "name": "zeta_yuzz",
+          "@type": "EnumValue"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_fuddle;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:zeta_um;1",
+          "name": "zeta_humpf",
           "schema": "integer",
           "@type": "Field"
         }
@@ -287,11 +287,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:zeta_rho;1",
+        "@id": "dtmi:example:zeta_snee;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_omicron;1",
-          "name": "zeta_pi",
+          "@id": "dtmi:example:zeta_glikk;1",
+          "name": "zeta_nuh",
           "schema": "long",
           "@type": "Field"
         }
@@ -306,10 +306,10 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_tau;1",
+        "@id": "dtmi:example:zeta_thnad;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_sigma;1",
+          "@id": "dtmi:example:zeta_quan;1",
           "@type": "Interface"
         }
       }
@@ -323,16 +323,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_psi;1",
+        "@id": "dtmi:example:zeta_jogg;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_upsilon;1",
+          "@id": "dtmi:example:zeta_spazz;1",
           "mapKey": {
-            "name": "zeta_phi",
+            "name": "zeta_floob",
             "schema": "string"
           },
           "mapValue": {
-            "name": "zeta_chi",
+            "name": "zeta_zatz",
             "schema": "string"
           },
           "@type": "Map"
@@ -351,16 +351,16 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:zeta_um;1",
+        "@id": "dtmi:example:zeta_vroo;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_omega;1",
+          "@id": "dtmi:example:zeta_flunn;1",
           "mapKey": {
-            "name": "zeta_yuzz",
+            "name": "zeta_itch",
             "schema": "string"
           },
           "mapValue": {
-            "name": "zeta_wum",
+            "name": "zeta_yekk",
             "schema": "time"
           },
           "@type": "Map"
@@ -376,11 +376,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_glikk;1",
+        "@id": "dtmi:example:eta_beta;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_humpf;1",
-          "name": "zeta_fuddle",
+          "@id": "dtmi:example:zeta_hi;1",
+          "name": "eta_alpha",
           "schema": "string",
           "@type": "MapKey"
         }
@@ -398,11 +398,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:zeta_quan;1",
+        "@id": "dtmi:example:eta_epsilon;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_nuh;1",
-          "name": "zeta_snee",
+          "@id": "dtmi:example:eta_gamma;1",
+          "name": "eta_delta",
           "schema": "string",
           "@type": "MapKey"
         }
@@ -417,11 +417,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_floob;1",
+        "@id": "dtmi:example:eta_theta;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_thnad;1",
-          "name": "zeta_spazz",
+          "@id": "dtmi:example:eta_zeta;1",
+          "name": "eta_eta",
           "schema": "boolean",
           "@type": "MapValue"
         }
@@ -439,11 +439,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:zeta_flunn;1",
+        "@id": "dtmi:example:eta_lambda;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_zatz;1",
-          "name": "zeta_jogg",
+          "@id": "dtmi:example:eta_iota;1",
+          "name": "eta_kappa",
           "schema": "date",
           "@type": "MapValue"
         }
@@ -458,13 +458,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_vroo;1",
+        "@id": "dtmi:example:eta_xi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_itch;1",
+          "@id": "dtmi:example:eta_mu;1",
           "fields": [
             {
-              "name": "zeta_yekk",
+              "name": "eta_nu",
               "schema": "dateTime"
             }
           ],
@@ -484,13 +484,13 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:eta_beta;1",
+        "@id": "dtmi:example:eta_rho;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:zeta_hi;1",
+          "@id": "dtmi:example:eta_omicron;1",
           "fields": [
             {
-              "name": "eta_alpha",
+              "name": "eta_pi",
               "schema": "double"
             }
           ],
@@ -507,11 +507,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_epsilon;1",
+        "@id": "dtmi:example:eta_upsilon;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:eta_gamma;1",
-          "name": "eta_delta",
+          "@id": "dtmi:example:eta_sigma;1",
+          "name": "eta_tau",
           "schema": "duration",
           "@type": "Property"
         }
@@ -529,11 +529,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:eta_theta;1",
+        "@id": "dtmi:example:eta_psi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:eta_zeta;1",
-          "name": "eta_eta",
+          "@id": "dtmi:example:eta_phi;1",
+          "name": "eta_chi",
           "schema": "float",
           "@type": "Property"
         }
@@ -548,11 +548,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_lambda;1",
+        "@id": "dtmi:example:eta_wum;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:eta_iota;1",
-          "name": "eta_kappa",
+          "@id": "dtmi:example:eta_omega;1",
+          "name": "eta_yuzz",
           "@type": "Relationship"
         }
       }
@@ -569,11 +569,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:eta_xi;1",
+        "@id": "dtmi:example:eta_fuddle;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:eta_mu;1",
-          "name": "eta_nu",
+          "@id": "dtmi:example:eta_um;1",
+          "name": "eta_humpf",
           "@type": "Relationship"
         }
       }
@@ -587,11 +587,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_rho;1",
+        "@id": "dtmi:example:eta_snee;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:eta_omicron;1",
-          "name": "eta_pi",
+          "@id": "dtmi:example:eta_glikk;1",
+          "name": "eta_nuh",
           "schema": "integer",
           "@type": "Telemetry"
         }
@@ -609,11 +609,11 @@
           "dtmi:dtdl:context;2",
           "dtmi:undefinedExtension:context;1"
         ],
-        "@id": "dtmi:example:eta_upsilon;1",
+        "@id": "dtmi:example:eta_spazz;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:eta_sigma;1",
-          "name": "eta_tau",
+          "@id": "dtmi:example:eta_quan;1",
+          "name": "eta_thnad",
           "schema": "long",
           "@type": "Telemetry"
         }

@@ -763,10 +763,9 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
+        internal override bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
         {
-            tooDeepElementId = null;
-            tooDeepElts = this.JsonLdElements;
+            tooDeepElts = null;
             return true;
         }
 
@@ -865,11 +864,10 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
+        internal override HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
         {
             HashSet<Dtmi> closure = new HashSet<Dtmi>();
 
-            tooDeepElementId = null;
             tooDeepElts = null;
             return closure;
         }
@@ -885,7 +883,7 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(ParsingErrorCollection parsingErrorCollection)
+        internal override int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection)
         {
             if (this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus == TraversalStatus.Complete)
             {
@@ -894,11 +892,19 @@ namespace DTDLParser.Models
 
             if (this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus == TraversalStatus.InProgress)
             {
-                parsingErrorCollection.Notify(
-                    "recursiveStructureNarrow",
-                    elementId: this.Id,
-                    propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
-                    element: this.JsonLdElements.First().Value);
+                if (allowSelf)
+                {
+                    this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.Complete;
+                }
+                else
+                {
+                    parsingErrorCollection.Notify(
+                        "recursiveStructureNarrow",
+                        elementId: this.Id,
+                        propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
+                        element: this.JsonLdElements.First().Value);
+                }
+
                 return 0;
             }
 
@@ -908,7 +914,7 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override int GetCountOfExtendsNarrow(ParsingErrorCollection parsingErrorCollection)
+        internal override int GetCountOfExtendsNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection)
         {
             if (this.countOfExtendsNarrowStatus == TraversalStatus.Complete)
             {
@@ -917,11 +923,19 @@ namespace DTDLParser.Models
 
             if (this.countOfExtendsNarrowStatus == TraversalStatus.InProgress)
             {
-                parsingErrorCollection.Notify(
-                    "recursiveStructureNarrow",
-                    elementId: this.Id,
-                    propertyDisjunction: "'extends'",
-                    element: this.JsonLdElements.First().Value);
+                if (allowSelf)
+                {
+                    this.countOfExtendsNarrowStatus = TraversalStatus.Complete;
+                }
+                else
+                {
+                    parsingErrorCollection.Notify(
+                        "recursiveStructureNarrow",
+                        elementId: this.Id,
+                        propertyDisjunction: "'extends'",
+                        element: this.JsonLdElements.First().Value);
+                }
+
                 return 0;
             }
 

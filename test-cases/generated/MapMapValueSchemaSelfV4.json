@@ -1,5 +1,5 @@
 ﻿{
-  "valid": false,
+  "valid": true,
   "quirks": [],
   "options": [],
   "input": [
@@ -24,19 +24,30 @@
     }
   ],
   "expect": {
-    "parsingErrors": [
+    "elements": [
       {
-        "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthWide",
-        "PrimaryID": "dtmi:test:recursiveMap;1",
-        "SecondaryID": "dtmi:test:recursiveMap:_mapKey;1",
-        "Property": null,
-        "Value": null,
-        "PrimaryIndex": 0,
-        "PrimaryStart": 6,
-        "PrimaryEnd": 17,
-        "SecondaryIndex": 0,
-        "SecondaryStart": 9,
-        "SecondaryEnd": 12
+        "id": "dtmi:test:recursiveMap;1",
+        "type": "Map",
+        "properties": {
+          "mapKey": "dtmi:test:recursiveMap:_mapKey;1",
+          "mapValue": "dtmi:test:recursiveMap:_mapValue;1"
+        }
+      },
+      {
+        "id": "dtmi:test:recursiveMap:_mapKey;1",
+        "type": "MapKey",
+        "properties": {
+          "name": "myMapKey",
+          "schema": "dtmi:dtdl:instance:Schema:string;2"
+        }
+      },
+      {
+        "id": "dtmi:test:recursiveMap:_mapValue;1",
+        "type": "MapValue",
+        "properties": {
+          "name": "myMapValue",
+          "schema": "dtmi:test:recursiveMap;1"
+        }
       }
     ]
   }

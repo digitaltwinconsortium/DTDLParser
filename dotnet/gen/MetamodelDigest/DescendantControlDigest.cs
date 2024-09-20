@@ -40,6 +40,8 @@
                 null;
 
             this.ImportProperties = descendantControlObj.TryGetValue("importProperties", out JToken importProperties) ? ((JArray)importProperties).Select(t => ((JValue)t).Value<string>()).ToList() : null;
+
+            this.AllowSelf = ((JValue)descendantControlObj["allowSelf"]).Value<bool>();
         }
 
         /// <summary>
@@ -96,5 +98,10 @@
         /// Gets a list of names of properties whose values should be imported from the relevant descendants.
         /// </summary>
         public List<string> ImportProperties { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether descendants are permitted to refer to the object at the root of the hierarchy.
+        /// </summary>
+        public bool AllowSelf { get; }
     }
 }

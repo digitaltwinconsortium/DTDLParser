@@ -2462,11 +2462,12 @@ namespace DTDLParser.Models
         /// </summary>
         /// <param name="depth">The depth from the root to this element.</param>
         /// <param name="depthLimit">The allowed limit on the depth.</param>
-        /// <param name="tooDeepElementId">An out parameter for the ID of the first element that exceeds the depth.</param>
+        /// <param name="allowSelf">True if descendants are permitted to refer to the object at the root of the hierarchy.</param>
+        /// <param name="tooDeepElementIds">A logica out parameter for the IDs of the chain of elements that exceed the depth.</param>
         /// <param name="tooDeepElts">An out parameter providing a dictionary that maps from layer name to the <see cref="JsonLdElement"/> that defines the layer of the first element that exceeds the depth.</param>
         /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing errors are added.</param>
         /// <returns>True if the depth is within the limit.</returns>
-        internal abstract bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection);
+        internal abstract bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection);
 
         /// <summary>
         /// Determine whether a <c>JsonElement</c> matches this DTDL element.
@@ -2558,11 +2559,12 @@ namespace DTDLParser.Models
         /// </summary>
         /// <param name="depth">The depth from the root to this element.</param>
         /// <param name="depthLimit">The allowed limit on the depth.</param>
-        /// <param name="tooDeepElementId">An out parameter for the ID of the first element that exceeds the depth.</param>
+        /// <param name="allowSelf">True if descendants are permitted to refer to the object at the root of the hierarchy.</param>
+        /// <param name="tooDeepElementIds">A logica out parameter for the IDs of the chain of elements that exceed the depth.</param>
         /// <param name="tooDeepElts">An out parameter providing a dictionary that maps from layer name to the <see cref="JsonLdElement"/> that defines the layer of the first element that exceeds the depth.</param>
         /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing errors are added.</param>
         /// <returns>A <c>HashSet</c> of the IDs, or null if the depth exceeds the limit.</returns>
-        internal abstract HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection);
+        internal abstract HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection);
 
         /// <summary>
         /// Get an enumeration of elements from the property given by <paramref name="childrenPropertyName"/>.
@@ -2574,16 +2576,18 @@ namespace DTDLParser.Models
         /// <summary>
         /// Get the count of all descendant contents or fields or enumValues or request or response or properties or schema or elementSchema or mapValue properties.
         /// </summary>
+        /// <param name="allowSelf">True if descendants are permitted to refer to the object at the root of the hierarchy.</param>
         /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing errors are added.</param>
         /// <returns>The count of relevant property values.</returns>
-        internal abstract int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(ParsingErrorCollection parsingErrorCollection);
+        internal abstract int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection);
 
         /// <summary>
         /// Get the count of all descendant extends properties.
         /// </summary>
+        /// <param name="allowSelf">True if descendants are permitted to refer to the object at the root of the hierarchy.</param>
         /// <param name="parsingErrorCollection">A <c>ParsingErrorCollection</c> to which any parsing errors are added.</param>
         /// <returns>The count of relevant property values.</returns>
-        internal abstract int GetCountOfExtendsNarrow(ParsingErrorCollection parsingErrorCollection);
+        internal abstract int GetCountOfExtendsNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection);
 
         /// <summary>
         /// Add a supplemental type.

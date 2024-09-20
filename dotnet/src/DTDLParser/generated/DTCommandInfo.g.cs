@@ -400,9 +400,9 @@ namespace DTDLParser.Models
 
             unchecked
             {
-                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.CommandType) ? 0 : this.CommandType.GetHashCode());
-                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.Request) ? 0 : this.Request.GetHashCode());
-                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.Response) ? 0 : this.Response.GetHashCode());
+                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.CommandType) ? 0 : this.CommandType.Id.GetHashCode());
+                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.Request) ? 0 : this.Request.Id.GetHashCode());
+                hashCode = (hashCode * 131) + (ReferenceEquals(null, this.Response) ? 0 : this.Response.Id.GetHashCode());
                 hashCode = (hashCode * 131) + Helpers.GetDictionaryIdOrLiteralHashCode(this.supplementalProperties);
                 hashCode = (hashCode * 131) + Helpers.GetSetLiteralHashCode(this.supplementalTypeIds);
             }
@@ -1906,64 +1906,81 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
+        internal override bool CheckDepthOfElementSchemaOrSchema(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
         {
             if (this.CommandType != null)
             {
-                if (!this.CommandType.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, out tooDeepElementId, out tooDeepElts, parsingErrorCollection))
+                if (!this.CommandType.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, allowSelf, tooDeepElementIds, out tooDeepElts, parsingErrorCollection))
                 {
-                    if (tooDeepElementId == this.Id)
+                    if (tooDeepElementIds.Contains(this.Id))
                     {
-                        parsingErrorCollection.Notify(
-                            "recursiveStructureWide",
-                            elementId: this.Id,
-                            propertyDisjunction: "'elementSchema' or 'schema'",
-                            element: this.JsonLdElements.First().Value);
-                        tooDeepElementId = null;
+                        if (!allowSelf)
+                        {
+                            parsingErrorCollection.Notify(
+                                "recursiveStructureWide",
+                                elementId: this.Id,
+                                propertyDisjunction: "'elementSchema' or 'schema'",
+                                element: this.JsonLdElements.First().Value);
+                        }
+
+                        tooDeepElementIds.Clear();
+                        return true;
                     }
 
+                    tooDeepElementIds.Add(this.Id);
                     return false;
                 }
             }
 
             if (this.Request != null)
             {
-                if (!this.Request.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, out tooDeepElementId, out tooDeepElts, parsingErrorCollection))
+                if (!this.Request.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, allowSelf, tooDeepElementIds, out tooDeepElts, parsingErrorCollection))
                 {
-                    if (tooDeepElementId == this.Id)
+                    if (tooDeepElementIds.Contains(this.Id))
                     {
-                        parsingErrorCollection.Notify(
-                            "recursiveStructureWide",
-                            elementId: this.Id,
-                            propertyDisjunction: "'elementSchema' or 'schema'",
-                            element: this.JsonLdElements.First().Value);
-                        tooDeepElementId = null;
+                        if (!allowSelf)
+                        {
+                            parsingErrorCollection.Notify(
+                                "recursiveStructureWide",
+                                elementId: this.Id,
+                                propertyDisjunction: "'elementSchema' or 'schema'",
+                                element: this.JsonLdElements.First().Value);
+                        }
+
+                        tooDeepElementIds.Clear();
+                        return true;
                     }
 
+                    tooDeepElementIds.Add(this.Id);
                     return false;
                 }
             }
 
             if (this.Response != null)
             {
-                if (!this.Response.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, out tooDeepElementId, out tooDeepElts, parsingErrorCollection))
+                if (!this.Response.CheckDepthOfElementSchemaOrSchema(depth, depthLimit, allowSelf, tooDeepElementIds, out tooDeepElts, parsingErrorCollection))
                 {
-                    if (tooDeepElementId == this.Id)
+                    if (tooDeepElementIds.Contains(this.Id))
                     {
-                        parsingErrorCollection.Notify(
-                            "recursiveStructureWide",
-                            elementId: this.Id,
-                            propertyDisjunction: "'elementSchema' or 'schema'",
-                            element: this.JsonLdElements.First().Value);
-                        tooDeepElementId = null;
+                        if (!allowSelf)
+                        {
+                            parsingErrorCollection.Notify(
+                                "recursiveStructureWide",
+                                elementId: this.Id,
+                                propertyDisjunction: "'elementSchema' or 'schema'",
+                                element: this.JsonLdElements.First().Value);
+                        }
+
+                        tooDeepElementIds.Clear();
+                        return true;
                     }
 
+                    tooDeepElementIds.Add(this.Id);
                     return false;
                 }
             }
 
-            tooDeepElementId = null;
-            tooDeepElts = this.JsonLdElements;
+            tooDeepElts = null;
             return true;
         }
 
@@ -2181,11 +2198,10 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, out Dtmi tooDeepElementId, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
+        internal override HashSet<Dtmi> GetTransitiveExtendsNarrow(int depth, int depthLimit, bool allowSelf, List<Dtmi> tooDeepElementIds, out Dictionary<string, JsonLdElement> tooDeepElts, ParsingErrorCollection parsingErrorCollection)
         {
             HashSet<Dtmi> closure = new HashSet<Dtmi>();
 
-            tooDeepElementId = null;
             tooDeepElts = null;
             return closure;
         }
@@ -2201,7 +2217,7 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(ParsingErrorCollection parsingErrorCollection)
+        internal override int GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection)
         {
             if (this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus == TraversalStatus.Complete)
             {
@@ -2210,23 +2226,31 @@ namespace DTDLParser.Models
 
             if (this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus == TraversalStatus.InProgress)
             {
-                parsingErrorCollection.Notify(
-                    "recursiveStructureNarrow",
-                    elementId: this.Id,
-                    propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
-                    element: this.JsonLdElements.First().Value);
+                if (allowSelf)
+                {
+                    this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.Complete;
+                }
+                else
+                {
+                    parsingErrorCollection.Notify(
+                        "recursiveStructureNarrow",
+                        elementId: this.Id,
+                        propertyDisjunction: "'contents' or 'fields' or 'enumValues' or 'request' or 'response' or 'properties' or 'schema' or 'elementSchema' or 'mapValue'",
+                        element: this.JsonLdElements.First().Value);
+                }
+
                 return 0;
             }
 
             this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.InProgress;
             if (this.Request != null)
             {
-                this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValue += this.Request.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(parsingErrorCollection) + 1;
+                this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValue += this.Request.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(allowSelf, parsingErrorCollection) + 1;
             }
 
             if (this.Response != null)
             {
-                this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValue += this.Response.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(parsingErrorCollection) + 1;
+                this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowValue += this.Response.GetCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrow(allowSelf, parsingErrorCollection) + 1;
             }
 
             this.countOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValueNarrowStatus = TraversalStatus.Complete;
@@ -2234,7 +2258,7 @@ namespace DTDLParser.Models
         }
 
         /// <inheritdoc/>
-        internal override int GetCountOfExtendsNarrow(ParsingErrorCollection parsingErrorCollection)
+        internal override int GetCountOfExtendsNarrow(bool allowSelf, ParsingErrorCollection parsingErrorCollection)
         {
             if (this.countOfExtendsNarrowStatus == TraversalStatus.Complete)
             {
@@ -2243,11 +2267,19 @@ namespace DTDLParser.Models
 
             if (this.countOfExtendsNarrowStatus == TraversalStatus.InProgress)
             {
-                parsingErrorCollection.Notify(
-                    "recursiveStructureNarrow",
-                    elementId: this.Id,
-                    propertyDisjunction: "'extends'",
-                    element: this.JsonLdElements.First().Value);
+                if (allowSelf)
+                {
+                    this.countOfExtendsNarrowStatus = TraversalStatus.Complete;
+                }
+                else
+                {
+                    parsingErrorCollection.Notify(
+                        "recursiveStructureNarrow",
+                        elementId: this.Id,
+                        propertyDisjunction: "'extends'",
+                        element: this.JsonLdElements.First().Value);
+                }
+
                 return 0;
             }
 

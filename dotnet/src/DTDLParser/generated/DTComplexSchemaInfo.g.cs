@@ -2568,13 +2568,14 @@ namespace DTDLParser.Models
         private void CheckRestrictionsV2(ParsingErrorCollection parsingErrorCollection)
         {
             int maxDepthOfElementSchemaOrSchema = 5;
-            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, out Dtmi tooDeepElementSchemaOrSchemaElementId, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementId != null)
+            List<Dtmi> tooDeepElementSchemaOrSchemaElementIds = new List<Dtmi>();
+            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, false, tooDeepElementSchemaOrSchemaElementIds, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementIds != null)
             {
                 parsingErrorCollection.Notify(
                     "excessiveDepthWide",
                     elementId: this.Id,
                     propertyDisjunction: "'elementSchema' or 'schema'",
-                    referenceId: tooDeepElementSchemaOrSchemaElementId,
+                    referenceId: tooDeepElementSchemaOrSchemaElementIds.First(),
                     observedCount: maxDepthOfElementSchemaOrSchema + 1,
                     expectedCount: maxDepthOfElementSchemaOrSchema,
                     ancestorElement: this.JsonLdElements.First().Value,
@@ -2586,13 +2587,14 @@ namespace DTDLParser.Models
         private void CheckRestrictionsV3(ParsingErrorCollection parsingErrorCollection)
         {
             int maxDepthOfElementSchemaOrSchema = 5;
-            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, out Dtmi tooDeepElementSchemaOrSchemaElementId, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementId != null)
+            List<Dtmi> tooDeepElementSchemaOrSchemaElementIds = new List<Dtmi>();
+            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, false, tooDeepElementSchemaOrSchemaElementIds, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementIds != null)
             {
                 parsingErrorCollection.Notify(
                     "excessiveDepthWide",
                     elementId: this.Id,
                     propertyDisjunction: "'elementSchema' or 'schema'",
-                    referenceId: tooDeepElementSchemaOrSchemaElementId,
+                    referenceId: tooDeepElementSchemaOrSchemaElementIds.First(),
                     observedCount: maxDepthOfElementSchemaOrSchema + 1,
                     expectedCount: maxDepthOfElementSchemaOrSchema,
                     ancestorElement: this.JsonLdElements.First().Value,
@@ -2610,13 +2612,14 @@ namespace DTDLParser.Models
                 _ => 0,
             };
 
-            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, out Dtmi tooDeepElementSchemaOrSchemaElementId, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementId != null)
+            List<Dtmi> tooDeepElementSchemaOrSchemaElementIds = new List<Dtmi>();
+            if (!this.CheckDepthOfElementSchemaOrSchema(0, maxDepthOfElementSchemaOrSchema, true, tooDeepElementSchemaOrSchemaElementIds, out Dictionary<string, JsonLdElement> tooDeepElementSchemaOrSchemaElts, parsingErrorCollection) && tooDeepElementSchemaOrSchemaElementIds != null)
             {
                 parsingErrorCollection.Notify(
                     "excessiveDepthWide",
                     elementId: this.Id,
                     propertyDisjunction: "'elementSchema' or 'schema'",
-                    referenceId: tooDeepElementSchemaOrSchemaElementId,
+                    referenceId: tooDeepElementSchemaOrSchemaElementIds.First(),
                     observedCount: maxDepthOfElementSchemaOrSchema + 1,
                     expectedCount: maxDepthOfElementSchemaOrSchema,
                     ancestorElement: this.JsonLdElements.First().Value,

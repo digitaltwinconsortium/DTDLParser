@@ -392,7 +392,7 @@ namespace ParserUnitTest
                 }
                 else
                 {
-                    Assert.AreEqual(((JValue)expectedErrorToken).Value<string>(), actualErrorField);
+                    Assert.AreEqual(GetJValueAsString((JValue)expectedErrorToken), actualErrorField);
                 }
             }
         }

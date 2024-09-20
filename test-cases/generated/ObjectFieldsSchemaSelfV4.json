@@ -1,5 +1,5 @@
 ﻿{
-  "valid": false,
+  "valid": true,
   "quirks": [],
   "options": [],
   "input": [
@@ -22,16 +22,23 @@
     }
   ],
   "expect": {
-    "parsingErrors": [
+    "elements": [
       {
-        "ValidationID": "dtmi:dtdl:parsingError:recursiveStructureWide",
-        "PrimaryID": "dtmi:test:recursiveObject:_fields:__self;1",
-        "SecondaryID": null,
-        "Property": null,
-        "Value": null,
-        "PrimaryIndex": 0,
-        "PrimaryStart": 10,
-        "PrimaryEnd": 13
+        "id": "dtmi:test:recursiveObject;1",
+        "type": "Object",
+        "properties": {
+          "fields": [
+            "dtmi:test:recursiveObject:_fields:__self;1"
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:recursiveObject:_fields:__self;1",
+        "type": "Field",
+        "properties": {
+          "name": "self",
+          "schema": "dtmi:test:recursiveObject;1"
+        }
       }
     ]
   }
