@@ -7,13 +7,52 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_pi;1",
+        "@id": "dtmi:example:alpha_itch;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "itch_omicron",
+          "name": "alpha_flunn",
+          "schema": "long",
+          "@graph": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:alpha_vroo;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "alpha_yekk",
+          "schema": "string",
+          "@graph": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:beta_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "alpha_hi",
           "schema": "time",
-          "@graph": {}
+          "@value": 626
         }
       }
     ]
@@ -26,14 +65,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_sigma;1",
+        "@id": "dtmi:example:beta_gamma;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "itch_rho",
+          "name": "beta_beta",
           "schema": "boolean",
-          "@graph": {}
+          "@value": 626
         }
       }
     ]
@@ -46,13 +85,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_upsilon;1",
+        "@id": "dtmi:example:beta_epsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "itch_tau",
+          "name": "beta_delta",
           "schema": "date",
-          "@value": 626
+          "@language": "en"
         }
       }
     ]
@@ -65,14 +104,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_chi;1",
+        "@id": "dtmi:example:beta_eta;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "itch_phi",
+          "name": "beta_zeta",
           "schema": "dateTime",
-          "@value": 626
+          "@language": "en"
         }
       }
     ]
@@ -85,51 +124,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_omega;1",
+        "@id": "dtmi:example:beta_iota;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "itch_psi",
+          "name": "beta_theta",
           "schema": "double",
-          "@language": "en"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_wum;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "itch_yuzz",
-          "schema": "duration",
-          "@language": "en"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_humpf;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "itch_um",
-          "schema": "float",
           "@foobar": true
         }
       }
@@ -143,13 +143,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_glikk;1",
+        "@id": "dtmi:example:beta_lambda;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "itch_fuddle",
-          "schema": "integer",
+          "name": "beta_kappa",
+          "schema": "duration",
           "@foobar": true
         }
       }

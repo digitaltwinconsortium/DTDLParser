@@ -11,14 +11,20 @@
           "foo": "dtmi:foo:"
         }
       ],
-      "@id": "dtmi:test:aTelemetry;1",
-      "@type": [
-        "Telemetry",
-        "Length"
-      ],
-      "name": "height",
-      "schema": "double",
-      "unit": "foo:a/b"
+      "@id": "dtmi:test:Sensor;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Length"
+          ],
+          "name": "height",
+          "schema": "double",
+          "unit": "foo:a/b"
+        }
+      ]
     }
   ],
   "expect": {
@@ -40,7 +46,7 @@
         "Property": "unit",
         "Value": "foo:a/b",
         "PrimaryIndex": 0,
-        "PrimaryStart": 16
+        "PrimaryStart": 20
       },
       {
         "ValidationID": "dtmi:dtdl:parsingError:objectCountBelowMin",
@@ -48,7 +54,7 @@
         "SecondaryID": null,
         "Property": "unit",
         "PrimaryIndex": 0,
-        "PrimaryStart": 16
+        "PrimaryStart": 20
       }
     ]
   }

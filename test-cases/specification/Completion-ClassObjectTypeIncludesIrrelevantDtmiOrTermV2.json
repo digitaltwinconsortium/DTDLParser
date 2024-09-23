@@ -7,70 +7,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:snee_yekk;1",
+        "@id": "dtmi:example:thnad_um;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:snee_flunn;1",
+          "@id": "dtmi:example:thnad_yuzz;1",
           "@type": [
             "Object",
             "dtmi:foo:bar;1"
           ],
           "fields": [
             {
-              "name": "snee_itch",
-              "schema": "boolean"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_alpha;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:snee_vroo;1",
-          "@type": [
-            "Object",
-            "dtmi:foo:bar;1"
-          ],
-          "fields": [
-            {
-              "name": "snee_hi",
-              "schema": "date"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_delta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:quan_beta;1",
-          "@type": [
-            "Object",
-            "boolean"
-          ],
-          "fields": [
-            {
-              "name": "quan_gamma",
+              "name": "thnad_wum",
               "schema": "dateTime"
             }
           ]
@@ -86,19 +33,72 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:quan_eta;1",
+        "@id": "dtmi:example:thnad_glikk;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:quan_epsilon;1",
+          "@id": "dtmi:example:thnad_humpf;1",
+          "@type": [
+            "Object",
+            "dtmi:foo:bar;1"
+          ],
+          "fields": [
+            {
+              "name": "thnad_fuddle",
+              "schema": "double"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:thnad_quan;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:thnad_nuh;1",
           "@type": [
             "Object",
             "boolean"
           ],
           "fields": [
             {
-              "name": "quan_zeta",
-              "schema": "double"
+              "name": "thnad_snee",
+              "schema": "duration"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:thnad_floob;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:thnad_thnad;1",
+          "@type": [
+            "Object",
+            "boolean"
+          ],
+          "fields": [
+            {
+              "name": "thnad_spazz",
+              "schema": "float"
             }
           ]
         }

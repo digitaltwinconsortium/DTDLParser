@@ -7,20 +7,20 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:mu_wum;1",
+        "@id": "dtmi:example:sigma_wum;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:mu_phi;1",
+          "@id": "dtmi:example:sigma_phi;1",
           "@type": "Map",
-          "comment": "mu_chi",
-          "dtmi:dtdl:property:comment;4": "mu_psi",
+          "comment": "sigma_chi",
+          "dtmi:dtdl:property:comment;4": "sigma_psi",
           "mapKey": {
-            "name": "mu_omega",
+            "name": "sigma_omega",
             "schema": "string"
           },
           "mapValue": {
-            "name": "mu_yuzz",
-            "schema": "uuid"
+            "name": "sigma_yuzz",
+            "schema": "string"
           }
         }
       }
@@ -34,21 +34,21 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:mu_snee;1",
+        "@id": "dtmi:example:sigma_snee;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:mu_um;1",
+          "@id": "dtmi:example:sigma_um;1",
           "@type": "Map",
-          "comment": "mu_humpf",
-          "dtmi:dtdl:property:comment;4": "mu_fuddle",
+          "comment": "sigma_humpf",
+          "dtmi:dtdl:property:comment;4": "sigma_fuddle",
           "mapKey": {
-            "name": "mu_glikk",
+            "name": "sigma_glikk",
             "schema": "string"
           },
           "mapValue": {
-            "name": "mu_nuh",
-            "schema": "boolean"
+            "name": "sigma_nuh",
+            "schema": "time"
           }
         }
       }

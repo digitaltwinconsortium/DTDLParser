@@ -7,20 +7,20 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_humpf;1",
+        "@id": "dtmi:example:kappa_humpf;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "delta_um",
+          "name": "kappa_um",
           "schema": {
             "@type": "Map",
             "mapKey": {
-              "name": "delta_yuzz",
+              "name": "kappa_yuzz",
               "schema": "string"
             },
             "mapValue": {
-              "name": "delta_wum",
-              "schema": "duration"
+              "name": "kappa_wum",
+              "schema": "dateTime"
             }
           }
         }
@@ -35,18 +35,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_snee;1",
+        "@id": "dtmi:example:kappa_snee;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:delta_fuddle;1",
+          "@id": "dtmi:example:kappa_fuddle;1",
           "@type": "Map",
           "mapKey": {
-            "name": "delta_glikk",
+            "name": "kappa_glikk",
             "schema": "string"
           },
           "mapValue": {
-            "name": "delta_nuh",
-            "schema": "float"
+            "name": "kappa_nuh",
+            "schema": "double"
           }
         }
       }
@@ -60,17 +60,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_spazz;1",
+        "@id": "dtmi:example:kappa_spazz;1",
         "@type": "Interface",
         "schemas": {
           "@type": "Map",
           "mapKey": {
-            "name": "delta_quan",
+            "name": "kappa_quan",
             "schema": "string"
           },
           "mapValue": {
-            "name": "delta_thnad",
-            "schema": "integer"
+            "name": "kappa_thnad",
+            "schema": "duration"
           }
         }
       }
@@ -84,18 +84,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_jogg;1",
+        "@id": "dtmi:example:kappa_jogg;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Map",
           "mapKey": {
-            "name": "delta_floob",
+            "name": "kappa_floob",
             "schema": "string"
           },
           "mapValue": {
-            "name": "delta_zatz",
-            "schema": "long"
+            "name": "kappa_zatz",
+            "schema": "float"
           }
         }
       }

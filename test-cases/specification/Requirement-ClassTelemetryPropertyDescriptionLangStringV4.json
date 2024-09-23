@@ -7,12 +7,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yekk_spazz;1",
+        "@id": "dtmi:example:epsilon_glikk;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "yekk_thnad",
-          "schema": "long",
+          "name": "epsilon_fuddle",
+          "schema": "date",
           "description": "hello"
         }
       }
@@ -26,12 +26,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yekk_zatz;1",
+        "@id": "dtmi:example:epsilon_snee;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "yekk_floob",
-          "schema": "string",
+          "name": "epsilon_nuh",
+          "schema": "dateTime",
           "description": [
             "hello"
           ]
@@ -47,12 +47,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yekk_flunn;1",
+        "@id": "dtmi:example:epsilon_thnad;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "yekk_jogg",
-          "schema": "time",
+          "name": "epsilon_quan",
+          "schema": "double",
           "description": {
             "en": "hello"
           }
@@ -68,12 +68,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yekk_yekk;1",
+        "@id": "dtmi:example:epsilon_floob;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "yekk_itch",
-          "schema": "uuid",
+          "name": "epsilon_spazz",
+          "schema": "duration",
           "description": [
             {
               "@value": "hello",
@@ -92,12 +92,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yekk_hi;1",
+        "@id": "dtmi:example:epsilon_jogg;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "yekk_vroo",
-          "schema": "boolean",
+          "name": "epsilon_zatz",
+          "schema": "float",
           "description": {}
         }
       }
@@ -111,12 +111,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_beta;1",
+        "@id": "dtmi:example:epsilon_itch;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_alpha",
-          "schema": "bytes",
+          "name": "epsilon_flunn",
+          "schema": "integer",
           "description": []
         }
       }
@@ -130,13 +130,132 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_delta;1",
+        "@id": "dtmi:example:epsilon_vroo;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_gamma",
+          "name": "epsilon_yekk",
+          "schema": "long",
+          "description": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "epsilon_hi",
+          "schema": "string",
+          "description": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_gamma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "zeta_beta",
+          "schema": "time",
+          "description": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "zeta_delta",
+          "schema": "uuid",
+          "description": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "zeta_zeta",
+          "schema": "boolean",
+          "description": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_iota;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "zeta_theta",
+          "schema": "bytes",
+          "description": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:zeta_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "zeta_kappa",
           "schema": "date",
-          "description": null
+          "description": [
+            null
+          ]
         }
       }
     ]
@@ -149,14 +268,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_zeta;1",
+        "@id": "dtmi:example:zeta_nu;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "vroo_epsilon",
+          "name": "zeta_mu",
           "schema": "dateTime",
-          "description": null
+          "description": [
+            null
+          ]
         }
       }
     ]
@@ -169,13 +290,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_theta;1",
+        "@id": "dtmi:example:zeta_omicron;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_eta",
+          "name": "zeta_xi",
           "schema": "double",
-          "description": true
+          "description": [
+            true
+          ]
         }
       }
     ]
@@ -188,14 +311,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_kappa;1",
+        "@id": "dtmi:example:zeta_rho;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "vroo_iota",
+          "name": "zeta_pi",
           "schema": "duration",
-          "description": true
+          "description": [
+            true
+          ]
         }
       }
     ]
@@ -208,13 +333,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_mu;1",
+        "@id": "dtmi:example:zeta_tau;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_lambda",
+          "name": "zeta_sigma",
           "schema": "float",
-          "description": 626
+          "description": [
+            626
+          ]
         }
       }
     ]
@@ -227,14 +354,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_xi;1",
+        "@id": "dtmi:example:zeta_phi;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "vroo_nu",
+          "name": "zeta_upsilon",
           "schema": "integer",
-          "description": 626
+          "description": [
+            626
+          ]
         }
       }
     ]
@@ -247,14 +376,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_pi;1",
+        "@id": "dtmi:example:zeta_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_omicron",
+          "name": "zeta_chi",
           "schema": "long",
           "description": [
-            null
+            {}
           ]
         }
       }
@@ -268,15 +397,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_sigma;1",
+        "@id": "dtmi:example:zeta_yuzz;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "vroo_rho",
+          "name": "zeta_omega",
           "schema": "string",
           "description": [
-            null
+            {}
           ]
         }
       }
@@ -290,15 +419,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_upsilon;1",
+        "@id": "dtmi:example:zeta_um;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_tau",
+          "name": "zeta_wum",
           "schema": "time",
-          "description": [
-            true
-          ]
+          "description": {
+            "@value": "hello",
+            "@language": "en"
+          }
         }
       }
     ]
@@ -311,16 +441,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_chi;1",
+        "@id": "dtmi:example:zeta_fuddle;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "vroo_phi",
+          "name": "zeta_humpf",
           "schema": "uuid",
-          "description": [
-            true
-          ]
+          "description": {
+            "@value": "hello",
+            "@language": "en"
+          }
         }
       }
     ]
@@ -333,143 +464,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_omega;1",
+        "@id": "dtmi:example:zeta_nuh;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_psi",
+          "name": "zeta_glikk",
           "schema": "boolean",
-          "description": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_wum;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "vroo_yuzz",
-          "schema": "bytes",
-          "description": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_humpf;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "vroo_um",
-          "schema": "date",
-          "description": [
-            {}
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_glikk;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "vroo_fuddle",
-          "schema": "dateTime",
-          "description": [
-            {}
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_snee;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "vroo_nuh",
-          "schema": "double",
-          "description": {
-            "@value": "hello",
-            "@language": "en"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_thnad;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "vroo_quan",
-          "schema": "duration",
-          "description": {
-            "@value": "hello",
-            "@language": "en"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_floob;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "vroo_spazz",
-          "schema": "float",
           "description": [
             {
               "en": "hello"
@@ -487,13 +487,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_jogg;1",
+        "@id": "dtmi:example:zeta_quan;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "vroo_zatz",
-          "schema": "integer",
+          "name": "zeta_snee",
+          "schema": "bytes",
           "description": [
             {
               "en": "hello"

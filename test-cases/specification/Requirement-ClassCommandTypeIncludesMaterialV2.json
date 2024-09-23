@@ -7,47 +7,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:phi_spazz;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "phi_thnad",
-          "@type": "Command"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:phi_zatz;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "phi_floob",
-          "@type": [
-            "Command"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:phi_flunn;1",
         "@type": "Interface",
         "contents": {
           "name": "phi_jogg",
-          "@type": "dtmi:dtdl:class:Command;2"
+          "@type": "Command"
         }
       }
     ]
@@ -65,14 +29,14 @@
         "contents": {
           "name": "phi_itch",
           "@type": [
-            "dtmi:dtdl:class:Command;2"
+            "Command"
           ]
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -83,15 +47,15 @@
         "@type": "Interface",
         "contents": {
           "name": "phi_vroo",
-          "@type": "Something"
+          "@type": "dtmi:dtdl:class:Command;2"
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -99,9 +63,10 @@
         "@id": "dtmi:example:chi_beta;1",
         "@type": "Interface",
         "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "name": "chi_alpha",
-          "@type": "Something"
+          "@type": [
+            "dtmi:dtdl:class:Command;2"
+          ]
         }
       }
     ]
@@ -118,9 +83,7 @@
         "@type": "Interface",
         "contents": {
           "name": "chi_gamma",
-          "@type": [
-            "Something"
-          ]
+          "@type": "Something"
         }
       }
     ]
@@ -138,6 +101,43 @@
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "chi_epsilon",
+          "@type": "Something"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "chi_eta",
+          "@type": [
+            "Something"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "name": "chi_iota",
           "@type": [
             "Something"
           ]

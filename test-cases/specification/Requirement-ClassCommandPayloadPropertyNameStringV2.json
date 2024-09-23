@@ -7,13 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_floob;1",
+        "@id": "dtmi:example:zeta_gamma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "epsilon_spazz",
+          "name": "zeta_beta",
           "request": {
-            "schema": "dateTime",
+            "schema": "duration",
             "name": "hello"
           }
         }
@@ -28,13 +28,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_jogg;1",
+        "@id": "dtmi:example:zeta_epsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "epsilon_zatz",
+          "name": "zeta_delta",
           "request": {
-            "schema": "double",
+            "schema": "float",
             "name": [
               "hello"
             ]
@@ -51,13 +51,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_itch;1",
+        "@id": "dtmi:example:zeta_eta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "epsilon_flunn",
+          "name": "zeta_zeta",
           "request": {
-            "schema": "duration",
+            "schema": "integer",
             "name": {
               "@value": "hello",
               "@type": "xsd:string"
@@ -75,13 +75,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:epsilon_vroo;1",
+        "@id": "dtmi:example:zeta_iota;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "epsilon_yekk",
+          "name": "zeta_theta",
           "request": {
-            "schema": "float",
+            "schema": "long",
             "name": [
               {
                 "@value": "hello",
@@ -101,122 +101,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_alpha;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "epsilon_hi",
-          "request": {
-            "schema": "integer",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_gamma;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_beta",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "long",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_epsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_delta",
-          "request": {
-            "schema": "string",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_eta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_zeta",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "time",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_iota;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_theta",
-          "request": {
-            "schema": "boolean",
-            "name": 626
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:zeta_lambda;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "zeta_kappa",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
-            "name": 626
+            "schema": "string",
+            "name": null
           }
         }
       }
@@ -225,7 +117,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -236,10 +128,9 @@
           "@type": "Command",
           "name": "zeta_mu",
           "request": {
-            "schema": "dateTime",
-            "name": [
-              null
-            ]
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "time",
+            "name": null
           }
         }
       }
@@ -248,7 +139,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -259,8 +150,117 @@
           "@type": "Command",
           "name": "zeta_xi",
           "request": {
+            "schema": "boolean",
+            "name": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_pi",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "date",
+            "name": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_tau;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_sigma",
+          "request": {
+            "schema": "dateTime",
+            "name": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_phi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_upsilon",
+          "request": {
             "@context": "dtmi:undefinedExtension:context;1",
             "schema": "double",
+            "name": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_psi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_chi",
+          "request": {
+            "schema": "duration",
+            "name": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_yuzz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_omega",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "float",
             "name": [
               null
             ]
@@ -277,130 +277,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_rho;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_pi",
-          "request": {
-            "schema": "duration",
-            "name": [
-              true
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_tau;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_sigma",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "float",
-            "name": [
-              true
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_phi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_upsilon",
-          "request": {
-            "schema": "integer",
-            "name": [
-              626
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_psi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_chi",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "long",
-            "name": [
-              626
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_yuzz;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zeta_omega",
-          "request": {
-            "schema": "string",
-            "name": {}
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:zeta_um;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "zeta_wum",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "time",
-            "name": {}
+            "schema": "integer",
+            "name": [
+              true
+            ]
           }
         }
       }
@@ -409,7 +295,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -420,7 +306,121 @@
           "@type": "Command",
           "name": "zeta_humpf",
           "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "long",
+            "name": [
+              true
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_nuh;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_glikk",
+          "request": {
+            "schema": "string",
+            "name": [
+              626
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_snee",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "time",
+            "name": [
+              626
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_spazz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_thnad",
+          "request": {
             "schema": "boolean",
+            "name": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_zatz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_floob",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "date",
+            "name": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:zeta_flunn;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zeta_jogg",
+          "request": {
+            "schema": "dateTime",
             "name": [
               {}
             ]
@@ -437,14 +437,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_nuh;1",
+        "@id": "dtmi:example:zeta_yekk;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "zeta_glikk",
+          "name": "zeta_itch",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
+            "schema": "double",
             "name": [
               {}
             ]
@@ -461,13 +461,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_quan;1",
+        "@id": "dtmi:example:zeta_hi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "zeta_snee",
+          "name": "zeta_vroo",
           "request": {
-            "schema": "dateTime",
+            "schema": "duration",
             "name": []
           }
         }
@@ -482,14 +482,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_spazz;1",
+        "@id": "dtmi:example:eta_beta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "zeta_thnad",
+          "name": "eta_alpha",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "double",
+            "schema": "float",
             "name": []
           }
         }

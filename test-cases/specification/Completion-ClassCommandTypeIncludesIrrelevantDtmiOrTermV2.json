@@ -7,53 +7,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:chi_sigma;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": [
-            "Command",
-            "dtmi:foo:bar;1"
-          ],
-          "name": "chi_rho"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:chi_upsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": [
-            "Command",
-            "dtmi:foo:bar;1"
-          ],
-          "name": "chi_tau"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:chi_chi;1",
         "@type": "Interface",
         "contents": {
           "@type": [
             "Command",
-            "boolean"
+            "dtmi:foo:bar;1"
           ],
           "name": "chi_phi"
         }
@@ -74,9 +33,50 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": [
             "Command",
-            "boolean"
+            "dtmi:foo:bar;1"
           ],
           "name": "chi_psi"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_wum;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Command",
+            "boolean"
+          ],
+          "name": "chi_yuzz"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:chi_humpf;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Command",
+            "boolean"
+          ],
+          "name": "chi_um"
         }
       }
     ]

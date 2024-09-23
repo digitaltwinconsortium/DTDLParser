@@ -7,63 +7,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_omicron;1",
+        "@id": "dtmi:example:vroo_spazz;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:itch_xi;1",
+          "@id": "dtmi:example:vroo_thnad;1",
           "@type": "Interface",
           "contents": {
             "@type": "Command",
-            "name": "itch_nu",
+            "name": "vroo_quan",
             "request": {
               "@context": [],
-              "name": "itch_mu",
-              "schema": "float"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_sigma;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "itch_rho",
-          "request": {
-            "name": "itch_pi",
-            "schema": "integer"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_chi;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:itch_phi;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "itch_upsilon",
-            "request": {
-              "name": "itch_tau",
+              "name": "vroo_snee",
               "schema": "long"
             }
           }
@@ -79,13 +33,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_yuzz;1",
+        "@id": "dtmi:example:vroo_jogg;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "itch_omega",
+          "name": "vroo_zatz",
           "request": {
-            "name": "itch_psi",
+            "name": "vroo_floob",
             "schema": "string"
           }
         }
@@ -100,14 +54,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_humpf;1",
+        "@id": "dtmi:example:vroo_vroo;1",
         "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "itch_um",
-          "request": {
-            "name": "itch_wum",
-            "schema": "time"
+        "extends": {
+          "@id": "dtmi:example:vroo_yekk;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "vroo_itch",
+            "request": {
+              "name": "vroo_flunn",
+              "schema": "time"
+            }
           }
         }
       }
@@ -121,14 +79,56 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:itch_nuh;1",
+        "@id": "dtmi:example:hi_beta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "itch_glikk",
+          "name": "hi_alpha",
           "request": {
-            "name": "itch_fuddle",
+            "name": "vroo_hi",
             "schema": "boolean"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:hi_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_delta",
+          "request": {
+            "name": "hi_gamma",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:hi_theta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "hi_eta",
+          "request": {
+            "name": "hi_zeta",
+            "schema": "dateTime"
           }
         }
       }

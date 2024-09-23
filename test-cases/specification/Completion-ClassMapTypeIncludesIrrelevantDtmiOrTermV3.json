@@ -7,20 +7,77 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:fuddle_xi;1",
+        "@id": "dtmi:example:snee_spazz;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:fuddle_lambda;1",
+          "@id": "dtmi:example:snee_snee;1",
           "@type": [
             "Map",
             "dtmi:foo:bar;1"
           ],
           "mapKey": {
-            "name": "fuddle_mu",
+            "name": "snee_quan",
             "schema": "string"
           },
           "mapValue": {
-            "name": "fuddle_nu",
+            "name": "snee_thnad",
+            "schema": "date"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:snee_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:snee_floob;1",
+          "@type": [
+            "Map",
+            "dtmi:foo:bar;1"
+          ],
+          "mapKey": {
+            "name": "snee_zatz",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_jogg",
+            "schema": "dateTime"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;3",
+        "@id": "dtmi:example:snee_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:snee_itch;1",
+          "@type": [
+            "Map",
+            "boolean"
+          ],
+          "mapKey": {
+            "name": "snee_yekk",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "snee_vroo",
             "schema": "double"
           }
         }
@@ -35,79 +92,22 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:fuddle_sigma;1",
+        "@id": "dtmi:example:quan_delta;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:fuddle_omicron;1",
+          "@id": "dtmi:example:quan_alpha;1",
           "@type": [
             "Map",
-            "dtmi:foo:bar;1"
+            "boolean"
           ],
           "mapKey": {
-            "name": "fuddle_pi",
+            "name": "quan_beta",
             "schema": "string"
           },
           "mapValue": {
-            "name": "fuddle_rho",
+            "name": "quan_gamma",
             "schema": "duration"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:fuddle_chi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:fuddle_tau;1",
-          "@type": [
-            "Map",
-            "boolean"
-          ],
-          "mapKey": {
-            "name": "fuddle_upsilon",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "fuddle_phi",
-            "schema": "float"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;3",
-        "@id": "dtmi:example:fuddle_wum;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:fuddle_psi;1",
-          "@type": [
-            "Map",
-            "boolean"
-          ],
-          "mapKey": {
-            "name": "fuddle_omega",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "fuddle_yuzz",
-            "schema": "integer"
           }
         }
       }
