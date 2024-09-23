@@ -7,20 +7,73 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_epsilon;1",
+        "@id": "dtmi:example:yuzz_epsilon;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:tau_beta;1",
+          "@id": "dtmi:example:yuzz_beta;1",
           "@type": "Map",
           "mapKey": {
-            "name": "tau_gamma",
+            "name": "yuzz_gamma",
             "schema": "string"
           },
           "mapValue": {
-            "name": "tau_delta",
+            "name": "yuzz_delta",
+            "schema": "dateTime"
+          },
+          "@graph": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:yuzz_zeta;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "yuzz_eta",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "yuzz_theta",
+            "schema": "double"
+          },
+          "@graph": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_nu;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:yuzz_kappa;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "yuzz_lambda",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "yuzz_mu",
             "schema": "duration"
           },
-          "@graph": {}
+          "@value": 626
         }
       }
     ]
@@ -33,21 +86,21 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_iota;1",
+        "@id": "dtmi:example:yuzz_rho;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:tau_zeta;1",
+          "@id": "dtmi:example:yuzz_xi;1",
           "@type": "Map",
           "mapKey": {
-            "name": "tau_eta",
+            "name": "yuzz_omicron",
             "schema": "string"
           },
           "mapValue": {
-            "name": "tau_theta",
+            "name": "yuzz_pi",
             "schema": "float"
           },
-          "@graph": {}
+          "@value": 626
         }
       }
     ]
@@ -60,20 +113,20 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_nu;1",
+        "@id": "dtmi:example:yuzz_phi;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:tau_kappa;1",
+          "@id": "dtmi:example:yuzz_sigma;1",
           "@type": "Map",
           "mapKey": {
-            "name": "tau_lambda",
+            "name": "yuzz_tau",
             "schema": "string"
           },
           "mapValue": {
-            "name": "tau_mu",
+            "name": "yuzz_upsilon",
             "schema": "integer"
           },
-          "@value": 626
+          "@language": "en"
         }
       }
     ]
@@ -86,73 +139,20 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_rho;1",
+        "@id": "dtmi:example:yuzz_yuzz;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:tau_xi;1",
+          "@id": "dtmi:example:yuzz_chi;1",
           "@type": "Map",
           "mapKey": {
-            "name": "tau_omicron",
+            "name": "yuzz_psi",
             "schema": "string"
           },
           "mapValue": {
-            "name": "tau_pi",
+            "name": "yuzz_omega",
             "schema": "long"
           },
-          "@value": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_phi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:tau_sigma;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "tau_tau",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "tau_upsilon",
-            "schema": "string"
-          },
-          "@language": "en"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_yuzz;1",
-        "@type": "Interface",
-        "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:tau_chi;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "tau_psi",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "tau_omega",
-            "schema": "time"
-          },
           "@language": "en"
         }
       }
@@ -166,18 +166,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_fuddle;1",
+        "@id": "dtmi:example:yuzz_fuddle;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:tau_wum;1",
+          "@id": "dtmi:example:yuzz_wum;1",
           "@type": "Map",
           "mapKey": {
-            "name": "tau_um",
+            "name": "yuzz_um",
             "schema": "string"
           },
           "mapValue": {
-            "name": "tau_humpf",
-            "schema": "uuid"
+            "name": "yuzz_humpf",
+            "schema": "string"
           },
           "@foobar": true
         }
@@ -192,19 +192,19 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:tau_quan;1",
+        "@id": "dtmi:example:yuzz_quan;1",
         "@type": "Interface",
         "schemas": {
           "@context": "dtmi:undefinedExtension:context;1",
-          "@id": "dtmi:example:tau_glikk;1",
+          "@id": "dtmi:example:yuzz_glikk;1",
           "@type": "Map",
           "mapKey": {
-            "name": "tau_nuh",
+            "name": "yuzz_nuh",
             "schema": "string"
           },
           "mapValue": {
-            "name": "tau_snee",
-            "schema": "boolean"
+            "name": "yuzz_snee",
+            "schema": "time"
           },
           "@foobar": true
         }

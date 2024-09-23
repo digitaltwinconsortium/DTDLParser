@@ -7,46 +7,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:phi_gamma;1",
-        "@type": "Interface",
-        "contents": {
-          "name": "phi_beta",
-          "@type": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:phi_epsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "name": "phi_delta",
-          "@type": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:phi_eta;1",
         "@type": "Interface",
         "contents": {
           "name": "phi_zeta",
-          "@type": null
+          "@type": 626
         }
       }
     ]
@@ -64,7 +29,7 @@
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "phi_theta",
-          "@type": null
+          "@type": 626
         }
       }
     ]
@@ -81,7 +46,7 @@
         "@type": "Interface",
         "contents": {
           "name": "phi_kappa",
-          "@type": true
+          "@type": null
         }
       }
     ]
@@ -99,7 +64,7 @@
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "phi_mu",
-          "@type": true
+          "@type": null
         }
       }
     ]
@@ -116,7 +81,7 @@
         "@type": "Interface",
         "contents": {
           "name": "phi_xi",
-          "@type": {}
+          "@type": true
         }
       }
     ]
@@ -134,7 +99,7 @@
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "phi_pi",
-          "@type": {}
+          "@type": true
         }
       }
     ]
@@ -151,9 +116,7 @@
         "@type": "Interface",
         "contents": {
           "name": "phi_sigma",
-          "@type": [
-            626
-          ]
+          "@type": {}
         }
       }
     ]
@@ -171,9 +134,7 @@
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "phi_upsilon",
-          "@type": [
-            626
-          ]
+          "@type": {}
         }
       }
     ]
@@ -191,7 +152,7 @@
         "contents": {
           "name": "phi_chi",
           "@type": [
-            null
+            626
           ]
         }
       }
@@ -211,7 +172,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "phi_omega",
           "@type": [
-            null
+            626
           ]
         }
       }
@@ -230,7 +191,7 @@
         "contents": {
           "name": "phi_wum",
           "@type": [
-            true
+            null
           ]
         }
       }
@@ -250,7 +211,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "phi_humpf",
           "@type": [
-            true
+            null
           ]
         }
       }
@@ -269,7 +230,7 @@
         "contents": {
           "name": "phi_glikk",
           "@type": [
-            {}
+            true
           ]
         }
       }
@@ -288,6 +249,45 @@
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "name": "phi_snee",
+          "@type": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:phi_spazz;1",
+        "@type": "Interface",
+        "contents": {
+          "name": "phi_thnad",
+          "@type": [
+            {}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:phi_zatz;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "name": "phi_floob",
           "@type": [
             {}
           ]

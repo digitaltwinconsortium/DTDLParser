@@ -7,54 +7,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:omega_xi;1",
+        "@id": "dtmi:example:omega_sigma;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:omega_nu;1",
+          "@id": "dtmi:example:omega_rho;1",
           "@type": "Interface",
           "contents": {
             "@context": [],
             "@type": "Command",
-            "name": "omega_mu"
+            "name": "omega_pi"
           }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:omega_rho;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:omega_pi;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "omega_omicron"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:omega_tau;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "omega_sigma"
         }
       }
     ]
@@ -69,9 +31,13 @@
         "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:omega_phi;1",
         "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "omega_upsilon"
+        "extends": {
+          "@id": "dtmi:example:omega_upsilon;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "omega_tau"
+          }
         }
       }
     ]
@@ -140,6 +106,40 @@
         "contents": {
           "@type": "Command",
           "name": "omega_humpf"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:omega_nuh;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "omega_glikk"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:omega_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "omega_snee"
         }
       }
     ]

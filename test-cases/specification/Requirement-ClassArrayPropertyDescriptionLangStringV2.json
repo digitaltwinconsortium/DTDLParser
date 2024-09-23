@@ -7,55 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:pi_glikk;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:pi_fuddle;1",
-          "@type": "Array",
-          "elementSchema": "string",
-          "description": "hello"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:pi_snee;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:pi_nuh;1",
-          "@type": "Array",
-          "elementSchema": "time",
-          "description": [
-            "hello"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:pi_thnad;1",
         "@type": "Interface",
         "schemas": {
           "@id": "dtmi:example:pi_quan;1",
           "@type": "Array",
           "elementSchema": "boolean",
-          "description": {
-            "en": "hello"
-          }
+          "description": "hello"
         }
       }
     ]
@@ -75,10 +33,7 @@
           "@type": "Array",
           "elementSchema": "date",
           "description": [
-            {
-              "@value": "hello",
-              "@language": "en"
-            }
+            "hello"
           ]
         }
       }
@@ -98,7 +53,9 @@
           "@id": "dtmi:example:pi_zatz;1",
           "@type": "Array",
           "elementSchema": "dateTime",
-          "description": {}
+          "description": {
+            "en": "hello"
+          }
         }
       }
     ]
@@ -117,13 +74,18 @@
           "@id": "dtmi:example:pi_flunn;1",
           "@type": "Array",
           "elementSchema": "double",
-          "description": []
+          "description": [
+            {
+              "@value": "hello",
+              "@language": "en"
+            }
+          ]
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -136,15 +98,15 @@
           "@id": "dtmi:example:pi_yekk;1",
           "@type": "Array",
           "elementSchema": "duration",
-          "description": null
+          "description": {}
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -152,11 +114,10 @@
         "@id": "dtmi:example:rho_alpha;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:example:pi_hi;1",
           "@type": "Array",
           "elementSchema": "float",
-          "description": null
+          "description": []
         }
       }
     ]
@@ -175,7 +136,7 @@
           "@id": "dtmi:example:rho_beta;1",
           "@type": "Array",
           "elementSchema": "integer",
-          "description": true
+          "description": null
         }
       }
     ]
@@ -195,7 +156,7 @@
           "@id": "dtmi:example:rho_delta;1",
           "@type": "Array",
           "elementSchema": "long",
-          "description": true
+          "description": null
         }
       }
     ]
@@ -214,7 +175,7 @@
           "@id": "dtmi:example:rho_zeta;1",
           "@type": "Array",
           "elementSchema": "string",
-          "description": 626
+          "description": true
         }
       }
     ]
@@ -234,7 +195,7 @@
           "@id": "dtmi:example:rho_theta;1",
           "@type": "Array",
           "elementSchema": "time",
-          "description": 626
+          "description": true
         }
       }
     ]
@@ -253,9 +214,7 @@
           "@id": "dtmi:example:rho_kappa;1",
           "@type": "Array",
           "elementSchema": "boolean",
-          "description": [
-            null
-          ]
+          "description": 626
         }
       }
     ]
@@ -275,9 +234,7 @@
           "@id": "dtmi:example:rho_mu;1",
           "@type": "Array",
           "elementSchema": "date",
-          "description": [
-            null
-          ]
+          "description": 626
         }
       }
     ]
@@ -297,7 +254,7 @@
           "@type": "Array",
           "elementSchema": "dateTime",
           "description": [
-            true
+            null
           ]
         }
       }
@@ -319,7 +276,7 @@
           "@type": "Array",
           "elementSchema": "double",
           "description": [
-            true
+            null
           ]
         }
       }
@@ -340,7 +297,7 @@
           "@type": "Array",
           "elementSchema": "duration",
           "description": [
-            626
+            true
           ]
         }
       }
@@ -362,7 +319,7 @@
           "@type": "Array",
           "elementSchema": "float",
           "description": [
-            626
+            true
           ]
         }
       }
@@ -383,7 +340,7 @@
           "@type": "Array",
           "elementSchema": "integer",
           "description": [
-            {}
+            626
           ]
         }
       }
@@ -405,7 +362,7 @@
           "@type": "Array",
           "elementSchema": "long",
           "description": [
-            {}
+            626
           ]
         }
       }
@@ -425,10 +382,9 @@
           "@id": "dtmi:example:rho_wum;1",
           "@type": "Array",
           "elementSchema": "string",
-          "description": {
-            "@value": "hello",
-            "@language": "en"
-          }
+          "description": [
+            {}
+          ]
         }
       }
     ]
@@ -448,10 +404,9 @@
           "@id": "dtmi:example:rho_humpf;1",
           "@type": "Array",
           "elementSchema": "time",
-          "description": {
-            "@value": "hello",
-            "@language": "en"
-          }
+          "description": [
+            {}
+          ]
         }
       }
     ]
@@ -470,11 +425,10 @@
           "@id": "dtmi:example:rho_glikk;1",
           "@type": "Array",
           "elementSchema": "boolean",
-          "description": [
-            {
-              "en": "hello"
-            }
-          ]
+          "description": {
+            "@value": "hello",
+            "@language": "en"
+          }
         }
       }
     ]
@@ -494,6 +448,52 @@
           "@id": "dtmi:example:rho_snee;1",
           "@type": "Array",
           "elementSchema": "date",
+          "description": {
+            "@value": "hello",
+            "@language": "en"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:rho_spazz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:rho_thnad;1",
+          "@type": "Array",
+          "elementSchema": "dateTime",
+          "description": [
+            {
+              "en": "hello"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:rho_zatz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:rho_floob;1",
+          "@type": "Array",
+          "elementSchema": "double",
           "description": [
             {
               "en": "hello"

@@ -7,57 +7,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yuzz_chi;1",
+        "@id": "dtmi:example:nuh_vroo;1",
         "@type": "Interface",
         "contents": {
           "@type": [
             "Property",
             "dtmi:foo:bar;1"
           ],
-          "name": "yuzz_phi",
-          "schema": "date"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yuzz_omega;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": [
-            "Property",
-            "dtmi:foo:bar;1"
-          ],
-          "name": "yuzz_psi",
-          "schema": "dateTime"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yuzz_wum;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": [
-            "Property",
-            "boolean"
-          ],
-          "name": "yuzz_yuzz",
+          "name": "nuh_yekk",
           "schema": "double"
         }
       }
@@ -71,7 +28,50 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yuzz_humpf;1",
+        "@id": "dtmi:example:snee_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": [
+            "Property",
+            "dtmi:foo:bar;1"
+          ],
+          "name": "nuh_hi",
+          "schema": "duration"
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_gamma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": [
+            "Property",
+            "boolean"
+          ],
+          "name": "snee_beta",
+          "schema": "float"
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_epsilon;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
@@ -79,8 +79,8 @@
             "Property",
             "boolean"
           ],
-          "name": "yuzz_um",
-          "schema": "duration"
+          "name": "snee_delta",
+          "schema": "integer"
         }
       }
     ]

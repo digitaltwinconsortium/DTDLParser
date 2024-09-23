@@ -7,11 +7,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yuzz_yekk;1",
+        "@id": "dtmi:example:snee_sigma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "schema": "boolean",
+          "schema": "date",
           "name": "hello"
         }
       }
@@ -25,11 +25,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yuzz_vroo;1",
+        "@id": "dtmi:example:snee_tau;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "schema": "bytes",
+          "schema": "dateTime",
           "name": [
             "hello"
           ]
@@ -45,11 +45,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:yuzz_hi;1",
+        "@id": "dtmi:example:snee_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "schema": "date",
+          "schema": "double",
           "name": {
             "@value": "hello",
             "@type": "xsd:string"
@@ -66,11 +66,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_alpha;1",
+        "@id": "dtmi:example:snee_phi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "schema": "dateTime",
+          "schema": "duration",
           "name": [
             {
               "@value": "hello",
@@ -89,49 +89,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_beta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "schema": "double",
-          "name": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_gamma;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Property",
-          "schema": "duration",
-          "name": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_delta;1",
+        "@id": "dtmi:example:snee_chi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
           "schema": "float",
-          "name": true
+          "name": null
         }
       }
     ]
@@ -144,12 +107,49 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_epsilon;1",
+        "@id": "dtmi:example:snee_psi;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Property",
           "schema": "integer",
+          "name": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_omega;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "schema": "long",
+          "name": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_yuzz;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Property",
+          "schema": "string",
           "name": true
         }
       }
@@ -163,51 +163,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_zeta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "schema": "long",
-          "name": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_eta;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Property",
-          "schema": "string",
-          "name": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_theta;1",
+        "@id": "dtmi:example:snee_wum;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
           "schema": "time",
-          "name": [
-            null
-          ]
+          "name": 626
         }
       }
     ]
@@ -220,15 +181,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_iota;1",
+        "@id": "dtmi:example:snee_um;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Property",
           "schema": "uuid",
-          "name": [
-            null
-          ]
+          "name": 626
         }
       }
     ]
@@ -241,13 +200,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_kappa;1",
+        "@id": "dtmi:example:snee_humpf;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
           "schema": "boolean",
           "name": [
-            true
+            null
           ]
         }
       }
@@ -261,13 +220,54 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_lambda;1",
+        "@id": "dtmi:example:snee_fuddle;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Property",
           "schema": "bytes",
           "name": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_glikk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "schema": "date",
+          "name": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_nuh;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Property",
+          "schema": "dateTime",
+          "name": [
             true
           ]
         }
@@ -282,53 +282,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_mu;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "schema": "date",
-          "name": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_nu;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Property",
-          "schema": "dateTime",
-          "name": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_xi;1",
+        "@id": "dtmi:example:snee_snee;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
           "schema": "double",
-          "name": {}
+          "name": [
+            626
+          ]
         }
       }
     ]
@@ -341,12 +302,51 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_omicron;1",
+        "@id": "dtmi:example:snee_quan;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Property",
           "schema": "duration",
+          "name": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_thnad;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "schema": "float",
+          "name": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:snee_spazz;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Property",
+          "schema": "integer",
           "name": {}
         }
       }
@@ -360,11 +360,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_pi;1",
+        "@id": "dtmi:example:snee_floob;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "schema": "float",
+          "schema": "long",
           "name": [
             {}
           ]
@@ -380,12 +380,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_rho;1",
+        "@id": "dtmi:example:snee_zatz;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Property",
-          "schema": "integer",
+          "schema": "string",
           "name": [
             {}
           ]
@@ -401,11 +401,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_sigma;1",
+        "@id": "dtmi:example:snee_jogg;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "schema": "long",
+          "schema": "time",
           "name": []
         }
       }
@@ -419,12 +419,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:wum_tau;1",
+        "@id": "dtmi:example:snee_flunn;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Property",
-          "schema": "string",
+          "schema": "uuid",
           "name": []
         }
       }

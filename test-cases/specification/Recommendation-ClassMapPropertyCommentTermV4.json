@@ -8,19 +8,19 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:mu_omicron;1",
+        "@id": "dtmi:example:sigma_omicron;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:mu_lambda;1",
+          "@id": "dtmi:example:sigma_lambda;1",
           "@type": "Map",
-          "comment": "mu_mu",
+          "comment": "sigma_mu",
           "mapKey": {
-            "name": "mu_nu",
+            "name": "sigma_nu",
             "schema": "string"
           },
           "mapValue": {
-            "name": "mu_xi",
-            "schema": "string"
+            "name": "sigma_xi",
+            "schema": "integer"
           }
         }
       }
@@ -35,19 +35,19 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:mu_upsilon;1",
+        "@id": "dtmi:example:sigma_upsilon;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:mu_pi;1",
+          "@id": "dtmi:example:sigma_pi;1",
           "@type": "Map",
-          "dtmi:dtdl:property:comment;4": "mu_rho",
+          "dtmi:dtdl:property:comment;4": "sigma_rho",
           "mapKey": {
-            "name": "mu_sigma",
+            "name": "sigma_sigma",
             "schema": "string"
           },
           "mapValue": {
-            "name": "mu_tau",
-            "schema": "time"
+            "name": "sigma_tau",
+            "schema": "long"
           }
         }
       }

@@ -7,63 +7,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_psi;1",
+        "@id": "dtmi:example:beta_xi;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:itch_chi;1",
+          "@id": "dtmi:example:beta_nu;1",
           "@type": "Interface",
           "contents": {
             "@type": "Command",
-            "name": "itch_phi",
+            "name": "beta_mu",
             "request": {
               "@context": [],
-              "name": "itch_upsilon",
-              "schema": "date"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_wum;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "itch_yuzz",
-          "request": {
-            "name": "itch_omega",
-            "schema": "dateTime"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_glikk;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:itch_fuddle;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "itch_humpf",
-            "request": {
-              "name": "itch_um",
+              "name": "beta_lambda",
               "schema": "double"
             }
           }
@@ -79,13 +33,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_quan;1",
+        "@id": "dtmi:example:beta_rho;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "itch_snee",
+          "name": "beta_pi",
           "request": {
-            "name": "itch_nuh",
+            "name": "beta_omicron",
             "schema": "duration"
           }
         }
@@ -100,14 +54,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_floob;1",
+        "@id": "dtmi:example:beta_phi;1",
         "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "itch_spazz",
-          "request": {
-            "name": "itch_thnad",
-            "schema": "float"
+        "extends": {
+          "@id": "dtmi:example:beta_upsilon;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "beta_tau",
+            "request": {
+              "name": "beta_sigma",
+              "schema": "float"
+            }
           }
         }
       }
@@ -121,13 +79,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_flunn;1",
+        "@id": "dtmi:example:beta_omega;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "itch_jogg",
+          "name": "beta_psi",
           "request": {
-            "name": "itch_zatz",
+            "name": "beta_chi",
             "schema": "integer"
           }
         }
@@ -142,14 +100,56 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:itch_vroo;1",
+        "@id": "dtmi:example:beta_um;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "itch_yekk",
+          "name": "beta_wum",
           "request": {
-            "name": "itch_itch",
+            "name": "beta_yuzz",
             "schema": "long"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_glikk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "beta_fuddle",
+          "request": {
+            "name": "beta_humpf",
+            "schema": "string"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "beta_snee",
+          "request": {
+            "name": "beta_nuh",
+            "schema": "time"
           }
         }
       }

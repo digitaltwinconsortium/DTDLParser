@@ -7,13 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:zeta_hi;1",
+        "@id": "dtmi:example:eta_kappa;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "zeta_vroo",
+          "name": "eta_iota",
           "request": {
-            "schema": "long",
+            "schema": "time",
             "name": "EARTH"
           }
         }
@@ -28,13 +28,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_beta;1",
+        "@id": "dtmi:example:eta_mu;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "eta_alpha",
+          "name": "eta_lambda",
           "request": {
-            "schema": "string",
+            "schema": "boolean",
             "name": "Air"
           }
         }
@@ -49,13 +49,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_delta;1",
+        "@id": "dtmi:example:eta_xi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "eta_gamma",
+          "name": "eta_nu",
           "request": {
-            "schema": "time",
+            "schema": "date",
             "name": "fire"
           }
         }
@@ -70,13 +70,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_zeta;1",
+        "@id": "dtmi:example:eta_pi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "eta_epsilon",
+          "name": "eta_omicron",
           "request": {
-            "schema": "boolean",
+            "schema": "dateTime",
             "name": "hello_world"
           }
         }
@@ -91,13 +91,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_theta;1",
+        "@id": "dtmi:example:eta_sigma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "eta_eta",
+          "name": "eta_rho",
           "request": {
-            "schema": "date",
+            "schema": "double",
             "name": "Anarchy99"
           }
         }
@@ -112,122 +112,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_kappa;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_iota",
-          "request": {
-            "schema": "dateTime",
-            "name": "23skidoo"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_mu;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_lambda",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "double",
-            "name": "23skidoo"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_xi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_nu",
-          "request": {
-            "schema": "duration",
-            "name": "626"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_pi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_omicron",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "float",
-            "name": "626"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_sigma;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_rho",
-          "request": {
-            "schema": "integer",
-            "name": "goodbye-world"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:eta_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "eta_tau",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "long",
-            "name": "goodbye-world"
+            "schema": "duration",
+            "name": "23skidoo"
           }
         }
       }
@@ -236,7 +128,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -247,8 +139,9 @@
           "@type": "Command",
           "name": "eta_phi",
           "request": {
-            "schema": "string",
-            "name": "_haha"
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "float",
+            "name": "23skidoo"
           }
         }
       }
@@ -257,7 +150,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -268,8 +161,115 @@
           "@type": "Command",
           "name": "eta_psi",
           "request": {
+            "schema": "integer",
+            "name": "626"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:eta_wum;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "eta_yuzz",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "long",
+            "name": "626"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:eta_humpf;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "eta_um",
+          "request": {
+            "schema": "string",
+            "name": "goodbye-world"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:eta_glikk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "eta_fuddle",
+          "request": {
             "@context": "dtmi:undefinedExtension:context;1",
             "schema": "time",
+            "name": "goodbye-world"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:eta_snee;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "eta_nuh",
+          "request": {
+            "schema": "boolean",
+            "name": "_haha"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:eta_thnad;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "eta_quan",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "date",
             "name": "_haha"
           }
         }
@@ -284,122 +284,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_wum;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_yuzz",
-          "request": {
-            "schema": "boolean",
-            "name": "toodaloo_"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_humpf;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_um",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
-            "name": "toodaloo_"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_glikk;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_fuddle",
-          "request": {
-            "schema": "dateTime",
-            "name": "pro:con"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_snee;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_nuh",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "double",
-            "name": "pro:con"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_thnad;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "eta_quan",
-          "request": {
-            "schema": "duration",
-            "name": "mish/mash"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:eta_floob;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "eta_spazz",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "float",
-            "name": "mish/mash"
+            "schema": "dateTime",
+            "name": "toodaloo_"
           }
         }
       }
@@ -408,7 +300,7 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
@@ -419,8 +311,9 @@
           "@type": "Command",
           "name": "eta_zatz",
           "request": {
-            "schema": "integer",
-            "name": "#tag"
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "double",
+            "name": "toodaloo_"
           }
         }
       }
@@ -429,7 +322,7 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -440,8 +333,115 @@
           "@type": "Command",
           "name": "eta_flunn",
           "request": {
+            "schema": "duration",
+            "name": "pro:con"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:eta_vroo;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "eta_yekk",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "float",
+            "name": "pro:con"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:theta_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "eta_hi",
+          "request": {
+            "schema": "integer",
+            "name": "mish/mash"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:theta_gamma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "theta_beta",
+          "request": {
             "@context": "dtmi:undefinedExtension:context;1",
             "schema": "long",
+            "name": "mish/mash"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:theta_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "theta_delta",
+          "request": {
+            "schema": "string",
+            "name": "#tag"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:theta_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "theta_zeta",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "time",
             "name": "#tag"
           }
         }
@@ -456,13 +456,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:eta_vroo;1",
+        "@id": "dtmi:example:theta_iota;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "eta_yekk",
+          "name": "theta_theta",
           "request": {
-            "schema": "string",
+            "schema": "boolean",
             "name": "@tweet"
           }
         }
@@ -477,14 +477,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:theta_alpha;1",
+        "@id": "dtmi:example:theta_lambda;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "eta_hi",
+          "name": "theta_kappa",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "time",
+            "schema": "date",
             "name": "@tweet"
           }
         }
@@ -499,13 +499,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:theta_gamma;1",
+        "@id": "dtmi:example:theta_nu;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "theta_beta",
+          "name": "theta_mu",
           "request": {
-            "schema": "boolean",
+            "schema": "dateTime",
             "name": "$money"
           }
         }
@@ -520,14 +520,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:theta_epsilon;1",
+        "@id": "dtmi:example:theta_omicron;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "theta_delta",
+          "name": "theta_xi",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
+            "schema": "double",
             "name": "$money"
           }
         }

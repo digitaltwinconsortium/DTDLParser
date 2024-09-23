@@ -7,56 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:omicron_theta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:omicron_eta;1",
-          "@type": "Array",
-          "elementSchema": "time",
-          "comment": "hello"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
-        "@id": "dtmi:example:omicron_kappa;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:omicron_iota;1",
-          "@type": "Array",
-          "elementSchema": "boolean",
-          "comment": [
-            "hello"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;2",
         "@id": "dtmi:example:omicron_mu;1",
         "@type": "Interface",
         "schemas": {
           "@id": "dtmi:example:omicron_lambda;1",
           "@type": "Array",
           "elementSchema": "date",
-          "comment": {
-            "@value": "hello",
-            "@type": "xsd:string"
-          }
+          "comment": "hello"
         }
       }
     ]
@@ -76,10 +33,7 @@
           "@type": "Array",
           "elementSchema": "dateTime",
           "comment": [
-            {
-              "@value": "hello",
-              "@type": "xsd:string"
-            }
+            "hello"
           ]
         }
       }
@@ -99,13 +53,16 @@
           "@id": "dtmi:example:omicron_omicron;1",
           "@type": "Array",
           "elementSchema": "double",
-          "comment": []
+          "comment": {
+            "@value": "hello",
+            "@type": "xsd:string"
+          }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -118,15 +75,20 @@
           "@id": "dtmi:example:omicron_rho;1",
           "@type": "Array",
           "elementSchema": "duration",
-          "comment": null
+          "comment": [
+            {
+              "@value": "hello",
+              "@type": "xsd:string"
+            }
+          ]
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -134,11 +96,10 @@
         "@id": "dtmi:example:omicron_upsilon;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:example:omicron_tau;1",
           "@type": "Array",
           "elementSchema": "float",
-          "comment": null
+          "comment": []
         }
       }
     ]
@@ -157,7 +118,7 @@
           "@id": "dtmi:example:omicron_phi;1",
           "@type": "Array",
           "elementSchema": "integer",
-          "comment": true
+          "comment": null
         }
       }
     ]
@@ -177,7 +138,7 @@
           "@id": "dtmi:example:omicron_psi;1",
           "@type": "Array",
           "elementSchema": "long",
-          "comment": true
+          "comment": null
         }
       }
     ]
@@ -196,7 +157,7 @@
           "@id": "dtmi:example:omicron_yuzz;1",
           "@type": "Array",
           "elementSchema": "string",
-          "comment": 626
+          "comment": true
         }
       }
     ]
@@ -216,7 +177,7 @@
           "@id": "dtmi:example:omicron_um;1",
           "@type": "Array",
           "elementSchema": "time",
-          "comment": 626
+          "comment": true
         }
       }
     ]
@@ -235,9 +196,7 @@
           "@id": "dtmi:example:omicron_fuddle;1",
           "@type": "Array",
           "elementSchema": "boolean",
-          "comment": [
-            null
-          ]
+          "comment": 626
         }
       }
     ]
@@ -257,9 +216,7 @@
           "@id": "dtmi:example:omicron_nuh;1",
           "@type": "Array",
           "elementSchema": "date",
-          "comment": [
-            null
-          ]
+          "comment": 626
         }
       }
     ]
@@ -279,7 +236,7 @@
           "@type": "Array",
           "elementSchema": "dateTime",
           "comment": [
-            true
+            null
           ]
         }
       }
@@ -301,7 +258,7 @@
           "@type": "Array",
           "elementSchema": "double",
           "comment": [
-            true
+            null
           ]
         }
       }
@@ -322,7 +279,7 @@
           "@type": "Array",
           "elementSchema": "duration",
           "comment": [
-            626
+            true
           ]
         }
       }
@@ -344,7 +301,7 @@
           "@type": "Array",
           "elementSchema": "float",
           "comment": [
-            626
+            true
           ]
         }
       }
@@ -364,7 +321,9 @@
           "@id": "dtmi:example:omicron_yekk;1",
           "@type": "Array",
           "elementSchema": "integer",
-          "comment": {}
+          "comment": [
+            626
+          ]
         }
       }
     ]
@@ -384,7 +343,9 @@
           "@id": "dtmi:example:omicron_hi;1",
           "@type": "Array",
           "elementSchema": "long",
-          "comment": {}
+          "comment": [
+            626
+          ]
         }
       }
     ]
@@ -403,9 +364,7 @@
           "@id": "dtmi:example:pi_beta;1",
           "@type": "Array",
           "elementSchema": "string",
-          "comment": [
-            {}
-          ]
+          "comment": {}
         }
       }
     ]
@@ -425,6 +384,47 @@
           "@id": "dtmi:example:pi_delta;1",
           "@type": "Array",
           "elementSchema": "time",
+          "comment": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:pi_eta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:pi_zeta;1",
+          "@type": "Array",
+          "elementSchema": "boolean",
+          "comment": [
+            {}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;2",
+        "@id": "dtmi:example:pi_iota;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:pi_theta;1",
+          "@type": "Array",
+          "elementSchema": "date",
           "comment": [
             {}
           ]
