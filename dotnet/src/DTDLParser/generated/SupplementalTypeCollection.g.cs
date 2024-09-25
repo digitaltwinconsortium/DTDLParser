@@ -37,6 +37,7 @@ namespace DTDLParser
             Dtmi dtdlExtensionOverridingContextIdV2 = new Dtmi("dtmi:dtdl:extension:overriding;2");
             Dtmi dtdlExtensionQuantitativeTypesContextIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes;1");
             Dtmi dtdlExtensionQuantitativeTypesContextIdV2 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes;2");
+            Dtmi dtdlExtensionRequirementContextIdV1 = new Dtmi("dtmi:dtdl:extension:requirement;1");
             Dtmi dtdlLimitsOnvifContextIdV1 = new Dtmi("dtmi:dtdl:limits:onvif;1");
             Dtmi iotcentralContextIdV2 = new Dtmi("dtmi:iotcentral:context;2");
 
@@ -190,6 +191,7 @@ namespace DTDLParser
             Dtmi voltageTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v2:class:Voltage");
             Dtmi volumeTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v2:class:Volume");
             Dtmi volumeFlowRateTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v2:class:VolumeFlowRate");
+            Dtmi requiredTypeIdCV1 = new Dtmi("dtmi:dtdl:extension:requirement:v1:Required");
             Dtmi accelerationVectorTypeIdEV2 = new Dtmi("dtmi:iotcentral:class:AccelerationVector;2");
             Dtmi eventTypeIdEV2 = new Dtmi("dtmi:iotcentral:class:Event;2");
             Dtmi locationTypeIdEV2 = new Dtmi("dtmi:iotcentral:class:Location;2");
@@ -996,6 +998,10 @@ namespace DTDLParser
             volumeFlowRateInfoCV2.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.CommandRequest, DTEntityKind.CommandResponse, DTEntityKind.Field, DTEntityKind.MapValue, DTEntityKind.Property, DTEntityKind.Telemetry };
             volumeFlowRateInfoCV2.AllowedCotypeVersions = new HashSet<int>() { 4 };
 
+            DTSupplementalTypeInfo requiredInfoCV1 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionRequirementContextIdV1, requiredTypeIdCV1, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            requiredInfoCV1.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
+            requiredInfoCV1.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
             DTSupplementalTypeInfo accelerationVectorInfoEV2 = new DTSupplementalTypeInfo(DTExtensionKind.SemanticType, iotcentralContextIdV2, accelerationVectorTypeIdEV2, isAbstract: false, isMergeable: false, semanticTypeTypeIdEV2);
             accelerationVectorInfoEV2.AddProperty("dtmi:dtdl:property:unit;2", new Dtmi("dtmi:standard:class:AccelerationUnit;2"), 1, null, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             accelerationVectorInfoEV2.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredValues = new List<Dtmi>() { new Dtmi("dtmi:iotcentral:schema:vector;2") }, RequiredValuesString = "vector" });
@@ -1477,6 +1483,7 @@ namespace DTDLParser
             EndogenousSupplementalTypes[voltageTypeIdCV2] = voltageInfoCV2;
             EndogenousSupplementalTypes[volumeTypeIdCV2] = volumeInfoCV2;
             EndogenousSupplementalTypes[volumeFlowRateTypeIdCV2] = volumeFlowRateInfoCV2;
+            EndogenousSupplementalTypes[requiredTypeIdCV1] = requiredInfoCV1;
             EndogenousSupplementalTypes[accelerationVectorTypeIdEV2] = accelerationVectorInfoEV2;
             EndogenousSupplementalTypes[eventTypeIdEV2] = eventInfoEV2;
             EndogenousSupplementalTypes[locationTypeIdEV2] = locationInfoEV2;

@@ -95,6 +95,8 @@ namespace ParserUnitTest
         [DataRow("RelationshipDocExample-en-US-3-V2")]
         [DataRow("RelationshipDocExample-en-US-3-V3")]
         [DataRow("RelationshipDocExample-en-US-3-V4")]
+        [DataRow("requirementDocExample-en-US-1-V1")]
+        [DataRow("requirementDocExample-en-US-2-V1")]
         [DataRow("SpecExample-Array-V2")]
         [DataRow("SpecExample-Array-V3")]
         [DataRow("SpecExample-Array-V4")]
