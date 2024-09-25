@@ -1411,6 +1411,9 @@
       "zepto": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:zepto",
       "zetta": "dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:zetta"
     },
+    "dtmi:dtdl:extension:requirement;1": {
+      "Required": "dtmi:dtdl:extension:requirement:v1:Required"
+    },
     "dtmi:dtdl:limits:onvif;1": {},
     "dtmi:iotcentral:context;2": {
       "AccelerationVector": "dtmi:iotcentral:class:AccelerationVector;2",
@@ -13759,6 +13762,11 @@
     "dtmi:dtdl:extension:quantitativeTypes;2": {
       "description": {
         "en-us": "A set of standard semantic types, unit types, and units."
+      }
+    },
+    "dtmi:dtdl:extension:requirement;1": {
+      "description": {
+        "en-us": "Selectively designate one or more fields in an Object as required."
       }
     },
     "dtmi:dtdl:limits:onvif;1": {
@@ -37782,6 +37790,24 @@
           "uniqueValue": false
         }
       },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:requirement:v1:Required": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:requirement;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
       "siblings": []
     },
     "dtmi:iotcentral:class:AccelerationVector;2": {
