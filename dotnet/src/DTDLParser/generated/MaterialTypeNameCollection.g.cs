@@ -32,6 +32,8 @@ namespace DTDLParser
             TypeNames.Add("dtmi:dtdl:class:Boolean;2");
             TypeNames.Add("dtmi:dtdl:class:Boolean;3");
             TypeNames.Add("dtmi:dtdl:class:Boolean;4");
+            TypeNames.Add("Byte");
+            TypeNames.Add("dtmi:dtdl:class:Byte;4");
             TypeNames.Add("Bytes");
             TypeNames.Add("dtmi:dtdl:class:Bytes;4");
             TypeNames.Add("Command");
@@ -162,6 +164,8 @@ namespace DTDLParser
             TypeNames.Add("dtmi:dtdl:class:SchemaField;2");
             TypeNames.Add("dtmi:dtdl:class:SchemaField;3");
             TypeNames.Add("dtmi:dtdl:class:SchemaField;4");
+            TypeNames.Add("Short");
+            TypeNames.Add("dtmi:dtdl:class:Short;4");
             TypeNames.Add("String");
             TypeNames.Add("dtmi:dtdl:class:String;2");
             TypeNames.Add("dtmi:dtdl:class:String;3");
@@ -186,6 +190,14 @@ namespace DTDLParser
             TypeNames.Add("dtmi:dtdl:class:UnitAttribute;2");
             TypeNames.Add("dtmi:dtdl:class:UnitAttribute;3");
             TypeNames.Add("dtmi:dtdl:class:UnitAttribute;4");
+            TypeNames.Add("UnsignedByte");
+            TypeNames.Add("dtmi:dtdl:class:UnsignedByte;4");
+            TypeNames.Add("UnsignedInteger");
+            TypeNames.Add("dtmi:dtdl:class:UnsignedInteger;4");
+            TypeNames.Add("UnsignedLong");
+            TypeNames.Add("dtmi:dtdl:class:UnsignedLong;4");
+            TypeNames.Add("UnsignedShort");
+            TypeNames.Add("dtmi:dtdl:class:UnsignedShort;4");
             TypeNames.Add("Uuid");
             TypeNames.Add("dtmi:dtdl:class:Uuid;4");
         }

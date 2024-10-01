@@ -242,7 +242,7 @@
 
             if (instanceConditionDigest.Pattern != null)
             {
-                AddPatternCheck(dtdlVersion, obverseClass, scope, instanceConditionDigest.Pattern, $"{eltVar}.GetString()", $"{level}Value", termination, conformanceText);
+                AddPatternCheck(dtdlVersion, obverseClass, scope, instanceConditionDigest.Pattern, $"{eltVar}.{(instanceConditionDigest.JsonType == "string" ? "GetString" : "GetRawText")}()", $"{level}Value", termination, conformanceText);
             }
 
             if (instanceConditionDigest.NamePattern != null)
@@ -283,14 +283,16 @@
 
         private static void AddDatatypeCheck(CsScope scope, string datatype, string eltVar, string termination, string conformanceText)
         {
+            if (TryGetIntegralType(datatype, out string csType))
+            {
+                scope.If($"!{csType}.TryParse({eltVar}.GetRawText(), out {csType} _)")
+                    .Line($"violations.Add($\"{{{eltVar}.GetRawText()}} does not conform to {conformanceText}\");")
+                    .Line($"{termination};");
+                return;
+            }
+
             switch (datatype)
             {
-                case "int":
-                case "long":
-                    scope.If($"!{datatype}.TryParse({eltVar}.GetRawText(), out {datatype} _)")
-                        .Line($"violations.Add($\"{{{eltVar}.GetRawText()}} does not conform to {conformanceText}\");")
-                        .Line($"{termination};");
-                    break;
                 case "float":
                 case "double":
                     scope.If($"!{datatype}.TryParse({eltVar}.GetRawText(), out {datatype} val) || {datatype}.IsInfinity(val)")
@@ -304,6 +306,40 @@
                         .Line($"violations.Add($\"\\\"{{{eltVar}.GetString()}}\\\" does not conform to {conformanceText}\");")
                         .Line($"{termination};");
                     break;
+            }
+        }
+
+        private static bool TryGetIntegralType(string datatype, out string csType)
+        {
+            switch (datatype)
+            {
+                case "byte":
+                    csType = "sbyte";
+                    return true;
+                case "int":
+                    csType = "int";
+                    return true;
+                case "long":
+                    csType = "long";
+                    return true;
+                case "short":
+                    csType = "short";
+                    return true;
+                case "unsignedByte":
+                    csType = "byte";
+                    return true;
+                case "unsignedInt":
+                    csType = "uint";
+                    return true;
+                case "unsignedLong":
+                    csType = "ulong";
+                    return true;
+                case "unsignedShort":
+                    csType = "ushort";
+                    return true;
+                default:
+                    csType = string.Empty;
+                    return false;
             }
         }
 

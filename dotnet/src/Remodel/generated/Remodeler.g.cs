@@ -73,6 +73,7 @@ namespace DTDLParser
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:unitprefix:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:property:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:quantitativeTypes:v2:enum:PowerUnit");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:requirement:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:iotcentral:class:(\w*);2");
             termIriRegexes.Add(@"dtmi:iotcentral:schema:(\w*);2");
 

@@ -7,12 +7,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_theta;1",
+        "@id": "dtmi:example:theta_humpf;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_eta",
-          "schema": "string",
+          "name": "theta_um",
+          "schema": "long",
           "comment": "hello"
         }
       }
@@ -26,12 +26,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_kappa;1",
+        "@id": "dtmi:example:theta_glikk;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_iota",
-          "schema": "time",
+          "name": "theta_fuddle",
+          "schema": "short",
           "comment": [
             "hello"
           ]
@@ -47,12 +47,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_mu;1",
+        "@id": "dtmi:example:theta_snee;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_lambda",
-          "schema": "uuid",
+          "name": "theta_nuh",
+          "schema": "string",
           "comment": {
             "@value": "hello",
             "@type": "xsd:string"
@@ -69,12 +69,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_xi;1",
+        "@id": "dtmi:example:theta_thnad;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_nu",
-          "schema": "boolean",
+          "name": "theta_quan",
+          "schema": "time",
           "comment": [
             {
               "@value": "hello",
@@ -93,12 +93,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_pi;1",
+        "@id": "dtmi:example:theta_floob;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_omicron",
-          "schema": "bytes",
+          "name": "theta_spazz",
+          "schema": "unsignedByte",
           "comment": []
         }
       }
@@ -112,12 +112,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_sigma;1",
+        "@id": "dtmi:example:theta_jogg;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_rho",
-          "schema": "date",
+          "name": "theta_zatz",
+          "schema": "unsignedInteger",
           "comment": null
         }
       }
@@ -131,13 +131,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_upsilon;1",
+        "@id": "dtmi:example:theta_itch;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "delta_tau",
-          "schema": "dateTime",
+          "name": "theta_flunn",
+          "schema": "unsignedLong",
           "comment": null
         }
       }
@@ -151,12 +151,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_chi;1",
+        "@id": "dtmi:example:theta_vroo;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_phi",
-          "schema": "double",
+          "name": "theta_yekk",
+          "schema": "unsignedShort",
           "comment": true
         }
       }
@@ -170,139 +170,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_omega;1",
+        "@id": "dtmi:example:iota_alpha;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "delta_psi",
-          "schema": "duration",
-          "comment": true
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_wum;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "delta_yuzz",
-          "schema": "float",
-          "comment": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_humpf;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "delta_um",
-          "schema": "integer",
-          "comment": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_glikk;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "delta_fuddle",
-          "schema": "long",
-          "comment": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_snee;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "delta_nuh",
-          "schema": "string",
-          "comment": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_thnad;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "delta_quan",
-          "schema": "time",
-          "comment": [
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_floob;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "delta_spazz",
+          "name": "theta_hi",
           "schema": "uuid",
-          "comment": [
-            true
-          ]
+          "comment": true
         }
       }
     ]
@@ -315,15 +190,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_jogg;1",
+        "@id": "dtmi:example:iota_gamma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_zatz",
+          "name": "iota_beta",
           "schema": "boolean",
-          "comment": [
-            626
-          ]
+          "comment": 626
         }
       }
     ]
@@ -336,14 +209,141 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_itch;1",
+        "@id": "dtmi:example:iota_epsilon;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "delta_flunn",
+          "name": "iota_delta",
+          "schema": "byte",
+          "comment": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "iota_zeta",
           "schema": "bytes",
           "comment": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_iota;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "iota_theta",
+          "schema": "date",
+          "comment": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "iota_kappa",
+          "schema": "dateTime",
+          "comment": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "iota_mu",
+          "schema": "double",
+          "comment": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_omicron;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "iota_xi",
+          "schema": "duration",
+          "comment": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:iota_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "iota_pi",
+          "schema": "float",
+          "comment": [
             626
           ]
         }
@@ -358,12 +358,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_vroo;1",
+        "@id": "dtmi:example:iota_tau;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "delta_yekk",
-          "schema": "date",
+          "name": "iota_sigma",
+          "schema": "integer",
           "comment": {}
         }
       }
@@ -377,13 +377,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:epsilon_alpha;1",
+        "@id": "dtmi:example:iota_phi;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "delta_hi",
-          "schema": "dateTime",
+          "name": "iota_upsilon",
+          "schema": "long",
           "comment": {}
         }
       }
@@ -397,12 +397,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:epsilon_gamma;1",
+        "@id": "dtmi:example:iota_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "epsilon_beta",
-          "schema": "double",
+          "name": "iota_chi",
+          "schema": "short",
           "comment": [
             {}
           ]
@@ -418,13 +418,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:epsilon_epsilon;1",
+        "@id": "dtmi:example:iota_yuzz;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "epsilon_delta",
-          "schema": "duration",
+          "name": "iota_omega",
+          "schema": "string",
           "comment": [
             {}
           ]

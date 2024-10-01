@@ -7,11 +7,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_alpha;1",
+        "@id": "dtmi:example:itch_phi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "duration",
+          "schema": "double",
           "name": "hello"
         }
       }
@@ -25,11 +25,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_beta;1",
+        "@id": "dtmi:example:itch_chi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "float",
+          "schema": "duration",
           "name": [
             "hello"
           ]
@@ -45,11 +45,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_gamma;1",
+        "@id": "dtmi:example:itch_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "integer",
+          "schema": "float",
           "name": {
             "@value": "hello",
             "@type": "xsd:string"
@@ -66,11 +66,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_delta;1",
+        "@id": "dtmi:example:itch_omega;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "long",
+          "schema": "integer",
           "name": [
             {
               "@value": "hello",
@@ -89,11 +89,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_epsilon;1",
+        "@id": "dtmi:example:itch_yuzz;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "string",
+          "schema": "long",
           "name": null
         }
       }
@@ -107,49 +107,49 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_zeta;1",
+        "@id": "dtmi:example:itch_wum;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "short",
+          "name": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_um;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "schema": "string",
+          "name": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_humpf;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "schema": "time",
-          "name": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_eta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "uuid",
-          "name": true
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_theta;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "schema": "boolean",
           "name": true
         }
       }
@@ -163,11 +163,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_iota;1",
+        "@id": "dtmi:example:itch_fuddle;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "bytes",
+          "schema": "unsignedByte",
           "name": 626
         }
       }
@@ -181,12 +181,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_kappa;1",
+        "@id": "dtmi:example:itch_glikk;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "schema": "date",
+          "schema": "unsignedInteger",
           "name": 626
         }
       }
@@ -200,11 +200,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_lambda;1",
+        "@id": "dtmi:example:itch_nuh;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "schema": "dateTime",
+          "schema": "unsignedLong",
           "name": [
             null
           ]
@@ -220,14 +220,153 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_mu;1",
+        "@id": "dtmi:example:itch_snee;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "unsignedShort",
+          "name": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_quan;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "schema": "uuid",
+          "name": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_thnad;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "boolean",
+          "name": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_spazz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "schema": "byte",
+          "name": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_floob;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "bytes",
+          "name": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_zatz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "schema": "date",
+          "name": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_jogg;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "schema": "dateTime",
+          "name": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:itch_flunn;1",
+        "@type": "Interface",
+        "contents": {
           "@type": "Telemetry",
           "schema": "double",
           "name": [
-            null
+            {}
           ]
         }
       }
@@ -236,18 +375,19 @@
   {
     "valid": false,
     "options": [
-      "DisallowUndefinedExtensions"
+      "AllowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_nu;1",
+        "@id": "dtmi:example:itch_itch;1",
         "@type": "Interface",
         "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "schema": "duration",
           "name": [
-            true
+            {}
           ]
         }
       }
@@ -256,156 +396,16 @@
   {
     "valid": false,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_xi;1",
+        "@id": "dtmi:example:itch_yekk;1",
         "@type": "Interface",
         "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "schema": "float",
-          "name": [
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_omicron;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "integer",
-          "name": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_pi;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "schema": "long",
-          "name": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_rho;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "string",
-          "name": {}
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_sigma;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "schema": "time",
-          "name": {}
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_tau;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "uuid",
-          "name": [
-            {}
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_upsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "schema": "boolean",
-          "name": [
-            {}
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_phi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "schema": "bytes",
           "name": []
         }
       }
@@ -419,12 +419,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_chi;1",
+        "@id": "dtmi:example:itch_vroo;1",
         "@type": "Interface",
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "schema": "date",
+          "schema": "integer",
           "name": []
         }
       }

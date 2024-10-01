@@ -21,6 +21,14 @@ namespace DTDLParser
             {
                 return elt.ValueKind == JsonValueKind.String && (string)value == elt.GetString();
             }
+            else if (valueType == typeof(sbyte))
+            {
+                return elt.ValueKind == JsonValueKind.Number && (sbyte)value == elt.GetSByte();
+            }
+            else if (valueType == typeof(short))
+            {
+                return elt.ValueKind == JsonValueKind.Number && (short)value == elt.GetInt16();
+            }
             else if (valueType == typeof(int))
             {
                 return elt.ValueKind == JsonValueKind.Number && (int)value == elt.GetInt32();
@@ -28,6 +36,22 @@ namespace DTDLParser
             else if (valueType == typeof(long))
             {
                 return elt.ValueKind == JsonValueKind.Number && (long)value == elt.GetInt64();
+            }
+            else if (valueType == typeof(byte))
+            {
+                return elt.ValueKind == JsonValueKind.Number && (byte)value == elt.GetByte();
+            }
+            else if (valueType == typeof(ushort))
+            {
+                return elt.ValueKind == JsonValueKind.Number && (ushort)value == elt.GetUInt16();
+            }
+            else if (valueType == typeof(uint))
+            {
+                return elt.ValueKind == JsonValueKind.Number && (uint)value == elt.GetUInt32();
+            }
+            else if (valueType == typeof(ulong))
+            {
+                return elt.ValueKind == JsonValueKind.Number && (ulong)value == elt.GetUInt64();
             }
             else if (valueType == typeof(float))
             {

@@ -13,6 +13,12 @@ export interface BooleanInfo extends PrimitiveSchemaInfo {
 
 export type BooleanType = BooleanInfo;
 
+export interface ByteInfo extends NumericSchemaInfo {
+  EntityKind: 'Byte';
+}
+
+export type ByteType = ByteInfo;
+
 export interface BytesInfo extends PrimitiveSchemaInfo {
   EntityKind: 'Bytes';
 }
@@ -97,7 +103,7 @@ export interface DurationInfo extends TemporalSchemaInfo {
 export type DurationType = DurationInfo;
 
 export interface EntityInfo {
-  EntityKind: 'Array' | 'Boolean' | 'Command' | 'CommandPayload' | 'CommandType' | 'Component' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'EnumValue' | 'Field' | 'Float' | 'Integer' | 'Interface' | 'Long' | 'Map' | 'MapKey' | 'MapValue' | 'Object' | 'Property' | 'Relationship' | 'String' | 'Telemetry' | 'Time' | 'CommandRequest' | 'CommandResponse' | 'Bytes' | 'Uuid' | 'Unit' | 'UnitAttribute' | 'LatentType' | 'NamedLatentType';
+  EntityKind: 'Array' | 'Boolean' | 'Command' | 'CommandPayload' | 'CommandType' | 'Component' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'EnumValue' | 'Field' | 'Float' | 'Integer' | 'Interface' | 'Long' | 'Map' | 'MapKey' | 'MapValue' | 'Object' | 'Property' | 'Relationship' | 'String' | 'Telemetry' | 'Time' | 'CommandRequest' | 'CommandResponse' | 'Byte' | 'Bytes' | 'Short' | 'UnsignedByte' | 'UnsignedInteger' | 'UnsignedLong' | 'UnsignedShort' | 'Uuid' | 'Unit' | 'UnitAttribute' | 'LatentType' | 'NamedLatentType';
   SupplementalTypes: string[];
   SupplementalProperties: { [property: string]: any };
   UndefinedTypes: string[];
@@ -209,10 +215,10 @@ export interface NamedLatentTypeInfo extends NamedEntityInfo {
 export type NamedLatentTypeType = NamedLatentTypeInfo;
 
 export interface NumericSchemaInfo extends PrimitiveSchemaInfo {
-  EntityKind: 'Double' | 'Float' | 'Integer' | 'Long';
+  EntityKind: 'Double' | 'Float' | 'Integer' | 'Long' | 'Byte' | 'Short' | 'UnsignedByte' | 'UnsignedInteger' | 'UnsignedLong' | 'UnsignedShort';
 }
 
-export type NumericSchemaType = NumericSchemaInfo | DoubleType | FloatType | IntegerType | LongType;
+export type NumericSchemaType = NumericSchemaInfo | ByteType | DoubleType | FloatType | IntegerType | LongType | ShortType | UnsignedByteType | UnsignedIntegerType | UnsignedLongType | UnsignedShortType;
 
 export interface ObjectInfo extends ComplexSchemaInfo {
   EntityKind: 'Object';
@@ -222,7 +228,7 @@ export interface ObjectInfo extends ComplexSchemaInfo {
 export type ObjectType = ObjectInfo;
 
 export interface PrimitiveSchemaInfo extends SchemaInfo {
-  EntityKind: 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Float' | 'Integer' | 'Long' | 'String' | 'Time' | 'Bytes' | 'Uuid';
+  EntityKind: 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Float' | 'Integer' | 'Long' | 'String' | 'Time' | 'Byte' | 'Bytes' | 'Short' | 'UnsignedByte' | 'UnsignedInteger' | 'UnsignedLong' | 'UnsignedShort' | 'Uuid';
 }
 
 export type PrimitiveSchemaType = PrimitiveSchemaInfo | BooleanType | BytesType | NumericSchemaType | StringType | TemporalSchemaType | UuidType;
@@ -247,7 +253,7 @@ export interface RelationshipInfo extends ContentInfo {
 export type RelationshipType = RelationshipInfo;
 
 export interface SchemaInfo extends EntityInfo {
-  EntityKind: 'Array' | 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'Float' | 'Integer' | 'Long' | 'Map' | 'Object' | 'String' | 'Time' | 'Bytes' | 'Uuid';
+  EntityKind: 'Array' | 'Boolean' | 'Date' | 'DateTime' | 'Double' | 'Duration' | 'Enum' | 'Float' | 'Integer' | 'Long' | 'Map' | 'Object' | 'String' | 'Time' | 'Byte' | 'Bytes' | 'Short' | 'UnsignedByte' | 'UnsignedInteger' | 'UnsignedLong' | 'UnsignedShort' | 'Uuid';
 }
 
 export type SchemaType = SchemaInfo | ComplexSchemaType | PrimitiveSchemaType;
@@ -258,6 +264,12 @@ export interface SchemaFieldInfo extends NamedEntityInfo {
 }
 
 export type SchemaFieldType = SchemaFieldInfo | CommandPayloadType | FieldType | MapValueType;
+
+export interface ShortInfo extends NumericSchemaInfo {
+  EntityKind: 'Short';
+}
+
+export type ShortType = ShortInfo;
 
 export interface StringInfo extends PrimitiveSchemaInfo {
   EntityKind: 'String';
@@ -296,6 +308,30 @@ export interface UnitAttributeInfo extends NamedEntityInfo {
 }
 
 export type UnitAttributeType = UnitAttributeInfo;
+
+export interface UnsignedByteInfo extends NumericSchemaInfo {
+  EntityKind: 'UnsignedByte';
+}
+
+export type UnsignedByteType = UnsignedByteInfo;
+
+export interface UnsignedIntegerInfo extends NumericSchemaInfo {
+  EntityKind: 'UnsignedInteger';
+}
+
+export type UnsignedIntegerType = UnsignedIntegerInfo;
+
+export interface UnsignedLongInfo extends NumericSchemaInfo {
+  EntityKind: 'UnsignedLong';
+}
+
+export type UnsignedLongType = UnsignedLongInfo;
+
+export interface UnsignedShortInfo extends NumericSchemaInfo {
+  EntityKind: 'UnsignedShort';
+}
+
+export type UnsignedShortType = UnsignedShortInfo;
 
 export interface UuidInfo extends PrimitiveSchemaInfo {
   EntityKind: 'Uuid';

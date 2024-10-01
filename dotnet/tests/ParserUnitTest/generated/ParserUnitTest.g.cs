@@ -80,6 +80,7 @@ namespace ParserUnitTest
         [DataRow("BooleanInstancesV2")]
         [DataRow("BooleanInstancesV3")]
         [DataRow("BooleanInstancesV4")]
+        [DataRow("ByteInstancesV4")]
         [DataRow("BytesInstancesV4")]
         public void TestParser_B(string testName)
         {
@@ -1970,6 +1971,7 @@ namespace ParserUnitTest
         [DataRow("SchemaV2")]
         [DataRow("SchemaV3")]
         [DataRow("SchemaV4")]
+        [DataRow("ShortInstancesV4")]
         [DataRow("StringInstancesV2")]
         [DataRow("StringInstancesV3")]
         [DataRow("StringInstancesV4")]
@@ -2322,6 +2324,10 @@ namespace ParserUnitTest
         [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV2")]
         [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV3")]
         [DataRow("UnresolvableContextVersionAndDisallowUndefinedExtensionsV4")]
+        [DataRow("UnsignedByteInstancesV4")]
+        [DataRow("UnsignedIntegerInstancesV4")]
+        [DataRow("UnsignedLongInstancesV4")]
+        [DataRow("UnsignedShortInstancesV4")]
         [DataRow("UuidInstancesV4")]
         public void TestParser_U(string testName)
         {

@@ -63,14 +63,20 @@ namespace DTDLParser.Models
             ConcreteKinds[3].Add(DTEntityKind.Long);
 
             ConcreteKinds[4] = new HashSet<DTEntityKind>();
+            ConcreteKinds[4].Add(DTEntityKind.Byte);
             ConcreteKinds[4].Add(DTEntityKind.Double);
             ConcreteKinds[4].Add(DTEntityKind.Float);
             ConcreteKinds[4].Add(DTEntityKind.Integer);
             ConcreteKinds[4].Add(DTEntityKind.Long);
+            ConcreteKinds[4].Add(DTEntityKind.Short);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedByte);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedInteger);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedLong);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedShort);
 
             BadTypeActionFormat[2] = "Use one of these standard values for property '{property}'{line1}: double, float, integer, long.";
             BadTypeActionFormat[3] = "Use one of these standard values for property '{property}'{line1}: double, float, integer, long.";
-            BadTypeActionFormat[4] = "Use one of these standard values for property '{property}'{line1}: double, float, integer, long.";
+            BadTypeActionFormat[4] = "Use one of these standard values for property '{property}'{line1}: byte, double, float, integer, long, short, unsignedByte, unsignedInteger, unsignedLong, unsignedShort.";
 
             BadTypeCauseFormat[2] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.";
             BadTypeCauseFormat[3] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.";
