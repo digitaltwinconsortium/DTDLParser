@@ -110,6 +110,7 @@ namespace DTDLParser.Models
             ConcreteKinds[4] = new HashSet<DTEntityKind>();
             ConcreteKinds[4].Add(DTEntityKind.Array);
             ConcreteKinds[4].Add(DTEntityKind.Boolean);
+            ConcreteKinds[4].Add(DTEntityKind.Byte);
             ConcreteKinds[4].Add(DTEntityKind.Bytes);
             ConcreteKinds[4].Add(DTEntityKind.Command);
             ConcreteKinds[4].Add(DTEntityKind.CommandRequest);
@@ -133,9 +134,14 @@ namespace DTDLParser.Models
             ConcreteKinds[4].Add(DTEntityKind.Object);
             ConcreteKinds[4].Add(DTEntityKind.Property);
             ConcreteKinds[4].Add(DTEntityKind.Relationship);
+            ConcreteKinds[4].Add(DTEntityKind.Short);
             ConcreteKinds[4].Add(DTEntityKind.String);
             ConcreteKinds[4].Add(DTEntityKind.Telemetry);
             ConcreteKinds[4].Add(DTEntityKind.Time);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedByte);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedInteger);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedLong);
+            ConcreteKinds[4].Add(DTEntityKind.UnsignedShort);
             ConcreteKinds[4].Add(DTEntityKind.Uuid);
 
             BadTypeActionFormat[2] = "Provide a @type{line3} in the set of allowable types.";
@@ -1913,6 +1919,16 @@ namespace DTDLParser.Models
                     elementInfo.JsonLdElements[string.Empty] = elt;
                     materialKinds.Add(DTEntityKind.Boolean);
                     return true;
+                case "Byte":
+                case "dtmi:dtdl:class:Byte;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTByteInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.Byte);
+                    return true;
                 case "Bytes":
                 case "dtmi:dtdl:class:Bytes;4":
                     if (elementInfo == null)
@@ -2160,6 +2176,16 @@ namespace DTDLParser.Models
                     elementInfo.JsonLdElements[string.Empty] = elt;
                     materialKinds.Add(DTEntityKind.Relationship);
                     return true;
+                case "Short":
+                case "dtmi:dtdl:class:Short;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTShortInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.Short);
+                    return true;
                 case "String":
                 case "dtmi:dtdl:class:String;4":
                     if (elementInfo == null)
@@ -2189,6 +2215,46 @@ namespace DTDLParser.Models
 
                     elementInfo.JsonLdElements[string.Empty] = elt;
                     materialKinds.Add(DTEntityKind.Time);
+                    return true;
+                case "UnsignedByte":
+                case "dtmi:dtdl:class:UnsignedByte;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTUnsignedByteInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.UnsignedByte);
+                    return true;
+                case "UnsignedInteger":
+                case "dtmi:dtdl:class:UnsignedInteger;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTUnsignedIntegerInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.UnsignedInteger);
+                    return true;
+                case "UnsignedLong":
+                case "dtmi:dtdl:class:UnsignedLong;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTUnsignedLongInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.UnsignedLong);
+                    return true;
+                case "UnsignedShort":
+                case "dtmi:dtdl:class:UnsignedShort;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTUnsignedShortInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.UnsignedShort);
                     return true;
                 case "Uuid":
                 case "dtmi:dtdl:class:Uuid;4":

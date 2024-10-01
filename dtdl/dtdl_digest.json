@@ -517,6 +517,8 @@
       "asynchronous": "dtmi:dtdl:instance:CommandType:asynchronous;4",
       "boolean": "dtmi:dtdl:instance:Schema:boolean;4",
       "Boolean": "dtmi:dtdl:class:Boolean;4",
+      "byte": "dtmi:dtdl:instance:Schema:byte;4",
+      "Byte": "dtmi:dtdl:class:Byte;4",
       "bytes": "dtmi:dtdl:instance:Schema:bytes;4",
       "Bytes": "dtmi:dtdl:class:Bytes;4",
       "Command": "dtmi:dtdl:class:Command;4",
@@ -593,6 +595,8 @@
       "schemas": "dtmi:dtdl:property:schemas;4",
       "SemanticType": "dtmi:dtdl:class:SemanticType;4",
       "SemanticUnit": "dtmi:dtdl:class:SemanticUnit;4",
+      "short": "dtmi:dtdl:instance:Schema:short;4",
+      "Short": "dtmi:dtdl:class:Short;4",
       "string": "dtmi:dtdl:instance:Schema:string;4",
       "String": "dtmi:dtdl:class:String;4",
       "symbol": "dtmi:dtdl:property:symbol;4",
@@ -604,6 +608,14 @@
       "Time": "dtmi:dtdl:class:Time;4",
       "Unit": "dtmi:dtdl:class:Unit;4",
       "UnitAttribute": "dtmi:dtdl:class:UnitAttribute;4",
+      "unsignedByte": "dtmi:dtdl:instance:Schema:unsignedByte;4",
+      "UnsignedByte": "dtmi:dtdl:class:UnsignedByte;4",
+      "unsignedInteger": "dtmi:dtdl:instance:Schema:unsignedInteger;4",
+      "UnsignedInteger": "dtmi:dtdl:class:UnsignedInteger;4",
+      "unsignedLong": "dtmi:dtdl:instance:Schema:unsignedLong;4",
+      "UnsignedLong": "dtmi:dtdl:class:UnsignedLong;4",
+      "unsignedShort": "dtmi:dtdl:instance:Schema:unsignedShort;4",
+      "UnsignedShort": "dtmi:dtdl:class:UnsignedShort;4",
       "uuid": "dtmi:dtdl:instance:Schema:uuid;4",
       "Uuid": "dtmi:dtdl:class:Uuid;4",
       "valueSchema": "dtmi:dtdl:property:valueSchema;4",
@@ -2235,6 +2247,17 @@
     },
     {
       "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:byte;4",
+      "@type": [
+        "Byte"
+      ],
+      "description": {
+        "en-US": "a signed integral numeric value that is expressible in 1 byte"
+      },
+      "displayName": "byte"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
       "@id": "dtmi:dtdl:instance:Schema:double;4",
       "@type": [
         "Double",
@@ -2284,6 +2307,61 @@
         "en-US": "a signed integral numeric value that is expressible in 8 bytes"
       },
       "displayName": "long"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:short;4",
+      "@type": [
+        "Short"
+      ],
+      "description": {
+        "en-US": "a signed integral numeric value that is expressible in 2 bytes"
+      },
+      "displayName": "short"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:unsignedByte;4",
+      "@type": [
+        "UnsignedByte"
+      ],
+      "description": {
+        "en-US": "an unsigned integral numeric value that is expressible in 1 byte"
+      },
+      "displayName": "unsignedByte"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:unsignedInteger;4",
+      "@type": [
+        "UnsignedInteger"
+      ],
+      "description": {
+        "en-US": "an unsigned integral numeric value that is expressible in 4 bytes"
+      },
+      "displayName": "unsignedInteger"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:unsignedLong;4",
+      "@type": [
+        "UnsignedLong"
+      ],
+      "description": {
+        "en-US": "an unsigned integral numeric value that is expressible in 8 bytes"
+      },
+      "displayName": "unsignedLong"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:unsignedShort;4",
+      "@type": [
+        "UnsignedShort"
+      ],
+      "description": {
+        "en-US": "an unsigned integral numeric value that is expressible in 2 bytes"
+      },
+      "displayName": "unsignedShort"
     },
     {
       "@context": "dtmi:dtdl:context;4",
@@ -15309,6 +15387,194 @@
       ],
       "typeOptionalVersions": []
     },
+    "Byte": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: byte."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "Byte"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "Byte"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "a signed integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:byte;4",
+            "name": "byte"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "datatype": "byte",
+            "jsonType": "number"
+          }
+        },
+        "conformanceText": "the XSD definition of 'byte'",
+        "criteriaText": "is a numeric value that conforms to the XSD definition of 'byte'",
+        "typeText": "a numeric value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "NumericSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:byte;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Byte",
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:NumericSchema",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema"
+      ],
+      "typeOptionalVersions": []
+    },
     "Bytes": {
       "abstract": false,
       "badTypeActionFormat": {
@@ -20170,6 +20436,7 @@
         "4": [
           "Array",
           "Boolean",
+          "Byte",
           "Bytes",
           "Command",
           "CommandRequest",
@@ -20193,9 +20460,14 @@
           "Object",
           "Property",
           "Relationship",
+          "Short",
           "String",
           "Telemetry",
           "Time",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort",
           "Uuid"
         ]
       },
@@ -20233,6 +20505,7 @@
         ],
         "4": [
           "Boolean",
+          "Byte",
           "Bytes",
           "CommandType",
           "Date",
@@ -20242,8 +20515,13 @@
           "Float",
           "Integer",
           "Long",
+          "Short",
           "String",
           "Time",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort",
           "Uuid"
         ]
       },
@@ -20542,6 +20820,13 @@
           },
           {
             "description": {
+              "en-us": "a signed integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:byte;4",
+            "name": "byte"
+          },
+          {
+            "description": {
               "en-us": "an array of bytes"
             },
             "id": "dtmi:dtdl:instance:Schema:bytes;4",
@@ -20598,6 +20883,13 @@
           },
           {
             "description": {
+              "en-us": "a signed integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:short;4",
+            "name": "short"
+          },
+          {
+            "description": {
               "en-us": "a UTF8 string"
             },
             "id": "dtmi:dtdl:instance:Schema:string;4",
@@ -20609,6 +20901,34 @@
             },
             "id": "dtmi:dtdl:instance:Schema:time;4",
             "name": "time"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedByte;4",
+            "name": "unsignedByte"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 4 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedInteger;4",
+            "name": "unsignedInteger"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 8 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedLong;4",
+            "name": "unsignedLong"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedShort;4",
+            "name": "unsignedShort"
           },
           {
             "description": {
@@ -25889,7 +26209,7 @@
       "badTypeActionFormat": {
         "2": "Use one of these standard values for property '{property}'{line1}: double, float, integer, long.",
         "3": "Use one of these standard values for property '{property}'{line1}: double, float, integer, long.",
-        "4": "Use one of these standard values for property '{property}'{line1}: double, float, integer, long."
+        "4": "Use one of these standard values for property '{property}'{line1}: byte, double, float, integer, long, short, unsignedByte, unsignedInteger, unsignedLong, unsignedShort."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.",
@@ -25915,10 +26235,16 @@
           "Long"
         ],
         "4": [
+          "Byte",
           "Double",
           "Float",
           "Integer",
-          "Long"
+          "Long",
+          "Short",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort"
         ]
       },
       "dtdlVersions": [
@@ -25940,10 +26266,16 @@
           "Long"
         ],
         "4": [
+          "Byte",
           "Double",
           "Float",
           "Integer",
-          "Long"
+          "Long",
+          "Short",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort"
         ]
       },
       "elements": {
@@ -26010,6 +26342,13 @@
         "4": [
           {
             "description": {
+              "en-us": "a signed integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:byte;4",
+            "name": "byte"
+          },
+          {
+            "description": {
               "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;4",
@@ -26035,6 +26374,41 @@
             },
             "id": "dtmi:dtdl:instance:Schema:long;4",
             "name": "long"
+          },
+          {
+            "description": {
+              "en-us": "a signed integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:short;4",
+            "name": "short"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedByte;4",
+            "name": "unsignedByte"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 4 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedInteger;4",
+            "name": "unsignedInteger"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 8 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedLong;4",
+            "name": "unsignedLong"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedShort;4",
+            "name": "unsignedShort"
           }
         ]
       },
@@ -26816,7 +27190,7 @@
       "badTypeActionFormat": {
         "2": "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
         "3": "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
-        "4": "Use one of these standard values for property '{property}'{line1}: boolean, bytes, date, dateTime, double, duration, float, integer, long, string, time, uuid."
+        "4": "Use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.",
@@ -26855,6 +27229,7 @@
         ],
         "4": [
           "Boolean",
+          "Byte",
           "Bytes",
           "Date",
           "DateTime",
@@ -26863,8 +27238,13 @@
           "Float",
           "Integer",
           "Long",
+          "Short",
           "String",
           "Time",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort",
           "Uuid"
         ]
       },
@@ -26900,6 +27280,7 @@
         ],
         "4": [
           "Boolean",
+          "Byte",
           "Bytes",
           "Date",
           "DateTime",
@@ -26908,8 +27289,13 @@
           "Float",
           "Integer",
           "Long",
+          "Short",
           "String",
           "Time",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort",
           "Uuid"
         ]
       },
@@ -27068,6 +27454,13 @@
           },
           {
             "description": {
+              "en-us": "a signed integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:byte;4",
+            "name": "byte"
+          },
+          {
+            "description": {
               "en-us": "an array of bytes"
             },
             "id": "dtmi:dtdl:instance:Schema:bytes;4",
@@ -27124,6 +27517,13 @@
           },
           {
             "description": {
+              "en-us": "a signed integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:short;4",
+            "name": "short"
+          },
+          {
+            "description": {
               "en-us": "a UTF8 string"
             },
             "id": "dtmi:dtdl:instance:Schema:string;4",
@@ -27135,6 +27535,34 @@
             },
             "id": "dtmi:dtdl:instance:Schema:time;4",
             "name": "time"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedByte;4",
+            "name": "unsignedByte"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 4 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedInteger;4",
+            "name": "unsignedInteger"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 8 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedLong;4",
+            "name": "unsignedLong"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedShort;4",
+            "name": "unsignedShort"
           },
           {
             "description": {
@@ -28446,7 +28874,7 @@
       "badTypeActionFormat": {
         "2": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
         "3": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
-        "4": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, bytes, date, dateTime, double, duration, float, integer, long, string, time, uuid."
+        "4": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Array, Enum, Map, or Object, and it is not a standard value for this property.",
@@ -28494,6 +28922,7 @@
         "4": [
           "Array",
           "Boolean",
+          "Byte",
           "Bytes",
           "Date",
           "DateTime",
@@ -28505,8 +28934,13 @@
           "Long",
           "Map",
           "Object",
+          "Short",
           "String",
           "Time",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort",
           "Uuid"
         ]
       },
@@ -28542,6 +28976,7 @@
         ],
         "4": [
           "Boolean",
+          "Byte",
           "Bytes",
           "Date",
           "DateTime",
@@ -28550,8 +28985,13 @@
           "Float",
           "Integer",
           "Long",
+          "Short",
           "String",
           "Time",
+          "UnsignedByte",
+          "UnsignedInteger",
+          "UnsignedLong",
+          "UnsignedShort",
           "Uuid"
         ]
       },
@@ -28808,6 +29248,13 @@
           },
           {
             "description": {
+              "en-us": "a signed integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:byte;4",
+            "name": "byte"
+          },
+          {
+            "description": {
               "en-us": "an array of bytes"
             },
             "id": "dtmi:dtdl:instance:Schema:bytes;4",
@@ -28864,6 +29311,13 @@
           },
           {
             "description": {
+              "en-us": "a signed integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:short;4",
+            "name": "short"
+          },
+          {
+            "description": {
               "en-us": "a UTF8 string"
             },
             "id": "dtmi:dtdl:instance:Schema:string;4",
@@ -28875,6 +29329,34 @@
             },
             "id": "dtmi:dtdl:instance:Schema:time;4",
             "name": "time"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedByte;4",
+            "name": "unsignedByte"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 4 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedInteger;4",
+            "name": "unsignedInteger"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 8 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedLong;4",
+            "name": "unsignedLong"
+          },
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedShort;4",
+            "name": "unsignedShort"
           },
           {
             "description": {
@@ -29546,6 +30028,194 @@
         "dtmi:dtdl:class:Entity",
         "dtmi:dtdl:class:NamedEntity",
         "dtmi:dtdl:class:SchemaField"
+      ],
+      "typeOptionalVersions": []
+    },
+    "Short": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: short."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "Short"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "Short"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "a signed integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:short;4",
+            "name": "short"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "datatype": "short",
+            "jsonType": "number"
+          }
+        },
+        "conformanceText": "the XSD definition of 'short'",
+        "criteriaText": "is a numeric value that conforms to the XSD definition of 'short'",
+        "typeText": "a numeric value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "NumericSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:short;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:NumericSchema",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema",
+        "dtmi:dtdl:class:Short"
       ],
       "typeOptionalVersions": []
     },
@@ -31696,6 +32366,762 @@
       ],
       "typeOptionalVersions": []
     },
+    "UnsignedByte": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: unsignedByte."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "UnsignedByte"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "UnsignedByte"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 1 byte"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedByte;4",
+            "name": "unsignedByte"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "datatype": "unsignedByte",
+            "jsonType": "number",
+            "pattern": "^[0-9]+$"
+          }
+        },
+        "conformanceText": "the XSD definition of 'unsignedByte'",
+        "criteriaText": "is a numeric value that conforms to the XSD definition of 'unsignedByte'",
+        "typeText": "a numeric value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "NumericSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:unsignedByte;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:NumericSchema",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema",
+        "dtmi:dtdl:class:UnsignedByte"
+      ],
+      "typeOptionalVersions": []
+    },
+    "UnsignedInteger": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: unsignedInteger."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "UnsignedInteger"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "UnsignedInteger"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 4 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedInteger;4",
+            "name": "unsignedInteger"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "datatype": "unsignedInt",
+            "jsonType": "number",
+            "pattern": "^[0-9]+$"
+          }
+        },
+        "conformanceText": "the XSD definition of 'unsignedInt'",
+        "criteriaText": "is a numeric value that conforms to the XSD definition of 'unsignedInt'",
+        "typeText": "a numeric value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "NumericSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:unsignedInteger;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:NumericSchema",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema",
+        "dtmi:dtdl:class:UnsignedInteger"
+      ],
+      "typeOptionalVersions": []
+    },
+    "UnsignedLong": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: unsignedLong."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "UnsignedLong"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "UnsignedLong"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 8 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedLong;4",
+            "name": "unsignedLong"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "datatype": "unsignedLong",
+            "jsonType": "number",
+            "pattern": "^[0-9]+$"
+          }
+        },
+        "conformanceText": "the XSD definition of 'unsignedLong'",
+        "criteriaText": "is a numeric value that conforms to the XSD definition of 'unsignedLong'",
+        "typeText": "a numeric value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "NumericSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:unsignedLong;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:NumericSchema",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema",
+        "dtmi:dtdl:class:UnsignedLong"
+      ],
+      "typeOptionalVersions": []
+    },
+    "UnsignedShort": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: unsignedShort."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "UnsignedShort"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "UnsignedShort"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "an unsigned integral numeric value that is expressible in 2 bytes"
+            },
+            "id": "dtmi:dtdl:instance:Schema:unsignedShort;4",
+            "name": "unsignedShort"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "datatype": "unsignedShort",
+            "jsonType": "number",
+            "pattern": "^[0-9]+$"
+          }
+        },
+        "conformanceText": "the XSD definition of 'unsignedShort'",
+        "criteriaText": "is a numeric value that conforms to the XSD definition of 'unsignedShort'",
+        "typeText": "a numeric value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "NumericSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 515
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 514
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 513
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:unsignedShort;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:NumericSchema",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema",
+        "dtmi:dtdl:class:UnsignedShort"
+      ],
+      "typeOptionalVersions": []
+    },
     "Uuid": {
       "abstract": false,
       "badTypeActionFormat": {
@@ -32139,6 +33565,7 @@
       "cotypes": [
         "Array",
         "Boolean",
+        "Byte",
         "Bytes",
         "Command",
         "CommandPayload",
@@ -32165,11 +33592,16 @@
         "Object",
         "Property",
         "Relationship",
+        "Short",
         "String",
         "Telemetry",
         "Time",
         "Unit",
         "UnitAttribute",
+        "UnsignedByte",
+        "UnsignedInteger",
+        "UnsignedLong",
+        "UnsignedShort",
         "Uuid"
       ],
       "cotypeVersions": [
@@ -32253,6 +33685,7 @@
       "cotypes": [
         "Array",
         "Boolean",
+        "Byte",
         "Bytes",
         "Command",
         "CommandRequest",
@@ -32278,11 +33711,16 @@
         "Object",
         "Property",
         "Relationship",
+        "Short",
         "String",
         "Telemetry",
         "Time",
         "Unit",
         "UnitAttribute",
+        "UnsignedByte",
+        "UnsignedInteger",
+        "UnsignedLong",
+        "UnsignedShort",
         "Uuid"
       ],
       "cotypeVersions": [
@@ -35699,6 +37137,7 @@
       "cotypes": [
         "Array",
         "Boolean",
+        "Byte",
         "Bytes",
         "Command",
         "CommandPayload",
@@ -35725,11 +37164,16 @@
         "Object",
         "Property",
         "Relationship",
+        "Short",
         "String",
         "Telemetry",
         "Time",
         "Unit",
         "UnitAttribute",
+        "UnsignedByte",
+        "UnsignedInteger",
+        "UnsignedLong",
+        "UnsignedShort",
         "Uuid"
       ],
       "cotypeVersions": [

@@ -1422,6 +1422,8 @@ namespace DTDLParser
             context4_0.AddTermDefinition("asynchronous", new Dtmi("dtmi:dtdl:instance:CommandType:asynchronous;4"), isMergeableType: false);
             context4_0.AddTermDefinition("boolean", new Dtmi("dtmi:dtdl:instance:Schema:boolean;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Boolean", new Dtmi("dtmi:dtdl:class:Boolean;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("byte", new Dtmi("dtmi:dtdl:instance:Schema:byte;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Byte", new Dtmi("dtmi:dtdl:class:Byte;4"), isMergeableType: false);
             context4_0.AddTermDefinition("bytes", new Dtmi("dtmi:dtdl:instance:Schema:bytes;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Bytes", new Dtmi("dtmi:dtdl:class:Bytes;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Command", new Dtmi("dtmi:dtdl:class:Command;4"), isMergeableType: false);
@@ -1498,6 +1500,8 @@ namespace DTDLParser
             context4_0.AddTermDefinition("schemas", new Dtmi("dtmi:dtdl:property:schemas;4"), isMergeableType: false);
             context4_0.AddTermDefinition("SemanticType", new Dtmi("dtmi:dtdl:class:SemanticType;4"), isMergeableType: false);
             context4_0.AddTermDefinition("SemanticUnit", new Dtmi("dtmi:dtdl:class:SemanticUnit;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("short", new Dtmi("dtmi:dtdl:instance:Schema:short;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Short", new Dtmi("dtmi:dtdl:class:Short;4"), isMergeableType: false);
             context4_0.AddTermDefinition("string", new Dtmi("dtmi:dtdl:instance:Schema:string;4"), isMergeableType: false);
             context4_0.AddTermDefinition("String", new Dtmi("dtmi:dtdl:class:String;4"), isMergeableType: false);
             context4_0.AddTermDefinition("symbol", new Dtmi("dtmi:dtdl:property:symbol;4"), isMergeableType: false);
@@ -1509,6 +1513,14 @@ namespace DTDLParser
             context4_0.AddTermDefinition("Time", new Dtmi("dtmi:dtdl:class:Time;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Unit", new Dtmi("dtmi:dtdl:class:Unit;4"), isMergeableType: false);
             context4_0.AddTermDefinition("UnitAttribute", new Dtmi("dtmi:dtdl:class:UnitAttribute;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("unsignedByte", new Dtmi("dtmi:dtdl:instance:Schema:unsignedByte;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("UnsignedByte", new Dtmi("dtmi:dtdl:class:UnsignedByte;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("unsignedInteger", new Dtmi("dtmi:dtdl:instance:Schema:unsignedInteger;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("UnsignedInteger", new Dtmi("dtmi:dtdl:class:UnsignedInteger;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("unsignedLong", new Dtmi("dtmi:dtdl:instance:Schema:unsignedLong;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("UnsignedLong", new Dtmi("dtmi:dtdl:class:UnsignedLong;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("unsignedShort", new Dtmi("dtmi:dtdl:instance:Schema:unsignedShort;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("UnsignedShort", new Dtmi("dtmi:dtdl:class:UnsignedShort;4"), isMergeableType: false);
             context4_0.AddTermDefinition("uuid", new Dtmi("dtmi:dtdl:instance:Schema:uuid;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Uuid", new Dtmi("dtmi:dtdl:class:Uuid;4"), isMergeableType: false);
             context4_0.AddTermDefinition("valueSchema", new Dtmi("dtmi:dtdl:property:valueSchema;4"), isMergeableType: false);

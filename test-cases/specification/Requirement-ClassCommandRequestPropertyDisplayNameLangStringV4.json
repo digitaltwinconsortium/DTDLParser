@@ -7,14 +7,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:pi_yuzz;1",
+        "@id": "dtmi:example:rho_glikk;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "pi_omega",
+          "name": "rho_fuddle",
           "request": {
-            "name": "pi_psi",
-            "schema": "float",
+            "name": "rho_humpf",
+            "schema": "boolean",
             "displayName": "hello"
           }
         }
@@ -29,14 +29,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:pi_humpf;1",
+        "@id": "dtmi:example:rho_quan;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "pi_um",
+          "name": "rho_snee",
           "request": {
-            "name": "pi_wum",
-            "schema": "integer",
+            "name": "rho_nuh",
+            "schema": "byte",
             "displayName": [
               "hello"
             ]
@@ -53,14 +53,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:pi_nuh;1",
+        "@id": "dtmi:example:rho_floob;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "pi_glikk",
+          "name": "rho_spazz",
           "request": {
-            "name": "pi_fuddle",
-            "schema": "long",
+            "name": "rho_thnad",
+            "schema": "bytes",
             "displayName": {
               "en": "hello"
             }
@@ -77,14 +77,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:pi_thnad;1",
+        "@id": "dtmi:example:rho_flunn;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "pi_quan",
+          "name": "rho_jogg",
           "request": {
-            "name": "pi_snee",
-            "schema": "string",
+            "name": "rho_zatz",
+            "schema": "date",
             "displayName": [
               {
                 "@value": "hello",
@@ -104,14 +104,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:pi_zatz;1",
+        "@id": "dtmi:example:rho_vroo;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "pi_floob",
+          "name": "rho_yekk",
           "request": {
-            "name": "pi_spazz",
-            "schema": "time",
+            "name": "rho_itch",
+            "schema": "dateTime",
             "displayName": {}
           }
         }
@@ -126,397 +126,15 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:pi_itch;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "pi_flunn",
-          "request": {
-            "name": "pi_jogg",
-            "schema": "uuid",
-            "displayName": []
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:pi_hi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "pi_vroo",
-          "request": {
-            "name": "pi_yekk",
-            "schema": "boolean",
-            "displayName": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_gamma;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_beta",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "rho_alpha",
-            "schema": "bytes",
-            "displayName": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_zeta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_epsilon",
-          "request": {
-            "name": "rho_delta",
-            "schema": "date",
-            "displayName": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_iota;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_theta",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "rho_eta",
-            "schema": "dateTime",
-            "displayName": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_mu;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_lambda",
-          "request": {
-            "name": "rho_kappa",
-            "schema": "double",
-            "displayName": 626
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_omicron;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_xi",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "rho_nu",
-            "schema": "duration",
-            "displayName": 626
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_sigma;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_rho",
-          "request": {
-            "name": "rho_pi",
-            "schema": "float",
-            "displayName": [
-              null
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_phi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_upsilon",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "rho_tau",
-            "schema": "integer",
-            "displayName": [
-              null
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_omega;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_psi",
-          "request": {
-            "name": "rho_chi",
-            "schema": "long",
-            "displayName": [
-              true
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_um;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_wum",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "rho_yuzz",
-            "schema": "string",
-            "displayName": [
-              true
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_glikk;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_fuddle",
-          "request": {
-            "name": "rho_humpf",
-            "schema": "time",
-            "displayName": [
-              626
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_quan;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_snee",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "rho_nuh",
-            "schema": "uuid",
-            "displayName": [
-              626
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_floob;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_spazz",
-          "request": {
-            "name": "rho_thnad",
-            "schema": "boolean",
-            "displayName": [
-              {}
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_flunn;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_jogg",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "rho_zatz",
-            "schema": "bytes",
-            "displayName": [
-              {}
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:rho_vroo;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "rho_yekk",
-          "request": {
-            "name": "rho_itch",
-            "schema": "date",
-            "displayName": {
-              "@value": "hello",
-              "@language": "en"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:sigma_beta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "sigma_alpha",
           "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "rho_hi",
-            "schema": "dateTime",
-            "displayName": {
-              "@value": "hello",
-              "@language": "en"
-            }
+            "schema": "double",
+            "displayName": []
           }
         }
       }
@@ -537,12 +155,8 @@
           "name": "sigma_delta",
           "request": {
             "name": "sigma_gamma",
-            "schema": "double",
-            "displayName": [
-              {
-                "en": "hello"
-              }
-            ]
+            "schema": "duration",
+            "displayName": null
           }
         }
       }
@@ -564,7 +178,393 @@
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "sigma_zeta",
-            "schema": "duration",
+            "schema": "float",
+            "displayName": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_kappa",
+          "request": {
+            "name": "sigma_iota",
+            "schema": "integer",
+            "displayName": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_xi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_nu",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "sigma_mu",
+            "schema": "long",
+            "displayName": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_pi",
+          "request": {
+            "name": "sigma_omicron",
+            "schema": "short",
+            "displayName": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_upsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_tau",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "sigma_sigma",
+            "schema": "string",
+            "displayName": 626
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_psi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_chi",
+          "request": {
+            "name": "sigma_phi",
+            "schema": "time",
+            "displayName": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_wum;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_yuzz",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "sigma_omega",
+            "schema": "unsignedByte",
+            "displayName": [
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_fuddle;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_humpf",
+          "request": {
+            "name": "sigma_um",
+            "schema": "unsignedInteger",
+            "displayName": [
+              true
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_snee;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_nuh",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "sigma_glikk",
+            "schema": "unsignedLong",
+            "displayName": [
+              true
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_spazz;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_thnad",
+          "request": {
+            "name": "sigma_quan",
+            "schema": "unsignedShort",
+            "displayName": [
+              626
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_jogg;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_zatz",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "sigma_floob",
+            "schema": "uuid",
+            "displayName": [
+              626
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:sigma_yekk;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_itch",
+          "request": {
+            "name": "sigma_flunn",
+            "schema": "boolean",
+            "displayName": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "sigma_hi",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "sigma_vroo",
+            "schema": "byte",
+            "displayName": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_delta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "tau_gamma",
+          "request": {
+            "name": "tau_beta",
+            "schema": "bytes",
+            "displayName": {
+              "@value": "hello",
+              "@language": "en"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "tau_zeta",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "tau_epsilon",
+            "schema": "date",
+            "displayName": {
+              "@value": "hello",
+              "@language": "en"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_kappa;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "tau_iota",
+          "request": {
+            "name": "tau_theta",
+            "schema": "dateTime",
+            "displayName": [
+              {
+                "en": "hello"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:tau_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "tau_mu",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "tau_lambda",
+            "schema": "double",
             "displayName": [
               {
                 "en": "hello"

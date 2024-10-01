@@ -7,20 +7,48 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:theta_glikk;1",
+        "@id": "dtmi:example:kappa_itch;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "theta_fuddle",
+          "name": "kappa_flunn",
           "schema": {
             "@context": [],
             "@type": "Map",
             "mapKey": {
-              "name": "theta_um",
+              "name": "kappa_zatz",
               "schema": "string"
             },
             "mapValue": {
-              "name": "theta_humpf",
+              "name": "kappa_jogg",
+              "schema": "duration"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:lambda_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Property",
+          "name": "kappa_hi",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "kappa_yekk",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "kappa_vroo",
               "schema": "float"
             }
           }
@@ -36,21 +64,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:theta_thnad;1",
+        "@id": "dtmi:example:lambda_epsilon;1",
         "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "theta_quan",
-          "schema": {
-            "@type": "Map",
-            "mapKey": {
-              "name": "theta_nuh",
-              "schema": "string"
-            },
-            "mapValue": {
-              "name": "theta_snee",
-              "schema": "integer"
-            }
+        "schemas": {
+          "@id": "dtmi:example:lambda_beta;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "lambda_gamma",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "lambda_delta",
+            "schema": "integer"
           }
         }
       }
@@ -64,17 +89,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:theta_jogg;1",
+        "@id": "dtmi:example:lambda_iota;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:theta_spazz;1",
+          "@id": "dtmi:example:lambda_zeta;1",
           "@type": "Map",
           "mapKey": {
-            "name": "theta_floob",
+            "name": "lambda_eta",
             "schema": "string"
           },
           "mapValue": {
-            "name": "theta_zatz",
+            "name": "lambda_theta",
             "schema": "long"
           }
         }
@@ -89,43 +114,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:theta_vroo;1",
+        "@id": "dtmi:example:lambda_nu;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:theta_flunn;1",
+          "@id": "dtmi:example:lambda_kappa;1",
           "@type": "Map",
           "mapKey": {
-            "name": "theta_itch",
+            "name": "lambda_lambda",
             "schema": "string"
           },
           "mapValue": {
-            "name": "theta_yekk",
-            "schema": "string"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:iota_gamma;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:theta_hi;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "iota_alpha",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "iota_beta",
-            "schema": "time"
+            "name": "lambda_mu",
+            "schema": "short"
           }
         }
       }
