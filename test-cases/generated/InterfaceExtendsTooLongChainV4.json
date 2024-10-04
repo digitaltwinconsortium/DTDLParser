@@ -93,12 +93,30 @@
                             "schema": "double"
                           },
                           "extends": {
-                            "@id": "dtmi:test:interface0;1",
+                            "@id": "dtmi:test:interface12;1",
                             "@type": "Interface",
                             "contents": {
                               "@type": "Property",
-                              "name": "prop0",
+                              "name": "prop12",
                               "schema": "double"
+                            },
+                            "extends": {
+                              "@id": "dtmi:test:interface13;1",
+                              "@type": "Interface",
+                              "contents": {
+                                "@type": "Property",
+                                "name": "prop13",
+                                "schema": "double"
+                              },
+                              "extends": {
+                                "@id": "dtmi:test:interface0;1",
+                                "@type": "Interface",
+                                "contents": {
+                                  "@type": "Property",
+                                  "name": "prop0",
+                                  "schema": "double"
+                                }
+                              }
                             }
                           }
                         }
@@ -123,10 +141,10 @@
         "Value": null,
         "PrimaryIndex": 0,
         "PrimaryStart": 1,
-        "PrimaryEnd": 109,
+        "PrimaryEnd": 127,
         "SecondaryIndex": 0,
-        "SecondaryStart": 90,
-        "SecondaryEnd": 98
+        "SecondaryStart": 106,
+        "SecondaryEnd": 114
       }
     ]
   }

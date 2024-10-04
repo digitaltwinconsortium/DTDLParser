@@ -3762,7 +3762,7 @@ namespace DTDLParser.Models
 
             int maxDepthOfExtends = this.LimitSpecifier switch
             {
-                "" => 10,
+                "" => 12,
                 "onvif_1" => 12,
                 _ => 0,
             };
