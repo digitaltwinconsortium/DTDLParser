@@ -1,91 +1,5 @@
 ﻿[
   {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@id": "dtmi:ex:id;1",
-        "@type": "Interface"
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@id": "dtmi:ex:id;1",
-        "@type": "Interface"
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": [
-          "dtmi:iotcentral:context;2"
-        ],
-        "@id": "dtmi:ex:id;1",
-        "@type": "Interface"
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": [
-          "dtmi:iotcentral:context;2",
-          "dtmi:undefinedExtension:context;1"
-        ],
-        "@id": "dtmi:ex:id;1",
-        "@type": "Interface"
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": [
-          "dtmi:dtdl:extension:quantitativeTypes;1"
-        ],
-        "@id": "dtmi:ex:id;1",
-        "@type": "Interface"
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": [
-          "dtmi:dtdl:extension:quantitativeTypes;1",
-          "dtmi:undefinedExtension:context;1"
-        ],
-        "@id": "dtmi:ex:id;1",
-        "@type": "Interface"
-      }
-    ]
-  },
-  {
     "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
@@ -93,7 +7,8 @@
     "input": [
       {
         "@context": [
-          "dtmi:dtdl:context;2"
+          "dtmi:dtdl:context;4#limitless",
+          "dtmi:dtdl:context;4#limits"
         ],
         "@id": "dtmi:ex:id;1",
         "@type": "Interface"
@@ -108,8 +23,8 @@
     "input": [
       {
         "@context": [
-          "dtmi:dtdl:context;2#limitless",
-          "dtmi:dtdl:context;2#limits"
+          "dtmi:dtdl:context;4",
+          "dtmi:dtdl:context;4#limits"
         ],
         "@id": "dtmi:ex:id;1",
         "@type": "Interface"
@@ -124,10 +39,99 @@
     "input": [
       {
         "@context": [
-          "dtmi:dtdl:context;2#limitless",
-          "dtmi:dtdl:context;2#limits",
-          "dtmi:undefinedExtension:context;1"
+          "dtmi:dtdl:context;4",
+          "dtmi:dtdl:context;4#limits"
         ],
+        "@id": "dtmi:ex:id;1",
+        "@type": "Interface"
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4#limitless",
+          "dtmi:dtdl:extension:quantitativeTypes;1",
+          "dtmi:dtdl:context;4#limits"
+        ],
+        "@id": "dtmi:ex:id;1",
+        "@type": "Interface"
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4#limitless",
+          "dtmi:dtdl:extension:quantitativeTypes;1",
+          "dtmi:dtdl:context;4#limits"
+        ],
+        "@id": "dtmi:ex:id;1",
+        "@type": "Interface"
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4#limits"
+        ],
+        "@id": "dtmi:ex:id;1",
+        "@type": "Interface"
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": [
+          "dtmi:dtdl:context;4#limits"
+        ],
+        "@id": "dtmi:ex:id;1",
+        "@type": "Interface"
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4#limits",
+        "@id": "dtmi:ex:id;1",
+        "@type": "Interface"
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4#limits",
         "@id": "dtmi:ex:id;1",
         "@type": "Interface"
       }

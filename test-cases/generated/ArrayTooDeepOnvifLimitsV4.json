@@ -68,23 +68,7 @@
                                         "elementSchema": {
                                           "@id": "dtmi:test:deepArray17;1",
                                           "@type": "Array",
-                                          "elementSchema": {
-                                            "@id": "dtmi:test:deepArray18;1",
-                                            "@type": "Array",
-                                            "elementSchema": {
-                                              "@id": "dtmi:test:deepArray19;1",
-                                              "@type": "Array",
-                                              "elementSchema": {
-                                                "@id": "dtmi:test:deepArray20;1",
-                                                "@type": "Array",
-                                                "elementSchema": {
-                                                  "@id": "dtmi:test:deepArray21;1",
-                                                  "@type": "Array",
-                                                  "elementSchema": "double"
-                                                }
-                                              }
-                                            }
-                                          }
+                                          "elementSchema": "double"
                                         }
                                       }
                                     }
@@ -110,15 +94,15 @@
       {
         "ValidationID": "dtmi:dtdl:parsingError:excessiveDepthWide",
         "PrimaryID": "dtmi:test:deepArray1;1",
-        "SecondaryID": "dtmi:test:deepArray21;1",
+        "SecondaryID": "dtmi:test:deepArray17;1",
         "Property": null,
         "Value": null,
         "PrimaryIndex": 0,
         "PrimaryStart": 9,
-        "PrimaryEnd": 93,
+        "PrimaryEnd": 77,
         "SecondaryIndex": 0,
-        "SecondaryStart": 69,
-        "SecondaryEnd": 73
+        "SecondaryStart": 57,
+        "SecondaryEnd": 61
       }
     ]
   }
