@@ -2,17 +2,36 @@
   "valid": true,
   "options": [],
   "input": [
-    {
-      "@context": "dtmi:dtdl:context;4",
-      "@id": "dtmi:example:anInterface;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Relationship",
-          "name": "proximity",
-          "target": "dtmi:foo:bar:baz;1"
-        }
-      ]
-    }
+    [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:derivedInterface;1",
+        "@type": "Interface",
+        "extends": "dtmi:example:baseInterface;1",
+        "contents": [
+          {
+            "@type": "Telemetry",
+            "name": "resolution",
+            "schema": "integer"
+          }
+        ]
+      },
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:baseInterface;1",
+        "@type": "Interface",
+        "contents": [
+          {
+            "@type": "Telemetry",
+            "name": "pixels",
+            "schema": {
+              "@id": "dtmi:example:boolArray;1",
+              "@type": "Array",
+              "elementSchema": "boolean"
+            }
+          }
+        ]
+      }
+    ]
   ]
 }
