@@ -7,58 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:gamma_vroo;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:gamma_yekk;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "gamma_itch",
-            "request": {
-              "name": "gamma_flunn",
-              "schema": "string",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:delta_gamma;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:delta_beta;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "delta_alpha",
-            "request": {
-              "name": "gamma_hi",
-              "schema": "time",
-              "@context": []
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:delta_eta;1",
         "@type": "Interface",
         "extends": {
@@ -69,10 +17,8 @@
             "name": "delta_epsilon",
             "request": {
               "name": "delta_delta",
-              "schema": "unsignedByte",
-              "@context": [
-                "dtmi:dtdl:extension:quantitativeTypes;1"
-              ]
+              "schema": "double",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
             }
           }
         }
@@ -80,7 +26,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -97,8 +43,8 @@
             "name": "delta_iota",
             "request": {
               "name": "delta_theta",
-              "schema": "unsignedInteger",
-              "@context": null
+              "schema": "duration",
+              "@context": []
             }
           }
         }
@@ -106,7 +52,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -123,8 +69,10 @@
             "name": "delta_nu",
             "request": {
               "name": "delta_mu",
-              "schema": "unsignedLong",
-              "@context": 626
+              "schema": "float",
+              "@context": [
+                "dtmi:dtdl:extension:quantitativeTypes;1"
+              ]
             }
           }
         }
@@ -149,8 +97,8 @@
             "name": "delta_rho",
             "request": {
               "name": "delta_pi",
-              "schema": "unsignedShort",
-              "@context": true
+              "schema": "integer",
+              "@context": null
             }
           }
         }
@@ -175,10 +123,8 @@
             "name": "delta_phi",
             "request": {
               "name": "delta_upsilon",
-              "schema": "uuid",
-              "@context": [
-                null
-              ]
+              "schema": "long",
+              "@context": 626
             }
           }
         }
@@ -203,10 +149,8 @@
             "name": "delta_yuzz",
             "request": {
               "name": "delta_omega",
-              "schema": "boolean",
-              "@context": [
-                626
-              ]
+              "schema": "short",
+              "@context": true
             }
           }
         }
@@ -231,9 +175,9 @@
             "name": "delta_fuddle",
             "request": {
               "name": "delta_humpf",
-              "schema": "byte",
+              "schema": "string",
               "@context": [
-                true
+                null
               ]
             }
           }
@@ -259,8 +203,10 @@
             "name": "delta_quan",
             "request": {
               "name": "delta_snee",
-              "schema": "bytes",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes"
+              "schema": "time",
+              "@context": [
+                626
+              ]
             }
           }
         }
@@ -285,8 +231,10 @@
             "name": "delta_zatz",
             "request": {
               "name": "delta_floob",
-              "schema": "date",
-              "@context": "http://dtdl/extension/quantitativeTypes/1"
+              "schema": "unsignedByte",
+              "@context": [
+                true
+              ]
             }
           }
         }
@@ -311,8 +259,8 @@
             "name": "delta_yekk",
             "request": {
               "name": "delta_itch",
-              "schema": "dateTime",
-              "@context": "quantitativeTypes;1"
+              "schema": "unsignedInteger",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes"
             }
           }
         }
@@ -337,8 +285,8 @@
             "name": "epsilon_beta",
             "request": {
               "name": "epsilon_alpha",
-              "schema": "double",
-              "@context": {}
+              "schema": "unsignedLong",
+              "@context": "http://dtdl/extension/quantitativeTypes/1"
             }
           }
         }
@@ -363,10 +311,8 @@
             "name": "epsilon_zeta",
             "request": {
               "name": "epsilon_epsilon",
-              "schema": "duration",
-              "@context": {
-                "foo": "dtmi:foo:bar;1"
-              }
+              "schema": "unsignedShort",
+              "@context": "quantitativeTypes;1"
             }
           }
         }
@@ -391,10 +337,8 @@
             "name": "epsilon_kappa",
             "request": {
               "name": "epsilon_iota",
-              "schema": "float",
-              "@context": [
-                {}
-              ]
+              "schema": "uuid",
+              "@context": {}
             }
           }
         }
@@ -419,7 +363,63 @@
             "name": "epsilon_xi",
             "request": {
               "name": "epsilon_nu",
-              "schema": "integer",
+              "schema": "boolean",
+              "@context": {
+                "foo": "dtmi:foo:bar;1"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_upsilon;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_tau;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "epsilon_sigma",
+            "request": {
+              "name": "epsilon_rho",
+              "schema": "byte",
+              "@context": [
+                {}
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:epsilon_omega;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:epsilon_psi;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "epsilon_chi",
+            "request": {
+              "name": "epsilon_phi",
+              "schema": "bytes",
               "@context": [
                 {
                   "foo": "dtmi:foo:bar;1"

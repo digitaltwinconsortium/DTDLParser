@@ -7,13 +7,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:floob_hi;1",
+        "@id": "dtmi:example:zatz_theta;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "floob_vroo",
+          "name": "zatz_eta",
           "request": {
-            "schema": "integer",
+            "schema": "float",
             "name": "hello"
           }
         }
@@ -28,13 +28,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:zatz_beta;1",
+        "@id": "dtmi:example:zatz_kappa;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "zatz_alpha",
+          "name": "zatz_iota",
           "request": {
-            "schema": "long",
+            "schema": "integer",
             "name": [
               "hello"
             ]
@@ -51,13 +51,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:zatz_delta;1",
+        "@id": "dtmi:example:zatz_mu;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "zatz_gamma",
+          "name": "zatz_lambda",
           "request": {
-            "schema": "short",
+            "schema": "long",
             "name": {
               "@value": "hello",
               "@type": "xsd:string"
@@ -75,13 +75,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:zatz_zeta;1",
+        "@id": "dtmi:example:zatz_xi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "zatz_epsilon",
+          "name": "zatz_nu",
           "request": {
-            "schema": "string",
+            "schema": "short",
             "name": [
               {
                 "@value": "hello",
@@ -101,100 +101,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:zatz_theta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zatz_eta",
-          "request": {
-            "schema": "time",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:zatz_kappa;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zatz_iota",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "unsignedByte",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:zatz_mu;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zatz_lambda",
-          "request": {
-            "schema": "unsignedInteger",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:zatz_xi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "zatz_nu",
-          "request": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "unsignedLong",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:zatz_pi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "zatz_omicron",
           "request": {
-            "schema": "unsignedShort",
-            "name": 626
+            "schema": "string",
+            "name": null
           }
         }
       }
@@ -215,8 +129,8 @@
           "name": "zatz_rho",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "uuid",
-            "name": 626
+            "schema": "time",
+            "name": null
           }
         }
       }
@@ -236,10 +150,8 @@
           "@type": "Command",
           "name": "zatz_tau",
           "request": {
-            "schema": "boolean",
-            "name": [
-              null
-            ]
+            "schema": "unsignedByte",
+            "name": true
           }
         }
       }
@@ -260,10 +172,8 @@
           "name": "zatz_phi",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "byte",
-            "name": [
-              null
-            ]
+            "schema": "unsignedInteger",
+            "name": true
           }
         }
       }
@@ -283,10 +193,8 @@
           "@type": "Command",
           "name": "zatz_psi",
           "request": {
-            "schema": "bytes",
-            "name": [
-              true
-            ]
+            "schema": "unsignedLong",
+            "name": 626
           }
         }
       }
@@ -307,10 +215,8 @@
           "name": "zatz_yuzz",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
-            "name": [
-              true
-            ]
+            "schema": "unsignedShort",
+            "name": 626
           }
         }
       }
@@ -330,9 +236,9 @@
           "@type": "Command",
           "name": "zatz_um",
           "request": {
-            "schema": "dateTime",
+            "schema": "uuid",
             "name": [
-              626
+              null
             ]
           }
         }
@@ -354,9 +260,9 @@
           "name": "zatz_fuddle",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "double",
+            "schema": "boolean",
             "name": [
-              626
+              null
             ]
           }
         }
@@ -377,8 +283,10 @@
           "@type": "Command",
           "name": "zatz_nuh",
           "request": {
-            "schema": "duration",
-            "name": {}
+            "schema": "byte",
+            "name": [
+              true
+            ]
           }
         }
       }
@@ -399,8 +307,10 @@
           "name": "zatz_quan",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "float",
-            "name": {}
+            "schema": "bytes",
+            "name": [
+              true
+            ]
           }
         }
       }
@@ -420,9 +330,9 @@
           "@type": "Command",
           "name": "zatz_spazz",
           "request": {
-            "schema": "integer",
+            "schema": "date",
             "name": [
-              {}
+              626
             ]
           }
         }
@@ -444,9 +354,9 @@
           "name": "zatz_zatz",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "long",
+            "schema": "dateTime",
             "name": [
-              {}
+              626
             ]
           }
         }
@@ -467,8 +377,8 @@
           "@type": "Command",
           "name": "zatz_flunn",
           "request": {
-            "schema": "short",
-            "name": []
+            "schema": "decimal",
+            "name": {}
           }
         }
       }
@@ -489,7 +399,97 @@
           "name": "zatz_yekk",
           "request": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "string",
+            "schema": "double",
+            "name": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "zatz_hi",
+          "request": {
+            "schema": "duration",
+            "name": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_gamma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "jogg_beta",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "float",
+            "name": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "jogg_delta",
+          "request": {
+            "schema": "integer",
+            "name": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:jogg_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "jogg_zeta",
+          "request": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "long",
             "name": []
           }
         }

@@ -119,6 +119,7 @@ namespace DTDLParser.Models
             ConcreteKinds[4].Add(DTEntityKind.Component);
             ConcreteKinds[4].Add(DTEntityKind.Date);
             ConcreteKinds[4].Add(DTEntityKind.DateTime);
+            ConcreteKinds[4].Add(DTEntityKind.Decimal);
             ConcreteKinds[4].Add(DTEntityKind.Double);
             ConcreteKinds[4].Add(DTEntityKind.Duration);
             ConcreteKinds[4].Add(DTEntityKind.Enum);
@@ -2008,6 +2009,16 @@ namespace DTDLParser.Models
 
                     elementInfo.JsonLdElements[string.Empty] = elt;
                     materialKinds.Add(DTEntityKind.DateTime);
+                    return true;
+                case "Decimal":
+                case "dtmi:dtdl:class:Decimal;4":
+                    if (elementInfo == null)
+                    {
+                        elementInfo = new DTDecimalInfo(4, elementId, parentId, propName, definedIn);
+                    }
+
+                    elementInfo.JsonLdElements[string.Empty] = elt;
+                    materialKinds.Add(DTEntityKind.Decimal);
                     return true;
                 case "Double":
                 case "dtmi:dtdl:class:Double;4":

@@ -7,17 +7,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_beta;1",
+        "@id": "dtmi:example:vroo_thnad;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:vroo_alpha;1",
+          "@id": "dtmi:example:vroo_quan;1",
           "@type": "Interface",
           "contents": {
             "@type": "Telemetry",
-            "name": "yekk_hi",
+            "name": "vroo_snee",
             "schema": {
               "@type": "Array",
-              "elementSchema": "time"
+              "elementSchema": "long"
             }
           }
         }
@@ -32,18 +32,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_epsilon;1",
+        "@id": "dtmi:example:vroo_zatz;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:vroo_delta;1",
+          "@id": "dtmi:example:vroo_floob;1",
           "@type": "Interface",
           "contents": {
             "@type": "Telemetry",
-            "name": "vroo_gamma",
+            "name": "vroo_spazz",
             "schema": [
               {
                 "@type": "Array",
-                "elementSchema": "unsignedByte"
+                "elementSchema": "short"
               }
             ]
           }
@@ -59,16 +59,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_zeta;1",
+        "@id": "dtmi:example:vroo_jogg;1",
         "@type": "Interface",
         "schemas": {
           "@id": "dtmi:ex:dependentRef;1",
           "@type": "Array",
-          "elementSchema": "unsignedInteger"
+          "elementSchema": "string"
         },
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_eta",
+          "name": "vroo_flunn",
           "schema": "dtmi:ex:dependentRef;1"
         }
       }
@@ -82,16 +82,16 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_theta;1",
+        "@id": "dtmi:example:vroo_itch;1",
         "@type": "Interface",
         "schemas": {
           "@id": "dtmi:ex:dependentRef;1",
           "@type": "Array",
-          "elementSchema": "unsignedLong"
+          "elementSchema": "time"
         },
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_iota",
+          "name": "vroo_yekk",
           "schema": [
             "dtmi:ex:dependentRef;1"
           ]
@@ -107,18 +107,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_nu;1",
+        "@id": "dtmi:example:hi_beta;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:vroo_mu;1",
+          "@id": "dtmi:example:hi_alpha;1",
           "@type": "Interface",
           "contents": {
             "@type": "Telemetry",
-            "name": "vroo_lambda",
+            "name": "vroo_hi",
             "schema": {
-              "@id": "dtmi:example:vroo_kappa;1",
+              "@id": "dtmi:example:vroo_vroo;1",
               "@type": "Array",
-              "elementSchema": "dateTime",
+              "elementSchema": "integer",
               "@context": "dtmi:dtdl:context;2"
             }
           }
@@ -134,18 +134,18 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_rho;1",
+        "@id": "dtmi:example:hi_zeta;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:vroo_pi;1",
+          "@id": "dtmi:example:hi_epsilon;1",
           "@type": "Interface",
           "contents": {
             "@type": "Telemetry",
-            "name": "vroo_omicron",
+            "name": "hi_delta",
             "schema": {
-              "@id": "dtmi:example:vroo_xi;1",
+              "@id": "dtmi:example:hi_gamma;1",
               "@type": "Array",
-              "elementSchema": "double",
+              "elementSchema": "long",
               "@context": "dtmi:dtdl:context;3"
             }
           }
@@ -161,20 +161,20 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_sigma;1",
+        "@id": "dtmi:example:hi_eta;1",
         "@type": "Interface",
         "schemas": {
           "@id": "dtmi:ex:dependentRef;1",
           "@type": "Array",
-          "elementSchema": "byte"
+          "elementSchema": "unsignedShort"
         },
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_tau",
+          "name": "hi_theta",
           "schema": [
             {
               "@type": "Array",
-              "elementSchema": "boolean"
+              "elementSchema": "unsignedLong"
             },
             "dtmi:ex:dependentRef;1"
           ]
@@ -190,21 +190,21 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_upsilon;1",
+        "@id": "dtmi:example:hi_iota;1",
         "@type": "Interface",
         "schemas": {
           "@id": "dtmi:ex:dependentRef;1",
           "@type": "Array",
-          "elementSchema": "date"
+          "elementSchema": "boolean"
         },
         "contents": {
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
-          "name": "vroo_phi",
+          "name": "hi_kappa",
           "schema": [
             {
               "@type": "Array",
-              "elementSchema": "bytes"
+              "elementSchema": "uuid"
             },
             "dtmi:ex:dependentRef;1"
           ]
@@ -220,12 +220,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_psi;1",
+        "@id": "dtmi:example:hi_mu;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_chi",
-          "schema": "time"
+          "name": "hi_lambda",
+          "schema": "string"
         }
       }
     ]
@@ -238,13 +238,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_yuzz;1",
+        "@id": "dtmi:example:hi_xi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_omega",
+          "name": "hi_nu",
           "schema": [
-            "time"
+            "string"
           ]
         }
       }
@@ -258,12 +258,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_um;1",
+        "@id": "dtmi:example:hi_pi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_wum",
-          "schema": "dtmi:dtdl:instance:Schema:time;4"
+          "name": "hi_omicron",
+          "schema": "dtmi:dtdl:instance:Schema:string;4"
         }
       }
     ]
@@ -276,13 +276,13 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_fuddle;1",
+        "@id": "dtmi:example:hi_sigma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_humpf",
+          "name": "hi_rho",
           "schema": [
-            "dtmi:dtdl:instance:Schema:time;4"
+            "dtmi:dtdl:instance:Schema:string;4"
           ]
         }
       }
@@ -296,11 +296,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_nuh;1",
+        "@id": "dtmi:example:hi_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_glikk",
+          "name": "hi_tau",
           "schema": "point"
         }
       }
@@ -314,11 +314,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_quan;1",
+        "@id": "dtmi:example:hi_chi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_snee",
+          "name": "hi_phi",
           "schema": [
             "point"
           ]
@@ -334,11 +334,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_spazz;1",
+        "@id": "dtmi:example:hi_omega;1",
         "@type": "Interface",
         "contents": {
           "@type": "Telemetry",
-          "name": "vroo_thnad",
+          "name": "hi_psi",
           "schema": "dtmi:standard:schema:geospatial:point;4"
         }
       }
@@ -352,322 +352,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_zatz;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "vroo_floob",
-          "schema": [
-            "dtmi:standard:schema:geospatial:point;4"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_flunn;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "vroo_jogg",
-          "schema": "Foobar"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_yekk;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "vroo_itch",
-          "schema": "Foobar"
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:vroo_hi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "vroo_vroo",
-          "schema": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_beta;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "hi_alpha",
-          "schema": null
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_delta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "hi_gamma",
-          "schema": true
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_zeta;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "hi_epsilon",
-          "schema": true
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_theta;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "hi_eta",
-          "schema": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_kappa;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "hi_iota",
-          "schema": 626
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_mu;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "hi_lambda",
-          "schema": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_xi;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "hi_nu",
-          "schema": [
-            null
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_pi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "hi_omicron",
-          "schema": [
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_sigma;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "hi_rho",
-          "schema": [
-            true
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_upsilon;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "hi_tau",
-          "schema": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_chi;1",
-        "@type": "Interface",
-        "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
-          "@type": "Telemetry",
-          "name": "hi_phi",
-          "schema": [
-            626
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_omega;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Telemetry",
-          "name": "hi_psi",
-          "schema": {}
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:hi_wum;1",
         "@type": "Interface",
         "contents": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "name": "hi_yuzz",
-          "schema": {}
+          "schema": [
+            "dtmi:standard:schema:geospatial:point;4"
+          ]
         }
       }
     ]
@@ -685,9 +377,7 @@
         "contents": {
           "@type": "Telemetry",
           "name": "hi_um",
-          "schema": [
-            {}
-          ]
+          "schema": "Foobar"
         }
       }
     ]
@@ -706,9 +396,7 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "name": "hi_fuddle",
-          "schema": [
-            {}
-          ]
+          "schema": "Foobar"
         }
       }
     ]
@@ -726,7 +414,7 @@
         "contents": {
           "@type": "Telemetry",
           "name": "hi_nuh",
-          "schema": []
+          "schema": null
         }
       }
     ]
@@ -745,6 +433,318 @@
           "@context": "dtmi:undefinedExtension:context;1",
           "@type": "Telemetry",
           "name": "hi_quan",
+          "schema": null
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_floob;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "hi_spazz",
+          "schema": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_jogg;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "hi_zatz",
+          "schema": true
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_itch;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "hi_flunn",
+          "schema": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:hi_vroo;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "hi_yekk",
+          "schema": 626
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_alpha;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "hi_hi",
+          "schema": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_gamma;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "alpha_beta",
+          "schema": [
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_epsilon;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "alpha_delta",
+          "schema": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_eta;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "alpha_zeta",
+          "schema": [
+            true
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_iota;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "alpha_theta",
+          "schema": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_lambda;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "alpha_kappa",
+          "schema": [
+            626
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_nu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "alpha_mu",
+          "schema": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_omicron;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "alpha_xi",
+          "schema": {}
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_rho;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "alpha_pi",
+          "schema": [
+            {}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_tau;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "alpha_sigma",
+          "schema": [
+            {}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_phi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Telemetry",
+          "name": "alpha_upsilon",
+          "schema": []
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_psi;1",
+        "@type": "Interface",
+        "contents": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@type": "Telemetry",
+          "name": "alpha_chi",
           "schema": []
         }
       }

@@ -1441,6 +1441,8 @@ namespace DTDLParser
             context4_0.AddTermDefinition("Date", new Dtmi("dtmi:dtdl:class:Date;4"), isMergeableType: false);
             context4_0.AddTermDefinition("dateTime", new Dtmi("dtmi:dtdl:instance:Schema:dateTime;4"), isMergeableType: false);
             context4_0.AddTermDefinition("DateTime", new Dtmi("dtmi:dtdl:class:DateTime;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("decimal", new Dtmi("dtmi:dtdl:instance:Schema:decimal;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Decimal", new Dtmi("dtmi:dtdl:class:Decimal;4"), isMergeableType: false);
             context4_0.AddTermDefinition("description", new Dtmi("dtmi:dtdl:property:description;4"), isMergeableType: false);
             context4_0.AddTermDefinition("displayName", new Dtmi("dtmi:dtdl:property:displayName;4"), isMergeableType: false);
             context4_0.AddTermDefinition("double", new Dtmi("dtmi:dtdl:instance:Schema:double;4"), isMergeableType: false);
