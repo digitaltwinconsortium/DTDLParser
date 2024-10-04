@@ -1,0 +1,202 @@
+﻿{
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:decimalArray;1",
+          "@type": "Array",
+          "elementSchema": "decimal"
+        }
+      ]
+    }
+  ],
+  "expect": {},
+  "instances": [
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"0\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "\"00\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"1\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"9\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"123\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "\"01\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "\"09\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "\"0123\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"0.\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"1.\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"9.\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"123.\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"0.00\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"1.00\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"9.00\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"123.00\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"0.4\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"1.5\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"9.6\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"123.7\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "\"ccb0\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "\"0xccb0\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"1234567890123456789012345678901234567890\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"1234567890123456789012345678901234567890.\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": true,
+      "submit": "\"1234567890123456789012345678901234567890.012345678901234567890\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "\"\""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": ""
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "true"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "1"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "null"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "[ \"847564d3-7359-4947-bab2-b187e6639d34\" ]"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "{ \"value\": \"23\" }"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "$$"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "[ \"hi\": \"there\" ]"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "{ \"23\" }"
+    },
+    {
+      "subject": "dtmi:dtdl:instance:Schema:decimal;4",
+      "conforms": false,
+      "submit": "{ 23 ]"
+    }
+  ]
+}

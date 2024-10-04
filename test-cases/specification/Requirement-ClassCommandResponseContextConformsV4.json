@@ -7,58 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_beta;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:thnad_alpha;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "quan_hi",
-            "response": {
-              "name": "quan_vroo",
-              "schema": "byte",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_zeta;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:thnad_epsilon;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Command",
-            "name": "thnad_delta",
-            "response": {
-              "name": "thnad_gamma",
-              "schema": "bytes",
-              "@context": []
-            }
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:thnad_kappa;1",
         "@type": "Interface",
         "extends": {
@@ -69,10 +17,8 @@
             "name": "thnad_theta",
             "response": {
               "name": "thnad_eta",
-              "schema": "date",
-              "@context": [
-                "dtmi:dtdl:extension:quantitativeTypes;1"
-              ]
+              "schema": "time",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
             }
           }
         }
@@ -80,7 +26,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -97,8 +43,8 @@
             "name": "thnad_mu",
             "response": {
               "name": "thnad_lambda",
-              "schema": "dateTime",
-              "@context": null
+              "schema": "unsignedByte",
+              "@context": []
             }
           }
         }
@@ -106,7 +52,7 @@
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -123,8 +69,10 @@
             "name": "thnad_pi",
             "response": {
               "name": "thnad_omicron",
-              "schema": "double",
-              "@context": 626
+              "schema": "unsignedInteger",
+              "@context": [
+                "dtmi:dtdl:extension:quantitativeTypes;1"
+              ]
             }
           }
         }
@@ -149,8 +97,8 @@
             "name": "thnad_upsilon",
             "response": {
               "name": "thnad_tau",
-              "schema": "duration",
-              "@context": true
+              "schema": "unsignedLong",
+              "@context": null
             }
           }
         }
@@ -175,10 +123,8 @@
             "name": "thnad_omega",
             "response": {
               "name": "thnad_psi",
-              "schema": "float",
-              "@context": [
-                null
-              ]
+              "schema": "unsignedShort",
+              "@context": 626
             }
           }
         }
@@ -203,10 +149,8 @@
             "name": "thnad_humpf",
             "response": {
               "name": "thnad_um",
-              "schema": "integer",
-              "@context": [
-                626
-              ]
+              "schema": "uuid",
+              "@context": true
             }
           }
         }
@@ -231,9 +175,9 @@
             "name": "thnad_snee",
             "response": {
               "name": "thnad_nuh",
-              "schema": "long",
+              "schema": "boolean",
               "@context": [
-                true
+                null
               ]
             }
           }
@@ -259,8 +203,10 @@
             "name": "thnad_floob",
             "response": {
               "name": "thnad_spazz",
-              "schema": "short",
-              "@context": "dtmi:dtdl:extension:quantitativeTypes"
+              "schema": "byte",
+              "@context": [
+                626
+              ]
             }
           }
         }
@@ -285,8 +231,10 @@
             "name": "thnad_itch",
             "response": {
               "name": "thnad_flunn",
-              "schema": "string",
-              "@context": "http://dtdl/extension/quantitativeTypes/1"
+              "schema": "bytes",
+              "@context": [
+                true
+              ]
             }
           }
         }
@@ -311,8 +259,8 @@
             "name": "spazz_alpha",
             "response": {
               "name": "thnad_hi",
-              "schema": "time",
-              "@context": "quantitativeTypes;1"
+              "schema": "date",
+              "@context": "dtmi:dtdl:extension:quantitativeTypes"
             }
           }
         }
@@ -337,8 +285,8 @@
             "name": "spazz_epsilon",
             "response": {
               "name": "spazz_delta",
-              "schema": "unsignedByte",
-              "@context": {}
+              "schema": "dateTime",
+              "@context": "http://dtdl/extension/quantitativeTypes/1"
             }
           }
         }
@@ -363,10 +311,8 @@
             "name": "spazz_iota",
             "response": {
               "name": "spazz_theta",
-              "schema": "unsignedInteger",
-              "@context": {
-                "foo": "dtmi:foo:bar;1"
-              }
+              "schema": "decimal",
+              "@context": "quantitativeTypes;1"
             }
           }
         }
@@ -391,10 +337,8 @@
             "name": "spazz_nu",
             "response": {
               "name": "spazz_mu",
-              "schema": "unsignedLong",
-              "@context": [
-                {}
-              ]
+              "schema": "double",
+              "@context": {}
             }
           }
         }
@@ -419,7 +363,63 @@
             "name": "spazz_rho",
             "response": {
               "name": "spazz_pi",
-              "schema": "unsignedShort",
+              "schema": "duration",
+              "@context": {
+                "foo": "dtmi:foo:bar;1"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_psi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:spazz_chi;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "spazz_phi",
+            "response": {
+              "name": "spazz_upsilon",
+              "schema": "float",
+              "@context": [
+                {}
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:spazz_um;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:spazz_wum;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Command",
+            "name": "spazz_yuzz",
+            "response": {
+              "name": "spazz_omega",
+              "schema": "integer",
               "@context": [
                 {
                   "foo": "dtmi:foo:bar;1"

@@ -79,6 +79,7 @@ namespace DTDLParser.Models
             ConcreteKinds[4].Add(DTEntityKind.Bytes);
             ConcreteKinds[4].Add(DTEntityKind.Date);
             ConcreteKinds[4].Add(DTEntityKind.DateTime);
+            ConcreteKinds[4].Add(DTEntityKind.Decimal);
             ConcreteKinds[4].Add(DTEntityKind.Double);
             ConcreteKinds[4].Add(DTEntityKind.Duration);
             ConcreteKinds[4].Add(DTEntityKind.Float);
@@ -95,7 +96,7 @@ namespace DTDLParser.Models
 
             BadTypeActionFormat[2] = "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.";
             BadTypeActionFormat[3] = "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.";
-            BadTypeActionFormat[4] = "Use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid.";
+            BadTypeActionFormat[4] = "Use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, decimal, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid.";
 
             BadTypeCauseFormat[2] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.";
             BadTypeCauseFormat[3] = "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.";

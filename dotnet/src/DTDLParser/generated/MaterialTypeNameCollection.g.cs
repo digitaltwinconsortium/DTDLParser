@@ -74,6 +74,8 @@ namespace DTDLParser
             TypeNames.Add("dtmi:dtdl:class:DateTime;2");
             TypeNames.Add("dtmi:dtdl:class:DateTime;3");
             TypeNames.Add("dtmi:dtdl:class:DateTime;4");
+            TypeNames.Add("Decimal");
+            TypeNames.Add("dtmi:dtdl:class:Decimal;4");
             TypeNames.Add("Double");
             TypeNames.Add("dtmi:dtdl:class:Double;2");
             TypeNames.Add("dtmi:dtdl:class:Double;3");

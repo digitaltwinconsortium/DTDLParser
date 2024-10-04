@@ -536,6 +536,8 @@
       "Date": "dtmi:dtdl:class:Date;4",
       "dateTime": "dtmi:dtdl:instance:Schema:dateTime;4",
       "DateTime": "dtmi:dtdl:class:DateTime;4",
+      "decimal": "dtmi:dtdl:instance:Schema:decimal;4",
+      "Decimal": "dtmi:dtdl:class:Decimal;4",
       "description": "dtmi:dtdl:property:description;4",
       "displayName": "dtmi:dtdl:property:displayName;4",
       "double": "dtmi:dtdl:instance:Schema:double;4",
@@ -2362,6 +2364,17 @@
         "en-US": "an unsigned integral numeric value that is expressible in 2 bytes"
       },
       "displayName": "unsignedShort"
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:dtdl:instance:Schema:decimal;4",
+      "@type": [
+        "Decimal"
+      ],
+      "description": {
+        "en-US": "a string of decimal digits with an optional decimal point and fractional component"
+      },
+      "displayName": "decimal"
     },
     {
       "@context": "dtmi:dtdl:context;4",
@@ -19631,6 +19644,195 @@
       ],
       "typeOptionalVersions": []
     },
+    "Decimal": {
+      "abstract": false,
+      "badTypeActionFormat": {
+        "4": "Use this standard value for property '{property}'{line1}: decimal."
+      },
+      "badTypeCauseFormat": {
+        "4": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property."
+      },
+      "badTypeLocatedCauseFormat": {
+        "4": "In {sourceName1}, property '{property}'{line1} has value{secondaryId:e}{line2} that is not a standard value for this property."
+      },
+      "concreteSubclasses": {
+        "4": [
+          "Decimal"
+        ]
+      },
+      "dtdlVersions": [
+        4
+      ],
+      "elementalSubclasses": {
+        "4": [
+          "Decimal"
+        ]
+      },
+      "elements": {
+        "4": [
+          {
+            "description": {
+              "en-us": "a string of decimal digits with an optional decimal point and fractional component"
+            },
+            "id": "dtmi:dtdl:instance:Schema:decimal;4",
+            "name": "decimal"
+          }
+        ]
+      },
+      "extensibleMaterialSubclasses": {
+        "4": []
+      },
+      "idRequiredVersions": [],
+      "idRequiredWhen": {
+        "4": [
+          {
+            "class": "Enum",
+            "property": "valueSchema"
+          }
+        ]
+      },
+      "instance": {
+        "4": {
+          "eachChild": {},
+          "element": {
+            "datatype": "decimal",
+            "jsonType": "string",
+            "pattern": "^(?:[1-9][0-9]*|0)(?:\\.[0-9]*)?$"
+          }
+        },
+        "conformanceText": "the XSD definition of 'decimal'",
+        "criteriaText": "is a string value that conforms to the XSD definition of 'decimal'",
+        "typeText": "a string value"
+      },
+      "maybePartial": false,
+      "overt": true,
+      "parentClass": "NumericSchema",
+      "partition": false,
+      "properties": {
+        "comment": {
+          "_": {
+            "abstract": false,
+            "datatype": "string",
+            "description": {
+              "en-us": "A comment for model authors."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxCount": 1,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 512
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "description": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable description for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 512
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "displayName": {
+          "_": {
+            "abstract": false,
+            "datatype": "langString",
+            "description": {
+              "en-us": "A localizable name for display."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": true,
+            "plural": true,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": true,
+            "defaultLanguage": "en",
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "maxLength": {
+              "": 512,
+              "onvif_1": 512
+            },
+            "typeRequired": true,
+            "uniqueAmong": []
+          }
+        },
+        "languageMajorVersion": {
+          "_": {
+            "abstract": false,
+            "datatype": "integer",
+            "description": {
+              "en-us": "The major version of DTDL used to author this element."
+            },
+            "inherited": true,
+            "inheritedFrom": "Entity",
+            "literal": true,
+            "optional": false,
+            "plural": false,
+            "shadowed": false
+          },
+          "4": {
+            "allowed": false,
+            "deprecated": false,
+            "hidden": false,
+            "idRequired": false,
+            "typeRequired": true,
+            "uniqueAmong": [],
+            "value": 4
+          }
+        }
+      },
+      "rootable": false,
+      "standardElementIds": {
+        "4": [
+          "dtmi:dtdl:instance:Schema:decimal;4"
+        ]
+      },
+      "typeIds": [
+        "dtmi:dtdl:class:Decimal",
+        "dtmi:dtdl:class:Entity",
+        "dtmi:dtdl:class:NumericSchema",
+        "dtmi:dtdl:class:PrimitiveSchema",
+        "dtmi:dtdl:class:Schema"
+      ],
+      "typeOptionalVersions": []
+    },
     "Double": {
       "abstract": false,
       "badTypeActionFormat": {
@@ -20445,6 +20647,7 @@
           "Component",
           "Date",
           "DateTime",
+          "Decimal",
           "Double",
           "Duration",
           "Enum",
@@ -20510,6 +20713,7 @@
           "CommandType",
           "Date",
           "DateTime",
+          "Decimal",
           "Double",
           "Duration",
           "Float",
@@ -20845,6 +21049,13 @@
             },
             "id": "dtmi:dtdl:instance:Schema:dateTime;4",
             "name": "dateTime"
+          },
+          {
+            "description": {
+              "en-us": "a string of decimal digits with an optional decimal point and fractional component"
+            },
+            "id": "dtmi:dtdl:instance:Schema:decimal;4",
+            "name": "decimal"
           },
           {
             "description": {
@@ -26209,7 +26420,7 @@
       "badTypeActionFormat": {
         "2": "Use one of these standard values for property '{property}'{line1}: double, float, integer, long.",
         "3": "Use one of these standard values for property '{property}'{line1}: double, float, integer, long.",
-        "4": "Use one of these standard values for property '{property}'{line1}: byte, double, float, integer, long, short, unsignedByte, unsignedInteger, unsignedLong, unsignedShort."
+        "4": "Use one of these standard values for property '{property}'{line1}: byte, decimal, double, float, integer, long, short, unsignedByte, unsignedInteger, unsignedLong, unsignedShort."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.",
@@ -26236,6 +26447,7 @@
         ],
         "4": [
           "Byte",
+          "Decimal",
           "Double",
           "Float",
           "Integer",
@@ -26267,6 +26479,7 @@
         ],
         "4": [
           "Byte",
+          "Decimal",
           "Double",
           "Float",
           "Integer",
@@ -26346,6 +26559,13 @@
             },
             "id": "dtmi:dtdl:instance:Schema:byte;4",
             "name": "byte"
+          },
+          {
+            "description": {
+              "en-us": "a string of decimal digits with an optional decimal point and fractional component"
+            },
+            "id": "dtmi:dtdl:instance:Schema:decimal;4",
+            "name": "decimal"
           },
           {
             "description": {
@@ -27190,7 +27410,7 @@
       "badTypeActionFormat": {
         "2": "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
         "3": "Use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
-        "4": "Use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid."
+        "4": "Use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, decimal, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that is not a standard value for this property.",
@@ -27233,6 +27453,7 @@
           "Bytes",
           "Date",
           "DateTime",
+          "Decimal",
           "Double",
           "Duration",
           "Float",
@@ -27284,6 +27505,7 @@
           "Bytes",
           "Date",
           "DateTime",
+          "Decimal",
           "Double",
           "Duration",
           "Float",
@@ -27479,6 +27701,13 @@
             },
             "id": "dtmi:dtdl:instance:Schema:dateTime;4",
             "name": "dateTime"
+          },
+          {
+            "description": {
+              "en-us": "a string of decimal digits with an optional decimal point and fractional component"
+            },
+            "id": "dtmi:dtdl:instance:Schema:decimal;4",
+            "name": "decimal"
           },
           {
             "description": {
@@ -28874,7 +29103,7 @@
       "badTypeActionFormat": {
         "2": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
         "3": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, date, dateTime, double, duration, float, integer, long, string, time.",
-        "4": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid."
+        "4": "Provide a @type{line3} in the set of allowable types, or provide a value for property '{property}'{line1} with @type in the set of allowable types, or use one of these standard values for property '{property}'{line1}: boolean, byte, bytes, date, dateTime, decimal, double, duration, float, integer, long, short, string, time, unsignedByte, unsignedInteger, unsignedLong, unsignedShort, uuid."
       },
       "badTypeCauseFormat": {
         "2": "{layer}{primaryId:p} property '{property}' has value{secondaryId:e} that does not have @type of Array, Enum, Map, or Object, and it is not a standard value for this property.",
@@ -28926,6 +29155,7 @@
           "Bytes",
           "Date",
           "DateTime",
+          "Decimal",
           "Double",
           "Duration",
           "Enum",
@@ -28980,6 +29210,7 @@
           "Bytes",
           "Date",
           "DateTime",
+          "Decimal",
           "Double",
           "Duration",
           "Float",
@@ -29273,6 +29504,13 @@
             },
             "id": "dtmi:dtdl:instance:Schema:dateTime;4",
             "name": "dateTime"
+          },
+          {
+            "description": {
+              "en-us": "a string of decimal digits with an optional decimal point and fractional component"
+            },
+            "id": "dtmi:dtdl:instance:Schema:decimal;4",
+            "name": "decimal"
           },
           {
             "description": {
@@ -33575,6 +33813,7 @@
         "Component",
         "Date",
         "DateTime",
+        "Decimal",
         "Double",
         "Duration",
         "Enum",
@@ -33694,6 +33933,7 @@
         "Component",
         "Date",
         "DateTime",
+        "Decimal",
         "Double",
         "Duration",
         "Enum",
@@ -37147,6 +37387,7 @@
         "Component",
         "Date",
         "DateTime",
+        "Decimal",
         "Double",
         "Duration",
         "Enum",

@@ -56,6 +56,9 @@ namespace DTDLParser
         /// <summary>The kind of the Entity is DateTime.</summary>
         DateTime,
 
+        /// <summary>The kind of the Entity is Decimal.</summary>
+        Decimal,
+
         /// <summary>The kind of the Entity is Double.</summary>
         Double,
 

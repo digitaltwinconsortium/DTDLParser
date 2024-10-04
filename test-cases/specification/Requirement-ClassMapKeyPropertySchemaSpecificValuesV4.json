@@ -7,17 +7,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_flunn;1",
+        "@id": "dtmi:example:thnad_mu;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_zatz;1",
+          "@id": "dtmi:example:thnad_kappa;1",
           "@type": "Map",
           "mapValue": {
-            "name": "quan_jogg",
-            "schema": "integer"
+            "name": "thnad_lambda",
+            "schema": "unsignedInteger"
           },
           "mapKey": {
-            "name": "quan_floob",
+            "name": "thnad_iota",
             "schema": "string"
           }
         }
@@ -32,17 +32,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:quan_hi;1",
+        "@id": "dtmi:example:thnad_pi;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:quan_yekk;1",
+          "@id": "dtmi:example:thnad_xi;1",
           "@type": "Map",
           "mapValue": {
-            "name": "quan_vroo",
-            "schema": "long"
+            "name": "thnad_omicron",
+            "schema": "unsignedLong"
           },
           "mapKey": {
-            "name": "quan_itch",
+            "name": "thnad_nu",
             "schema": [
               "string"
             ]
@@ -59,17 +59,17 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_delta;1",
+        "@id": "dtmi:example:thnad_upsilon;1",
         "@type": "Interface",
         "schemas": {
-          "@id": "dtmi:example:thnad_beta;1",
+          "@id": "dtmi:example:thnad_sigma;1",
           "@type": "Map",
           "mapValue": {
-            "name": "thnad_gamma",
-            "schema": "short"
+            "name": "thnad_tau",
+            "schema": "unsignedShort"
           },
           "mapKey": {
-            "name": "thnad_alpha",
+            "name": "thnad_rho",
             "schema": "dtmi:dtdl:instance:Schema:string;4"
           }
         }
@@ -84,115 +84,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_theta;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:thnad_zeta;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "thnad_eta",
-            "schema": "string"
-          },
-          "mapKey": {
-            "name": "thnad_epsilon",
-            "schema": [
-              "dtmi:dtdl:instance:Schema:string;4"
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_mu;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:thnad_kappa;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "thnad_lambda",
-            "schema": "time"
-          },
-          "mapKey": {
-            "name": "thnad_iota",
-            "schema": [
-              "string",
-              "dtmi:dtdl:instance:Schema:string;4"
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_pi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:thnad_xi;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "thnad_omicron",
-            "schema": "unsignedByte"
-          },
-          "mapKey": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "name": "thnad_nu",
-            "schema": [
-              "string",
-              "dtmi:dtdl:instance:Schema:string;4"
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:thnad_upsilon;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:thnad_sigma;1",
-          "@type": "Map",
-          "mapValue": {
-            "name": "thnad_tau",
-            "schema": "unsignedInteger"
-          },
-          "mapKey": {
-            "name": "thnad_rho",
-            "schema": []
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:thnad_omega;1",
         "@type": "Interface",
         "schemas": {
@@ -200,12 +91,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "thnad_psi",
-            "schema": "unsignedLong"
+            "schema": "uuid"
           },
           "mapKey": {
-            "@context": "dtmi:undefinedExtension:context;1",
             "name": "thnad_phi",
-            "schema": []
+            "schema": [
+              "dtmi:dtdl:instance:Schema:string;4"
+            ]
           }
         }
       }
@@ -226,11 +118,14 @@
           "@type": "Map",
           "mapValue": {
             "name": "thnad_um",
-            "schema": "unsignedShort"
+            "schema": "boolean"
           },
           "mapKey": {
             "name": "thnad_yuzz",
-            "schema": null
+            "schema": [
+              "string",
+              "dtmi:dtdl:instance:Schema:string;4"
+            ]
           }
         }
       }
@@ -251,12 +146,15 @@
           "@type": "Map",
           "mapValue": {
             "name": "thnad_nuh",
-            "schema": "uuid"
+            "schema": "byte"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "thnad_fuddle",
-            "schema": null
+            "schema": [
+              "string",
+              "dtmi:dtdl:instance:Schema:string;4"
+            ]
           }
         }
       }
@@ -277,11 +175,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "thnad_spazz",
-            "schema": "boolean"
+            "schema": "bytes"
           },
           "mapKey": {
             "name": "thnad_quan",
-            "schema": true
+            "schema": []
           }
         }
       }
@@ -302,12 +200,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "thnad_flunn",
-            "schema": "byte"
+            "schema": "date"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "thnad_zatz",
-            "schema": true
+            "schema": []
           }
         }
       }
@@ -328,11 +226,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "thnad_hi",
-            "schema": "bytes"
+            "schema": "dateTime"
           },
           "mapKey": {
             "name": "thnad_yekk",
-            "schema": 626
+            "schema": null
           }
         }
       }
@@ -353,12 +251,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_delta",
-            "schema": "date"
+            "schema": "decimal"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "spazz_beta",
-            "schema": 626
+            "schema": null
           }
         }
       }
@@ -379,13 +277,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_theta",
-            "schema": "dateTime"
+            "schema": "double"
           },
           "mapKey": {
             "name": "spazz_zeta",
-            "schema": [
-              null
-            ]
+            "schema": true
           }
         }
       }
@@ -406,14 +302,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_mu",
-            "schema": "double"
+            "schema": "duration"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "spazz_kappa",
-            "schema": [
-              null
-            ]
+            "schema": true
           }
         }
       }
@@ -434,13 +328,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_pi",
-            "schema": "duration"
+            "schema": "float"
           },
           "mapKey": {
             "name": "spazz_xi",
-            "schema": [
-              true
-            ]
+            "schema": 626
           }
         }
       }
@@ -461,14 +353,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_upsilon",
-            "schema": "float"
+            "schema": "integer"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "spazz_sigma",
-            "schema": [
-              true
-            ]
+            "schema": 626
           }
         }
       }
@@ -489,12 +379,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_omega",
-            "schema": "integer"
+            "schema": "long"
           },
           "mapKey": {
             "name": "spazz_chi",
             "schema": [
-              626
+              null
             ]
           }
         }
@@ -516,13 +406,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_humpf",
-            "schema": "long"
+            "schema": "short"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "spazz_wum",
             "schema": [
-              626
+              null
             ]
           }
         }
@@ -544,11 +434,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_snee",
-            "schema": "short"
+            "schema": "string"
           },
           "mapKey": {
             "name": "spazz_glikk",
-            "schema": {}
+            "schema": [
+              true
+            ]
           }
         }
       }
@@ -569,12 +461,14 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_floob",
-            "schema": "string"
+            "schema": "time"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "spazz_thnad",
-            "schema": {}
+            "schema": [
+              true
+            ]
           }
         }
       }
@@ -595,12 +489,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "spazz_itch",
-            "schema": "time"
+            "schema": "unsignedByte"
           },
           "mapKey": {
             "name": "spazz_jogg",
             "schema": [
-              {}
+              626
             ]
           }
         }
@@ -622,13 +516,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_alpha",
-            "schema": "unsignedByte"
+            "schema": "unsignedInteger"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "spazz_vroo",
             "schema": [
-              {}
+              626
             ]
           }
         }
@@ -650,11 +544,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_epsilon",
-            "schema": "unsignedInteger"
+            "schema": "unsignedLong"
           },
           "mapKey": {
             "name": "floob_gamma",
-            "schema": "asynchronous"
+            "schema": {}
           }
         }
       }
@@ -675,12 +569,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_iota",
-            "schema": "unsignedLong"
+            "schema": "unsignedShort"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "floob_eta",
-            "schema": "asynchronous"
+            "schema": {}
           }
         }
       }
@@ -701,11 +595,13 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_nu",
-            "schema": "unsignedShort"
+            "schema": "uuid"
           },
           "mapKey": {
             "name": "floob_lambda",
-            "schema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
+            "schema": [
+              {}
+            ]
           }
         }
       }
@@ -726,12 +622,14 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_rho",
-            "schema": "uuid"
+            "schema": "boolean"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "floob_omicron",
-            "schema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
+            "schema": [
+              {}
+            ]
           }
         }
       }
@@ -752,11 +650,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_phi",
-            "schema": "boolean"
+            "schema": "byte"
           },
           "mapKey": {
             "name": "floob_tau",
-            "schema": "synchronous"
+            "schema": "asynchronous"
           }
         }
       }
@@ -777,12 +675,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_yuzz",
-            "schema": "byte"
+            "schema": "bytes"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "floob_psi",
-            "schema": "synchronous"
+            "schema": "asynchronous"
           }
         }
       }
@@ -803,11 +701,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_fuddle",
-            "schema": "bytes"
+            "schema": "date"
           },
           "mapKey": {
             "name": "floob_um",
-            "schema": "dtmi:dtdl:instance:CommandType:synchronous;4"
+            "schema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
           }
         }
       }
@@ -828,12 +726,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_quan",
-            "schema": "date"
+            "schema": "dateTime"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "floob_nuh",
-            "schema": "dtmi:dtdl:instance:CommandType:synchronous;4"
+            "schema": "dtmi:dtdl:instance:CommandType:asynchronous;4"
           }
         }
       }
@@ -854,11 +752,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "floob_zatz",
-            "schema": "dateTime"
+            "schema": "decimal"
           },
           "mapKey": {
             "name": "floob_spazz",
-            "schema": "boolean"
+            "schema": "synchronous"
           }
         }
       }
@@ -884,7 +782,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "floob_flunn",
-            "schema": "boolean"
+            "schema": "synchronous"
           }
         }
       }
@@ -909,7 +807,7 @@
           },
           "mapKey": {
             "name": "floob_hi",
-            "schema": "dtmi:dtdl:instance:Schema:boolean;4"
+            "schema": "dtmi:dtdl:instance:CommandType:synchronous;4"
           }
         }
       }
@@ -935,7 +833,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "zatz_delta",
-            "schema": "dtmi:dtdl:instance:Schema:boolean;4"
+            "schema": "dtmi:dtdl:instance:CommandType:synchronous;4"
           }
         }
       }
@@ -960,7 +858,7 @@
           },
           "mapKey": {
             "name": "zatz_theta",
-            "schema": "byte"
+            "schema": "boolean"
           }
         }
       }
@@ -986,7 +884,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "zatz_mu",
-            "schema": "byte"
+            "schema": "boolean"
           }
         }
       }
@@ -1011,7 +909,7 @@
           },
           "mapKey": {
             "name": "zatz_pi",
-            "schema": "dtmi:dtdl:instance:Schema:byte;4"
+            "schema": "dtmi:dtdl:instance:Schema:boolean;4"
           }
         }
       }
@@ -1037,7 +935,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "zatz_upsilon",
-            "schema": "dtmi:dtdl:instance:Schema:byte;4"
+            "schema": "dtmi:dtdl:instance:Schema:boolean;4"
           }
         }
       }
@@ -1062,7 +960,7 @@
           },
           "mapKey": {
             "name": "zatz_omega",
-            "schema": "bytes"
+            "schema": "byte"
           }
         }
       }
@@ -1088,7 +986,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "zatz_humpf",
-            "schema": "bytes"
+            "schema": "byte"
           }
         }
       }
@@ -1113,7 +1011,7 @@
           },
           "mapKey": {
             "name": "zatz_snee",
-            "schema": "dtmi:dtdl:instance:Schema:bytes;4"
+            "schema": "dtmi:dtdl:instance:Schema:byte;4"
           }
         }
       }
@@ -1139,7 +1037,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "zatz_floob",
-            "schema": "dtmi:dtdl:instance:Schema:bytes;4"
+            "schema": "dtmi:dtdl:instance:Schema:byte;4"
           }
         }
       }
@@ -1164,7 +1062,7 @@
           },
           "mapKey": {
             "name": "zatz_itch",
-            "schema": "date"
+            "schema": "bytes"
           }
         }
       }
@@ -1190,7 +1088,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "jogg_alpha",
-            "schema": "date"
+            "schema": "bytes"
           }
         }
       }
@@ -1215,7 +1113,7 @@
           },
           "mapKey": {
             "name": "jogg_epsilon",
-            "schema": "dtmi:dtdl:instance:Schema:date;4"
+            "schema": "dtmi:dtdl:instance:Schema:bytes;4"
           }
         }
       }
@@ -1241,7 +1139,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "jogg_iota",
-            "schema": "dtmi:dtdl:instance:Schema:date;4"
+            "schema": "dtmi:dtdl:instance:Schema:bytes;4"
           }
         }
       }
@@ -1266,7 +1164,7 @@
           },
           "mapKey": {
             "name": "jogg_nu",
-            "schema": "dateTime"
+            "schema": "date"
           }
         }
       }
@@ -1292,7 +1190,7 @@
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "jogg_rho",
-            "schema": "dateTime"
+            "schema": "date"
           }
         }
       }
@@ -1317,7 +1215,7 @@
           },
           "mapKey": {
             "name": "jogg_phi",
-            "schema": "dtmi:dtdl:instance:Schema:dateTime;4"
+            "schema": "dtmi:dtdl:instance:Schema:date;4"
           }
         }
       }
@@ -1338,12 +1236,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "jogg_um",
-            "schema": "double"
+            "schema": "decimal"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "jogg_yuzz",
-            "schema": "dtmi:dtdl:instance:Schema:dateTime;4"
+            "schema": "dtmi:dtdl:instance:Schema:date;4"
           }
         }
       }
@@ -1364,11 +1262,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "jogg_nuh",
-            "schema": "duration"
+            "schema": "double"
           },
           "mapKey": {
             "name": "jogg_fuddle",
-            "schema": "double"
+            "schema": "dateTime"
           }
         }
       }
@@ -1389,12 +1287,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "jogg_spazz",
-            "schema": "float"
+            "schema": "duration"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "jogg_quan",
-            "schema": "double"
+            "schema": "dateTime"
           }
         }
       }
@@ -1415,11 +1313,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "jogg_flunn",
-            "schema": "integer"
+            "schema": "float"
           },
           "mapKey": {
             "name": "jogg_zatz",
-            "schema": "dtmi:dtdl:instance:Schema:double;4"
+            "schema": "dtmi:dtdl:instance:Schema:dateTime;4"
           }
         }
       }
@@ -1440,12 +1338,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "jogg_hi",
-            "schema": "long"
+            "schema": "integer"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "jogg_yekk",
-            "schema": "dtmi:dtdl:instance:Schema:double;4"
+            "schema": "dtmi:dtdl:instance:Schema:dateTime;4"
           }
         }
       }
@@ -1466,11 +1364,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_delta",
-            "schema": "short"
+            "schema": "long"
           },
           "mapKey": {
             "name": "flunn_beta",
-            "schema": "duration"
+            "schema": "decimal"
           }
         }
       }
@@ -1491,12 +1389,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_theta",
-            "schema": "string"
+            "schema": "short"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "flunn_zeta",
-            "schema": "duration"
+            "schema": "decimal"
           }
         }
       }
@@ -1517,11 +1415,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_mu",
-            "schema": "time"
+            "schema": "string"
           },
           "mapKey": {
             "name": "flunn_kappa",
-            "schema": "dtmi:dtdl:instance:Schema:duration;4"
+            "schema": "dtmi:dtdl:instance:Schema:decimal;4"
           }
         }
       }
@@ -1542,12 +1440,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_pi",
-            "schema": "unsignedByte"
+            "schema": "time"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "flunn_xi",
-            "schema": "dtmi:dtdl:instance:Schema:duration;4"
+            "schema": "dtmi:dtdl:instance:Schema:decimal;4"
           }
         }
       }
@@ -1568,11 +1466,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_upsilon",
-            "schema": "unsignedInteger"
+            "schema": "unsignedByte"
           },
           "mapKey": {
             "name": "flunn_sigma",
-            "schema": "float"
+            "schema": "double"
           }
         }
       }
@@ -1593,12 +1491,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_omega",
-            "schema": "unsignedLong"
+            "schema": "unsignedInteger"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "flunn_chi",
-            "schema": "float"
+            "schema": "double"
           }
         }
       }
@@ -1619,11 +1517,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_humpf",
-            "schema": "unsignedShort"
+            "schema": "unsignedLong"
           },
           "mapKey": {
             "name": "flunn_wum",
-            "schema": "dtmi:dtdl:instance:Schema:float;4"
+            "schema": "dtmi:dtdl:instance:Schema:double;4"
           }
         }
       }
@@ -1644,12 +1542,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_snee",
-            "schema": "uuid"
+            "schema": "unsignedShort"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "flunn_glikk",
-            "schema": "dtmi:dtdl:instance:Schema:float;4"
+            "schema": "dtmi:dtdl:instance:Schema:double;4"
           }
         }
       }
@@ -1670,11 +1568,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_floob",
-            "schema": "boolean"
+            "schema": "uuid"
           },
           "mapKey": {
             "name": "flunn_thnad",
-            "schema": "integer"
+            "schema": "duration"
           }
         }
       }
@@ -1695,12 +1593,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "flunn_itch",
-            "schema": "byte"
+            "schema": "boolean"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "flunn_jogg",
-            "schema": "integer"
+            "schema": "duration"
           }
         }
       }
@@ -1721,11 +1619,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_alpha",
-            "schema": "bytes"
+            "schema": "byte"
           },
           "mapKey": {
             "name": "flunn_vroo",
-            "schema": "dtmi:dtdl:instance:Schema:integer;4"
+            "schema": "dtmi:dtdl:instance:Schema:duration;4"
           }
         }
       }
@@ -1746,12 +1644,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_epsilon",
-            "schema": "date"
+            "schema": "bytes"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "itch_gamma",
-            "schema": "dtmi:dtdl:instance:Schema:integer;4"
+            "schema": "dtmi:dtdl:instance:Schema:duration;4"
           }
         }
       }
@@ -1772,11 +1670,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_iota",
-            "schema": "dateTime"
+            "schema": "date"
           },
           "mapKey": {
             "name": "itch_eta",
-            "schema": "long"
+            "schema": "float"
           }
         }
       }
@@ -1797,12 +1695,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_nu",
-            "schema": "double"
+            "schema": "dateTime"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "itch_lambda",
-            "schema": "long"
+            "schema": "float"
           }
         }
       }
@@ -1823,11 +1721,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_rho",
-            "schema": "duration"
+            "schema": "decimal"
           },
           "mapKey": {
             "name": "itch_omicron",
-            "schema": "dtmi:dtdl:instance:Schema:long;4"
+            "schema": "dtmi:dtdl:instance:Schema:float;4"
           }
         }
       }
@@ -1848,12 +1746,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_phi",
-            "schema": "float"
+            "schema": "double"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "itch_tau",
-            "schema": "dtmi:dtdl:instance:Schema:long;4"
+            "schema": "dtmi:dtdl:instance:Schema:float;4"
           }
         }
       }
@@ -1874,11 +1772,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_yuzz",
-            "schema": "integer"
+            "schema": "duration"
           },
           "mapKey": {
             "name": "itch_psi",
-            "schema": "short"
+            "schema": "integer"
           }
         }
       }
@@ -1899,12 +1797,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_fuddle",
-            "schema": "long"
+            "schema": "float"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "itch_um",
-            "schema": "short"
+            "schema": "integer"
           }
         }
       }
@@ -1925,11 +1823,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_quan",
-            "schema": "short"
+            "schema": "integer"
           },
           "mapKey": {
             "name": "itch_nuh",
-            "schema": "dtmi:dtdl:instance:Schema:short;4"
+            "schema": "dtmi:dtdl:instance:Schema:integer;4"
           }
         }
       }
@@ -1950,12 +1848,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_zatz",
-            "schema": "string"
+            "schema": "long"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "itch_spazz",
-            "schema": "dtmi:dtdl:instance:Schema:short;4"
+            "schema": "dtmi:dtdl:instance:Schema:integer;4"
           }
         }
       }
@@ -1976,11 +1874,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "itch_yekk",
-            "schema": "time"
+            "schema": "short"
           },
           "mapKey": {
             "name": "itch_flunn",
-            "schema": "time"
+            "schema": "long"
           }
         }
       }
@@ -2001,12 +1899,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_beta",
-            "schema": "unsignedByte"
+            "schema": "string"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "itch_hi",
-            "schema": "time"
+            "schema": "long"
           }
         }
       }
@@ -2027,11 +1925,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_zeta",
-            "schema": "unsignedInteger"
+            "schema": "time"
           },
           "mapKey": {
             "name": "yekk_delta",
-            "schema": "dtmi:dtdl:instance:Schema:time;4"
+            "schema": "dtmi:dtdl:instance:Schema:long;4"
           }
         }
       }
@@ -2052,12 +1950,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_kappa",
-            "schema": "unsignedLong"
+            "schema": "unsignedByte"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_theta",
-            "schema": "dtmi:dtdl:instance:Schema:time;4"
+            "schema": "dtmi:dtdl:instance:Schema:long;4"
           }
         }
       }
@@ -2078,11 +1976,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_xi",
-            "schema": "unsignedShort"
+            "schema": "unsignedInteger"
           },
           "mapKey": {
             "name": "yekk_mu",
-            "schema": "unsignedByte"
+            "schema": "short"
           }
         }
       }
@@ -2103,12 +2001,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_sigma",
-            "schema": "uuid"
+            "schema": "unsignedLong"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_pi",
-            "schema": "unsignedByte"
+            "schema": "short"
           }
         }
       }
@@ -2129,11 +2027,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_chi",
-            "schema": "boolean"
+            "schema": "unsignedShort"
           },
           "mapKey": {
             "name": "yekk_upsilon",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedByte;4"
+            "schema": "dtmi:dtdl:instance:Schema:short;4"
           }
         }
       }
@@ -2154,12 +2052,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_wum",
-            "schema": "byte"
+            "schema": "uuid"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_omega",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedByte;4"
+            "schema": "dtmi:dtdl:instance:Schema:short;4"
           }
         }
       }
@@ -2180,11 +2078,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_glikk",
-            "schema": "bytes"
+            "schema": "boolean"
           },
           "mapKey": {
             "name": "yekk_humpf",
-            "schema": "unsignedInteger"
+            "schema": "time"
           }
         }
       }
@@ -2205,12 +2103,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_thnad",
-            "schema": "date"
+            "schema": "byte"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_snee",
-            "schema": "unsignedInteger"
+            "schema": "time"
           }
         }
       }
@@ -2231,11 +2129,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_jogg",
-            "schema": "dateTime"
+            "schema": "bytes"
           },
           "mapKey": {
             "name": "yekk_floob",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedInteger;4"
+            "schema": "dtmi:dtdl:instance:Schema:time;4"
           }
         }
       }
@@ -2256,12 +2154,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "yekk_vroo",
-            "schema": "double"
+            "schema": "date"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "yekk_itch",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedInteger;4"
+            "schema": "dtmi:dtdl:instance:Schema:time;4"
           }
         }
       }
@@ -2282,11 +2180,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_gamma",
-            "schema": "duration"
+            "schema": "dateTime"
           },
           "mapKey": {
             "name": "vroo_alpha",
-            "schema": "unsignedLong"
+            "schema": "unsignedByte"
           }
         }
       }
@@ -2307,12 +2205,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_eta",
-            "schema": "float"
+            "schema": "decimal"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "vroo_epsilon",
-            "schema": "unsignedLong"
+            "schema": "unsignedByte"
           }
         }
       }
@@ -2333,11 +2231,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_lambda",
-            "schema": "integer"
+            "schema": "double"
           },
           "mapKey": {
             "name": "vroo_iota",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedLong;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedByte;4"
           }
         }
       }
@@ -2358,12 +2256,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_omicron",
-            "schema": "long"
+            "schema": "duration"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "vroo_nu",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedLong;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedByte;4"
           }
         }
       }
@@ -2384,11 +2282,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_tau",
-            "schema": "short"
+            "schema": "float"
           },
           "mapKey": {
             "name": "vroo_rho",
-            "schema": "unsignedShort"
+            "schema": "unsignedInteger"
           }
         }
       }
@@ -2409,12 +2307,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_psi",
-            "schema": "string"
+            "schema": "integer"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "vroo_phi",
-            "schema": "unsignedShort"
+            "schema": "unsignedInteger"
           }
         }
       }
@@ -2435,11 +2333,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_um",
-            "schema": "time"
+            "schema": "long"
           },
           "mapKey": {
             "name": "vroo_yuzz",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedShort;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedInteger;4"
           }
         }
       }
@@ -2460,12 +2358,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_nuh",
-            "schema": "unsignedByte"
+            "schema": "short"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "vroo_fuddle",
-            "schema": "dtmi:dtdl:instance:Schema:unsignedShort;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedInteger;4"
           }
         }
       }
@@ -2486,11 +2384,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_spazz",
-            "schema": "unsignedInteger"
+            "schema": "string"
           },
           "mapKey": {
             "name": "vroo_quan",
-            "schema": "uuid"
+            "schema": "unsignedLong"
           }
         }
       }
@@ -2511,12 +2409,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_flunn",
-            "schema": "unsignedLong"
+            "schema": "time"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "vroo_zatz",
-            "schema": "uuid"
+            "schema": "unsignedLong"
           }
         }
       }
@@ -2537,11 +2435,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "vroo_hi",
-            "schema": "unsignedShort"
+            "schema": "unsignedByte"
           },
           "mapKey": {
             "name": "vroo_yekk",
-            "schema": "dtmi:dtdl:instance:Schema:uuid;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedLong;4"
           }
         }
       }
@@ -2562,12 +2460,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_delta",
-            "schema": "uuid"
+            "schema": "unsignedInteger"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "hi_beta",
-            "schema": "dtmi:dtdl:instance:Schema:uuid;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedLong;4"
           }
         }
       }
@@ -2588,11 +2486,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_theta",
-            "schema": "boolean"
+            "schema": "unsignedLong"
           },
           "mapKey": {
             "name": "hi_zeta",
-            "schema": "lineString"
+            "schema": "unsignedShort"
           }
         }
       }
@@ -2613,12 +2511,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_mu",
-            "schema": "byte"
+            "schema": "unsignedShort"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "hi_kappa",
-            "schema": "lineString"
+            "schema": "unsignedShort"
           }
         }
       }
@@ -2639,11 +2537,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_pi",
-            "schema": "bytes"
+            "schema": "uuid"
           },
           "mapKey": {
             "name": "hi_xi",
-            "schema": "dtmi:standard:schema:geospatial:lineString;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedShort;4"
           }
         }
       }
@@ -2664,12 +2562,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_upsilon",
-            "schema": "date"
+            "schema": "boolean"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "hi_sigma",
-            "schema": "dtmi:standard:schema:geospatial:lineString;4"
+            "schema": "dtmi:dtdl:instance:Schema:unsignedShort;4"
           }
         }
       }
@@ -2690,11 +2588,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_omega",
-            "schema": "dateTime"
+            "schema": "byte"
           },
           "mapKey": {
             "name": "hi_chi",
-            "schema": "multiLineString"
+            "schema": "uuid"
           }
         }
       }
@@ -2715,12 +2613,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_humpf",
-            "schema": "double"
+            "schema": "bytes"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "hi_wum",
-            "schema": "multiLineString"
+            "schema": "uuid"
           }
         }
       }
@@ -2741,11 +2639,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_snee",
-            "schema": "duration"
+            "schema": "date"
           },
           "mapKey": {
             "name": "hi_glikk",
-            "schema": "dtmi:standard:schema:geospatial:multiLineString;4"
+            "schema": "dtmi:dtdl:instance:Schema:uuid;4"
           }
         }
       }
@@ -2766,12 +2664,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_floob",
-            "schema": "float"
+            "schema": "dateTime"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "hi_thnad",
-            "schema": "dtmi:standard:schema:geospatial:multiLineString;4"
+            "schema": "dtmi:dtdl:instance:Schema:uuid;4"
           }
         }
       }
@@ -2792,11 +2690,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "hi_itch",
-            "schema": "integer"
+            "schema": "decimal"
           },
           "mapKey": {
             "name": "hi_jogg",
-            "schema": "multiPoint"
+            "schema": "lineString"
           }
         }
       }
@@ -2817,12 +2715,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_alpha",
-            "schema": "long"
+            "schema": "double"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "hi_vroo",
-            "schema": "multiPoint"
+            "schema": "lineString"
           }
         }
       }
@@ -2843,11 +2741,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_epsilon",
-            "schema": "short"
+            "schema": "duration"
           },
           "mapKey": {
             "name": "alpha_gamma",
-            "schema": "dtmi:standard:schema:geospatial:multiPoint;4"
+            "schema": "dtmi:standard:schema:geospatial:lineString;4"
           }
         }
       }
@@ -2868,12 +2766,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_iota",
-            "schema": "string"
+            "schema": "float"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "alpha_eta",
-            "schema": "dtmi:standard:schema:geospatial:multiPoint;4"
+            "schema": "dtmi:standard:schema:geospatial:lineString;4"
           }
         }
       }
@@ -2894,11 +2792,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_nu",
-            "schema": "time"
+            "schema": "integer"
           },
           "mapKey": {
             "name": "alpha_lambda",
-            "schema": "multiPolygon"
+            "schema": "multiLineString"
           }
         }
       }
@@ -2919,12 +2817,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_rho",
-            "schema": "unsignedByte"
+            "schema": "long"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "alpha_omicron",
-            "schema": "multiPolygon"
+            "schema": "multiLineString"
           }
         }
       }
@@ -2945,11 +2843,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_phi",
-            "schema": "unsignedInteger"
+            "schema": "short"
           },
           "mapKey": {
             "name": "alpha_tau",
-            "schema": "dtmi:standard:schema:geospatial:multiPolygon;4"
+            "schema": "dtmi:standard:schema:geospatial:multiLineString;4"
           }
         }
       }
@@ -2970,12 +2868,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_yuzz",
-            "schema": "unsignedLong"
+            "schema": "string"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "alpha_psi",
-            "schema": "dtmi:standard:schema:geospatial:multiPolygon;4"
+            "schema": "dtmi:standard:schema:geospatial:multiLineString;4"
           }
         }
       }
@@ -2996,11 +2894,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_fuddle",
-            "schema": "unsignedShort"
+            "schema": "time"
           },
           "mapKey": {
             "name": "alpha_um",
-            "schema": "point"
+            "schema": "multiPoint"
           }
         }
       }
@@ -3021,12 +2919,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_quan",
-            "schema": "uuid"
+            "schema": "unsignedByte"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "alpha_nuh",
-            "schema": "point"
+            "schema": "multiPoint"
           }
         }
       }
@@ -3047,11 +2945,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_zatz",
-            "schema": "boolean"
+            "schema": "unsignedInteger"
           },
           "mapKey": {
             "name": "alpha_spazz",
-            "schema": "dtmi:standard:schema:geospatial:point;4"
+            "schema": "dtmi:standard:schema:geospatial:multiPoint;4"
           }
         }
       }
@@ -3072,12 +2970,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "alpha_yekk",
-            "schema": "byte"
+            "schema": "unsignedLong"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "alpha_flunn",
-            "schema": "dtmi:standard:schema:geospatial:point;4"
+            "schema": "dtmi:standard:schema:geospatial:multiPoint;4"
           }
         }
       }
@@ -3098,11 +2996,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "beta_beta",
-            "schema": "bytes"
+            "schema": "unsignedShort"
           },
           "mapKey": {
             "name": "alpha_hi",
-            "schema": "polygon"
+            "schema": "multiPolygon"
           }
         }
       }
@@ -3123,12 +3021,12 @@
           "@type": "Map",
           "mapValue": {
             "name": "beta_zeta",
-            "schema": "date"
+            "schema": "uuid"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "beta_delta",
-            "schema": "polygon"
+            "schema": "multiPolygon"
           }
         }
       }
@@ -3149,11 +3047,11 @@
           "@type": "Map",
           "mapValue": {
             "name": "beta_kappa",
-            "schema": "dateTime"
+            "schema": "boolean"
           },
           "mapKey": {
             "name": "beta_theta",
-            "schema": "dtmi:standard:schema:geospatial:polygon;4"
+            "schema": "dtmi:standard:schema:geospatial:multiPolygon;4"
           }
         }
       }
@@ -3174,11 +3072,215 @@
           "@type": "Map",
           "mapValue": {
             "name": "beta_xi",
-            "schema": "double"
+            "schema": "byte"
           },
           "mapKey": {
             "@context": "dtmi:undefinedExtension:context;1",
             "name": "beta_mu",
+            "schema": "dtmi:standard:schema:geospatial:multiPolygon;4"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_tau;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_rho;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "beta_sigma",
+            "schema": "bytes"
+          },
+          "mapKey": {
+            "name": "beta_pi",
+            "schema": "point"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_psi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_phi;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "beta_chi",
+            "schema": "date"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "beta_upsilon",
+            "schema": "point"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_um;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_yuzz;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "beta_wum",
+            "schema": "dateTime"
+          },
+          "mapKey": {
+            "name": "beta_omega",
+            "schema": "dtmi:standard:schema:geospatial:point;4"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_nuh;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_fuddle;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "beta_glikk",
+            "schema": "decimal"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "beta_humpf",
+            "schema": "dtmi:standard:schema:geospatial:point;4"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_spazz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_quan;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "beta_thnad",
+            "schema": "double"
+          },
+          "mapKey": {
+            "name": "beta_snee",
+            "schema": "polygon"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_flunn;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_zatz;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "beta_jogg",
+            "schema": "duration"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "beta_floob",
+            "schema": "polygon"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:beta_hi;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:beta_yekk;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "beta_vroo",
+            "schema": "float"
+          },
+          "mapKey": {
+            "name": "beta_itch",
+            "schema": "dtmi:standard:schema:geospatial:polygon;4"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:gamma_delta;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:gamma_beta;1",
+          "@type": "Map",
+          "mapValue": {
+            "name": "gamma_gamma",
+            "schema": "integer"
+          },
+          "mapKey": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "name": "gamma_alpha",
             "schema": "dtmi:standard:schema:geospatial:polygon;4"
           }
         }

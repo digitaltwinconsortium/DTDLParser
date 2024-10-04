@@ -7,15 +7,37 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_chi;1",
+        "@id": "dtmi:example:alpha_lambda;1",
         "@type": "Interface",
         "extends": {
-          "@id": "dtmi:example:hi_phi;1",
+          "@id": "dtmi:example:alpha_kappa;1",
           "@type": "Interface",
           "contents": {
             "@context": [],
             "@type": "Property",
-            "name": "hi_upsilon",
+            "name": "alpha_iota",
+            "schema": "unsignedLong"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": true,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:alpha_xi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:alpha_nu;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Property",
+            "name": "alpha_mu",
             "schema": "unsignedShort"
           }
         }
@@ -30,16 +52,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_yuzz;1",
+        "@id": "dtmi:example:alpha_pi;1",
         "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:hi_omega;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Property",
-            "name": "hi_psi",
-            "schema": "uuid"
-          }
+        "contents": {
+          "@type": "Property",
+          "name": "alpha_omicron",
+          "schema": "uuid"
         }
       }
     ]
@@ -52,11 +70,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_um;1",
+        "@id": "dtmi:example:alpha_sigma;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "hi_wum",
+          "name": "alpha_rho",
           "schema": "boolean"
         }
       }
@@ -70,11 +88,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_fuddle;1",
+        "@id": "dtmi:example:alpha_upsilon;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "hi_humpf",
+          "name": "alpha_tau",
           "schema": "byte"
         }
       }
@@ -88,30 +106,12 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_nuh;1",
+        "@id": "dtmi:example:alpha_chi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Property",
-          "name": "hi_glikk",
+          "name": "alpha_phi",
           "schema": "bytes"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:hi_quan;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Property",
-          "name": "hi_snee",
-          "schema": "date"
         }
       }
     ]

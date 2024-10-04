@@ -217,6 +217,7 @@ namespace ParserUnitTest
         [DataRow("DateTimeInstancesV2")]
         [DataRow("DateTimeInstancesV3")]
         [DataRow("DateTimeInstancesV4")]
+        [DataRow("DecimalInstancesV4")]
         [DataRow("DetailedModelV2")]
         [DataRow("DetailedModelV3")]
         [DataRow("DetailedModelV4")]
