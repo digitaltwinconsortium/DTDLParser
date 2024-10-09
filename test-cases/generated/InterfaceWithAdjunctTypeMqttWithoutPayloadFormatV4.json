@@ -1,0 +1,59 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;2"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;2"
+      ],
+      "@id": "dtmi:jsonTest:TelemetryAndCommand;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+      "commandTopic": "sample/{modelId}/command/{commandName}",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "distance",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "color",
+          "schema": "string"
+        },
+        {
+          "@type": "Command",
+          "name": "doit",
+          "request": {
+            "name": "poke",
+            "schema": "string"
+          },
+          "response": {
+            "name": "peek",
+            "schema": "integer"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingSupplementalLiteralProperty",
+        "PrimaryID": "dtmi:jsonTest:TelemetryAndCommand;1",
+        "Property": "payloadFormat",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 1,
+        "PrimaryEnd": 37
+      }
+    ]
+  }
+}

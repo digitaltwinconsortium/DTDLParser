@@ -73,6 +73,7 @@ namespace DTDLParser
             Dtmi idempotentTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:mqtt:v2:Idempotent");
             Dtmi indexedTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:mqtt:v2:Indexed");
             Dtmi mqttTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt");
+            Dtmi transparentTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:mqtt:v2:Transparent");
             Dtmi overrideTypeIdCV1 = new Dtmi("dtmi:dtdl:extension:overriding:v1:Override");
             Dtmi overrideTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:overriding:v2:Override");
             Dtmi accelerationTypeIdCV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration");
@@ -384,9 +385,15 @@ namespace DTDLParser
             DTSupplementalTypeInfo mqttInfoCV2 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV2, mqttTypeIdCV2, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
             mqttInfoCV2.AddProperty("dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             mqttInfoCV2.AddProperty("dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoCV2.AddProperty("dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^[!$-*,-.0-z|~]+$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             mqttInfoCV2.AddProperty("dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             mqttInfoCV2.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Interface };
             mqttInfoCV2.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo transparentInfoCV2 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV2, transparentTypeIdCV2, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            transparentInfoCV2.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:Object;3"), new Dtmi("dtmi:dtdl:class:Object;4") }, RequiredTypesString = "Object" });
+            transparentInfoCV2.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.CommandRequest, DTEntityKind.CommandResponse };
+            transparentInfoCV2.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
 
             DTSupplementalTypeInfo overrideInfoCV1 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionOverridingContextIdV1, overrideTypeIdCV1, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV3);
             overrideInfoCV1.AddProperty("dtmi:dtdl:extension:overriding:v1:Override:overrides", null, 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
@@ -1365,6 +1372,7 @@ namespace DTDLParser
             EndogenousSupplementalTypes[idempotentTypeIdCV2] = idempotentInfoCV2;
             EndogenousSupplementalTypes[indexedTypeIdCV2] = indexedInfoCV2;
             EndogenousSupplementalTypes[mqttTypeIdCV2] = mqttInfoCV2;
+            EndogenousSupplementalTypes[transparentTypeIdCV2] = transparentInfoCV2;
             EndogenousSupplementalTypes[overrideTypeIdCV1] = overrideInfoCV1;
             EndogenousSupplementalTypes[overrideTypeIdCV2] = overrideInfoCV2;
             EndogenousSupplementalTypes[accelerationTypeIdCV1] = accelerationInfoCV1;

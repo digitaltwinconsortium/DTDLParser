@@ -656,7 +656,9 @@
       "Indexed": "dtmi:dtdl:extension:mqtt:v2:Indexed",
       "Mqtt": "dtmi:dtdl:extension:mqtt:v2:Mqtt",
       "payloadFormat": "dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat",
+      "serviceGroupId": "dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId",
       "telemetryTopic": "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic",
+      "Transparent": "dtmi:dtdl:extension:mqtt:v2:Transparent",
       "ttl": "dtmi:dtdl:extension:mqtt:v2:Cacheable:ttl"
     },
     "dtmi:dtdl:extension:overriding;1": {
@@ -34558,6 +34560,25 @@
           "typeRequired": true,
           "uniqueValue": false
         },
+        "dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The service group ID for subscribing to Command topics when shared subscriptions are wanted."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^[!$-*,-.0-z|~]+$",
+          "patternDesc": {
+            "en-us": "non-empty string of printable ASCII characters not including space, \", +, #, {, }, or /"
+          },
+          "plural": false,
+          "propertyName": "serviceGroupId",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
         "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic": {
           "deprecated": false,
           "description": {
@@ -34578,6 +34599,37 @@
           "uniqueValue": false
         }
       },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v2:Transparent": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "Object"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:Object;3",
+            "dtmi:dtdl:class:Object;4"
+          ],
+          "requiredTypesString": "Object"
+        }
+      ],
+      "cotypes": [
+        "CommandRequest",
+        "CommandResponse"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;2",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
       "siblings": []
     },
     "dtmi:dtdl:extension:overriding:v1:Override": {
