@@ -1,0 +1,80 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;1"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:mqtt;1"
+      ],
+      "@id": "dtmi:jsonTest:TelemetryAndCommand;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "payloadFormat": "Json/ecma/404",
+      "telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+      "commandTopic": "sample/{modelId}/command/{commandName}",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "distance",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "color",
+          "schema": "string"
+        },
+        {
+          "@type": [
+            "Command",
+            "Idempotent",
+            "Cacheable"
+          ],
+          "name": "doit",
+          "request": {
+            "name": "poke",
+            "schema": "string"
+          },
+          "response": {
+            "name": "peek",
+            "schema": "integer"
+          },
+          "ttl": "PT15S"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:jsonTest:TelemetryAndCommand;1",
+        "type": "Interface",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v1:Mqtt"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v1:Mqtt:payloadFormat": "Json/ecma/404",
+          "dtmi:dtdl:extension:mqtt:v1:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+          "dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}"
+        }
+      },
+      {
+        "id": "dtmi:jsonTest:TelemetryAndCommand:_contents:__doit;1",
+        "type": "Command",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v1:Idempotent",
+          "dtmi:dtdl:extension:mqtt:v1:Cacheable"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v1:Cacheable:ttl": "00:00:15"
+        }
+      }
+    ]
+  }
+}

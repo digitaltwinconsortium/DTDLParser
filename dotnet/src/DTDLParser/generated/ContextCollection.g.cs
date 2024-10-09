@@ -103,7 +103,9 @@ namespace DTDLParser
             context2_0.AddTermDefinition("Indexed", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Indexed"), isMergeableType: false);
             context2_0.AddTermDefinition("Mqtt", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt"), isMergeableType: false);
             context2_0.AddTermDefinition("payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat"), isMergeableType: false);
+            context2_0.AddTermDefinition("serviceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId"), isMergeableType: false);
             context2_0.AddTermDefinition("telemetryTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic"), isMergeableType: false);
+            context2_0.AddTermDefinition("Transparent", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Transparent"), isMergeableType: false);
             context2_0.AddTermDefinition("ttl", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Cacheable:ttl"), isMergeableType: false);
             versionedContexts.Add(context2_0);
 

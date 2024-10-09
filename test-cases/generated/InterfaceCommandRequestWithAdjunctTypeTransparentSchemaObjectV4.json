@@ -1,0 +1,78 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;2"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;2"
+      ],
+      "@id": "dtmi:jsonTest:TelemetryAndCommand;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "payloadFormat": "Json/ecma/404",
+      "telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+      "commandTopic": "sample/{modelId}/command/{commandName}",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "distance",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "color",
+          "schema": "string"
+        },
+        {
+          "@type": "Command",
+          "name": "doit",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "Transparent"
+            ],
+            "name": "poke",
+            "schema": {
+              "@type": "Object",
+              "fields": []
+            }
+          },
+          "response": {
+            "name": "peek",
+            "schema": "integer"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:jsonTest:TelemetryAndCommand;1",
+        "type": "Interface",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat": "Json/ecma/404",
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}"
+        }
+      },
+      {
+        "id": "dtmi:jsonTest:TelemetryAndCommand:_contents:__doit:_request;1",
+        "type": "CommandRequest",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v2:Transparent"
+        ]
+      }
+    ]
+  }
+}

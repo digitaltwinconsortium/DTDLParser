@@ -1,0 +1,63 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;2"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;2"
+      ],
+      "@id": "dtmi:jsonTest:TelemetryAndCommand;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "payloadFormat": "Json/ecma/404",
+      "telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+      "commandTopic": "sample/{modelId}/command/{commandName}",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "distance",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "color",
+          "schema": "string"
+        },
+        {
+          "@type": [
+            "Command",
+            "Cacheable"
+          ],
+          "name": "doit",
+          "request": {
+            "name": "poke",
+            "schema": "string"
+          },
+          "response": {
+            "name": "peek",
+            "schema": "integer"
+          },
+          "ttl": "PT15S"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingCocotype",
+        "PrimaryID": "dtmi:jsonTest:TelemetryAndCommand:_contents:__doit;1",
+        "Type": "Cacheable",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 26
+      }
+    ]
+  }
+}
