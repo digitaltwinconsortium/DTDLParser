@@ -32,7 +32,7 @@ namespace DTDLParser.Models
 
         private static readonly HashSet<string> VersionlessTypes = new HashSet<string>();
 
-        private static readonly Regex ElementValueInstanceRegexPatternV4 = new Regex(@"^(?:[1-9][0-9]*|0)(?:\.[0-9]*)?$", RegexOptions.Compiled);
+        private static readonly Regex ElementValueInstanceRegexPatternV4 = new Regex(@"^(?:\+|-)?(?:[1-9][0-9]*|0)(?:\.[0-9]*)?$", RegexOptions.Compiled);
 
         private bool checkedForDescendantSchemaArray = false;
 
