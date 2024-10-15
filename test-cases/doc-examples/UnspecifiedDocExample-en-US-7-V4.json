@@ -3,18 +3,20 @@
   "options": [],
   "input": [
     {
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:Sensor;1",
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:historization;2"
+      ],
+      "@id": "dtmi:com:example:Thermometer;1",
       "@type": "Interface",
       "contents": [
         {
           "@type": [
-            "Telemetry",
-            "Temperature"
+            "Property",
+            "Historized"
           ],
           "name": "currentTemp",
-          "schema": "double",
-          "unit": "degreeFahrenheit"
+          "schema": "double"
         }
       ]
     }

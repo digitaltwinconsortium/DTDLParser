@@ -1498,6 +1498,7 @@ namespace DTDLParser
             context4_0.AddTermDefinition("Relationship", new Dtmi("dtmi:dtdl:class:Relationship;4"), isMergeableType: false);
             context4_0.AddTermDefinition("request", new Dtmi("dtmi:dtdl:property:request;4"), isMergeableType: false);
             context4_0.AddTermDefinition("response", new Dtmi("dtmi:dtdl:property:response;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("scaledDecimal", new Dtmi("dtmi:standard:schema:scaledDecimal;4"), isMergeableType: false);
             context4_0.AddTermDefinition("schema", new Dtmi("dtmi:dtdl:property:schema;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Schema", new Dtmi("dtmi:dtdl:class:Schema;4"), isMergeableType: false);
             context4_0.AddTermDefinition("SchemaField", new Dtmi("dtmi:dtdl:class:SchemaField;4"), isMergeableType: false);

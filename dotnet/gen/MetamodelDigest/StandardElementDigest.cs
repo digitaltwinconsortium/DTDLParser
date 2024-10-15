@@ -20,6 +20,8 @@
             this.ElementName = ((JValue)standardElementObj["name"]).Value<string>();
 
             this.Description = ((JObject)standardElementObj["description"]).Properties().ToDictionary(p => p.Name, p => ((JValue)p.Value).Value<string>());
+
+            this.SubElements = standardElementObj.TryGetValue("breakout", out JToken subElementsToken) ? ((JArray)subElementsToken).Select(s => new StandardSubElementDigest((JObject)s)).ToList() : new List<StandardSubElementDigest>();
         }
 
         /// <summary>
@@ -36,5 +38,10 @@
         /// Gets a language map describing element.
         /// </summary>
         public Dictionary<string, string> Description { get; }
+
+        /// <summary>
+        /// Gets a list of sub-element info, if any.
+        /// </summary>
+        public List<StandardSubElementDigest> SubElements { get; }
     }
 }

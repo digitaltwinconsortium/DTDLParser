@@ -7,11 +7,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_lambda;1",
+        "@id": "dtmi:example:omega_tau;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "omega_kappa",
+          "name": "omega_sigma",
           "response": {
             "schema": "unsignedInteger",
             "name": "hello"
@@ -28,11 +28,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_nu;1",
+        "@id": "dtmi:example:omega_phi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "omega_mu",
+          "name": "omega_upsilon",
           "response": {
             "schema": "unsignedLong",
             "name": [
@@ -51,11 +51,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_omicron;1",
+        "@id": "dtmi:example:omega_psi;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "omega_xi",
+          "name": "omega_chi",
           "response": {
             "schema": "unsignedShort",
             "name": {
@@ -75,11 +75,11 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_rho;1",
+        "@id": "dtmi:example:omega_yuzz;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
-          "name": "omega_pi",
+          "name": "omega_omega",
           "response": {
             "schema": "uuid",
             "name": [
@@ -101,100 +101,14 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_tau;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "omega_sigma",
-          "response": {
-            "schema": "boolean",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_phi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "omega_upsilon",
-          "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "byte",
-            "name": null
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_psi;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "omega_chi",
-          "response": {
-            "schema": "bytes",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "AllowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:omega_yuzz;1",
-        "@type": "Interface",
-        "contents": {
-          "@type": "Command",
-          "name": "omega_omega",
-          "response": {
-            "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "date",
-            "name": true
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": false,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:omega_um;1",
         "@type": "Interface",
         "contents": {
           "@type": "Command",
           "name": "omega_wum",
           "response": {
-            "schema": "dateTime",
-            "name": 626
+            "schema": "boolean",
+            "name": null
           }
         }
       }
@@ -215,8 +129,8 @@
           "name": "omega_humpf",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "decimal",
-            "name": 626
+            "schema": "byte",
+            "name": null
           }
         }
       }
@@ -236,10 +150,8 @@
           "@type": "Command",
           "name": "omega_glikk",
           "response": {
-            "schema": "double",
-            "name": [
-              null
-            ]
+            "schema": "bytes",
+            "name": true
           }
         }
       }
@@ -260,10 +172,8 @@
           "name": "omega_snee",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "duration",
-            "name": [
-              null
-            ]
+            "schema": "date",
+            "name": true
           }
         }
       }
@@ -283,10 +193,8 @@
           "@type": "Command",
           "name": "omega_thnad",
           "response": {
-            "schema": "float",
-            "name": [
-              true
-            ]
+            "schema": "dateTime",
+            "name": 626
           }
         }
       }
@@ -307,10 +215,8 @@
           "name": "omega_floob",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "integer",
-            "name": [
-              true
-            ]
+            "schema": "decimal",
+            "name": 626
           }
         }
       }
@@ -330,9 +236,9 @@
           "@type": "Command",
           "name": "omega_jogg",
           "response": {
-            "schema": "long",
+            "schema": "double",
             "name": [
-              626
+              null
             ]
           }
         }
@@ -354,9 +260,9 @@
           "name": "omega_itch",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "short",
+            "schema": "duration",
             "name": [
-              626
+              null
             ]
           }
         }
@@ -377,8 +283,10 @@
           "@type": "Command",
           "name": "omega_vroo",
           "response": {
-            "schema": "string",
-            "name": {}
+            "schema": "float",
+            "name": [
+              true
+            ]
           }
         }
       }
@@ -399,8 +307,10 @@
           "name": "yuzz_alpha",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "time",
-            "name": {}
+            "schema": "integer",
+            "name": [
+              true
+            ]
           }
         }
       }
@@ -420,9 +330,9 @@
           "@type": "Command",
           "name": "yuzz_gamma",
           "response": {
-            "schema": "unsignedByte",
+            "schema": "long",
             "name": [
-              {}
+              626
             ]
           }
         }
@@ -444,9 +354,9 @@
           "name": "yuzz_epsilon",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
-            "schema": "unsignedInteger",
+            "schema": "short",
             "name": [
-              {}
+              626
             ]
           }
         }
@@ -467,8 +377,8 @@
           "@type": "Command",
           "name": "yuzz_eta",
           "response": {
-            "schema": "unsignedLong",
-            "name": []
+            "schema": "string",
+            "name": {}
           }
         }
       }
@@ -487,6 +397,96 @@
         "contents": {
           "@type": "Command",
           "name": "yuzz_iota",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "time",
+            "name": {}
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_mu;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "yuzz_lambda",
+          "response": {
+            "schema": "unsignedByte",
+            "name": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_xi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "yuzz_nu",
+          "response": {
+            "@context": "dtmi:undefinedExtension:context;1",
+            "schema": "unsignedInteger",
+            "name": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_pi;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "yuzz_omicron",
+          "response": {
+            "schema": "unsignedLong",
+            "name": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:yuzz_sigma;1",
+        "@type": "Interface",
+        "contents": {
+          "@type": "Command",
+          "name": "yuzz_rho",
           "response": {
             "@context": "dtmi:undefinedExtension:context;1",
             "schema": "unsignedShort",

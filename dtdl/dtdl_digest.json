@@ -591,6 +591,7 @@
       "Relationship": "dtmi:dtdl:class:Relationship;4",
       "request": "dtmi:dtdl:property:request;4",
       "response": "dtmi:dtdl:property:response;4",
+      "scaledDecimal": "dtmi:standard:schema:scaledDecimal;4",
       "schema": "dtmi:dtdl:property:schema;4",
       "Schema": "dtmi:dtdl:class:Schema;4",
       "SchemaField": "dtmi:dtdl:class:SchemaField;4",
@@ -5442,6 +5443,30 @@
             "@type": "Array",
             "elementSchema": "dtmi:standard:schema:geospatial:polygonCoordinateArray;4"
           }
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;4",
+      "@id": "dtmi:standard:schema:scaledDecimal;4",
+      "@type": "Object",
+      "description": {
+        "en-US": "A scaled decimal number equal to `value` * 10^`scale`."
+      },
+      "fields": [
+        {
+          "description": {
+            "en-US": "The significand of the scaled decimal value; not required to be integral or normalized."
+          },
+          "name": "value",
+          "schema": "decimal"
+        },
+        {
+          "description": {
+            "en-US": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value."
+          },
+          "name": "scale",
+          "schema": "short"
         }
       ]
     },
@@ -17781,6 +17806,20 @@
       "elements": {
         "2": [
           {
+            "breakout": [
+              {
+                "name": "alt",
+                "schema": "double"
+              },
+              {
+                "name": "lat",
+                "schema": "double"
+              },
+              {
+                "name": "lon",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Geospatial point"
             },
@@ -17788,6 +17827,20 @@
             "name": "geopoint"
           },
           {
+            "breakout": [
+              {
+                "name": "x",
+                "schema": "double"
+              },
+              {
+                "name": "y",
+                "schema": "double"
+              },
+              {
+                "name": "z",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Three-dimensional vector"
             },
@@ -17795,6 +17848,14 @@
             "name": "vector"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -17802,6 +17863,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -17809,6 +17878,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -17816,6 +17893,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -17823,6 +17908,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -17830,6 +17923,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -17839,6 +17940,14 @@
         ],
         "3": [
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -17846,6 +17955,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -17853,6 +17970,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -17860,6 +17985,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -17867,6 +18000,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -17874,6 +18015,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -17883,6 +18032,14 @@
         ],
         "4": [
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -17890,6 +18047,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -17897,6 +18062,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -17904,6 +18077,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -17911,6 +18092,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -17918,11 +18107,42 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
             "id": "dtmi:standard:schema:geospatial:polygon;4",
             "name": "polygon"
+          },
+          {
+            "breakout": [
+              {
+                "description": {
+                  "en-us": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value."
+                },
+                "name": "scale",
+                "schema": "short"
+              },
+              {
+                "description": {
+                  "en-us": "The significand of the scaled decimal value; not required to be integral or normalized."
+                },
+                "name": "value",
+                "schema": "decimal"
+              }
+            ],
+            "description": {
+              "en-us": "A scaled decimal number equal to `value` * 10^`scale`."
+            },
+            "id": "dtmi:standard:schema:scaledDecimal;4",
+            "name": "scaledDecimal"
           }
         ]
       },
@@ -20818,6 +21038,20 @@
             "name": "time"
           },
           {
+            "breakout": [
+              {
+                "name": "alt",
+                "schema": "double"
+              },
+              {
+                "name": "lat",
+                "schema": "double"
+              },
+              {
+                "name": "lon",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Geospatial point"
             },
@@ -20825,6 +21059,20 @@
             "name": "geopoint"
           },
           {
+            "breakout": [
+              {
+                "name": "x",
+                "schema": "double"
+              },
+              {
+                "name": "y",
+                "schema": "double"
+              },
+              {
+                "name": "z",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Three-dimensional vector"
             },
@@ -20832,6 +21080,14 @@
             "name": "vector"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -20839,6 +21095,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -20846,6 +21110,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -20853,6 +21125,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -20860,6 +21140,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -20867,6 +21155,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -20960,6 +21256,14 @@
             "name": "time"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -20967,6 +21271,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -20974,6 +21286,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -20981,6 +21301,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -20988,6 +21316,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -20995,6 +21331,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -21151,6 +21495,14 @@
             "name": "uuid"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -21158,6 +21510,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -21165,6 +21525,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -21172,6 +21540,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -21179,6 +21555,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -21186,11 +21570,42 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
             "id": "dtmi:standard:schema:geospatial:polygon;4",
             "name": "polygon"
+          },
+          {
+            "breakout": [
+              {
+                "description": {
+                  "en-us": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value."
+                },
+                "name": "scale",
+                "schema": "short"
+              },
+              {
+                "description": {
+                  "en-us": "The significand of the scaled decimal value; not required to be integral or normalized."
+                },
+                "name": "value",
+                "schema": "decimal"
+              }
+            ],
+            "description": {
+              "en-us": "A scaled decimal number equal to `value` * 10^`scale`."
+            },
+            "id": "dtmi:standard:schema:scaledDecimal;4",
+            "name": "scaledDecimal"
           }
         ]
       },
@@ -26926,6 +27341,20 @@
       "elements": {
         "2": [
           {
+            "breakout": [
+              {
+                "name": "alt",
+                "schema": "double"
+              },
+              {
+                "name": "lat",
+                "schema": "double"
+              },
+              {
+                "name": "lon",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Geospatial point"
             },
@@ -26933,6 +27362,20 @@
             "name": "geopoint"
           },
           {
+            "breakout": [
+              {
+                "name": "x",
+                "schema": "double"
+              },
+              {
+                "name": "y",
+                "schema": "double"
+              },
+              {
+                "name": "z",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Three-dimensional vector"
             },
@@ -26940,6 +27383,14 @@
             "name": "vector"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -26947,6 +27398,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -26954,6 +27413,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -26961,6 +27428,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -26968,6 +27443,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -26975,6 +27458,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -26984,6 +27475,14 @@
         ],
         "3": [
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -26991,6 +27490,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -26998,6 +27505,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -27005,6 +27520,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -27012,6 +27535,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -27019,6 +27550,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -27028,6 +27567,14 @@
         ],
         "4": [
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -27035,6 +27582,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -27042,6 +27597,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -27049,6 +27612,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -27056,6 +27627,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -27063,11 +27642,42 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
             "id": "dtmi:standard:schema:geospatial:polygon;4",
             "name": "polygon"
+          },
+          {
+            "breakout": [
+              {
+                "description": {
+                  "en-us": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value."
+                },
+                "name": "scale",
+                "schema": "short"
+              },
+              {
+                "description": {
+                  "en-us": "The significand of the scaled decimal value; not required to be integral or normalized."
+                },
+                "name": "value",
+                "schema": "decimal"
+              }
+            ],
+            "description": {
+              "en-us": "A scaled decimal number equal to `value` * 10^`scale`."
+            },
+            "id": "dtmi:standard:schema:scaledDecimal;4",
+            "name": "scaledDecimal"
           }
         ]
       },
@@ -29301,6 +29911,20 @@
             "name": "time"
           },
           {
+            "breakout": [
+              {
+                "name": "alt",
+                "schema": "double"
+              },
+              {
+                "name": "lat",
+                "schema": "double"
+              },
+              {
+                "name": "lon",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Geospatial point"
             },
@@ -29308,6 +29932,20 @@
             "name": "geopoint"
           },
           {
+            "breakout": [
+              {
+                "name": "x",
+                "schema": "double"
+              },
+              {
+                "name": "y",
+                "schema": "double"
+              },
+              {
+                "name": "z",
+                "schema": "double"
+              }
+            ],
             "description": {
               "en-us": "Three-dimensional vector"
             },
@@ -29315,6 +29953,14 @@
             "name": "vector"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -29322,6 +29968,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -29329,6 +29983,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -29336,6 +29998,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -29343,6 +30013,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -29350,6 +30028,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -29429,6 +30115,14 @@
             "name": "time"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -29436,6 +30130,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -29443,6 +30145,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -29450,6 +30160,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -29457,6 +30175,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -29464,6 +30190,14 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
@@ -29606,6 +30340,14 @@
             "name": "uuid"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON LineString"
             },
@@ -29613,6 +30355,14 @@
             "name": "lineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiLineString"
             },
@@ -29620,6 +30370,14 @@
             "name": "multiLineString"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPoint"
             },
@@ -29627,6 +30385,14 @@
             "name": "multiPoint"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON MultiPolygon"
             },
@@ -29634,6 +30400,14 @@
             "name": "multiPolygon"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Point"
             },
@@ -29641,11 +30415,42 @@
             "name": "point"
           },
           {
+            "breakout": [
+              {
+                "name": "coordinates"
+              },
+              {
+                "name": "type"
+              }
+            ],
             "description": {
               "en-us": "GeoJSON Polygon"
             },
             "id": "dtmi:standard:schema:geospatial:polygon;4",
             "name": "polygon"
+          },
+          {
+            "breakout": [
+              {
+                "description": {
+                  "en-us": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value."
+                },
+                "name": "scale",
+                "schema": "short"
+              },
+              {
+                "description": {
+                  "en-us": "The significand of the scaled decimal value; not required to be integral or normalized."
+                },
+                "name": "value",
+                "schema": "decimal"
+              }
+            ],
+            "description": {
+              "en-us": "A scaled decimal number equal to `value` * 10^`scale`."
+            },
+            "id": "dtmi:standard:schema:scaledDecimal;4",
+            "name": "scaledDecimal"
           }
         ]
       },
