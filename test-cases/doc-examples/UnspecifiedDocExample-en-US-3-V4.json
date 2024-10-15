@@ -4,18 +4,38 @@
   "input": [
     {
       "@context": "dtmi:dtdl:context;4",
-      "@id": "dtmi:com:example:anInterface;1",
+      "@id": "dtmi:com:example:ReusableTypeExample;1",
       "@type": "Interface",
       "contents": [
         {
-          "@id": "dtmi:com:example:aTelemetry;1",
           "@type": "Telemetry",
-          "name": "currentDistance",
-          "schema": {
-            "@id": "dtmi:com:example:doubleArray;1",
-            "@type": "Array",
-            "elementSchema": "double"
-          }
+          "name": "accelerometer1",
+          "schema": "dtmi:com:example:acceleration;1"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "accelerometer2",
+          "schema": "dtmi:com:example:acceleration;1"
+        }
+      ],
+      "schemas": [
+        {
+          "@id": "dtmi:com:example:acceleration;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "x",
+              "schema": "double"
+            },
+            {
+              "name": "y",
+              "schema": "double"
+            },
+            {
+              "name": "z",
+              "schema": "double"
+            }
+          ]
         }
       ]
     }

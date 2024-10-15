@@ -7,58 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:phi_snee;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:phi_nuh;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Component",
-            "name": "phi_fuddle",
-            "schema": {
-              "@id": "dtmi:example:phi_glikk;1",
-              "@type": "Interface"
-            },
-            "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:phi_floob;1",
-        "@type": "Interface",
-        "extends": {
-          "@id": "dtmi:example:phi_spazz;1",
-          "@type": "Interface",
-          "contents": {
-            "@type": "Component",
-            "name": "phi_quan",
-            "schema": {
-              "@id": "dtmi:example:phi_thnad;1",
-              "@type": "Interface"
-            },
-            "@context": []
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:phi_itch;1",
         "@type": "Interface",
         "extends": {
@@ -71,16 +19,14 @@
               "@id": "dtmi:example:phi_jogg;1",
               "@type": "Interface"
             },
-            "@context": [
-              "dtmi:dtdl:extension:quantitativeTypes;1"
-            ]
+            "@context": "dtmi:dtdl:extension:quantitativeTypes;1"
           }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -99,14 +45,14 @@
               "@id": "dtmi:example:phi_vroo;1",
               "@type": "Interface"
             },
-            "@context": null
+            "@context": []
           }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -125,7 +71,9 @@
               "@id": "dtmi:example:chi_gamma;1",
               "@type": "Interface"
             },
-            "@context": 626
+            "@context": [
+              "dtmi:dtdl:extension:quantitativeTypes;1"
+            ]
           }
         }
       }
@@ -151,7 +99,7 @@
               "@id": "dtmi:example:chi_eta;1",
               "@type": "Interface"
             },
-            "@context": true
+            "@context": null
           }
         }
       }
@@ -177,9 +125,7 @@
               "@id": "dtmi:example:chi_lambda;1",
               "@type": "Interface"
             },
-            "@context": [
-              null
-            ]
+            "@context": 626
           }
         }
       }
@@ -205,9 +151,7 @@
               "@id": "dtmi:example:chi_omicron;1",
               "@type": "Interface"
             },
-            "@context": [
-              626
-            ]
+            "@context": true
           }
         }
       }
@@ -234,7 +178,7 @@
               "@type": "Interface"
             },
             "@context": [
-              true
+              null
             ]
           }
         }
@@ -261,7 +205,9 @@
               "@id": "dtmi:example:chi_psi;1",
               "@type": "Interface"
             },
-            "@context": "dtmi:dtdl:extension:quantitativeTypes"
+            "@context": [
+              626
+            ]
           }
         }
       }
@@ -287,7 +233,9 @@
               "@id": "dtmi:example:chi_um;1",
               "@type": "Interface"
             },
-            "@context": "http://dtdl/extension/quantitativeTypes/1"
+            "@context": [
+              true
+            ]
           }
         }
       }
@@ -313,7 +261,7 @@
               "@id": "dtmi:example:chi_nuh;1",
               "@type": "Interface"
             },
-            "@context": "quantitativeTypes;1"
+            "@context": "dtmi:dtdl:extension:quantitativeTypes"
           }
         }
       }
@@ -339,7 +287,7 @@
               "@id": "dtmi:example:chi_spazz;1",
               "@type": "Interface"
             },
-            "@context": {}
+            "@context": "http://dtdl/extension/quantitativeTypes/1"
           }
         }
       }
@@ -365,9 +313,7 @@
               "@id": "dtmi:example:chi_flunn;1",
               "@type": "Interface"
             },
-            "@context": {
-              "foo": "dtmi:foo:bar;1"
-            }
+            "@context": "quantitativeTypes;1"
           }
         }
       }
@@ -393,9 +339,7 @@
               "@id": "dtmi:example:chi_hi;1",
               "@type": "Interface"
             },
-            "@context": [
-              {}
-            ]
+            "@context": {}
           }
         }
       }
@@ -419,6 +363,62 @@
             "name": "psi_gamma",
             "schema": {
               "@id": "dtmi:example:psi_delta;1",
+              "@type": "Interface"
+            },
+            "@context": {
+              "foo": "dtmi:foo:bar;1"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_kappa;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:psi_iota;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "psi_eta",
+            "schema": {
+              "@id": "dtmi:example:psi_theta;1",
+              "@type": "Interface"
+            },
+            "@context": [
+              {}
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_xi;1",
+        "@type": "Interface",
+        "extends": {
+          "@id": "dtmi:example:psi_nu;1",
+          "@type": "Interface",
+          "contents": {
+            "@type": "Component",
+            "name": "psi_lambda",
+            "schema": {
+              "@id": "dtmi:example:psi_mu;1",
               "@type": "Interface"
             },
             "@context": [

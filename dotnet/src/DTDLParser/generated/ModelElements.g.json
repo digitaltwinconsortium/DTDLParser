@@ -3465,6 +3465,30 @@
     ]
   },
   {
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:standard:schema:scaledDecimal;4",
+    "@type": "Object",
+    "description": {
+      "en-US": "A scaled decimal number equal to `value` * 10^`scale`"
+    },
+    "fields": [
+      {
+        "description": {
+          "en-US": "The significand of the scaled decimal value; not required to be integral or normalized"
+        },
+        "name": "value",
+        "schema": "decimal"
+      },
+      {
+        "description": {
+          "en-US": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value"
+        },
+        "name": "scale",
+        "schema": "short"
+      }
+    ]
+  },
+  {
     "@context": [
       "dtmi:dtdl:context;2",
       "dtmi:iotcentral:context;2"

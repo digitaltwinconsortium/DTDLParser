@@ -2012,6 +2012,7 @@ namespace ParserUnitTest
         /// This method runs all test cases beginning with letter 'S'.
         /// </remarks>
         [TestMethod]
+        [DataRow("ScaledDecimalInstancesV4")]
         [DataRow("SchemaV2")]
         [DataRow("SchemaV3")]
         [DataRow("SchemaV4")]

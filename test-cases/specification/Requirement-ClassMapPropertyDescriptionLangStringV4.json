@@ -7,119 +7,6 @@
     "input": [
       {
         "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:phi_tau;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:phi_pi;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "phi_rho",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "phi_sigma",
-            "schema": "byte"
-          },
-          "description": "hello"
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:phi_psi;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:phi_upsilon;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "phi_phi",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "phi_chi",
-            "schema": "bytes"
-          },
-          "description": [
-            "hello"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:phi_um;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:phi_omega;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "phi_yuzz",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "phi_wum",
-            "schema": "date"
-          },
-          "description": {
-            "en": "hello"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
-        "@id": "dtmi:example:phi_nuh;1",
-        "@type": "Interface",
-        "schemas": {
-          "@id": "dtmi:example:phi_humpf;1",
-          "@type": "Map",
-          "mapKey": {
-            "name": "phi_fuddle",
-            "schema": "string"
-          },
-          "mapValue": {
-            "name": "phi_glikk",
-            "schema": "dateTime"
-          },
-          "description": [
-            {
-              "@value": "hello",
-              "@language": "en"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "valid": true,
-    "options": [
-      "DisallowUndefinedExtensions"
-    ],
-    "input": [
-      {
-        "@context": "dtmi:dtdl:context;4",
         "@id": "dtmi:example:phi_spazz;1",
         "@type": "Interface",
         "schemas": {
@@ -131,9 +18,9 @@
           },
           "mapValue": {
             "name": "phi_thnad",
-            "schema": "decimal"
+            "schema": "byte"
           },
-          "description": {}
+          "description": "hello"
         }
       }
     ]
@@ -157,15 +44,17 @@
           },
           "mapValue": {
             "name": "phi_jogg",
-            "schema": "double"
+            "schema": "bytes"
           },
-          "description": []
+          "description": [
+            "hello"
+          ]
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -183,17 +72,19 @@
           },
           "mapValue": {
             "name": "phi_vroo",
-            "schema": "duration"
+            "schema": "date"
           },
-          "description": null
+          "description": {
+            "en": "hello"
+          }
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -201,7 +92,6 @@
         "@id": "dtmi:example:chi_delta;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:example:chi_alpha;1",
           "@type": "Map",
           "mapKey": {
@@ -210,15 +100,20 @@
           },
           "mapValue": {
             "name": "chi_gamma",
-            "schema": "float"
+            "schema": "dateTime"
           },
-          "description": null
+          "description": [
+            {
+              "@value": "hello",
+              "@language": "en"
+            }
+          ]
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
       "DisallowUndefinedExtensions"
     ],
@@ -236,17 +131,17 @@
           },
           "mapValue": {
             "name": "chi_eta",
-            "schema": "integer"
+            "schema": "decimal"
           },
-          "description": true
+          "description": {}
         }
       }
     ]
   },
   {
-    "valid": false,
+    "valid": true,
     "options": [
-      "AllowUndefinedExtensions"
+      "DisallowUndefinedExtensions"
     ],
     "input": [
       {
@@ -254,7 +149,6 @@
         "@id": "dtmi:example:chi_mu;1",
         "@type": "Interface",
         "schemas": {
-          "@context": "dtmi:undefinedExtension:context;1",
           "@id": "dtmi:example:chi_iota;1",
           "@type": "Map",
           "mapKey": {
@@ -263,9 +157,9 @@
           },
           "mapValue": {
             "name": "chi_lambda",
-            "schema": "long"
+            "schema": "double"
           },
-          "description": true
+          "description": []
         }
       }
     ]
@@ -289,9 +183,9 @@
           },
           "mapValue": {
             "name": "chi_omicron",
-            "schema": "short"
+            "schema": "duration"
           },
-          "description": 626
+          "description": null
         }
       }
     ]
@@ -316,9 +210,9 @@
           },
           "mapValue": {
             "name": "chi_tau",
-            "schema": "string"
+            "schema": "float"
           },
-          "description": 626
+          "description": null
         }
       }
     ]
@@ -342,11 +236,9 @@
           },
           "mapValue": {
             "name": "chi_psi",
-            "schema": "time"
+            "schema": "integer"
           },
-          "description": [
-            null
-          ]
+          "description": true
         }
       }
     ]
@@ -371,11 +263,9 @@
           },
           "mapValue": {
             "name": "chi_um",
-            "schema": "unsignedByte"
+            "schema": "long"
           },
-          "description": [
-            null
-          ]
+          "description": true
         }
       }
     ]
@@ -399,11 +289,9 @@
           },
           "mapValue": {
             "name": "chi_nuh",
-            "schema": "unsignedInteger"
+            "schema": "short"
           },
-          "description": [
-            true
-          ]
+          "description": 626
         }
       }
     ]
@@ -428,11 +316,9 @@
           },
           "mapValue": {
             "name": "chi_spazz",
-            "schema": "unsignedLong"
+            "schema": "string"
           },
-          "description": [
-            true
-          ]
+          "description": 626
         }
       }
     ]
@@ -456,10 +342,10 @@
           },
           "mapValue": {
             "name": "chi_flunn",
-            "schema": "unsignedShort"
+            "schema": "time"
           },
           "description": [
-            626
+            null
           ]
         }
       }
@@ -485,10 +371,10 @@
           },
           "mapValue": {
             "name": "chi_hi",
-            "schema": "uuid"
+            "schema": "unsignedByte"
           },
           "description": [
-            626
+            null
           ]
         }
       }
@@ -513,10 +399,10 @@
           },
           "mapValue": {
             "name": "psi_delta",
-            "schema": "boolean"
+            "schema": "unsignedInteger"
           },
           "description": [
-            {}
+            true
           ]
         }
       }
@@ -542,10 +428,10 @@
           },
           "mapValue": {
             "name": "psi_theta",
-            "schema": "byte"
+            "schema": "unsignedLong"
           },
           "description": [
-            {}
+            true
           ]
         }
       }
@@ -570,12 +456,11 @@
           },
           "mapValue": {
             "name": "psi_mu",
-            "schema": "bytes"
+            "schema": "unsignedShort"
           },
-          "description": {
-            "@value": "hello",
-            "@language": "en"
-          }
+          "description": [
+            626
+          ]
         }
       }
     ]
@@ -600,12 +485,11 @@
           },
           "mapValue": {
             "name": "psi_pi",
-            "schema": "date"
+            "schema": "uuid"
           },
-          "description": {
-            "@value": "hello",
-            "@language": "en"
-          }
+          "description": [
+            626
+          ]
         }
       }
     ]
@@ -629,12 +513,10 @@
           },
           "mapValue": {
             "name": "psi_upsilon",
-            "schema": "dateTime"
+            "schema": "boolean"
           },
           "description": [
-            {
-              "en": "hello"
-            }
+            {}
           ]
         }
       }
@@ -660,6 +542,124 @@
           },
           "mapValue": {
             "name": "psi_omega",
+            "schema": "byte"
+          },
+          "description": [
+            {}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_fuddle;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:psi_wum;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "psi_um",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "psi_humpf",
+            "schema": "bytes"
+          },
+          "description": {
+            "@value": "hello",
+            "@language": "en"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_quan;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:psi_glikk;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "psi_nuh",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "psi_snee",
+            "schema": "date"
+          },
+          "description": {
+            "@value": "hello",
+            "@language": "en"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "DisallowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_zatz;1",
+        "@type": "Interface",
+        "schemas": {
+          "@id": "dtmi:example:psi_thnad;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "psi_spazz",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "psi_floob",
+            "schema": "dateTime"
+          },
+          "description": [
+            {
+              "en": "hello"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "valid": false,
+    "options": [
+      "AllowUndefinedExtensions"
+    ],
+    "input": [
+      {
+        "@context": "dtmi:dtdl:context;4",
+        "@id": "dtmi:example:psi_yekk;1",
+        "@type": "Interface",
+        "schemas": {
+          "@context": "dtmi:undefinedExtension:context;1",
+          "@id": "dtmi:example:psi_jogg;1",
+          "@type": "Map",
+          "mapKey": {
+            "name": "psi_flunn",
+            "schema": "string"
+          },
+          "mapValue": {
+            "name": "psi_itch",
             "schema": "decimal"
           },
           "description": [

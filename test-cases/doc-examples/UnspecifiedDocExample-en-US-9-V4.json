@@ -1,27 +1,23 @@
 ﻿{
   "valid": true,
   "options": [],
-  "acceptableLimits": [
-    "dtmi:dtdl:limits:onvif"
-  ],
   "input": [
     {
       "@context": [
-        "dtmi:dtdl:context;4#limitless",
-        "dtmi:dtdl:limits:onvif;1"
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1"
       ],
-      "@id": "dtmi:com:example:Sampler;1",
+      "@id": "dtmi:com:example:Sensor;1",
       "@type": "Interface",
       "contents": [
         {
-          "@type": "Property",
-          "name": "samples",
-          "schema": {
-            "@id": "dtmi:ex:very:deep:Object:schema;1",
-            "@type": "Object",
-            "comment": "This is not really deep, just a placeholder for the example.",
-            "fields": []
-          }
+          "@type": [
+            "Telemetry",
+            "Temperature"
+          ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
         }
       ]
     }
