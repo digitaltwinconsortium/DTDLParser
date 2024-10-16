@@ -1431,7 +1431,6 @@
     "dtmi:dtdl:extension:requirement;1": {
       "Required": "dtmi:dtdl:extension:requirement:v1:Required"
     },
-    "dtmi:dtdl:limits:onvif;1": {},
     "dtmi:iotcentral:context;2": {
       "AccelerationVector": "dtmi:iotcentral:class:AccelerationVector;2",
       "Event": "dtmi:iotcentral:class:Event;2",
@@ -1787,8 +1786,7 @@
         ]
       },
       "maxDepth": {
-        "": 8,
-        "onvif_1": 16
+        "": 8
       },
       "narrow": false,
       "properties": [
@@ -1803,8 +1801,7 @@
       "dtdlVersion": 4,
       "entailments": {},
       "maxDepth": {
-        "": 8,
-        "onvif_1": 16
+        "": 8
       },
       "narrow": false,
       "properties": [
@@ -1839,8 +1836,7 @@
         ]
       },
       "maxDepth": {
-        "": 8,
-        "onvif_1": 16
+        "": 8
       },
       "narrow": false,
       "properties": [
@@ -1877,12 +1873,10 @@
         "contents"
       ],
       "maxCount": {
-        "": 1024,
-        "onvif_1": 1024
+        "": 1024
       },
       "maxDepth": {
-        "": 12,
-        "onvif_1": 12
+        "": 12
       },
       "narrow": true,
       "properties": [
@@ -1896,8 +1890,7 @@
       "dtdlVersion": 4,
       "entailments": {},
       "maxCount": {
-        "": 100000,
-        "onvif_1": 100000
+        "": 100000
       },
       "narrow": true,
       "properties": [
@@ -1926,8 +1919,7 @@
         ]
       },
       "maxDepth": {
-        "": 8,
-        "onvif_1": 16
+        "": 8
       },
       "narrow": false,
       "properties": [
@@ -1946,8 +1938,7 @@
         ]
       },
       "maxDepth": {
-        "": 8,
-        "onvif_1": 16
+        "": 8
       },
       "narrow": false,
       "properties": [
@@ -1995,7 +1986,7 @@
       "@id": "dtmi:dtdl:instance:Schema:double;2",
       "@type": "Double",
       "description": {
-        "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+        "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
       },
       "displayName": "double"
     },
@@ -2004,7 +1995,7 @@
       "@id": "dtmi:dtdl:instance:Schema:float;2",
       "@type": "Float",
       "description": {
-        "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+        "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
       },
       "displayName": "float"
     },
@@ -2111,7 +2102,7 @@
       ],
       "aliasFor": "dtmi:dtdl:instance:Schema:double;2",
       "description": {
-        "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+        "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
       },
       "displayName": "double"
     },
@@ -2124,7 +2115,7 @@
       ],
       "aliasFor": "dtmi:dtdl:instance:Schema:float;2",
       "description": {
-        "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+        "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
       },
       "displayName": "float"
     },
@@ -2270,7 +2261,7 @@
       ],
       "aliasFor": "dtmi:dtdl:instance:Schema:double;3",
       "description": {
-        "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+        "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
       },
       "displayName": "double"
     },
@@ -2283,7 +2274,7 @@
       ],
       "aliasFor": "dtmi:dtdl:instance:Schema:float;3",
       "description": {
-        "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+        "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
       },
       "displayName": "float"
     },
@@ -13887,11 +13878,6 @@
         "en-us": "Selectively designate one or more fields in an Object as required."
       }
     },
-    "dtmi:dtdl:limits:onvif;1": {
-      "description": {
-        "en-us": "Some limits."
-      }
-    },
     "dtmi:iotcentral:context;2": {
       "description": {
         "en-us": "A set of semantic types and schema types used by IoT Central."
@@ -14641,8 +14627,7 @@
     },
     "4": {
       "maxLength": {
-        "": 2048,
-        "onvif_1": 512
+        "": 2048
       },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
     },
@@ -14659,8 +14644,7 @@
       },
       "4": {
         "maxLength": {
-          "": 128,
-          "onvif_1": 256
+          "": 128
         }
       }
     }
@@ -14680,19 +14664,13 @@
     },
     "4": {
       "maxLength": {
-        "": 2048,
-        "onvif_1": 512
+        "": 2048
       },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
     }
   },
   "layeringSupported": false,
-  "limitContexts": {
-    "dtmi:dtdl:limits:onvif;1": {
-      "dtdlVersion": 4,
-      "spec": "onvif_1"
-    }
-  },
+  "limitContexts": {},
   "materialClasses": {
     "Array": {
       "abstract": false,
@@ -14847,8 +14825,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -14899,8 +14876,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -14951,8 +14927,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15253,8 +15228,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15305,8 +15279,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15357,8 +15330,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15512,8 +15484,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15540,8 +15511,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15568,8 +15538,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15701,8 +15670,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15729,8 +15697,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15757,8 +15724,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -15985,8 +15951,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16037,8 +16002,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16089,8 +16053,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16443,8 +16406,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16495,8 +16457,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16547,8 +16508,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16839,8 +16799,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16879,8 +16838,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -16919,8 +16877,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -17173,8 +17130,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -17213,8 +17169,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -17253,8 +17208,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -17581,8 +17535,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -17633,8 +17586,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -17685,8 +17637,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18207,8 +18158,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18259,8 +18209,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18311,8 +18260,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18473,8 +18421,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18525,8 +18472,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18577,8 +18523,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18893,8 +18838,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18945,8 +18889,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -18997,8 +18940,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19326,8 +19268,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19378,8 +19319,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19430,8 +19370,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19691,8 +19630,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19743,8 +19681,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19795,8 +19732,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19952,8 +19888,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -19980,8 +19915,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20008,8 +19942,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20103,7 +20036,7 @@
         "2": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;2",
             "name": "double"
@@ -20112,7 +20045,7 @@
         "3": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;3",
             "name": "double"
@@ -20121,7 +20054,7 @@
         "4": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;4",
             "name": "double"
@@ -20242,8 +20175,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20294,8 +20226,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20346,8 +20277,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20607,8 +20537,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20659,8 +20588,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20711,8 +20639,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -20990,7 +20917,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;2",
             "name": "double"
@@ -21004,7 +20931,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;2",
             "name": "float"
@@ -21208,7 +21135,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;3",
             "name": "double"
@@ -21222,7 +21149,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;3",
             "name": "float"
@@ -21405,7 +21332,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;4",
             "name": "double"
@@ -21419,7 +21346,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;4",
             "name": "float"
@@ -21683,8 +21610,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -21735,8 +21661,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -21787,8 +21712,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -21992,8 +21916,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22044,8 +21967,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22096,8 +22018,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22436,8 +22357,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22488,8 +22408,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22540,8 +22459,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22876,8 +22794,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22928,8 +22845,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -22980,8 +22896,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -23232,7 +23147,7 @@
         "2": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;2",
             "name": "float"
@@ -23241,7 +23156,7 @@
         "3": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;3",
             "name": "float"
@@ -23250,7 +23165,7 @@
         "4": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;4",
             "name": "float"
@@ -23371,8 +23286,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -23423,8 +23337,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -23475,8 +23388,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -23733,8 +23645,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -23785,8 +23696,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -23837,8 +23747,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24012,8 +23921,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24147,8 +24055,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24199,8 +24106,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24444,8 +24350,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24484,8 +24389,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24524,8 +24428,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24759,8 +24662,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24811,8 +24713,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -24863,8 +24764,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25087,8 +24987,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25139,8 +25038,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25191,8 +25089,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25468,8 +25365,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25520,8 +25416,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25572,8 +25467,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25912,8 +25806,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -25964,8 +25857,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26016,8 +25908,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26346,8 +26237,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26398,8 +26288,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26450,8 +26339,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26654,8 +26542,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26694,8 +26581,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26734,8 +26620,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -26912,14 +26797,14 @@
         "2": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;2",
             "name": "double"
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;2",
             "name": "float"
@@ -26942,14 +26827,14 @@
         "3": [
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;3",
             "name": "double"
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;3",
             "name": "float"
@@ -26986,14 +26871,14 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;4",
             "name": "double"
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;4",
             "name": "float"
@@ -27137,8 +27022,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -27189,8 +27073,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -27241,8 +27124,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -27791,8 +27673,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -27843,8 +27724,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -27895,8 +27775,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -28158,7 +28037,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;2",
             "name": "double"
@@ -28172,7 +28051,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;2",
             "name": "float"
@@ -28230,7 +28109,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;3",
             "name": "double"
@@ -28244,7 +28123,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;3",
             "name": "float"
@@ -28323,7 +28202,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;4",
             "name": "double"
@@ -28337,7 +28216,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;4",
             "name": "float"
@@ -28475,8 +28354,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -28527,8 +28405,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -28579,8 +28456,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -28741,8 +28617,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -28793,8 +28668,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -28845,8 +28719,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -29203,8 +29076,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -29255,8 +29127,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -29307,8 +29178,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -29863,7 +29733,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;2",
             "name": "double"
@@ -29877,7 +29747,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;2",
             "name": "float"
@@ -30067,7 +29937,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;3",
             "name": "double"
@@ -30081,7 +29951,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;3",
             "name": "float"
@@ -30250,7 +30120,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
             },
             "id": "dtmi:dtdl:instance:Schema:double;4",
             "name": "double"
@@ -30264,7 +30134,7 @@
           },
           {
             "description": {
-              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+              "en-us": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
             },
             "id": "dtmi:dtdl:instance:Schema:float;4",
             "name": "float"
@@ -30515,8 +30385,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -30567,8 +30436,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -30619,8 +30487,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -30788,8 +30655,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -30840,8 +30706,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -30892,8 +30757,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31161,8 +31025,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31189,8 +31052,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31217,8 +31079,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31420,8 +31281,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31472,8 +31332,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31524,8 +31383,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31698,8 +31556,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31750,8 +31607,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -31802,8 +31658,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32244,8 +32099,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32296,8 +32150,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32348,8 +32201,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32597,8 +32449,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32649,8 +32500,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32701,8 +32551,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32876,8 +32725,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32928,8 +32776,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -32980,8 +32827,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33183,8 +33029,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33235,8 +33080,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33287,8 +33131,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33497,8 +33340,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33525,8 +33367,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33553,8 +33394,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33686,8 +33526,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33714,8 +33553,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33742,8 +33580,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33875,8 +33712,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33903,8 +33739,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -33931,8 +33766,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -34064,8 +33898,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -34092,8 +33925,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -34120,8 +33952,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -34252,8 +34083,7 @@
             "idRequired": false,
             "maxCount": 1,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -34280,8 +34110,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -34308,8 +34137,7 @@
             "hidden": false,
             "idRequired": false,
             "maxLength": {
-              "": 512,
-              "onvif_1": 512
+              "": 512
             },
             "typeRequired": true,
             "uniqueAmong": []
@@ -34367,8 +34195,7 @@
     },
     "4": {
       "maxBytes": {
-        "": 1048576,
-        "onvif_1": 1048576
+        "": 1048576
       }
     }
   },

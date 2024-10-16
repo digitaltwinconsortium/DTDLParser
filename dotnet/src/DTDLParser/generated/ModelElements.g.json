@@ -13,7 +13,7 @@
     "@id": "dtmi:dtdl:instance:Schema:double;2",
     "@type": "Double",
     "description": {
-      "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+      "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
     },
     "displayName": "double"
   },
@@ -22,7 +22,7 @@
     "@id": "dtmi:dtdl:instance:Schema:float;2",
     "@type": "Float",
     "description": {
-      "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+      "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
     },
     "displayName": "float"
   },
@@ -129,7 +129,7 @@
     ],
     "aliasFor": "dtmi:dtdl:instance:Schema:double;2",
     "description": {
-      "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+      "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
     },
     "displayName": "double"
   },
@@ -142,7 +142,7 @@
     ],
     "aliasFor": "dtmi:dtdl:instance:Schema:float;2",
     "description": {
-      "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+      "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
     },
     "displayName": "float"
   },
@@ -288,7 +288,7 @@
     ],
     "aliasFor": "dtmi:dtdl:instance:Schema:double;3",
     "description": {
-      "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double"
+      "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with the numeric range of xsd:double"
     },
     "displayName": "double"
   },
@@ -301,7 +301,7 @@
     ],
     "aliasFor": "dtmi:dtdl:instance:Schema:float;3",
     "description": {
-      "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with xsd:float"
+      "en-US": "a finite numeric value that is expressible in IEEE 754 single-precision floating point format, conformant with the numeric range of xsd:float"
     },
     "displayName": "float"
   },
@@ -3469,19 +3469,19 @@
     "@id": "dtmi:standard:schema:scaledDecimal;4",
     "@type": "Object",
     "description": {
-      "en-US": "A scaled decimal number equal to `value` * 10^`scale`"
+      "en-US": "A scaled decimal number equal to `value` * 10^`scale`."
     },
     "fields": [
       {
         "description": {
-          "en-US": "The significand of the scaled decimal value; not required to be integral or normalized"
+          "en-US": "The significand of the scaled decimal value; not required to be integral or normalized."
         },
         "name": "value",
         "schema": "decimal"
       },
       {
         "description": {
-          "en-US": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value"
+          "en-US": "Count of decimal places to shift `value` (positive left, negative right) to yield the scaled value."
         },
         "name": "scale",
         "schema": "short"
