@@ -96,14 +96,15 @@ namespace DTDLParser
 
             VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:mqtt;2", 2, 0, 0, null, mergeDefinitions: false);
             context2_0.AddTermDefinition("Cacheable", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Cacheable"), isMergeableType: false);
+            context2_0.AddTermDefinition("cmdServiceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:cmdServiceGroupId"), isMergeableType: false);
             context2_0.AddTermDefinition("commandTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic"), isMergeableType: false);
             context2_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Idempotent"), isMergeableType: false);
             context2_0.AddTermDefinition("index", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Indexed:index"), isMergeableType: false);
             context2_0.AddTermDefinition("Indexed", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Indexed"), isMergeableType: false);
             context2_0.AddTermDefinition("Mqtt", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt"), isMergeableType: false);
             context2_0.AddTermDefinition("payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat"), isMergeableType: false);
-            context2_0.AddTermDefinition("serviceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId"), isMergeableType: false);
             context2_0.AddTermDefinition("telemetryTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic"), isMergeableType: false);
+            context2_0.AddTermDefinition("telemServiceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt:telemServiceGroupId"), isMergeableType: false);
             context2_0.AddTermDefinition("Transparent", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Transparent"), isMergeableType: false);
             context2_0.AddTermDefinition("ttl", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Cacheable:ttl"), isMergeableType: false);
             versionedContexts.Add(context2_0);
