@@ -2,7 +2,7 @@
   "requiredContexts": [
     "dtmi:dtdl:extension:mqtt;2"
   ],
-  "valid": false,
+  "valid": true,
   "quirks": [],
   "options": [],
   "input": [
@@ -19,7 +19,7 @@
       "payloadFormat": "Json/ecma/404",
       "telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
       "commandTopic": "sample/{modelId}/command/{commandName}",
-      "serviceGroupId": "hello/there",
+      "telemServiceGroupId": "hello",
       "contents": [
         {
           "@type": "Telemetry",
@@ -47,14 +47,19 @@
     }
   ],
   "expect": {
-    "parsingErrors": [
+    "elements": [
       {
-        "ValidationID": "dtmi:dtdl:parsingError:stringInvalid",
-        "PrimaryID": "dtmi:jsonTest:TelemetryAndCommand;1",
-        "Property": "dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId",
-        "Value": "hello/there",
-        "PrimaryIndex": 0,
-        "PrimaryStart": 14
+        "id": "dtmi:jsonTest:TelemetryAndCommand;1",
+        "type": "Interface",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat": "Json/ecma/404",
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}",
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemServiceGroupId": "hello"
+        }
       }
     ]
   }

@@ -19,7 +19,7 @@
       "payloadFormat": "Json/ecma/404",
       "telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
       "commandTopic": "sample/{modelId}/command/{commandName}",
-      "serviceGroupId": "",
+      "cmdServiceGroupId": "hello/there",
       "contents": [
         {
           "@type": "Telemetry",
@@ -51,8 +51,8 @@
       {
         "ValidationID": "dtmi:dtdl:parsingError:stringInvalid",
         "PrimaryID": "dtmi:jsonTest:TelemetryAndCommand;1",
-        "Property": "dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId",
-        "Value": "",
+        "Property": "dtmi:dtdl:extension:mqtt:v2:Mqtt:cmdServiceGroupId",
+        "Value": "hello/there",
         "PrimaryIndex": 0,
         "PrimaryStart": 14
       }

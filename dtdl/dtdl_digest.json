@@ -651,14 +651,15 @@
     },
     "dtmi:dtdl:extension:mqtt;2": {
       "Cacheable": "dtmi:dtdl:extension:mqtt:v2:Cacheable",
+      "cmdServiceGroupId": "dtmi:dtdl:extension:mqtt:v2:Mqtt:cmdServiceGroupId",
       "commandTopic": "dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic",
       "Idempotent": "dtmi:dtdl:extension:mqtt:v2:Idempotent",
       "index": "dtmi:dtdl:extension:mqtt:v2:Indexed:index",
       "Indexed": "dtmi:dtdl:extension:mqtt:v2:Indexed",
       "Mqtt": "dtmi:dtdl:extension:mqtt:v2:Mqtt",
       "payloadFormat": "dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat",
-      "serviceGroupId": "dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId",
       "telemetryTopic": "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic",
+      "telemServiceGroupId": "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemServiceGroupId",
       "Transparent": "dtmi:dtdl:extension:mqtt:v2:Transparent",
       "ttl": "dtmi:dtdl:extension:mqtt:v2:Cacheable:ttl"
     },
@@ -35157,6 +35158,25 @@
       "mergeable": false,
       "parent": "dtmi:dtdl:class:AdjunctType;4",
       "properties": {
+        "dtmi:dtdl:extension:mqtt:v2:Mqtt:cmdServiceGroupId": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The service group ID for subscribing to Command topics when shared subscriptions are wanted."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^[!$-*,-.0-z|~]+$",
+          "patternDesc": {
+            "en-us": "non-empty string of printable ASCII characters not including space, \", +, #, {, }, or /"
+          },
+          "plural": false,
+          "propertyName": "cmdServiceGroupId",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
         "dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic": {
           "deprecated": false,
           "description": {
@@ -35192,25 +35212,6 @@
           "typeRequired": true,
           "uniqueValue": false
         },
-        "dtmi:dtdl:extension:mqtt:v2:Mqtt:serviceGroupId": {
-          "deprecated": false,
-          "description": {
-            "en-us": "The service group ID for subscribing to Command topics when shared subscriptions are wanted."
-          },
-          "idRequired": false,
-          "maxCount": 1,
-          "optional": true,
-          "pattern": "^[!$-*,-.0-z|~]+$",
-          "patternDesc": {
-            "en-us": "non-empty string of printable ASCII characters not including space, \", +, #, {, }, or /"
-          },
-          "plural": false,
-          "propertyName": "serviceGroupId",
-          "type": "http://www.w3.org/2001/XMLSchema#string",
-          "typeName": "string",
-          "typeRequired": true,
-          "uniqueValue": false
-        },
         "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic": {
           "deprecated": false,
           "description": {
@@ -35225,6 +35226,25 @@
           },
           "plural": false,
           "propertyName": "telemetryTopic",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemServiceGroupId": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The service group ID for subscribing to Telemetry topics when shared subscriptions are wanted."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^[!$-*,-.0-z|~]+$",
+          "patternDesc": {
+            "en-us": "non-empty string of printable ASCII characters not including space, \", +, #, {, }, or /"
+          },
+          "plural": false,
+          "propertyName": "telemServiceGroupId",
           "type": "http://www.w3.org/2001/XMLSchema#string",
           "typeName": "string",
           "typeRequired": true,
