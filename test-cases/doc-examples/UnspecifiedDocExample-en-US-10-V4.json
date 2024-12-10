@@ -1,11 +1,14 @@
 ﻿{
-  "valid": false,
+  "valid": true,
   "options": [],
+  "acceptableLimits": [
+    "dtmi:dtdl:limits:onvif"
+  ],
   "input": [
     {
       "@context": [
         "dtmi:dtdl:context;4#limitless",
-        "dtmi:dtdl:limits:hypothetical;1"
+        "dtmi:dtdl:limits:onvif;1"
       ],
       "@id": "dtmi:com:example:Sampler;1",
       "@type": "Interface",
@@ -22,13 +25,5 @@
         }
       ]
     }
-  ],
-  "expect": {
-    "parsingErrors": [
-      {
-        "ValidationID": "dtmi:dtdl:parsingError:missingLimitContext",
-        "PrimaryID": null
-      }
-    ]
-  }
+  ]
 }

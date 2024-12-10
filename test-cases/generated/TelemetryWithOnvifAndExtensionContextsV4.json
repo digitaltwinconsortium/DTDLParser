@@ -1,0 +1,54 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:limits:onvif;1",
+    "dtmi:dtdl:extension:quantitativeTypes;2"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "acceptableLimits": [
+    "dtmi:dtdl:limits:onvif"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4#limitless",
+        "dtmi:dtdl:limits:onvif;1",
+        "dtmi:dtdl:extension:quantitativeTypes;2"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Velocity"
+          ],
+          "name": "currentSpeed",
+          "schema": "double",
+          "unit": "kilometrePerSecond"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elementCount": 9,
+    "elements": [
+      {
+        "id": "dtmi:test:aTelemetry;1",
+        "type": "Telemetry",
+        "properties": {
+          "name": "currentSpeed",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:quantitativeTypes:v2:class:Velocity"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:quantitativeTypes:v2:property:unit": "dtmi:dtdl:extension:quantitativeTypes:v2:unit:kilometrePerSecond"
+        }
+      }
+    ]
+  }
+}

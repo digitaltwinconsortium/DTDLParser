@@ -1,0 +1,118 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "acceptableLimits": [
+    "dtmi:dtdl:limits:onvif"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4#limitless",
+        "dtmi:dtdl:limits:onvif;1"
+      ],
+      "@id": "dtmi:onvif:media;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:onvif:media:GetProfilesResponse;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "Profiles",
+              "description": "List of profiles",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "dtmi:onvif:media:Profile;1"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:onvif:media:Profile;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "MetadataConfiguration",
+              "description": "Optional configuration of the metadata stream.",
+              "schema": "dtmi:onvif:media:MetadataConfiguration;1"
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:onvif:media:MetadataConfiguration;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "AnalyticsEngineConfiguration",
+              "schema": "dtmi:onvif:media:AnalyticsEngineConfiguration;1"
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:onvif:media:AnalyticsEngineConfiguration;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "AnalyticsModule",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "dtmi:onvif:media:Config;1"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:onvif:media:Config;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "Parameters",
+              "description": "List of configuration parameters as defined in the corresponding description.",
+              "schema": "dtmi:onvif:media:ItemList;1"
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:onvif:media:ItemList;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "SimpleItem",
+              "description": "Value name pair as defined by the corresponding description.",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "dtmi:onvif:media:SimpleItem;1"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:onvif:media:SimpleItem;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "Name",
+              "description": "Item name.",
+              "schema": "string"
+            },
+            {
+              "name": "Value",
+              "description": "Item value. The type is defined in the corresponding description.",
+              "schema": "string"
+            }
+          ]
+        }
+      ],
+      "contents": [
+        {
+          "@type": "Command",
+          "name": "GetProfiles",
+          "response": {
+            "name": "GetProfilesResponse",
+            "schema": "dtmi:onvif:media:GetProfilesResponse;1"
+          }
+        }
+      ]
+    }
+  ]
+}

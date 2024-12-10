@@ -2092,7 +2092,13 @@ namespace DTDLParser.Models
                     return true;
                 case "Interface":
                 case "dtmi:dtdl:class:Interface;4":
-                    int interfaceMaxIdLength = 128;
+                    int interfaceMaxIdLength = aggregateContext.LimitSpecifier switch
+                    {
+                        "" => 128,
+                        "onvif_1" => 256,
+                        _ => 0,
+                    };
+
                     if (elementId.AbsoluteUri.Length > interfaceMaxIdLength)
                     {
                         parsingErrorCollection.Notify(
@@ -3224,7 +3230,13 @@ namespace DTDLParser.Models
                         else
                         {
                             commentProperty = prop;
-                            int? maxLength = 512;
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 512,
+                                _ => null,
+                            };
+
                             string newComment = ValueParser.ParseSingularStringValueCollection(aggregateContext, this.Id, "comment", prop.Values, maxLength, null, layer, parsingErrorCollection, isOptional: true);
                             if (this.commentPropertyLayer != null)
                             {
@@ -3266,7 +3278,13 @@ namespace DTDLParser.Models
                         else
                         {
                             descriptionProperty = prop;
-                            int? maxLength = 512;
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 4096,
+                                _ => null,
+                            };
+
                             Dictionary<string, string> newDescription = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "description", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> descriptionCodes = Helpers.GetKeysWithDifferingLiteralValues(this.Description, newDescription);
                             if (descriptionCodes.Any())
@@ -3313,7 +3331,13 @@ namespace DTDLParser.Models
                         else
                         {
                             displayNameProperty = prop;
-                            int? maxLength = 512;
+                            int? maxLength = aggregateContext.LimitSpecifier switch
+                            {
+                                "" => 512,
+                                "onvif_1" => 512,
+                                _ => null,
+                            };
+
                             Dictionary<string, string> newDisplayName = ValueParser.ParseLangStringValueCollection(aggregateContext, this.Id, "displayName", prop.Values, "en", maxLength, null, layer, parsingErrorCollection);
                             List<string> displayNameCodes = Helpers.GetKeysWithDifferingLiteralValues(this.DisplayName, newDisplayName);
                             if (displayNameCodes.Any())
