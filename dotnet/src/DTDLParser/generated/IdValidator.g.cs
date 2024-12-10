@@ -37,6 +37,7 @@ namespace DTDLParser
             IdDefinitionMaxLengths[4] = new Dictionary<string, int>
             {
                 { "", 2048 },
+                { "onvif_1", 512 },
             };
 
             IdDefinitionRegexPatterns[4] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\.[1-9][0-9]{0,5})?)?$", RegexOptions.Compiled);
@@ -56,6 +57,7 @@ namespace DTDLParser
             IdReferenceMaxLengths[4] = new Dictionary<string, int>
             {
                 { "", 2048 },
+                { "onvif_1", 512 },
             };
 
             IdReferenceRegexPatterns[4] = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\.[1-9][0-9]{0,5})?)?$", RegexOptions.Compiled);

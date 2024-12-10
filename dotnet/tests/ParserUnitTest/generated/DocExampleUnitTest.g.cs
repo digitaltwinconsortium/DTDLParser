@@ -77,6 +77,7 @@ namespace ParserUnitTest
         [DataRow("ObjectDocExample-en-US-1-V2")]
         [DataRow("ObjectDocExample-en-US-1-V3")]
         [DataRow("ObjectDocExample-en-US-1-V4")]
+        [DataRow("onvifDocExample-en-US-1-V1")]
         [DataRow("overridingDocExample-en-US-1-V1")]
         [DataRow("overridingDocExample-en-US-1-V2")]
         [DataRow("overridingDocExample-en-US-2-V1")]
