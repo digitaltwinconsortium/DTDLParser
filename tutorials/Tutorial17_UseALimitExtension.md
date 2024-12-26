@@ -243,7 +243,7 @@ dtmi:example:deepArray;1 is at the root of a hierarchy that exceeds 8 levels -- 
 ```
 
 This is the same error message we saw before, when the context was "dtmi:dtdl:context;4".
-This is because the contexts "dtmi:dtdl:context;4#limitless" and "dtmi:dtdl:context;4#limits", taken together, say to include the limitles subset of the DTDL v4 language and the limits subset of the DTDL v4 language.
+This is because the contexts "dtmi:dtdl:context;4#limitless" and "dtmi:dtdl:context;4#limits", taken together, say to include the limitless subset of the DTDL v4 language and the limits subset of the DTDL v4 language.
 When combined, these two subsets comprise the entire DTDL language, so this is equivalent to the context "dtmi:dtdl:context;4".
 
 ## Configure the parser to accept the Onvif limit extension and resubmit
@@ -269,7 +269,7 @@ When an `ExtensionLimitContexts` value has no version suffix, this indicates tha
 In the above case, the parser would accept not only "dtmi:dtdl:limits:onvif;1", but also "dtmi:dtdl:limits:onvif;2", "dtmi:dtdl:limits:onvif;3", or "dtmi:dtdl:limits:onvif;3.14" if the given version has been defined.
 
 When an `ExtensionLimitContexts` value has a version suffix, the parser will accept the indicated major version and all equal or greater minor versions.
-For example, a value of "dtmi:dtdl:limits:onvif;2.2" would accept "dtmi:dtdl:limits:onvif;2.2", "dtmi:dtdl:limits:onvif;2.3", or "dtmi:dtdl:limits:onvif;3", if the given version has been defined, but not "dtmi:dtdl:limits:onvif;1", "dtmi:dtdl:limits:onvif;2", or "dtmi:dtdl:limits:onvif;2.1".
+For example, a value of "dtmi:dtdl:limits:onvif;2.2" would accept "dtmi:dtdl:limits:onvif;2.2", "dtmi:dtdl:limits:onvif;2.3", or "dtmi:dtdl:limits:onvif;2.17", if the given version has been defined, but not "dtmi:dtdl:limits:onvif;1" or "dtmi:dtdl:limits:onvif;3" (because the major version does not match the specified major version), nor "dtmi:dtdl:limits:onvif;2" or "dtmi:dtdl:limits:onvif;2.1" (because the minor version is less than the specified minor version).
 
 Now, we can resumbit the DTDL model with the Onvif context to the parser.
 
