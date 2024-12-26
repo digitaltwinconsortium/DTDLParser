@@ -23,3 +23,4 @@
 * [Validate data against schema definitions](./Tutorial14_ValidateDataAgainstSchemaDefinitions.md)
 * [Set limit on allowed DTDL version](./Tutorial15_SetLimitOnAllowedDtdlVersion.md)
 * [Validate and inspect a contextually incomplete model](./Tutorial16_ValidateAndInspectAContextuallyIncompleteModel.md)
+* [Use a limit extension](./Tutorial17_UseALimitExtension.md)
