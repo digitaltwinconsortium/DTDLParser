@@ -33,6 +33,7 @@ namespace DTDLParser
             Dtmi dtdlExtensionHistorizationContextIdV2 = new Dtmi("dtmi:dtdl:extension:historization;2");
             Dtmi dtdlExtensionMqttContextIdV1 = new Dtmi("dtmi:dtdl:extension:mqtt;1");
             Dtmi dtdlExtensionMqttContextIdV2 = new Dtmi("dtmi:dtdl:extension:mqtt;2");
+            Dtmi dtdlExtensionMqttContextIdV3 = new Dtmi("dtmi:dtdl:extension:mqtt;3");
             Dtmi dtdlExtensionOverridingContextIdV1 = new Dtmi("dtmi:dtdl:extension:overriding;1");
             Dtmi dtdlExtensionOverridingContextIdV2 = new Dtmi("dtmi:dtdl:extension:overriding;2");
             Dtmi dtdlExtensionQuantitativeTypesContextIdV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes;1");
@@ -74,6 +75,16 @@ namespace DTDLParser
             Dtmi indexedTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:mqtt:v2:Indexed");
             Dtmi mqttTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:mqtt:v2:Mqtt");
             Dtmi transparentTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:mqtt:v2:Transparent");
+            Dtmi cacheableTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:Cacheable");
+            Dtmi errorTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:Error");
+            Dtmi errorMessageTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:ErrorMessage");
+            Dtmi errorResultTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:ErrorResult");
+            Dtmi idempotentTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:Idempotent");
+            Dtmi indexedTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:Indexed");
+            Dtmi mqttTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:Mqtt");
+            Dtmi normalResultTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:NormalResult");
+            Dtmi resultTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:Result");
+            Dtmi transparentTypeIdCV3 = new Dtmi("dtmi:dtdl:extension:mqtt:v3:Transparent");
             Dtmi overrideTypeIdCV1 = new Dtmi("dtmi:dtdl:extension:overriding:v1:Override");
             Dtmi overrideTypeIdCV2 = new Dtmi("dtmi:dtdl:extension:overriding:v2:Override");
             Dtmi accelerationTypeIdCV1 = new Dtmi("dtmi:dtdl:extension:quantitativeTypes:v1:class:Acceleration");
@@ -395,6 +406,60 @@ namespace DTDLParser
             transparentInfoCV2.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:Object;3"), new Dtmi("dtmi:dtdl:class:Object;4") }, RequiredTypesString = "Object" });
             transparentInfoCV2.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.CommandRequest, DTEntityKind.CommandResponse };
             transparentInfoCV2.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo cacheableInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, cacheableTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            cacheableInfoCV3.AddProperty("dtmi:dtdl:extension:mqtt:v3:Cacheable:ttl", new Uri("http://www.w3.org/2001/XMLSchema#duration"), 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            cacheableInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Command };
+            cacheableInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+            cacheableInfoCV3.RequiredCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:mqtt:v3:Idempotent") };
+
+            DTSupplementalTypeInfo errorInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, errorTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            errorInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Object };
+            errorInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo errorMessageInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, errorMessageTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            errorMessageInfoCV3.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:String;2"), new Dtmi("dtmi:dtdl:class:String;3"), new Dtmi("dtmi:dtdl:class:String;4") }, RequiredTypesString = "String" });
+            errorMessageInfoCV3.AddParentConstraint("fields", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Error"), "Error", adjunctTypeIsUnique: true);
+            errorMessageInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
+            errorMessageInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo errorResultInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, errorResultTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            errorResultInfoCV3.AddParentConstraint("fields", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Result"), "Result", adjunctTypeIsUnique: true);
+            errorResultInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
+            errorResultInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo idempotentInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, idempotentTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            idempotentInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Command };
+            idempotentInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo indexedInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, indexedTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            indexedInfoCV3.AddProperty("dtmi:dtdl:extension:mqtt:v3:Indexed:index", new Uri("http://www.w3.org/2001/XMLSchema#integer"), 1, 1, null, 1, null, regex: null, hasUniqueValue: true, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            indexedInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.EnumValue, DTEntityKind.Field, DTEntityKind.Telemetry };
+            indexedInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo mqttInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, mqttTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            mqttInfoCV3.AddProperty("dtmi:dtdl:extension:mqtt:v3:Mqtt:cmdServiceGroupId", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^[!$-*,-.0-z|~]+$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoCV3.AddProperty("dtmi:dtdl:extension:mqtt:v3:Mqtt:commandTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoCV3.AddProperty("dtmi:dtdl:extension:mqtt:v3:Mqtt:payloadFormat", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoCV3.AddProperty("dtmi:dtdl:extension:mqtt:v3:Mqtt:telemetryTopic", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoCV3.AddProperty("dtmi:dtdl:extension:mqtt:v3:Mqtt:telemServiceGroupId", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^[!$-*,-.0-z|~]+$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            mqttInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Interface };
+            mqttInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo normalResultInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, normalResultTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            normalResultInfoCV3.AddParentConstraint("fields", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Result"), "Result", adjunctTypeIsUnique: true);
+            normalResultInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
+            normalResultInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo resultInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, resultTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            resultInfoCV3.AddPropertyValueConstraint("fields", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:extension:mqtt:v3:NormalResult"), new Dtmi("dtmi:dtdl:extension:mqtt:v3:ErrorResult") }, RequiredTypesString = "NormalResult or ErrorResult" });
+            resultInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Object };
+            resultInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo transparentInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, transparentTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            transparentInfoCV3.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:Object;3"), new Dtmi("dtmi:dtdl:class:Object;4") }, RequiredTypesString = "Object" });
+            transparentInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.CommandRequest, DTEntityKind.CommandResponse };
+            transparentInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
 
             DTSupplementalTypeInfo overrideInfoCV1 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionOverridingContextIdV1, overrideTypeIdCV1, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV3);
             overrideInfoCV1.AddProperty("dtmi:dtdl:extension:overriding:v1:Override:overrides", null, 1, 1, null, null, null, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
@@ -1374,6 +1439,16 @@ namespace DTDLParser
             EndogenousSupplementalTypes[indexedTypeIdCV2] = indexedInfoCV2;
             EndogenousSupplementalTypes[mqttTypeIdCV2] = mqttInfoCV2;
             EndogenousSupplementalTypes[transparentTypeIdCV2] = transparentInfoCV2;
+            EndogenousSupplementalTypes[cacheableTypeIdCV3] = cacheableInfoCV3;
+            EndogenousSupplementalTypes[errorTypeIdCV3] = errorInfoCV3;
+            EndogenousSupplementalTypes[errorMessageTypeIdCV3] = errorMessageInfoCV3;
+            EndogenousSupplementalTypes[errorResultTypeIdCV3] = errorResultInfoCV3;
+            EndogenousSupplementalTypes[idempotentTypeIdCV3] = idempotentInfoCV3;
+            EndogenousSupplementalTypes[indexedTypeIdCV3] = indexedInfoCV3;
+            EndogenousSupplementalTypes[mqttTypeIdCV3] = mqttInfoCV3;
+            EndogenousSupplementalTypes[normalResultTypeIdCV3] = normalResultInfoCV3;
+            EndogenousSupplementalTypes[resultTypeIdCV3] = resultInfoCV3;
+            EndogenousSupplementalTypes[transparentTypeIdCV3] = transparentInfoCV3;
             EndogenousSupplementalTypes[overrideTypeIdCV1] = overrideInfoCV1;
             EndogenousSupplementalTypes[overrideTypeIdCV2] = overrideInfoCV2;
             EndogenousSupplementalTypes[accelerationTypeIdCV1] = accelerationInfoCV1;

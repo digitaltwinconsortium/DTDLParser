@@ -110,6 +110,26 @@ namespace DTDLParser
             context2_0.AddTermDefinition("ttl", new Dtmi("dtmi:dtdl:extension:mqtt:v2:Cacheable:ttl"), isMergeableType: false);
             versionedContexts.Add(context2_0);
 
+            VersionedContext context3_0 = new VersionedContext("dtmi:dtdl:extension:mqtt;3", 3, 0, 0, null, mergeDefinitions: false);
+            context3_0.AddTermDefinition("Cacheable", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Cacheable"), isMergeableType: false);
+            context3_0.AddTermDefinition("cmdServiceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Mqtt:cmdServiceGroupId"), isMergeableType: false);
+            context3_0.AddTermDefinition("commandTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Mqtt:commandTopic"), isMergeableType: false);
+            context3_0.AddTermDefinition("Error", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Error"), isMergeableType: false);
+            context3_0.AddTermDefinition("ErrorMessage", new Dtmi("dtmi:dtdl:extension:mqtt:v3:ErrorMessage"), isMergeableType: false);
+            context3_0.AddTermDefinition("ErrorResult", new Dtmi("dtmi:dtdl:extension:mqtt:v3:ErrorResult"), isMergeableType: false);
+            context3_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Idempotent"), isMergeableType: false);
+            context3_0.AddTermDefinition("index", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Indexed:index"), isMergeableType: false);
+            context3_0.AddTermDefinition("Indexed", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Indexed"), isMergeableType: false);
+            context3_0.AddTermDefinition("Mqtt", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Mqtt"), isMergeableType: false);
+            context3_0.AddTermDefinition("NormalResult", new Dtmi("dtmi:dtdl:extension:mqtt:v3:NormalResult"), isMergeableType: false);
+            context3_0.AddTermDefinition("payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Mqtt:payloadFormat"), isMergeableType: false);
+            context3_0.AddTermDefinition("Result", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Result"), isMergeableType: false);
+            context3_0.AddTermDefinition("telemetryTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Mqtt:telemetryTopic"), isMergeableType: false);
+            context3_0.AddTermDefinition("telemServiceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Mqtt:telemServiceGroupId"), isMergeableType: false);
+            context3_0.AddTermDefinition("Transparent", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Transparent"), isMergeableType: false);
+            context3_0.AddTermDefinition("ttl", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Cacheable:ttl"), isMergeableType: false);
+            versionedContexts.Add(context3_0);
+
             return new ContextHistory(versionedContexts);
         }
 

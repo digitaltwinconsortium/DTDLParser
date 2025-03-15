@@ -1,6 +1,6 @@
 ﻿{
   "requiredContexts": [
-    "dtmi:dtdl:extension:mqtt;1"
+    "dtmi:dtdl:extension:mqtt;2"
   ],
   "valid": true,
   "quirks": [],
@@ -9,7 +9,7 @@
     {
       "@context": [
         "dtmi:dtdl:context;3",
-        "dtmi:dtdl:extension:mqtt;1"
+        "dtmi:dtdl:extension:mqtt;2"
       ],
       "@id": "dtmi:jsonTest:TelemetryAndCommand;1",
       "@type": [
@@ -60,32 +60,32 @@
         "id": "dtmi:jsonTest:TelemetryAndCommand;1",
         "type": "Interface",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v1:Mqtt"
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt"
         ],
         "supplementalProperties": {
-          "dtmi:dtdl:extension:mqtt:v1:Mqtt:payloadFormat": "Json/ecma/404",
-          "dtmi:dtdl:extension:mqtt:v1:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
-          "dtmi:dtdl:extension:mqtt:v1:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}"
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat": "Json/ecma/404",
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+          "dtmi:dtdl:extension:mqtt:v2:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}"
         }
       },
       {
         "id": "dtmi:jsonTest:TelemetryAndCommand:_contents:__distance;1",
         "type": "Telemetry",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v1:Indexed"
+          "dtmi:dtdl:extension:mqtt:v2:Indexed"
         ],
         "supplementalProperties": {
-          "dtmi:dtdl:extension:mqtt:v1:Indexed:index": 1
+          "dtmi:dtdl:extension:mqtt:v2:Indexed:index": 1
         }
       },
       {
         "id": "dtmi:jsonTest:TelemetryAndCommand:_contents:__color;1",
         "type": "Telemetry",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v1:Indexed"
+          "dtmi:dtdl:extension:mqtt:v2:Indexed"
         ],
         "supplementalProperties": {
-          "dtmi:dtdl:extension:mqtt:v1:Indexed:index": 2
+          "dtmi:dtdl:extension:mqtt:v2:Indexed:index": 2
         }
       }
     ]

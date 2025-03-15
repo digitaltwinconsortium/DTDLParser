@@ -1,0 +1,62 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;3"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;3"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": [
+            "Object",
+            "Result"
+          ],
+          "fields": [
+            {
+              "@id": "dtmi:test:normalResult;1",
+              "@type": [
+                "Field",
+                "NormalResult"
+              ],
+              "name": "errorResult",
+              "schema": {
+                "@type": "Object"
+              }
+            },
+            {
+              "@id": "dtmi:test:anotherResult;1",
+              "@type": [
+                "Field",
+                "NormalResult"
+              ],
+              "name": "anotherResult",
+              "schema": {
+                "@type": "Object"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:nonUniqueAdjunctType",
+        "PrimaryID": "dtmi:test:anotherResult;1",
+        "SecondaryID": "dtmi:test:normalResult;1",
+        "Type": "NormalResult",
+        "Property": "fields"
+      }
+    ]
+  }
+}

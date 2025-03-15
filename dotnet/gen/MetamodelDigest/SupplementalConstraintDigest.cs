@@ -17,6 +17,10 @@
         {
             this.PropertyName = ((JValue)supplementalConstraintObj["property"]).Value<string>();
 
+            this.Inverse = supplementalConstraintObj.TryGetValue("inverse", out JToken inverse) ? ((JValue)inverse).Value<bool>() : false;
+
+            this.OnlyOne = supplementalConstraintObj.TryGetValue("inverse", out JToken onlyOne) ? ((JValue)onlyOne).Value<bool>() : false;
+
             this.RequiredTypes = supplementalConstraintObj.TryGetValue("requiredTypes", out JToken requiredTypes) ? ((JArray)requiredTypes).Select(t => ((JValue)t).Value<string>()).ToList() : null;
 
             this.RequiredTypeNames = supplementalConstraintObj.TryGetValue("requiredTypeNames", out JToken requiredTypeNames) ? ((JArray)requiredTypeNames).Select(t => ((JValue)t).Value<string>()).ToList() : null;
@@ -44,6 +48,16 @@
         /// Gets the name of the property.
         /// </summary>
         public string PropertyName { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether the property direction is inverse, meaning a property of the parent element.
+        /// </summary>
+        public bool Inverse { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether there is a restriction to only a single instance of the supplemental type among the property values.
+        /// </summary>
+        public bool OnlyOne { get; }
 
         /// <summary>
         /// Gets a list of type URIs, one of which must apply to the property.

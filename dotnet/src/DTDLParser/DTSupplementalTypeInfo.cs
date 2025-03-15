@@ -40,6 +40,7 @@
             this.RequiredCocotypes = new HashSet<Dtmi>();
             this.DisallowedCocotypes = new HashSet<Dtmi>();
             this.IsMergeable = isMergeable;
+            this.ParentConstraints = new List<ParentConstraint>();
         }
 
         /// <summary>
@@ -110,6 +111,11 @@
         /// Gets a value indicating whether elements with this supplemental type can have identifiers containing IRI fragments.
         /// </summary>
         internal bool IsMergeable { get; }
+
+        /// <summary>
+        /// Gets or sets a list of constraints on a structural parent imposed by the supplemental type.
+        /// </summary>
+        internal List<ParentConstraint> ParentConstraints { get; set; }
 
         /// <summary>
         /// Determines whether two <c>DTSupplementalTypeInfo</c> objects are not equal.
@@ -564,6 +570,18 @@
         internal void AddPropertyValueConstraint(string propertyName, ValueConstraint valueConstraint)
         {
             this.propertyValueConstraints.Add(new PropertyValueConstraint() { PropertyName = propertyName, ValueConstraint = valueConstraint });
+        }
+
+        /// <summary>
+        /// Adds a parent type constraint to this supplemental type.
+        /// </summary>
+        /// <param name="parentPropertyName">Name of the property from the parent.</param>
+        /// <param name="requiredParentCotype">A cotype identifier that the parent is required to have.</param>
+        /// <param name="requiredParentCotypeString">A string describing hte required cotype.</param>
+        /// <param name="adjunctTypeIsUnique">An indication of whether the adjunct type must be on only one element in the values of the parent path.</param>
+        internal void AddParentConstraint(string parentPropertyName, Dtmi requiredParentCotype, string requiredParentCotypeString, bool adjunctTypeIsUnique)
+        {
+            this.ParentConstraints.Add(new ParentConstraint { ParentPropertyName = parentPropertyName, RequiredParentCotype = requiredParentCotype, RequiredParentCotypeString = requiredParentCotypeString, AdjunctTypeIsUnique = adjunctTypeIsUnique });
         }
 
         /// <summary>

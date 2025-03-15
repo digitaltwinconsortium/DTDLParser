@@ -1,0 +1,45 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:mqtt;3"
+      ],
+      "@id": "dtmi:example:Display;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "payloadFormat": "Json/ecma/404",
+      "commandTopic": "samples/command/{commandName}",
+      "contents": [
+        {
+          "@type": "Command",
+          "name": "display",
+          "request": {
+            "@type": [
+              "CommandRequest",
+              "Transparent"
+            ],
+            "name": "announcement",
+            "schema": {
+              "@type": "Object",
+              "fields": [
+                {
+                  "name": "text",
+                  "schema": "string"
+                },
+                {
+                  "name": "color",
+                  "schema": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

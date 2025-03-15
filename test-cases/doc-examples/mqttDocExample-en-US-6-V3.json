@@ -1,0 +1,59 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:mqtt;3"
+      ],
+      "@id": "dtmi:com:example:CounterCollection;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "commandTopic": "rpc/command-samples/{executorId}/{commandName}",
+      "payloadFormat": "Json/ecma/404",
+      "contents": [
+        {
+          "@type": "Command",
+          "name": "increment",
+          "request": {
+            "name": "counterName",
+            "schema": "string"
+          },
+          "response": {
+            "name": "incrementResponse",
+            "schema": {
+              "@type": [
+                "Object",
+                "Result"
+              ],
+              "fields": [
+                {
+                  "@type": [
+                    "Field",
+                    "NormalResult"
+                  ],
+                  "name": "counterValue",
+                  "schema": "integer"
+                },
+                {
+                  "@type": [
+                    "Field",
+                    "ErrorResult"
+                  ],
+                  "name": "incrementError",
+                  "schema": {
+                    "@id": "dtmi:com:example:CounterCollection:CounterError;1",
+                    "@type": "Object"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

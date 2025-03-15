@@ -663,6 +663,25 @@
       "Transparent": "dtmi:dtdl:extension:mqtt:v2:Transparent",
       "ttl": "dtmi:dtdl:extension:mqtt:v2:Cacheable:ttl"
     },
+    "dtmi:dtdl:extension:mqtt;3": {
+      "Cacheable": "dtmi:dtdl:extension:mqtt:v3:Cacheable",
+      "cmdServiceGroupId": "dtmi:dtdl:extension:mqtt:v3:Mqtt:cmdServiceGroupId",
+      "commandTopic": "dtmi:dtdl:extension:mqtt:v3:Mqtt:commandTopic",
+      "Error": "dtmi:dtdl:extension:mqtt:v3:Error",
+      "ErrorMessage": "dtmi:dtdl:extension:mqtt:v3:ErrorMessage",
+      "ErrorResult": "dtmi:dtdl:extension:mqtt:v3:ErrorResult",
+      "Idempotent": "dtmi:dtdl:extension:mqtt:v3:Idempotent",
+      "index": "dtmi:dtdl:extension:mqtt:v3:Indexed:index",
+      "Indexed": "dtmi:dtdl:extension:mqtt:v3:Indexed",
+      "Mqtt": "dtmi:dtdl:extension:mqtt:v3:Mqtt",
+      "NormalResult": "dtmi:dtdl:extension:mqtt:v3:NormalResult",
+      "payloadFormat": "dtmi:dtdl:extension:mqtt:v3:Mqtt:payloadFormat",
+      "Result": "dtmi:dtdl:extension:mqtt:v3:Result",
+      "telemetryTopic": "dtmi:dtdl:extension:mqtt:v3:Mqtt:telemetryTopic",
+      "telemServiceGroupId": "dtmi:dtdl:extension:mqtt:v3:Mqtt:telemServiceGroupId",
+      "Transparent": "dtmi:dtdl:extension:mqtt:v3:Transparent",
+      "ttl": "dtmi:dtdl:extension:mqtt:v3:Cacheable:ttl"
+    },
     "dtmi:dtdl:extension:overriding;1": {
       "Override": "dtmi:dtdl:extension:overriding:v1:Override",
       "overrides": "dtmi:dtdl:extension:overriding:v1:Override:overrides"
@@ -13859,6 +13878,11 @@
       }
     },
     "dtmi:dtdl:extension:mqtt;2": {
+      "description": {
+        "en-us": "Specify Interface properties to facilitate communication via the MQTT pub/sub protocol."
+      }
+    },
+    "dtmi:dtdl:extension:mqtt;3": {
       "description": {
         "en-us": "Specify Interface properties to facilitate communication via the MQTT pub/sub protocol."
       }
@@ -35451,6 +35475,396 @@
       ],
       "elements": [],
       "extensionContext": "dtmi:dtdl:extension:mqtt;2",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:Cacheable": {
+      "abstract": false,
+      "cocotypes": [
+        "dtmi:dtdl:extension:mqtt:v3:Idempotent"
+      ],
+      "constraints": [],
+      "cotypes": [
+        "Command"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:dtdl:extension:mqtt:v3:Cacheable:ttl": {
+          "deprecated": false,
+          "description": {
+            "en-us": "Maximum duration for which a response to a Command instance may be reused as a response to other Command instances."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "ttl",
+          "type": "http://www.w3.org/2001/XMLSchema#duration",
+          "typeName": "duration",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:Error": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Object"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:ErrorMessage": {
+      "abstract": false,
+      "constraints": [
+        {
+          "inverse": true,
+          "onlyOne": true,
+          "property": "fields",
+          "requiredTypeNames": [
+            "Error"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v3:Error"
+          ],
+          "requiredTypesString": "Error"
+        },
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "String"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:String;2",
+            "dtmi:dtdl:class:String;3",
+            "dtmi:dtdl:class:String;4"
+          ],
+          "requiredTypesString": "String"
+        }
+      ],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:ErrorResult": {
+      "abstract": false,
+      "constraints": [
+        {
+          "inverse": true,
+          "onlyOne": true,
+          "property": "fields",
+          "requiredTypeNames": [
+            "Result"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v3:Result"
+          ],
+          "requiredTypesString": "Result"
+        }
+      ],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:Idempotent": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Command"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:Indexed": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "EnumValue",
+        "Field",
+        "Telemetry"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:dtdl:extension:mqtt:v3:Indexed:index": {
+          "deprecated": false,
+          "description": {
+            "en-us": "Index number to uniquely identify the serialized element within its parent container."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "minInclusive": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "index",
+          "type": "http://www.w3.org/2001/XMLSchema#integer",
+          "typeName": "integer",
+          "typeRequired": true,
+          "uniqueValue": true
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:Mqtt": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Interface"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:dtdl:extension:mqtt:v3:Mqtt:cmdServiceGroupId": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The service group ID for subscribing to Command topics when shared subscriptions are wanted."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^[!$-*,-.0-z|~]+$",
+          "patternDesc": {
+            "en-us": "non-empty string of printable ASCII characters not including space, \", +, #, {, }, or /"
+          },
+          "plural": false,
+          "propertyName": "cmdServiceGroupId",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v3:Mqtt:commandTopic": {
+          "deprecated": false,
+          "description": {
+            "en-us": "MQTT topic pattern on which a Command request is published."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$",
+          "patternDesc": {
+            "en-us": "slash-separated sequence of character-restricted labels and/or brace-enclosed tokens"
+          },
+          "plural": false,
+          "propertyName": "commandTopic",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v3:Mqtt:payloadFormat": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The format to use when serializing an instance to an MQTT payload."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "payloadFormat",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v3:Mqtt:telemetryTopic": {
+          "deprecated": false,
+          "description": {
+            "en-us": "MQTT topic pattern on which a Telemetry or a collection of Telemetries is published."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$",
+          "patternDesc": {
+            "en-us": "slash-separated sequence of character-restricted labels and/or brace-enclosed tokens"
+          },
+          "plural": false,
+          "propertyName": "telemetryTopic",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v3:Mqtt:telemServiceGroupId": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The service group ID for subscribing to Telemetry topics when shared subscriptions are wanted."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^[!$-*,-.0-z|~]+$",
+          "patternDesc": {
+            "en-us": "non-empty string of printable ASCII characters not including space, \", +, #, {, }, or /"
+          },
+          "plural": false,
+          "propertyName": "telemServiceGroupId",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:NormalResult": {
+      "abstract": false,
+      "constraints": [
+        {
+          "inverse": true,
+          "onlyOne": true,
+          "property": "fields",
+          "requiredTypeNames": [
+            "Result"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v3:Result"
+          ],
+          "requiredTypesString": "Result"
+        }
+      ],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:Result": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "fields",
+          "requiredTypeNames": [
+            "NormalResult",
+            "ErrorResult"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v3:NormalResult",
+            "dtmi:dtdl:extension:mqtt:v3:ErrorResult"
+          ],
+          "requiredTypesString": "NormalResult or ErrorResult"
+        }
+      ],
+      "cotypes": [
+        "Object"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v3:Transparent": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "Object"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:Object;3",
+            "dtmi:dtdl:class:Object;4"
+          ],
+          "requiredTypesString": "Object"
+        }
+      ],
+      "cotypes": [
+        "CommandRequest",
+        "CommandResponse"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;3",
       "extensionKind": "AdjunctType",
       "mergeable": false,
       "parent": "dtmi:dtdl:class:AdjunctType;4",

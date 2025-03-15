@@ -22,6 +22,6 @@ done
 #:: in md tutorials
 #:: out dotnet tutorials/projects
 
-dotnet run --project dotnet/gen/TutorialExtractor --configuration $DtdlModelParserBuildConfig tutorials/projects ${TutorialsConfig}
+dotnet run --project dotnet/gen/TutorialExtractor --no-launch-profile --configuration $DtdlModelParserBuildConfig tutorials/projects ${TutorialsConfig}
 
 test $? -eq 0 || bash scripts/Failure.sh ExtractTutorials $DtdlModelParserBuildConfig
