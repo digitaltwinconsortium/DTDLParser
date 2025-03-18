@@ -1,0 +1,59 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:mqtt;3"
+      ],
+      "@id": "dtmi:example:TestVehicle;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "telemetryTopic": "vehicles/{modelId}/{senderId}/telemetry",
+      "commandTopic": "vehicles/{executorId}/command/{commandName}",
+      "payloadFormat": "Avro/1.11.0",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "distance",
+          "schema": "double",
+          "description": "The total distance from the origin."
+        },
+        {
+          "@type": "Telemetry",
+          "name": "color",
+          "schema": "string",
+          "description": "The color currently being applied."
+        },
+        {
+          "@type": [
+            "Command",
+            "Idempotent",
+            "Cacheable"
+          ],
+          "name": "getSpeed",
+          "response": {
+            "name": "mph",
+            "schema": "integer"
+          },
+          "ttl": "PT15S"
+        },
+        {
+          "@type": "Command",
+          "name": "setColor",
+          "request": {
+            "name": "newColor",
+            "schema": "string"
+          },
+          "response": {
+            "name": "oldColor",
+            "schema": "string"
+          }
+        }
+      ]
+    }
+  ]
+}

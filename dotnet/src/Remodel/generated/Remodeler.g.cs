@@ -43,6 +43,7 @@ namespace DTDLParser
             termIriRegexes.Add(@"dtmi:dtdl:instance:Schema:(\w*);4");
             termIriRegexes.Add(@"dtmi:dtdl:meta:(\w*);4");
             termIriRegexes.Add(@"dtmi:standard:schema:geospatial:(\w*);4");
+            termIriRegexes.Add(@"dtmi:standard:schema:(\w*);4");
             termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v1:ValueAnnotation:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:annotation:v2:ValueAnnotation:(\w*)");
@@ -57,6 +58,10 @@ namespace DTDLParser
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v2:Mqtt:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v2:Indexed:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v2:Cacheable:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v3:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v3:Mqtt:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v3:Indexed:(\w*)");
+            termIriRegexes.Add(@"dtmi:dtdl:extension:mqtt:v3:Cacheable:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:overriding:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:overriding:v1:Override:(\w*)");
             termIriRegexes.Add(@"dtmi:dtdl:extension:overriding:v2:(\w*)");

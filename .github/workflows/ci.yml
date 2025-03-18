@@ -33,9 +33,6 @@ jobs:
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
-      - name: Install WASM workload
-        run: dotnet workload install wasm-tools
-
       - name: Install SBOM Tool
         run: dotnet tool install --global Microsoft.Sbom.DotNetTool
 
@@ -95,6 +92,3 @@ jobs:
 
       - name: Test Parser Tutorial Projects
         run: scripts/TestTutorials.sh Release
-
-      - name: Build Samples
-        run: dotnet build samples/Samples.sln

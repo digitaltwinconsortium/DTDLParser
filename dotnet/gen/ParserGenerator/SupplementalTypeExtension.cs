@@ -15,6 +15,7 @@
         private string extensionContext;
         private List<SupplementalProperty> properties;
         private List<SupplementalConstraint> constraints;
+        private List<SupplementalParentConstraint> parentConstraints;
         private List<SupplementalCotype> cotypes;
         private List<int> cotypeVersions;
         private List<string> cocotypes;
@@ -40,7 +41,8 @@
             this.extensionContext = supplementalTypeDigest.ExtensionContext;
 
             this.properties = supplementalTypeDigest.Properties.Select(p => new SupplementalProperty(p.Key, p.Value)).ToList();
-            this.constraints = supplementalTypeDigest.Constraints.Select(c => new SupplementalConstraint(c)).ToList();
+            this.constraints = supplementalTypeDigest.Constraints.Where(c => !c.Inverse).Select(c => new SupplementalConstraint(c)).ToList();
+            this.parentConstraints = supplementalTypeDigest.Constraints.Where(c => c.Inverse).Select(c => new SupplementalParentConstraint(c)).ToList();
             this.cotypes = supplementalTypeDigest.Cotypes.Select(c => new SupplementalCotype(c, kindEnum)).ToList();
             this.cotypeVersions = supplementalTypeDigest.CotypeVersions;
             this.cocotypes = supplementalTypeDigest.Cocotypes ?? new List<string>();
@@ -64,6 +66,11 @@
             foreach (SupplementalConstraint constraint in this.constraints)
             {
                 constraint.AddPropertyValueConstraint(scope, this.infoVariableName);
+            }
+
+            foreach (SupplementalParentConstraint parentConstraint in this.parentConstraints)
+            {
+                parentConstraint.AddParentConstraint(scope, this.infoVariableName);
             }
 
             if (this.cotypes.Any())

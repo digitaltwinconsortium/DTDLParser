@@ -1,0 +1,80 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;3"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;3"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": [
+            "Object",
+            "Result"
+          ],
+          "fields": [
+            {
+              "@id": "dtmi:test:normalResult;1",
+              "@type": [
+                "Field",
+                "NormalResult"
+              ],
+              "name": "normalResult",
+              "schema": "string"
+            },
+            {
+              "@id": "dtmi:test:errorResult;1",
+              "@type": [
+                "Field",
+                "ErrorResult"
+              ],
+              "name": "errorResult",
+              "schema": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:anObject;1",
+        "type": "Object",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v3:Result"
+        ]
+      },
+      {
+        "id": "dtmi:test:normalResult;1",
+        "type": "Field",
+        "properties": {
+          "name": "normalResult",
+          "schema": "dtmi:dtdl:instance:Schema:string;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v3:NormalResult"
+        ]
+      },
+      {
+        "id": "dtmi:test:errorResult;1",
+        "type": "Field",
+        "properties": {
+          "name": "errorResult",
+          "schema": "dtmi:dtdl:instance:Schema:string;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v3:ErrorResult"
+        ]
+      }
+    ]
+  }
+}

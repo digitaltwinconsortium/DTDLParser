@@ -212,6 +212,7 @@ namespace DTDLParser
             foreach (var element in this.Dict.Values)
             {
                 element.CheckRestrictions(parsingErrorCollection);
+                this.CheckParentConstraints(element, supplementalTypeCollection, parsingErrorCollection);
                 this.CheckSiblingConstraints(element, supplementalTypeCollection, parsingErrorCollection, referenceCounts);
                 this.CheckSupplementalPropertyConstraints(element, supplementalTypeCollection, parsingErrorCollection);
             }

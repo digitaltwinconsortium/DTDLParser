@@ -87,6 +87,53 @@ namespace DTDLParser
             return this.Dict[elementId].EntityKind.ToString();
         }
 
+        private void CheckParentConstraints(DTEntityInfo currentSibling, SupplementalTypeCollection supplementalTypeCollection, ParsingErrorCollection parsingErrorCollection)
+        {
+            foreach (Dtmi supplementalTypeId in currentSibling.SupplementalTypes)
+            {
+                if (supplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo))
+                {
+                    foreach (ParentConstraint parentConstraint in supplementalTypeInfo.ParentConstraints)
+                    {
+                        foreach (ParentReference parentReference in currentSibling.ParentReferences)
+                        {
+                            if (parentReference.PropertyName == parentConstraint.ParentPropertyName)
+                            {
+                                DTEntityInfo commonParent = this.Dict[parentReference.ParentId];
+                                if (parentConstraint.RequiredParentCotype != null && !commonParent.SupplementalTypes.Contains(parentConstraint.RequiredParentCotype))
+                                {
+                                    parsingErrorCollection.Notify(
+                                        "parentMissingCotype",
+                                        elementId: currentSibling.Id,
+                                        propertyName: parentReference.PropertyName,
+                                        elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type),
+                                        referenceType: ContextCollection.GetTermOrUri(parentConstraint.RequiredParentCotype));
+                                }
+
+                                if (parentConstraint.AdjunctTypeIsUnique)
+                                {
+                                    foreach (DTEntityInfo otherSibling in commonParent.GetChildren(parentReference.PropertyName))
+                                    {
+                                        if (!ReferenceEquals(otherSibling, currentSibling) && otherSibling.SupplementalTypes.Contains(supplementalTypeInfo.Type))
+                                        {
+                                            Dtmi firstSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? currentSibling.Id : otherSibling.Id;
+                                            Dtmi secondSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? otherSibling.Id : currentSibling.Id;
+                                            parsingErrorCollection.Notify(
+                                                "nonUniqueAdjunctType",
+                                                elementId: firstSiblingId,
+                                                referenceId: secondSiblingId,
+                                                propertyName: parentReference.PropertyName,
+                                                elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void CheckSiblingConstraints(DTEntityInfo currentSibling, SupplementalTypeCollection supplementalTypeCollection, ParsingErrorCollection parsingErrorCollection, Dictionary<(string, string, string, string), Dictionary<string, JsonLdElement>> referenceElts)
         {
             if (currentSibling.SiblingConstraints != null && currentSibling.Id.Tail == string.Empty)

@@ -47,6 +47,7 @@
             this.GenerateIsKindInSetMethod(modelClass);
             this.GenerateGetKindStringMethod(modelClass);
             this.GenerateCheckValueConstraintOnSiblingMethod(modelClass);
+            this.GenerateCheckParentConstraintsMethod(modelClass);
             this.GenerateCheckSupplementalPropertyConstraintsMethod(modelClass);
             this.GenerateCheckSiblingConstraintsMethod(modelClass);
         }
@@ -132,6 +133,43 @@
             this.GenerateCheckForMismatch(forEachParentRef, "SiblingClassOfPropertyId", "Type", "classOfPropertyId");
 
             this.GenerateCheckForMismatch(forEachParentRef, "SiblingParentOfPropertyId", "ChildOf", "parentOfPropertyId");
+        }
+
+        private void GenerateCheckParentConstraintsMethod(CsClass parserClass)
+        {
+            CsMethod method = parserClass.Method(Access.Private, Novelty.Normal, "void", "CheckParentConstraints");
+            method.Param(this.baseClassName, "currentSibling");
+            method.Param("SupplementalTypeCollection", "supplementalTypeCollection");
+            method.Param("ParsingErrorCollection", "parsingErrorCollection");
+
+            CsIf ifFoundParent = method.Body.ForEach($"{ParserGeneratorValues.IdentifierType} supplementalTypeId in currentSibling.SupplementalTypes")
+                .If("supplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo)")
+                    .ForEach("ParentConstraint parentConstraint in supplementalTypeInfo.ParentConstraints")
+                        .ForEach("ParentReference parentReference in currentSibling.ParentReferences")
+                            .If("parentReference.PropertyName == parentConstraint.ParentPropertyName");
+
+            ifFoundParent
+                .Line($"{this.baseClassName} commonParent = this.Dict[parentReference.ParentId];")
+                .If("parentConstraint.RequiredParentCotype != null && !commonParent.SupplementalTypes.Contains(parentConstraint.RequiredParentCotype)")
+                    .MultiLine("parsingErrorCollection.Notify(")
+                        .Line("\"parentMissingCotype\",")
+                        .Line("elementId: currentSibling.Id,")
+                        .Line("propertyName: parentReference.PropertyName,")
+                        .Line("elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type),")
+                        .Line("referenceType: ContextCollection.GetTermOrUri(parentConstraint.RequiredParentCotype));");
+
+            ifFoundParent
+                .If("parentConstraint.AdjunctTypeIsUnique")
+                .ForEach($"{this.baseClassName} otherSibling in commonParent.GetChildren(parentReference.PropertyName)")
+                    .If("!ReferenceEquals(otherSibling, currentSibling) && otherSibling.SupplementalTypes.Contains(supplementalTypeInfo.Type)")
+                        .Line("Dtmi firstSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? currentSibling.Id : otherSibling.Id;")
+                        .Line("Dtmi secondSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? otherSibling.Id : currentSibling.Id;")
+                        .MultiLine("parsingErrorCollection.Notify(")
+                            .Line("\"nonUniqueAdjunctType\",")
+                            .Line("elementId: firstSiblingId,")
+                            .Line("referenceId: secondSiblingId,")
+                            .Line("propertyName: parentReference.PropertyName,")
+                            .Line("elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type));");
         }
 
         private void GenerateCheckSupplementalPropertyConstraintsMethod(CsClass parserClass)

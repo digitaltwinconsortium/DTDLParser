@@ -16,7 +16,7 @@ mkdir images/generated
 
 ErrLev=0
 
-dotnet run --project dotnet/gen/FlowTracer --configuration $DtdlModelParserBuildConfig scripts images/input/generated/DevelopFlowDiagram.dot
+dotnet run --project dotnet/gen/FlowTracer --no-launch-profile --configuration $DtdlModelParserBuildConfig scripts images/input/generated/DevelopFlowDiagram.dot
 if [ $? -ne 0 ]; then
   bash scripts/Failure.sh TraceFlow $DtdlModelParserBuildConfig
   exit 1
