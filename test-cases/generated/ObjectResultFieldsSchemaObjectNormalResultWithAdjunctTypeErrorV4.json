@@ -43,7 +43,10 @@
               ],
               "name": "errorResult",
               "schema": {
-                "@type": "Object"
+                "@type": [
+                  "Object",
+                  "Error"
+                ]
               }
             }
           ]
@@ -92,7 +95,9 @@
       {
         "id": "dtmi:test:errorResult:_schema;1",
         "type": "Object",
-        "supplementalTypes": []
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v3:Error"
+        ]
       }
     ]
   }

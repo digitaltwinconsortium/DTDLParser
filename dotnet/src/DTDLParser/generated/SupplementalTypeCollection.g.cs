@@ -424,9 +424,11 @@ namespace DTDLParser
             errorMessageInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
 
             DTSupplementalTypeInfo errorResultInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, errorResultTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            errorResultInfoCV3.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:extension:mqtt:v3:Error") }, RequiredTypesString = "Error" });
             errorResultInfoCV3.AddParentConstraint("fields", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Result"), "Result", adjunctTypeIsUnique: true);
             errorResultInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
             errorResultInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+            errorResultInfoCV3.DisallowedCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:requirement:v1:Required") };
 
             DTSupplementalTypeInfo idempotentInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, idempotentTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
             idempotentInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Command };
@@ -450,6 +452,7 @@ namespace DTDLParser
             normalResultInfoCV3.AddParentConstraint("fields", new Dtmi("dtmi:dtdl:extension:mqtt:v3:Result"), "Result", adjunctTypeIsUnique: true);
             normalResultInfoCV3.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
             normalResultInfoCV3.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+            normalResultInfoCV3.DisallowedCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:requirement:v1:Required") };
 
             DTSupplementalTypeInfo resultInfoCV3 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV3, resultTypeIdCV3, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
             resultInfoCV3.AddPropertyValueConstraint("fields", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:extension:mqtt:v3:NormalResult"), new Dtmi("dtmi:dtdl:extension:mqtt:v3:ErrorResult") }, RequiredTypesString = "NormalResult or ErrorResult" });
