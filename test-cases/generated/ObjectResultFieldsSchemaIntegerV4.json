@@ -2,7 +2,7 @@
   "requiredContexts": [
     "dtmi:dtdl:extension:mqtt;3"
   ],
-  "valid": true,
+  "valid": false,
   "quirks": [],
   "options": [],
   "input": [
@@ -45,35 +45,13 @@
     }
   ],
   "expect": {
-    "elements": [
+    "parsingErrors": [
       {
-        "id": "dtmi:test:anObject;1",
-        "type": "Object",
-        "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:Result"
-        ]
-      },
-      {
-        "id": "dtmi:test:normalResult;1",
-        "type": "Field",
-        "properties": {
-          "name": "normalResult",
-          "schema": "dtmi:dtdl:instance:Schema:integer;2"
-        },
-        "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:NormalResult"
-        ]
-      },
-      {
-        "id": "dtmi:test:errorResult;1",
-        "type": "Field",
-        "properties": {
-          "name": "errorResult",
-          "schema": "dtmi:dtdl:instance:Schema:integer;2"
-        },
-        "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:ErrorResult"
-        ]
+        "ValidationID": "dtmi:dtdl:parsingError:notRequiredType",
+        "PrimaryID": "dtmi:test:errorResult;1",
+        "Type": "Error",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 32
       }
     ]
   }
