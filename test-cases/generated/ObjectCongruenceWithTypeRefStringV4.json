@@ -1,0 +1,58 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:coordinateObject;1",
+          "@type": [
+            "Object",
+            "Congruence"
+          ],
+          "typeRef": "http://some/remote/reference",
+          "fields": [
+            {
+              "name": "latitude",
+              "schema": "double"
+            },
+            {
+              "name": "longitude",
+              "schema": "double"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:anInterface;1",
+        "type": "Interface",
+        "supplementalTypes": [],
+        "supplementalProperties": {}
+      },
+      {
+        "id": "dtmi:test:coordinateObject;1",
+        "type": "Object",
+        "supplementalTypes": [
+          "dtmi:iotoperations:class:Congruence;4"
+        ],
+        "supplementalProperties": {
+          "dtmi:iotoperations:property:typeRef;4": "http://some/remote/reference"
+        }
+      }
+    ]
+  }
+}

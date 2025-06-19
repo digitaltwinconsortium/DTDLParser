@@ -1,0 +1,36 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface",
+        "Congruence"
+      ],
+      "typeRef": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:anInterface;1",
+        "type": "Interface",
+        "supplementalTypes": [
+          "dtmi:iotoperations:class:Congruence;4"
+        ],
+        "supplementalProperties": {
+          "dtmi:iotoperations:property:typeRef;4": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      }
+    ]
+  }
+}

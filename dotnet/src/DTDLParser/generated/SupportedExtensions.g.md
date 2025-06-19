@@ -5,6 +5,7 @@ The chart below itemizes the extension contexts that are currently supported.
 | Extension | Context specifier | DTDL versions |
 | --- | --- | --- |
 | [Iotcentral v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) | `dtmi:iotcentral:context;2` | [2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) |
+| [Iotoperations v4](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v4/DTDL.iotoperations.v4.md) | `dtmi:iotoperations:context;4` | [4](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v4/DTDL.v4.md) |
 | [QuantitativeTypes v1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.quantitativeTypes.v1.md) | `dtmi:dtdl:extension:quantitativeTypes;1` | [3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) |
 | [QuantitativeTypes v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v4/DTDL.quantitativeTypes.v2.md) | `dtmi:dtdl:extension:quantitativeTypes;2` | [4](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v4/DTDL.v4.md) |
 | [Historization v1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.historization.v1.md) | `dtmi:dtdl:extension:historization;1` | [3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) |

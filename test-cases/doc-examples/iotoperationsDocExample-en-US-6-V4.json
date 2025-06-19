@@ -1,0 +1,51 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:opcua:PADIM:ControlSignalType;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "ControlSignal",
+          "schema": {
+            "@type": [
+              "Object",
+              "Detail"
+            ],
+            "fields": [
+              {
+                "@type": [
+                  "Field",
+                  "Subject"
+                ],
+                "name": "ControlSignal",
+                "schema": "float"
+              },
+              {
+                "@type": "Field",
+                "name": "ActuatorType",
+                "schema": "unsignedInteger"
+              },
+              {
+                "@type": "Field",
+                "name": "OperatingDirection",
+                "schema": "unsignedInteger"
+              },
+              {
+                "@type": "Field",
+                "name": "Setpoint",
+                "schema": "float"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

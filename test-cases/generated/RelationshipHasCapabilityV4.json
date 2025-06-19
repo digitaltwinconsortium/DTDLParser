@@ -1,0 +1,40 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aRelationship;1",
+          "@type": [
+            "Relationship",
+            "HasCapability"
+          ],
+          "name": "myCapability"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aRelationship;1",
+        "type": "Relationship",
+        "supplementalTypes": [
+          "dtmi:iotoperations:class:HasCapability;4"
+        ],
+        "supplementalProperties": {}
+      }
+    ]
+  }
+}

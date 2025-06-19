@@ -1,0 +1,54 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:example:PointGuard:ContinuousPowerDevice;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Command",
+            "GroupMember"
+          ],
+          "name": "PollGenerationData",
+          "group": "PollingCommands",
+          "response": {
+            "name": "GenerationData",
+            "schema": {
+              "@id": "dtmi:example:PointGuard:ContinuousPowerDevice:DataSet:GenerationData;1",
+              "@type": "Object"
+            }
+          }
+        },
+        {
+          "@type": [
+            "Command",
+            "GroupMember"
+          ],
+          "name": "PollContinuousPerformanceData",
+          "group": "PollingCommands",
+          "response": {
+            "name": "PerformanceData",
+            "schema": {
+              "@id": "dtmi:example:PointGuard:ContinuousPowerDevice:DataSet:PerformanceData;1",
+              "@type": "Object"
+            }
+          }
+        },
+        {
+          "@type": "Command",
+          "name": "AcknowledgeAlert",
+          "request": {
+            "name": "AlertName",
+            "schema": "string"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -3684,24 +3684,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.commandTypeInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.CommandType.ValidateInstance(jsonElement) : this.CommandType.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First(p => p.Name == "commandType");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.CommandType.ValidateInstance(jsonElement) : this.CommandType.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First(p => p.Name == "commandType");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "commandType",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "commandType",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3710,24 +3712,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.requestInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Request.ValidateInstance(jsonElement) : this.Request.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "request")).Value?.Properties?.First(p => p.Name == "request");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Request.ValidateInstance(jsonElement) : this.Request.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "request")).Value?.Properties?.First(p => p.Name == "request");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "request",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "request",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3736,24 +3740,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.responseInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Response.ValidateInstance(jsonElement) : this.Response.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "response")).Value?.Properties?.First(p => p.Name == "response");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Response.ValidateInstance(jsonElement) : this.Response.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "response")).Value?.Properties?.First(p => p.Name == "response");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "response",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "response",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3778,24 +3784,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.commandTypeInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.CommandType.ValidateInstance(jsonElement) : this.CommandType.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First(p => p.Name == "commandType");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.CommandType.ValidateInstance(jsonElement) : this.CommandType.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First(p => p.Name == "commandType");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "commandType",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "commandType",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3804,24 +3812,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.requestInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Request.ValidateInstance(jsonElement) : this.Request.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "request")).Value?.Properties?.First(p => p.Name == "request");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Request.ValidateInstance(jsonElement) : this.Request.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "request")).Value?.Properties?.First(p => p.Name == "request");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "request",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "request",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3830,24 +3840,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.responseInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Response.ValidateInstance(jsonElement) : this.Response.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "response")).Value?.Properties?.First(p => p.Name == "response");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Response.ValidateInstance(jsonElement) : this.Response.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "response")).Value?.Properties?.First(p => p.Name == "response");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "response",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "response",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3872,24 +3884,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.commandTypeInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.CommandType.ValidateInstance(jsonElement) : this.CommandType.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First(p => p.Name == "commandType");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.CommandType.ValidateInstance(jsonElement) : this.CommandType.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "commandType")).Value?.Properties?.First(p => p.Name == "commandType");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "commandType",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "commandType",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3898,24 +3912,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.requestInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Request.ValidateInstance(jsonElement) : this.Request.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "request")).Value?.Properties?.First(p => p.Name == "request");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Request.ValidateInstance(jsonElement) : this.Request.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "request")).Value?.Properties?.First(p => p.Name == "request");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "request",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "request",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }
@@ -3924,24 +3940,26 @@ namespace DTDLParser.Models
             {
                 foreach (string instanceProp in this.responseInstanceProperties)
                 {
-                    object supplementalProperty = this.supplementalProperties[instanceProp];
-                    IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Response.ValidateInstance(jsonElement) : this.Response.ValidateInstance(supplementalProperty.ToString());
-                    if (violations.Any())
+                    if (this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty))
                     {
-                        string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
-                        string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
-                        JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
-                        JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "response")).Value?.Properties?.First(p => p.Name == "response");
+                        IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.Response.ValidateInstance(jsonElement) : this.Response.ValidateInstance(supplementalProperty.ToString());
+                        if (violations.Any())
+                        {
+                            string violationPostscript = violations.Count > 1 ? $", plus {violations.Count - 1} other violation(s)" : string.Empty;
+                            string instanceTerm = ContextCollection.GetTermOrUri(new Uri(instanceProp));
+                            JsonLdProperty instancePropProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == instanceProp || p.Name == instanceTerm)).Value?.Properties?.First(p => p.Name == instanceProp || p.Name == instanceTerm);
+                            JsonLdProperty conformanceProp = this.JsonLdElements.FirstOrDefault(e => e.Value.Properties.Any(p => p.Name == "response")).Value?.Properties?.First(p => p.Name == "response");
 
-                        parsingErrorCollection.Notify(
-                            "nonConformantPropertyValue",
-                            elementId: this.Id,
-                            propertyName: instanceTerm,
-                            governingPropertyName: "response",
-                            violations: violations,
-                            violationCount: violations.Count,
-                            incidentValues: instancePropProp.Values,
-                            governingValues: conformanceProp.Values);
+                            parsingErrorCollection.Notify(
+                                "nonConformantPropertyValue",
+                                elementId: this.Id,
+                                propertyName: instanceTerm,
+                                governingPropertyName: "response",
+                                violations: violations,
+                                violationCount: violations.Count,
+                                incidentValues: instancePropProp.Values,
+                                governingValues: conformanceProp.Values);
+                        }
                     }
                 }
             }

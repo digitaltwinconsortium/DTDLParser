@@ -1,0 +1,54 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:coordinateObject;1",
+          "@type": [
+            "Object",
+            "Qualified"
+          ],
+          "fields": [
+            {
+              "name": "latitude",
+              "schema": "double"
+            },
+            {
+              "name": "longitude",
+              "schema": "double"
+            }
+          ],
+          "namespace": "myNamespace"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:coordinateObject;1",
+        "Type": "Qualified",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      },
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:noTypeThatAllows",
+        "PrimaryID": "dtmi:test:coordinateObject;1",
+        "Property": "namespace"
+      }
+    ]
+  }
+}

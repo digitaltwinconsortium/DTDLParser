@@ -81,11 +81,14 @@ namespace DTDLParser
             termIriRegexes.Add(@"dtmi:dtdl:extension:requirement:v1:(\w*)");
             termIriRegexes.Add(@"dtmi:iotcentral:class:(\w*);2");
             termIriRegexes.Add(@"dtmi:iotcentral:schema:(\w*);2");
+            termIriRegexes.Add(@"dtmi:iotoperations:class:(\w*);4");
+            termIriRegexes.Add(@"dtmi:iotoperations:property:(\w*);4");
 
             reservedPrefixes = new List<string>();
             reservedPrefixes.Add("dtmi:dtdl:");
             reservedPrefixes.Add("dtmi:standard:");
             reservedPrefixes.Add("dtmi:iotcentral:");
+            reservedPrefixes.Add("dtmi:iotoperations:");
 
             abstractPropertyConcreteTypeMap = new Dictionary<string, Dictionary<string, string>>();
 
@@ -151,6 +154,7 @@ namespace DTDLParser
 
             partnerMaxVersions = new Dictionary<string, int>();
             partnerMaxVersions["iotcentral"] = 2;
+            partnerMaxVersions["iotoperations"] = 4;
         }
 
         private bool TryRemoveImproperKeyword(JProperty keywordProperty, string discriminantPropName)

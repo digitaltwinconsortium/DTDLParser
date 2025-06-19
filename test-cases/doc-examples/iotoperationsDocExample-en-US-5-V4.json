@@ -1,0 +1,24 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:com:example:KlushMachine;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Relationship",
+            "HasComponent"
+          ],
+          "name": "port",
+          "target": "dtmi:com:example:DataPort"
+        }
+      ]
+    }
+  ]
+}

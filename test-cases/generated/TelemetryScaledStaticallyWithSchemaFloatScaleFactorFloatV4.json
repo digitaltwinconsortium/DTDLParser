@@ -1,0 +1,44 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "ScaledStatically"
+          ],
+          "name": "currentDistance",
+          "schema": "float",
+          "scaleFactor": 2.2
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:aTelemetry;1",
+        "type": "Telemetry",
+        "supplementalTypes": [
+          "dtmi:iotoperations:class:ScaledStatically;4"
+        ],
+        "supplementalProperties": {
+          "dtmi:iotoperations:property:scaleFactor;4": 2.2
+        }
+      }
+    ]
+  }
+}
