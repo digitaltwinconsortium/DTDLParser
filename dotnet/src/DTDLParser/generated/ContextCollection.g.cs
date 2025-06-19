@@ -45,6 +45,7 @@ namespace DTDLParser
             EndogenousAffiliateContextHistories["dtmi:dtdl:extension:requirement"] = GetAffiliate5ContextHistory();
             EndogenousAffiliateContextHistories["dtmi:dtdl:limits:onvif"] = GetAffiliate6ContextHistory();
             EndogenousAffiliateContextHistories["dtmi:iotcentral:context"] = GetAffiliate7ContextHistory();
+            EndogenousAffiliateContextHistories["dtmi:iotoperations:context"] = GetAffiliate8ContextHistory();
         }
 
         private static ContextHistory GetAffiliate0ContextHistory()
@@ -952,6 +953,36 @@ namespace DTDLParser
             context2_0.AddTermDefinition("vector", new Dtmi("dtmi:iotcentral:schema:vector;2"), isMergeableType: false);
             context2_0.AddTermDefinition("VelocityVector", new Dtmi("dtmi:iotcentral:class:VelocityVector;2"), isMergeableType: false);
             versionedContexts.Add(context2_0);
+
+            return new ContextHistory(versionedContexts);
+        }
+
+        private static ContextHistory GetAffiliate8ContextHistory()
+        {
+            List<VersionedContext> versionedContexts = new List<VersionedContext>();
+
+            VersionedContext context4_0 = new VersionedContext("dtmi:iotoperations:context;4", 4, 0, 0, null, mergeDefinitions: false);
+            context4_0.ReserveIdDefinitionPrefix("dtmi:iotoperations:");
+            context4_0.AddTermDefinition("Cloud", new Dtmi("dtmi:iotoperations:class:Cloud;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Congruence", new Dtmi("dtmi:iotoperations:class:Congruence;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("decimalPlaces", new Dtmi("dtmi:iotoperations:property:decimalPlaces;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Detail", new Dtmi("dtmi:iotoperations:class:Detail;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Event", new Dtmi("dtmi:iotoperations:class:Event;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("group", new Dtmi("dtmi:iotoperations:property:group;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("GroupMember", new Dtmi("dtmi:iotoperations:class:GroupMember;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("HasCapability", new Dtmi("dtmi:iotoperations:class:HasCapability;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("HasComponent", new Dtmi("dtmi:iotoperations:class:HasComponent;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Limited", new Dtmi("dtmi:iotoperations:class:Limited;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("maximum", new Dtmi("dtmi:iotoperations:property:maximum;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("minimum", new Dtmi("dtmi:iotoperations:property:minimum;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("namespace", new Dtmi("dtmi:iotoperations:property:namespace;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Precise", new Dtmi("dtmi:iotoperations:class:Precise;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Qualified", new Dtmi("dtmi:iotoperations:class:Qualified;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("ScaledStatically", new Dtmi("dtmi:iotoperations:class:ScaledStatically;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("scaleFactor", new Dtmi("dtmi:iotoperations:property:scaleFactor;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("Subject", new Dtmi("dtmi:iotoperations:class:Subject;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("typeRef", new Dtmi("dtmi:iotoperations:property:typeRef;4"), isMergeableType: false);
+            versionedContexts.Add(context4_0);
 
             return new ContextHistory(versionedContexts);
         }

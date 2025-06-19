@@ -399,13 +399,13 @@ namespace ParserUnitTest
 
         private static void AssertNumericErrorFieldMatchesOrFollows(JObject expectedErrorObject, string fieldName, string altFieldName, int actualErrorField)
         {
-            if (expectedErrorObject.ContainsKey(fieldName))
+            if (expectedErrorObject.TryGetValue(fieldName, out JToken expectedValue))
             {
-                Assert.AreEqual(((JValue)expectedErrorObject[fieldName]).Value<int>(), actualErrorField);
+                Assert.AreEqual(((JValue)expectedValue).Value<int>(), actualErrorField);
             }
-            else if (expectedErrorObject.ContainsKey(altFieldName))
+            else if (expectedErrorObject.TryGetValue(altFieldName, out expectedValue) && actualErrorField != 0)
             {
-                Assert.IsTrue(actualErrorField == 0 || actualErrorField == ((JValue)expectedErrorObject[altFieldName]).Value<int>());
+                Assert.AreEqual(((JValue)expectedValue).Value<int>(), actualErrorField);
             }
         }
 

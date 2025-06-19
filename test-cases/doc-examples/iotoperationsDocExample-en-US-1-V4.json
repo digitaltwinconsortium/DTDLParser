@@ -1,0 +1,41 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:opcua:MachineVision:AcquisitionDoneEventType;1",
+      "@type": [
+        "Interface",
+        "Congruence"
+      ],
+      "typeRef": "nsu=http://opcfoundation.org/UA/MachineVision;i=1025",
+      "schemas": [
+        {
+          "@id": "dtmi:opcua:MachineVision:AcquisitionDoneEventType:dataType:JobIdDataType;1",
+          "@type": [
+            "Object",
+            "Congruence"
+          ],
+          "typeRef": "nsu=http://opcfoundation.org/UA/MachineVision;i=3016",
+          "fields": [
+            {
+              "name": "Id",
+              "schema": "string"
+            }
+          ]
+        }
+      ],
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "JobId",
+          "schema": "dtmi:opcua:MachineVision:AcquisitionDoneEventType:dataType:JobIdDataType;1"
+        }
+      ]
+    }
+  ]
+}

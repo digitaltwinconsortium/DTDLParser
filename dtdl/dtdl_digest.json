@@ -1460,6 +1460,27 @@
       "State": "dtmi:iotcentral:class:State;2",
       "vector": "dtmi:iotcentral:schema:vector;2",
       "VelocityVector": "dtmi:iotcentral:class:VelocityVector;2"
+    },
+    "dtmi:iotoperations:context;4": {
+      "Cloud": "dtmi:iotoperations:class:Cloud;4",
+      "Congruence": "dtmi:iotoperations:class:Congruence;4",
+      "decimalPlaces": "dtmi:iotoperations:property:decimalPlaces;4",
+      "Detail": "dtmi:iotoperations:class:Detail;4",
+      "Event": "dtmi:iotoperations:class:Event;4",
+      "group": "dtmi:iotoperations:property:group;4",
+      "GroupMember": "dtmi:iotoperations:class:GroupMember;4",
+      "HasCapability": "dtmi:iotoperations:class:HasCapability;4",
+      "HasComponent": "dtmi:iotoperations:class:HasComponent;4",
+      "Limited": "dtmi:iotoperations:class:Limited;4",
+      "maximum": "dtmi:iotoperations:property:maximum;4",
+      "minimum": "dtmi:iotoperations:property:minimum;4",
+      "namespace": "dtmi:iotoperations:property:namespace;4",
+      "Precise": "dtmi:iotoperations:class:Precise;4",
+      "Qualified": "dtmi:iotoperations:class:Qualified;4",
+      "ScaledStatically": "dtmi:iotoperations:class:ScaledStatically;4",
+      "scaleFactor": "dtmi:iotoperations:property:scaleFactor;4",
+      "Subject": "dtmi:iotoperations:class:Subject;4",
+      "typeRef": "dtmi:iotoperations:property:typeRef;4"
     }
   },
   "contextsMergeDefinitions": [],
@@ -13920,6 +13941,11 @@
     "dtmi:iotcentral:context;2": {
       "description": {
         "en-us": "A set of semantic types and schema types used by IoT Central."
+      }
+    },
+    "dtmi:iotoperations:context;4": {
+      "description": {
+        "en-us": "A set of semantic types used by Azure IoT Operations."
       }
     }
   },
@@ -34566,6 +34592,9 @@
     ],
     "dtmi:iotcentral:context;2": [
       "dtmi:iotcentral:"
+    ],
+    "dtmi:iotoperations:context;4": [
+      "dtmi:iotoperations:"
     ]
   },
   "rootableClasses": {
@@ -40991,6 +41020,392 @@
           "uniqueValue": false
         }
       },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Congruence;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Array",
+        "Enum",
+        "Interface",
+        "Map",
+        "Object"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:iotoperations:property:typeRef;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "An opaque reference to another type definition (not necessarily in DTDL) that is congruent to this Interface or schema definition."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "maxLength": 128,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "typeRef",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Detail;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Object"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Event;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Interface"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:GroupMember;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Command"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:iotoperations:property:group;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The group wherein the Commmand is a member."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "maxLength": 128,
+          "minCount": 1,
+          "optional": false,
+          "pattern": "^[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?$",
+          "patternDesc": {
+            "en-us": "contains only alphanumerics and underscore, starting with a letter, ending with alphanumeric"
+          },
+          "plural": false,
+          "propertyName": "group",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:HasCapability;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Relationship"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "discotypes": [
+        "dtmi:iotoperations:class:HasComponent;4"
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:HasComponent;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Relationship"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Limited;4": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "NumericSchema"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:NumericSchema;4"
+          ],
+          "requiredTypesString": "NumericSchema"
+        }
+      ],
+      "cotypes": [
+        "CommandRequest",
+        "CommandResponse",
+        "Field",
+        "MapValue",
+        "Property",
+        "Telemetry"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:iotoperations:property:maximum;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The maximum expected value."
+          },
+          "idRequired": false,
+          "instanceProperty": "schema",
+          "maxCount": 1,
+          "optional": true,
+          "plural": false,
+          "propertyName": "maximum",
+          "type": "http://www.w3.org/2001/XMLSchema#decimal",
+          "typeName": "decimal",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:iotoperations:property:minimum;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The minimum expected value."
+          },
+          "idRequired": false,
+          "instanceProperty": "schema",
+          "maxCount": 1,
+          "optional": true,
+          "plural": false,
+          "propertyName": "minimum",
+          "type": "http://www.w3.org/2001/XMLSchema#decimal",
+          "typeName": "decimal",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Precise;4": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "NumericSchema"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:NumericSchema;4"
+          ],
+          "requiredTypesString": "NumericSchema"
+        }
+      ],
+      "cotypes": [
+        "CommandRequest",
+        "CommandResponse",
+        "Field",
+        "MapValue",
+        "Property",
+        "Telemetry"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:iotoperations:property:decimalPlaces;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "Number of significant decimal places."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "decimalPlaces",
+          "type": "http://www.w3.org/2001/XMLSchema#integer",
+          "typeName": "integer",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Qualified;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Command",
+        "Component",
+        "Field",
+        "Property",
+        "Relationship",
+        "Telemetry"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:iotoperations:property:namespace;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "A namespace that qualifies the 'name' property of the DTDL element."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "maxLength": 128,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "namespace",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:ScaledStatically;4": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "NumericSchema"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:NumericSchema;4"
+          ],
+          "requiredTypesString": "NumericSchema"
+        }
+      ],
+      "cotypes": [
+        "CommandRequest",
+        "CommandResponse",
+        "Field",
+        "MapValue",
+        "Property",
+        "Telemetry"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:iotoperations:property:scaleFactor;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "The scale factor for the value."
+          },
+          "idRequired": false,
+          "instanceProperty": "schema",
+          "maxCount": 1,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "scaleFactor",
+          "type": "http://www.w3.org/2001/XMLSchema#decimal",
+          "typeName": "decimal",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Subject;4": {
+      "abstract": false,
+      "constraints": [
+        {
+          "inverse": true,
+          "onlyOne": true,
+          "property": "fields",
+          "requiredTypeNames": [
+            "Detail"
+          ],
+          "requiredTypes": [
+            "dtmi:iotoperations:class:Detail;4"
+          ],
+          "requiredTypesString": "Detail"
+        }
+      ],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
       "siblings": []
     },
     "dtmi:standard:class:Acceleration;2": {

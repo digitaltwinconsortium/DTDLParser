@@ -1,0 +1,53 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:coordinateObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": [
+                "Field",
+                "ScaledStatically"
+              ],
+              "name": "latitude",
+              "schema": "double",
+              "scaleFactor": 2.2
+            },
+            {
+              "name": "longitude",
+              "schema": "double"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:coordinateObject:_fields:__latitude;1",
+        "type": "Field",
+        "supplementalTypes": [
+          "dtmi:iotoperations:class:ScaledStatically;4"
+        ],
+        "supplementalProperties": {
+          "dtmi:iotoperations:property:scaleFactor;4": 2.2
+        }
+      }
+    ]
+  }
+}

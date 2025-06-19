@@ -69,7 +69,7 @@ namespace DTDLParser
         internal bool TrySetObjectProperty(Dtmi elementId, string layer, string propertyName, JsonLdProperty propProp, Dtmi referencedElementId, string keyProp, string keyValue, ParsingErrorCollection parsingErrorCollection)
         {
             DTEntityInfo element = this.Dict.ContainsKey(referencedElementId) ? this.Dict[referencedElementId] : new DTReferenceInfo(0, referencedElementId, null, null, null);
-            if (!referencedElementId.AbsoluteUri.StartsWith("dtmi:dtdl:") && !referencedElementId.AbsoluteUri.StartsWith("dtmi:standard:") && !referencedElementId.AbsoluteUri.StartsWith("dtmi:iotcentral:"))
+            if (!referencedElementId.AbsoluteUri.StartsWith("dtmi:dtdl:") && !referencedElementId.AbsoluteUri.StartsWith("dtmi:standard:") && !referencedElementId.AbsoluteUri.StartsWith("dtmi:iotcentral:") && !referencedElementId.AbsoluteUri.StartsWith("dtmi:iotoperations:"))
             {
                 element.ParentReferences.Add(new ParentReference() { ParentId = elementId, PropertyName = propertyName });
             }

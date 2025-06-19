@@ -1,0 +1,40 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aRelationship;1",
+          "@type": [
+            "Relationship",
+            "ScaledStatically"
+          ],
+          "name": "rel",
+          "scaleFactor": 3.0
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:aRelationship;1",
+        "Type": "ScaledStatically",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      }
+    ]
+  }
+}

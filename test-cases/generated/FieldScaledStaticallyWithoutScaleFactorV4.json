@@ -1,0 +1,50 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:coordinateObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": [
+                "Field",
+                "ScaledStatically"
+              ],
+              "name": "latitude",
+              "schema": "double"
+            },
+            {
+              "name": "longitude",
+              "schema": "double"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingSupplementalLiteralProperty",
+        "PrimaryID": "dtmi:test:coordinateObject:_fields:__latitude;1",
+        "Property": "scaleFactor",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 13,
+        "PrimaryEnd": 20
+      }
+    ]
+  }
+}

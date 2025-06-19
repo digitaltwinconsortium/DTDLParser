@@ -1,0 +1,41 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@id": "dtmi:test:aTelemetry;1",
+          "@type": [
+            "Telemetry",
+            "Precise"
+          ],
+          "name": "telem",
+          "schema": "float"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:missingSupplementalLiteralProperty",
+        "PrimaryID": "dtmi:test:aTelemetry;1",
+        "Property": "decimalPlaces",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 9,
+        "PrimaryEnd": 17
+      }
+    ]
+  }
+}

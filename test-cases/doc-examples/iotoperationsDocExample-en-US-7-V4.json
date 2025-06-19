@@ -1,0 +1,26 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:com:example:Thermometer;1",
+      "@type": "Interface",
+      "contents": [
+        {
+          "@type": [
+            "Telemetry",
+            "Limited"
+          ],
+          "name": "temperature",
+          "schema": "double",
+          "minimum": 50,
+          "maximum": 120
+        }
+      ]
+    }
+  ]
+}

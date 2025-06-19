@@ -184,10 +184,10 @@
             {
                 CsIf ifInstanceProperties = checkRestrictionsMethodBody.If($"this.{this.InstancePropertiesField} != null");
                 CsForEach forEachInstanceProperty = ifInstanceProperties.ForEach($"string instanceProp in this.{this.InstancePropertiesField}");
-                forEachInstanceProperty
-                    .Line("object supplementalProperty = this.supplementalProperties[instanceProp];")
+                CsIf ifTryGetValue = forEachInstanceProperty.If($"this.supplementalProperties.TryGetValue(instanceProp, out object supplementalProperty)");
+                ifTryGetValue
                     .Line($"IReadOnlyCollection<string> violations = supplementalProperty is JsonElement jsonElement ? this.{this.ObversePropertyName}.{ParserGeneratorValues.ValidateInstanceMethodName}(jsonElement) : this.{this.ObversePropertyName}.{ParserGeneratorValues.ValidateInstanceMethodName}(supplementalProperty.ToString());");
-                CsIf ifInvalid = forEachInstanceProperty.If("violations.Any()");
+                CsIf ifInvalid = ifTryGetValue.If("violations.Any()");
 
                 ifInvalid
                     .Line("string violationPostscript = violations.Count > 1 ? $\", plus {violations.Count - 1} other violation(s)\" : string.Empty;")

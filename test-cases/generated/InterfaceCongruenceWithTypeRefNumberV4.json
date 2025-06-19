@@ -1,0 +1,36 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface",
+        "Congruence"
+      ],
+      "typeRef": 13
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:stringNotString",
+        "PrimaryID": "dtmi:test:anInterface;1",
+        "SecondaryID": null,
+        "Property": "dtmi:iotoperations:property:typeRef;4",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11,
+        "PrimaryEnd": 11
+      }
+    ]
+  }
+}
