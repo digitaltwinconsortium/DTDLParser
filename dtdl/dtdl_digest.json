@@ -1887,6 +1887,7 @@
       "VelocityVector": "dtmi:iotcentral:class:VelocityVector;2"
     },
     "dtmi:iotoperations:context;4": {
+      "Article": "dtmi:iotoperations:class:Article;4",
       "Cloud": "dtmi:iotoperations:class:Cloud;4",
       "Congruence": "dtmi:iotoperations:class:Congruence;4",
       "decimalPlaces": "dtmi:iotoperations:property:decimalPlaces;4",
@@ -1900,6 +1901,7 @@
       "maximum": "dtmi:iotoperations:property:maximum;4",
       "minimum": "dtmi:iotoperations:property:minimum;4",
       "namespace": "dtmi:iotoperations:property:namespace;4",
+      "ontology": "dtmi:iotoperations:property:ontology;4",
       "Precise": "dtmi:iotoperations:class:Precise;4",
       "Qualified": "dtmi:iotoperations:class:Qualified;4",
       "ScaledStatically": "dtmi:iotoperations:class:ScaledStatically;4",
@@ -49443,6 +49445,44 @@
           "propertyName": "unit",
           "type": "dtmi:standard:class:VelocityUnit;2",
           "typeName": "VelocityUnit",
+          "typeRequired": true,
+          "uniqueValue": false
+        }
+      },
+      "siblings": []
+    },
+    "dtmi:iotoperations:class:Article;4": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Interface"
+      ],
+      "cotypeVersions": [
+        4
+      ],
+      "discotypes": [
+        "dtmi:iotoperations:class:Event;4"
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:iotoperations:context;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {
+        "dtmi:iotoperations:property:ontology;4": {
+          "deprecated": false,
+          "description": {
+            "en-us": "Designator of an ontology within which the element is defined but not internally referenced."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "maxLength": 128,
+          "minCount": 1,
+          "optional": false,
+          "plural": false,
+          "propertyName": "ontology",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
           "typeRequired": true,
           "uniqueValue": false
         }

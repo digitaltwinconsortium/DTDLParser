@@ -67,6 +67,7 @@ namespace ParserUnitTest
         [DataRow("iotcentralDocExample-en-US-6-V2")]
         [DataRow("iotoperationsDocExample-en-US-1-V4")]
         [DataRow("iotoperationsDocExample-en-US-10-V4")]
+        [DataRow("iotoperationsDocExample-en-US-11-V4")]
         [DataRow("iotoperationsDocExample-en-US-2-V4")]
         [DataRow("iotoperationsDocExample-en-US-3-V4")]
         [DataRow("iotoperationsDocExample-en-US-4-V4")]

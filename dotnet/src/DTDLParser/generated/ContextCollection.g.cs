@@ -1400,6 +1400,7 @@ namespace DTDLParser
 
             VersionedContext context4_0 = new VersionedContext("dtmi:iotoperations:context;4", 4, 0, 0, null, mergeDefinitions: false);
             context4_0.ReserveIdDefinitionPrefix("dtmi:iotoperations:");
+            context4_0.AddTermDefinition("Article", new Dtmi("dtmi:iotoperations:class:Article;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Cloud", new Dtmi("dtmi:iotoperations:class:Cloud;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Congruence", new Dtmi("dtmi:iotoperations:class:Congruence;4"), isMergeableType: false);
             context4_0.AddTermDefinition("decimalPlaces", new Dtmi("dtmi:iotoperations:property:decimalPlaces;4"), isMergeableType: false);
@@ -1413,6 +1414,7 @@ namespace DTDLParser
             context4_0.AddTermDefinition("maximum", new Dtmi("dtmi:iotoperations:property:maximum;4"), isMergeableType: false);
             context4_0.AddTermDefinition("minimum", new Dtmi("dtmi:iotoperations:property:minimum;4"), isMergeableType: false);
             context4_0.AddTermDefinition("namespace", new Dtmi("dtmi:iotoperations:property:namespace;4"), isMergeableType: false);
+            context4_0.AddTermDefinition("ontology", new Dtmi("dtmi:iotoperations:property:ontology;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Precise", new Dtmi("dtmi:iotoperations:class:Precise;4"), isMergeableType: false);
             context4_0.AddTermDefinition("Qualified", new Dtmi("dtmi:iotoperations:class:Qualified;4"), isMergeableType: false);
             context4_0.AddTermDefinition("ScaledStatically", new Dtmi("dtmi:iotoperations:class:ScaledStatically;4"), isMergeableType: false);

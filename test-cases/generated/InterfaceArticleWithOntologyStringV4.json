@@ -1,0 +1,36 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:iotoperations:context;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:iotoperations:context;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": [
+        "Interface",
+        "Article"
+      ],
+      "ontology": "MyOntology"
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:anInterface;1",
+        "type": "Interface",
+        "supplementalTypes": [
+          "dtmi:iotoperations:class:Article;4"
+        ],
+        "supplementalProperties": {
+          "dtmi:iotoperations:property:ontology;4": "MyOntology"
+        }
+      }
+    ]
+  }
+}
