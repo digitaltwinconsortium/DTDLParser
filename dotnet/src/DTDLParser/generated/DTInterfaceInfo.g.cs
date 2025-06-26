@@ -1588,6 +1588,7 @@ namespace DTDLParser.Models
                     int interfaceMaxIdLength = aggregateContext.LimitSpecifier switch
                     {
                         "" => 128,
+                        "aio_1" => 256,
                         "onvif_1" => 256,
                         _ => 0,
                     };
@@ -3223,6 +3224,7 @@ namespace DTDLParser.Models
                             int? maxLength = aggregateContext.LimitSpecifier switch
                             {
                                 "" => 512,
+                                "aio_1" => 512,
                                 "onvif_1" => 512,
                                 _ => null,
                             };
@@ -3309,6 +3311,7 @@ namespace DTDLParser.Models
                             int? maxLength = aggregateContext.LimitSpecifier switch
                             {
                                 "" => 512,
+                                "aio_1" => 2048,
                                 "onvif_1" => 4096,
                                 _ => null,
                             };
@@ -3362,6 +3365,7 @@ namespace DTDLParser.Models
                             int? maxLength = aggregateContext.LimitSpecifier switch
                             {
                                 "" => 512,
+                                "aio_1" => 512,
                                 "onvif_1" => 512,
                                 _ => null,
                             };
@@ -3763,6 +3767,7 @@ namespace DTDLParser.Models
             int maxDepthOfExtends = this.LimitSpecifier switch
             {
                 "" => 12,
+                "aio_1" => 12,
                 "onvif_1" => 12,
                 _ => 0,
             };
@@ -3880,6 +3885,7 @@ namespace DTDLParser.Models
             int maxCountOfExtends = this.LimitSpecifier switch
             {
                 "" => 1024,
+                "aio_1" => 1024,
                 "onvif_1" => 1024,
                 _ => 0,
             };
@@ -3899,6 +3905,7 @@ namespace DTDLParser.Models
             int maxCountOfContentsOrFieldsOrEnumValuesOrRequestOrResponseOrPropertiesOrSchemaOrElementSchemaOrMapValue = this.LimitSpecifier switch
             {
                 "" => 100000,
+                "aio_1" => 100000,
                 "onvif_1" => 100000,
                 _ => 0,
             };

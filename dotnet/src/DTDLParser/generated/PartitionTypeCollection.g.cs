@@ -40,6 +40,7 @@ namespace DTDLParser
             PartitionMaxBytes[4] = new Dictionary<string, int>
             {
                 { "", 1048576 },
+                { "aio_1", 1048576 },
                 { "onvif_1", 1048576 },
             };
         }

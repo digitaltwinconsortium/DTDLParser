@@ -1,0 +1,103 @@
+﻿{
+  "valid": true,
+  "options": [],
+  "acceptableLimits": [
+    "dtmi:dtdl:limits:aio"
+  ],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4#limitless",
+        "dtmi:dtdl:limits:aio;1"
+      ],
+      "@id": "dtmi:opcua:OpcUaCore:PublishSubscribeType;1",
+      "@type": "Interface",
+      "displayName": "PublishSubscribeType",
+      "schemas": [
+        {
+          "@id": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:PubSubConnectionDataType;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": "Field",
+              "name": "ReaderGroups",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:ReaderGroupDataType;1"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:ReaderGroupDataType;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": "Field",
+              "name": "DataSetReaders",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:DataSetReaderDataType;1"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:DataSetReaderDataType;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": "Field",
+              "name": "DataSetMetaData",
+              "schema": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:DataSetMetaDataType;1"
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:DataSetMetaDataType;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": "Field",
+              "name": "Fields",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:FieldMetaData;1"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:FieldMetaData;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": "Field",
+              "name": "Properties",
+              "schema": {
+                "@type": "Array",
+                "elementSchema": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:KeyValuePair;1"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "dtmi:opcua:OpcUaCore:PublishSubscribeType:dataType:KeyValuePair;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": "Field",
+              "name": "Key",
+              "schema": "string"
+            },
+            {
+              "@type": "Field",
+              "name": "Value",
+              "schema": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

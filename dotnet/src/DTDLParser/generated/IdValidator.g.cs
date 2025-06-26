@@ -37,6 +37,7 @@ namespace DTDLParser
             IdDefinitionMaxLengths[4] = new Dictionary<string, int>
             {
                 { "", 2048 },
+                { "aio_1", 512 },
                 { "onvif_1", 512 },
             };
 
@@ -57,6 +58,7 @@ namespace DTDLParser
             IdReferenceMaxLengths[4] = new Dictionary<string, int>
             {
                 { "", 2048 },
+                { "aio_1", 512 },
                 { "onvif_1", 512 },
             };
 
