@@ -1451,6 +1451,9 @@
     "dtmi:dtdl:extension:requirement;1": {
       "Required": "dtmi:dtdl:extension:requirement:v1:Required"
     },
+    "dtmi:dtdl:extension:requirement;2": {
+      "Required": "dtmi:dtdl:extension:requirement:v2:Required"
+    },
     "dtmi:dtdl:limits:aio;1": {},
     "dtmi:dtdl:limits:onvif;1": {},
     "dtmi:iotcentral:context;2": {
@@ -13940,6 +13943,11 @@
     "dtmi:dtdl:extension:requirement;1": {
       "description": {
         "en-us": "Selectively designate one or more fields in an Object as required."
+      }
+    },
+    "dtmi:dtdl:extension:requirement;2": {
+      "description": {
+        "en-us": "Selectively designate one or more fields or Properties as required."
       }
     },
     "dtmi:dtdl:limits:aio;1": {
@@ -40997,6 +41005,25 @@
       ],
       "elements": [],
       "extensionContext": "dtmi:dtdl:extension:requirement;1",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:requirement:v2:Required": {
+      "abstract": false,
+      "constraints": [],
+      "cotypes": [
+        "Field",
+        "Property"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:requirement;2",
       "extensionKind": "AdjunctType",
       "mergeable": false,
       "parent": "dtmi:dtdl:class:AdjunctType;4",
