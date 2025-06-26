@@ -1,0 +1,75 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:requirement;2"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:requirement;2"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:motionObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": [
+                "Field",
+                "Required"
+              ],
+              "name": "velocity",
+              "schema": "double"
+            },
+            {
+              "@type": "Field",
+              "name": "acceleration",
+              "schema": "double"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:motionObject;1",
+        "type": "Object",
+        "properties": {
+          "fields": [
+            "dtmi:test:motionObject:_fields:__velocity;1",
+            "dtmi:test:motionObject:_fields:__acceleration;1"
+          ]
+        }
+      },
+      {
+        "id": "dtmi:test:motionObject:_fields:__velocity;1",
+        "type": "Field",
+        "properties": {
+          "name": "velocity",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:requirement:v2:Required"
+        ],
+        "supplementalProperties": {}
+      },
+      {
+        "id": "dtmi:test:motionObject:_fields:__acceleration;1",
+        "type": "Field",
+        "properties": {
+          "name": "acceleration",
+          "schema": "dtmi:dtdl:instance:Schema:double;2"
+        },
+        "supplementalTypes": [],
+        "supplementalProperties": {}
+      }
+    ]
+  }
+}

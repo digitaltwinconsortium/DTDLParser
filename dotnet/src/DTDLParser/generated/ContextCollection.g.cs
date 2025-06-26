@@ -927,6 +927,10 @@ namespace DTDLParser
             context1_0.AddTermDefinition("Required", new Dtmi("dtmi:dtdl:extension:requirement:v1:Required"), isMergeableType: false);
             versionedContexts.Add(context1_0);
 
+            VersionedContext context2_0 = new VersionedContext("dtmi:dtdl:extension:requirement;2", 2, 0, 0, null, mergeDefinitions: false);
+            context2_0.AddTermDefinition("Required", new Dtmi("dtmi:dtdl:extension:requirement:v2:Required"), isMergeableType: false);
+            versionedContexts.Add(context2_0);
+
             return new ContextHistory(versionedContexts);
         }
 
