@@ -26,6 +26,7 @@ namespace ParserUnitTest
         /// </summary>
         /// <param name="testName">The name of the test case.</param>
         [TestMethod]
+        [DataRow("aioDocExample-en-US-1-V1")]
         [DataRow("annotationDocExample-en-US-1-V1")]
         [DataRow("annotationDocExample-en-US-1-V2")]
         [DataRow("annotationDocExample-en-US-2-V1")]

@@ -1451,6 +1451,7 @@
     "dtmi:dtdl:extension:requirement;1": {
       "Required": "dtmi:dtdl:extension:requirement:v1:Required"
     },
+    "dtmi:dtdl:limits:aio;1": {},
     "dtmi:dtdl:limits:onvif;1": {},
     "dtmi:iotcentral:context;2": {
       "AccelerationVector": "dtmi:iotcentral:class:AccelerationVector;2",
@@ -1829,6 +1830,7 @@
       },
       "maxDepth": {
         "": 8,
+        "aio_1": 12,
         "onvif_1": 24
       },
       "narrow": false,
@@ -1845,6 +1847,7 @@
       "entailments": {},
       "maxDepth": {
         "": 8,
+        "aio_1": 12,
         "onvif_1": 24
       },
       "narrow": false,
@@ -1881,6 +1884,7 @@
       },
       "maxDepth": {
         "": 8,
+        "aio_1": 12,
         "onvif_1": 24
       },
       "narrow": false,
@@ -1919,10 +1923,12 @@
       ],
       "maxCount": {
         "": 1024,
+        "aio_1": 1024,
         "onvif_1": 1024
       },
       "maxDepth": {
         "": 12,
+        "aio_1": 12,
         "onvif_1": 12
       },
       "narrow": true,
@@ -1938,6 +1944,7 @@
       "entailments": {},
       "maxCount": {
         "": 100000,
+        "aio_1": 100000,
         "onvif_1": 100000
       },
       "narrow": true,
@@ -1968,6 +1975,7 @@
       },
       "maxDepth": {
         "": 8,
+        "aio_1": 12,
         "onvif_1": 24
       },
       "narrow": false,
@@ -1988,6 +1996,7 @@
       },
       "maxDepth": {
         "": 8,
+        "aio_1": 12,
         "onvif_1": 24
       },
       "narrow": false,
@@ -13933,6 +13942,11 @@
         "en-us": "Selectively designate one or more fields in an Object as required."
       }
     },
+    "dtmi:dtdl:limits:aio;1": {
+      "description": {
+        "en-us": "Increased limits that support initial set of models used in Azure IoT Operations."
+      }
+    },
     "dtmi:dtdl:limits:onvif;1": {
       "description": {
         "en-us": "Increased limits that support translating ONVIF WSDL definitions into DTDL."
@@ -14693,6 +14707,7 @@
     "4": {
       "maxLength": {
         "": 2048,
+        "aio_1": 512,
         "onvif_1": 512
       },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
@@ -14711,6 +14726,7 @@
       "4": {
         "maxLength": {
           "": 128,
+          "aio_1": 256,
           "onvif_1": 256
         }
       }
@@ -14732,6 +14748,7 @@
     "4": {
       "maxLength": {
         "": 2048,
+        "aio_1": 512,
         "onvif_1": 512
       },
       "pattern": "^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*(?:;[1-9][0-9]{0,8}(?:\\.[1-9][0-9]{0,5})?)?$"
@@ -14739,6 +14756,10 @@
   },
   "layeringSupported": false,
   "limitContexts": {
+    "dtmi:dtdl:limits:aio;1": {
+      "dtdlVersion": 4,
+      "spec": "aio_1"
+    },
     "dtmi:dtdl:limits:onvif;1": {
       "dtdlVersion": 4,
       "spec": "onvif_1"
@@ -14899,6 +14920,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -14951,6 +14973,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -15003,6 +15026,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -15305,6 +15329,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -15357,6 +15382,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -15409,6 +15435,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -15564,6 +15591,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -15592,6 +15620,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -15620,6 +15649,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -15753,6 +15783,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -15781,6 +15812,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -15809,6 +15841,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -16037,6 +16070,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -16089,6 +16123,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -16141,6 +16176,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -16495,6 +16531,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -16547,6 +16584,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -16599,6 +16637,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -16891,6 +16930,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -16931,6 +16971,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -16971,6 +17012,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -17225,6 +17267,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -17265,6 +17308,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -17305,6 +17349,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -17633,6 +17678,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -17685,6 +17731,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -17737,6 +17784,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -18259,6 +18307,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -18311,6 +18360,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -18363,6 +18413,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -18525,6 +18576,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -18577,6 +18629,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -18629,6 +18682,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -18945,6 +18999,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -18997,6 +19052,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -19049,6 +19105,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -19378,6 +19435,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -19430,6 +19488,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -19482,6 +19541,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -19743,6 +19803,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -19795,6 +19856,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -19847,6 +19909,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -20004,6 +20067,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -20032,6 +20096,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -20060,6 +20125,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -20294,6 +20360,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -20346,6 +20413,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -20398,6 +20466,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -20659,6 +20728,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -20711,6 +20781,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -20763,6 +20834,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -21735,6 +21807,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -21787,6 +21860,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -21839,6 +21913,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -22044,6 +22119,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -22096,6 +22172,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -22148,6 +22225,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -22488,6 +22566,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -22540,6 +22619,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -22592,6 +22672,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -22928,6 +23009,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -22980,6 +23062,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -23032,6 +23115,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -23423,6 +23507,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -23475,6 +23560,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -23527,6 +23613,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -23785,6 +23872,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -23837,6 +23925,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -23889,6 +23978,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -24064,6 +24154,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -24199,6 +24290,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -24251,6 +24343,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -24496,6 +24589,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -24536,6 +24630,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -24576,6 +24671,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -24811,6 +24907,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -24863,6 +24960,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -24915,6 +25013,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -25139,6 +25238,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -25191,6 +25291,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -25243,6 +25344,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -25520,6 +25622,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -25572,6 +25675,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -25624,6 +25728,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -25964,6 +26069,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -26016,6 +26122,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -26068,6 +26175,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -26398,6 +26506,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -26450,6 +26559,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -26502,6 +26612,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -26706,6 +26817,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -26746,6 +26858,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -26786,6 +26899,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -27189,6 +27303,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -27241,6 +27356,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -27293,6 +27409,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -27843,6 +27960,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -27895,6 +28013,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -27947,6 +28066,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -28527,6 +28647,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -28579,6 +28700,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -28631,6 +28753,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -28793,6 +28916,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -28845,6 +28969,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -28897,6 +29022,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -29255,6 +29381,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -29307,6 +29434,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -29359,6 +29487,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -30567,6 +30696,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -30619,6 +30749,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -30671,6 +30802,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -30840,6 +30972,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -30892,6 +31025,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -30944,6 +31078,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -31213,6 +31348,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -31241,6 +31377,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -31269,6 +31406,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -31472,6 +31610,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -31524,6 +31663,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -31576,6 +31716,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -31750,6 +31891,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -31802,6 +31944,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -31854,6 +31997,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -32296,6 +32440,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -32348,6 +32493,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -32400,6 +32546,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -32649,6 +32796,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -32701,6 +32849,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -32753,6 +32902,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -32928,6 +33078,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -32980,6 +33131,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -33032,6 +33184,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33235,6 +33388,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33287,6 +33441,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -33339,6 +33494,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33549,6 +33705,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33577,6 +33734,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -33605,6 +33763,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33738,6 +33897,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33766,6 +33926,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -33794,6 +33955,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33927,6 +34089,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -33955,6 +34118,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -33983,6 +34147,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -34116,6 +34281,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -34144,6 +34310,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -34172,6 +34339,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -34304,6 +34472,7 @@
             "maxCount": 1,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -34332,6 +34501,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 2048,
               "onvif_1": 4096
             },
             "typeRequired": true,
@@ -34360,6 +34530,7 @@
             "idRequired": false,
             "maxLength": {
               "": 512,
+              "aio_1": 512,
               "onvif_1": 512
             },
             "typeRequired": true,
@@ -34419,6 +34590,7 @@
     "4": {
       "maxBytes": {
         "": 1048576,
+        "aio_1": 1048576,
         "onvif_1": 1048576
       }
     }

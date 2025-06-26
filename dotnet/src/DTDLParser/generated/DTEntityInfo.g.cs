@@ -2095,6 +2095,7 @@ namespace DTDLParser.Models
                     int interfaceMaxIdLength = aggregateContext.LimitSpecifier switch
                     {
                         "" => 128,
+                        "aio_1" => 256,
                         "onvif_1" => 256,
                         _ => 0,
                     };
@@ -3233,6 +3234,7 @@ namespace DTDLParser.Models
                             int? maxLength = aggregateContext.LimitSpecifier switch
                             {
                                 "" => 512,
+                                "aio_1" => 512,
                                 "onvif_1" => 512,
                                 _ => null,
                             };
@@ -3281,6 +3283,7 @@ namespace DTDLParser.Models
                             int? maxLength = aggregateContext.LimitSpecifier switch
                             {
                                 "" => 512,
+                                "aio_1" => 2048,
                                 "onvif_1" => 4096,
                                 _ => null,
                             };
@@ -3334,6 +3337,7 @@ namespace DTDLParser.Models
                             int? maxLength = aggregateContext.LimitSpecifier switch
                             {
                                 "" => 512,
+                                "aio_1" => 512,
                                 "onvif_1" => 512,
                                 _ => null,
                             };
