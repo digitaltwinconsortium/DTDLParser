@@ -14,21 +14,21 @@
       "@id": "dtmi:test:anInterface;1",
       "@type": [
         "Interface",
-        "Article"
-      ],
-      "ontology": 13
+        "Composite"
+      ]
     }
   ],
   "expect": {
     "parsingErrors": [
       {
-        "ValidationID": "dtmi:dtdl:parsingError:stringNotString",
+        "ValidationID": "dtmi:dtdl:parsingError:missingSupplementalLiteralProperty",
         "PrimaryID": "dtmi:test:anInterface;1",
         "SecondaryID": null,
-        "Property": "dtmi:iotoperations:property:ontology;4",
+        "Property": "ontology",
         "Value": null,
         "PrimaryIndex": 0,
-        "PrimaryStart": 11
+        "PrimaryStart": 1,
+        "PrimaryEnd": 11
       }
     ]
   }
