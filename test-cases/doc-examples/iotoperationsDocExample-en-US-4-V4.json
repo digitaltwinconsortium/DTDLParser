@@ -7,16 +7,19 @@
         "dtmi:dtdl:context;4",
         "dtmi:iotoperations:context;4"
       ],
-      "@id": "dtmi:com:example:KlushMachine;1",
-      "@type": "Interface",
+      "@id": "dtmi:opcua:MachineVision:AcquisitionDoneEventType;1",
+      "@type": [
+        "Interface",
+        "Event"
+      ],
       "contents": [
         {
-          "@type": [
-            "Relationship",
-            "HasCapability"
-          ],
-          "name": "diagnostic",
-          "target": "dtmi:com:example:DiagnosticInfo"
+          "@type": "Property",
+          "name": "JobId",
+          "schema": {
+            "@id": "dtmi:opcua:MachineVision:AcquisitionDoneEventType:dataType:JobIdDataType;1",
+            "@type": "Object"
+          }
         }
       ]
     }

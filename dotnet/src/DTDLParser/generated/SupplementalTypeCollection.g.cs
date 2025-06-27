@@ -281,6 +281,7 @@ namespace DTDLParser
             Dtmi locationTypeIdEV2 = new Dtmi("dtmi:iotcentral:class:Location;2");
             Dtmi stateTypeIdEV2 = new Dtmi("dtmi:iotcentral:class:State;2");
             Dtmi velocityVectorTypeIdEV2 = new Dtmi("dtmi:iotcentral:class:VelocityVector;2");
+            Dtmi compositeTypeIdEV4 = new Dtmi("dtmi:iotoperations:class:Composite;4");
             Dtmi congruenceTypeIdEV4 = new Dtmi("dtmi:iotoperations:class:Congruence;4");
             Dtmi detailTypeIdEV4 = new Dtmi("dtmi:iotoperations:class:Detail;4");
             Dtmi eventTypeIdEV4 = new Dtmi("dtmi:iotoperations:class:Event;4");
@@ -1532,6 +1533,12 @@ namespace DTDLParser
             velocityVectorInfoEV2.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Property, DTEntityKind.Telemetry };
             velocityVectorInfoEV2.AllowedCotypeVersions = new HashSet<int>() { 2 };
 
+            DTSupplementalTypeInfo compositeInfoEV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, iotoperationsContextIdV4, compositeTypeIdEV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            compositeInfoEV4.AddProperty("dtmi:iotoperations:property:ontology;4", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, 1, null, null, 128, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
+            compositeInfoEV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Interface };
+            compositeInfoEV4.AllowedCotypeVersions = new HashSet<int>() { 4 };
+            compositeInfoEV4.DisallowedCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:iotoperations:class:Event;4") };
+
             DTSupplementalTypeInfo congruenceInfoEV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, iotoperationsContextIdV4, congruenceTypeIdEV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
             congruenceInfoEV4.AddProperty("dtmi:iotoperations:property:typeRef;4", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, 1, null, null, 128, regex: null, hasUniqueValue: false, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             congruenceInfoEV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Array, DTEntityKind.Enum, DTEntityKind.Interface, DTEntityKind.Map, DTEntityKind.Object };
@@ -2127,6 +2134,7 @@ namespace DTDLParser
             EndogenousSupplementalTypes[locationTypeIdEV2] = locationInfoEV2;
             EndogenousSupplementalTypes[stateTypeIdEV2] = stateInfoEV2;
             EndogenousSupplementalTypes[velocityVectorTypeIdEV2] = velocityVectorInfoEV2;
+            EndogenousSupplementalTypes[compositeTypeIdEV4] = compositeInfoEV4;
             EndogenousSupplementalTypes[congruenceTypeIdEV4] = congruenceInfoEV4;
             EndogenousSupplementalTypes[detailTypeIdEV4] = detailInfoEV4;
             EndogenousSupplementalTypes[eventTypeIdEV4] = eventInfoEV4;

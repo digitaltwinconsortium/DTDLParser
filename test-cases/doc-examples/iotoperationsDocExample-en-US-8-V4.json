@@ -13,11 +13,12 @@
         {
           "@type": [
             "Telemetry",
-            "ScaledStatically"
+            "Limited"
           ],
           "name": "temperature",
           "schema": "double",
-          "scaleFactor": 100
+          "minimum": 50,
+          "maximum": 120
         }
       ]
     }
