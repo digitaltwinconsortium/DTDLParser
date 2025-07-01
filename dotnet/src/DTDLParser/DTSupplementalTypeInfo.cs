@@ -576,12 +576,12 @@
         /// Adds a parent type constraint to this supplemental type.
         /// </summary>
         /// <param name="parentPropertyName">Name of the property from the parent.</param>
-        /// <param name="requiredParentCotype">A cotype identifier that the parent is required to have.</param>
+        /// <param name="requiredParentCotypes">A list of cotype identifier, on of which the parent is required to have.</param>
         /// <param name="requiredParentCotypeString">A string describing hte required cotype.</param>
         /// <param name="adjunctTypeIsUnique">An indication of whether the adjunct type must be on only one element in the values of the parent path.</param>
-        internal void AddParentConstraint(string parentPropertyName, Dtmi requiredParentCotype, string requiredParentCotypeString, bool adjunctTypeIsUnique)
+        internal void AddParentConstraint(string parentPropertyName, List<Dtmi> requiredParentCotypes, string requiredParentCotypeString, bool adjunctTypeIsUnique)
         {
-            this.ParentConstraints.Add(new ParentConstraint { ParentPropertyName = parentPropertyName, RequiredParentCotype = requiredParentCotype, RequiredParentCotypeString = requiredParentCotypeString, AdjunctTypeIsUnique = adjunctTypeIsUnique });
+            this.ParentConstraints.Add(new ParentConstraint { ParentPropertyName = parentPropertyName, RequiredParentCotypes = requiredParentCotypes, RequiredParentCotypeString = requiredParentCotypeString, AdjunctTypeIsUnique = adjunctTypeIsUnique });
         }
 
         /// <summary>

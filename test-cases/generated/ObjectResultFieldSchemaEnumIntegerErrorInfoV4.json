@@ -1,0 +1,84 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": [
+            "Object",
+            "Result"
+          ],
+          "fields": [
+            {
+              "@id": "dtmi:test:errorInfo;1",
+              "@type": [
+                "Field",
+                "ErrorInfo"
+              ],
+              "name": "errorInfo",
+              "schema": {
+                "@type": "Enum",
+                "valueSchema": "integer",
+                "enumValues": [
+                  {
+                    "name": "error",
+                    "enumValue": 1
+                  },
+                  {
+                    "name": "fatal",
+                    "enumValue": 2
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:anObject;1",
+        "type": "Object",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Result"
+        ]
+      },
+      {
+        "id": "dtmi:test:errorInfo;1",
+        "type": "Field",
+        "properties": {
+          "name": "errorInfo",
+          "schema": "dtmi:test:errorInfo:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:ErrorInfo"
+        ]
+      },
+      {
+        "id": "dtmi:test:errorInfo:_schema;1",
+        "type": "Enum",
+        "properties": {
+          "valueSchema": "dtmi:dtdl:instance:Schema:integer;2",
+          "enumValues": [
+            "dtmi:test:errorInfo:_schema:_enumValues:__error;1",
+            "dtmi:test:errorInfo:_schema:_enumValues:__fatal;1"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 ﻿{
   "requiredContexts": [
-    "dtmi:dtdl:extension:mqtt;3"
+    "dtmi:dtdl:extension:mqtt;4"
   ],
   "valid": false,
   "quirks": [],
@@ -9,7 +9,7 @@
     {
       "@context": [
         "dtmi:dtdl:context;4",
-        "dtmi:dtdl:extension:mqtt;3"
+        "dtmi:dtdl:extension:mqtt;4"
       ],
       "@id": "dtmi:test:anInterface;1",
       "@type": "Interface",
@@ -64,7 +64,7 @@
         "ValidationID": "dtmi:dtdl:parsingError:notRequiredType",
         "PrimaryID": "dtmi:test:anObject;1",
         "SecondaryId": "dtmi:test:someOtherResult;1",
-        "Type": "NormalResult or ErrorResult",
+        "Type": "NormalResult or ErrorResult or ErrorCode or ErrorInfo",
         "PrimaryIndex": 0,
         "PrimaryStart": 15
       }

@@ -100,14 +100,14 @@ namespace DTDLParser
                             if (parentReference.PropertyName == parentConstraint.ParentPropertyName)
                             {
                                 DTEntityInfo commonParent = this.Dict[parentReference.ParentId];
-                                if (parentConstraint.RequiredParentCotype != null && !commonParent.SupplementalTypes.Contains(parentConstraint.RequiredParentCotype))
+                                if (parentConstraint.RequiredParentCotypes != null && !parentConstraint.RequiredParentCotypes.Any(c => commonParent.SupplementalTypes.Contains(c)))
                                 {
                                     parsingErrorCollection.Notify(
                                         "parentMissingCotype",
                                         elementId: currentSibling.Id,
                                         propertyName: parentReference.PropertyName,
                                         elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type),
-                                        referenceType: ContextCollection.GetTermOrUri(parentConstraint.RequiredParentCotype));
+                                        referenceType: parentConstraint.RequiredParentCotypeString);
                                 }
 
                                 if (parentConstraint.AdjunctTypeIsUnique)

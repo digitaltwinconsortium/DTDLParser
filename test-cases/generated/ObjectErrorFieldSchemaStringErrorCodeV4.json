@@ -1,0 +1,49 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": [
+            "Object",
+            "Error"
+          ],
+          "fields": [
+            {
+              "@id": "dtmi:test:errorCode;1",
+              "@type": [
+                "Field",
+                "ErrorCode"
+              ],
+              "name": "errorCode",
+              "schema": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:notRequiredType",
+        "PrimaryID": "dtmi:test:errorCode;1",
+        "Type": "Enum",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 23
+      }
+    ]
+  }
+}

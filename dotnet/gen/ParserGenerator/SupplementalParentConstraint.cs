@@ -10,7 +10,7 @@
     public class SupplementalParentConstraint
     {
         private string parentPropertyName;
-        private string requiredParentCotypeArg;
+        private string requiredParentCotypesArg;
         private string requiredParentCotypeStringArg;
         private string adjunctTypeIsUniqueArg;
 
@@ -22,15 +22,14 @@
         {
             this.parentPropertyName = supplementalConstraintDigest.PropertyName;
 
-            string requiredParentCotype = supplementalConstraintDigest.RequiredTypes?.FirstOrDefault();
-            if (requiredParentCotype != null)
+            if (supplementalConstraintDigest.RequiredTypes != null)
             {
-                this.requiredParentCotypeArg = $"new {ParserGeneratorValues.IdentifierType}(\"{requiredParentCotype}\")";
+                this.requiredParentCotypesArg = $"new List<{ParserGeneratorValues.IdentifierType}> {{ {string.Join(", ", supplementalConstraintDigest.RequiredTypes.Select(t => $"new {ParserGeneratorValues.IdentifierType}(\"{t}\")"))} }}";
                 this.requiredParentCotypeStringArg = $"\"{supplementalConstraintDigest.RequiredTypesString}\"";
             }
             else
             {
-                this.requiredParentCotypeArg = "null";
+                this.requiredParentCotypesArg = "null";
                 this.requiredParentCotypeStringArg = "null";
             }
 
@@ -44,7 +43,7 @@
         /// <param name="infoVariableName">Name of the supplementaly type info variable to which to add the constraint.</param>
         public void AddParentConstraint(CsScope scope, string infoVariableName)
         {
-            scope.Line($"{infoVariableName}.AddParentConstraint(\"{this.parentPropertyName}\", {this.requiredParentCotypeArg}, {this.requiredParentCotypeStringArg}, adjunctTypeIsUnique: {this.adjunctTypeIsUniqueArg});");
+            scope.Line($"{infoVariableName}.AddParentConstraint(\"{this.parentPropertyName}\", {this.requiredParentCotypesArg}, {this.requiredParentCotypeStringArg}, adjunctTypeIsUnique: {this.adjunctTypeIsUniqueArg});");
         }
     }
 }

@@ -150,13 +150,13 @@
 
             ifFoundParent
                 .Line($"{this.baseClassName} commonParent = this.Dict[parentReference.ParentId];")
-                .If("parentConstraint.RequiredParentCotype != null && !commonParent.SupplementalTypes.Contains(parentConstraint.RequiredParentCotype)")
+                .If("parentConstraint.RequiredParentCotypes != null && !parentConstraint.RequiredParentCotypes.Any(c => commonParent.SupplementalTypes.Contains(c))")
                     .MultiLine("parsingErrorCollection.Notify(")
                         .Line("\"parentMissingCotype\",")
                         .Line("elementId: currentSibling.Id,")
                         .Line("propertyName: parentReference.PropertyName,")
                         .Line("elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type),")
-                        .Line("referenceType: ContextCollection.GetTermOrUri(parentConstraint.RequiredParentCotype));");
+                        .Line("referenceType: parentConstraint.RequiredParentCotypeString);");
 
             ifFoundParent
                 .If("parentConstraint.AdjunctTypeIsUnique")

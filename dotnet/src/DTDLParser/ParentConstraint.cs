@@ -1,5 +1,6 @@
 ﻿namespace DTDLParser.Models
 {
+    using System.Collections.Generic;
     using DTDLParser;
 
     /// <summary>
@@ -13,9 +14,9 @@
         public string ParentPropertyName { get; set; }
 
         /// <summary>
-        /// Gets or sets a cotype identifier that the parent is required to have.
+        /// Gets or sets a list of cotype identifiers, one of which the parent is required to have.
         /// </summary>
-        public Dtmi RequiredParentCotype { get; set; }
+        public List<Dtmi> RequiredParentCotypes { get; set; }
 
         /// <summary>
         /// Gets or sets a string describing hte required cotype.
