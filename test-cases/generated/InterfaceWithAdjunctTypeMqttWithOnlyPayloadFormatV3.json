@@ -1,6 +1,6 @@
 ﻿{
   "requiredContexts": [
-    "dtmi:dtdl:extension:mqtt;2"
+    "dtmi:dtdl:extension:mqtt;3"
   ],
   "valid": true,
   "quirks": [],
@@ -9,7 +9,7 @@
     {
       "@context": [
         "dtmi:dtdl:context;3",
-        "dtmi:dtdl:extension:mqtt;2"
+        "dtmi:dtdl:extension:mqtt;3"
       ],
       "@id": "dtmi:jsonTest:TelemetryAndCommand;1",
       "@type": [
@@ -49,10 +49,10 @@
         "id": "dtmi:jsonTest:TelemetryAndCommand;1",
         "type": "Interface",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v2:Mqtt"
+          "dtmi:dtdl:extension:mqtt:v3:Mqtt"
         ],
         "supplementalProperties": {
-          "dtmi:dtdl:extension:mqtt:v2:Mqtt:payloadFormat": "Json/ecma/404"
+          "dtmi:dtdl:extension:mqtt:v3:Mqtt:payloadFormat": "Json/ecma/404"
         }
       }
     ]

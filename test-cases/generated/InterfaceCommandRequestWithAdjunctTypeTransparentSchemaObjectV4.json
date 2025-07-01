@@ -1,6 +1,6 @@
 ﻿{
   "requiredContexts": [
-    "dtmi:dtdl:extension:mqtt;3"
+    "dtmi:dtdl:extension:mqtt;4"
   ],
   "valid": true,
   "quirks": [],
@@ -9,7 +9,7 @@
     {
       "@context": [
         "dtmi:dtdl:context;4",
-        "dtmi:dtdl:extension:mqtt;3"
+        "dtmi:dtdl:extension:mqtt;4"
       ],
       "@id": "dtmi:jsonTest:TelemetryAndCommand;1",
       "@type": [
@@ -58,19 +58,19 @@
         "id": "dtmi:jsonTest:TelemetryAndCommand;1",
         "type": "Interface",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:Mqtt"
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt"
         ],
         "supplementalProperties": {
-          "dtmi:dtdl:extension:mqtt:v3:Mqtt:payloadFormat": "Json/ecma/404",
-          "dtmi:dtdl:extension:mqtt:v3:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
-          "dtmi:dtdl:extension:mqtt:v3:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}"
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat": "Json/ecma/404",
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}"
         }
       },
       {
         "id": "dtmi:jsonTest:TelemetryAndCommand:_contents:__doit:_request;1",
         "type": "CommandRequest",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:Transparent"
+          "dtmi:dtdl:extension:mqtt:v4:Transparent"
         ]
       }
     ]

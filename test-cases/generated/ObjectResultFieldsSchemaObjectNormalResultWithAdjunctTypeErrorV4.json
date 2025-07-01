@@ -1,6 +1,6 @@
 ﻿{
   "requiredContexts": [
-    "dtmi:dtdl:extension:mqtt;3"
+    "dtmi:dtdl:extension:mqtt;4"
   ],
   "valid": true,
   "quirks": [],
@@ -9,7 +9,7 @@
     {
       "@context": [
         "dtmi:dtdl:context;4",
-        "dtmi:dtdl:extension:mqtt;3"
+        "dtmi:dtdl:extension:mqtt;4"
       ],
       "@id": "dtmi:test:anInterface;1",
       "@type": "Interface",
@@ -60,7 +60,7 @@
         "id": "dtmi:test:anObject;1",
         "type": "Object",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:Result"
+          "dtmi:dtdl:extension:mqtt:v4:Result"
         ]
       },
       {
@@ -71,7 +71,7 @@
           "schema": "dtmi:test:normalResult:_schema;1"
         },
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:NormalResult"
+          "dtmi:dtdl:extension:mqtt:v4:NormalResult"
         ]
       },
       {
@@ -82,21 +82,21 @@
           "schema": "dtmi:test:errorResult:_schema;1"
         },
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:ErrorResult"
+          "dtmi:dtdl:extension:mqtt:v4:ErrorResult"
         ]
       },
       {
         "id": "dtmi:test:normalResult:_schema;1",
         "type": "Object",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:Error"
+          "dtmi:dtdl:extension:mqtt:v4:Error"
         ]
       },
       {
         "id": "dtmi:test:errorResult:_schema;1",
         "type": "Object",
         "supplementalTypes": [
-          "dtmi:dtdl:extension:mqtt:v3:Error"
+          "dtmi:dtdl:extension:mqtt:v4:Error"
         ]
       }
     ]
