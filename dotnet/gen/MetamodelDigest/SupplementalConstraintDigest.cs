@@ -19,7 +19,9 @@
 
             this.Inverse = supplementalConstraintObj.TryGetValue("inverse", out JToken inverse) ? ((JValue)inverse).Value<bool>() : false;
 
-            this.OnlyOne = supplementalConstraintObj.TryGetValue("inverse", out JToken onlyOne) ? ((JValue)onlyOne).Value<bool>() : false;
+            this.NoneOtherType = supplementalConstraintObj.TryGetValue("noneOtherType", out JToken noneOtherType) ? ((JValue)noneOtherType).Value<string>() : null;
+
+            this.SomeOtherType = supplementalConstraintObj.TryGetValue("someOtherType", out JToken someOtherType) ? ((JValue)someOtherType).Value<string>() : null;
 
             this.RequiredTypes = supplementalConstraintObj.TryGetValue("requiredTypes", out JToken requiredTypes) ? ((JArray)requiredTypes).Select(t => ((JValue)t).Value<string>()).ToList() : null;
 
@@ -55,9 +57,14 @@
         public bool Inverse { get; }
 
         /// <summary>
-        /// Gets a value indicating whether there is a restriction to only a single instance of the supplemental type among the property values.
+        /// Gets a type URI that no other instance among the property values is permitted to have.
         /// </summary>
-        public bool OnlyOne { get; }
+        public string NoneOtherType { get; }
+
+        /// <summary>
+        /// Gets a type URI that some other instance among the property values is required to have.
+        /// </summary>
+        public string SomeOtherType { get; }
 
         /// <summary>
         /// Gets a list of type URIs, one of which must apply to the property.

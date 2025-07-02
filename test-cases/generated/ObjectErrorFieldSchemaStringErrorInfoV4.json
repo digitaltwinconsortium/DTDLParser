@@ -29,6 +29,17 @@
               ],
               "name": "errorInfo",
               "schema": "string"
+            },
+            {
+              "@type": [
+                "Field",
+                "ErrorCode"
+              ],
+              "name": "errorCode",
+              "schema": {
+                "@type": "Enum",
+                "valueSchema": "string"
+              }
             }
           ]
         }

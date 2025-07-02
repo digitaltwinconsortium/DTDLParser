@@ -28,17 +28,18 @@
                 "ErrorInfo"
               ],
               "name": "errorInfo",
-              "schema": "string"
-            },
-            {
-              "@type": [
-                "Field",
-                "ErrorCode"
-              ],
-              "name": "errorCode",
               "schema": {
-                "@type": "Enum",
-                "valueSchema": "string"
+                "@type": "Object",
+                "fields": [
+                  {
+                    "name": "someInt",
+                    "schema": "integer"
+                  },
+                  {
+                    "name": "someStr",
+                    "schema": "string"
+                  }
+                ]
               }
             }
           ]
@@ -49,11 +50,11 @@
   "expect": {
     "parsingErrors": [
       {
-        "ValidationID": "dtmi:dtdl:parsingError:notRequiredType",
+        "ValidationID": "dtmi:dtdl:parsingError:siblingMissingCotype",
         "PrimaryID": "dtmi:test:errorInfo;1",
-        "Type": "Object",
-        "PrimaryIndex": 0,
-        "PrimaryStart": 23
+        "Type": "ErrorInfo",
+        "Restriction": "ErrorCode",
+        "Property": "fields"
       }
     ]
   }

@@ -19,13 +19,18 @@
         public List<Dtmi> RequiredParentCotypes { get; set; }
 
         /// <summary>
-        /// Gets or sets a string describing hte required cotype.
+        /// Gets or sets a string describing the required cotype.
         /// </summary>
         public string RequiredParentCotypeString { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the adjunct type must be on only one element in the values of the parent path.
+        /// Gets or sets a type identifier that no other instance among the property values is permitted to have.
         /// </summary>
-        public bool AdjunctTypeIsUnique { get; set; }
+        public Dtmi NoneOtherType { get; set; }
+
+        /// <summary>
+        /// Gets or sets a type identifier that some other instance among the property values is required to have.
+        /// </summary>
+        public Dtmi SomeOtherType { get; set; }
     }
 }

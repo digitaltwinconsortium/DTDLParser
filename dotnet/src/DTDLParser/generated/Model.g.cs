@@ -110,20 +110,44 @@ namespace DTDLParser
                                         referenceType: parentConstraint.RequiredParentCotypeString);
                                 }
 
-                                if (parentConstraint.AdjunctTypeIsUnique)
+                                if (parentConstraint.NoneOtherType != null)
                                 {
                                     foreach (DTEntityInfo otherSibling in commonParent.GetChildren(parentReference.PropertyName))
                                     {
-                                        if (!ReferenceEquals(otherSibling, currentSibling) && otherSibling.SupplementalTypes.Contains(supplementalTypeInfo.Type))
+                                        if (!ReferenceEquals(otherSibling, currentSibling) && otherSibling.SupplementalTypes.Contains(parentConstraint.NoneOtherType))
                                         {
-                                            Dtmi firstSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? currentSibling.Id : otherSibling.Id;
-                                            Dtmi secondSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? otherSibling.Id : currentSibling.Id;
+                                            Dtmi firstSiblingId = currentSibling.Id;
+                                            Dtmi secondSiblingId = otherSibling.Id;
+
+                                            if (supplementalTypeInfo.Type == parentConstraint.NoneOtherType)
+                                            {
+                                                firstSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? currentSibling.Id : otherSibling.Id;
+                                                secondSiblingId = string.Compare(currentSibling.Id.AbsoluteUri, otherSibling.Id.AbsoluteUri) < 0 ? otherSibling.Id : currentSibling.Id;
+                                            }
+
                                             parsingErrorCollection.Notify(
-                                                "nonUniqueAdjunctType",
+                                                "siblingDuplicatesCotype",
                                                 elementId: firstSiblingId,
                                                 referenceId: secondSiblingId,
                                                 propertyName: parentReference.PropertyName,
-                                                elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type));
+                                                elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type),
+                                                referenceType: ContextCollection.GetTermOrUri(parentConstraint.NoneOtherType));
+                                        }
+                                    }
+                                }
+
+                                if (parentConstraint.SomeOtherType != null)
+                                {
+                                    foreach (DTEntityInfo otherSibling in commonParent.GetChildren(parentReference.PropertyName))
+                                    {
+                                        if (!commonParent.GetChildren(parentReference.PropertyName).Any(s => !ReferenceEquals(s, currentSibling) && s.SupplementalTypes.Contains(parentConstraint.SomeOtherType)))
+                                        {
+                                            parsingErrorCollection.Notify(
+                                                "siblingMissingCotype",
+                                                elementId: currentSibling.Id,
+                                                propertyName: parentReference.PropertyName,
+                                                elementType: ContextCollection.GetTermOrUri(supplementalTypeInfo.Type),
+                                                referenceType: ContextCollection.GetTermOrUri(parentConstraint.SomeOtherType));
                                         }
                                     }
                                 }
