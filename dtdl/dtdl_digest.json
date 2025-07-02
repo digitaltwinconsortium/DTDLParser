@@ -41260,7 +41260,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v3:ErrorMessage",
           "property": "fields",
           "requiredTypeNames": [
             "Error"
@@ -41303,7 +41303,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v3:ErrorResult",
           "property": "fields",
           "requiredTypeNames": [
             "Result"
@@ -41514,7 +41514,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v3:NormalResult",
           "property": "fields",
           "requiredTypeNames": [
             "Result"
@@ -41666,7 +41666,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:ErrorCode",
           "property": "fields",
           "requiredTypeNames": [
             "Result",
@@ -41710,7 +41710,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:ErrorInfo",
           "property": "fields",
           "requiredTypeNames": [
             "Result",
@@ -41720,7 +41720,8 @@
             "dtmi:dtdl:extension:mqtt:v4:Result",
             "dtmi:dtdl:extension:mqtt:v4:Error"
           ],
-          "requiredTypesString": "Result or Error"
+          "requiredTypesString": "Result or Error",
+          "someOtherType": "dtmi:dtdl:extension:mqtt:v4:ErrorCode"
         },
         {
           "property": "schema",
@@ -41754,7 +41755,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:ErrorMessage",
           "property": "fields",
           "requiredTypeNames": [
             "Error"
@@ -41797,7 +41798,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:ErrorResult",
           "property": "fields",
           "requiredTypeNames": [
             "Result"
@@ -42008,7 +42009,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:NormalResult",
           "property": "fields",
           "requiredTypeNames": [
             "Result"
@@ -50373,7 +50374,7 @@
       "constraints": [
         {
           "inverse": true,
-          "onlyOne": true,
+          "noneOtherType": "dtmi:iotoperations:class:Subject;4",
           "property": "fields",
           "requiredTypeNames": [
             "Detail"

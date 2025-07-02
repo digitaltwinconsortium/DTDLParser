@@ -2385,20 +2385,6 @@
       "source1": "contextComponent"
     }
   },
-  "nonUniqueAdjunctType": {
-    "cause": "{primaryId:n} and {secondaryId:n} both have @type with value '{type}', but only one element in the '{property}' array may have this co-type.",
-    "locatedCause": "In {sourceName1}, @type{line1} and @type{line2} both specify supplemental type '{type}', but only one element in the '{property}' array may have this co-type.",
-    "action": "Remove @type {type} from one of the elements.",
-    "required": {
-      "primaryId": "elementId",
-      "secondaryId": "referenceId",
-      "type": "elementType",
-      "property": "propertyName"
-    },
-    "optional": {
-      "source1": "typeProp"
-    }
-  },
   "nonUniqueImportedPropertyValue": {
     "cause": "{primaryId:n}, because it transitively {transformation} {secondaryId}, has property '{property}' that contains more than one element for which property '{auxProperty}' has value '{value}'.",
     "locatedCause": "Property '{auxProperty}' has value '{value}'{line1}{source1} and{line2} in {sourceName2}, which is a uniqueness violation because {primaryId} transitively {transformation} {secondaryId}.",
@@ -3019,6 +3005,35 @@
     },
     "optional": {
       "source1": "idProp"
+    }
+  },
+  "siblingDuplicatesCotype": {
+    "cause": "{primaryId:n} has @type with value {type} that prohibits any sibling value in the '{property}' array from having @type {restriction}, but {secondaryId:n} violates this restriction.",
+    "locatedCause": "In {sourceName1}, @type{line1} has value {type} that prohibits any sibling value in the '{property}' array from having @type {restriction}, which is violated by @type{line2}.",
+    "action": "Remove {type} from @type{line1} or remove {restriction} from @type{line2}.",
+    "required": {
+      "primaryId": "elementId",
+      "secondaryId": "referenceId",
+      "type": "elementType",
+      "restriction": "referenceType",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "typeProp"
+    }
+  },
+  "siblingMissingCotype": {
+    "cause": "{primaryId:n} has @type with value {type} that may only be used in a '{property}' value when a sibling value is co-typed with {restriction}.",
+    "locatedCause": "In {sourceName1}, @type{line1} specifies supplemental type {type}, which may only be used in a '{property}' value when a sibling value is co-typed with {restriction}.",
+    "action": "Remove @type {type} from element, or add sibling value with @type {restriction}.",
+    "required": {
+      "primaryId": "elementId",
+      "type": "elementType",
+      "restriction": "referenceType",
+      "property": "propertyName"
+    },
+    "optional": {
+      "source1": "typeProp"
     }
   },
   "siblingPropertyMismatch": {

@@ -578,10 +578,11 @@
         /// <param name="parentPropertyName">Name of the property from the parent.</param>
         /// <param name="requiredParentCotypes">A list of cotype identifier, on of which the parent is required to have.</param>
         /// <param name="requiredParentCotypeString">A string describing hte required cotype.</param>
-        /// <param name="adjunctTypeIsUnique">An indication of whether the adjunct type must be on only one element in the values of the parent path.</param>
-        internal void AddParentConstraint(string parentPropertyName, List<Dtmi> requiredParentCotypes, string requiredParentCotypeString, bool adjunctTypeIsUnique)
+        /// <param name="noneOtherType">A type identifier that no other instance among the property values is permitted to have.</param>
+        /// <param name="someOtherType">A type identifier that some other instance among the property values is required to have.</param>
+        internal void AddParentConstraint(string parentPropertyName, List<Dtmi> requiredParentCotypes, string requiredParentCotypeString, Dtmi noneOtherType, Dtmi someOtherType)
         {
-            this.ParentConstraints.Add(new ParentConstraint { ParentPropertyName = parentPropertyName, RequiredParentCotypes = requiredParentCotypes, RequiredParentCotypeString = requiredParentCotypeString, AdjunctTypeIsUnique = adjunctTypeIsUnique });
+            this.ParentConstraints.Add(new ParentConstraint { ParentPropertyName = parentPropertyName, RequiredParentCotypes = requiredParentCotypes, RequiredParentCotypeString = requiredParentCotypeString, NoneOtherType = noneOtherType, SomeOtherType = someOtherType });
         }
 
         /// <summary>

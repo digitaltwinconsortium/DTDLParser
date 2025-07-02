@@ -12,7 +12,8 @@
         private string parentPropertyName;
         private string requiredParentCotypesArg;
         private string requiredParentCotypeStringArg;
-        private string adjunctTypeIsUniqueArg;
+        private string noneOtherTypeArg;
+        private string someOtherTypeArg;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SupplementalParentConstraint"/> class.
@@ -33,7 +34,8 @@
                 this.requiredParentCotypeStringArg = "null";
             }
 
-            this.adjunctTypeIsUniqueArg = supplementalConstraintDigest.OnlyOne ? "true" : "false";
+            this.noneOtherTypeArg = supplementalConstraintDigest.NoneOtherType != null ? $"new {ParserGeneratorValues.IdentifierType}(\"{supplementalConstraintDigest.NoneOtherType}\")" : "null";
+            this.someOtherTypeArg = supplementalConstraintDigest.SomeOtherType != null ? $"new {ParserGeneratorValues.IdentifierType}(\"{supplementalConstraintDigest.SomeOtherType}\")" : "null";
         }
 
         /// <summary>
@@ -43,7 +45,7 @@
         /// <param name="infoVariableName">Name of the supplementaly type info variable to which to add the constraint.</param>
         public void AddParentConstraint(CsScope scope, string infoVariableName)
         {
-            scope.Line($"{infoVariableName}.AddParentConstraint(\"{this.parentPropertyName}\", {this.requiredParentCotypesArg}, {this.requiredParentCotypeStringArg}, adjunctTypeIsUnique: {this.adjunctTypeIsUniqueArg});");
+            scope.Line($"{infoVariableName}.AddParentConstraint(\"{this.parentPropertyName}\", {this.requiredParentCotypesArg}, {this.requiredParentCotypeStringArg}, {this.noneOtherTypeArg}, {this.someOtherTypeArg});");
         }
     }
 }

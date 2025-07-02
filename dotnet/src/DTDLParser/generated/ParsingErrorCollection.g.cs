@@ -366,8 +366,6 @@ namespace DTDLParser
 
         private static readonly Uri NonDtmiContextSpecifierValidationId = new Uri("dtmi:dtdl:parsingError:nonDtmiContextSpecifier");
 
-        private static readonly Uri NonUniqueAdjunctTypeValidationId = new Uri("dtmi:dtdl:parsingError:nonUniqueAdjunctType");
-
         private static readonly Uri NonUniqueImportedPropertyValueValidationId = new Uri("dtmi:dtdl:parsingError:nonUniqueImportedPropertyValue");
 
         private static readonly Uri NonUniquePropertyValueValidationId = new Uri("dtmi:dtdl:parsingError:nonUniquePropertyValue");
@@ -451,6 +449,10 @@ namespace DTDLParser
         private static readonly Uri RefObjectNotAllowedValidationId = new Uri("dtmi:dtdl:parsingError:refObjectNotAllowed");
 
         private static readonly Uri ReservedIdValidationId = new Uri("dtmi:dtdl:parsingError:reservedId");
+
+        private static readonly Uri SiblingDuplicatesCotypeValidationId = new Uri("dtmi:dtdl:parsingError:siblingDuplicatesCotype");
+
+        private static readonly Uri SiblingMissingCotypeValidationId = new Uri("dtmi:dtdl:parsingError:siblingMissingCotype");
 
         private static readonly Uri SiblingPropertyMismatchValidationId = new Uri("dtmi:dtdl:parsingError:siblingPropertyMismatch");
 
@@ -6041,39 +6043,6 @@ namespace DTDLParser
                     }
 
                     return;
-                case "nonUniqueAdjunctType":
-                    if (elementId == null || referenceId == null || elementType == null || propertyName == null)
-                    {
-                        throw new ArgumentException("Missing required parameter elementId or referenceId or elementType or propertyName when generating nonUniqueAdjunctType ParsingError.");
-                    }
-
-                    if (element != null && element.TryGetSourceLocationForType(out sourceName1, out startLine1))
-                    {
-                        this.Add(
-                            NonUniqueAdjunctTypeValidationId,
-                            "In {sourceName1}, @type{line1} and @type{line2} both specify supplemental type '{type}', but only one element in the '{property}' array may have this co-type.",
-                            "Remove @type {type} from one of the elements.",
-                            primaryId: elementId,
-                            secondaryId: referenceId,
-                            type: elementType,
-                            property: propertyName,
-                            sourceName1: sourceName1,
-                            startLine1: startLine1,
-                            endLine1: endLine1);
-                    }
-                    else
-                    {
-                        this.Add(
-                            NonUniqueAdjunctTypeValidationId,
-                            "{primaryId:n} and {secondaryId:n} both have @type with value '{type}', but only one element in the '{property}' array may have this co-type.",
-                            "Remove @type {type} from one of the elements.",
-                            primaryId: elementId,
-                            secondaryId: referenceId,
-                            type: elementType,
-                            property: propertyName);
-                    }
-
-                    return;
                 case "nonUniqueImportedPropertyValue":
                     if (elementId == null || referenceId == null || propertyName == null || refPropertyName == null || nestedName == null || nestedValue == null)
                     {
@@ -7460,6 +7429,74 @@ namespace DTDLParser
                             "Modify the identifier so that it does not begin with any of these reserved prefixes: {restriction}",
                             value: identifier,
                             restriction: valueRestriction);
+                    }
+
+                    return;
+                case "siblingDuplicatesCotype":
+                    if (elementId == null || referenceId == null || elementType == null || referenceType == null || propertyName == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or referenceId or elementType or referenceType or propertyName when generating siblingDuplicatesCotype ParsingError.");
+                    }
+
+                    if (element != null && element.TryGetSourceLocationForType(out sourceName1, out startLine1))
+                    {
+                        this.Add(
+                            SiblingDuplicatesCotypeValidationId,
+                            "In {sourceName1}, @type{line1} has value {type} that prohibits any sibling value in the '{property}' array from having @type {restriction}, which is violated by @type{line2}.",
+                            "Remove {type} from @type{line1} or remove {restriction} from @type{line2}.",
+                            primaryId: elementId,
+                            secondaryId: referenceId,
+                            type: elementType,
+                            restriction: referenceType,
+                            property: propertyName,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            SiblingDuplicatesCotypeValidationId,
+                            "{primaryId:n} has @type with value {type} that prohibits any sibling value in the '{property}' array from having @type {restriction}, but {secondaryId:n} violates this restriction.",
+                            "Remove {type} from @type{line1} or remove {restriction} from @type{line2}.",
+                            primaryId: elementId,
+                            secondaryId: referenceId,
+                            type: elementType,
+                            restriction: referenceType,
+                            property: propertyName);
+                    }
+
+                    return;
+                case "siblingMissingCotype":
+                    if (elementId == null || elementType == null || referenceType == null || propertyName == null)
+                    {
+                        throw new ArgumentException("Missing required parameter elementId or elementType or referenceType or propertyName when generating siblingMissingCotype ParsingError.");
+                    }
+
+                    if (element != null && element.TryGetSourceLocationForType(out sourceName1, out startLine1))
+                    {
+                        this.Add(
+                            SiblingMissingCotypeValidationId,
+                            "In {sourceName1}, @type{line1} specifies supplemental type {type}, which may only be used in a '{property}' value when a sibling value is co-typed with {restriction}.",
+                            "Remove @type {type} from element, or add sibling value with @type {restriction}.",
+                            primaryId: elementId,
+                            type: elementType,
+                            restriction: referenceType,
+                            property: propertyName,
+                            sourceName1: sourceName1,
+                            startLine1: startLine1,
+                            endLine1: endLine1);
+                    }
+                    else
+                    {
+                        this.Add(
+                            SiblingMissingCotypeValidationId,
+                            "{primaryId:n} has @type with value {type} that may only be used in a '{property}' value when a sibling value is co-typed with {restriction}.",
+                            "Remove @type {type} from element, or add sibling value with @type {restriction}.",
+                            primaryId: elementId,
+                            type: elementType,
+                            restriction: referenceType,
+                            property: propertyName);
                     }
 
                     return;
