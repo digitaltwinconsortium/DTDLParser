@@ -578,6 +578,7 @@ namespace DTDLParser
             errorCodeInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
 
             DTSupplementalTypeInfo errorInfoInfoCV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV4, errorInfoTypeIdCV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            errorInfoInfoCV4.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:Object;3"), new Dtmi("dtmi:dtdl:class:Object;4") }, RequiredTypesString = "Object" });
             errorInfoInfoCV4.AddParentConstraint("fields", new List<Dtmi> { new Dtmi("dtmi:dtdl:extension:mqtt:v4:Result"), new Dtmi("dtmi:dtdl:extension:mqtt:v4:Error") }, "Result or Error", adjunctTypeIsUnique: true);
             errorInfoInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
             errorInfoInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };

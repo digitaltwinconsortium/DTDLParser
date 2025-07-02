@@ -62,8 +62,16 @@
               ],
               "name": "appErrDetail",
               "schema": {
-                "@type": "Array",
-                "elementSchema": "string"
+                "@type": "Object",
+                "fields": [
+                  {
+                    "name": "errors",
+                    "schema": {
+                      "@type": "Array",
+                      "elementSchema": "string"
+                    }
+                  }
+                ]
               }
             }
           ]

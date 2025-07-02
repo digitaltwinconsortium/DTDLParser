@@ -2,7 +2,7 @@
   "requiredContexts": [
     "dtmi:dtdl:extension:mqtt;4"
   ],
-  "valid": false,
+  "valid": true,
   "quirks": [],
   "options": [],
   "input": [
@@ -16,7 +16,10 @@
       "schemas": [
         {
           "@id": "dtmi:test:anObject;1",
-          "@type": "Object",
+          "@type": [
+            "Object",
+            "Error"
+          ],
           "fields": [
             {
               "@id": "dtmi:test:errorInfo;1",
@@ -45,13 +48,34 @@
     }
   ],
   "expect": {
-    "parsingErrors": [
+    "elements": [
       {
-        "ValidationID": "dtmi:dtdl:parsingError:parentMissingCotype",
-        "PrimaryID": "dtmi:test:errorInfo;1",
-        "Type": "ErrorInfo",
-        "Restriction": "Result or Error",
-        "Property": "fields"
+        "id": "dtmi:test:anObject;1",
+        "type": "Object",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Error"
+        ]
+      },
+      {
+        "id": "dtmi:test:errorInfo;1",
+        "type": "Field",
+        "properties": {
+          "name": "errorInfo",
+          "schema": "dtmi:test:errorInfo:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:ErrorInfo"
+        ]
+      },
+      {
+        "id": "dtmi:test:errorInfo:_schema;1",
+        "type": "Object",
+        "properties": {
+          "fields": [
+            "dtmi:test:errorInfo:_schema:_fields:__someInt;1",
+            "dtmi:test:errorInfo:_schema:_fields:__someStr;1"
+          ]
+        }
       }
     ]
   }
