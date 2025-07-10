@@ -147,6 +147,7 @@ namespace DTDLParser
             context4_0.AddTermDefinition("Mqtt", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt"), isMergeableType: false);
             context4_0.AddTermDefinition("NormalResult", new Dtmi("dtmi:dtdl:extension:mqtt:v4:NormalResult"), isMergeableType: false);
             context4_0.AddTermDefinition("payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat"), isMergeableType: false);
+            context4_0.AddTermDefinition("propertyTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic"), isMergeableType: false);
             context4_0.AddTermDefinition("Result", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Result"), isMergeableType: false);
             context4_0.AddTermDefinition("telemetryTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:telemetryTopic"), isMergeableType: false);
             context4_0.AddTermDefinition("telemServiceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:telemServiceGroupId"), isMergeableType: false);

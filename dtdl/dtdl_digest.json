@@ -697,6 +697,7 @@
       "Mqtt": "dtmi:dtdl:extension:mqtt:v4:Mqtt",
       "NormalResult": "dtmi:dtdl:extension:mqtt:v4:NormalResult",
       "payloadFormat": "dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat",
+      "propertyTopic": "dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic",
       "Result": "dtmi:dtdl:extension:mqtt:v4:Result",
       "telemetryTopic": "dtmi:dtdl:extension:mqtt:v4:Mqtt:telemetryTopic",
       "telemServiceGroupId": "dtmi:dtdl:extension:mqtt:v4:Mqtt:telemServiceGroupId",
@@ -41861,6 +41862,7 @@
       "cotypes": [
         "EnumValue",
         "Field",
+        "Property",
         "Telemetry"
       ],
       "cotypeVersions": [
@@ -41958,6 +41960,25 @@
           "optional": false,
           "plural": false,
           "propertyName": "payloadFormat",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
+        "dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic": {
+          "deprecated": false,
+          "description": {
+            "en-us": "MQTT topic pattern on which a Property request or notification is published."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$",
+          "patternDesc": {
+            "en-us": "slash-separated sequence of character-restricted labels and/or brace-enclosed tokens"
+          },
+          "plural": false,
+          "propertyName": "propertyTopic",
           "type": "http://www.w3.org/2001/XMLSchema#string",
           "typeName": "string",
           "typeRequired": true,
