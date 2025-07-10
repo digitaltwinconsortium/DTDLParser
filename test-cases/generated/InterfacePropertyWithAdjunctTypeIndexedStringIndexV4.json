@@ -1,0 +1,68 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:jsonTest:PropertyAndCommand;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "payloadFormat": "Json/ecma/404",
+      "propertyTopic": "sample/{modelId}/{sourceId}/property/{action}",
+      "commandTopic": "sample/{modelId}/command/{commandName}",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Indexed"
+          ],
+          "name": "distance",
+          "schema": "double",
+          "index": 1
+        },
+        {
+          "@type": [
+            "Property",
+            "Indexed"
+          ],
+          "name": "color",
+          "schema": "string",
+          "index": "two"
+        },
+        {
+          "@type": "Command",
+          "name": "doit",
+          "request": {
+            "name": "poke",
+            "schema": "string"
+          },
+          "response": {
+            "name": "peek",
+            "schema": "integer"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:integerNotInteger",
+        "PrimaryID": "dtmi:jsonTest:PropertyAndCommand:_contents:__color;1",
+        "Property": "dtmi:dtdl:extension:mqtt:v4:Indexed:index",
+        "Value": null,
+        "PrimaryIndex": 0,
+        "PrimaryStart": 31
+      }
+    ]
+  }
+}

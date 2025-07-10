@@ -1,0 +1,93 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:jsonTest:PropertyAndCommand;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "payloadFormat": "Json/ecma/404",
+      "propertyTopic": "sample/{modelId}/{sourceId}/property/{action}",
+      "commandTopic": "sample/{modelId}/command/{commandName}",
+      "contents": [
+        {
+          "@type": [
+            "Property",
+            "Indexed"
+          ],
+          "name": "distance",
+          "schema": "double",
+          "index": 1
+        },
+        {
+          "@type": [
+            "Property",
+            "Indexed"
+          ],
+          "name": "color",
+          "schema": "string",
+          "index": 2
+        },
+        {
+          "@type": "Command",
+          "name": "doit",
+          "request": {
+            "@type": "CommandRequest",
+            "name": "poke",
+            "schema": "string"
+          },
+          "response": {
+            "name": "peek",
+            "schema": "integer"
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:jsonTest:PropertyAndCommand;1",
+        "type": "Interface",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat": "Json/ecma/404",
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic": "sample/{modelId}/{sourceId}/property/{action}",
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:commandTopic": "sample/{modelId}/command/{commandName}"
+        }
+      },
+      {
+        "id": "dtmi:jsonTest:PropertyAndCommand:_contents:__distance;1",
+        "type": "Property",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Indexed"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v4:Indexed:index": 1
+        }
+      },
+      {
+        "id": "dtmi:jsonTest:PropertyAndCommand:_contents:__color;1",
+        "type": "Property",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Indexed"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v4:Indexed:index": 2
+        }
+      }
+    ]
+  }
+}
