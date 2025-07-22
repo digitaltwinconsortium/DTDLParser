@@ -832,6 +832,8 @@ namespace ParserUnitTest
         [DataRow("InterfacePropertySchemaTemperatureUnitV2")]
         [DataRow("InterfacePropertySchemaTemperatureUnitV3")]
         [DataRow("InterfacePropertySchemaTemperatureUnitV4")]
+        [DataRow("InterfacePropertyWithAdjunctTypeFragmentedSchemaIntegerV4")]
+        [DataRow("InterfacePropertyWithAdjunctTypeFragmentedSchemaMapV4")]
         [DataRow("InterfacePropertyWithAdjunctTypeHistorizedV2")]
         [DataRow("InterfacePropertyWithAdjunctTypeHistorizedV3")]
         [DataRow("InterfacePropertyWithAdjunctTypeHistorizedV4")]
