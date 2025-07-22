@@ -96,6 +96,7 @@ namespace DTDLParser
             Dtmi errorInfoTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorInfo");
             Dtmi errorMessageTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorMessage");
             Dtmi errorResultTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorResult");
+            Dtmi fragmentedTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Fragmented");
             Dtmi idempotentTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Idempotent");
             Dtmi indexedTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed");
             Dtmi mqttTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt");
@@ -595,6 +596,11 @@ namespace DTDLParser
             errorResultInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
             errorResultInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
             errorResultInfoCV4.DisallowedCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:requirement:v1:Required") };
+
+            DTSupplementalTypeInfo fragmentedInfoCV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV4, fragmentedTypeIdCV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            fragmentedInfoCV4.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:Map;3"), new Dtmi("dtmi:dtdl:class:Map;4") }, RequiredTypesString = "Map" });
+            fragmentedInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Property };
+            fragmentedInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
 
             DTSupplementalTypeInfo idempotentInfoCV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV4, idempotentTypeIdCV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
             idempotentInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Command };
@@ -2031,6 +2037,7 @@ namespace DTDLParser
             EndogenousSupplementalTypes[errorInfoTypeIdCV4] = errorInfoInfoCV4;
             EndogenousSupplementalTypes[errorMessageTypeIdCV4] = errorMessageInfoCV4;
             EndogenousSupplementalTypes[errorResultTypeIdCV4] = errorResultInfoCV4;
+            EndogenousSupplementalTypes[fragmentedTypeIdCV4] = fragmentedInfoCV4;
             EndogenousSupplementalTypes[idempotentTypeIdCV4] = idempotentInfoCV4;
             EndogenousSupplementalTypes[indexedTypeIdCV4] = indexedInfoCV4;
             EndogenousSupplementalTypes[mqttTypeIdCV4] = mqttInfoCV4;

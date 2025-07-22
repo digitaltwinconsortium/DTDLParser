@@ -141,6 +141,7 @@ namespace DTDLParser
             context4_0.AddTermDefinition("ErrorInfo", new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorInfo"), isMergeableType: false);
             context4_0.AddTermDefinition("ErrorMessage", new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorMessage"), isMergeableType: false);
             context4_0.AddTermDefinition("ErrorResult", new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorResult"), isMergeableType: false);
+            context4_0.AddTermDefinition("Fragmented", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Fragmented"), isMergeableType: false);
             context4_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Idempotent"), isMergeableType: false);
             context4_0.AddTermDefinition("index", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed:index"), isMergeableType: false);
             context4_0.AddTermDefinition("Indexed", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed"), isMergeableType: false);

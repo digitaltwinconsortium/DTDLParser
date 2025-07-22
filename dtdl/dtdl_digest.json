@@ -691,6 +691,7 @@
       "ErrorInfo": "dtmi:dtdl:extension:mqtt:v4:ErrorInfo",
       "ErrorMessage": "dtmi:dtdl:extension:mqtt:v4:ErrorMessage",
       "ErrorResult": "dtmi:dtdl:extension:mqtt:v4:ErrorResult",
+      "Fragmented": "dtmi:dtdl:extension:mqtt:v4:Fragmented",
       "Idempotent": "dtmi:dtdl:extension:mqtt:v4:Idempotent",
       "index": "dtmi:dtdl:extension:mqtt:v4:Indexed:index",
       "Indexed": "dtmi:dtdl:extension:mqtt:v4:Indexed",
@@ -41829,6 +41830,36 @@
       ],
       "discotypes": [
         "dtmi:dtdl:extension:requirement:v1:Required"
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v4:Fragmented": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "Map"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:Map;3",
+            "dtmi:dtdl:class:Map;4"
+          ],
+          "requiredTypesString": "Map"
+        }
+      ],
+      "cotypes": [
+        "Property"
+      ],
+      "cotypeVersions": [
+        3,
+        4
       ],
       "elements": [],
       "extensionContext": "dtmi:dtdl:extension:mqtt;4",
