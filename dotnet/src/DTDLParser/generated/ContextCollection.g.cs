@@ -141,12 +141,14 @@ namespace DTDLParser
             context4_0.AddTermDefinition("ErrorInfo", new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorInfo"), isMergeableType: false);
             context4_0.AddTermDefinition("ErrorMessage", new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorMessage"), isMergeableType: false);
             context4_0.AddTermDefinition("ErrorResult", new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorResult"), isMergeableType: false);
+            context4_0.AddTermDefinition("Fragmented", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Fragmented"), isMergeableType: false);
             context4_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Idempotent"), isMergeableType: false);
             context4_0.AddTermDefinition("index", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed:index"), isMergeableType: false);
             context4_0.AddTermDefinition("Indexed", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed"), isMergeableType: false);
             context4_0.AddTermDefinition("Mqtt", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt"), isMergeableType: false);
             context4_0.AddTermDefinition("NormalResult", new Dtmi("dtmi:dtdl:extension:mqtt:v4:NormalResult"), isMergeableType: false);
             context4_0.AddTermDefinition("payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat"), isMergeableType: false);
+            context4_0.AddTermDefinition("propertyTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic"), isMergeableType: false);
             context4_0.AddTermDefinition("Result", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Result"), isMergeableType: false);
             context4_0.AddTermDefinition("telemetryTopic", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:telemetryTopic"), isMergeableType: false);
             context4_0.AddTermDefinition("telemServiceGroupId", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:telemServiceGroupId"), isMergeableType: false);
