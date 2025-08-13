@@ -55,6 +55,7 @@ namespace ParserUnitTest
         [DataRow("ArrayV3")]
         [DataRow("ArrayV4")]
         [DataRow("ArrayWithAdjunctTypeErrorV4")]
+        [DataRow("ArrayWithAdjunctTypeIndirectV4")]
         [DataRow("ArrayWithAdjunctTypeResultV4")]
         public void TestParser_A(string testName)
         {
@@ -1683,6 +1684,8 @@ namespace ParserUnitTest
         [DataRow("ObjectErrorFieldSchemaObjectErrorInfoV4")]
         [DataRow("ObjectErrorFieldSchemaStringErrorCodeV4")]
         [DataRow("ObjectErrorFieldSchemaStringErrorInfoV4")]
+        [DataRow("ObjectFieldIndirectRequiredV4")]
+        [DataRow("ObjectFieldIndirectV4")]
         [DataRow("ObjectFieldRequiredV3")]
         [DataRow("ObjectFieldRequiredV4")]
         [DataRow("ObjectFieldsDuplicateNameV2")]

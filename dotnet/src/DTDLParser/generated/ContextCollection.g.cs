@@ -144,6 +144,7 @@ namespace DTDLParser
             context4_0.AddTermDefinition("Idempotent", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Idempotent"), isMergeableType: false);
             context4_0.AddTermDefinition("index", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed:index"), isMergeableType: false);
             context4_0.AddTermDefinition("Indexed", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed"), isMergeableType: false);
+            context4_0.AddTermDefinition("Indirect", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indirect"), isMergeableType: false);
             context4_0.AddTermDefinition("Mqtt", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt"), isMergeableType: false);
             context4_0.AddTermDefinition("NormalResult", new Dtmi("dtmi:dtdl:extension:mqtt:v4:NormalResult"), isMergeableType: false);
             context4_0.AddTermDefinition("payloadFormat", new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat"), isMergeableType: false);

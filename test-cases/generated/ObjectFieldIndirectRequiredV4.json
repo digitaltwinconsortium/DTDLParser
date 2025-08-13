@@ -1,0 +1,50 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4",
+    "dtmi:dtdl:extension:requirement;1"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4",
+        "dtmi:dtdl:extension:requirement;1"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@id": "dtmi:test:indirectValue;1",
+              "@type": [
+                "Field",
+                "Indirect",
+                "Required"
+              ],
+              "name": "indirectValue",
+              "schema": "double"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:disallowedCocotype",
+        "PrimaryID": "dtmi:test:indirectValue;1",
+        "Type": "Indirect",
+        "Restriction": "Required",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 16
+      }
+    ]
+  }
+}
