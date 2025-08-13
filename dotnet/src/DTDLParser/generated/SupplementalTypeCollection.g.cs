@@ -98,6 +98,7 @@ namespace DTDLParser
             Dtmi errorResultTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorResult");
             Dtmi idempotentTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Idempotent");
             Dtmi indexedTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indexed");
+            Dtmi indirectTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Indirect");
             Dtmi mqttTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Mqtt");
             Dtmi normalResultTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:NormalResult");
             Dtmi resultTypeIdCV4 = new Dtmi("dtmi:dtdl:extension:mqtt:v4:Result");
@@ -604,6 +605,11 @@ namespace DTDLParser
             indexedInfoCV4.AddProperty("dtmi:dtdl:extension:mqtt:v4:Indexed:index", new Uri("http://www.w3.org/2001/XMLSchema#integer"), 1, 1, null, 1, null, regex: null, hasUniqueValue: true, isPlural: false, isOptional: false, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
             indexedInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.EnumValue, DTEntityKind.Field, DTEntityKind.Telemetry };
             indexedInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+
+            DTSupplementalTypeInfo indirectInfoCV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV4, indirectTypeIdCV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
+            indirectInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Field };
+            indirectInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+            indirectInfoCV4.DisallowedCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:requirement:v1:Required") };
 
             DTSupplementalTypeInfo mqttInfoCV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV4, mqttTypeIdCV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
             mqttInfoCV4.AddProperty("dtmi:dtdl:extension:mqtt:v4:Mqtt:cmdServiceGroupId", new Uri("http://www.w3.org/2001/XMLSchema#string"), 1, null, null, null, null, regex: new Regex(@"^[!$-*,-.0-z|~]+$"), hasUniqueValue: false, isPlural: false, isOptional: true, defaultLanguage: null, dtmiSeg: null, dictionaryKey: null, idRequired: false, typeRequired: true, childOf: null, instanceProperty: null, requiredValues: null, requiredValuesString: null, requiredLiteral: null);
@@ -2032,6 +2038,7 @@ namespace DTDLParser
             EndogenousSupplementalTypes[errorResultTypeIdCV4] = errorResultInfoCV4;
             EndogenousSupplementalTypes[idempotentTypeIdCV4] = idempotentInfoCV4;
             EndogenousSupplementalTypes[indexedTypeIdCV4] = indexedInfoCV4;
+            EndogenousSupplementalTypes[indirectTypeIdCV4] = indirectInfoCV4;
             EndogenousSupplementalTypes[mqttTypeIdCV4] = mqttInfoCV4;
             EndogenousSupplementalTypes[normalResultTypeIdCV4] = normalResultInfoCV4;
             EndogenousSupplementalTypes[resultTypeIdCV4] = resultInfoCV4;
