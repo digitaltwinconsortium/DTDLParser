@@ -7,74 +7,49 @@
         "dtmi:dtdl:context;4",
         "dtmi:dtdl:extension:mqtt;4"
       ],
-      "@id": "dtmi:ex:id;1",
+      "@id": "dtmi:com:example:CounterCollection;1",
       "@type": [
         "Interface",
         "Mqtt"
       ],
-      "commandTopic": "rpc/command-samples/{executorId}/{commandName}",
+      "propertyTopic": "sample/property/{propertyName}/{action}",
       "payloadFormat": "Json/ecma/404",
-      "schemas": [
+      "contents": [
         {
-          "@id": "dtmi:com:example:CounterCollection:CounterError;1",
-          "@type": [
-            "Object",
-            "Error"
-          ],
-          "fields": [
-            {
-              "@type": [
-                "Field",
-                "ErrorMessage"
-              ],
-              "name": "explanation",
-              "schema": "string"
-            },
-            {
-              "name": "additionalContext",
-              "schema": "string"
-            },
-            {
-              "@type": [
-                "Field",
-                "ErrorCode"
-              ],
-              "name": "appErrCode",
-              "schema": {
-                "@type": "Enum",
-                "valueSchema": "string",
-                "enumValues": [
-                  {
-                    "name": "success",
-                    "enumValue": "succès"
-                  },
-                  {
-                    "name": "failure",
-                    "enumValue": "échec"
-                  }
-                ]
+          "@type": "Property",
+          "name": "clockSpeed",
+          "writable": true,
+          "schema": {
+            "@type": [
+              "Object",
+              "PropertyResult"
+            ],
+            "fields": [
+              {
+                "@type": [
+                  "Field",
+                  "PropertyValue"
+                ],
+                "name": "speed",
+                "schema": "double"
+              },
+              {
+                "@type": [
+                  "Field",
+                  "ReadError",
+                  "WriteError"
+                ],
+                "name": "speedError",
+                "schema": {
+                  "@id": "dtmi:com:example:CounterCollection:SpeedError;1",
+                  "@type": [
+                    "Object",
+                    "Error"
+                  ]
+                }
               }
-            },
-            {
-              "@type": [
-                "Field",
-                "ErrorInfo"
-              ],
-              "name": "appErrDetail",
-              "schema": {
-                "@type": "Object",
-                "fields": [
-                  {
-                    "name": "errors",
-                    "schema": {
-                      "@type": "Array",
-                      "elementSchema": "string"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
+            ]
+          }
         }
       ]
     }

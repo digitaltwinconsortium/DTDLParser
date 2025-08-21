@@ -1,0 +1,72 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:jsonTest:TelemetryAndProperty;1",
+      "@type": [
+        "Interface",
+        "Mqtt"
+      ],
+      "payloadFormat": "Json/ecma/404",
+      "telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+      "propertyTopic": "sample/{modelId}/{sourceId}/property/{action}",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "distance",
+          "schema": "double"
+        },
+        {
+          "@type": [
+            "Property",
+            "Fragmented"
+          ],
+          "name": "colors",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "region",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "color",
+              "schema": "double"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:jsonTest:TelemetryAndProperty;1",
+        "type": "Interface",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt"
+        ],
+        "supplementalProperties": {
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat": "Json/ecma/404",
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:telemetryTopic": "sample/{modelId}/{senderId}/telemetry",
+          "dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic": "sample/{modelId}/{sourceId}/property/{action}"
+        }
+      },
+      {
+        "id": "dtmi:jsonTest:TelemetryAndProperty:_contents:__colors;1",
+        "type": "Property",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Fragmented"
+        ]
+      }
+    ]
+  }
+}

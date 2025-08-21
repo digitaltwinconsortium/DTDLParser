@@ -691,6 +691,7 @@
       "ErrorInfo": "dtmi:dtdl:extension:mqtt:v4:ErrorInfo",
       "ErrorMessage": "dtmi:dtdl:extension:mqtt:v4:ErrorMessage",
       "ErrorResult": "dtmi:dtdl:extension:mqtt:v4:ErrorResult",
+      "Fragmented": "dtmi:dtdl:extension:mqtt:v4:Fragmented",
       "Idempotent": "dtmi:dtdl:extension:mqtt:v4:Idempotent",
       "index": "dtmi:dtdl:extension:mqtt:v4:Indexed:index",
       "Indexed": "dtmi:dtdl:extension:mqtt:v4:Indexed",
@@ -698,11 +699,16 @@
       "Mqtt": "dtmi:dtdl:extension:mqtt:v4:Mqtt",
       "NormalResult": "dtmi:dtdl:extension:mqtt:v4:NormalResult",
       "payloadFormat": "dtmi:dtdl:extension:mqtt:v4:Mqtt:payloadFormat",
+      "PropertyResult": "dtmi:dtdl:extension:mqtt:v4:PropertyResult",
+      "propertyTopic": "dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic",
+      "PropertyValue": "dtmi:dtdl:extension:mqtt:v4:PropertyValue",
+      "ReadError": "dtmi:dtdl:extension:mqtt:v4:ReadError",
       "Result": "dtmi:dtdl:extension:mqtt:v4:Result",
       "telemetryTopic": "dtmi:dtdl:extension:mqtt:v4:Mqtt:telemetryTopic",
       "telemServiceGroupId": "dtmi:dtdl:extension:mqtt:v4:Mqtt:telemServiceGroupId",
       "Transparent": "dtmi:dtdl:extension:mqtt:v4:Transparent",
-      "ttl": "dtmi:dtdl:extension:mqtt:v4:Cacheable:ttl"
+      "ttl": "dtmi:dtdl:extension:mqtt:v4:Cacheable:ttl",
+      "WriteError": "dtmi:dtdl:extension:mqtt:v4:WriteError"
     },
     "dtmi:dtdl:extension:overriding;1": {
       "Override": "dtmi:dtdl:extension:overriding:v1:Override",
@@ -41838,6 +41844,36 @@
       "properties": {},
       "siblings": []
     },
+    "dtmi:dtdl:extension:mqtt:v4:Fragmented": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "Map"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:class:Map;3",
+            "dtmi:dtdl:class:Map;4"
+          ],
+          "requiredTypesString": "Map"
+        }
+      ],
+      "cotypes": [
+        "Property"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
     "dtmi:dtdl:extension:mqtt:v4:Idempotent": {
       "abstract": false,
       "constraints": [],
@@ -41862,6 +41898,7 @@
       "cotypes": [
         "EnumValue",
         "Field",
+        "Property",
         "Telemetry"
       ],
       "cotypeVersions": [
@@ -41985,6 +42022,25 @@
           "typeRequired": true,
           "uniqueValue": false
         },
+        "dtmi:dtdl:extension:mqtt:v4:Mqtt:propertyTopic": {
+          "deprecated": false,
+          "description": {
+            "en-us": "MQTT topic pattern on which a Property request or notification is published."
+          },
+          "idRequired": false,
+          "maxCount": 1,
+          "optional": true,
+          "pattern": "^(?:(?:[!%-*,-.0-z|~][!$-*,-.0-z|~]*)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+}))(?:\\/(?:(?:[!$-*,-.0-z|~]+)|(?:{(?:[A-Za-z]+:)?[A-Za-z]+})))*$",
+          "patternDesc": {
+            "en-us": "slash-separated sequence of character-restricted labels and/or brace-enclosed tokens"
+          },
+          "plural": false,
+          "propertyName": "propertyTopic",
+          "type": "http://www.w3.org/2001/XMLSchema#string",
+          "typeName": "string",
+          "typeRequired": true,
+          "uniqueValue": false
+        },
         "dtmi:dtdl:extension:mqtt:v4:Mqtt:telemetryTopic": {
           "deprecated": false,
           "description": {
@@ -42040,6 +42096,121 @@
             "dtmi:dtdl:extension:mqtt:v4:Result"
           ],
           "requiredTypesString": "Result"
+        }
+      ],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "discotypes": [
+        "dtmi:dtdl:extension:requirement:v1:Required"
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v4:PropertyResult": {
+      "abstract": false,
+      "constraints": [
+        {
+          "property": "fields",
+          "requiredTypeNames": [
+            "PropertyValue",
+            "ReadError",
+            "WriteError",
+            "ErrorCode",
+            "ErrorInfo"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v4:PropertyValue",
+            "dtmi:dtdl:extension:mqtt:v4:ReadError",
+            "dtmi:dtdl:extension:mqtt:v4:WriteError",
+            "dtmi:dtdl:extension:mqtt:v4:ErrorCode",
+            "dtmi:dtdl:extension:mqtt:v4:ErrorInfo"
+          ],
+          "requiredTypesString": "PropertyValue or ReadError or WriteError or ErrorCode or ErrorInfo"
+        }
+      ],
+      "cotypes": [
+        "Object"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v4:PropertyValue": {
+      "abstract": false,
+      "constraints": [
+        {
+          "inverse": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:PropertyValue",
+          "property": "fields",
+          "requiredTypeNames": [
+            "PropertyResult"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v4:PropertyResult"
+          ],
+          "requiredTypesString": "PropertyResult"
+        }
+      ],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "discotypes": [
+        "dtmi:dtdl:extension:requirement:v1:Required"
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v4:ReadError": {
+      "abstract": false,
+      "constraints": [
+        {
+          "inverse": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:ReadError",
+          "property": "fields",
+          "requiredTypeNames": [
+            "PropertyResult"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v4:PropertyResult"
+          ],
+          "requiredTypesString": "PropertyResult"
+        },
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "Error"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v4:Error"
+          ],
+          "requiredTypesString": "Error"
         }
       ],
       "cotypes": [
@@ -42117,6 +42288,50 @@
       "cotypeVersions": [
         3,
         4
+      ],
+      "elements": [],
+      "extensionContext": "dtmi:dtdl:extension:mqtt;4",
+      "extensionKind": "AdjunctType",
+      "mergeable": false,
+      "parent": "dtmi:dtdl:class:AdjunctType;4",
+      "properties": {},
+      "siblings": []
+    },
+    "dtmi:dtdl:extension:mqtt:v4:WriteError": {
+      "abstract": false,
+      "constraints": [
+        {
+          "inverse": true,
+          "noneOtherType": "dtmi:dtdl:extension:mqtt:v4:WriteError",
+          "property": "fields",
+          "requiredTypeNames": [
+            "PropertyResult"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v4:PropertyResult"
+          ],
+          "requiredTypesString": "PropertyResult"
+        },
+        {
+          "property": "schema",
+          "requiredTypeNames": [
+            "Error"
+          ],
+          "requiredTypes": [
+            "dtmi:dtdl:extension:mqtt:v4:Error"
+          ],
+          "requiredTypesString": "Error"
+        }
+      ],
+      "cotypes": [
+        "Field"
+      ],
+      "cotypeVersions": [
+        3,
+        4
+      ],
+      "discotypes": [
+        "dtmi:dtdl:extension:requirement:v1:Required"
       ],
       "elements": [],
       "extensionContext": "dtmi:dtdl:extension:mqtt;4",

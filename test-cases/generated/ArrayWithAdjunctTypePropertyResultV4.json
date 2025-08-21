@@ -1,0 +1,39 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anArray;1",
+          "@type": [
+            "Array",
+            "PropertyResult"
+          ],
+          "elementSchema": "string"
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:anArray;1",
+        "Type": "PropertyResult",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 11
+      }
+    ]
+  }
+}
