@@ -1,0 +1,99 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": [
+            "Object",
+            "PropertyResult"
+          ],
+          "fields": [
+            {
+              "@id": "dtmi:test:propertyValue;1",
+              "@type": [
+                "Field",
+                "PropertyValue"
+              ],
+              "name": "propertyValue",
+              "schema": {
+                "@type": "Object"
+              }
+            },
+            {
+              "@id": "dtmi:test:readError;1",
+              "@type": [
+                "Field",
+                "ReadError"
+              ],
+              "name": "readError",
+              "schema": {
+                "@type": [
+                  "Object",
+                  "Error"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:anObject;1",
+        "type": "Object",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:PropertyResult"
+        ]
+      },
+      {
+        "id": "dtmi:test:propertyValue;1",
+        "type": "Field",
+        "properties": {
+          "name": "propertyValue",
+          "schema": "dtmi:test:propertyValue:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:PropertyValue"
+        ]
+      },
+      {
+        "id": "dtmi:test:readError;1",
+        "type": "Field",
+        "properties": {
+          "name": "readError",
+          "schema": "dtmi:test:readError:_schema;1"
+        },
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:ReadError"
+        ]
+      },
+      {
+        "id": "dtmi:test:propertyValue:_schema;1",
+        "type": "Object",
+        "supplementalTypes": []
+      },
+      {
+        "id": "dtmi:test:readError:_schema;1",
+        "type": "Object",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:Error"
+        ]
+      }
+    ]
+  }
+}

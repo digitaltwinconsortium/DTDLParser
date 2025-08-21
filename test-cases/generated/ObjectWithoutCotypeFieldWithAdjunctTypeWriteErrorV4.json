@@ -1,0 +1,51 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@id": "dtmi:test:writeError;1",
+              "@type": [
+                "Field",
+                "WriteError"
+              ],
+              "name": "writeError",
+              "schema": {
+                "@type": [
+                  "Object",
+                  "Error"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:parentMissingCotype",
+        "PrimaryID": "dtmi:test:writeError;1",
+        "Type": "WriteError",
+        "Restriction": "PropertyResult",
+        "Property": "fields"
+      }
+    ]
+  }
+}

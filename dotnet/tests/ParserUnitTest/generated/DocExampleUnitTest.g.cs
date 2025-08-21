@@ -100,6 +100,7 @@ namespace ParserUnitTest
         [DataRow("mqttDocExample-en-US-6-V4")]
         [DataRow("mqttDocExample-en-US-7-V3")]
         [DataRow("mqttDocExample-en-US-7-V4")]
+        [DataRow("mqttDocExample-en-US-8-V4")]
         [DataRow("ObjectDocExample-en-US-1-V2")]
         [DataRow("ObjectDocExample-en-US-1-V3")]
         [DataRow("ObjectDocExample-en-US-1-V4")]
