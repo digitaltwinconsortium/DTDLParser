@@ -862,18 +862,23 @@
 
             CsIf ifTryGetSupplementalTypeInfo = forEachSupplementalType.If("aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo)");
 
-            CsIf ifKindNotAllowed = ifTryGetSupplementalTypeInfo.If($"!supplementalTypeInfo.AllowedCotypeKinds.Contains(elementInfo.{kindProperty})");
+            ifTryGetSupplementalTypeInfo
+                .Line("HashSet<Dtmi> relevantSupplementalTypeIds = immediateSupplementalTypeIds;")
+                .Line("bool altCotypeFound = supplementalTypeInfo.AllowedAltcotypes.Any(ac => relevantSupplementalTypeIds.Contains(ac));")
+                .Break();
+
+            CsIf ifKindNotAllowed = ifTryGetSupplementalTypeInfo.If($"!altCotypeFound && !supplementalTypeInfo.AllowedCotypeKinds.Contains(elementInfo.{kindProperty})");
 
             ifKindNotAllowed
                 .MultiLine("parsingErrorCollection.Notify(")
                     .Line("\"invalidCotype\",")
                     .Line("elementId: elementId,")
                     .Line("cotype: ContextCollection.GetTermOrUri(supplementalTypeId),")
-                    .Line("typeRestriction: string.Join(\" or \", supplementalTypeInfo.AllowedCotypeKinds),")
+                    .Line("typeRestriction: string.Join(\" or \", supplementalTypeInfo.AllowedCotypeKinds.Select(k => k.ToString()).Concat(supplementalTypeInfo.AllowedAltcotypeNames)),")
                     .Line("element: elt,")
                     .Line("layer: layer);");
 
-            ifKindNotAllowed.ElseIf($"!supplementalTypeInfo.AllowedCotypeVersions.Contains(elementInfo.{ParserGeneratorValues.DtdlVersionPropertyName})")
+            ifKindNotAllowed.ElseIf($"!altCotypeFound && !supplementalTypeInfo.AllowedCotypeVersions.Contains(elementInfo.{ParserGeneratorValues.DtdlVersionPropertyName})")
                 .MultiLine("parsingErrorCollection.Notify(")
                     .Line("\"invalidCotypeVersion\",")
                     .Line("elementId: elementId,")

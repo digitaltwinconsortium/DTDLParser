@@ -18,6 +18,8 @@
         private List<SupplementalParentConstraint> parentConstraints;
         private List<SupplementalCotype> cotypes;
         private List<int> cotypeVersions;
+        private List<string> altcotypes;
+        private List<string> altcotypeNames;
         private List<string> cocotypes;
         private List<string> discotypes;
         private List<SupplementalSiblingConstraint> siblingConstraints;
@@ -45,6 +47,8 @@
             this.parentConstraints = supplementalTypeDigest.Constraints.Where(c => c.Inverse).Select(c => new SupplementalParentConstraint(c)).ToList();
             this.cotypes = supplementalTypeDigest.Cotypes.Select(c => new SupplementalCotype(c, kindEnum)).ToList();
             this.cotypeVersions = supplementalTypeDigest.CotypeVersions;
+            this.altcotypes = supplementalTypeDigest.Altcotypes ?? new List<string>();
+            this.altcotypeNames = supplementalTypeDigest.AltcotypeNames ?? new List<string>();
             this.cocotypes = supplementalTypeDigest.Cocotypes ?? new List<string>();
             this.discotypes = supplementalTypeDigest.Discotypes ?? new List<string>();
             this.siblingConstraints = supplementalTypeDigest.Siblings.Select(s => new SupplementalSiblingConstraint(s)).ToList();
@@ -81,6 +85,12 @@
             if (this.cotypeVersions.Any())
             {
                 scope.Line($"{this.infoVariableName}.AllowedCotypeVersions = new HashSet<int>() {{ {string.Join(", ", this.cotypeVersions.Select(c => c.ToString()))} }};");
+            }
+
+            if (this.altcotypes.Any())
+            {
+                scope.Line($"{this.infoVariableName}.AllowedAltcotypes = new HashSet<Dtmi>() {{ {string.Join(", ", this.altcotypes.Select(c => $"new Dtmi(\"{c}\")"))} }};");
+                scope.Line($"{this.infoVariableName}.AllowedAltcotypeNames = new List<string>() {{ {string.Join(", ", this.altcotypeNames.Select(n => $"\"{n}\""))} }};");
             }
 
             if (this.cocotypes.Any())

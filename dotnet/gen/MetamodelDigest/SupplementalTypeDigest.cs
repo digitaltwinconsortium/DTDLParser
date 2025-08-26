@@ -29,6 +29,10 @@
 
             this.CotypeVersions = ((JArray)supplementalTypeObj["cotypeVersions"]).Select(t => ((JValue)t).Value<int>()).ToList();
 
+            this.Altcotypes = supplementalTypeObj.TryGetValue("altcotypes", out JToken altcotypes) ? ((JArray)altcotypes).Select(t => ((JValue)t).Value<string>()).ToList() : null;
+
+            this.AltcotypeNames = supplementalTypeObj.TryGetValue("altcotypeNames", out JToken altcotypeNames) ? ((JArray)altcotypeNames).Select(t => ((JValue)t).Value<string>()).ToList() : null;
+
             this.Cocotypes = supplementalTypeObj.TryGetValue("cocotypes", out JToken cocotypes) ? ((JArray)cocotypes).Select(t => ((JValue)t).Value<string>()).ToList() : null;
 
             this.Discotypes = supplementalTypeObj.TryGetValue("discotypes", out JToken discotypes) ? ((JArray)discotypes).Select(t => ((JValue)t).Value<string>()).ToList() : null;
@@ -76,6 +80,16 @@
         /// Gets a list of DTDL versions of material classes which may be cotyped with the supplemental type.
         /// </summary>
         public List<int> CotypeVersions { get; }
+
+        /// <summary>
+        /// Gets a list of URIs of immaterial classes which may be cotyped with the supplemental type as an alternative to a designated material cotype.
+        /// </summary>
+        public List<string> Altcotypes { get; }
+
+        /// <summary>
+        /// Gets a list of names of immaterial classes which may be cotyped with the supplemental type as an alternative to a designated material cotype.
+        /// </summary>
+        public List<string> AltcotypeNames { get; }
 
         /// <summary>
         /// Gets a list of URIs of supplemental classes which may be co-cotyped with the supplemental type.

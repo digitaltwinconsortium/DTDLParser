@@ -606,6 +606,8 @@ namespace DTDLParser
             fragmentedInfoCV4.AddPropertyValueConstraint("schema", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:class:Map;3"), new Dtmi("dtmi:dtdl:class:Map;4") }, RequiredTypesString = "Map" });
             fragmentedInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Property };
             fragmentedInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
+            fragmentedInfoCV4.AllowedAltcotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:mqtt:v4:PropertyValue") };
+            fragmentedInfoCV4.AllowedAltcotypeNames = new List<string>() { "PropertyValue" };
 
             DTSupplementalTypeInfo idempotentInfoCV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV4, idempotentTypeIdCV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
             idempotentInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Command };

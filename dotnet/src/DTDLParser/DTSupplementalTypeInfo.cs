@@ -37,6 +37,8 @@
             this.ParentType = parentType;
             this.Properties = new Dictionary<string, DTSupplementalPropertyInfo>();
             this.AllowedCotypeVersions = new HashSet<int>();
+            this.AllowedAltcotypes = new HashSet<Dtmi>();
+            this.AllowedAltcotypeNames = new List<string>();
             this.RequiredCocotypes = new HashSet<Dtmi>();
             this.DisallowedCocotypes = new HashSet<Dtmi>();
             this.IsMergeable = isMergeable;
@@ -91,6 +93,16 @@
         /// Gets or sets a collection of kinds of allowed cotypes for this supplemental type.
         /// </summary>
         internal HashSet<int> AllowedCotypeVersions { get; set; }
+
+        /// <summary>
+        /// Gets or sets a collection of alternative cotypes for this supplemental type.
+        /// </summary>
+        internal HashSet<Dtmi> AllowedAltcotypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets a collection of names of alternative cotypes for this supplemental type.
+        /// </summary>
+        internal List<string> AllowedAltcotypeNames { get; set; }
 
         /// <summary>
         /// Gets or sets a collection of co-cotypes, at least one of which is required for this supplemental type, or null if no co-cotypes are required.
