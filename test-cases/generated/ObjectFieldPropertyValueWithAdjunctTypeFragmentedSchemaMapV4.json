@@ -1,0 +1,61 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": true,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": [
+            "Object",
+            "PropertyResult"
+          ],
+          "fields": [
+            {
+              "@id": "dtmi:test:propertyValue;1",
+              "@type": [
+                "Field",
+                "PropertyValue",
+                "Fragmented"
+              ],
+              "name": "propertyValue",
+              "schema": {
+                "@type": "Map",
+                "mapKey": {
+                  "name": "region",
+                  "schema": "string"
+                },
+                "mapValue": {
+                  "name": "color",
+                  "schema": "double"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "elements": [
+      {
+        "id": "dtmi:test:propertyValue;1",
+        "type": "Field",
+        "supplementalTypes": [
+          "dtmi:dtdl:extension:mqtt:v4:PropertyValue",
+          "dtmi:dtdl:extension:mqtt:v4:Fragmented"
+        ]
+      }
+    ]
+  }
+}

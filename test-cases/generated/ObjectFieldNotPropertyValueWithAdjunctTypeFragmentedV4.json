@@ -1,0 +1,56 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": "Object",
+          "fields": [
+            {
+              "@id": "dtmi:test:propertyValue;1",
+              "@type": [
+                "Field",
+                "Fragmented"
+              ],
+              "name": "propertyValue",
+              "schema": {
+                "@type": "Map",
+                "mapKey": {
+                  "name": "region",
+                  "schema": "string"
+                },
+                "mapValue": {
+                  "name": "color",
+                  "schema": "double"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:invalidCotype",
+        "PrimaryID": "dtmi:test:propertyValue;1",
+        "Type": "Fragmented",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 15
+      }
+    ]
+  }
+}

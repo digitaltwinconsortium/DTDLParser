@@ -856,17 +856,20 @@ namespace DTDLParser.Models
             {
                 if (aggregateContext.SupplementalTypeCollection.TryGetSupplementalTypeInfo(supplementalTypeId, out DTSupplementalTypeInfo supplementalTypeInfo))
                 {
-                    if (!supplementalTypeInfo.AllowedCotypeKinds.Contains(elementInfo.EntityKind))
+                    HashSet<Dtmi> relevantSupplementalTypeIds = immediateSupplementalTypeIds;
+                    bool altCotypeFound = supplementalTypeInfo.AllowedAltcotypes.Any(ac => relevantSupplementalTypeIds.Contains(ac));
+
+                    if (!altCotypeFound && !supplementalTypeInfo.AllowedCotypeKinds.Contains(elementInfo.EntityKind))
                     {
                         parsingErrorCollection.Notify(
                             "invalidCotype",
                             elementId: elementId,
                             cotype: ContextCollection.GetTermOrUri(supplementalTypeId),
-                            typeRestriction: string.Join(" or ", supplementalTypeInfo.AllowedCotypeKinds),
+                            typeRestriction: string.Join(" or ", supplementalTypeInfo.AllowedCotypeKinds.Select(k => k.ToString()).Concat(supplementalTypeInfo.AllowedAltcotypeNames)),
                             element: elt,
                             layer: layer);
                     }
-                    else if (!supplementalTypeInfo.AllowedCotypeVersions.Contains(elementInfo.DtdlVersion))
+                    else if (!altCotypeFound && !supplementalTypeInfo.AllowedCotypeVersions.Contains(elementInfo.DtdlVersion))
                     {
                         parsingErrorCollection.Notify(
                             "invalidCotypeVersion",

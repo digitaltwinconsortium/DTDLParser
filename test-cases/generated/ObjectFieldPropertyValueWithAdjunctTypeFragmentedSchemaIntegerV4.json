@@ -1,0 +1,51 @@
+﻿{
+  "requiredContexts": [
+    "dtmi:dtdl:extension:mqtt;4"
+  ],
+  "valid": false,
+  "quirks": [],
+  "options": [],
+  "input": [
+    {
+      "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:mqtt;4"
+      ],
+      "@id": "dtmi:test:anInterface;1",
+      "@type": "Interface",
+      "schemas": [
+        {
+          "@id": "dtmi:test:anObject;1",
+          "@type": [
+            "Object",
+            "PropertyResult"
+          ],
+          "fields": [
+            {
+              "@id": "dtmi:test:propertyValue;1",
+              "@type": [
+                "Field",
+                "PropertyValue",
+                "Fragmented"
+              ],
+              "name": "propertyValue",
+              "schema": "integer"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expect": {
+    "parsingErrors": [
+      {
+        "ValidationID": "dtmi:dtdl:parsingError:notRequiredType",
+        "PrimaryID": "dtmi:test:propertyValue;1",
+        "Property": "schema",
+        "Type": "Map",
+        "PrimaryIndex": 0,
+        "PrimaryStart": 24
+      }
+    ]
+  }
+}
