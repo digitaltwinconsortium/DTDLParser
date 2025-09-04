@@ -640,7 +640,7 @@ namespace DTDLParser
             normalResultInfoCV4.DisallowedCocotypes = new HashSet<Dtmi>() { new Dtmi("dtmi:dtdl:extension:requirement:v1:Required") };
 
             DTSupplementalTypeInfo propertyResultInfoCV4 = new DTSupplementalTypeInfo(DTExtensionKind.AdjunctType, dtdlExtensionMqttContextIdV4, propertyResultTypeIdCV4, isAbstract: false, isMergeable: false, adjunctTypeTypeIdEV4);
-            propertyResultInfoCV4.AddPropertyValueConstraint("fields", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:extension:mqtt:v4:PropertyValue"), new Dtmi("dtmi:dtdl:extension:mqtt:v4:ReadError"), new Dtmi("dtmi:dtdl:extension:mqtt:v4:WriteError"), new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorCode"), new Dtmi("dtmi:dtdl:extension:mqtt:v4:ErrorInfo") }, RequiredTypesString = "PropertyValue or ReadError or WriteError or ErrorCode or ErrorInfo" });
+            propertyResultInfoCV4.AddPropertyValueConstraint("fields", new ValueConstraint() { RequiredTypes = new List<Dtmi>() { new Dtmi("dtmi:dtdl:extension:mqtt:v4:PropertyValue"), new Dtmi("dtmi:dtdl:extension:mqtt:v4:ReadError"), new Dtmi("dtmi:dtdl:extension:mqtt:v4:WriteError") }, RequiredTypesString = "PropertyValue or ReadError or WriteError" });
             propertyResultInfoCV4.AllowedCotypeKinds = new HashSet<DTEntityKind>() { DTEntityKind.Object };
             propertyResultInfoCV4.AllowedCotypeVersions = new HashSet<int>() { 3, 4 };
 
